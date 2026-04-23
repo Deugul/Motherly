@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
 import ScrollReveal from "./ScrollReveal";
 
@@ -81,13 +82,19 @@ export default function ServicesSection() {
             className="relative flex-shrink-0 snap-start rounded-2xl overflow-hidden"
             style={{ width: "280px", aspectRatio: "1/1" }}
           >
-            <motion.img
+            <motion.div
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.6 }}
-              src={p.src}
-              alt={p.caption}
-              className="w-full h-full object-cover object-top"
-            />
+              className="absolute inset-0"
+            >
+              <Image
+                src={p.src}
+                alt={p.caption}
+                fill
+                sizes="280px"
+                className="object-cover object-top"
+              />
+            </motion.div>
             <div
               className="absolute inset-0"
               style={{ background: "linear-gradient(to top, rgba(0,0,0,0.45) 0%, transparent 55%)" }}

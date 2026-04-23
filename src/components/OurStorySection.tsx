@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
 import ScrollReveal from "./ScrollReveal";
 
@@ -10,14 +11,20 @@ export default function OurStorySection() {
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-10 items-center">
         {/* Image with floating quote */}
         <ScrollReveal direction="left" className="w-full md:w-[420px] flex-shrink-0 relative">
-          <div className="aspect-square rounded-2xl overflow-hidden shadow-2xl">
-            <motion.img
+          <div className="aspect-square rounded-2xl overflow-hidden shadow-2xl relative">
+            <motion.div
               whileHover={{ scale: 1.04 }}
               transition={{ duration: 0.7 }}
-              src="/our-story.jpg"
-              alt="Two smiling healthcare professionals from Motherly"
-              className="w-full h-full object-cover object-top"
-            />
+              className="absolute inset-0"
+            >
+              <Image
+                src="/our-story.jpg"
+                alt="Two smiling healthcare professionals from Motherly"
+                fill
+                sizes="420px"
+                className="object-cover object-top"
+              />
+            </motion.div>
           </div>
           {/* Floating quote card */}
           <div

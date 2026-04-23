@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import ScrollReveal from "./ScrollReveal";
 
 const easeOut: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
@@ -31,13 +32,19 @@ export default function WhyMotherlySection() {
         {/* Banner image */}
         <ScrollReveal>
           <div className="relative w-full h-[420px] md:h-[520px] rounded-3xl overflow-hidden shadow-2xl">
-            <motion.img
+            <motion.div
               whileHover={{ scale: 1.03 }}
               transition={{ duration: 0.9 }}
-              src="/why-motherly-banner.jpg"
-              alt="Motherly care"
-              className="w-full h-full object-cover"
-            />
+              className="absolute inset-0"
+            >
+              <Image
+                src="/why-motherly-banner.jpg"
+                alt="Motherly care"
+                fill
+                sizes="100vw"
+                className="object-cover"
+              />
+            </motion.div>
             <div
               className="absolute inset-0"
               style={{

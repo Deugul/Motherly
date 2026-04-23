@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
 
 const spring = { type: "spring" as const, stiffness: 50, damping: 16, mass: 0.9 };
@@ -20,10 +21,13 @@ export default function HeroSection() {
     <section className="relative min-h-[90vh] flex items-start pt-32 md:pt-36 overflow-hidden rounded-b-[2.5rem]">
       {/* Background */}
       <div className="absolute inset-0 z-0">
-        <img
+        <Image
           src="/hero-bg.jpg"
           alt="Mother and baby"
-          className="w-full h-full object-cover object-[center_35%]"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-[center_35%]"
         />
         <div
           className="absolute inset-0"

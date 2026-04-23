@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -86,7 +87,7 @@ export default function Navbar() {
       <div className="flex justify-between items-center px-6 md:px-10 py-4 max-w-7xl mx-auto">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
-          <img src="/logo.png" alt="Motherly logo" className="h-18 w-auto object-contain" />
+          <Image src="/logo.png" alt="Motherly logo" width={72} height={72} className="h-18 w-auto object-contain" />
           <span
             className="text-2xl font-extrabold tracking-tight"
             style={{ fontFamily: "var(--font-plus-jakarta)", color: "var(--color-primary)" }}
