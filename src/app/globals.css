@@ -1,26 +1,111 @@
 @import "tailwindcss";
 
+@theme {
+  /* Brand Colors */
+  --color-primary: #ba0e56;
+  --color-primary-dim: #a6004a;
+  --color-primary-fixed: #f4447f;
+  --color-primary-fixed-dim: #e33672;
+  --color-primary-container: #f4447f;
+  --color-on-primary: #fff7f7;
+  --color-on-primary-fixed: #000000;
+  --color-on-primary-fixed-variant: #2b000e;
+  --color-on-primary-container: #000000;
+  --color-inverse-primary: #fe4c86;
+
+  --color-secondary: #ac2d5e;
+  --color-secondary-dim: #9c1f52;
+  --color-secondary-fixed: #ffd9e1;
+  --color-secondary-fixed-dim: #ffc5d3;
+  --color-secondary-container: #ffd9e1;
+  --color-on-secondary: #fff7f7;
+  --color-on-secondary-fixed: #81013e;
+  --color-on-secondary-fixed-variant: #a7295a;
+  --color-on-secondary-container: #9a1d50;
+
+  --color-tertiary: #006b64;
+  --color-tertiary-dim: #005e57;
+  --color-tertiary-fixed: #7fe6db;
+  --color-tertiary-fixed-dim: #71d7cd;
+  --color-tertiary-container: #7fe6db;
+  --color-on-tertiary: #e2fffa;
+  --color-on-tertiary-fixed: #003e39;
+  --color-on-tertiary-fixed-variant: #005d57;
+  --color-on-tertiary-container: #00534d;
+
+  --color-surface: #f8fafa;
+  --color-surface-dim: #d4dbdc;
+  --color-surface-bright: #f8fafa;
+  --color-surface-variant: #dde4e4;
+  --color-surface-tint: #ba0e56;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f0f4f4;
+  --color-surface-container: #eaefef;
+  --color-surface-container-high: #e3e9ea;
+  --color-surface-container-highest: #dde4e4;
+  --color-on-surface: #2d3435;
+  --color-on-surface-variant: #596061;
+  --color-inverse-surface: #0b0f0f;
+  --color-inverse-on-surface: #9b9d9e;
+
+  --color-background: #f8fafa;
+  --color-on-background: #2d3435;
+
+  --color-outline: #757c7d;
+  --color-outline-variant: #acb3b4;
+
+  --color-error: #a83836;
+  --color-error-dim: #67040d;
+  --color-error-container: #fa746f;
+  --color-on-error: #fff7f6;
+  --color-on-error-container: #6e0a12;
+
+  /* Fonts */
+  --font-headline: "Plus Jakarta Sans", sans-serif;
+  --font-body: "Manrope", sans-serif;
+  --font-label: "Manrope", sans-serif;
+
+  /* Border Radius */
+  --radius-DEFAULT: 1rem;
+  --radius-lg: 2rem;
+  --radius-xl: 3rem;
+  --radius-full: 9999px;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --font-body: var(--font-manrope, "Manrope", sans-serif);
+  --font-headline: var(--font-plus-jakarta, "Plus Jakarta Sans", sans-serif);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body);
+  background-color: var(--color-background);
+  color: var(--color-on-surface);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-headline);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+::selection {
+  background-color: var(--color-secondary-container);
 }
