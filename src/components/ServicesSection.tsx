@@ -8,14 +8,12 @@ import ScrollReveal from "./ScrollReveal";
 const easeOut: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
 
 const photos = [
-  { src: "/service-lactation.jpg",   caption: "Expert guidance for your feeding journey" },
-  { src: "/service-gynaecology.jpg", caption: "Trusted women's health consultations" },
-  { src: "/service-nannies.jpg",     caption: "Compassionate postnatal support" },
-  { src: "/our-story.jpg",           caption: "Care that feels like family" },
-  { src: "/why-motherly-banner.jpg", caption: "Your birth, your way" },
-  { src: "/hero-bg.jpg",             caption: "Every step of motherhood, supported" },
-  { src: "/service-lactation.jpg",   caption: "Breastfeeding made easier" },
-  { src: "/service-nannies.jpg",     caption: "Nannies you can trust" },
+  { src: "/strip-lactation.jpg",    caption: "Expert guidance for your feeding journey" },
+  { src: "/strip-gynaecology.jpg",  caption: "Trusted women's health consultations" },
+  { src: "/strip-nannies.jpg",      caption: "Compassionate postnatal support" },
+  { src: "/strip-team.jpg",         caption: "Care that feels like family" },
+  { src: "/strip-birth.jpg",        caption: "Your birth, your way" },
+  { src: "/strip-support.jpg",      caption: "Every step of motherhood, supported" },
 ];
 
 const services = [

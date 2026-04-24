@@ -95,7 +95,7 @@ export default function GynaecologyPage() {
                 transition={{ duration: 0.5 }}
               >
                 <img
-                  src="https://lh3.googleusercontent.com/aida/ADBb0ug17wLDrLJNtfFuwTPnP0bLK1h0BW7CMFVBk4JSFy0Niw7adFf9lvFwiBG8LLvVBqokhqmaIoGwkIiqj37tA7QISbDHUHQpJNSuhVegnSlIC2whWPnrWUIwV0q37otD5Kq2B7fIu3SBWR8EzgAut-reEyhcYAFIPhbG-GHQiAiqM_BUz7l1KLlRH1vZ9iZlRqgKPEtKrOGkcKIpsFoXzFuaYC6OIj4WbkmOyr_zd4IzOH4-In1Ep3zaquhXgX4wXcbpHXP8qtmEKu8"
+                  src="/gynaecology-hero.jpg"
                   alt="Gynecology Consultation"
                   className="w-full h-[500px] object-cover"
                 />

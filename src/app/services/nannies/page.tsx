@@ -118,7 +118,7 @@ export default function NanniesPage() {
                 <motion.img
                   whileHover={{ scale: 1.04 }}
                   transition={{ duration: 0.6 }}
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_wVi1dFMYTXoajPQj2oBXe2Fj1Y1cnFJzm5oKjN3UNMkpk0TZfYFKlmJsTx7r3N9LRFJjYHDMiSSzd-Z1yiwBFLMXvTDi1xZdAAlJHe4e1v8P4-2p8G5EbO7L02xSDvA7W4XFTNREKqBGMKT3DjuvmE1TsJKdlsMjYhMWrJzexUCfxPBFX9K8S4Y-A4MNVJFhLjVdg4k6zDnEBiHlR_UGQ5WRm8z2JQq8lBjPUYJ_i-yMjXHZdLMbHzEBXFkW_f3NRJvv0fEXs"
+                  src="/nannies-hero.jpg"
                   alt="Mother with newborn receiving postnatal care"
                   className="w-full h-[400px] object-cover"
                 />

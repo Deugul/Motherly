@@ -120,7 +120,7 @@ export default function LactationPage() {
                       {[0, 1].map((i) => (
                         <img
                           key={i}
-                          src="https://lh3.googleusercontent.com/aida/ADBb0ugozz4SneztiTanDyRFYj4C0A-DGxXJec8vZqZqWwIRpx5L2GRRzM4jNIj8svgtYHNb_vo8x2Kd882_qX_qx_P-aInWG_DH66q-F9OcBRgvF2SknHXypjjhDXVPJZrFAffP6ykPh2jBMgcFI49VG4LSqJYFoGeIkefqIf22WSeGpF4X8ScOo0T0D2t_Yyf6NqYppEq3obRxiRznWMzgypk90C5ugRtZi1R-sOjGokFNlgPFNqG4Mdczy2kOrjxGul9PuHVils9yZWc"
+                          src="/lactation-hero.jpg"
                           alt="Consultant"
                           className="w-10 h-10 rounded-full border-2 object-cover"
                           style={{ borderColor: "var(--color-surface-container-lowest)" }}
@@ -142,7 +142,7 @@ export default function LactationPage() {
                   <motion.img
                     whileHover={{ scale: 1.03 }}
                     transition={{ duration: 0.5 }}
-                    src="https://lh3.googleusercontent.com/aida/ADBb0ugozz4SneztiTanDyRFYj4C0A-DGxXJec8vZqZqWwIRpx5L2GRRzM4jNIj8svgtYHNb_vo8x2Kd882_qX_qx_P-aInWG_DH66q-F9OcBRgvF2SknHXypjjhDXVPJZrFAffP6ykPh2jBMgcFI49VG4LSqJYFoGeIkefqIf22WSeGpF4X8ScOo0T0D2t_Yyf6NqYppEq3obRxiRznWMzgypk90C5ugRtZi1R-sOjGokFNlgPFNqG4Mdczy2kOrjxGul9PuHVils9yZWc"
+                    src="/lactation-hero.jpg"
                     alt="Lactation consultant supporting a mother and newborn"
                     className="relative z-10 w-full aspect-[4/3] object-cover rounded-2xl shadow-xl"
                   />

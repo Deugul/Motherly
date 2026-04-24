@@ -119,7 +119,7 @@ export default function PostnatalPage() {
                 <motion.img
                   whileHover={{ scale: 1.04 }}
                   transition={{ duration: 0.6 }}
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzA9UhX2LR-BYL0_uxeg4kj9thnLyOwHAdCIxTJZodSTF5N_mp0GkAqoZ0rHf74HZ7JxxMqXOZw577gDPqgWSLE9NHRYLDCrdq4Yc3JuYrLebr7NgPTg3c7KjwQhTU97Zgt3mKXqqPyey_2V52z4BIX5Fk-bh2xO-T6v0tkHvRsr2mrw4sJmWM1ZUcqZNWE94Fze5gvO_T1WI7sDANS7702uZP6jr31PSVxazx4ROZ03DdsJq2EDH7HleBNad4arAlribMrVAWpqjR"
+                  src="/postnatal-hero.jpg"
                   alt="Physiotherapist guiding a postpartum mother through exercises"
                   className="w-full h-[500px] object-cover"
                 />

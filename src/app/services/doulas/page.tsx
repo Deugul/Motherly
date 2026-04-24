@@ -94,7 +94,7 @@ export default function DoulaPage() {
                 <motion.img
                   whileHover={{ scale: 1.04 }}
                   transition={{ duration: 0.6 }}
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXhZeaFX4SiBM-fKzpfqnIpTHCqm3q3ihsk5erpm-gS89t7rrxuVvwvFrsorAS66wMaGPhcKlzFwNE544rKUcx3O02rsWCtiroG9UATjCFOu02n45a8gmL66riNRUkHsInFo1XHjZV5u1Xkv9dL-xuAd3U0a0WmFM8GRAoy9qcwPvy6SpceT6qbYMEvoxRWSUGAKtRwY7CGYlH0Yd9Rs7dONt-s86UVuXYMZcDO0anIPIZB7_QZ8CnZYNKhIMJvtgDIBaevgbMLgGt"
+                  src="/doulas-hero.jpg"
                   alt="A professional doula providing comfort and support to an expectant mother"
                   className="w-full h-[400px] object-cover"
                 />
