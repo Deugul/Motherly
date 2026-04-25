@@ -52,7 +52,16 @@ function post(
 // ─────────────────────────────────────────────
 //  FEATURED POST (shown as the large hero card)
 // ─────────────────────────────────────────────
-export const featuredPost = {
+export interface FeaturedPost {
+  tag: string;
+  title: string;
+  excerpt: string;
+  image: string;
+  author: string;
+  authorRole: string;
+}
+
+export const featuredPost: FeaturedPost = {
   tag: "Featured Wellness",
   title: "The Art of Mindful Motherhood: Finding Calm in the Chaos",
   excerpt:
