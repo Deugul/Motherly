@@ -101,5 +101,11 @@ ${content}
     return Response.json({ error: err.message ?? "GitHub API error" }, { status: 500 });
   }
 
+  // Trigger Vercel redeploy so the new post appears on the site
+  const deployHook = process.env.VERCEL_DEPLOY_HOOK;
+  if (deployHook) {
+    await fetch(deployHook, { method: "POST" });
+  }
+
   return Response.json({ success: true, slug });
 }
