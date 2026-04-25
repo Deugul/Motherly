@@ -5,43 +5,11 @@ import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
+import { posts, featuredPost } from "@/lib/posts";
 
 const easeOut: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
 
 const filters = ["All Topics", "Prenatal", "Newborn Care", "Wellness", "Postpartum"];
-
-const posts = [
-  {
-    tag: "NEWBORN CARE",
-    tagBg: "var(--color-tertiary-container)",
-    tagColor: "var(--color-on-tertiary-container)",
-    title: "Safe Sleep Habits: A Comprehensive Guide for New Parents",
-    excerpt: "Navigating the complexities of sleep schedules and safety standards to ensure both you and your baby rest easy.",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDNTtPSRu7xI-HyHEPfj57Q3Tmk33Aez_4LudaMcey1vuCI19sXdI2_LkFw5MzhxGPMrKVpiUUca86DcyVt6S36uKCiC1G1h1hSZhAyCG9y4Z0IvRMw4Dg3QcrX6yCVj5AU4KMlLxy0fdhuUVEJEvHs_8R7Ns-i6r7TwEsAMXCzTXfzcsMmtHMcnngxCwMX-d8MTu7Nu4OESIlempuOIGMJ-xuAF2iA7wq2UHVUFGAi-QWRf-i9n16oiwYOfTw344ahxQ0mnSMwV6aP",
-    date: "June 12, 2024",
-    readTime: "6 min read",
-  },
-  {
-    tag: "PRENATAL",
-    tagBg: "var(--color-secondary-container)",
-    tagColor: "var(--color-on-secondary-container)",
-    title: "Optimal Nutrition: Fueling Your Body and Your Baby",
-    excerpt: "Essential vitamins and nutrients you need during each trimester, backed by nutritional science and maternal health experts.",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuClZaALx_6qlclgPo3w8Q0GjnhndDIxY3vWRgHKgIL3v4CBtriPX0rT5QI9JKjK5jVFoHgbwqP6c4Djb-hCa6FR0qycHrN8HxXvyALxV4QxNBfsHhtwxuXOOfKEExFpix8zkBL4QRSZCyYLtg1Z-Mp80oXZsbU-lKCiQleKagUQgJTNTr1aj1q8FUlljrEW7RqCEfshpxQlfJeiJRidUaakutpZX7ljePEvSXIjhJkrhTdxLjG2-wY2Lg2qasPeVkVPnuNlGfd_2FcJ",
-    date: "May 28, 2024",
-    readTime: "8 min read",
-  },
-  {
-    tag: "POSTPARTUM",
-    tagBg: "var(--color-primary-container)",
-    tagColor: "var(--color-on-primary-container)",
-    title: "The Fourth Trimester: What to Honestly Expect",
-    excerpt: "A candid look at the physical and emotional changes during the postpartum period and how to seek support.",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAwVVOhuccbOlVly0xr5VT5RlJcZsaLZa81RCGsguOtupUFaQwB-glxXPfOl176YKo8OiCLOglqC-owL9mSlyK_5Fqt2IOzU9kl1ClVXf0FLRLaH9g-c7FEVRE0RTXm-eUdXiRIYHBY-BnO_l8EZW3M2fBU7Xvrcyiqas2hb0aysn2ARuwuQzh0UOTeUVFx2nJPDQYyb_z0KgsYI5CpLFTlX4T9SSwEn-rXsQYuXBQYOfg33eypHBzXPhmZGsjMTNpwWSiHKjEGO",
-    date: "May 15, 2024",
-    readTime: "10 min read",
-  },
-];
 
 export default function BlogsPage() {
   const [activeFilter, setActiveFilter] = useState("All Topics");
@@ -143,8 +111,8 @@ export default function BlogsPage() {
                 <motion.img
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.7 }}
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRiWYdtWqwxS5N9OOT3pSNaKA0rIfD9nI0jZOx_VeXfj2ysiUJbF5WLYWHK5YsP6xk3wkthekovqt7_WenoYqDhwsxyRU4iLv9GX14uwu80ZXiee55EzDP3bLHx5Y2Xr2bNxqO06INlikfWjm_d07SK0K6rAoxmkagmBtPMvb68WwsOoo0lOLmXUj1i2FUvOXWuxXCVXNp18HU-70x5njcmjgL8YpFLW800MAajWobk0LeaV6FQtYqsoJgCYdfMm2jRX3p0GYWXqRh"
-                  alt="Mindful Motherhood"
+                  src={featuredPost.image}
+                  alt={featuredPost.title}
                   className="w-full h-full object-cover"
                   style={{ minHeight: "320px" }}
                 />
@@ -155,17 +123,16 @@ export default function BlogsPage() {
                   className="text-xs uppercase tracking-widest font-bold"
                   style={{ color: "var(--color-primary)" }}
                 >
-                  Featured Wellness
+                  {featuredPost.tag}
                 </span>
                 <h2
                   className="text-3xl md:text-4xl font-bold leading-tight"
                   style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}
                 >
-                  The Art of Mindful Motherhood: Finding Calm in the Chaos
+                  {featuredPost.title}
                 </h2>
                 <p className="text-lg" style={{ color: "var(--color-on-surface-variant)" }}>
-                  Practical grounding techniques for busy mothers to maintain emotional balance during
-                  the first year of parenthood.
+                  {featuredPost.excerpt}
                 </p>
                 <div className="pt-4 flex items-center gap-4">
                   <div
@@ -173,14 +140,11 @@ export default function BlogsPage() {
                     style={{ backgroundColor: "var(--color-primary-container)" }}
                   />
                   <div>
-                    <p
-                      className="text-sm font-bold"
-                      style={{ color: "var(--color-on-surface)" }}
-                    >
-                      Dr. Sarah Mitchell
+                    <p className="text-sm font-bold" style={{ color: "var(--color-on-surface)" }}>
+                      {featuredPost.author}
                     </p>
                     <p className="text-xs" style={{ color: "var(--color-on-surface-variant)" }}>
-                      Clinical Psychologist
+                      {featuredPost.authorRole}
                     </p>
                   </div>
                 </div>
