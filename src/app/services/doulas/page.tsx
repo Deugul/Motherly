@@ -267,8 +267,11 @@ export default function DoulaPage() {
                       </label>
                       <select {...register("service")} className={inputClass} style={getInputStyle()}>
                         <option value="Doulas">Doulas</option>
-                        <option value="Lactation Support">Lactation Support</option>
-                        <option value="Postpartum Care">Postpartum Care</option>
+                        <option value="Lactation Consultants">Lactation Consultants</option>
+                        <option value="Gynaecology Consultation">Gynaecology Consultation</option>
+                        <option value="Nanny Care">Nanny Care</option>
+                        <option value="Postnatal Recovery">Postnatal Recovery</option>
+                        <option value="Nutrition Consultation">Nutrition Consultation</option>
                       </select>
                     </div>
 

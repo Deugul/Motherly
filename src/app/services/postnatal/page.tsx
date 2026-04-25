@@ -427,9 +427,12 @@ export default function PostnatalPage() {
                           className={inputClass}
                           style={getInputStyle()}
                         >
-                          <option value="Physiotherapy">Physiotherapy</option>
-                          <option value="Pelvic Health Consultation">Pelvic Health Consultation</option>
-                          <option value="Postnatal Check-up">Postnatal Check-up</option>
+                          <option value="Doulas">Doulas</option>
+                          <option value="Lactation Consultants">Lactation Consultants</option>
+                          <option value="Gynaecology Consultation">Gynaecology Consultation</option>
+                          <option value="Nanny Care">Nanny Care</option>
+                          <option value="Postnatal Recovery">Postnatal Recovery</option>
+                          <option value="Nutrition Consultation">Nutrition Consultation</option>
                         </select>
                       </div>
 

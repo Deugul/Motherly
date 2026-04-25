@@ -312,9 +312,12 @@ export default function GynaecologyPage() {
                       <label className="block text-sm font-bold mb-2" style={{ color: "var(--color-on-surface-variant)" }}>Select Service</label>
                       <div className="relative">
                         <select {...register("service")} className={inputClass} style={getInputStyle()}>
-                          <option value="Gynecology Consultation">Gynecology Consultation</option>
-                          <option value="Prenatal Wellness">Prenatal Wellness</option>
-                          <option value="Postnatal Recovery Advice">Postnatal Recovery Advice</option>
+                          <option value="Doulas">Doulas</option>
+                          <option value="Lactation Consultants">Lactation Consultants</option>
+                          <option value="Gynaecology Consultation">Gynaecology Consultation</option>
+                          <option value="Nanny Care">Nanny Care</option>
+                          <option value="Postnatal Recovery">Postnatal Recovery</option>
+                          <option value="Nutrition Consultation">Nutrition Consultation</option>
                         </select>
                         <span className="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none" style={{ color: "var(--color-outline)" }}>expand_more</span>
                       </div>

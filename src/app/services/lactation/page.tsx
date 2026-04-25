@@ -308,9 +308,12 @@ export default function LactationPage() {
                       <label className="block text-sm font-bold ml-1" style={{ color: "var(--color-on-surface-variant)" }}>Select Service</label>
                       <div className="relative">
                         <select {...register("service")} className={inputClass} style={getInputStyle()}>
-                          <option value="Lactation Consultant">Lactation Consultant</option>
-                          <option value="Postpartum Support">Postpartum Support</option>
-                          <option value="Newborn Care">Newborn Care</option>
+                          <option value="Doulas">Doulas</option>
+                          <option value="Lactation Consultants">Lactation Consultants</option>
+                          <option value="Gynaecology Consultation">Gynaecology Consultation</option>
+                          <option value="Nanny Care">Nanny Care</option>
+                          <option value="Postnatal Recovery">Postnatal Recovery</option>
+                          <option value="Nutrition Consultation">Nutrition Consultation</option>
                         </select>
                         <span className="material-symbols-outlined absolute right-4 top-4 pointer-events-none" style={{ color: "var(--color-on-surface-variant)" }}>expand_more</span>
                       </div>

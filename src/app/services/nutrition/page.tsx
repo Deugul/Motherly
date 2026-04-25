@@ -328,10 +328,12 @@ export default function NutritionPage() {
                         Select Service
                       </label>
                       <select {...register("service")} className={inputClass} style={getInputStyle()}>
-                        <option value="Prenatal Nutrition">Prenatal Nutrition</option>
-                        <option value="Postnatal Recovery Nutrition">Postnatal Recovery Nutrition</option>
-                        <option value="Breastfeeding Support">Breastfeeding Support</option>
-                        <option value="Weight & Wellness">Weight &amp; Wellness</option>
+                        <option value="Doulas">Doulas</option>
+                        <option value="Lactation Consultants">Lactation Consultants</option>
+                        <option value="Gynaecology Consultation">Gynaecology Consultation</option>
+                        <option value="Nanny Care">Nanny Care</option>
+                        <option value="Postnatal Recovery">Postnatal Recovery</option>
+                        <option value="Nutrition Consultation">Nutrition Consultation</option>
                       </select>
                     </div>
 

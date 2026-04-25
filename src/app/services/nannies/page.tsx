@@ -398,9 +398,12 @@ export default function NanniesPage() {
                           Select Service
                         </label>
                         <select {...register("service")} className={inputClass} style={getInputStyle()}>
-                          <option value="Nannies & Postnatal Care">Nannies &amp; Postnatal Care</option>
-                          <option value="Night Nursing">Night Nursing</option>
-                          <option value="Lactation Consulting">Lactation Consulting</option>
+                          <option value="Doulas">Doulas</option>
+                          <option value="Lactation Consultants">Lactation Consultants</option>
+                          <option value="Gynaecology Consultation">Gynaecology Consultation</option>
+                          <option value="Nanny Care">Nanny Care</option>
+                          <option value="Postnatal Recovery">Postnatal Recovery</option>
+                          <option value="Nutrition Consultation">Nutrition Consultation</option>
                         </select>
                       </div>
 
