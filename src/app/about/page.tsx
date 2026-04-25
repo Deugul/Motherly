@@ -36,7 +36,7 @@ export default function AboutPage() {
   return (
     <>
       <Navbar />
-      <main className="pt-24 overflow-x-hidden" style={{ backgroundColor: "var(--color-background)" }}>
+      <main className="pt-32 overflow-x-hidden" style={{ backgroundColor: "var(--color-background)" }}>
 
         {/* ── Hero ── */}
         <section className="max-w-7xl mx-auto px-8 py-20">

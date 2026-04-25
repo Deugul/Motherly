@@ -56,11 +56,11 @@ export default function PostnatalPage() {
     <>
       <Navbar />
       <main
-        className="pb-20 px-6 max-w-7xl mx-auto"
+        className="pt-32 pb-20 px-6 max-w-7xl mx-auto"
         style={{ backgroundColor: "var(--color-surface)" }}
       >
         {/* ── Hero Section ── */}
-        <section className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center pt-28 mb-20">
+        <section className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-20">
           {/* Left */}
           <div className="lg:col-span-7">
             <ScrollReveal>

@@ -99,7 +99,7 @@ export default function NutritionPage() {
     <>
       <Navbar />
       <main
-        className="pt-24 pb-20 px-6 max-w-7xl mx-auto"
+        className="pt-32 pb-20 px-6 max-w-7xl mx-auto"
         style={{ backgroundColor: "var(--color-surface)" }}
       >
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">

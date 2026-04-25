@@ -78,7 +78,7 @@ export default function InvestorsPage() {
 
         {/* ── Hero ── */}
         <section
-          className="relative min-h-[88vh] flex items-center pt-28 pb-20 px-6 md:px-10 overflow-hidden"
+          className="relative min-h-[88vh] flex items-center pt-32 pb-20 px-6 md:px-10 overflow-hidden"
           style={{ backgroundColor: "var(--color-on-surface)" }}
         >
           {/* Dot grid background */}

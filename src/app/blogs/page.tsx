@@ -50,7 +50,7 @@ export default function BlogsPage() {
     <>
       <Navbar />
       <main
-        className="pt-24 pb-20 max-w-7xl mx-auto px-6"
+        className="pt-32 pb-20 max-w-7xl mx-auto px-6"
         style={{ backgroundColor: "var(--color-background)" }}
       >
         {/* Hero */}
