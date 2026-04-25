@@ -40,7 +40,7 @@ const stats = [
 const easeOut: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
 
 const inputClass =
-  "w-full h-14 px-5 rounded-lg text-sm font-medium outline-none border-2 transition-all duration-200 focus:ring-0";
+  "w-full h-14 px-5 rounded-[6px] text-sm font-medium outline-none border-2 transition-all duration-200 focus:ring-0";
 
 function getInputStyle(hasError?: boolean) {
   return {
@@ -526,7 +526,7 @@ export default function InvestorsPage() {
                           {...register("message")}
                           rows={4}
                           placeholder="Share your perspective on maternal care and what excites you about Motherly..."
-                          className="w-full px-5 py-4 rounded-lg text-sm font-medium outline-none border-2 resize-none transition-all duration-200"
+                          className="w-full px-5 py-4 rounded-[6px] text-sm font-medium outline-none border-2 resize-none transition-all duration-200"
                           style={getInputStyle()}
                         />
                       </div>
