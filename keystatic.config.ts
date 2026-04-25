@@ -22,14 +22,22 @@ export default config({
       format: { contentField: "content" },
       schema: {
         title: fields.slug({
-          name: { label: "Title", description: "The headline of the blog post" },
+          name: {
+            label: "Title",
+            description: "The headline of your blog post",
+          },
+          slug: {
+            label: "Post ID",
+            description: "Auto-generated from your title — no need to edit this",
+          },
         }),
 
-        excerpt: fields.text({
-          label: "Excerpt",
-          description: "Short summary shown on the blog card (1–2 sentences)",
-          multiline: true,
-          validation: { isRequired: true, length: { min: 10, max: 300 } },
+        coverImage: fields.image({
+          label: "Cover Image",
+          description: "Upload the blog cover image (JPG, PNG, WebP)",
+          directory: "public/blog",
+          publicPath: "/blog/",
+          validation: { isRequired: true },
         }),
 
         tag: fields.select({
@@ -53,14 +61,6 @@ export default config({
             { label: "Teal (Tertiary)", value: "tertiary" },
           ],
           defaultValue: "secondary",
-        }),
-
-        coverImage: fields.image({
-          label: "Cover Image",
-          description: "Upload the blog cover image",
-          directory: "public/blog",
-          publicPath: "/blog/",
-          validation: { isRequired: true },
         }),
 
         date: fields.date({

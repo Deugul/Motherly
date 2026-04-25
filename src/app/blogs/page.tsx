@@ -34,7 +34,7 @@ async function getCmsPosts(): Promise<BlogPost[]> {
         tag: p.tag.toUpperCase(),
         ...(tagThemeMap[p.tagTheme] ?? tagThemeMap.secondary),
         title: p.title,
-        excerpt: p.excerpt,
+        excerpt: "",
         image: p.coverImage ?? "",
         date: p.date
           ? new Date(p.date).toLocaleDateString("en-US", {
