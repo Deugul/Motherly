@@ -52,16 +52,16 @@ export default function OurStorySection() {
           </ScrollReveal>
           <ScrollReveal direction="right" delay={0.2}>
             <p className="text-lg leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
-              Founded by healthcare professionals and mothers, Motherly began with a simple observation:
-              the transition to motherhood is one of the most profound human experiences, yet it is often
-              the most undersupported.
+              Expert-led care for every step of your journey. From pregnancy to parenthood, we provide
+              the scientific expertise and emotional support you cherish.
             </p>
           </ScrollReveal>
           <ScrollReveal direction="right" delay={0.3}>
             <p className="text-lg leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
-              We built Motherly to provide a holistic ecosystem of care that respects the autonomy of
-              women while offering the scientific expertise and emotional support necessary for a
-              thriving household.
+              We realised then that every family in India deserves a trusted, dedicated support, but
+              finding it shouldn't be a challenge. We created Motherly to provide holistic support by
+              blending clinical expertise with the warmth of family. We ensure that every parent feels
+              supported, informed, and empowered from the very first heartbeat to the first steps and beyond.
             </p>
           </ScrollReveal>
           <ScrollReveal direction="right" delay={0.4}>

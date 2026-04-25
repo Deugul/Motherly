@@ -9,12 +9,12 @@ const easeOut: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
 const features = [
   {
     icon: "diversity_2",
-    title: "Comprehensive Support",
+    title: "Comprehensive Support Network",
     desc: "Access a full spectrum of specialists from doulas to mental health counselors, all in one place.",
   },
   {
     icon: "verified_user",
-    title: "Reliable Service",
+    title: "Reliable",
     desc: "Fully vetted experts with verified medical credentials and backgrounds you can trust.",
   },
   {
@@ -69,9 +69,9 @@ export default function WhyMotherlySection() {
               className="text-3xl md:text-4xl font-bold leading-tight"
               style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}
             >
-              Our{" "}
-              <span style={{ color: "var(--color-primary)" }}>expert-backed care</span>{" "}
-              is an invaluable resource for anyone looking to deepen their support network.
+              Because every mother's journey is{" "}
+              <span style={{ color: "var(--color-primary)" }}>unique</span>{" "}
+              and deserves personal support.
             </h2>
           </ScrollReveal>
 

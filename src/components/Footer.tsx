@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-const quickLinks = ["About Us", "Our Services", "Blogs", "Privacy Policy", "Refund and Cancellation Policies", "Terms and Conditions", "Contact Us"];
+const quickLinks = ["About Us", "Our Services", "Blogs", "Investors", "Privacy Policy", "Refund and Cancellation Policies", "Terms and Conditions", "Contact Us"];
 const services = ["Doulas", "Lactation Consultants", "Gynecology Consultation", "Nannies & Postnatal Care"];
 
 export default function Footer() {
