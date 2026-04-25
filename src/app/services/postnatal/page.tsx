@@ -43,8 +43,11 @@ export default function PostnatalPage() {
   } = useForm<FormData>({ resolver: zodResolver(schema) });
 
   const onSubmit = async (data: FormData) => {
-    await new Promise((r) => setTimeout(r, 1200));
-    console.log("Booking:", data);
+    await fetch("/api/submit", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ formType: "Service Bookings", page: "Postnatal Recovery", ...data }),
+    });
     setSubmitted(true);
     reset();
   };

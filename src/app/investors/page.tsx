@@ -62,8 +62,11 @@ export default function InvestorsPage() {
   } = useForm<FormData>({ resolver: zodResolver(schema) });
 
   const onSubmit = async (data: FormData) => {
-    await new Promise((r) => setTimeout(r, 1200));
-    console.log("Investor enquiry:", data);
+    await fetch("/api/submit", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ formType: "Investor Applications", ...data }),
+    });
     setSubmitted(true);
     reset();
   };
