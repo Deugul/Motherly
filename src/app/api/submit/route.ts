@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 const WEBHOOK_URL =
   process.env.SHEET_WEBHOOK_URL ||
-  "https://script.google.com/a/macros/mothrly.com/s/AKfycbwaUWm36mGeakSiC6n2laPyO9aKUcIRV_kiXpr3PP63QS7hQ-eQCBuLLG03Nh9W9jE/exec";
+  "https://script.google.com/macros/s/AKfycbxuPSImrjVi6UYowtWPK3FLS-yY1HxpLHAinW_8P3uN9xSoxzJMZfBaL980ppko0-jb/exec";
 
 export async function POST(req: NextRequest) {
   try {
