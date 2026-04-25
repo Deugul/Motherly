@@ -6,12 +6,15 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 
-const serviceLinks = [
-  { href: "/services/doulas", label: "Doulas", icon: "child_friendly" },
-  { href: "/services/lactation", label: "Lactation Consultants", icon: "favorite" },
-  { href: "/services/gynaecology", label: "Gynaecology Consultation", icon: "stethoscope" },
+const primaryServiceLinks = [
+  { href: "/services/doulas", label: "Doula Care", icon: "child_friendly" },
   { href: "/services/nannies", label: "Nanny Care", icon: "child_care" },
   { href: "/services/postnatal", label: "Postnatal Recovery", icon: "spa" },
+];
+
+const consultationLinks = [
+  { href: "/services/lactation", label: "Lactation Consultation", icon: "favorite" },
+  { href: "/services/gynaecology", label: "Gynaecology Consultation", icon: "stethoscope" },
   { href: "/services/nutrition", label: "Nutrition Consultation", icon: "nutrition" },
 ];
 
@@ -50,13 +53,47 @@ function NavLink({ href, label, active }: { href: string; label: string; active:
   );
 }
 
+function DropdownLink({
+  href, label, icon, active, onClick,
+}: {
+  href: string; label: string; icon: string; active: boolean; onClick: () => void;
+}) {
+  const [hovered, setHovered] = useState(false);
+  return (
+    <Link
+      href={href}
+      onClick={onClick}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      className="flex items-center gap-3 px-5 py-3.5 text-sm font-semibold"
+      style={{
+        fontFamily: "var(--font-plus-jakarta)",
+        color: active || hovered ? "var(--color-primary)" : "var(--color-on-surface)",
+        backgroundColor: hovered ? "color-mix(in srgb, var(--color-primary) 6%, transparent)" : "transparent",
+        transition: "color 0.15s, background-color 0.15s",
+      }}
+    >
+      <span
+        className="material-symbols-outlined text-xl"
+        style={{ color: active || hovered ? "var(--color-primary)" : "var(--color-on-surface-variant)", transition: "color 0.15s" }}
+      >
+        {icon}
+      </span>
+      {label}
+    </Link>
+  );
+}
+
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [servicesHovered, setServicesHovered] = useState(false);
+  const [consultationOpen, setConsultationOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const [mobileConsultationOpen, setMobileConsultationOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const consultationTimeoutRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -69,13 +106,34 @@ export default function Navbar() {
     const handleClickOutside = (e: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
         setServicesOpen(false);
+        setConsultationOpen(false);
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  useEffect(() => {
+    return () => {
+      if (consultationTimeoutRef.current) clearTimeout(consultationTimeoutRef.current);
+    };
+  }, []);
+
+  const openConsultation = () => {
+    if (consultationTimeoutRef.current) clearTimeout(consultationTimeoutRef.current);
+    setConsultationOpen(true);
+  };
+
+  const scheduleCloseConsultation = () => {
+    consultationTimeoutRef.current = setTimeout(() => setConsultationOpen(false), 100);
+  };
+
   const isServicesActive = pathname.startsWith("/services");
+
+  const closeAll = () => {
+    setServicesOpen(false);
+    setConsultationOpen(false);
+  };
 
   return (
     <motion.nav
@@ -105,7 +163,7 @@ export default function Navbar() {
           {/* Services dropdown */}
           <div className="relative" ref={dropdownRef}>
             <button
-              onClick={() => setServicesOpen(!servicesOpen)}
+              onClick={() => { setServicesOpen(!servicesOpen); if (servicesOpen) setConsultationOpen(false); }}
               onMouseEnter={() => setServicesHovered(true)}
               onMouseLeave={() => setServicesHovered(false)}
               className="flex items-center gap-1 text-sm font-semibold relative"
@@ -140,31 +198,105 @@ export default function Navbar() {
 
             <AnimatePresence>
               {servicesOpen && (
-                <motion.div
-                  initial={{ opacity: 0, y: 8, scale: 0.97 }}
-                  animate={{ opacity: 1, y: 0, scale: 1 }}
-                  exit={{ opacity: 0, y: 8, scale: 0.97 }}
-                  transition={{ duration: 0.18, ease: "easeOut" }}
-                  className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-64 rounded-2xl border overflow-hidden"
-                  style={{
-                    backgroundColor: "white",
-                    borderColor: "color-mix(in srgb, var(--color-outline-variant) 20%, transparent)",
-                    boxShadow: "0 16px 48px rgba(0,0,0,0.12)",
-                  }}
-                >
-                  <div className="py-2">
-                    {serviceLinks.map((s) => (
-                      <DropdownLink
-                        key={s.href}
-                        href={s.href}
-                        label={s.label}
-                        icon={s.icon}
-                        active={pathname === s.href}
-                        onClick={() => setServicesOpen(false)}
-                      />
-                    ))}
-                  </div>
-                </motion.div>
+                <>
+                  {/* Level 1 — main panel */}
+                  <motion.div
+                    key="main-panel"
+                    initial={{ opacity: 0, y: 8, scale: 0.97 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: 8, scale: 0.97 }}
+                    transition={{ duration: 0.18, ease: "easeOut" }}
+                    className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-56 rounded-2xl border overflow-hidden"
+                    style={{
+                      backgroundColor: "white",
+                      borderColor: "color-mix(in srgb, var(--color-outline-variant) 20%, transparent)",
+                      boxShadow: "0 16px 48px rgba(0,0,0,0.12)",
+                    }}
+                  >
+                    <div className="py-2">
+                      {primaryServiceLinks.map((s) => (
+                        <DropdownLink
+                          key={s.href}
+                          href={s.href}
+                          label={s.label}
+                          icon={s.icon}
+                          active={pathname === s.href}
+                          onClick={closeAll}
+                        />
+                      ))}
+
+                      {/* Consultation trigger */}
+                      <div
+                        className="flex items-center justify-between px-5 py-3.5 cursor-pointer text-sm font-semibold select-none"
+                        onMouseEnter={openConsultation}
+                        onMouseLeave={scheduleCloseConsultation}
+                        style={{
+                          fontFamily: "var(--font-plus-jakarta)",
+                          color: consultationOpen ? "var(--color-primary)" : "var(--color-on-surface)",
+                          backgroundColor: consultationOpen
+                            ? "color-mix(in srgb, var(--color-primary) 6%, transparent)"
+                            : "transparent",
+                          transition: "color 0.15s, background-color 0.15s",
+                        }}
+                      >
+                        <div className="flex items-center gap-3">
+                          <span
+                            className="material-symbols-outlined text-xl"
+                            style={{
+                              color: consultationOpen ? "var(--color-primary)" : "var(--color-on-surface-variant)",
+                              transition: "color 0.15s",
+                            }}
+                          >
+                            medical_services
+                          </span>
+                          Consultation
+                        </div>
+                        <span
+                          className="material-symbols-outlined"
+                          style={{ fontSize: "18px", color: "var(--color-on-surface-variant)" }}
+                        >
+                          chevron_right
+                        </span>
+                      </div>
+                    </div>
+                  </motion.div>
+
+                  {/* Level 2 — consultation submenu */}
+                  <AnimatePresence>
+                    {consultationOpen && (
+                      <motion.div
+                        key="consultation-panel"
+                        initial={{ opacity: 0, x: -6 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: -6 }}
+                        transition={{ duration: 0.15, ease: "easeOut" }}
+                        className="absolute mt-3 w-56 rounded-2xl border overflow-hidden"
+                        style={{
+                          top: "100%",
+                          left: "calc(50% + 120px)",
+                          backgroundColor: "white",
+                          borderColor: "color-mix(in srgb, var(--color-outline-variant) 20%, transparent)",
+                          boxShadow: "0 16px 48px rgba(0,0,0,0.12)",
+                        }}
+                        onMouseEnter={openConsultation}
+                        onMouseLeave={scheduleCloseConsultation}
+                      >
+                        <div className="py-2">
+                          {consultationLinks.map((s) => (
+                            <DropdownLink
+                              key={s.href}
+                              href={s.href}
+                              label={s.label}
+                              icon={s.icon}
+                              active={pathname === s.href}
+                              onClick={closeAll}
+                            />
+                          ))}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </>
               )}
             </AnimatePresence>
           </div>
@@ -246,6 +378,7 @@ export default function Navbar() {
                     keyboard_arrow_down
                   </motion.span>
                 </button>
+
                 <AnimatePresence>
                   {mobileServicesOpen && (
                     <motion.div
@@ -255,7 +388,7 @@ export default function Navbar() {
                       transition={{ duration: 0.2 }}
                       className="overflow-hidden pl-4 flex flex-col gap-1"
                     >
-                      {serviceLinks.map((s) => (
+                      {primaryServiceLinks.map((s) => (
                         <Link
                           key={s.href}
                           href={s.href}
@@ -272,6 +405,63 @@ export default function Navbar() {
                           {s.label}
                         </Link>
                       ))}
+
+                      {/* Mobile Consultation sub-accordion */}
+                      <div>
+                        <button
+                          onClick={() => setMobileConsultationOpen(!mobileConsultationOpen)}
+                          className="w-full flex items-center justify-between py-2.5 text-sm font-semibold"
+                          style={{
+                            fontFamily: "var(--font-plus-jakarta)",
+                            color: consultationLinks.some(l => pathname === l.href) ? "var(--color-primary)" : "var(--color-on-surface-variant)",
+                            background: "none", border: "none", cursor: "pointer",
+                          }}
+                        >
+                          <div className="flex items-center gap-3">
+                            <span className="material-symbols-outlined text-lg" style={{ color: "var(--color-primary)" }}>
+                              medical_services
+                            </span>
+                            Consultation
+                          </div>
+                          <motion.span
+                            animate={{ rotate: mobileConsultationOpen ? 90 : 0 }}
+                            className="material-symbols-outlined text-lg"
+                            style={{ color: "var(--color-on-surface-variant)" }}
+                          >
+                            chevron_right
+                          </motion.span>
+                        </button>
+
+                        <AnimatePresence>
+                          {mobileConsultationOpen && (
+                            <motion.div
+                              initial={{ opacity: 0, height: 0 }}
+                              animate={{ opacity: 1, height: "auto" }}
+                              exit={{ opacity: 0, height: 0 }}
+                              transition={{ duration: 0.2 }}
+                              className="overflow-hidden pl-4 flex flex-col gap-1"
+                            >
+                              {consultationLinks.map((s) => (
+                                <Link
+                                  key={s.href}
+                                  href={s.href}
+                                  onClick={() => { setMobileOpen(false); setMobileServicesOpen(false); setMobileConsultationOpen(false); }}
+                                  className="flex items-center gap-3 py-2.5 text-sm font-semibold"
+                                  style={{
+                                    fontFamily: "var(--font-plus-jakarta)",
+                                    color: pathname === s.href ? "var(--color-primary)" : "var(--color-on-surface-variant)",
+                                  }}
+                                >
+                                  <span className="material-symbols-outlined text-lg" style={{ color: "var(--color-primary)" }}>
+                                    {s.icon}
+                                  </span>
+                                  {s.label}
+                                </Link>
+                              ))}
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </div>
                     </motion.div>
                   )}
                 </AnimatePresence>
@@ -309,36 +499,5 @@ export default function Navbar() {
         )}
       </AnimatePresence>
     </motion.nav>
-  );
-}
-
-function DropdownLink({
-  href, label, icon, active, onClick,
-}: {
-  href: string; label: string; icon: string; active: boolean; onClick: () => void;
-}) {
-  const [hovered, setHovered] = useState(false);
-  return (
-    <Link
-      href={href}
-      onClick={onClick}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-      className="flex items-center gap-3 px-5 py-3.5 text-sm font-semibold"
-      style={{
-        fontFamily: "var(--font-plus-jakarta)",
-        color: active || hovered ? "var(--color-primary)" : "var(--color-on-surface)",
-        backgroundColor: hovered ? "color-mix(in srgb, var(--color-primary) 6%, transparent)" : "transparent",
-        transition: "color 0.15s, background-color 0.15s",
-      }}
-    >
-      <span
-        className="material-symbols-outlined text-xl"
-        style={{ color: active || hovered ? "var(--color-primary)" : "var(--color-on-surface-variant)", transition: "color 0.15s" }}
-      >
-        {icon}
-      </span>
-      {label}
-    </Link>
   );
 }
