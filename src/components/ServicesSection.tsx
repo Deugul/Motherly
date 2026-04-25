@@ -47,6 +47,12 @@ const services = [
     desc: "Physiotherapy-led programmes for pelvic floor restoration, core strengthening and full postpartum wellness.",
     href: "/services/postnatal",
   },
+  {
+    icon: "nutrition",
+    title: "Nutrition Consultation",
+    desc: "Personalised dietary guidance from certified maternal dietitians to nourish your body through pregnancy, recovery, and breastfeeding.",
+    href: "/services/nutrition",
+  },
 ];
 
 export default function ServicesSection() {
