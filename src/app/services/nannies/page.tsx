@@ -341,10 +341,10 @@ export default function NanniesPage() {
                   className="text-2xl font-bold mb-2"
                   style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-background)" }}
                 >
-                  Request Appointment
+                  Send an Enquiry
                 </h3>
                 <p className="mb-8 text-sm" style={{ color: "var(--color-on-surface-variant)" }}>
-                  Our team will match you with the ideal caregiver within 24 hours.
+                  Tell us about your needs and we'll be in touch.
                 </p>
 
                 <AnimatePresence mode="wait">
@@ -370,10 +370,10 @@ export default function NanniesPage() {
                         className="text-xl font-bold"
                         style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}
                       >
-                        Request Received!
+                        Enquiry Submitted!
                       </h4>
                       <p className="text-sm" style={{ color: "var(--color-on-surface-variant)" }}>
-                        We'll match you with the perfect caregiver and reach out within 24 hours.
+                        We'll reach out within 24 hours.
                       </p>
                       <button
                         onClick={() => setSubmitted(false)}

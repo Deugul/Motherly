@@ -260,10 +260,10 @@ export default function LactationPage() {
                 className="text-2xl font-bold mb-2"
                 style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-background)" }}
               >
-                Book an Appointment
+                Send an Enquiry
               </h2>
               <p className="mb-8 text-sm" style={{ color: "var(--color-on-surface-variant)" }}>
-                Schedule your consultation with our experts today.
+                Tell us about your needs and we'll be in touch.
               </p>
 
               <AnimatePresence mode="wait">
@@ -286,17 +286,17 @@ export default function LactationPage() {
                       </span>
                     </div>
                     <h4 className="text-xl font-bold" style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}>
-                      Appointment Requested!
+                      Enquiry Submitted!
                     </h4>
                     <p className="text-sm" style={{ color: "var(--color-on-surface-variant)" }}>
-                      We'll confirm within 24 hours. We can't wait to support you!
+                      We'll reach out within 24 hours.
                     </p>
                     <button
                       onClick={() => setSubmitted(false)}
                       className="mt-2 px-6 py-2.5 rounded-full text-sm font-bold"
                       style={{ fontFamily: "var(--font-headline)", backgroundColor: "var(--color-primary)", color: "var(--color-on-primary)" }}
                     >
-                      Book Another
+                      Submit Another
                     </button>
                   </motion.div>
                 ) : (
@@ -367,9 +367,9 @@ export default function LactationPage() {
                       {isSubmitting ? (
                         <>
                           <motion.span animate={{ rotate: 360 }} transition={{ duration: 1, repeat: Infinity, ease: "linear" }} className="material-symbols-outlined text-xl">progress_activity</motion.span>
-                          Booking...
+                          Submitting...
                         </>
-                      ) : "Request Appointment"}
+                      ) : "Submit Enquiry"}
                     </motion.button>
 
                     <div className="flex items-center justify-center gap-2 text-sm mt-6" style={{ color: "var(--color-on-surface-variant)" }}>

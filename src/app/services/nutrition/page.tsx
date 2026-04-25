@@ -271,10 +271,10 @@ export default function NutritionPage() {
                 className="text-2xl font-bold mb-2"
                 style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-background)" }}
               >
-                Book a Consultation
+                Send an Enquiry
               </h3>
               <p className="mb-8 text-sm" style={{ color: "var(--color-on-surface-variant)" }}>
-                Start your personalised nutrition journey today.
+                Tell us about your needs and we'll be in touch.
               </p>
 
               <AnimatePresence mode="wait">
@@ -300,10 +300,10 @@ export default function NutritionPage() {
                       className="text-xl font-bold"
                       style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}
                     >
-                      Consultation Requested!
+                      Enquiry Submitted!
                     </h4>
                     <p className="text-sm" style={{ color: "var(--color-on-surface-variant)" }}>
-                      We'll confirm your booking within 24 hours.
+                      We'll reach out within 24 hours.
                     </p>
                     <button
                       onClick={() => setSubmitted(false)}
@@ -314,7 +314,7 @@ export default function NutritionPage() {
                         color: "var(--color-on-primary)",
                       }}
                     >
-                      Book Another
+                      Submit Another
                     </button>
                   </motion.div>
                 ) : (
@@ -493,7 +493,7 @@ export default function NutritionPage() {
                           Booking...
                         </>
                       ) : (
-                        "Book My Consultation"
+                        "Submit Enquiry"
                       )}
                     </motion.button>
 

@@ -287,10 +287,10 @@ export default function GynaecologyPage() {
               }}
             >
               <h2 className="text-2xl font-bold mb-2" style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}>
-                Book an Appointment
+                Send an Enquiry
               </h2>
               <p className="text-sm mb-8" style={{ color: "var(--color-on-surface-variant)" }}>
-                Take the first step towards better health today.
+                Tell us about your needs and we'll be in touch.
               </p>
 
               <AnimatePresence mode="wait">
@@ -304,9 +304,9 @@ export default function GynaecologyPage() {
                     <div className="w-16 h-16 rounded-full flex items-center justify-center" style={{ backgroundColor: "var(--color-secondary-container)" }}>
                       <span className="material-symbols-outlined text-4xl" style={{ color: "var(--color-primary)", fontVariationSettings: "'FILL' 1" }}>check_circle</span>
                     </div>
-                    <h4 className="text-xl font-bold" style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}>Appointment Confirmed!</h4>
-                    <p className="text-sm" style={{ color: "var(--color-on-surface-variant)" }}>Our team will reach out shortly to confirm.</p>
-                    <button onClick={() => setSubmitted(false)} className="mt-2 px-6 py-2.5 rounded-full text-sm font-bold" style={{ fontFamily: "var(--font-headline)", backgroundColor: "var(--color-primary)", color: "var(--color-on-primary)" }}>Book Another</button>
+                    <h4 className="text-xl font-bold" style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}>Enquiry Submitted!</h4>
+                    <p className="text-sm" style={{ color: "var(--color-on-surface-variant)" }}>We'll reach out within 24 hours.</p>
+                    <button onClick={() => setSubmitted(false)} className="mt-2 px-6 py-2.5 rounded-full text-sm font-bold" style={{ fontFamily: "var(--font-headline)", backgroundColor: "var(--color-primary)", color: "var(--color-on-primary)" }}>Submit Another</button>
                   </motion.div>
                 ) : (
                   <motion.form key="form" initial={{ opacity: 0 }} animate={{ opacity: 1 }} onSubmit={handleSubmit(onSubmit)} className="space-y-5">
@@ -374,8 +374,8 @@ export default function GynaecologyPage() {
                       }}
                     >
                       {isSubmitting ? (
-                        <><motion.span animate={{ rotate: 360 }} transition={{ duration: 1, repeat: Infinity, ease: "linear" }} className="material-symbols-outlined text-xl">progress_activity</motion.span>Booking...</>
-                      ) : "Confirm Appointment"}
+                        <><motion.span animate={{ rotate: 360 }} transition={{ duration: 1, repeat: Infinity, ease: "linear" }} className="material-symbols-outlined text-xl">progress_activity</motion.span>Submitting...</>
+                      ) : "Submit Enquiry"}
                     </motion.button>
 
                     <p className="text-xs text-center leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>

@@ -209,10 +209,10 @@ export default function DoulaPage() {
                 className="text-2xl font-bold mb-2"
                 style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-background)" }}
               >
-                Book an Appointment
+                Send an Enquiry
               </h3>
               <p className="mb-8 text-sm" style={{ color: "var(--color-on-surface-variant)" }}>
-                Start your journey with a complimentary consultation.
+                Tell us about your needs and we'll be in touch.
               </p>
 
               <AnimatePresence mode="wait">
@@ -238,10 +238,10 @@ export default function DoulaPage() {
                       className="text-xl font-bold"
                       style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}
                     >
-                      Booking Confirmed!
+                      Enquiry Submitted!
                     </h4>
                     <p className="text-sm" style={{ color: "var(--color-on-surface-variant)" }}>
-                      We'll reach out within 24 hours to confirm your appointment.
+                      We'll reach out within 24 hours.
                     </p>
                     <button
                       onClick={() => setSubmitted(false)}
@@ -252,7 +252,7 @@ export default function DoulaPage() {
                         color: "var(--color-on-primary)",
                       }}
                     >
-                      Book Another
+                      Submit Another
                     </button>
                   </motion.div>
                 ) : (
@@ -379,7 +379,7 @@ export default function DoulaPage() {
                           Booking...
                         </>
                       ) : (
-                        "Book Now"
+                        "Submit Enquiry"
                       )}
                     </motion.button>
 

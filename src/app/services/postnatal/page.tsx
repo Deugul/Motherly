@@ -319,10 +319,10 @@ export default function PostnatalPage() {
                   className="text-2xl font-bold mb-2"
                   style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-background)" }}
                 >
-                  Book an Appointment
+                  Send an Enquiry
                 </h2>
                 <p className="text-sm mb-8" style={{ color: "var(--color-on-surface-variant)" }}>
-                  Take the first step towards your recovery today.
+                  Tell us about your needs and we'll be in touch.
                 </p>
 
                 <AnimatePresence mode="wait">
@@ -348,10 +348,10 @@ export default function PostnatalPage() {
                         className="text-xl font-bold"
                         style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}
                       >
-                        Booking Confirmed!
+                        Enquiry Submitted!
                       </h4>
                       <p className="text-sm" style={{ color: "var(--color-on-surface-variant)" }}>
-                        We'll reach out within 24 hours to confirm your appointment.
+                        We'll reach out within 24 hours.
                       </p>
                       <button
                         onClick={() => setSubmitted(false)}
@@ -362,7 +362,7 @@ export default function PostnatalPage() {
                           color: "var(--color-on-primary)",
                         }}
                       >
-                        Book Another
+                        Submit Another
                       </button>
                     </motion.div>
                   ) : (
@@ -498,11 +498,11 @@ export default function PostnatalPage() {
                             >
                               progress_activity
                             </motion.span>
-                            Booking...
+                            Submitting...
                           </>
                         ) : (
                           <>
-                            Request Appointment
+                            Submit Enquiry
                             <span className="material-symbols-outlined">arrow_forward</span>
                           </>
                         )}
