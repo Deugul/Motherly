@@ -1,0 +1,55 @@
+diff --git a/node_modules/@keystatic/core/dist/keystatic-core-api-generic.js b/node_modules/@keystatic/core/dist/keystatic-core-api-generic.js
+index aabdb1a..6528037 100644
+--- a/node_modules/@keystatic/core/dist/keystatic-core-api-generic.js
++++ b/node_modules/@keystatic/core/dist/keystatic-core-api-generic.js
+@@ -231,15 +231,21 @@ async function githubOauthCallback(req, config) {
+     };
+   }
+   const _tokenData = await tokenRes.json();
+-  let tokenData;
+-  try {
+-    tokenData = tokenDataResultType.create(_tokenData);
+-  } catch {
++  if (!_tokenData.access_token || typeof _tokenData.access_token !== 'string') {
+     return {
+       status: 401,
+       body: 'Authorization failed'
+     };
+   }
++  const ONE_YEAR_SECS = 365 * 24 * 60 * 60;
++  const tokenData = {
++    access_token: _tokenData.access_token,
++    expires_in: _tokenData.expires_in ?? ONE_YEAR_SECS,
++    refresh_token: _tokenData.refresh_token ?? null,
++    refresh_token_expires_in: _tokenData.refresh_token_expires_in ?? ONE_YEAR_SECS,
++    scope: _tokenData.scope ?? '',
++    token_type: 'bearer'
++  };
+   const headers = await getTokenCookies(tokenData, config);
+   if (state === 'close') {
+     return {
+@@ -257,14 +263,17 @@ async function getTokenCookies(tokenData, config) {
+     maxAge: tokenData.expires_in,
+     expires: new Date(Date.now() + tokenData.expires_in * 1000),
+     path: '/'
+-  })], ['Set-Cookie', cookie.serialize('keystatic-gh-refresh-token', await encryptValue(tokenData.refresh_token, config.secret), {
+-    sameSite: 'lax',
+-    secure: process.env.NODE_ENV === 'production',
+-    httpOnly: true,
+-    maxAge: tokenData.refresh_token_expires_in,
+-    expires: new Date(Date.now() + tokenData.refresh_token_expires_in * 100),
+-    path: '/'
+   })]];
++  if (tokenData.refresh_token) {
++    headers.push(['Set-Cookie', cookie.serialize('keystatic-gh-refresh-token', await encryptValue(tokenData.refresh_token, config.secret), {
++      sameSite: 'lax',
++      secure: process.env.NODE_ENV === 'production',
++      httpOnly: true,
++      maxAge: tokenData.refresh_token_expires_in,
++      expires: new Date(Date.now() + tokenData.refresh_token_expires_in * 100),
++      path: '/'
++    })]);
++  }
+   return headers;
+ }
+ async function getRefreshToken(req, config) {
