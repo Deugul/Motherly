@@ -163,14 +163,25 @@ export default function BlogPageClient({
                 boxShadow: "0 12px 32px rgba(45,52,53,0.06)",
               }}
             >
-              <div className="aspect-[4/3] overflow-hidden">
-                <motion.img
-                  whileHover={{ scale: 1.1 }}
-                  transition={{ duration: 0.5 }}
-                  src={post.image}
-                  alt={post.title}
-                  className="w-full h-full object-cover"
-                />
+              <div
+                className="aspect-[4/3] overflow-hidden"
+                style={!post.image ? { backgroundColor: "var(--color-surface-container-high)" } : undefined}
+              >
+                {post.image ? (
+                  <motion.img
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ duration: 0.5 }}
+                    src={post.image}
+                    alt={post.title}
+                    className="w-full h-full object-cover"
+                  />
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center">
+                    <span className="material-symbols-outlined text-5xl" style={{ color: "var(--color-on-surface-variant)", opacity: 0.3 }}>
+                      image
+                    </span>
+                  </div>
+                )}
               </div>
               <div className="p-8 space-y-4">
                 <span
