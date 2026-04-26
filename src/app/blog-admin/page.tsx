@@ -35,6 +35,8 @@ export default function BlogAdminPage() {
   const [posts, setPosts] = useState<PublishedPost[]>([]);
   const [loadingPosts, setLoadingPosts] = useState(false);
   const [deletingSlug, setDeletingSlug] = useState<string | null>(null);
+  const [loginError, setLoginError] = useState("");
+  const [loginLoading, setLoginLoading] = useState(false);
   const fileRef = useRef<HTMLInputElement>(null);
 
   const loadPosts = useCallback(async (pwd: string) => {
@@ -52,9 +54,6 @@ export default function BlogAdminPage() {
     }
   }, []);
 
-  useEffect(() => {
-    if (authed) loadPosts(password);
-  }, [authed, password, loadPosts]);
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -121,6 +120,22 @@ export default function BlogAdminPage() {
     }
   };
 
+  const handleLogin = async () => {
+    setLoginLoading(true);
+    setLoginError("");
+    const res = await fetch("/api/admin/list-posts", {
+      headers: { "x-admin-password": password },
+    });
+    setLoginLoading(false);
+    if (res.ok) {
+      const data = await res.json();
+      setPosts(data.posts ?? []);
+      setAuthed(true);
+    } else {
+      setLoginError("Wrong password. Check the ADMIN_PASSWORD env var in Vercel.");
+    }
+  };
+
   if (!authed) {
     return (
       <div style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", backgroundColor: "var(--color-background)" }}>
@@ -131,15 +146,17 @@ export default function BlogAdminPage() {
             type="password"
             placeholder="Admin password"
             value={password}
-            onChange={e => setPassword(e.target.value)}
-            onKeyDown={e => { if (e.key === "Enter") setAuthed(true); }}
-            style={{ width: "100%", padding: "10px 14px", borderRadius: 8, border: "1px solid #ddd", fontSize: 15, marginBottom: 12, boxSizing: "border-box" }}
+            onChange={e => { setPassword(e.target.value); setLoginError(""); }}
+            onKeyDown={e => { if (e.key === "Enter") handleLogin(); }}
+            style={{ width: "100%", padding: "10px 14px", borderRadius: 8, border: `1px solid ${loginError ? "#fca5a5" : "#ddd"}`, fontSize: 15, marginBottom: 8, boxSizing: "border-box" }}
           />
+          {loginError && <p style={{ fontSize: 13, color: "#dc2626", marginBottom: 8 }}>{loginError}</p>}
           <button
-            onClick={() => setAuthed(true)}
-            style={{ width: "100%", padding: "10px 0", borderRadius: 8, border: "none", backgroundColor: "var(--color-primary)", color: "white", fontWeight: 600, fontSize: 15, cursor: "pointer" }}
+            onClick={handleLogin}
+            disabled={loginLoading}
+            style={{ width: "100%", padding: "10px 0", borderRadius: 8, border: "none", backgroundColor: "var(--color-primary)", color: "white", fontWeight: 600, fontSize: 15, cursor: loginLoading ? "not-allowed" : "pointer", opacity: loginLoading ? 0.7 : 1, marginTop: 4 }}
           >
-            Sign In
+            {loginLoading ? "Checking…" : "Sign In"}
           </button>
         </div>
       </div>
