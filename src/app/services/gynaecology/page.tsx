@@ -99,7 +99,7 @@ export default function GynaecologyPage() {
                 transition={{ duration: 0.5 }}
               >
                 <Image
-                  src="/service-gynaecology.jpg"
+                  src="/gynaecology-hero.jpg"
                   alt="Gynecology Consultation"
                   fill
                   className="object-cover"

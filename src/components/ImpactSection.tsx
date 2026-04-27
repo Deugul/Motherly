@@ -55,7 +55,7 @@ export default function ImpactSection() {
 
       <ScrollReveal>
         <div
-          className="rounded-2xl border grid grid-cols-2 md:grid-cols-4"
+          className="rounded-2xl border grid grid-cols-3"
           style={{
             backgroundColor: "color-mix(in srgb, var(--color-primary) 6%, white)",
             borderColor: "color-mix(in srgb, var(--color-primary) 30%, transparent)",
