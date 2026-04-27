@@ -33,7 +33,6 @@ const stats = [
   { value: 500, suffix: "+", label: "Happy Mothers" },
   { value: 500, suffix: "+", label: "Successful Births" },
   { value: 50,  suffix: "+", label: "Care Providers" },
-  { value: 5,   suffix: "",  label: "Years of Service" },
 ];
 
 export default function ImpactSection() {

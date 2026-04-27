@@ -146,14 +146,8 @@ export default function Navbar() {
     >
       <div className="flex justify-between items-center px-6 md:px-10 py-4 max-w-7xl mx-auto">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2">
+        <Link href="/" className="flex items-center">
           <Image src="/logo.png" alt="Motherly logo" width={72} height={72} className="h-18 w-auto object-contain" />
-          <span
-            className="text-2xl font-extrabold tracking-tight"
-            style={{ fontFamily: "var(--font-plus-jakarta)", color: "var(--color-primary)" }}
-          >
-            Motherly
-          </span>
         </Link>
 
         {/* Desktop nav */}

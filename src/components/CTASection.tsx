@@ -75,13 +75,13 @@ export default function CTASection() {
               <div className="flex flex-wrap justify-center md:justify-start gap-3">
                 <motion.img
                   whileHover={{ opacity: 0.8 }}
-                  src="https://lh3.googleusercontent.com/aida/ADBb0ujht03aWxKLWGRIbf5fGwDB-6LfQPDeFEZY-4yPjgS4FR8gZ45z6JnpeAkRU00z8htzukEtt7ULZQet3yumjenrEBIixkzwI1v37wFoGAkdaugkp8crIIYZ9pqcKA3Udld_6xur8uvXj1YlFLy7Z4j4MG0ueyVXvS6UQA9IWCoZVfCaRkpC6uIKo4DpsxdXE7oSxVX2kz9YImmozgivNElG4IrUXN0VLZvQawAxVV-QoB39eR5W9l_YUcO_0UV7lROtnWj58xpFdXE"
+                  src="/badge-google-play.png"
                   alt="Get it on Google Play"
                   className="h-10 w-auto object-contain cursor-pointer"
                 />
                 <motion.img
                   whileHover={{ opacity: 0.8 }}
-                  src="https://lh3.googleusercontent.com/aida/ADBb0uithlhjJhHQAkqafTvy5ynB9H9PLNU81lV8dAfyhpAJ6FmVIPjeIvXOJV-s3TjXPsm--NkX-UqpCJR0eLyF1ta4o_2yk54j8dzEFYE72J_3Vmge_5yr4v2oNRLqRQceWMFQ6O1g8hu6w1OrAy9jQJewEnY3xc8d5BhXzsSDwWfjCWtKM_nP8mKbgNA0H_jby8C7VvxGL8qPT9RkO9Xh99ZPWgDmokWw6YSu1L0ouQZizKWQ0i8riVQ0TLPpg0sXpPrVjdjG_LSfNg"
+                  src="/badge-app-store.png"
                   alt="Download on the App Store"
                   className="h-10 w-auto object-contain cursor-pointer"
                 />
