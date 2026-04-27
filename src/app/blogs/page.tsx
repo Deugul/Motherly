@@ -61,12 +61,14 @@ async function getCmsPosts(): Promise<BlogPost[]> {
             if (!title) return null;
 
             const content = raw.replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n?/, "").trim();
+            const firstPara = content.split(/\n\n+/)[0] ?? "";
+            const excerpt = firstPara.length > 140 ? firstPara.slice(0, 137) + "…" : firstPara;
 
             return {
               tag: tag.toUpperCase() || "WELLNESS",
               ...(tagThemeMap[tagTheme] ?? tagThemeMap.secondary),
               title,
-              excerpt: "",
+              excerpt,
               image: coverImage,
               date: dateStr
                 ? new Date(dateStr).toLocaleDateString("en-US", {

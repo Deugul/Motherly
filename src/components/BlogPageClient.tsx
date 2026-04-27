@@ -319,7 +319,7 @@ export default function BlogPageClient({
                 >
                   {post.title}
                 </h3>
-                <p className="text-sm leading-relaxed line-clamp-3" style={{ color: "var(--color-on-surface-variant)" }}>
+                <p className="text-sm leading-relaxed line-clamp-2" style={{ color: "var(--color-on-surface-variant)" }}>
                   {post.excerpt}
                 </p>
                 <div className="pt-2 flex justify-between items-center text-xs" style={{ color: "var(--color-on-surface-variant)" }}>
