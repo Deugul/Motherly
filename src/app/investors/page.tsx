@@ -31,9 +31,8 @@ const principles = [
 ];
 
 const stats = [
-  { value: "₹180Cr+", label: "Addressable Market (India)" },
   { value: "500+", label: "Mothers Supported" },
-  { value: "5", label: "Years of Operations" },
+  { value: "1", label: "Year of Operations" },
   { value: "3x", label: "YoY Growth" },
 ];
 
@@ -190,65 +189,6 @@ export default function InvestorsPage() {
                 </motion.div>
               ))}
             </motion.div>
-          </div>
-        </section>
-
-        {/* ── Seed Investors ── */}
-        <section className="py-24 px-6 md:px-10" style={{ backgroundColor: "var(--color-surface)" }}>
-          <div className="max-w-4xl mx-auto text-center space-y-16">
-            <ScrollReveal>
-              <h2
-                className="text-4xl md:text-5xl font-extrabold tracking-tight"
-                style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}
-              >
-                Our <span style={{ color: "var(--color-primary)" }}>Founding Investors</span>
-              </h2>
-              <p className="mt-4 text-lg" style={{ color: "var(--color-on-surface-variant)" }}>
-                Backed by people who believe the maternal care gap in India is one of the most important problems to solve.
-              </p>
-            </ScrollReveal>
-
-            {/* Placeholder investor cards */}
-            <div className="flex flex-wrap justify-center gap-8">
-              {[
-                { initials: "RK", name: "Rajan Kumar", role: "Managing Partner, Healthcare VC" },
-                { initials: "SA", name: "Sunita Agarwal", role: "Angel Investor & Former CMO" },
-                { initials: "VP", name: "Vikram Pillai", role: "Founder & CEO, HealthTech Co." },
-              ].map((inv, i) => (
-                <motion.div
-                  key={inv.name}
-                  initial={{ opacity: 0, y: 24 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: i * 0.1, ease: easeOut }}
-                  className="flex flex-col items-center gap-4 p-8 rounded-2xl border w-56"
-                  style={{
-                    backgroundColor: "var(--color-surface-container-lowest)",
-                    borderColor: "color-mix(in srgb, var(--color-outline-variant) 15%, transparent)",
-                    boxShadow: "0 4px 20px rgba(0,0,0,0.06)",
-                  }}
-                >
-                  <div
-                    className="w-20 h-20 rounded-full flex items-center justify-center text-2xl font-bold"
-                    style={{
-                      backgroundColor: "color-mix(in srgb, var(--color-primary) 12%, transparent)",
-                      color: "var(--color-primary)",
-                      fontFamily: "var(--font-headline)",
-                    }}
-                  >
-                    {inv.initials}
-                  </div>
-                  <div className="text-center">
-                    <p className="font-bold" style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}>
-                      {inv.name}
-                    </p>
-                    <p className="text-xs mt-1 leading-snug" style={{ color: "var(--color-on-surface-variant)" }}>
-                      {inv.role}
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
           </div>
         </section>
 
