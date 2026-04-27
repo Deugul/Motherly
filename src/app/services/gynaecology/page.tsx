@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
@@ -97,10 +98,12 @@ export default function GynaecologyPage() {
                 whileHover={{ rotate: 0, scale: 1.02 }}
                 transition={{ duration: 0.5 }}
               >
-                <img
+                <Image
                   src="/gynaecology-hero.jpg"
                   alt="Gynecology Consultation"
-                  className="w-full h-[500px] object-cover"
+                  fill
+                  className="object-cover"
+                  priority
                 />
               </motion.div>
               <div
@@ -417,10 +420,11 @@ export default function GynaecologyPage() {
                   I felt truly seen and supported as a new mother."
                 </p>
                 <div className="flex flex-col items-center">
-                  <img
+                  <Image
                     src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbfeILVdcZVwvdF6ff5QWF_CtTwvV7pmAa4X80YjEtvVOlHfDP13FshJic5wzZNQ4fvx_HvZdsgswK1ZBdB8GAGnH0kTDk-lJbGTiKeuo9kyLqVMfeLA7ZsJDc-MCY_mj8S_YgHrXubGvLDXGTQ3jajUzKy8CEdFCw6mIIS2cmUrXDzFXuY8pqiTOLnwT8JZ_lL3X4aBohfOqguM6tnSN_nk3-rQ02oSs7uFfwpm9oanZa_4VxuWGACpeZfF_pm_IWiruOIv77iQep"
                     alt="Elena Rodriguez"
-                    className="w-16 h-16 rounded-full border-4 border-white mb-4 object-cover shadow-md"
+                    width={64} height={64}
+                    className="rounded-full border-4 border-white mb-4 object-cover shadow-md"
                   />
                   <p className="font-bold" style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}>Elena Rodriguez</p>
                   <p className="text-sm" style={{ color: "var(--color-on-surface-variant)" }}>Mother of two</p>

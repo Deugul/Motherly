@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
@@ -270,10 +271,11 @@ export default function ContactPage() {
                 style={{ boxShadow: "0 12px 32px rgba(45,52,53,0.06)" }}
               >
                 <div className="h-64 relative group overflow-hidden">
-                  <img
+                  <Image
                     src="https://lh3.googleusercontent.com/aida-public/AB6AXuAo1LWRTnwOPeaxJdMNgJU-kc7q9UcjKqdZ1lfaIcmcjF25UsCYExOizAbCYYUZslHdsTdDj4IIPHgD-9_DdN_gPlWdoB8TS7JagsE5RJzOvA7eBKLF2d3qSiI32pDxKXFOvml55TTHzKZaJh0ALpKqWj6TpZoDep3-LMM5G3oeTyADTjp6BeBRa6Sw81LFyftnKDIuvdTYGT6QsM4dpudWO0AoHhWI_JHUdfb_F2DLQxRUNaOeBedmlmag-mFIzUO7YqEW0sH1I8wn"
                     alt="Location map"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-700"
                   />
                   <div
                     className="absolute inset-0 transition-colors group-hover:opacity-0"
@@ -390,11 +392,12 @@ export default function ContactPage() {
                       "https://lh3.googleusercontent.com/aida-public/AB6AXuDTkfMQmXa39U6vu5-G_eHcjqIqmw3bU3vd4C8sXnUakGx__oz2Gux2-XD3ju9KKonuRsZ_yqY2NLU_UgYNBXBJNJt_oQbbFqzHJEcpUVgHzWPiueUgWyHdXALubGoTjUKIFXp6K9FDdqfqF7sw01M21QCKc6G99DAEiRQbcVZy46M4uFGYfQuZ28NdaBhTgcxXHwDYFWFQMEMlsKtiqZCL_0jYCQ5MTI8eCWWlSTB3u8vQ8cAZByOucO_7-pX3PAw_Hx9Hs4fzAn9E",
                       "https://lh3.googleusercontent.com/aida-public/AB6AXuD6JzH5Kv5YqTd9aV83NVFp2nW0xVYSI9lxwohtraJSmI48aPoM39piYtfoaycDJYhve5ozbSvHSnhHq96tDZDRjR2Xq696mC9tpoM-ZMfdwU4yh0xxdHfnL3EiuHX_8-9zreTYJ7c1lHxB0o4WDyS96BIq0Hxk3HTn2gYdz_FxgEx-_aC62lGZezgA7B7f2GsRwk2ZW5EzWVg46mzfudRIn4oHVw2VBxmXGRNOugUNlhMHfjwfIaFV4",
                     ].map((src, i) => (
-                      <img
+                      <Image
                         key={i}
                         src={src}
                         alt="Support staff"
-                        className="w-8 h-8 rounded-full object-cover border-2"
+                        width={32} height={32}
+                        className="rounded-full object-cover border-2"
                         style={{ borderColor: "var(--color-surface-container-high)" }}
                       />
                     ))}

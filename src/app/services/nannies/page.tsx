@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
@@ -80,11 +81,12 @@ export default function NanniesPage() {
                       "https://lh3.googleusercontent.com/aida-public/AB6AXuB2EKfXSUiGkwF8N4RCb19RbUiXJ3Hk9j1TYl56N56E3u0bYnV8VyVT8OL-1xXI-pBe2blw7Bk3oUlVCGiqIz7jPxd3RLZsVAkVRdaxVNhEqVb09yl4QPLF0CmRFGr1_zzHnFhDxLsS4AVbPuHkjyG7R6Gfvr7BaxMFdj8dLaSA88bnLnb5R49MHl2XVHKzHp16_Dc_TqP7ZjVlHRFvnZ8JyAHqxcBgBvvNlOFlxcUYL4b_mzx3Y3XeVJJMBtqkmSa2PJj3K0sIk",
                       "https://lh3.googleusercontent.com/aida-public/AB6AXuDKWrL6fk1YXPG40-eMKhIbBlXgCGwWPEFhVmYVK-B43h8G9K6hFdI2Cw1s5KZb4c34A2-1HuV5NJMV_RkUfZVeNWrPHHCq7JOKnxV1-B2viBQ-1CY3f-VvBnzD6d0ERvj5V4VL74M-9-X9q-VBFoxGiurDrUJe6gJ-HHPOChOBBRz_VVsLwqfmhDI3y9v5INAYXxf3jbz71s8T_1R0Cqx8B8T9Hf7JVKiGBH4K2J-sUrIxBOEWZ18YcCLrQ1P_tAU3cEp4W0ms",
                     ].map((src, i) => (
-                      <img
+                      <Image
                         key={i}
                         src={src}
                         alt="Caregiver"
-                        className="w-10 h-10 rounded-full object-cover border-2"
+                        width={40} height={40}
+                        className="rounded-full object-cover border-2"
                         style={{ borderColor: "var(--color-surface)" }}
                       />
                     ))}
@@ -118,13 +120,15 @@ export default function NanniesPage() {
                 className="relative overflow-hidden rounded-2xl"
                 style={{ boxShadow: "0 12px 32px rgba(45,52,53,0.1)" }}
               >
-                <motion.img
-                  whileHover={{ scale: 1.04 }}
-                  transition={{ duration: 0.6 }}
-                  src="/nannies-hero.jpg"
-                  alt="Mother with newborn receiving postnatal care"
-                  className="w-full h-[400px] object-cover"
-                />
+                <div className="h-[300px] md:h-[400px] relative">
+                  <Image
+                    src="/nannies-hero.jpg"
+                    alt="Mother with newborn receiving postnatal care"
+                    fill
+                    className="object-cover"
+                    priority
+                  />
+                </div>
                 <div
                   className="absolute inset-0"
                   style={{ background: "linear-gradient(to top, rgba(0,0,0,0.5), transparent)" }}

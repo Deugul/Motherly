@@ -2,10 +2,12 @@
 
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import ScrollReveal from "@/components/ScrollReveal";
 import type { BlogPost } from "@/lib/posts";
 import type { FeaturedPost } from "@/lib/posts";
 
+const MotionImage = motion.create(Image);
 const easeOut: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
 const filters = ["All Topics", "Prenatal", "Newborn Care", "Wellness", "Postpartum"];
 const PAGE_SIZE = 3;
@@ -62,8 +64,8 @@ function PostModal({ post, onClose }: { post: BlogPost; onClose: () => void }) {
 
           {/* Cover image */}
           {post.image && (
-            <div className="w-full aspect-video overflow-hidden rounded-t-3xl">
-              <img src={post.image} alt={post.title} className="w-full h-full object-cover" />
+            <div className="w-full aspect-video overflow-hidden rounded-t-3xl relative">
+              <Image src={post.image} alt={post.title} fill className="object-cover" />
             </div>
           )}
 
@@ -226,14 +228,15 @@ export default function BlogPageClient({
               boxShadow: "0 12px 32px rgba(45,52,53,0.06)",
             }}
           >
-            <div className="lg:col-span-7 aspect-video lg:aspect-auto h-full overflow-hidden">
-              <motion.img
+            <div className="lg:col-span-7 aspect-video lg:aspect-auto lg:min-h-[320px] overflow-hidden relative">
+              <MotionImage
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.7 }}
                 src={featuredPost.image}
                 alt={featuredPost.title}
-                className="w-full h-full object-cover"
-                style={{ minHeight: "320px" }}
+                fill
+                className="object-cover"
+                priority
               />
             </div>
             <div className="lg:col-span-5 p-8 lg:p-12 space-y-4">
@@ -284,16 +287,17 @@ export default function BlogPageClient({
               onClick={() => setSelectedPost(post)}
             >
               <div
-                className="aspect-[4/3] overflow-hidden"
+                className="aspect-[4/3] overflow-hidden relative"
                 style={!post.image ? { backgroundColor: "var(--color-surface-container-high)" } : undefined}
               >
                 {post.image ? (
-                  <motion.img
+                  <MotionImage
                     whileHover={{ scale: 1.1 }}
                     transition={{ duration: 0.5 }}
                     src={post.image}
                     alt={post.title}
-                    className="w-full h-full object-cover"
+                    fill
+                    className="object-cover"
                   />
                 ) : (
                   <div className="w-full h-full flex items-center justify-center">

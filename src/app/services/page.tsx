@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -57,10 +58,12 @@ export default function ServicesPage() {
               style={{ backgroundColor: "var(--color-surface-container-lowest)" }}
             >
               <div className="absolute inset-0 z-0">
-                <img
+                <Image
                   src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_2GAVFqtNyO8HgBKHdlPW1GVXrZfRNlUnVilRwYYy8MR0eHpSjmD49001Zo1-qswu9RhxLUCqJiyo3OLqKWXIIKBiAmv0vNuDXsmbGs2mEGyyd3MTvNoBPPUPapEkCkPT0sIYITFgWgywvZRjqvoCCD0hmQihjP9wmlzTBeBQ2-cnlWuVZbwMeZH3kv6SnRiG8fvvHwq8e-L90qQR7soQijOylolwN2XtOwVDpX6rl2CBc1GkdhIaN37vJc9kyoW8Smei2Gd1ZKOo"
                   alt="Supportive doula holding a mother's hand"
-                  className="w-full h-full object-cover opacity-90 transition-transform duration-700 group-hover:scale-105"
+                  fill
+                  className="object-cover opacity-90 transition-transform duration-700 group-hover:scale-105"
+                  priority
                 />
                 <div
                   className="absolute inset-0"
@@ -252,15 +255,17 @@ export default function ServicesPage() {
                 </span>
                 {/* Avatar stack */}
                 <div className="flex -space-x-2">
-                  <img
+                  <Image
                     src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMKNC3N1JOHv0F7ao9Eh40kpee4P9I-sOtgczWDuybaVA3OCxGuj_OYzHs4yeSE6FJT90idRHklvQx-x6WuJfUno_eRTPN3xBornNLk66hqBpby5XQ0rSK9vqdEztfPVaIZCUpMNqg8c_kdBLKxbd6Gf0lcdKNU2NgImjgSZQg1gqF-l67202h385seBoEtFwncTf1QsMGbchJPUbR-U4cdFcbbfRXfit8x1PuZkBPQ4Kfdlwzkmka_Sw6N_OytuQE-4qelps3V0-U"
                     alt="Nurse"
-                    className="w-8 h-8 rounded-full border-2 border-white object-cover"
+                    width={32} height={32}
+                    className="rounded-full border-2 border-white object-cover"
                   />
-                  <img
+                  <Image
                     src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuwt7aFNwMFxnryK7E33-6Cb8e4kMSfw52eNGCzeIJQraTOkZAxHqoaxQXnXSC1YyvuG9yYJMwFrSN6FdyDR3oNGfSJMzvDpo1U6QoQifGbtzidPGqBPoZKt7zXZqZGzo-K1fdee33WgW2zHstDiQpaUKrqa8WKeOLE7ZGt5u9gY1q4B9ptg_8sG_3xaRmk1OvyVSFem1jY6ys8oxo3-T4nLP7BYAnGnj5qxXnYvjz4ePgU_nVP2tvI2_ggwmbgBj_6O8cKacJgppX"
                     alt="Care worker"
-                    className="w-8 h-8 rounded-full border-2 border-white object-cover"
+                    width={32} height={32}
+                    className="rounded-full border-2 border-white object-cover"
                   />
                   <div
                     className="w-8 h-8 rounded-full border-2 border-white flex items-center justify-center text-[10px] font-bold"
@@ -309,11 +314,12 @@ export default function ServicesPage() {
                 ))}
               </div>
             </div>
-            <div className="flex-shrink-0 w-full md:w-80 h-80 rounded-xl overflow-hidden">
-              <img
+            <div className="flex-shrink-0 w-full md:w-80 h-80 rounded-xl overflow-hidden relative">
+              <Image
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTTFrlwe1svAp7sS2mr6Q3aEFGih-4-mCDxdj-M5lf9K-VCWsdSxMr1BG6eURHUAXdWkjYdkpghFNJsBo0BKIokBpIuigqAOj-pDhzRo_Iw2_ms_D2tR6Xu0u9gAs3vxiklzjZEQzjA-fhV9IsgXl7JVtNPKS4kiiemxHuZnxOtijPcG_s8_ZkNQIMNvEOtM-MLUbjAbjlf-jvkNZK1S-4SZVMurDftjHHmSmnHUJeH0CjOEFu5KD-8_yCcb8Rr7VFro6SnPc9ELCZ"
                 alt="Modern minimalist clinic room"
-                className="w-full h-full object-cover"
+                fill
+                className="object-cover"
               />
             </div>
           </section>

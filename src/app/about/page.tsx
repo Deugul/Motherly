@@ -1,11 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 
+const MotionImage = motion.create(Image);
 const easeOut: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
 
 const testimonials = [
@@ -99,13 +101,14 @@ export default function AboutPage() {
                       </p>
                     </div>
                   </div>
-                  <div className="rounded-3xl overflow-hidden shadow-lg h-48 md:h-full">
-                    <motion.img
+                  <div className="rounded-3xl overflow-hidden shadow-lg h-48 md:h-full relative">
+                    <MotionImage
                       whileHover={{ scale: 1.05 }}
                       transition={{ duration: 0.6 }}
                       src="/about-mission.jpg"
                       alt="Our Mission and Vision"
-                      className="w-full h-full object-cover"
+                      fill
+                      className="object-cover"
                     />
                   </div>
                 </div>
@@ -115,13 +118,15 @@ export default function AboutPage() {
             {/* Right: hero image */}
             <div className="lg:w-1/2 relative">
               <ScrollReveal direction="right">
-                <div className="w-full h-[600px] rounded-[3rem] overflow-hidden shadow-2xl relative z-10">
-                  <motion.img
+                <div className="w-full h-[400px] md:h-[600px] rounded-[3rem] overflow-hidden shadow-2xl relative z-10">
+                  <MotionImage
                     whileHover={{ scale: 1.04 }}
                     transition={{ duration: 0.7 }}
                     src="/about-hero.jpg"
                     alt="Motherly Team"
-                    className="w-full h-full object-cover"
+                    fill
+                    className="object-cover"
+                    priority
                   />
                 </div>
                 <div
@@ -167,10 +172,11 @@ export default function AboutPage() {
                 className="rounded-[2rem] overflow-hidden relative group"
                 style={{ gridColumn: "span 2", gridRow: "span 2" }}
               >
-                <img
+                <Image
                   src="/about-journey-spark.jpg"
                   alt="Our Care Journey"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 flex flex-col justify-end p-8" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.6), transparent)" }}>
                   <span
@@ -227,12 +233,13 @@ export default function AboutPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.16, ease: easeOut }}
-                className="rounded-[2rem] overflow-hidden"
+                className="rounded-[2rem] overflow-hidden relative"
               >
-                <img
+                <Image
                   src="/about-journey-caregiver.jpg"
                   alt="Caregiver Support"
-                  className="w-full h-full object-cover"
+                  fill
+                  className="object-cover"
                 />
               </motion.div>
 
@@ -346,7 +353,7 @@ export default function AboutPage() {
                     className="w-12 h-12 rounded-full overflow-hidden border-2"
                     style={{ borderColor: t.featured ? "var(--color-primary-container)" : "transparent" }}
                   >
-                    <img src={t.avatar} alt={t.name} className="w-full h-full object-cover" />
+                    <Image src={t.avatar} alt={t.name} width={48} height={48} className="w-full h-full object-cover" />
                   </div>
                   <div>
                     <div

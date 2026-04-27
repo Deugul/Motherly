@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
@@ -121,11 +122,12 @@ export default function LactationPage() {
                   <div className="flex items-center gap-4">
                     <div className="flex -space-x-3">
                       {[0, 1].map((i) => (
-                        <img
+                        <Image
                           key={i}
                           src="/lactation-hero.jpg"
                           alt="Consultant"
-                          className="w-10 h-10 rounded-full border-2 object-cover"
+                          width={40} height={40}
+                          className="rounded-full border-2 object-cover"
                           style={{ borderColor: "var(--color-surface-container-lowest)" }}
                         />
                       ))}
@@ -142,13 +144,14 @@ export default function LactationPage() {
                     className="absolute inset-0 rounded-2xl -rotate-3 scale-105"
                     style={{ backgroundColor: "color-mix(in srgb, var(--color-primary) 5%, transparent)" }}
                   />
-                  <motion.img
-                    whileHover={{ scale: 1.03 }}
-                    transition={{ duration: 0.5 }}
-                    src="/lactation-hero.jpg"
-                    alt="Lactation consultant supporting a mother and newborn"
-                    className="relative z-10 w-full aspect-[4/3] object-cover rounded-2xl shadow-xl"
-                  />
+                  <div className="relative z-10 w-full aspect-[4/3] rounded-2xl shadow-xl overflow-hidden">
+                    <Image
+                      src="/lactation-hero.jpg"
+                      alt="Lactation consultant supporting a mother and newborn"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
@@ -226,10 +229,11 @@ export default function LactationPage() {
                   continue my breastfeeding journey."
                 </p>
                 <div className="flex items-center gap-4 relative z-10">
-                  <img
+                  <Image
                     src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-pcij5S1oLiy_gsBwN9lBbTkHE7uSFwAg-Bqi-suIDWlUaWsEGQA9On5ABGhDSeGb_hWzLis6TVUPdUHRR3CEHwa0c4v4VF1hgK3Ncj5rGkHMQuLq6UuN3TZr1KsPE82aj56FRqf_60DrnFmgVT5IzFjLRgpUvaYHJzTHLSY7SMjQNMiu_9cRfSHTt18TLMIM9-egf_Wm9aEkS4WLFyhOk6aIv5esmrsg5Z93au_r-EJYSm-LfnoaFpXDfuh9vAANWFpz64ER-xoq"
                     alt="Sarah Jenkins"
-                    className="w-12 h-12 rounded-full object-cover"
+                    width={48} height={48}
+                    className="rounded-full object-cover"
                   />
                   <div>
                     <p className="font-bold" style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}>
