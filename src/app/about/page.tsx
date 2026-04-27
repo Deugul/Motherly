@@ -13,21 +13,21 @@ const easeOut: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
 const testimonials = [
   {
     quote: "Motherly didn't just provide a caregiver; they provided a companion who understood my mother's needs before she even spoke them.",
-    name: "Sarah Jenkins",
+    name: "Kavya Nair",
     role: "Daughter of client",
     avatar: "https://lh3.googleusercontent.com/aida-public/AB6AXuDFrwsh-YzDGv1Qul0nTpqgJo4I1EEJLnxYjOHN6V3BraijWSy5wD7LKV9ErsFCiD_4Php5WppPKO1uZacFtkhUPqNFoDeA9vJ1Xh1vGz3u-elwOanSQlFSwCpyWh3wNlxBEeBW6Ylx9V9aZr_xYHbOux3JPWu8AHCZTZa2Arym0QkcRmOycNU3rC78z6L1AZOuXPRWgZ3__PkXpLRv059fVFxgkBbrnBflsq5xRz2G-i32xpPjb9MxJjLiDGHVsbPSelE0LOmO5M-g",
     featured: false,
   },
   {
     quote: "The level of professionalism and editorial attention to detail is something I've never seen in healthcare before. Truly premium service.",
-    name: "Michael Reed",
+    name: "Ramya Prakash",
     role: "Primary Caregiver",
     avatar: "https://lh3.googleusercontent.com/aida-public/AB6AXuDREB8uf0fXNQuo-AUZGkUe7vS-80bYn967q3qAgIvuwbjlcwUN8zZBB0OKpl-OsbDugIkK_PfaVrkdl_6ZhYrNYwP73GQoXqtjaMdeSO22QR8mpIJSOnABNwrE0bbKLJ3um9ezpp8upbOPPol8HWtK1SSNoedCCDw-T9QtDxbLK4gFs2GgGvGJSp9ciRyhV-AXOT3RpnFi87Q6u1qQ8_5KW0SVSWbJ4ltMIzcC0kA_Pnz9bC05yBqC-qcOGLvOS-45Eit_ZOU_1hng",
     featured: true,
   },
   {
     quote: "They handle everything with such grace. It's not just medical support; it's emotional architecture for the whole family.",
-    name: "Eleanor Wright",
+    name: "Keerthana",
     role: "Retired Professor",
     avatar: "https://lh3.googleusercontent.com/aida-public/AB6AXuAWTP0IFMcRRFSOmpKOyISkZiRL9Xlu_WbkM9CjwNJVb6x2DgC_Xnj5Mun5rL-E6gyxRr3-Xyq2oIKh_DJerc8gYNvhk9h1AVUh_nBFdqkofu7hIg2PDUFWkk1oHZ7PyUaJc2bS24WJ1k5Mb1W8P05avvpIjO7mpEFM8MLxd9D1ZmqZGvk8S8dEi1QRcHL6r-pWD6Pq1CJFbIQW-QwBKj6GPoJ0MKTptZB1BlSbkFVniKdHxmqUmKTFpU5OuYK0cADXZL30uwNeLbHW",
     featured: false,

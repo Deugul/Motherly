@@ -93,13 +93,13 @@ export default function GynaecologyPage() {
                 style={{ backgroundColor: "var(--color-primary-container)" }}
               />
               <motion.div
-                className="relative rounded-2xl overflow-hidden shadow-2xl"
+                className="relative rounded-2xl overflow-hidden shadow-2xl h-[480px]"
                 style={{ transform: "rotate(2deg)" }}
                 whileHover={{ rotate: 0, scale: 1.02 }}
                 transition={{ duration: 0.5 }}
               >
                 <Image
-                  src="/gynaecology-hero.jpg"
+                  src="/service-gynaecology.jpg"
                   alt="Gynecology Consultation"
                   fill
                   className="object-cover"
@@ -394,45 +394,6 @@ export default function GynaecologyPage() {
           </div>
         </section>
 
-        {/* ── Testimonial ── */}
-        <section className="max-w-7xl mx-auto px-6 md:px-8 mt-24 mb-16">
-          <ScrollReveal>
-            <div
-              className="rounded-2xl p-12 relative overflow-hidden text-center"
-              style={{ backgroundColor: "var(--color-surface-container-high)" }}
-            >
-              <div
-                className="absolute inset-0 opacity-5 pointer-events-none"
-                style={{ backgroundImage: "radial-gradient(circle at 2px 2px, #ba0e56 1px, transparent 0)", backgroundSize: "32px 32px" }}
-              />
-              <div className="max-w-2xl mx-auto relative z-10">
-                <span
-                  className="material-symbols-outlined text-6xl mb-6 opacity-30"
-                  style={{ color: "var(--color-primary)", display: "block" }}
-                >
-                  format_quote
-                </span>
-                <p
-                  className="text-2xl font-medium leading-relaxed italic mb-8"
-                  style={{ color: "var(--color-on-surface)" }}
-                >
-                  "The care I received at Motherly during my postnatal recovery was transformative.
-                  I felt truly seen and supported as a new mother."
-                </p>
-                <div className="flex flex-col items-center">
-                  <Image
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbfeILVdcZVwvdF6ff5QWF_CtTwvV7pmAa4X80YjEtvVOlHfDP13FshJic5wzZNQ4fvx_HvZdsgswK1ZBdB8GAGnH0kTDk-lJbGTiKeuo9kyLqVMfeLA7ZsJDc-MCY_mj8S_YgHrXubGvLDXGTQ3jajUzKy8CEdFCw6mIIS2cmUrXDzFXuY8pqiTOLnwT8JZ_lL3X4aBohfOqguM6tnSN_nk3-rQ02oSs7uFfwpm9oanZa_4VxuWGACpeZfF_pm_IWiruOIv77iQep"
-                    alt="Elena Rodriguez"
-                    width={64} height={64}
-                    className="rounded-full border-4 border-white mb-4 object-cover shadow-md"
-                  />
-                  <p className="font-bold" style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}>Elena Rodriguez</p>
-                  <p className="text-sm" style={{ color: "var(--color-on-surface-variant)" }}>Mother of two</p>
-                </div>
-              </div>
-            </div>
-          </ScrollReveal>
-        </section>
       </main>
       <Footer />
     </>
