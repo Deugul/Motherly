@@ -35,6 +35,7 @@ export interface BlogPost {
   image: string;
   date: string;
   readTime: string;
+  content?: string;
 }
 
 function post(

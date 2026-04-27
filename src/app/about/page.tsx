@@ -103,7 +103,7 @@ export default function AboutPage() {
                     <motion.img
                       whileHover={{ scale: 1.05 }}
                       transition={{ duration: 0.6 }}
-                      src="https://lh3.googleusercontent.com/aida/ADBb0uiZy0_I8-g66iuK-3-yarnpGfG4flJ2_KdqqlSj07OTt4vy_S42tVCyHI2wp-Xnyx5TN9uSF1rVb-HtmQ1xCwu1ukIjwAQqNcBMIh6W-KxSKMgZXvYnKLk2pxCymmgu62S3eDVQfTDmm-ZQN35r3ZsZhbLXWjlBJTmNDQY-5hXZhF2US0c8yl-yXi2iJ76u3feCyfwBuLvCjBOvVI9Rz1UIrqFDTn7yL2PuogYZKkjBGMvnZ0UPecPu2b9tnpfz-j9IWnhp01wL7g"
+                      src="/about-mission.jpg"
                       alt="Our Mission and Vision"
                       className="w-full h-full object-cover"
                     />
@@ -119,7 +119,7 @@ export default function AboutPage() {
                   <motion.img
                     whileHover={{ scale: 1.04 }}
                     transition={{ duration: 0.7 }}
-                    src="https://lh3.googleusercontent.com/aida/ADBb0ug5Enjifu1YlJ6QK5Lv2YhworKgJxAjHitE1YPRp9G8dX44GZiLq0bXB17kN5ik-Tx8fT190p9JfEx25_w9U9neqMfwIasocrUgoByYnQBydu3ekaf-1CUIIWCOD6Wim9C7__PiulcAF_yx2UP2NW8oV3lYZf6RSDzrl_sy0dqj1qGKy6HV09hLzVfKWygIh7vYWK2i0SMQ-OgIplPx1HbW77MSAX6oRl6TeW9yYmnOSXqn-MttijSmOuPHQ_edxq1tDvkIaNsxOhk"
+                    src="/about-hero.jpg"
                     alt="Motherly Team"
                     className="w-full h-full object-cover"
                   />
@@ -168,7 +168,7 @@ export default function AboutPage() {
                 style={{ gridColumn: "span 2", gridRow: "span 2" }}
               >
                 <img
-                  src="https://lh3.googleusercontent.com/aida/ADBb0uhXga7oc-OlCAJTOmq-ccykIDsQRU5JZMXEP7miKhTYsEcI28OsXr4rWEwqp999qWa4EOfxG-wtbcR_qRl7Wm0J9gz-LMRIYHVoPbghm7mkJLR5eLT9WuxKPRqADsSw7IR95nFZPRPMI6NwYod2XaeKfSdzjQztkmRmNKzrvlfy6chxzkdl-5jMnsPqYpxdHI6KVlHD732KuvlJZn2F5xQneWBkoUM8nDKDL38XIOSGWiBLqLM0JlYhpaVrHk2IZTNqYGqT6owuP5I"
+                  src="/about-journey-spark.jpg"
                   alt="Our Care Journey"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
@@ -230,7 +230,7 @@ export default function AboutPage() {
                 className="rounded-[2rem] overflow-hidden"
               >
                 <img
-                  src="https://lh3.googleusercontent.com/aida/ADBb0ugf9A55puSu_EKF0QpiDAzMggZ-wCQiR6VZFL2vev3z7-m0e0iUMt2Bm00-TqCu37pFizor91xM_ZeXqUtIttOODHjcD9b_b7yc-CJA24_aM8biosL13o_MYUWr0NSg-BYZe_5Yg-V_DxmRN9BUeIb0wzAQ4-5EwXIhH2NT_Pe3JNSmM7MT0ddQj2Xj_NLHrICQvf3WXl_uTwIUery_4spMIqlTPzEfFNBmf2fOUzQF98tYdsYT8kl_Jl7Kd2ASWulmV-ZDG89S0BM"
+                  src="/about-journey-caregiver.jpg"
                   alt="Caregiver Support"
                   className="w-full h-full object-cover"
                 />
