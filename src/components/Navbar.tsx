@@ -10,17 +10,19 @@ const primaryServiceLinks = [
   { href: "/services/doulas", label: "Doula Care", icon: "child_friendly" },
   { href: "/services/nannies", label: "Nanny Care", icon: "child_care" },
   { href: "/services/postnatal", label: "Postnatal Recovery", icon: "spa" },
+  { href: "/services/yoga", label: "Yoga", icon: "self_improvement" },
+  { href: "/services/gynaecology", label: "Gynaecology Consultation", icon: "stethoscope" },
 ];
 
 const consultationLinks = [
   { href: "/services/lactation", label: "Lactation Consultation", icon: "favorite" },
-  { href: "/services/gynaecology", label: "Gynaecology Consultation", icon: "stethoscope" },
-  { href: "/services/nutrition", label: "Nutrition Consultation", icon: "nutrition" },
+  { href: "/services/nutrition", label: "Pediatrician Consultation", icon: "pediatrics" },
 ];
 
 const links = [
   { href: "/blogs", label: "Blogs" },
   { href: "/about", label: "About Us" },
+  { href: "/doctors", label: "Medical Partners" },
   { href: "/investors", label: "Investors" },
   { href: "/contact", label: "Contact Us" },
 ];
@@ -160,7 +162,7 @@ export default function Navbar() {
               onClick={() => { setServicesOpen(!servicesOpen); if (servicesOpen) setConsultationOpen(false); }}
               onMouseEnter={() => setServicesHovered(true)}
               onMouseLeave={() => setServicesHovered(false)}
-              className="flex items-center gap-1 text-sm font-semibold relative"
+              className="flex items-center gap-1 text-sm font-semibold relative focus:outline-none"
               style={{
                 fontFamily: "var(--font-plus-jakarta)",
                 color: isServicesActive || servicesHovered ? "var(--color-primary)" : "var(--color-on-surface-variant)",
@@ -243,7 +245,7 @@ export default function Navbar() {
                           >
                             medical_services
                           </span>
-                          Consultation
+                          Doctor Consultation
                         </div>
                         <span
                           className="material-symbols-outlined"
@@ -415,7 +417,7 @@ export default function Navbar() {
                             <span className="material-symbols-outlined text-lg" style={{ color: "var(--color-primary)" }}>
                               medical_services
                             </span>
-                            Consultation
+                            Doctor Consultation
                           </div>
                           <motion.span
                             animate={{ rotate: mobileConsultationOpen ? 90 : 0 }}

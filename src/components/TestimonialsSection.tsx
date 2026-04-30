@@ -6,23 +6,23 @@ import ScrollReveal from "./ScrollReveal";
 const testimonials = [
   {
     quote: "The transition home was so much smoother with our Motherly nurse. She didn't just care for the baby; she cared for me.",
-    name: "Sarah Chen",
+    name: "Sree Lakshmi",
     role: "Mother of Two",
-    initials: "SC",
+    initials: "SL",
     rating: 5,
   },
   {
     quote: "Their lactation consultant was a godsend. Patient, knowledgeable, and incredibly supportive during a stressful time.",
-    name: "Aria Miller",
+    name: "Priya Menon",
     role: "First-time Mother",
-    initials: "AM",
+    initials: "PM",
     rating: 5,
   },
   {
     quote: "Motherly is more than a service; it's a lifeline. The app makes scheduling help so easy when you're exhausted.",
-    name: "Jessica Knight",
+    name: "Ananya Iyer",
     role: "Mother of Three",
-    initials: "JK",
+    initials: "AI",
     rating: 5,
   },
 ];
@@ -68,7 +68,7 @@ export default function TestimonialsSection() {
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.55, delay: i * 0.12, ease: [0.25, 0.46, 0.45, 0.94] }}
               whileHover={{ y: -5 }}
-              className="p-9 rounded-2xl space-y-6 border"
+              className="p-9 rounded-2xl border flex flex-col gap-6"
               style={{
                 backgroundColor: "var(--color-surface-container-lowest)",
                 borderColor: "color-mix(in srgb, var(--color-outline-variant) 20%, transparent)",
@@ -77,7 +77,7 @@ export default function TestimonialsSection() {
             >
               <StarRating count={t.rating} />
               <p
-                className="text-lg italic leading-relaxed"
+                className="text-lg italic leading-relaxed flex-grow"
                 style={{ color: "var(--color-on-surface-variant)" }}
               >
                 "{t.quote}"

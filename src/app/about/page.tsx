@@ -10,29 +10,6 @@ import ScrollReveal from "@/components/ScrollReveal";
 const MotionImage = motion.create(Image);
 const easeOut: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
 
-const testimonials = [
-  {
-    quote: "Motherly didn't just provide a caregiver; they provided a companion who understood my mother's needs before she even spoke them.",
-    name: "Kavya Nair",
-    role: "Daughter of client",
-    avatar: "https://lh3.googleusercontent.com/aida-public/AB6AXuDFrwsh-YzDGv1Qul0nTpqgJo4I1EEJLnxYjOHN6V3BraijWSy5wD7LKV9ErsFCiD_4Php5WppPKO1uZacFtkhUPqNFoDeA9vJ1Xh1vGz3u-elwOanSQlFSwCpyWh3wNlxBEeBW6Ylx9V9aZr_xYHbOux3JPWu8AHCZTZa2Arym0QkcRmOycNU3rC78z6L1AZOuXPRWgZ3__PkXpLRv059fVFxgkBbrnBflsq5xRz2G-i32xpPjb9MxJjLiDGHVsbPSelE0LOmO5M-g",
-    featured: false,
-  },
-  {
-    quote: "The level of professionalism and editorial attention to detail is something I've never seen in healthcare before. Truly premium service.",
-    name: "Ramya Prakash",
-    role: "Primary Caregiver",
-    avatar: "https://lh3.googleusercontent.com/aida-public/AB6AXuDREB8uf0fXNQuo-AUZGkUe7vS-80bYn967q3qAgIvuwbjlcwUN8zZBB0OKpl-OsbDugIkK_PfaVrkdl_6ZhYrNYwP73GQoXqtjaMdeSO22QR8mpIJSOnABNwrE0bbKLJ3um9ezpp8upbOPPol8HWtK1SSNoedCCDw-T9QtDxbLK4gFs2GgGvGJSp9ciRyhV-AXOT3RpnFi87Q6u1qQ8_5KW0SVSWbJ4ltMIzcC0kA_Pnz9bC05yBqC-qcOGLvOS-45Eit_ZOU_1hng",
-    featured: true,
-  },
-  {
-    quote: "They handle everything with such grace. It's not just medical support; it's emotional architecture for the whole family.",
-    name: "Keerthana",
-    role: "Retired Professor",
-    avatar: "https://lh3.googleusercontent.com/aida-public/AB6AXuAWTP0IFMcRRFSOmpKOyISkZiRL9Xlu_WbkM9CjwNJVb6x2DgC_Xnj5Mun5rL-E6gyxRr3-Xyq2oIKh_DJerc8gYNvhk9h1AVUh_nBFdqkofu7hIg2PDUFWkk1oHZ7PyUaJc2bS24WJ1k5Mb1W8P05avvpIjO7mpEFM8MLxd9D1ZmqZGvk8S8dEi1QRcHL6r-pWD6Pq1CJFbIQW-QwBKj6GPoJ0MKTptZB1BlSbkFVniKdHxmqUmKTFpU5OuYK0cADXZL30uwNeLbHW",
-    featured: false,
-  },
-];
 
 export default function AboutPage() {
   return (
@@ -275,106 +252,6 @@ export default function AboutPage() {
                 .journey-bento { grid-template-columns: 1fr !important; }
               }
             `}</style>
-          </div>
-        </section>
-
-        {/* ── Testimonials ── */}
-        <section className="py-24 max-w-7xl mx-auto px-8">
-          <ScrollReveal>
-            <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
-              <div className="max-w-xl">
-                <h2
-                  className="text-4xl font-extrabold tracking-tight mb-4"
-                  style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}
-                >
-                  Voices of Motherly
-                </h2>
-                <p style={{ color: "var(--color-on-surface-variant)" }}>
-                  Real stories from the families who trust us with their most precious moments.
-                </p>
-              </div>
-              <button
-                className="flex items-center gap-2 font-bold hover:underline"
-                style={{ color: "var(--color-primary)", fontFamily: "var(--font-headline)" }}
-              >
-                Read all reviews
-                <span className="material-symbols-outlined">arrow_forward</span>
-              </button>
-            </div>
-          </ScrollReveal>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((t, i) => (
-              <motion.div
-                key={t.name}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.55, delay: i * 0.1, ease: easeOut }}
-                className="p-10 rounded-[2rem]"
-                style={
-                  t.featured
-                    ? {
-                        backgroundColor: "var(--color-primary)",
-                        color: "var(--color-on-primary)",
-                        boxShadow: "0 20px 48px rgba(186,14,86,0.25)",
-                        transform: "translateY(-16px)",
-                      }
-                    : {
-                        backgroundColor: "var(--color-surface-container-lowest)",
-                        border: "1px solid color-mix(in srgb, var(--color-outline-variant) 10%, transparent)",
-                        boxShadow: "0 2px 12px rgba(0,0,0,0.04)",
-                      }
-                }
-              >
-                {/* Stars */}
-                <div className="flex gap-0.5 mb-6">
-                  {Array(5).fill(null).map((_, s) => (
-                    <span
-                      key={s}
-                      className="material-symbols-outlined text-base"
-                      style={{
-                        color: t.featured ? "var(--color-primary-container)" : "var(--color-secondary)",
-                        fontVariationSettings: "'FILL' 1",
-                      }}
-                    >
-                      star
-                    </span>
-                  ))}
-                </div>
-                <p
-                  className="text-lg italic leading-relaxed mb-8"
-                  style={{ color: t.featured ? "var(--color-on-primary)" : "var(--color-on-surface-variant)" }}
-                >
-                  "{t.quote}"
-                </p>
-                <div className="flex items-center gap-4">
-                  <div
-                    className="w-12 h-12 rounded-full overflow-hidden border-2"
-                    style={{ borderColor: t.featured ? "var(--color-primary-container)" : "transparent" }}
-                  >
-                    <Image src={t.avatar} alt={t.name} width={48} height={48} className="w-full h-full object-cover" />
-                  </div>
-                  <div>
-                    <div
-                      className="font-bold"
-                      style={{
-                        fontFamily: "var(--font-headline)",
-                        color: t.featured ? "var(--color-on-primary)" : "var(--color-on-surface)",
-                      }}
-                    >
-                      {t.name}
-                    </div>
-                    <div
-                      className="text-xs"
-                      style={{ color: t.featured ? "rgba(255,255,255,0.75)" : "var(--color-on-surface-variant)" }}
-                    >
-                      {t.role}
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
           </div>
         </section>
 

@@ -13,8 +13,7 @@ const schema = z.object({
   service: z.string().min(1),
   name: z.string().min(2, "Name is required"),
   email: z.string().email("Valid email required"),
-  stage: z.string().min(1, "Please select your stage"),
-  dietary: z.string().optional(),
+  childAge: z.string().min(1, "Please select your child's age"),
   date: z.string().min(1, "Date is required"),
   mode: z.enum(["In-Clinic", "Virtual"]),
   message: z.string().optional(),
@@ -35,36 +34,36 @@ function getInputStyle(hasError?: boolean) {
 
 const pillars = [
   {
-    icon: "pregnant_woman",
-    title: "Prenatal Nutrition",
-    desc: "Tailored meal planning to meet the increased demands of pregnancy — iron, folate, calcium, DHA, and beyond. We work around food aversions, nausea, gestational diabetes, and cultural dietary preferences.",
+    icon: "child_care",
+    title: "Newborn & Infant Care",
+    desc: "Comprehensive health checks for babies in their first year — monitoring growth, development milestones, feeding, and sleep patterns with compassionate, parent-centred guidance.",
     bg: "var(--color-primary-container)",
     color: "var(--color-on-primary-container)",
   },
   {
-    icon: "healing",
-    title: "Postnatal Recovery Nutrition",
-    desc: "Your body has just done something extraordinary. We help you rebuild with targeted nutrition that accelerates healing, balances hormones, and restores your energy levels during the fourth trimester.",
+    icon: "vaccines",
+    title: "Vaccinations & Immunisations",
+    desc: "Up-to-date immunisation schedules administered by experienced paediatricians, with thorough explanations for parents on what to expect and how to support your child post-vaccination.",
     bg: "var(--color-secondary-container)",
     color: "var(--color-on-secondary-container)",
   },
   {
-    icon: "baby_changing_station",
-    title: "Breastfeeding Support Nutrition",
-    desc: "Evidence-based guidance on what to eat to support milk supply, manage colic-related dietary factors, and keep both you and your baby well-nourished through your nursing journey.",
+    icon: "monitor_heart",
+    title: "Developmental Assessments",
+    desc: "Early identification of developmental concerns — including speech, motor, and cognitive milestones — with onward referrals and holistic support plans tailored to each child.",
     bg: "var(--color-tertiary-container)",
     color: "var(--color-on-tertiary-container)",
   },
   {
-    icon: "monitor_weight",
-    title: "Weight & Wellness Management",
-    desc: "Compassionate, non-judgmental support for healthy weight management during and after pregnancy — focused on sustainable habits, not restriction.",
+    icon: "sick",
+    title: "Common Childhood Illnesses",
+    desc: "Prompt, expert diagnosis and treatment of common paediatric conditions — from ear infections and eczema to fever management and respiratory issues — keeping your child healthy and comfortable.",
     bg: "var(--color-surface-container-high)",
     color: "var(--color-on-surface)",
   },
 ];
 
-export default function NutritionPage() {
+export default function PediatricianPage() {
   const [submitted, setSubmitted] = useState(false);
   const [mode, setMode] = useState<"In-Clinic" | "Virtual">("In-Clinic");
 
@@ -83,7 +82,7 @@ export default function NutritionPage() {
     await fetch("/api/submit", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ formType: "Service Bookings", page: "Nutrition Consultation", ...data }),
+      body: JSON.stringify({ formType: "Service Bookings", page: "Pediatrician Consultation", ...data }),
     });
     setSubmitted(true);
     reset();
@@ -104,7 +103,7 @@ export default function NutritionPage() {
       >
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
 
-          {/* ── Left Column ── */}
+          {/* Left Column */}
           <div className="lg:col-span-7 space-y-12">
 
             {/* Hero */}
@@ -121,27 +120,26 @@ export default function NutritionPage() {
                     color: "var(--color-primary)",
                   }}
                 >
-                  <span className="material-symbols-outlined text-sm">nutrition</span>
-                  Expert Nutrition Care
+                  <span className="material-symbols-outlined text-sm">pediatrics</span>
+                  Expert Paediatric Care
                 </div>
                 <h1
                   className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight"
                   style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-background)" }}
                 >
-                  Nourish Your Journey,{" "}
-                  <span style={{ color: "var(--color-primary)" }}>Nourish Your Baby</span>
+                  Your Child's Health,{" "}
+                  <span style={{ color: "var(--color-primary)" }}>In Expert Hands</span>
                 </h1>
                 <p
                   className="text-lg max-w-2xl mt-6 leading-relaxed"
                   style={{ color: "var(--color-on-surface-variant)" }}
                 >
-                  Personalised nutrition guidance from certified dietitians — supporting you from
-                  conception through breastfeeding and beyond.
+                  Dedicated paediatric consultations from qualified doctors — supporting your child's
+                  growth, health, and development from newborn through early childhood.
                 </p>
 
-                {/* Badges */}
                 <div className="flex flex-wrap gap-3 mt-6">
-                  {["Certified Maternal Dietitians", "In-Clinic & Virtual Consultations"].map((badge) => (
+                  {["Qualified Paediatricians", "In-Clinic & Virtual Consultations"].map((badge) => (
                     <span
                       key={badge}
                       className="px-4 py-1.5 rounded-full text-xs font-bold border"
@@ -183,7 +181,7 @@ export default function NutritionPage() {
                       className="text-xl md:text-2xl font-bold mt-3 italic text-white leading-snug"
                       style={{ fontFamily: "var(--font-headline)" }}
                     >
-                      "The right nourishment changes everything —<br />especially when it's made for you."
+                      "Every child deserves attentive care —<br />and every parent deserves peace of mind."
                     </h3>
                   </div>
                 </div>
@@ -196,14 +194,15 @@ export default function NutritionPage() {
                 className="text-3xl font-bold"
                 style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-background)" }}
               >
-                Food as Care.{" "}
-                <span style={{ color: "var(--color-primary)" }}>Science as Foundation.</span>
+                Paediatric Care.{" "}
+                <span style={{ color: "var(--color-primary)" }}>Built Around Your Child.</span>
               </h2>
               <p className="mt-3 leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
-                Our maternal nutrition consultants work with you one-on-one to build an eating plan
-                that fits your body, your culture, and your stage of pregnancy or postpartum recovery.
-                No generic advice. No one-size-fits-all charts. Just real, practical guidance — rooted
-                in clinical evidence and adapted to your life.
+                Our paediatricians work closely with you to monitor your child's health at every stage
+                of early development. From routine wellness checks to managing illness, we take a
+                thorough, compassionate approach — always treating the whole child, not just the
+                symptoms. No rushed appointments. No one-size-fits-all advice. Just expert care
+                adapted to your child and your family.
               </p>
             </ScrollReveal>
 
@@ -214,13 +213,13 @@ export default function NutritionPage() {
                 style={{ backgroundColor: "var(--color-surface-container-low)" }}
               >
                 <div className="absolute top-0 right-0 p-4 opacity-5 pointer-events-none select-none">
-                  <span className="material-symbols-outlined" style={{ fontSize: "9rem" }}>nutrition</span>
+                  <span className="material-symbols-outlined" style={{ fontSize: "9rem" }}>pediatrics</span>
                 </div>
                 <h2
                   className="text-2xl font-bold"
                   style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-background)" }}
                 >
-                  Our Nutrition Focus Areas
+                  Our Paediatric Focus Areas
                 </h2>
                 <div className="grid md:grid-cols-2 gap-8">
                   {pillars.map((p, i) => (
@@ -254,7 +253,7 @@ export default function NutritionPage() {
             </ScrollReveal>
           </div>
 
-          {/* ── Right Column: Booking Form ── */}
+          {/* Right Column: Booking Form */}
           <aside className="lg:col-span-5 sticky top-28">
             <motion.div
               initial={{ opacity: 0, x: 30 }}
@@ -274,7 +273,7 @@ export default function NutritionPage() {
                 Send an Enquiry
               </h3>
               <p className="mb-8 text-sm" style={{ color: "var(--color-on-surface-variant)" }}>
-                Tell us about your needs and we'll be in touch.
+                Tell us about your child's needs and we'll be in touch.
               </p>
 
               <AnimatePresence mode="wait">
@@ -331,19 +330,19 @@ export default function NutritionPage() {
                         Select Service
                       </label>
                       <select {...register("service")} className={inputClass} style={getInputStyle()}>
+                        <option value="Pediatrician Consultation">Pediatrician Consultation</option>
                         <option value="Doulas">Doulas</option>
                         <option value="Lactation Consultants">Lactation Consultants</option>
                         <option value="Gynaecology Consultation">Gynaecology Consultation</option>
                         <option value="Nanny Care">Nanny Care</option>
                         <option value="Postnatal Recovery">Postnatal Recovery</option>
-                        <option value="Nutrition Consultation">Nutrition Consultation</option>
                       </select>
                     </div>
 
                     {/* Name */}
                     <div className="space-y-1.5">
                       <label className="text-sm font-semibold ml-1" style={{ color: "var(--color-on-surface-variant)" }}>
-                        Full Name
+                        Parent / Guardian Name
                       </label>
                       <input
                         {...register("name")}
@@ -374,37 +373,22 @@ export default function NutritionPage() {
                       )}
                     </div>
 
-                    {/* Stage */}
+                    {/* Child Age */}
                     <div className="space-y-1.5">
                       <label className="text-sm font-semibold ml-1" style={{ color: "var(--color-on-surface-variant)" }}>
-                        Trimester / Stage
+                        Child's Age
                       </label>
-                      <select {...register("stage")} className={inputClass} style={getInputStyle(!!errors.stage)}>
-                        <option value="">Select your stage</option>
-                        <option value="Pre-conception">Pre-conception</option>
-                        <option value="1st Trimester">1st Trimester</option>
-                        <option value="2nd Trimester">2nd Trimester</option>
-                        <option value="3rd Trimester">3rd Trimester</option>
-                        <option value="Postnatal">Postnatal</option>
+                      <select {...register("childAge")} className={inputClass} style={getInputStyle(!!errors.childAge)}>
+                        <option value="">Select age range</option>
+                        <option value="Newborn (0–28 days)">Newborn (0–28 days)</option>
+                        <option value="Infant (1–12 months)">Infant (1–12 months)</option>
+                        <option value="Toddler (1–3 years)">Toddler (1–3 years)</option>
+                        <option value="Preschool (3–5 years)">Preschool (3–5 years)</option>
+                        <option value="School age (5+ years)">School age (5+ years)</option>
                       </select>
-                      {errors.stage && (
-                        <p className="text-xs ml-1" style={{ color: "var(--color-error)" }}>{errors.stage.message}</p>
+                      {errors.childAge && (
+                        <p className="text-xs ml-1" style={{ color: "var(--color-error)" }}>{errors.childAge.message}</p>
                       )}
-                    </div>
-
-                    {/* Dietary */}
-                    <div className="space-y-1.5">
-                      <label className="text-sm font-semibold ml-1" style={{ color: "var(--color-on-surface-variant)" }}>
-                        Dietary preferences or restrictions{" "}
-                        <span style={{ fontWeight: 400, color: "var(--color-on-surface-variant)" }}>(optional)</span>
-                      </label>
-                      <input
-                        {...register("dietary")}
-                        type="text"
-                        placeholder="e.g. vegetarian, lactose intolerant..."
-                        className={inputClass}
-                        style={getInputStyle()}
-                      />
                     </div>
 
                     {/* Date */}
@@ -460,7 +444,7 @@ export default function NutritionPage() {
                       <textarea
                         {...register("message")}
                         rows={3}
-                        placeholder="Any health conditions or goals we should know about..."
+                        placeholder="Any health concerns or symptoms we should know about..."
                         className={`${inputClass} resize-none`}
                         style={getInputStyle()}
                       />
