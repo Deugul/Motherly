@@ -121,7 +121,7 @@ export default function BlogPageClient({
   featuredPost,
 }: {
   posts: BlogPost[];
-  featuredPost: FeaturedPost;
+  featuredPost: FeaturedPost | null;
 }) {
   const [activeFilter, setActiveFilter] = useState("All Topics");
   const [search, setSearch] = useState("");
@@ -215,54 +215,56 @@ export default function BlogPageClient({
       </ScrollReveal>
 
       {/* Featured Article */}
-      <ScrollReveal delay={0.1}>
-        <motion.article
-          whileHover={{ y: -4 }}
-          transition={{ duration: 0.3, ease: easeOut }}
-          className="relative mb-20 cursor-pointer group"
-        >
-          <div
-            className="grid grid-cols-1 lg:grid-cols-12 items-center rounded-2xl overflow-hidden"
-            style={{
-              backgroundColor: "var(--color-surface-container-lowest)",
-              boxShadow: "0 12px 32px rgba(45,52,53,0.06)",
-            }}
+      {featuredPost !== null ? (
+        <ScrollReveal delay={0.1}>
+          <motion.article
+            whileHover={{ y: -4 }}
+            transition={{ duration: 0.3, ease: easeOut }}
+            className="relative mb-20 cursor-pointer group"
           >
-            <div className="lg:col-span-7 aspect-video lg:aspect-auto lg:min-h-[320px] overflow-hidden relative">
-              <MotionImage
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.7 }}
-                src={featuredPost.image}
-                alt={featuredPost.title}
-                fill
-                className="object-cover"
-                priority
-              />
-            </div>
-            <div className="lg:col-span-5 p-8 lg:p-12 space-y-4">
-              <span className="text-xs uppercase tracking-widest font-bold" style={{ color: "var(--color-primary)" }}>
-                {featuredPost.tag}
-              </span>
-              <h2
-                className="text-3xl md:text-4xl font-bold leading-tight"
-                style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}
-              >
-                {featuredPost.title}
-              </h2>
-              <p className="text-lg" style={{ color: "var(--color-on-surface-variant)" }}>
-                {featuredPost.excerpt}
-              </p>
-              <div className="pt-4 flex items-center gap-4">
-                <div className="w-10 h-10 rounded-full" style={{ backgroundColor: "var(--color-primary-container)" }} />
-                <div>
-                  <p className="text-sm font-bold" style={{ color: "var(--color-on-surface)" }}>{featuredPost.author}</p>
-                  <p className="text-xs" style={{ color: "var(--color-on-surface-variant)" }}>{featuredPost.authorRole}</p>
+            <div
+              className="grid grid-cols-1 lg:grid-cols-12 items-center rounded-2xl overflow-hidden"
+              style={{
+                backgroundColor: "var(--color-surface-container-lowest)",
+                boxShadow: "0 12px 32px rgba(45,52,53,0.06)",
+              }}
+            >
+              <div className="lg:col-span-7 aspect-video lg:aspect-auto lg:min-h-[320px] overflow-hidden relative">
+                <MotionImage
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.7 }}
+                  src={featuredPost.image}
+                  alt={featuredPost.title}
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              </div>
+              <div className="lg:col-span-5 p-8 lg:p-12 space-y-4">
+                <span className="text-xs uppercase tracking-widest font-bold" style={{ color: "var(--color-primary)" }}>
+                  {featuredPost.tag}
+                </span>
+                <h2
+                  className="text-3xl md:text-4xl font-bold leading-tight"
+                  style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}
+                >
+                  {featuredPost.title}
+                </h2>
+                <p className="text-lg" style={{ color: "var(--color-on-surface-variant)" }}>
+                  {featuredPost.excerpt}
+                </p>
+                <div className="pt-4 flex items-center gap-4">
+                  <div className="w-10 h-10 rounded-full" style={{ backgroundColor: "var(--color-primary-container)" }} />
+                  <div>
+                    <p className="text-sm font-bold" style={{ color: "var(--color-on-surface)" }}>{featuredPost.author}</p>
+                    <p className="text-xs" style={{ color: "var(--color-on-surface-variant)" }}>{featuredPost.authorRole}</p>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </motion.article>
-      </ScrollReveal>
+          </motion.article>
+        </ScrollReveal>
+      ) : null}
 
       {/* Blog Grid */}
       {filtered.length === 0 ? (
