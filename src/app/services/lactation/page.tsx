@@ -211,41 +211,6 @@ export default function LactationPage() {
               </div>
             </div>
 
-            {/* Testimonial */}
-            <ScrollReveal>
-              <div
-                className="p-10 rounded-2xl relative overflow-hidden"
-                style={{ backgroundColor: "var(--color-surface-container-high)" }}
-              >
-                <div className="absolute top-0 right-0 p-8 opacity-5 pointer-events-none select-none">
-                  <span className="material-symbols-outlined" style={{ fontSize: "7rem" }}>format_quote</span>
-                </div>
-                <p
-                  className="text-xl italic font-medium leading-relaxed mb-6 relative z-10"
-                  style={{ color: "var(--color-on-surface)" }}
-                >
-                  "The support I received from Motherly's lactation consultant changed everything.
-                  I was ready to give up, but her patience and expertise gave me the confidence to
-                  continue my breastfeeding journey."
-                </p>
-                <div className="flex items-center gap-4 relative z-10">
-                  <Image
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-pcij5S1oLiy_gsBwN9lBbTkHE7uSFwAg-Bqi-suIDWlUaWsEGQA9On5ABGhDSeGb_hWzLis6TVUPdUHRR3CEHwa0c4v4VF1hgK3Ncj5rGkHMQuLq6UuN3TZr1KsPE82aj56FRqf_60DrnFmgVT5IzFjLRgpUvaYHJzTHLSY7SMjQNMiu_9cRfSHTt18TLMIM9-egf_Wm9aEkS4WLFyhOk6aIv5esmrsg5Z93au_r-EJYSm-LfnoaFpXDfuh9vAANWFpz64ER-xoq"
-                    alt="Sarah Jenkins"
-                    width={48} height={48}
-                    className="rounded-full object-cover"
-                  />
-                  <div>
-                    <p className="font-bold" style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}>
-                      Sarah Jenkins
-                    </p>
-                    <p className="text-sm" style={{ color: "var(--color-on-surface-variant)" }}>
-                      Mother of 4-month-old Leo
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </ScrollReveal>
           </div>
 
           {/* ── Right Column: Booking Form ── */}

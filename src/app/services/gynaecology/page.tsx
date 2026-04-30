@@ -107,15 +107,16 @@ export default function GynaecologyPage() {
                 />
               </motion.div>
               <div
-                className="absolute -bottom-6 -left-6 w-20 h-20 rounded-xl shadow-lg flex items-center justify-center"
+                className="absolute -bottom-6 -left-6 w-20 h-20 rounded-xl shadow-lg flex items-center justify-center overflow-hidden"
                 style={{ backgroundColor: "var(--color-surface-container-lowest)" }}
               >
-                <span
-                  className="text-3xl font-bold opacity-40"
-                  style={{ fontFamily: "var(--font-headline)", color: "var(--color-primary)" }}
-                >
-                  M
-                </span>
+                <Image
+                  src="/logo.png"
+                  alt="Motherly"
+                  width={56}
+                  height={56}
+                  className="object-contain"
+                />
               </div>
             </ScrollReveal>
           </div>
@@ -257,21 +258,6 @@ export default function GynaecologyPage() {
                     We combine clinical expertise with a deeply personal approach to women's
                     healthcare, creating a sanctuary for wellness.
                   </p>
-                  <div
-                    className="grid grid-cols-2 gap-8 border-t pt-8"
-                    style={{ borderColor: "rgba(255,255,255,0.2)" }}
-                  >
-                    {[{ stat: "15+", label: "Specialists" }, { stat: "10k+", label: "Lives Touched" }].map((s) => (
-                      <div key={s.label}>
-                        <p className="text-3xl font-bold" style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-primary)" }}>
-                          {s.stat}
-                        </p>
-                        <p className="text-sm uppercase tracking-widest" style={{ color: "color-mix(in srgb, var(--color-on-primary) 75%, transparent)" }}>
-                          {s.label}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
                 </div>
               </div>
             </ScrollReveal>

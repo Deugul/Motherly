@@ -24,7 +24,6 @@ const links = [
   { href: "/about", label: "About Us" },
   { href: "/doctors", label: "Medical Partners" },
   { href: "/investors", label: "Investors" },
-  { href: "/contact", label: "Contact Us" },
 ];
 
 function NavLink({ href, label, active }: { href: string; label: string; active: boolean }) {
@@ -318,7 +317,7 @@ export default function Navbar() {
                 boxShadow: "0 8px 24px color-mix(in srgb, var(--color-primary) 30%, transparent)",
               }}
             >
-              Book Care
+              Contact Us
             </motion.button>
           </Link>
         </div>
@@ -489,7 +488,7 @@ export default function Navbar() {
                     color: "var(--color-on-primary)",
                   }}
                 >
-                  Book Care
+                  Contact Us
                 </button>
               </Link>
             </div>
