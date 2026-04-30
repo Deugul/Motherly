@@ -12,29 +12,11 @@ import ScrollReveal from "@/components/ScrollReveal";
 const schema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
   email: z.string().email("Please enter a valid email"),
+  phone: z.string().min(7, "Please enter a valid contact number"),
   linkedin: z.string().url("Please enter a valid LinkedIn URL").includes("linkedin.com", { message: "Must be a LinkedIn URL" }),
   message: z.string().optional(),
 });
 type FormData = z.infer<typeof schema>;
-
-const principles = [
-  "We are building a platform that directly touches the lives of mothers and families — impact is our north star, returns follow.",
-  "We will not compromise our culture or values for capital. Investors who align with our mission come first.",
-  "We are not looking for quick exits. This is a long-term relationship built on trust and shared vision.",
-  "We believe in radical transparency — our investors receive quarterly updates on metrics, milestones, and challenges.",
-  "We do not give equity to mentors or brand ambassadors. Every share represents a meaningful commitment.",
-  "Decisions are made by the founding team. We value counsel, but ownership of direction is ours.",
-  "We respect your time and capital. We will only raise what we need and deploy it with discipline.",
-  "We are open to ideas and introductions — but we ask that all suggestions respect our operational boundaries.",
-  "We will build a sustainable, profitable business. Motherly is a 5-year vision, not a 12-month story.",
-  "We expect mutual respect, patience, and belief in the mission above all else.",
-];
-
-const stats = [
-  { value: "500+", label: "Mothers Supported" },
-  { value: "1", label: "Year of Operations" },
-  { value: "3x", label: "YoY Growth" },
-];
 
 const easeOut: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
 
@@ -98,8 +80,7 @@ export default function InvestorsPage() {
             style={{ backgroundColor: "var(--color-tertiary)" }}
           />
 
-          <div className="relative z-10 max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            {/* Text */}
+          <div className="relative z-10 max-w-7xl mx-auto w-full max-w-3xl">
             <motion.div
               initial={{ opacity: 0, y: 32 }}
               animate={{ opacity: 1, y: 0 }}
@@ -156,59 +137,26 @@ export default function InvestorsPage() {
                 Apply for Investment
               </motion.a>
             </motion.div>
-
-            {/* Stats */}
-            <motion.div
-              initial={{ opacity: 0, x: 40 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.7, delay: 0.2, ease: easeOut }}
-              className="grid grid-cols-2 gap-4"
-            >
-              {stats.map((s, i) => (
-                <motion.div
-                  key={s.label}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.3 + i * 0.1, ease: easeOut }}
-                  className="p-7 rounded-2xl border"
-                  style={{
-                    backgroundColor: "rgba(255,255,255,0.04)",
-                    borderColor: "rgba(255,255,255,0.08)",
-                    backdropFilter: "blur(12px)",
-                  }}
-                >
-                  <p
-                    className="text-3xl md:text-4xl font-extrabold mb-2"
-                    style={{ fontFamily: "var(--font-headline)", color: "var(--color-primary)" }}
-                  >
-                    {s.value}
-                  </p>
-                  <p className="text-sm font-medium" style={{ color: "rgba(255,255,255,0.55)" }}>
-                    {s.label}
-                  </p>
-                </motion.div>
-              ))}
-            </motion.div>
           </div>
         </section>
 
         {/* ── Why Invest ── */}
         <section
           className="py-24 px-6 md:px-10"
-          style={{ backgroundColor: "var(--color-on-surface)" }}
+          style={{ backgroundColor: "var(--color-background)" }}
         >
           <div className="max-w-4xl mx-auto space-y-12">
             <ScrollReveal>
               <div className="text-center space-y-4">
                 <h2
                   className="text-4xl md:text-5xl font-extrabold tracking-tight"
-                  style={{ fontFamily: "var(--font-headline)", color: "white" }}
+                  style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}
                 >
                   Motherly is a{" "}
                   <span style={{ color: "var(--color-primary)" }}>high-conviction</span>
                   <br />long-term investment
                 </h2>
-                <p className="text-lg max-w-2xl mx-auto" style={{ color: "rgba(255,255,255,0.6)" }}>
+                <p className="text-lg max-w-2xl mx-auto" style={{ color: "var(--color-on-surface-variant)" }}>
                   We do not take money from individuals looking for quick returns. We partner with founders,
                   operators, and investors who have lived through the entrepreneurial journey and understand
                   that building something meaningful takes time.
@@ -230,53 +178,6 @@ export default function InvestorsPage() {
                 and hold for the long term."
               </div>
             </ScrollReveal>
-          </div>
-        </section>
-
-        {/* ── Ten Principles ── */}
-        <section className="py-24 px-6 md:px-10" style={{ backgroundColor: "var(--color-surface-container-low)" }}>
-          <div className="max-w-3xl mx-auto space-y-12">
-            <ScrollReveal>
-              <h2
-                className="text-4xl md:text-5xl font-extrabold tracking-tight text-center"
-                style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}
-              >
-                Ten Principles of{" "}
-                <span style={{ color: "var(--color-primary)" }}>Motherly</span>
-                {" "}For Investors
-              </h2>
-            </ScrollReveal>
-
-            <div className="space-y-4">
-              {principles.map((p, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, margin: "-40px" }}
-                  transition={{ duration: 0.45, delay: i * 0.05, ease: easeOut }}
-                  className="flex gap-5 p-6 rounded-2xl border"
-                  style={{
-                    backgroundColor: "var(--color-surface-container-lowest)",
-                    borderColor: "color-mix(in srgb, var(--color-outline-variant) 15%, transparent)",
-                  }}
-                >
-                  <span
-                    className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold mt-0.5"
-                    style={{
-                      backgroundColor: "color-mix(in srgb, var(--color-primary) 12%, transparent)",
-                      color: "var(--color-primary)",
-                      fontFamily: "var(--font-headline)",
-                    }}
-                  >
-                    {i + 1}
-                  </span>
-                  <p className="text-base leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
-                    {p}
-                  </p>
-                </motion.div>
-              ))}
-            </div>
           </div>
         </section>
 
@@ -421,6 +322,29 @@ export default function InvestorsPage() {
                           <p className="text-xs flex items-center gap-1" style={{ color: "var(--color-error)" }}>
                             <span className="material-symbols-outlined text-sm">error</span>
                             {errors.email.message}
+                          </p>
+                        )}
+                      </div>
+
+                      {/* Contact Number */}
+                      <div className="space-y-1.5">
+                        <label
+                          className="text-sm font-semibold"
+                          style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}
+                        >
+                          Contact Number *
+                        </label>
+                        <input
+                          {...register("phone")}
+                          type="tel"
+                          placeholder="+91 98765 43210"
+                          className={inputClass}
+                          style={getInputStyle(!!errors.phone)}
+                        />
+                        {errors.phone && (
+                          <p className="text-xs flex items-center gap-1" style={{ color: "var(--color-error)" }}>
+                            <span className="material-symbols-outlined text-sm">error</span>
+                            {errors.phone.message}
                           </p>
                         )}
                       </div>

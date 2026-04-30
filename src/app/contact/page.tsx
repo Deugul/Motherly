@@ -381,31 +381,6 @@ export default function ContactPage() {
                   </motion.a>
                 </div>
 
-                {/* Active staff */}
-                <div
-                  className="mt-8 pt-6 border-t flex items-center gap-4"
-                  style={{ borderColor: "color-mix(in srgb, var(--color-outline-variant) 20%, transparent)" }}
-                >
-                  <div className="flex -space-x-2">
-                    {[
-                      "https://lh3.googleusercontent.com/aida-public/AB6AXuBz-DUQIvlh1l_YkDbEHvadL3s_frR8IxOmtKycCpG7IEtzAqtCEkOk8FodTreKa5vIdPGmBoSQ39D0jUFtpEse1UKwLVcKYHAUG6hj0immh8fusx7PdpEisNCSxZ-Ggps9e-iqkQRIX_2JZtXVL4xNjBSgyRJrP1hOunohGwzcyGEH0hRGrIeEncsk_8YmPs7pRWrZfnehntipdJjmJNs4tP3abGZHKFqatw1Fy4H0osqy40FbmHWJ8zfe5aYTzKs0uJHXwxf5P3VY",
-                      "https://lh3.googleusercontent.com/aida-public/AB6AXuDTkfMQmXa39U6vu5-G_eHcjqIqmw3bU3vd4C8sXnUakGx__oz2Gux2-XD3ju9KKonuRsZ_yqY2NLU_UgYNBXBJNJt_oQbbFqzHJEcpUVgHzWPiueUgWyHdXALubGoTjUKIFXp6K9FDdqfqF7sw01M21QCKc6G99DAEiRQbcVZy46M4uFGYfQuZ28NdaBhTgcxXHwDYFWFQMEMlsKtiqZCL_0jYCQ5MTI8eCWWlSTB3u8vQ8cAZByOucO_7-pX3PAw_Hx9Hs4fzAn9E",
-                      "https://lh3.googleusercontent.com/aida-public/AB6AXuD6JzH5Kv5YqTd9aV83NVFp2nW0xVYSI9lxwohtraJSmI48aPoM39piYtfoaycDJYhve5ozbSvHSnhHq96tDZDRjR2Xq696mC9tpoM-ZMfdwU4yh0xxdHfnL3EiuHX_8-9zreTYJ7c1lHxB0o4WDyS96BIq0Hxk3HTn2gYdz_FxgEx-_aC62lGZezgA7B7f2GsRwk2ZW5EzWVg46mzfudRIn4oHVw2VBxmXGRNOugUNlhMHfjwfIaFV4",
-                    ].map((src, i) => (
-                      <Image
-                        key={i}
-                        src={src}
-                        alt="Support staff"
-                        width={32} height={32}
-                        className="rounded-full object-cover border-2"
-                        style={{ borderColor: "var(--color-surface-container-high)" }}
-                      />
-                    ))}
-                  </div>
-                  <span className="text-xs font-bold" style={{ color: "var(--color-on-surface-variant)" }}>
-                    Active support staff online now
-                  </span>
-                </div>
               </div>
             </ScrollReveal>
           </div>

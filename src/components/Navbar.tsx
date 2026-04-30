@@ -15,7 +15,7 @@ const primaryServiceLinks = [
 ];
 
 const consultationLinks = [
-  { href: "/services/lactation", label: "Lactation Consultation", icon: "favorite" },
+  { href: "/services/lactation", label: "Lactation/Obstetrician Consultation", icon: "favorite" },
   { href: "/services/nutrition", label: "Pediatrician Consultation", icon: "pediatrics" },
 ];
 
@@ -202,7 +202,7 @@ export default function Navbar() {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 8, scale: 0.97 }}
                     transition={{ duration: 0.18, ease: "easeOut" }}
-                    className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-56 rounded-2xl border overflow-hidden"
+                    className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-56 rounded-2xl border"
                     style={{
                       backgroundColor: "white",
                       borderColor: "color-mix(in srgb, var(--color-outline-variant) 20%, transparent)",
@@ -223,7 +223,7 @@ export default function Navbar() {
 
                       {/* Consultation trigger */}
                       <div
-                        className="flex items-center justify-between px-5 py-3.5 cursor-pointer text-sm font-semibold select-none"
+                        className="relative flex items-center justify-between px-5 py-3.5 cursor-pointer text-sm font-semibold select-none"
                         onMouseEnter={openConsultation}
                         onMouseLeave={scheduleCloseConsultation}
                         style={{
@@ -253,45 +253,47 @@ export default function Navbar() {
                         >
                           chevron_right
                         </span>
+
+                        {/* Level 2 — consultation submenu, opens below-right of trigger row */}
+                        <AnimatePresence>
+                          {consultationOpen && (
+                            <motion.div
+                              key="consultation-panel"
+                              initial={{ opacity: 0, y: -4 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              exit={{ opacity: 0, y: -4 }}
+                              transition={{ duration: 0.15, ease: "easeOut" }}
+                              className="absolute rounded-2xl border overflow-hidden"
+                              style={{
+                                top: "100%",
+                                left: 0,
+                                minWidth: "220px",
+                                backgroundColor: "white",
+                                borderColor: "color-mix(in srgb, var(--color-outline-variant) 20%, transparent)",
+                                boxShadow: "0 16px 48px rgba(0,0,0,0.12)",
+                                zIndex: 60,
+                              }}
+                              onMouseEnter={openConsultation}
+                              onMouseLeave={scheduleCloseConsultation}
+                            >
+                              <div className="py-2">
+                                {consultationLinks.map((s) => (
+                                  <DropdownLink
+                                    key={s.href}
+                                    href={s.href}
+                                    label={s.label}
+                                    icon={s.icon}
+                                    active={pathname === s.href}
+                                    onClick={closeAll}
+                                  />
+                                ))}
+                              </div>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
                       </div>
                     </div>
                   </motion.div>
-
-                  {/* Level 2 — consultation submenu */}
-                  <AnimatePresence>
-                    {consultationOpen && (
-                      <motion.div
-                        key="consultation-panel"
-                        initial={{ opacity: 0, x: -6 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        exit={{ opacity: 0, x: -6 }}
-                        transition={{ duration: 0.15, ease: "easeOut" }}
-                        className="absolute mt-3 w-56 rounded-2xl border overflow-hidden"
-                        style={{
-                          top: "100%",
-                          left: "calc(50% + 120px)",
-                          backgroundColor: "white",
-                          borderColor: "color-mix(in srgb, var(--color-outline-variant) 20%, transparent)",
-                          boxShadow: "0 16px 48px rgba(0,0,0,0.12)",
-                        }}
-                        onMouseEnter={openConsultation}
-                        onMouseLeave={scheduleCloseConsultation}
-                      >
-                        <div className="py-2">
-                          {consultationLinks.map((s) => (
-                            <DropdownLink
-                              key={s.href}
-                              href={s.href}
-                              label={s.label}
-                              icon={s.icon}
-                              active={pathname === s.href}
-                              onClick={closeAll}
-                            />
-                          ))}
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
                 </>
               )}
             </AnimatePresence>

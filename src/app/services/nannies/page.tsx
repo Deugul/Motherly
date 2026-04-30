@@ -58,13 +58,13 @@ export default function NanniesPage() {
     <>
       <Navbar />
       <main
-        className="pt-32 pb-20 px-6 max-w-7xl mx-auto"
+        className="pt-28 md:pt-32 pb-20 px-4 sm:px-6 max-w-7xl mx-auto overflow-x-hidden"
         style={{ backgroundColor: "var(--color-surface)" }}
       >
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
 
           {/* ── Left Column ── */}
-          <div className="lg:col-span-7 space-y-12">
+          <div className="lg:col-span-7 space-y-8 lg:space-y-12">
 
             {/* Hero */}
             <ScrollReveal>
@@ -73,29 +73,6 @@ export default function NanniesPage() {
                   className="absolute -top-10 -left-10 w-40 h-40 rounded-full blur-3xl opacity-60 pointer-events-none"
                   style={{ backgroundColor: "color-mix(in srgb, var(--color-primary-container) 20%, transparent)" }}
                 />
-                {/* Avatar stack */}
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="flex -space-x-3">
-                    {[
-                      "https://lh3.googleusercontent.com/aida-public/AB6AXuC7DuFnqKO8FRwrVOefJxTn8tNJ40Y9e6E9WjFX1bfxQ9kRWsqiXBF2HxTvECGEWnEBOPJRVxr8BsrYMomNkqXQe_3JFnOaFxCJJa-8aVMhj7L0LsXVgVnLbFqtg9yvM4CtKFV6y0YnkqV8h_oJ1MuZ5mFCj1lJWH_I2cT65d3ow_Av10IpHRXzOILZZDKLDIGJeYPXkNjQK9Voh5mf42Jl-eoKgYCjvnY2k7p6DqNFLXExo3gJaGKfpNFBj3r6L3cY0_W-5DuE",
-                      "https://lh3.googleusercontent.com/aida-public/AB6AXuB2EKfXSUiGkwF8N4RCb19RbUiXJ3Hk9j1TYl56N56E3u0bYnV8VyVT8OL-1xXI-pBe2blw7Bk3oUlVCGiqIz7jPxd3RLZsVAkVRdaxVNhEqVb09yl4QPLF0CmRFGr1_zzHnFhDxLsS4AVbPuHkjyG7R6Gfvr7BaxMFdj8dLaSA88bnLnb5R49MHl2XVHKzHp16_Dc_TqP7ZjVlHRFvnZ8JyAHqxcBgBvvNlOFlxcUYL4b_mzx3Y3XeVJJMBtqkmSa2PJj3K0sIk",
-                      "https://lh3.googleusercontent.com/aida-public/AB6AXuDKWrL6fk1YXPG40-eMKhIbBlXgCGwWPEFhVmYVK-B43h8G9K6hFdI2Cw1s5KZb4c34A2-1HuV5NJMV_RkUfZVeNWrPHHCq7JOKnxV1-B2viBQ-1CY3f-VvBnzD6d0ERvj5V4VL74M-9-X9q-VBFoxGiurDrUJe6gJ-HHPOChOBBRz_VVsLwqfmhDI3y9v5INAYXxf3jbz71s8T_1R0Cqx8B8T9Hf7JVKiGBH4K2J-sUrIxBOEWZ18YcCLrQ1P_tAU3cEp4W0ms",
-                    ].map((src, i) => (
-                      <Image
-                        key={i}
-                        src={src}
-                        alt="Caregiver"
-                        width={40} height={40}
-                        className="rounded-full object-cover border-2"
-                        style={{ borderColor: "var(--color-surface)" }}
-                      />
-                    ))}
-                  </div>
-                  <span className="text-sm font-semibold" style={{ color: "var(--color-on-surface-variant)" }}>
-                    +150 Expert Caregivers Ready
-                  </span>
-                </div>
-
                 <h1
                   className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight"
                   style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-background)" }}
@@ -159,7 +136,7 @@ export default function NanniesPage() {
             {/* Personalized Care Section */}
             <ScrollReveal delay={0.15}>
               <section
-                className="rounded-2xl p-10 space-y-8 relative overflow-hidden"
+                className="rounded-2xl p-6 md:p-10 space-y-8 relative overflow-hidden"
                 style={{ backgroundColor: "var(--color-surface-container-low)" }}
               >
                 <div className="absolute top-0 right-0 p-4 opacity-5 pointer-events-none select-none">
@@ -284,7 +261,7 @@ export default function NanniesPage() {
             {/* Pink CTA Block */}
             <ScrollReveal delay={0.2}>
               <section
-                className="rounded-2xl p-10 relative overflow-hidden"
+                className="rounded-2xl p-6 md:p-10 relative overflow-hidden"
                 style={{ background: "linear-gradient(135deg, #ba0e56 0%, #f4447f 100%)" }}
               >
                 {/* Watermark M */}
@@ -340,7 +317,7 @@ export default function NanniesPage() {
                 borderTopColor: "var(--color-primary)",
               }}
             >
-              <div className="p-8">
+              <div className="p-6 md:p-8">
                 <h3
                   className="text-2xl font-bold mb-2"
                   style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-background)" }}
@@ -449,7 +426,7 @@ export default function NanniesPage() {
                       </div>
 
                       {/* Date + Time */}
-                      <div className="grid grid-cols-2 gap-4">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div className="space-y-1.5">
                           <label className="text-sm font-semibold ml-1" style={{ color: "var(--color-on-surface-variant)" }}>
                             Select Date

@@ -160,7 +160,7 @@ export default function AboutPage() {
                     className="font-bold mb-2 text-sm"
                     style={{ color: "var(--color-tertiary-container)", fontFamily: "var(--font-headline)" }}
                   >
-                    2018
+                    2024
                   </span>
                   <h3 className="text-2xl font-bold text-white" style={{ fontFamily: "var(--font-headline)" }}>
                     The Spark
@@ -196,11 +196,11 @@ export default function AboutPage() {
                     className="text-2xl font-bold"
                     style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}
                   >
-                    1,000+ Families
+                    Growing Families
                   </h3>
                 </div>
                 <p style={{ color: "var(--color-on-surface-variant)" }}>
-                  By 2020, we expanded our reach across three states, providing over 50,000 hours of specialized care to families in need.
+                  We expanded our reach across Tamil Nadu, bringing specialised maternal care directly into the homes of families who needed it most — with a team that grew alongside every mother we served.
                 </p>
               </motion.div>
 
