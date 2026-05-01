@@ -253,20 +253,20 @@ export default function Navbar() {
                           chevron_right
                         </span>
 
-                        {/* Level 2 — consultation submenu, opens below-right of trigger row */}
+                        {/* Level 2 — consultation submenu, opens to the right of trigger row */}
                         <AnimatePresence>
                           {consultationOpen && (
                             <motion.div
                               key="consultation-panel"
-                              initial={{ opacity: 0, y: -4 }}
-                              animate={{ opacity: 1, y: 0 }}
-                              exit={{ opacity: 0, y: -4 }}
+                              initial={{ opacity: 0, x: -6 }}
+                              animate={{ opacity: 1, x: 0 }}
+                              exit={{ opacity: 0, x: -6 }}
                               transition={{ duration: 0.15, ease: "easeOut" }}
                               className="absolute rounded-2xl border overflow-hidden"
                               style={{
-                                top: "100%",
-                                left: 0,
-                                minWidth: "220px",
+                                top: 0,
+                                left: "100%",
+                                minWidth: "260px",
                                 backgroundColor: "white",
                                 borderColor: "color-mix(in srgb, var(--color-outline-variant) 20%, transparent)",
                                 boxShadow: "0 16px 48px rgba(0,0,0,0.12)",

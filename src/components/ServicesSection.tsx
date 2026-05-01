@@ -25,7 +25,7 @@ const services = [
   },
   {
     icon: "favorite",
-    title: "Lactation Consultants",
+    title: "Lactation/Obstetrician Consultation",
     desc: "Expert one-on-one breastfeeding guidance, troubleshooting and education to ensure healthy feeding practices.",
     href: "/services/lactation",
   },
