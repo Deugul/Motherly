@@ -14,17 +14,14 @@ export default function CTASection() {
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-8 md:gap-16">
         {/* App image — no phone frame */}
         <ScrollReveal direction="left" className="flex-1 flex justify-center md:justify-end order-2 md:order-1">
-          <motion.div whileHover={{ scale: 1.03 }} transition={{ duration: 0.6 }}>
-            <Image
-              src="/cta-phone-screen.jpg"
-              alt="Motherly App"
-              width={640}
-              height={480}
-              sizes="(max-width: 768px) 100vw, 640px"
-              className="w-full max-w-[640px] h-auto object-contain drop-shadow-2xl"
-              style={{ borderRadius: "1.5rem" }}
-            />
-          </motion.div>
+          <Image
+            src="/cta-phone-screen.jpg"
+            alt="Motherly App"
+            width={640}
+            height={480}
+            sizes="(max-width: 768px) 100vw, 640px"
+            className="w-full max-w-[640px] h-auto object-contain"
+          />
         </ScrollReveal>
 
         {/* Content */}
