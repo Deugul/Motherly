@@ -62,7 +62,7 @@ const benefits = [
 ];
 
 const specialists = [
-  { type: "Obstetrician / Gynecologist", offer: "Prenatal check-ups, high-risk pregnancy consultations, postnatal recovery" },
+  { type: "Obstetrician / Gynaecologist", offer: "Prenatal check-ups, high-risk pregnancy consultations, postnatal recovery" },
   { type: "Pediatrician", offer: "Newborn consultations, vaccination scheduling, developmental assessments" },
   { type: "Maternal Mental Health Specialist", offer: "Postpartum depression support, anxiety counselling, birth trauma therapy" },
   { type: "Maternal Nutritionist / Dietitian", offer: "Gestational diabetes, weight management, breastfeeding nutrition" },
@@ -398,7 +398,7 @@ export default function DoctorsPage() {
                             style={getInputStyle(!!errors.specialisation)}
                           >
                             <option value="">Select your specialisation</option>
-                            <option value="OBGYN">Obstetrician / Gynecologist (OBGYN)</option>
+                            <option value="OBGYN">Obstetrician / Gynaecologist (OBGYN)</option>
                             <option value="Pediatrician">Pediatrician</option>
                             <option value="Mental Health">Maternal Mental Health Specialist</option>
                             <option value="Neonatologist">Neonatologist</option>

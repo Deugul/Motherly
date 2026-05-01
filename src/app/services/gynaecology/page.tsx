@@ -77,7 +77,7 @@ export default function GynaecologyPage() {
                 className="text-5xl lg:text-7xl font-extrabold tracking-tight leading-tight mb-6"
                 style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}
               >
-                Gynecology <br />
+                Gynaecology <br />
                 <span style={{ color: "var(--color-primary)" }}>Consultation</span>
               </h1>
               <p className="text-xl max-w-xl leading-relaxed font-medium" style={{ color: "var(--color-on-surface-variant)" }}>
@@ -100,7 +100,7 @@ export default function GynaecologyPage() {
               >
                 <Image
                   src="/gynaecology-hero.jpg"
-                  alt="Gynecology Consultation"
+                  alt="Gynaecology Consultation"
                   fill
                   className="object-cover"
                   priority

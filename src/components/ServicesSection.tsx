@@ -31,8 +31,8 @@ const services = [
   },
   {
     icon: "stethoscope",
-    title: "Gynecology Consultation",
-    desc: "Secure, confidential consultations with experienced gynecologists for prenatal check-ups and postpartum recovery.",
+    title: "Gynaecology Consultation",
+    desc: "Secure, confidential consultations with experienced gynaecologists for prenatal check-ups and postpartum recovery.",
     href: "/services/gynaecology",
   },
   {

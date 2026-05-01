@@ -20,7 +20,7 @@ type FormData = z.infer<typeof schema>;
 const services = [
   "Birth & Postpartum Doulas",
   "Lactation Consultants",
-  "Gynecology Consultation",
+  "Gynaecology Consultation",
   "Nannies & Postnatal Care",
   "Postnatal Recovery",
   "Other",

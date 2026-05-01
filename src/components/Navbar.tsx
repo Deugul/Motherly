@@ -12,7 +12,7 @@ const serviceLinks = [
   { href: "/services/lactation",  label: "Lactation",                 icon: "favorite" },
   { href: "/services/nannies",    label: "Nanny Care",                icon: "child_care" },
   { href: "/services/gynaecology",label: "Gynaecologist/Obstetrician",icon: "stethoscope" },
-  { href: "/services/nutrition",  label: "Paediatrician",             icon: "pediatrics" },
+  { href: "/services/nutrition",  label: "Pediatrician",             icon: "pediatrics" },
   { href: "/services/yoga",       label: "Yoga",                      icon: "self_improvement" },
 ];
 

@@ -19,7 +19,7 @@ const manrope = Manrope({
 export const metadata: Metadata = {
   title: "Motherly | Your Birth Companion",
   description:
-    "Personalized support for your journey through motherhood. From lactation consulting to postnatal care, we bridge the gap with empathetic, professional caregivers.",
+    "Personalised support for your journey through motherhood. From lactation consulting to postnatal care, we bridge the gap with empathetic, professional caregivers.",
 };
 
 export default function RootLayout({

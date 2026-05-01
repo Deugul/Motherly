@@ -74,7 +74,7 @@ export default function AboutPage() {
                         Our Vision
                       </h3>
                       <p className="text-sm leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
-                        Becoming the gold standard for personalized care, where luxury meets genuine human connection.
+                        Becoming the gold standard for personalised care, where luxury meets genuine human connection.
                       </p>
                     </div>
                   </div>

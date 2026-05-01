@@ -43,7 +43,7 @@ const pillars = [
   {
     icon: "vaccines",
     title: "Vaccinations & Immunisations",
-    desc: "Up-to-date immunisation schedules administered by experienced paediatricians, with thorough explanations for parents on what to expect and how to support your child post-vaccination.",
+    desc: "Up-to-date immunisation schedules administered by experienced pediatricians, with thorough explanations for parents on what to expect and how to support your child post-vaccination.",
     bg: "var(--color-secondary-container)",
     color: "var(--color-on-secondary-container)",
   },
@@ -57,7 +57,7 @@ const pillars = [
   {
     icon: "sick",
     title: "Common Childhood Illnesses",
-    desc: "Prompt, expert diagnosis and treatment of common paediatric conditions — from ear infections and eczema to fever management and respiratory issues — keeping your child healthy and comfortable.",
+    desc: "Prompt, expert diagnosis and treatment of common pediatric conditions — from ear infections and eczema to fever management and respiratory issues — keeping your child healthy and comfortable.",
     bg: "var(--color-surface-container-high)",
     color: "var(--color-on-surface)",
   },
@@ -121,7 +121,7 @@ export default function PediatricianPage() {
                   }}
                 >
                   <span className="material-symbols-outlined text-sm">pediatrics</span>
-                  Expert Paediatric Care
+                  Expert Pediatric Care
                 </div>
                 <h1
                   className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight"
@@ -134,12 +134,12 @@ export default function PediatricianPage() {
                   className="text-lg max-w-2xl mt-6 leading-relaxed"
                   style={{ color: "var(--color-on-surface-variant)" }}
                 >
-                  Dedicated paediatric consultations from qualified doctors — supporting your child's
+                  Dedicated pediatric consultations from qualified doctors — supporting your child's
                   growth, health, and development from newborn through early childhood.
                 </p>
 
                 <div className="flex flex-wrap gap-3 mt-6">
-                  {["Qualified Paediatricians", "In-Clinic & Virtual Consultations"].map((badge) => (
+                  {["Qualified Pediatricians", "In-Clinic & Virtual Consultations"].map((badge) => (
                     <span
                       key={badge}
                       className="px-4 py-1.5 rounded-full text-xs font-bold border"
@@ -194,11 +194,11 @@ export default function PediatricianPage() {
                 className="text-3xl font-bold"
                 style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-background)" }}
               >
-                Paediatric Care.{" "}
+                Pediatric Care.{" "}
                 <span style={{ color: "var(--color-primary)" }}>Built Around Your Child.</span>
               </h2>
               <p className="mt-3 leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
-                Our paediatricians work closely with you to monitor your child's health at every stage
+                Our pediatricians work closely with you to monitor your child's health at every stage
                 of early development. From routine wellness checks to managing illness, we take a
                 thorough, compassionate approach — always treating the whole child, not just the
                 symptoms. No rushed appointments. No one-size-fits-all advice. Just expert care
@@ -219,7 +219,7 @@ export default function PediatricianPage() {
                   className="text-2xl font-bold"
                   style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-background)" }}
                 >
-                  Our Paediatric Focus Areas
+                  Our Pediatric Focus Areas
                 </h2>
                 <div className="grid md:grid-cols-2 gap-8">
                   {pillars.map((p, i) => (

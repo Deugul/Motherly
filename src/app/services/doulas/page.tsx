@@ -82,7 +82,7 @@ export default function DoulaPage() {
                   className="text-lg max-w-2xl mt-6 leading-relaxed"
                   style={{ color: "var(--color-on-surface-variant)" }}
                 >
-                  Empowering your pregnancy journey with personalized, compassionate care that
+                  Empowering your pregnancy journey with personalised, compassionate care that
                   honors your unique birth preferences and emotional needs.
                 </p>
               </section>
