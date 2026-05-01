@@ -113,11 +113,13 @@ export default function LactationPage() {
                     className="text-5xl md:text-6xl font-extrabold leading-tight mb-6"
                     style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}
                   >
-                    Expert Breastfeeding Support
+                    Lactation &{" "}
+                    <span style={{ color: "var(--color-primary)" }}>Obstetrician</span>{" "}
+                    Consultation
                   </h1>
                   <p className="text-lg max-w-lg mb-8 leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
-                    Professional, compassionate guidance from certified lactation consultants to ensure
-                    you and your baby have the best start possible in your nursing journey.
+                    Expert breastfeeding support from certified lactation consultants, paired with
+                    specialist obstetric care to guide you through pregnancy, delivery, and recovery.
                   </p>
                   <div className="flex items-center gap-4">
                     <div className="flex -space-x-3">
@@ -206,6 +208,84 @@ export default function LactationPage() {
                         {f.desc}
                       </p>
                     </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            {/* ── Obstetrician Section ── */}
+            <div>
+              <ScrollReveal>
+                <h2
+                  className="text-3xl font-bold mb-2"
+                  style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}
+                >
+                  Obstetrician Care
+                </h2>
+                <p className="mb-8 leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
+                  Our obstetric specialists work alongside your lactation team to provide end-to-end
+                  maternal care — from your first trimester through full postnatal recovery.
+                </p>
+              </ScrollReveal>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {[
+                  {
+                    icon: "pregnant_woman",
+                    title: "Antenatal Monitoring",
+                    desc: "Routine and high-risk pregnancy check-ups, foetal growth tracking, and detailed ultrasound review to keep both mother and baby safe.",
+                    bg: "var(--color-primary-container)",
+                    color: "var(--color-on-primary-container)",
+                  },
+                  {
+                    icon: "emergency",
+                    title: "High-Risk Pregnancy Care",
+                    desc: "Specialist management for conditions such as gestational diabetes, preeclampsia, and multiple pregnancies with dedicated monitoring protocols.",
+                    bg: "var(--color-tertiary-container)",
+                    color: "var(--color-on-tertiary-container)",
+                  },
+                  {
+                    icon: "local_hospital",
+                    title: "Labour & Delivery Guidance",
+                    desc: "Birth planning support, pain management counselling, and evidence-based guidance on normal and assisted delivery options.",
+                    bg: "var(--color-secondary-container)",
+                    color: "var(--color-on-secondary-container)",
+                  },
+                  {
+                    icon: "healing",
+                    title: "Postnatal Health Checks",
+                    desc: "Comprehensive follow-up consultations to assess physical recovery, wound healing, hormonal balance, and emotional well-being after delivery.",
+                    bg: "var(--color-primary-container)",
+                    color: "var(--color-on-primary-container)",
+                  },
+                ].map((item, i) => (
+                  <motion.div
+                    key={item.title}
+                    initial={{ opacity: 0, y: 24 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: i * 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
+                    className="p-8 rounded-2xl shadow-sm border"
+                    style={{
+                      backgroundColor: "var(--color-surface-container-lowest)",
+                      borderColor: "color-mix(in srgb, var(--color-outline-variant) 10%, transparent)",
+                    }}
+                  >
+                    <div
+                      className="w-12 h-12 rounded-full flex items-center justify-center mb-5"
+                      style={{ backgroundColor: item.bg, color: item.color }}
+                    >
+                      <span className="material-symbols-outlined">{item.icon}</span>
+                    </div>
+                    <h3
+                      className="text-xl font-bold mb-3"
+                      style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}
+                    >
+                      {item.title}
+                    </h3>
+                    <p className="leading-relaxed text-sm" style={{ color: "var(--color-on-surface-variant)" }}>
+                      {item.desc}
+                    </p>
                   </motion.div>
                 ))}
               </div>

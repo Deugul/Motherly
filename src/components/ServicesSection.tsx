@@ -48,9 +48,9 @@ const services = [
     href: "/services/postnatal",
   },
   {
-    icon: "nutrition",
-    title: "Nutrition Consultation",
-    desc: "Personalised dietary guidance from certified maternal dietitians to nourish your body through pregnancy, recovery, and breastfeeding.",
+    icon: "pediatrics",
+    title: "Pediatrician Consultation",
+    desc: "Comprehensive child health consultations from birth through early childhood, covering vaccinations, developmental checks, and common childhood conditions.",
     href: "/services/nutrition",
   },
 ];
