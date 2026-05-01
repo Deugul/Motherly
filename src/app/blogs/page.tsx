@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import CTASection from "@/components/CTASection";
 import BlogPageClient from "@/components/BlogPageClient";
 import { posts as staticPosts, featuredPost } from "@/lib/posts";
 import type { BlogPost } from "@/lib/posts";
@@ -105,6 +106,7 @@ export default async function BlogsPage() {
       >
         <BlogPageClient posts={allPosts} featuredPost={featuredPost} />
       </main>
+      <CTASection />
       <Footer />
     </>
   );

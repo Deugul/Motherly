@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import CTASection from "@/components/CTASection";
 import ScrollReveal from "@/components/ScrollReveal";
 
 const MotionImage = motion.create(Image);
@@ -317,6 +318,7 @@ export default function AboutPage() {
           </ScrollReveal>
         </section>
       </main>
+      <CTASection />
       <Footer />
     </>
   );

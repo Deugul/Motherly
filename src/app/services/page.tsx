@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import CTASection from "@/components/CTASection";
 import ScrollReveal from "@/components/ScrollReveal";
 
 const easeOut: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
@@ -343,6 +344,7 @@ export default function ServicesPage() {
         }
       `}</style>
 
+      <CTASection />
       <Footer />
     </>
   );

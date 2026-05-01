@@ -7,6 +7,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { motion, AnimatePresence } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import CTASection from "@/components/CTASection";
 import ScrollReveal from "@/components/ScrollReveal";
 
 const schema = z.object({
@@ -523,6 +524,7 @@ export default function PostnatalPage() {
           </aside>
         </section>
       </main>
+      <CTASection />
       <Footer />
     </>
   );

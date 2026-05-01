@@ -8,6 +8,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import CTASection from "@/components/CTASection";
 import ScrollReveal from "@/components/ScrollReveal";
 
 const schema = z.object({
@@ -432,6 +433,7 @@ export default function LactationPage() {
           </div>
         </section>
       </main>
+      <CTASection />
       <Footer />
     </>
   );
