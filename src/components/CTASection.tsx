@@ -73,18 +73,22 @@ export default function CTASection() {
                 Available on
               </p>
               <div className="flex flex-wrap justify-center md:justify-start gap-3">
-                <motion.img
-                  whileHover={{ opacity: 0.8 }}
-                  src="/badge-google-play.png"
-                  alt="Get it on Google Play"
-                  className="h-10 w-auto object-contain cursor-pointer"
-                />
-                <motion.img
-                  whileHover={{ opacity: 0.8 }}
-                  src="/badge-app-store.png"
-                  alt="Download on the App Store"
-                  className="h-10 w-auto object-contain cursor-pointer"
-                />
+                <a href="https://play.google.com/store/apps/details?id=com.mothrly" target="_blank" rel="noopener noreferrer">
+                  <motion.img
+                    whileHover={{ opacity: 0.8 }}
+                    src="/badge-google-play.png"
+                    alt="Get it on Google Play"
+                    className="h-10 w-auto object-contain cursor-pointer"
+                  />
+                </a>
+                <a href="https://apps.apple.com/in/app/motherly-your-birth-companion/id6746041100" target="_blank" rel="noopener noreferrer">
+                  <motion.img
+                    whileHover={{ opacity: 0.8 }}
+                    src="/badge-app-store.png"
+                    alt="Download on the App Store"
+                    className="h-10 w-auto object-contain cursor-pointer"
+                  />
+                </a>
               </div>
             </div>
           </ScrollReveal>
