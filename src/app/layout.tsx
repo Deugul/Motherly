@@ -20,6 +20,9 @@ export const metadata: Metadata = {
   title: "Motherly | Your Birth Companion",
   description:
     "Personalised support for your journey through motherhood. From lactation consulting to postnatal care, we bridge the gap with empathetic, professional caregivers.",
+  verification: {
+    google: "40Vdcti_y2l_y4vcTdGyjxw1am30YkUF30Llx8mg_Go",
+  },
 };
 
 export default function RootLayout({
