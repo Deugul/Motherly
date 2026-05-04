@@ -134,57 +134,57 @@ export default function ServicesSection() {
       {/* 4 — Service cards grid */}
       <div className="max-w-7xl mx-auto px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((s, i) => (
-            <motion.div
-              key={s.title}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: i * 0.07, ease: easeOut }}
-              whileHover={{ y: -4 }}
-              className="group flex flex-col gap-6 p-7 rounded-2xl border transition-shadow hover:shadow-lg"
+        {services.map((s, i) => (
+          <motion.div
+            key={s.title}
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5, delay: i * 0.07, ease: easeOut }}
+            whileHover={{ y: -4 }}
+            className="group flex flex-col gap-6 p-7 rounded-2xl border transition-shadow hover:shadow-lg"
+            style={{
+              borderColor: "color-mix(in srgb, var(--color-outline-variant) 20%, transparent)",
+              backgroundColor: "white",
+            }}
+          >
+            {/* Icon */}
+            <span
+              className="material-symbols-outlined text-4xl"
               style={{
-                borderColor: "color-mix(in srgb, var(--color-outline-variant) 20%, transparent)",
-                backgroundColor: "white",
+                color: "var(--color-primary)",
+                fontVariationSettings: "'FILL' 0",
               }}
             >
-              {/* Icon */}
-              <span
-                className="material-symbols-outlined text-4xl"
-                style={{
-                  color: "var(--color-primary)",
-                  fontVariationSettings: "'FILL' 0",
-                }}
+              {s.icon}
+            </span>
+
+            {/* Title + desc */}
+            <div className="flex-1 space-y-2">
+              <h3
+                className="text-lg font-bold"
+                style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}
               >
-                {s.icon}
+                {s.title}
+              </h3>
+              <p className="text-sm leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
+                {s.desc}
+              </p>
+            </div>
+
+            {/* Redirect link */}
+            <Link
+              href={s.href}
+              className="inline-flex items-center gap-2 text-sm font-bold group/link"
+              style={{ color: "var(--color-primary)", fontFamily: "var(--font-headline)" }}
+            >
+              Learn More
+              <span className="material-symbols-outlined text-base transition-transform group-hover/link:translate-x-1">
+                arrow_forward
               </span>
-
-              {/* Title + desc */}
-              <div className="flex-1 space-y-2">
-                <h3
-                  className="text-lg font-bold"
-                  style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}
-                >
-                  {s.title}
-                </h3>
-                <p className="text-sm leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
-                  {s.desc}
-                </p>
-              </div>
-
-              {/* Redirect link */}
-              <Link
-                href={s.href}
-                className="inline-flex items-center gap-2 text-sm font-bold group/link"
-                style={{ color: "var(--color-primary)", fontFamily: "var(--font-headline)" }}
-              >
-                Learn More
-                <span className="material-symbols-outlined text-base transition-transform group-hover/link:translate-x-1">
-                  arrow_forward
-                </span>
-              </Link>
-            </motion.div>
-          ))}
+            </Link>
+          </motion.div>
+        ))}
         </div>
       </div>
 

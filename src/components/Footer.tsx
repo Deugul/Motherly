@@ -1,7 +1,25 @@
 import Link from "next/link";
 
-const quickLinks = ["About Us", "Our Services", "Blogs", "Investors", "Privacy Policy", "Refund and Cancellation Policies", "Terms and Conditions", "Contact Us"];
-const services = ["Doulas", "Lactation Consultants", "Gynaecology Consultation", "Nannies & Postnatal Care"];
+const quickLinks = [
+  { label: "About Us",            href: "/about" },
+  { label: "Our Services",        href: "/services" },
+  { label: "Blogs",               href: "/blogs" },
+  { label: "Investors",           href: "/investors" },
+  { label: "Medical Partners",    href: "/doctors" },
+  { label: "Privacy Policy",      href: "/privacy-policy" },
+  { label: "Terms and Conditions",href: "/terms" },
+  { label: "Contact Us",          href: "/contact" },
+];
+
+const services = [
+  { label: "Doula Services",             href: "/services/doulas" },
+  { label: "Postnatal Recovery",         href: "/services/postnatal" },
+  { label: "Lactation Consultants",      href: "/services/lactation" },
+  { label: "Nanny Care",                 href: "/services/nannies" },
+  { label: "Gynaecology Consultation",   href: "/services/gynaecology" },
+  { label: "Nutrition & Pediatrics",     href: "/services/nutrition" },
+  { label: "Prenatal Yoga",              href: "/services/yoga" },
+];
 
 export default function Footer() {
   return (
@@ -36,10 +54,10 @@ export default function Footer() {
               Quick Links
             </h4>
             <nav className="flex flex-col gap-3">
-              {quickLinks.map((label) => (
+              {quickLinks.map(({ label, href }) => (
                 <Link
                   key={label}
-                  href="#"
+                  href={href}
                   className="text-sm font-medium transition-colors hover:opacity-100"
                   style={{ color: "var(--color-on-surface-variant)" }}
                 >
@@ -58,11 +76,11 @@ export default function Footer() {
               Services
             </h4>
             <nav className="flex flex-col gap-3">
-              {services.map((label) => (
+              {services.map(({ label, href }) => (
                 <Link
                   key={label}
-                  href="/services"
-                  className="text-sm font-medium transition-colors"
+                  href={href}
+                  className="text-sm font-medium transition-colors hover:opacity-100"
                   style={{ color: "var(--color-on-surface-variant)" }}
                 >
                   {label}
