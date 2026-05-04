@@ -12,8 +12,8 @@ const container = {
 };
 
 const item = {
-  hidden: { opacity: 0, y: 28, filter: "blur(6px)" },
-  visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: spring },
+  hidden: { opacity: 0, y: 28 },
+  visible: { opacity: 1, y: 0, transition: spring },
 };
 
 export default function HeroSection() {
