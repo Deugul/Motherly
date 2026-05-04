@@ -133,7 +133,12 @@ export default function Navbar() {
           <NavLink href="/" label="Home" active={pathname === "/"} />
 
           {/* Services dropdown */}
-          <div className="relative" ref={dropdownRef}>
+          <div
+            className="relative"
+            ref={dropdownRef}
+            onMouseEnter={() => setServicesOpen(true)}
+            onMouseLeave={() => setServicesOpen(false)}
+          >
             <button
               onClick={() => setServicesOpen(!servicesOpen)}
               onMouseEnter={() => setServicesHovered(true)}

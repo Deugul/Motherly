@@ -5,10 +5,13 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CTASection from "@/components/CTASection";
 import ScrollReveal from "@/components/ScrollReveal";
+
+const MotionImage = motion.create(Image);
 
 const schema = z.object({
   service: z.string().min(1),
@@ -56,7 +59,7 @@ export default function DoulaPage() {
     <>
       <Navbar />
       <main
-        className="pt-32 pb-20 px-6 max-w-7xl mx-auto"
+        className="pt-24 md:pt-32 pb-12 md:pb-20 px-4 md:px-6 max-w-7xl mx-auto"
         style={{ backgroundColor: "var(--color-surface)" }}
       >
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
@@ -95,11 +98,13 @@ export default function DoulaPage() {
                 className="relative overflow-hidden rounded-2xl"
                 style={{ boxShadow: "0 12px 32px rgba(45,52,53,0.1)" }}
               >
-                <motion.img
+                <MotionImage
                   whileHover={{ scale: 1.04 }}
                   transition={{ duration: 0.6 }}
                   src="/doulas-hero.jpg"
                   alt="A professional doula providing comfort and support to an expectant mother"
+                  width={800}
+                  height={400}
                   className="w-full h-[400px] object-cover"
                 />
                 <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.4), transparent)" }} />

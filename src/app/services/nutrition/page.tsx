@@ -99,7 +99,7 @@ export default function PediatricianPage() {
     <>
       <Navbar />
       <main
-        className="pt-32 pb-20 px-6 max-w-7xl mx-auto"
+        className="pt-24 md:pt-32 pb-12 md:pb-20 px-4 md:px-6 max-w-7xl mx-auto"
         style={{ backgroundColor: "var(--color-surface)" }}
       >
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">

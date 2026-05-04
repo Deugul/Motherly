@@ -57,7 +57,7 @@ const services = [
 
 export default function ServicesSection() {
   return (
-    <section className="py-20" style={{ backgroundColor: "var(--color-surface)" }}>
+    <section className="py-10 md:py-20" style={{ backgroundColor: "var(--color-surface)" }}>
 
       {/* 1 — Title */}
       <div className="max-w-7xl mx-auto px-8 mb-8">

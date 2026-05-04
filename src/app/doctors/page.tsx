@@ -5,10 +5,13 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CTASection from "@/components/CTASection";
 import ScrollReveal from "@/components/ScrollReveal";
+
+const MotionImage = motion.create(Image);
 
 const schema = z.object({
   fullName: z.string().min(2, "Full name is required"),
@@ -175,11 +178,13 @@ export default function DoctorsPage() {
                     boxShadow: "0 16px 40px rgba(45,52,53,0.12)",
                   }}
                 >
-                  <motion.img
+                  <MotionImage
                     src="/doctors-partner.jpg"
                     alt="Doctors and medical team"
                     whileHover={{ scale: 1.03 }}
                     transition={{ duration: 0.6 }}
+                    width={800}
+                    height={320}
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -256,11 +261,13 @@ export default function DoctorsPage() {
                     boxShadow: "0 12px 32px rgba(45,52,53,0.12)",
                   }}
                 >
-                  <motion.img
+                  <MotionImage
                     src="/doctors-hero.jpg"
                     alt="Medical professionals in a clinic"
                     whileHover={{ scale: 1.03 }}
                     transition={{ duration: 0.6 }}
+                    width={600}
+                    height={480}
                     className="w-full h-full object-cover"
                   />
                   {/* Overlay badge */}

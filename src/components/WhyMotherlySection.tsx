@@ -26,8 +26,8 @@ const features = [
 
 export default function WhyMotherlySection() {
   return (
-    <section className="py-24 px-8" style={{ backgroundColor: "var(--color-surface)" }}>
-      <div className="max-w-7xl mx-auto space-y-16">
+    <section className="py-12 md:py-24 px-4 md:px-8" style={{ backgroundColor: "var(--color-surface)" }}>
+      <div className="max-w-7xl mx-auto space-y-8 md:space-y-16">
 
         {/* Banner image */}
         <ScrollReveal>

@@ -16,10 +16,10 @@ export default function AboutPage() {
   return (
     <>
       <Navbar />
-      <main className="pt-32 overflow-x-hidden" style={{ backgroundColor: "var(--color-background)" }}>
+      <main className="pt-24 md:pt-32 overflow-x-hidden" style={{ backgroundColor: "var(--color-background)" }}>
 
         {/* ── Hero ── */}
-        <section className="max-w-7xl mx-auto px-8 py-20">
+        <section className="max-w-7xl mx-auto px-4 md:px-8 py-10 md:py-20">
           <div className="flex flex-col lg:flex-row gap-16 items-center">
 
             {/* Left */}
@@ -117,7 +117,7 @@ export default function AboutPage() {
         </section>
 
         {/* ── Our Journey Bento ── */}
-        <section style={{ backgroundColor: "var(--color-surface-container-low)" }} className="py-24">
+        <section style={{ backgroundColor: "var(--color-surface-container-low)" }} className="py-12 md:py-24">
           <div className="max-w-7xl mx-auto px-8">
             <ScrollReveal className="text-center mb-16 space-y-4">
               <h2

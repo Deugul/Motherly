@@ -18,7 +18,7 @@ const item = {
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-[90vh] flex items-start pt-32 md:pt-36 overflow-hidden rounded-b-[2.5rem]">
+    <section className="relative min-h-[60vh] md:min-h-[90vh] flex items-start pt-28 md:pt-36 overflow-hidden rounded-b-[2.5rem]">
       {/* Background */}
       <div className="absolute inset-0 z-0">
         <Image

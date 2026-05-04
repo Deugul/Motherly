@@ -5,10 +5,13 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CTASection from "@/components/CTASection";
 import ScrollReveal from "@/components/ScrollReveal";
+
+const MotionImage = motion.create(Image);
 
 const schema = z.object({
   service: z.string().min(1),
@@ -75,7 +78,7 @@ export default function YogaPage() {
     <>
       <Navbar />
       <main
-        className="pt-32 pb-20 px-6 max-w-7xl mx-auto"
+        className="pt-24 md:pt-32 pb-12 md:pb-20 px-4 md:px-6 max-w-7xl mx-auto"
         style={{ backgroundColor: "var(--color-surface)" }}
       >
         {/* Hero Section */}
@@ -139,11 +142,13 @@ export default function YogaPage() {
                 className="relative z-10 rounded-2xl overflow-hidden"
                 style={{ transform: "rotate(1deg)", boxShadow: "0 12px 32px rgba(45,52,53,0.1)" }}
               >
-                <motion.img
+                <MotionImage
                   whileHover={{ scale: 1.04 }}
                   transition={{ duration: 0.6 }}
                   src="/yoga-hero.jpg"
                   alt="Mother practising yoga"
+                  width={800}
+                  height={500}
                   className="w-full h-[500px] object-cover"
                 />
               </div>

@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+
+const MotionImage = motion.create(Image);
 import Link from "next/link";
 import ScrollReveal from "./ScrollReveal";
 
@@ -71,18 +73,22 @@ export default function CTASection() {
               </p>
               <div className="flex flex-wrap justify-center md:justify-start gap-3">
                 <a href="https://play.google.com/store/apps/details?id=com.mothrly" target="_blank" rel="noopener noreferrer">
-                  <motion.img
+                  <MotionImage
                     whileHover={{ opacity: 0.8 }}
                     src="/badge-google-play.png"
                     alt="Get it on Google Play"
+                    width={135}
+                    height={40}
                     className="h-10 w-auto object-contain cursor-pointer"
                   />
                 </a>
                 <a href="https://apps.apple.com/in/app/motherly-your-birth-companion/id6746041100" target="_blank" rel="noopener noreferrer">
-                  <motion.img
+                  <MotionImage
                     whileHover={{ opacity: 0.8 }}
                     src="/badge-app-store.png"
                     alt="Download on the App Store"
+                    width={135}
+                    height={40}
                     className="h-10 w-auto object-contain cursor-pointer"
                   />
                 </a>

@@ -15,7 +15,7 @@ export default function ServicesPage() {
     <>
       <Navbar />
       <main
-        className="pt-32 pb-20 px-6 max-w-7xl mx-auto"
+        className="pt-24 md:pt-32 pb-12 md:pb-20 px-4 md:px-6 max-w-7xl mx-auto"
         style={{ fontFamily: "var(--font-body)" }}
       >
         {/* Hero Header */}

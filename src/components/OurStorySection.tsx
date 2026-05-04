@@ -7,7 +7,7 @@ import ScrollReveal from "./ScrollReveal";
 
 export default function OurStorySection() {
   return (
-    <section className="py-14 px-8 overflow-hidden">
+    <section className="py-8 md:py-14 px-4 md:px-8 overflow-hidden">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-10 items-center">
         {/* Image with floating quote */}
         <ScrollReveal direction="left" className="w-full md:w-[420px] flex-shrink-0 relative">
