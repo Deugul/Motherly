@@ -58,7 +58,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${plusJakarta.variable} ${manrope.variable}`}>
+    <html lang="en" className={`${plusJakarta.variable} ${manrope.variable}`} suppressHydrationWarning>
       <head>
         {/* Google tag (gtag.js) */}
         {/* eslint-disable-next-line @next/next/no-sync-scripts */}
