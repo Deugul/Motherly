@@ -11,9 +11,12 @@ import CTASection from "@/components/CTASection";
 import ScrollReveal from "@/components/ScrollReveal";
 
 const schema = z.object({
-  name: z.string().min(2, "Name must be at least 2 characters"),
+  name: z.string()
+    .min(2, "Name must be at least 2 characters")
+    .max(50, "Name must not exceed 50 characters")
+    .regex(/^[a-zA-Z\s]+$/, "Name must contain only letters"),
   email: z.string().email("Please enter a valid email"),
-  phone: z.string().min(7, "Please enter a valid contact number"),
+  phone: z.string().regex(/^\d{10}$/, "Enter a valid 10-digit phone number"),
   linkedin: z.string().url("Please enter a valid LinkedIn URL").includes("linkedin.com", { message: "Must be a LinkedIn URL" }),
   message: z.string().optional(),
 });
@@ -338,7 +341,8 @@ export default function InvestorsPage() {
                         <input
                           {...register("phone")}
                           type="tel"
-                          placeholder="+91 98765 43210"
+                          placeholder="10-digit mobile number"
+                          maxLength={10}
                           className={inputClass}
                           style={getInputStyle(!!errors.phone)}
                         />

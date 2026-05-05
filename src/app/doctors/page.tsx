@@ -14,16 +14,19 @@ import ScrollReveal from "@/components/ScrollReveal";
 const MotionImage = motion.create(Image);
 
 const schema = z.object({
-  fullName: z.string().min(2, "Full name is required"),
+  fullName: z.string()
+    .min(2, "Full name is required")
+    .max(80, "Name must not exceed 80 characters")
+    .regex(/^[a-zA-Z\s.]+$/, "Name must contain only letters"),
   registrationNumber: z.string().min(2, "Registration number is required"),
   specialisation: z.string().min(1, "Please select a specialisation"),
   clinicName: z.string().min(2, "Clinic / Hospital name is required"),
   clinicAddress: z.string().min(5, "Clinic address is required"),
-  pinCode: z.string().min(6, "Valid pin code required").max(6),
+  pinCode: z.string().regex(/^\d{6}$/, "Enter a valid 6-digit pin code"),
   consultationType: z.string().min(1, "Please select consultation type"),
   weeklyAvailability: z.string().min(1, "Please enter availability"),
   email: z.string().email("Valid email required"),
-  phone: z.string().min(10, "Valid phone number required"),
+  phone: z.string().regex(/^\d{10}$/, "Enter a valid 10-digit phone number"),
   bio: z.string().max(600, "Please keep bio under 100 words").optional(),
 });
 type FormData = z.infer<typeof schema>;
@@ -520,7 +523,8 @@ export default function DoctorsPage() {
                           <input
                             {...register("phone")}
                             type="tel"
-                            placeholder="+91 98765 43210"
+                            placeholder="10-digit mobile number"
+                            maxLength={10}
                             className={inputClass}
                             style={getInputStyle(!!errors.phone)}
                           />

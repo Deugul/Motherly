@@ -15,9 +15,20 @@ const MotionImage = motion.create(Image);
 
 const schema = z.object({
   service: z.string().min(1),
-  name: z.string().min(2, "Name is required"),
+  name: z.string()
+    .min(2, "Name must be at least 2 characters")
+    .max(50, "Name must not exceed 50 characters")
+    .regex(/^[a-zA-Z\s]+$/, "Name must contain only letters"),
   email: z.string().email("Valid email required"),
-  date: z.string().min(1, "Date is required"),
+  phone: z.string().regex(/^\d{10}$/, "Enter a valid 10-digit phone number"),
+  date: z.string().min(1, "Date is required").refine(
+    (val) => { const t = new Date(); t.setHours(0, 0, 0, 0); return new Date(val) >= t; },
+    "Please select today or a future date"
+  ),
+  time: z.string().min(1, "Time is required").refine(
+    (val) => { const [h] = val.split(":").map(Number); return h >= 9 && h < 18; },
+    "Please select a time between 9 AM and 6 PM"
+  ),
   message: z.string().optional(),
 });
 type FormData = z.infer<typeof schema>;
@@ -379,34 +390,40 @@ export default function PostnatalPage() {
                       onSubmit={handleSubmit(onSubmit)}
                       className="space-y-5"
                     >
+                      {/* Service */}
+                      <div className="space-y-1.5">
+                        <label className="text-sm font-semibold ml-1" style={{ color: "var(--color-on-surface-variant)" }}>
+                          Select Service
+                        </label>
+                        <select {...register("service")} className={inputClass} style={getInputStyle()}>
+                          <option value="Doulas">Doulas</option>
+                          <option value="Lactation Consultants">Lactation Consultants</option>
+                          <option value="Gynaecology Consultation">Gynaecology Consultation</option>
+                          <option value="Nanny Care">Nanny Care</option>
+                          <option value="Postnatal Recovery">Postnatal Recovery</option>
+                          <option value="Nutrition Consultation">Nutrition Consultation</option>
+                          <option value="Prenatal Yoga">Prenatal Yoga</option>
+                        </select>
+                      </div>
+
                       {/* Name */}
                       <div className="space-y-1.5">
-                        <label
-                          className="text-xs font-bold uppercase tracking-wider ml-1"
-                          style={{ color: "var(--color-on-surface-variant)" }}
-                        >
-                          Full Name
+                        <label className="text-sm font-semibold ml-1" style={{ color: "var(--color-on-surface-variant)" }}>
+                          Patient Name
                         </label>
                         <input
                           {...register("name")}
                           type="text"
-                          placeholder="Your name"
+                          placeholder="Your Full Name"
                           className={inputClass}
                           style={getInputStyle(!!errors.name)}
                         />
-                        {errors.name && (
-                          <p className="text-xs ml-1" style={{ color: "var(--color-error)" }}>
-                            {errors.name.message}
-                          </p>
-                        )}
+                        {errors.name && <p className="text-xs ml-1" style={{ color: "var(--color-error)" }}>{errors.name.message}</p>}
                       </div>
 
                       {/* Email */}
                       <div className="space-y-1.5">
-                        <label
-                          className="text-xs font-bold uppercase tracking-wider ml-1"
-                          style={{ color: "var(--color-on-surface-variant)" }}
-                        >
+                        <label className="text-sm font-semibold ml-1" style={{ color: "var(--color-on-surface-variant)" }}>
                           Email Address
                         </label>
                         <input
@@ -416,58 +433,60 @@ export default function PostnatalPage() {
                           className={inputClass}
                           style={getInputStyle(!!errors.email)}
                         />
-                        {errors.email && (
-                          <p className="text-xs ml-1" style={{ color: "var(--color-error)" }}>
-                            {errors.email.message}
-                          </p>
-                        )}
+                        {errors.email && <p className="text-xs ml-1" style={{ color: "var(--color-error)" }}>{errors.email.message}</p>}
                       </div>
 
-                      {/* Service */}
+                      {/* Phone */}
                       <div className="space-y-1.5">
-                        <label
-                          className="text-xs font-bold uppercase tracking-wider ml-1"
-                          style={{ color: "var(--color-on-surface-variant)" }}
-                        >
-                          Service Selection
-                        </label>
-                        <select
-                          {...register("service")}
-                          className={inputClass}
-                          style={getInputStyle()}
-                        >
-                          <option value="Doulas">Doulas</option>
-                          <option value="Lactation Consultants">Lactation Consultants</option>
-                          <option value="Gynaecology Consultation">Gynaecology Consultation</option>
-                          <option value="Nanny Care">Nanny Care</option>
-                          <option value="Postnatal Recovery">Postnatal Recovery</option>
-                          <option value="Nutrition Consultation">Nutrition Consultation</option>
-                        </select>
-                      </div>
-
-                      {/* Date */}
-                      <div className="space-y-1.5">
-                        <label
-                          className="text-xs font-bold uppercase tracking-wider ml-1"
-                          style={{ color: "var(--color-on-surface-variant)" }}
-                        >
-                          Preferred Date
+                        <label className="text-sm font-semibold ml-1" style={{ color: "var(--color-on-surface-variant)" }}>
+                          Phone Number
                         </label>
                         <input
-                          {...register("date")}
-                          type="date"
+                          {...register("phone")}
+                          type="tel"
+                          placeholder="10-digit mobile number"
+                          maxLength={10}
                           className={inputClass}
-                          style={getInputStyle(!!errors.date)}
+                          style={getInputStyle(!!errors.phone)}
                         />
+                        {errors.phone && <p className="text-xs ml-1" style={{ color: "var(--color-error)" }}>{errors.phone.message}</p>}
+                      </div>
+
+                      {/* Date + Time */}
+                      <div className="grid grid-cols-2 gap-4">
+                        <div className="space-y-1.5">
+                          <label className="text-sm font-semibold ml-1" style={{ color: "var(--color-on-surface-variant)" }}>
+                            Select Date
+                          </label>
+                          <input
+                            {...register("date")}
+                            type="date"
+                            min={new Date().toISOString().split("T")[0]}
+                            className={inputClass}
+                            style={getInputStyle(!!errors.date)}
+                          />
+                          {errors.date && <p className="text-xs ml-1" style={{ color: "var(--color-error)" }}>{errors.date.message}</p>}
+                        </div>
+                        <div className="space-y-1.5">
+                          <label className="text-sm font-semibold ml-1" style={{ color: "var(--color-on-surface-variant)" }}>
+                            Enter Time
+                          </label>
+                          <input
+                            {...register("time")}
+                            type="time"
+                            min="09:00"
+                            max="18:00"
+                            className={inputClass}
+                            style={getInputStyle(!!errors.time)}
+                          />
+                          {errors.time && <p className="text-xs ml-1" style={{ color: "var(--color-error)" }}>{errors.time.message}</p>}
+                        </div>
                       </div>
 
                       {/* Message */}
                       <div className="space-y-1.5">
-                        <label
-                          className="text-xs font-bold uppercase tracking-wider ml-1"
-                          style={{ color: "var(--color-on-surface-variant)" }}
-                        >
-                          Message (Optional)
+                        <label className="text-sm font-semibold ml-1" style={{ color: "var(--color-on-surface-variant)" }}>
+                          Message
                         </label>
                         <textarea
                           {...register("message")}

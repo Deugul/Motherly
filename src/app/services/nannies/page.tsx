@@ -13,10 +13,20 @@ import ScrollReveal from "@/components/ScrollReveal";
 
 const schema = z.object({
   service: z.string().min(1),
-  name: z.string().min(2, "Name is required"),
+  name: z.string()
+    .min(2, "Name must be at least 2 characters")
+    .max(50, "Name must not exceed 50 characters")
+    .regex(/^[a-zA-Z\s]+$/, "Name must contain only letters"),
   email: z.string().email("Valid email required"),
-  date: z.string().min(1, "Date is required"),
-  time: z.string().min(1, "Time is required"),
+  phone: z.string().regex(/^\d{10}$/, "Enter a valid 10-digit phone number"),
+  date: z.string().min(1, "Date is required").refine(
+    (val) => { const t = new Date(); t.setHours(0, 0, 0, 0); return new Date(val) >= t; },
+    "Please select today or a future date"
+  ),
+  time: z.string().min(1, "Time is required").refine(
+    (val) => { const [h] = val.split(":").map(Number); return h >= 9 && h < 18; },
+    "Please select a time between 9 AM and 6 PM"
+  ),
   message: z.string().optional(),
 });
 type FormData = z.infer<typeof schema>;
@@ -426,6 +436,24 @@ export default function NanniesPage() {
                         )}
                       </div>
 
+                      {/* Phone */}
+                      <div className="space-y-1.5">
+                        <label className="text-sm font-semibold ml-1" style={{ color: "var(--color-on-surface-variant)" }}>
+                          Phone Number
+                        </label>
+                        <input
+                          {...register("phone")}
+                          type="tel"
+                          placeholder="10-digit mobile number"
+                          maxLength={10}
+                          className={inputClass}
+                          style={getInputStyle(!!errors.phone)}
+                        />
+                        {errors.phone && (
+                          <p className="text-xs ml-1" style={{ color: "var(--color-error)" }}>{errors.phone.message}</p>
+                        )}
+                      </div>
+
                       {/* Date + Time */}
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div className="space-y-1.5">
@@ -435,9 +463,13 @@ export default function NanniesPage() {
                           <input
                             {...register("date")}
                             type="date"
+                            min={new Date().toISOString().split("T")[0]}
                             className={inputClass}
                             style={getInputStyle(!!errors.date)}
                           />
+                          {errors.date && (
+                            <p className="text-xs ml-1" style={{ color: "var(--color-error)" }}>{errors.date.message}</p>
+                          )}
                         </div>
                         <div className="space-y-1.5">
                           <label className="text-sm font-semibold ml-1" style={{ color: "var(--color-on-surface-variant)" }}>
@@ -446,9 +478,14 @@ export default function NanniesPage() {
                           <input
                             {...register("time")}
                             type="time"
+                            min="09:00"
+                            max="18:00"
                             className={inputClass}
                             style={getInputStyle(!!errors.time)}
                           />
+                          {errors.time && (
+                            <p className="text-xs ml-1" style={{ color: "var(--color-error)" }}>{errors.time.message}</p>
+                          )}
                         </div>
                       </div>
 

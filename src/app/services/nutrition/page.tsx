@@ -12,10 +12,17 @@ import ScrollReveal from "@/components/ScrollReveal";
 
 const schema = z.object({
   service: z.string().min(1),
-  name: z.string().min(2, "Name is required"),
+  name: z.string()
+    .min(2, "Name must be at least 2 characters")
+    .max(50, "Name must not exceed 50 characters")
+    .regex(/^[a-zA-Z\s]+$/, "Name must contain only letters"),
   email: z.string().email("Valid email required"),
+  phone: z.string().regex(/^\d{10}$/, "Enter a valid 10-digit phone number"),
   childAge: z.string().min(1, "Please select your child's age"),
-  date: z.string().min(1, "Date is required"),
+  date: z.string().min(1, "Date is required").refine(
+    (val) => { const t = new Date(); t.setHours(0, 0, 0, 0); return new Date(val) >= t; },
+    "Please select today or a future date"
+  ),
   mode: z.enum(["In-Clinic", "Virtual"]),
   message: z.string().optional(),
 });
@@ -374,6 +381,24 @@ export default function PediatricianPage() {
                       )}
                     </div>
 
+                    {/* Phone */}
+                    <div className="space-y-1.5">
+                      <label className="text-sm font-semibold ml-1" style={{ color: "var(--color-on-surface-variant)" }}>
+                        Phone Number
+                      </label>
+                      <input
+                        {...register("phone")}
+                        type="tel"
+                        placeholder="10-digit mobile number"
+                        maxLength={10}
+                        className={inputClass}
+                        style={getInputStyle(!!errors.phone)}
+                      />
+                      {errors.phone && (
+                        <p className="text-xs ml-1" style={{ color: "var(--color-error)" }}>{errors.phone.message}</p>
+                      )}
+                    </div>
+
                     {/* Child Age */}
                     <div className="space-y-1.5">
                       <label className="text-sm font-semibold ml-1" style={{ color: "var(--color-on-surface-variant)" }}>
@@ -400,6 +425,7 @@ export default function PediatricianPage() {
                       <input
                         {...register("date")}
                         type="date"
+                        min={new Date().toISOString().split("T")[0]}
                         className={inputClass}
                         style={getInputStyle(!!errors.date)}
                       />
