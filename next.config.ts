@@ -21,7 +21,7 @@ const nextConfig: NextConfig = {
       },
       {
         source: "/services/postnatal",
-        destination: "https://mothrly.com/our-services/nannies-postnatal-care/",
+        destination: "https://mothrly.com/our-services/postnatal-Recovery-care/",
         permanent: true,
       },
       {
