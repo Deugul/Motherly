@@ -378,7 +378,6 @@ export default function LactationPage() {
                           <option value="Postnatal Recovery">Postnatal Recovery</option>
                           <option value="Nutrition Consultation">Nutrition Consultation</option>
                         </select>
-                        <span className="material-symbols-outlined absolute right-4 top-4 pointer-events-none" style={{ color: "var(--color-on-surface-variant)" }}>expand_more</span>
                       </div>
                     </div>
 

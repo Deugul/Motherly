@@ -322,7 +322,6 @@ export default function GynaecologyPage() {
                           <option value="Postnatal Recovery">Postnatal Recovery</option>
                           <option value="Nutrition Consultation">Nutrition Consultation</option>
                         </select>
-                        <span className="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none" style={{ color: "var(--color-outline)" }}>expand_more</span>
                       </div>
                     </div>
 
