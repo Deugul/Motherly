@@ -36,6 +36,8 @@ export interface BlogPost {
   date: string;
   readTime: string;
   content?: string;
+  link?: string;
+  slug?: string;
 }
 
 function post(
@@ -60,6 +62,8 @@ export interface FeaturedPost {
   image: string;
   author: string;
   authorRole: string;
+  link?: string;
+  slug?: string;
 }
 
 export const featuredPost: FeaturedPost | null = null;

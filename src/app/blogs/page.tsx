@@ -2,100 +2,128 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CTASection from "@/components/CTASection";
 import BlogPageClient from "@/components/BlogPageClient";
-import { posts as staticPosts, featuredPost } from "@/lib/posts";
-import type { BlogPost } from "@/lib/posts";
+import type { BlogPost, FeaturedPost } from "@/lib/posts";
 
-const tagThemeMap: Record<string, { tagBg: string; tagColor: string }> = {
-  primary: {
-    tagBg: "var(--color-primary-container)",
-    tagColor: "var(--color-on-primary-container)",
-  },
-  secondary: {
-    tagBg: "var(--color-secondary-container)",
-    tagColor: "var(--color-on-secondary-container)",
-  },
-  tertiary: {
-    tagBg: "var(--color-tertiary-container)",
-    tagColor: "var(--color-on-tertiary-container)",
-  },
+const WP_API = "https://beige-swallow-278886.hostingersite.com/wp-json/wp/v2";
+
+type WpPost = {
+  slug: string;
+  title: { rendered: string };
+  excerpt: { rendered: string };
+  content: { rendered: string };
+  date: string;
+  link: string;
+  _embedded?: {
+    "wp:featuredmedia"?: Array<{ source_url: string }>;
+    "wp:term"?: Array<Array<{ id: number; name: string }>>;
+    author?: Array<{ name: string }>;
+  };
 };
 
-function getFrontmatterValue(fm: string, key: string): string {
-  const m = fm.match(new RegExp(`^${key}:\\s*(.+)$`, "m"));
-  if (!m) return "";
-  return m[1].trim().replace(/^'(.*)'$/, "$1").replace(/^"(.*)"$/, "$1");
+function stripHtml(html: string): string {
+  return html
+    .replace(/<[^>]*>/g, "")
+    .replace(/&#(\d+);/g, (_, n) => String.fromCharCode(parseInt(n, 10)))
+    .replace(/&#x([0-9a-fA-F]+);/g, (_, h) => String.fromCharCode(parseInt(h, 16)))
+    .replace(/&amp;/g, "&")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/&quot;/g, '"')
+    .replace(/&apos;/g, "'")
+    .replace(/&nbsp;/g, " ")
+    .replace(/&rsquo;/g, "’")
+    .replace(/&lsquo;/g, "‘")
+    .replace(/&rdquo;/g, "”")
+    .replace(/&ldquo;/g, "“")
+    .replace(/&ndash;/g, "–")
+    .replace(/&mdash;/g, "—")
+    .replace(/&hellip;/g, "…")
+    .replace(/\s+/g, " ")
+    .trim();
 }
 
-async function getCmsPosts(): Promise<BlogPost[]> {
+function calcReadTime(content: string): string {
+  const words = stripHtml(content).split(/\s+/).filter(Boolean).length;
+  return `${Math.max(1, Math.round(words / 200))} min read`;
+}
+
+const TAG_THEME = {
+  tagBg: "var(--color-secondary-container)",
+  tagColor: "var(--color-on-secondary-container)",
+};
+
+async function fetchWpPosts(): Promise<{
+  posts: BlogPost[];
+  featured: FeaturedPost | null;
+  categories: string[];
+}> {
   try {
-    const token = process.env.GITHUB_PAT;
     const res = await fetch(
-      "https://api.github.com/repos/Deugul/Motherly/contents/src/content/posts",
-      {
-        headers: { ...(token && { Authorization: `Bearer ${token}` }) },
-        next: { revalidate: 60 },
-      }
+      `${WP_API}/posts?_embed&per_page=100&orderby=date&order=desc`,
+      { next: { revalidate: 60 } }
     );
-    if (!res.ok) return [];
+    if (!res.ok) return { posts: [], featured: null, categories: [] };
 
-    const files: { name: string; download_url: string }[] = await res.json();
+    const wpPosts: WpPost[] = await res.json();
+    if (!Array.isArray(wpPosts) || wpPosts.length === 0) {
+      return { posts: [], featured: null, categories: [] };
+    }
 
-    const posts = await Promise.all(
-      files
-        .filter((f) => f.name.endsWith(".mdoc"))
-        .map(async (file) => {
-          try {
-            const raw = await fetch(file.download_url, { next: { revalidate: 60 } }).then((r) =>
-              r.text()
-            );
-            const fmMatch = raw.match(/^---\r?\n([\s\S]*?)\r?\n---/);
-            if (!fmMatch) return null;
-            const fm = fmMatch[1];
+    const blogPosts: BlogPost[] = wpPosts.map((p) => {
+      const image = p._embedded?.["wp:featuredmedia"]?.[0]?.source_url ?? "";
+      const cat = p._embedded?.["wp:term"]?.[0]?.[0]?.name ?? "Article";
+      const rawExcerpt = stripHtml(p.excerpt?.rendered ?? "");
+      const excerpt = rawExcerpt.length > 140 ? rawExcerpt.slice(0, 137) + "…" : rawExcerpt;
+      const date = new Date(p.date).toLocaleDateString("en-US", {
+        month: "long",
+        day: "numeric",
+        year: "numeric",
+      });
 
-            const title = getFrontmatterValue(fm, "title");
-            const tag = getFrontmatterValue(fm, "tag");
-            const tagTheme = getFrontmatterValue(fm, "tagTheme") || "secondary";
-            const dateStr = getFrontmatterValue(fm, "date");
-            const readTime = getFrontmatterValue(fm, "readTime");
-            const coverImage = getFrontmatterValue(fm, "coverImage");
+      return {
+        tag: cat.toUpperCase(),
+        ...TAG_THEME,
+        title: stripHtml(p.title?.rendered ?? ""),
+        excerpt,
+        image,
+        date,
+        readTime: calcReadTime(p.content?.rendered ?? ""),
+        content: stripHtml(p.content?.rendered ?? ""),
+        link: p.link,
+        slug: p.slug,
+      };
+    });
 
-            if (!title) return null;
+    const categories = [...new Set(blogPosts.map((p) => p.tag))].sort();
 
-            const content = raw.replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n?/, "").trim();
-            const firstPara = content.split(/\n\n+/)[0] ?? "";
-            const excerpt = firstPara.length > 140 ? firstPara.slice(0, 137) + "…" : firstPara;
+    // First post with an image becomes the featured card
+    const featuredWp =
+      wpPosts.find((p) => p._embedded?.["wp:featuredmedia"]?.[0]?.source_url) ??
+      wpPosts[0];
+    const featuredIndex = wpPosts.indexOf(featuredWp);
 
-            return {
-              tag: tag.toUpperCase() || "WELLNESS",
-              ...(tagThemeMap[tagTheme] ?? tagThemeMap.secondary),
-              title,
-              excerpt,
-              image: coverImage,
-              date: dateStr
-                ? new Date(dateStr).toLocaleDateString("en-US", {
-                    year: "numeric",
-                    month: "long",
-                    day: "numeric",
-                  })
-                : "",
-              readTime: readTime || "5 min read",
-              content,
-            } as BlogPost;
-          } catch {
-            return null;
-          }
-        })
-    );
+    const featured: FeaturedPost = {
+      tag: (featuredWp._embedded?.["wp:term"]?.[0]?.[0]?.name ?? "Article").toUpperCase(),
+      title: stripHtml(featuredWp.title?.rendered ?? ""),
+      excerpt: stripHtml(featuredWp.excerpt?.rendered ?? "").slice(0, 200),
+      image: featuredWp._embedded?.["wp:featuredmedia"]?.[0]?.source_url ?? "",
+      author: featuredWp._embedded?.author?.[0]?.name ?? "Motherly Team",
+      authorRole: "Healthcare Specialist",
+      link: featuredWp.link,
+      slug: featuredWp.slug,
+    };
 
-    return posts.filter((p): p is BlogPost => p !== null);
+    // Remove featured post from the grid
+    const gridPosts = blogPosts.filter((_, i) => i !== featuredIndex);
+
+    return { posts: gridPosts, featured, categories };
   } catch {
-    return [];
+    return { posts: [], featured: null, categories: [] };
   }
 }
 
 export default async function BlogsPage() {
-  const cmsPosts = await getCmsPosts();
-  const allPosts: BlogPost[] = [...cmsPosts, ...staticPosts];
+  const { posts: wpPosts, featured, categories } = await fetchWpPosts();
 
   return (
     <>
@@ -104,7 +132,7 @@ export default async function BlogsPage() {
         className="pt-32 pb-20 max-w-7xl mx-auto px-6"
         style={{ backgroundColor: "var(--color-background)" }}
       >
-        <BlogPageClient posts={allPosts} featuredPost={featuredPost} />
+        <BlogPageClient posts={wpPosts} featuredPost={featured} categories={categories} />
       </main>
       <CTASection />
       <Footer />
