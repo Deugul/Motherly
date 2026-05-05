@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, Manrope } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import FontLoader from "@/components/FontLoader";
 
@@ -60,6 +61,13 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${plusJakarta.variable} ${manrope.variable}`}>
       <body className="antialiased">
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-MKFG9J3JPM" strategy="afterInteractive" />
+        <Script id="gtag-init" strategy="afterInteractive">{`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-MKFG9J3JPM');
+        `}</Script>
         <FontLoader />
         {children}
         <script
