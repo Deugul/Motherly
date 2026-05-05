@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     images: ["/og-image.jpg"],
   },
   verification: {
-    google: "40Vdcti_y2l_y4vcTdGyjxw1am30YkUF30Llx8mg_Go",
+    google: "OtmpGxUNJzvLtBhjMKEES6VbL3cV9j0jWsE5BL8cXrE",
   },
   robots: { index: true, follow: true },
 };
