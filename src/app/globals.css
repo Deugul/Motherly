@@ -282,6 +282,14 @@ h1, h2, h3, h4, h5, h6 {
   display: none !important;
 }
 
+/* Remove top margin/padding on the Elementor root and its first visible section
+   so content doesn't start with excessive whitespace after our custom header. */
+.wp-content .elementor,
+.wp-content .elementor > .e-parent:not([style*="display: none"]):first-of-type {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
 /* Safety net: if any Elementor font-icon SVG appears elsewhere, constrain its
    size (without Elementor CSS they default to full container width) */
 .wp-content .e-font-icon-svg {

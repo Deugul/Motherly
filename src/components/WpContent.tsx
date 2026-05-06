@@ -4,6 +4,23 @@ import { useEffect } from "react";
 
 export default function WpContent({ html }: { html: string }) {
   useEffect(() => {
+    // ── Hide Elementor duplicate title section ─────────────────────────────────
+    // The WP content renders its own h1 via Elementor; our page already shows a
+    // custom title above WpContent, so we hide whichever Elementor block owns
+    // the first h1 (works regardless of Elementor version / class naming).
+    const wpH1 = document.querySelector<HTMLElement>(".wp-content h1");
+    if (wpH1) {
+      const section =
+        wpH1.closest<HTMLElement>(".e-parent") ??
+        wpH1.closest<HTMLElement>(".elementor-section") ??
+        wpH1.closest<HTMLElement>("section");
+      if (section) {
+        section.style.display = "none";
+      } else {
+        wpH1.style.display = "none";
+      }
+    }
+
     // ── FAQ accordion ──────────────────────────────────────────────────────────
     const faqItems = document.querySelectorAll<HTMLElement>(".mb-faq-item");
     const faqButtons = document.querySelectorAll<HTMLElement>(".mb-faq-q");

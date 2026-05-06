@@ -181,7 +181,15 @@ export default async function BlogPostPage({
     <>
       <Navbar />
       <main className="pt-32 pb-20" style={{ backgroundColor: "var(--color-background)" }}>
-        <article className="max-w-7xl mx-auto px-6">
+        <article
+          className="max-w-7xl mx-auto"
+          style={{
+            padding: "2.5rem 2rem",
+            backgroundColor: "var(--color-surface-container-lowest)",
+            borderRadius: "1.5rem",
+            boxShadow: "0 4px 24px rgba(45,52,53,0.07)",
+          }}
+        >
           {/* Back */}
           <div className="mb-8">
             <Link
@@ -262,7 +270,7 @@ export default async function BlogPostPage({
 
         {/* Keep Reading */}
         {relatedPosts.length > 0 && (
-          <section className="max-w-7xl mx-auto px-6 mt-16">
+          <section className="max-w-7xl mx-auto mt-16" style={{ padding: "0 2rem" }}>
             <h2
               className="text-2xl md:text-3xl font-extrabold mb-8"
               style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}
