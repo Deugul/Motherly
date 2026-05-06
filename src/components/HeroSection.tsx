@@ -92,7 +92,7 @@ export default function HeroSection() {
                 Find a Doula
               </motion.button>
             </Link>
-            <Link href="/contact">
+            <Link href="/contact-us">
               <motion.button
                 whileHover={{ scale: 1.04, y: -2 }}
                 whileTap={{ scale: 0.96 }}

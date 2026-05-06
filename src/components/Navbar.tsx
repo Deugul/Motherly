@@ -7,13 +7,13 @@ import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 
 const serviceLinks = [
-  { href: "/our-services/doulas",                  label: "Doula",                    icon: "child_friendly" },
-  { href: "/our-services/postnatal-Recovery-care",  label: "Postnatal Recovery",        icon: "spa" },
-  { href: "/our-services/lactation-consultants",   label: "Lactation",                 icon: "favorite" },
-  { href: "/our-services/nannies-postnatal-care",   label: "Nanny Care",                icon: "child_care" },
-  { href: "/our-services/gynecology-consultation", label: "Gynaecologist/Obstetrician",icon: "stethoscope" },
-  { href: "/services/nutrition",  label: "Pediatrician",             icon: "pediatrics" },
-  { href: "/services/yoga",       label: "Yoga",                      icon: "self_improvement" },
+  { href: "/our-services/doulas", label: "Doula", icon: "child_friendly" },
+  { href: "/our-services/postnatal-Recovery-care", label: "Postnatal Recovery", icon: "spa" },
+  { href: "/our-services/lactation-consultants", label: "Lactation", icon: "favorite" },
+  { href: "/our-services/nannies-postnatal-care", label: "Nanny Care", icon: "child_care" },
+  { href: "/our-services/gynecology-consultation", label: "Gynaecologist/Obstetrician", icon: "stethoscope" },
+  { href: "/services/nutrition", label: "Pediatrician", icon: "pediatrics" },
+  { href: "/services/yoga", label: "Yoga", icon: "self_improvement" },
 ];
 
 const links = [
@@ -118,9 +118,8 @@ export default function Navbar() {
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? "bg-white/80 backdrop-blur-2xl shadow-md shadow-black/5" : "bg-white/40 backdrop-blur-xl"
-      }`}
+      className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? "bg-white/80 backdrop-blur-2xl shadow-md shadow-black/5" : "bg-white/40 backdrop-blur-xl"
+        }`}
     >
       <div className="flex justify-between items-center px-6 md:px-10 py-4 max-w-7xl mx-auto">
         {/* Logo */}
@@ -212,7 +211,7 @@ export default function Navbar() {
 
         {/* CTA */}
         <div className="hidden md:block">
-          <Link href="/contact">
+          <Link href="/contact-us">
             <motion.button
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.96 }}
@@ -329,7 +328,7 @@ export default function Navbar() {
                 </Link>
               ))}
 
-              <Link href="/contact" onClick={() => setMobileOpen(false)}>
+              <Link href="/contact-us" onClick={() => setMobileOpen(false)}>
                 <button
                   className="w-full mt-3 px-6 py-3 rounded-full font-bold text-sm"
                   style={{

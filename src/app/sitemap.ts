@@ -15,7 +15,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: "/services/yoga",           priority: 0.75, changeFrequency: "monthly" },
     { url: "/doctors",                 priority: 0.75, changeFrequency: "monthly" },
     { url: "/blogs",                   priority: 0.7,  changeFrequency: "weekly"  },
-    { url: "/contact",                 priority: 0.7,  changeFrequency: "monthly" },
+    { url: "/contact-us",                 priority: 0.7,  changeFrequency: "monthly" },
   ] as const;
 
   return pages.map(({ url, priority, changeFrequency }) => ({
