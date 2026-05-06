@@ -94,6 +94,8 @@ async function getRelatedPosts(currentSlug: string): Promise<RelatedPost[]> {
   }
 }
 
+const REAL_DOMAIN = "mothrly.com";
+
 function sanitizeWpHtml(html: string): string {
   return html
     .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, "")
@@ -109,9 +111,11 @@ function sanitizeWpHtml(html: string): string {
     )
     .replace(/\bold-srcset=/gi, "srcset=")
     .replace(
-      new RegExp(`href="${WP_ORIGIN.replace(/\./g, "\\.")}/(?:[\\w-]+/)*([\\w-]+)/?(?:\\?[^"]*)?"`,"gi"),
+      new RegExp(`href="${WP_ORIGIN.replace(/\./g, "\\.")}/(?:[\\w-]+/)*([\\w-]+)/?(?:\\?[^"]*)?"`, "gi"),
       'href="/blogs/$1"'
-    );
+    )
+    // Replace every visible occurrence of the staging domain with the real domain
+    .replace(/beige-swallow-278886\.hostingersite\.com/gi, REAL_DOMAIN);
 }
 
 export async function generateMetadata({
@@ -182,8 +186,17 @@ export default async function BlogPostPage({
           <div className="mb-8">
             <Link
               href="/blogs"
-              className="text-sm font-semibold inline-flex items-center gap-1 transition-opacity hover:opacity-70"
-              style={{ color: "var(--color-primary)" }}
+              style={{
+                color: "var(--color-primary)",
+                fontSize: "0.875rem",
+                fontWeight: 600,
+                fontFamily: "var(--font-body)",
+                textDecoration: "none",
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "4px",
+                opacity: 1,
+              }}
             >
               ← Back to Blogs
             </Link>
@@ -191,21 +204,46 @@ export default async function BlogPostPage({
 
           {/* Category */}
           {category && (
-            <span className="text-xs font-bold uppercase tracking-widest" style={{ color: "var(--color-primary)" }}>
+            <span
+              style={{
+                color: "var(--color-primary)",
+                fontSize: "0.75rem",
+                fontWeight: 700,
+                textTransform: "uppercase",
+                letterSpacing: "0.1em",
+                fontFamily: "var(--font-body)",
+              }}
+            >
               {category}
             </span>
           )}
 
           {/* Title */}
           <h1
-            className="mt-3 text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight"
-            style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}
+            style={{
+              marginTop: "0.75rem",
+              fontFamily: "var(--font-headline)",
+              color: "var(--color-on-surface)",
+              fontSize: "clamp(1.875rem, 4vw, 3rem)",
+              fontWeight: 800,
+              lineHeight: 1.2,
+            }}
           >
             {title}
           </h1>
 
           {/* Meta */}
-          <div className="mt-5 flex items-center gap-3 text-sm" style={{ color: "var(--color-on-surface-variant)" }}>
+          <div
+            style={{
+              marginTop: "1.25rem",
+              display: "flex",
+              alignItems: "center",
+              gap: "0.75rem",
+              fontSize: "0.875rem",
+              color: "var(--color-on-surface-variant)",
+              fontFamily: "var(--font-body)",
+            }}
+          >
             <span>{author}</span>
             <span>·</span>
             <span>{date}</span>

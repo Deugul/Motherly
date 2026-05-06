@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
 import type { BlogPost } from "@/lib/posts";
 import type { FeaturedPost } from "@/lib/posts";
@@ -291,74 +292,78 @@ export default function BlogPageClient({
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {visiblePosts.map((post, i) => (
-            <motion.article
+            <motion.div
               key={post.link ?? post.title}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.55, delay: i * 0.08, ease: easeOut }}
               whileHover={{ y: -6 }}
-              className="group cursor-pointer rounded-2xl"
-              style={{
-                backgroundColor: "var(--color-surface-container-lowest)",
-                boxShadow: "0 4px 20px rgba(45,52,53,0.08)",
-              }}
-              onClick={() => {
-                if (post.slug) router.push(`/blogs/${post.slug}`);
-                else if (post.link) window.open(post.link, "_blank", "noopener,noreferrer");
-                else setSelectedPost(post);
-              }}
+              style={{ borderRadius: "16px" }}
             >
-              {/* Image inset so it has its own rounded corners within the card */}
-              <div style={{ padding: "8px 8px 0 8px" }}>
-                <div style={{ borderRadius: "12px", overflow: "hidden", position: "relative", height: "220px" }}>
-                  {post.image ? (
-                    <MotionImage
-                      whileHover={{ scale: 1.04 }}
-                      transition={{ duration: 0.5 }}
-                      src={post.image}
-                      alt={post.title}
-                      fill
-                      style={{ objectFit: "contain", objectPosition: "top" }}
-                    />
-                  ) : (
-                    <div
-                      className="w-full h-full flex items-center justify-center"
-                      style={{ backgroundColor: "var(--color-surface-container-high)" }}
-                    >
-                      <span className="material-symbols-outlined text-5xl" style={{ color: "var(--color-on-surface-variant)", opacity: 0.3 }}>
-                        image
-                      </span>
-                    </div>
-                  )}
+              <Link
+                href={post.slug ? `/blogs/${post.slug}` : (post.link ?? "#")}
+                target={!post.slug && post.link ? "_blank" : undefined}
+                rel={!post.slug && post.link ? "noopener noreferrer" : undefined}
+                onClick={!post.slug && !post.link ? (e) => { e.preventDefault(); setSelectedPost(post); } : undefined}
+                className="group block rounded-2xl"
+                style={{
+                  backgroundColor: "var(--color-surface-container-lowest)",
+                  boxShadow: "0 4px 20px rgba(45,52,53,0.08)",
+                  textDecoration: "none",
+                }}
+              >
+                {/* Image inset */}
+                <div style={{ padding: "8px 8px 0 8px" }}>
+                  <div style={{ borderRadius: "12px", overflow: "hidden", position: "relative", height: "220px" }}>
+                    {post.image ? (
+                      <MotionImage
+                        whileHover={{ scale: 1.04 }}
+                        transition={{ duration: 0.5 }}
+                        src={post.image}
+                        alt={post.title}
+                        fill
+                        style={{ objectFit: "cover", objectPosition: "top" }}
+                      />
+                    ) : (
+                      <div
+                        className="w-full h-full flex items-center justify-center"
+                        style={{ backgroundColor: "var(--color-surface-container-high)" }}
+                      >
+                        <span className="material-symbols-outlined text-5xl" style={{ color: "var(--color-on-surface-variant)", opacity: 0.3 }}>
+                          image
+                        </span>
+                      </div>
+                    )}
+                  </div>
                 </div>
-              </div>
-              {/* Content */}
-              <div className="px-4 pb-5 pt-2 space-y-3">
-                <span
-                  className="inline-block px-3 py-1 rounded-full text-xs font-bold"
-                  style={{
-                    backgroundColor: `color-mix(in srgb, ${post.tagBg} 30%, transparent)`,
-                    color: post.tagColor,
-                  }}
-                >
-                  {post.tag}
-                </span>
-                <h3
-                  className="text-lg font-bold leading-snug"
-                  style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}
-                >
-                  {post.title}
-                </h3>
-                <p className="text-sm leading-relaxed line-clamp-3" style={{ color: "var(--color-on-surface-variant)" }}>
-                  {post.excerpt}
-                </p>
-                <div className="flex justify-between items-center text-xs" style={{ color: "var(--color-on-surface-variant)" }}>
-                  <span>{post.date}</span>
-                  <span>{post.readTime}</span>
+                {/* Content */}
+                <div className="px-4 pb-5 pt-2 space-y-3">
+                  <span
+                    className="inline-block px-3 py-1 rounded-full text-xs font-bold"
+                    style={{
+                      backgroundColor: `color-mix(in srgb, ${post.tagBg} 30%, transparent)`,
+                      color: post.tagColor,
+                    }}
+                  >
+                    {post.tag}
+                  </span>
+                  <h3
+                    className="text-lg font-bold leading-snug"
+                    style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}
+                  >
+                    {post.title}
+                  </h3>
+                  <p className="text-sm leading-relaxed line-clamp-3" style={{ color: "var(--color-on-surface-variant)" }}>
+                    {post.excerpt}
+                  </p>
+                  <div className="flex justify-between items-center text-xs" style={{ color: "var(--color-on-surface-variant)" }}>
+                    <span>{post.date}</span>
+                    <span>{post.readTime}</span>
+                  </div>
                 </div>
-              </div>
-            </motion.article>
+              </Link>
+            </motion.div>
           ))}
         </div>
       )}

@@ -10,7 +10,6 @@ type WpPost = {
   slug: string;
   title: { rendered: string };
   excerpt: { rendered: string };
-  content: { rendered: string };
   date: string;
   link: string;
   _embedded?: {
@@ -42,9 +41,10 @@ function stripHtml(html: string): string {
     .trim();
 }
 
-function calcReadTime(content: string): string {
-  const words = stripHtml(content).split(/\s+/).filter(Boolean).length;
-  return `${Math.max(1, Math.round(words / 200))} min read`;
+function calcReadTime(excerpt: string): string {
+  // Excerpts are ~10% of full article length; scale up for a rough estimate
+  const words = stripHtml(excerpt).split(/\s+/).filter(Boolean).length * 10;
+  return `${Math.max(3, Math.round(words / 200))} min read`;
 }
 
 const TAG_THEME = {
@@ -59,8 +59,8 @@ async function fetchWpPosts(): Promise<{
 }> {
   try {
     const res = await fetch(
-      `${WP_API}/posts?_embed&per_page=100&orderby=date&order=desc`,
-      { next: { revalidate: 60 } }
+      `${WP_API}/posts?_embed&per_page=100&orderby=date&order=desc&_fields=id,slug,title,excerpt,date,link,_links,_embedded`,
+      { next: { revalidate: 300 } }
     );
     if (!res.ok) return { posts: [], featured: null, categories: [] };
 
@@ -87,8 +87,7 @@ async function fetchWpPosts(): Promise<{
         excerpt,
         image,
         date,
-        readTime: calcReadTime(p.content?.rendered ?? ""),
-        content: stripHtml(p.content?.rendered ?? ""),
+        readTime: calcReadTime(p.excerpt?.rendered ?? ""),
         link: p.link,
         slug: p.slug,
       };
