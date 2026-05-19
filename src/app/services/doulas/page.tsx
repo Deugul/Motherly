@@ -47,6 +47,7 @@ function getInputStyle(hasError?: boolean) {
 
 export default function DoulaPage() {
   const [submitted, setSubmitted] = useState(false);
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   const {
     register,
@@ -90,7 +91,7 @@ export default function DoulaPage() {
                 >
                   Best{" "}
                   <span style={{ color: "var(--color-primary)" }}>Doula Services</span>
-                  <br />in Chennai
+                  <br />{" "}in Chennai
                 </h1>
                 <p
                   className="text-lg max-w-2xl mt-6 leading-relaxed"
@@ -206,6 +207,233 @@ export default function DoulaPage() {
                 </div>
               </section>
             </ScrollReveal>
+
+            {/* SEO Visual Wrapper - Hidden from user UI but fully readable by search bots */}
+            <div style={{ display: "none" }}>
+              {/* How to Hire a Doula in India Section */}
+              <ScrollReveal delay={0.2}>
+                <section className="space-y-6">
+                  <h2
+                    className="text-3xl font-bold"
+                    style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-background)" }}
+                  >
+                    How to Hire a Doula in India Through Motherly
+                  </h2>
+                  <p className="leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
+                    Finding the right birth support should be simple and stress-free. Follow these steps to find and book a verified birth doula for your pregnancy and delivery:
+                  </p>
+                  <div className="space-y-4">
+                    {[
+                      {
+                        num: "01",
+                        title: "Understand what a doula does",
+                        text: "A doula provides continuous emotional, informational, and physical support before, during, and after birth — complementing your medical team.",
+                      },
+                      {
+                        num: "02",
+                        title: "Book early",
+                        text: "Connect with a doula in your second trimester — verified doulas book up quickly, especially in Chennai.",
+                      },
+                      {
+                        num: "03",
+                        title: "Browse Motherly profiles",
+                        text: "Use the Motherly app to view verified doula profiles, experience, and reviews in your city.",
+                      },
+                      {
+                        num: "04",
+                        title: "Schedule a meet & greet",
+                        text: "Meet your shortlisted doulas virtually or in person before your third trimester to confirm fit.",
+                      },
+                    ].map((step, idx) => (
+                      <div
+                        key={step.num}
+                        className="p-6 rounded-2xl flex gap-5 border transition-all duration-300 hover:shadow-md"
+                        style={{
+                          backgroundColor: "var(--color-surface-container-lowest)",
+                          borderColor: "color-mix(in srgb, var(--color-outline-variant) 15%, transparent)",
+                        }}
+                      >
+                        <div
+                          className="text-3xl font-black shrink-0"
+                          style={{ fontFamily: "var(--font-headline)", color: "var(--color-primary)" }}
+                        >
+                          {step.num}
+                        </div>
+                        <div className="space-y-1">
+                          <h4
+                            className="text-lg font-bold"
+                            style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-background)" }}
+                          >
+                            {step.title}
+                          </h4>
+                          <p className="text-sm leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
+                            {step.text}
+                          </p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </section>
+              </ScrollReveal>
+
+              {/* FAQ Accordion Section */}
+              <ScrollReveal delay={0.25}>
+                <section className="space-y-6">
+                  <h2
+                    className="text-3xl font-bold"
+                    style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-background)" }}
+                  >
+                    Frequently Asked Questions
+                  </h2>
+                  <div className="space-y-3">
+                    {[
+                      {
+                        q: "What does a birth doula do?",
+                        a: "A birth doula provides continuous non-medical support during labour — breathing techniques, positioning, emotional reassurance, and communication support with the medical team.",
+                      },
+                      {
+                        q: "Do I need a doula if I have a good doctor?",
+                        a: "A doula complements your doctor and hospital team. Research shows doulas reduce caesarean rates, shorten labour duration, and improve birth satisfaction.",
+                      },
+                      {
+                        q: "Are doulas available in Chennai?",
+                        a: "Yes. Motherly has a network of verified, trained doulas available for home visits and hospital accompaniment across Chennai.",
+                      },
+                      {
+                        q: "How much does a doula cost in India?",
+                        a: "Doula fees vary based on experience and services. Browse transparent pricing on the Motherly app to find a doula that fits your budget.",
+                      },
+                    ].map((faq, idx) => {
+                      const isOpen = openFaq === idx;
+                      return (
+                        <div
+                          key={idx}
+                          className="rounded-2xl border overflow-hidden transition-all duration-300"
+                          style={{
+                            backgroundColor: "var(--color-surface-container-low)",
+                            borderColor: "color-mix(in srgb, var(--color-outline-variant) 15%, transparent)",
+                          }}
+                        >
+                          <button
+                            type="button"
+                            onClick={() => setOpenFaq(isOpen ? null : idx)}
+                            className="w-full px-6 py-5 flex items-center justify-between text-left font-bold"
+                            style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}
+                          >
+                            <span className="pr-4">{faq.q}</span>
+                            <motion.span
+                              animate={{ rotate: isOpen ? 180 : 0 }}
+                              transition={{ duration: 0.25 }}
+                              className="material-symbols-outlined shrink-0"
+                              style={{ color: "var(--color-primary)" }}
+                            >
+                              keyboard_arrow_down
+                            </motion.span>
+                          </button>
+                          <AnimatePresence initial={false}>
+                            {isOpen && (
+                              <motion.div
+                                initial={{ height: 0, opacity: 0 }}
+                                animate={{ height: "auto", opacity: 1 }}
+                                exit={{ height: 0, opacity: 0 }}
+                                transition={{ duration: 0.25, ease: "easeInOut" }}
+                              >
+                                <div
+                                  className="px-6 pb-5 text-sm leading-relaxed border-t"
+                                  style={{
+                                    color: "var(--color-on-surface-variant)",
+                                    borderColor: "color-mix(in srgb, var(--color-outline-variant) 10%, transparent)",
+                                  }}
+                                >
+                                  <p className="pt-4">{faq.a}</p>
+                                </div>
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </section>
+              </ScrollReveal>
+
+              {/* Related Resources / Interlinking */}
+              <ScrollReveal delay={0.3}>
+                <section className="space-y-6">
+                  <h2
+                    className="text-3xl font-bold"
+                    style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-background)" }}
+                  >
+                    Useful Resources & Guides
+                  </h2>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {[
+                      {
+                        label: "doula vs midwife",
+                        title: "Doula vs Midwife: Who Cares for You?",
+                        url: "https://mothrly.com/blogs/doula-vs-midwife-who-cares-for-you-and-your-baby",
+                        icon: "compare_arrows",
+                      },
+                      {
+                        label: "lactation consultant",
+                        title: "Why You Need a Lactation Consultant",
+                        url: "https://mothrly.com/blogs/why-every-new-mother-may-need-a-lactation-consultant",
+                        icon: "assignment_ind",
+                      },
+                      {
+                        label: "postnatal care",
+                        title: "Our Postnatal Recovery Care Services",
+                        url: "https://www.mothrly.com/our-services/postnatal-Recovery-care",
+                        icon: "healing",
+                      },
+                      {
+                        label: "pregnancy diet plan",
+                        title: "The Perfect Pregnancy Diet Plan Guide",
+                        url: "https://mothrly.com/blogs/pregnancy-diet-plan",
+                        icon: "restaurant",
+                      },
+                      {
+                        label: "postpartum care Chennai",
+                        title: "Complete Chennai Postpartum Guide",
+                        url: "https://mothrly.com/blogs/postpartum-care-in-chennai-the-complete-guide-for-new-mothers",
+                        icon: "map",
+                      },
+                    ].map((link, idx) => (
+                      <a
+                        key={idx}
+                        href={link.url}
+                        className="p-5 rounded-2xl border flex items-center gap-4 transition-all duration-300 hover:scale-[1.02]"
+                        style={{
+                          backgroundColor: "var(--color-surface-container-lowest)",
+                          borderColor: "color-mix(in srgb, var(--color-outline-variant) 15%, transparent)",
+                        }}
+                      >
+                        <div
+                          className="w-10 h-10 rounded-full flex items-center justify-center shrink-0"
+                          style={{
+                            backgroundColor: "var(--color-primary-container)",
+                            color: "var(--color-primary)",
+                          }}
+                        >
+                          <span className="material-symbols-outlined text-xl">{link.icon}</span>
+                        </div>
+                        <div className="space-y-0.5">
+                          <span className="text-[10px] font-bold uppercase tracking-wider opacity-60" style={{ color: "var(--color-primary)" }}>
+                            {link.label}
+                          </span>
+                          <h4
+                            className="text-sm font-bold line-clamp-1"
+                            style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-background)" }}
+                          >
+                            {link.title}
+                          </h4>
+                        </div>
+                      </a>
+                    ))}
+                  </div>
+                </section>
+              </ScrollReveal>
+            </div>
           </div>
 
           {/* ── Right Column: Booking Form ── */}
@@ -440,6 +668,82 @@ export default function DoulaPage() {
       </main>
       <CTASection />
       <Footer />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "HowTo",
+            "name": "How to Hire a Doula in India Through Motherly",
+            "description": "Steps to find and book a verified birth doula for your pregnancy and delivery.",
+            "step": [
+              {
+                "@type": "HowToStep",
+                "name": "Understand what a doula does",
+                "text": "A doula provides continuous emotional, informational, and physical support before, during, and after birth — complementing your medical team."
+              },
+              {
+                "@type": "HowToStep",
+                "name": "Book early",
+                "text": "Connect with a doula in your second trimester — verified doulas book up quickly, especially in Chennai."
+              },
+              {
+                "@type": "HowToStep",
+                "name": "Browse Motherly profiles",
+                "text": "Use the Motherly app to view verified doula profiles, experience, and reviews in your city."
+              },
+              {
+                "@type": "HowToStep",
+                "name": "Schedule a meet & greet",
+                "text": "Meet your shortlisted doulas virtually or in person before your third trimester to confirm fit."
+              }
+            ]
+          })
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What does a birth doula do?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "A birth doula provides continuous non-medical support during labour — breathing techniques, positioning, emotional reassurance, and communication support with the medical team."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Do I need a doula if I have a good doctor?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "A doula complements your doctor and hospital team. Research shows doulas reduce caesarean rates, shorten labour duration, and improve birth satisfaction."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Are doulas available in Chennai?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes. Motherly has a network of verified, trained doulas available for home visits and hospital accompaniment across Chennai."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How much does a doula cost in India?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Doula fees vary based on experience and services. Browse transparent pricing on the Motherly app to find a doula that fits your budget."
+                }
+              }
+            ]
+          })
+        }}
+      />
     </>
   );
 }

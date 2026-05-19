@@ -2,6 +2,8 @@ import dynamic from "next/dynamic";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import Footer from "@/components/Footer";
+import { Metadata } from "next";
+
 
 const OurStorySection = dynamic(() => import("@/components/OurStorySection"));
 const WhyMotherlySection = dynamic(() => import("@/components/WhyMotherlySection"));
