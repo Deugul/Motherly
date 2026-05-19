@@ -5,11 +5,11 @@ export const metadata: Metadata = {
   description:
     "Professional lactation consultants and obstetricians in Chennai. Expert breastfeeding support, antenatal monitoring, and postnatal health checks from Motherly.",
   keywords: ["lactation consultant Chennai", "breastfeeding support Chennai", "lactation specialist Chennai"],
-  alternates: { canonical: "/services/lactation" },
+  alternates: { canonical: "https://www.mothrly.com/our-services/lactation-consultants" },
   openGraph: {
     title: "Lactation Consultant & Obstetrician in Chennai | Motherly",
     description: "Expert lactation consultants and obstetricians in Chennai for breastfeeding and antenatal support.",
-    url: "/services/lactation",
+    url: "https://www.mothrly.com/our-services/lactation-consultants",
   },
 };
 

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -135,8 +136,9 @@ export default function PediatricianPage() {
                   className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight"
                   style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-background)" }}
                 >
-                  Your Child's Health,{" "}
-                  <span style={{ color: "var(--color-primary)" }}>In Expert Hands</span>
+                  Pediatrician{" "}
+                  <span style={{ color: "var(--color-primary)" }}>Consultation</span>
+                  <br />{" "}in Chennai
                 </h1>
                 <p
                   className="text-lg max-w-2xl mt-6 leading-relaxed"
@@ -518,9 +520,159 @@ export default function PediatricianPage() {
             </motion.div>
           </aside>
         </div>
+
+        {/* ── Hidden SEO Content (Crawled by search bots) ── */}
+        <div style={{ display: "none" }}>
+          {/* How to Access Steps */}
+          <section className="space-y-6">
+            <h2>How to Book a Paediatrician Through Motherly</h2>
+            <p>Steps to access expert paediatric care for your newborn or infant.</p>
+            <ol>
+              <li>
+                <h4>Identify the right time to consult</h4>
+                <p>Book a paediatrician for newborn check-ups (day 3–5, 2 weeks, 6 weeks), vaccination schedules, feeding concerns, or illness.</p>
+              </li>
+              <li>
+                <h4>Choose home visit or online</h4>
+                <p>Home visits are ideal for newborns in the first 2 weeks to avoid clinic exposure. Online consultations suit follow-ups and minor concerns.</p>
+              </li>
+              <li>
+                <h4>Book on the Motherly app</h4>
+                <p>Browse verified paediatric profiles on the Motherly app and book the slot that suits you.</p>
+              </li>
+              <li>
+                <h4>Prepare a feeding and sleep log</h4>
+                <p>Note your baby's feeding frequency, wet nappies, weight changes, and sleep patterns before the consultation.</p>
+              </li>
+            </ol>
+          </section>
+
+          {/* FAQ Accordion */}
+          <section className="space-y-6">
+            <h2>Frequently Asked Questions</h2>
+            <div>
+              <div>
+                <h3>When should I take my newborn to a paediatrician?</h3>
+                <p>Newborns should see a paediatrician within the first 3–5 days after discharge from hospital, then at 2 weeks, and 6 weeks for routine checks.</p>
+              </div>
+              <div>
+                <h3>Can I get a paediatric home visit in India?</h3>
+                <p>Yes. Motherly offers verified paediatric home visits for newborns and infants across Chennai and other Indian cities.</p>
+              </div>
+              <div>
+                <h3>What does a paediatric check-up include for a newborn?</h3>
+                <p>A newborn paediatric check includes weight monitoring, feeding assessment, jaundice screening, physical examination, and vaccination guidance.</p>
+              </div>
+              <div>
+                <h3>Can I consult a paediatrician online for my baby?</h3>
+                <p>Yes. Motherly's verified paediatricians offer virtual consultations for non-emergency concerns, follow-ups, and advice on feeding, sleep, and development.</p>
+              </div>
+            </div>
+          </section>
+
+          {/* Useful Resources & Guides */}
+          <section className="space-y-6">
+            <h2>Useful Resources & Guides</h2>
+            <div>
+              <Link href="https://mothrly.com/blogs/newborn-sleep-patterns-what-to-expect-in-the-third-month">
+                newborn sleep patterns
+              </Link>
+              <Link href="https://mothrly.com/blogs/5-signs-baby-getting-enough-breast-milk">
+                signs baby getting enough breast milk
+              </Link>
+              <Link href="https://mothrly.com/blogs/breastfeeding-rules-every-new-mom-should-know">
+                breastfeeding rules
+              </Link>
+              <Link href="https://www.mothrly.com/our-services/lactation-consultants">
+                lactation consultants service
+              </Link>
+              <Link href="https://www.mothrly.com/our-services/postnatal-Recovery-care">
+                postnatal care
+              </Link>
+            </div>
+          </section>
+        </div>
       </main>
       <CTASection />
       <Footer />
+
+      {/* ── JSON-LD Structured Data ── */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "HowTo",
+            "name": "How to Book a Paediatrician Through Motherly",
+            "description": "Steps to access expert paediatric care for your newborn or infant.",
+            "step": [
+              {
+                "@type": "HowToStep",
+                "name": "Identify the right time to consult",
+                "text": "Book a paediatrician for newborn check-ups (day 3–5, 2 weeks, 6 weeks), vaccination schedules, feeding concerns, or illness."
+              },
+              {
+                "@type": "HowToStep",
+                "name": "Choose home visit or online",
+                "text": "Home visits are ideal for newborns in the first 2 weeks to avoid clinic exposure. Online consultations suit follow-ups and minor concerns."
+              },
+              {
+                "@type": "HowToStep",
+                "name": "Book on the Motherly app",
+                "text": "Browse verified paediatric profiles on the Motherly app and book the slot that suits you."
+              },
+              {
+                "@type": "HowToStep",
+                "name": "Prepare a feeding and sleep log",
+                "text": "Note your baby's feeding frequency, wet nappies, weight changes, and sleep patterns before the consultation."
+              }
+            ]
+          })
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "When should I take my newborn to a paediatrician?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Newborns should see a paediatrician within the first 3–5 days after discharge from hospital, then at 2 weeks, and 6 weeks for routine checks."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Can I get a paediatric home visit in India?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes. Motherly offers verified paediatric home visits for newborns and infants across Chennai and other Indian cities."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What does a paediatric check-up include for a newborn?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "A newborn paediatric check includes weight monitoring, feeding assessment, jaundice screening, physical examination, and vaccination guidance."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Can I consult a paediatrician online for my baby?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes. Motherly's verified paediatricians offer virtual consultations for non-emergency concerns, follow-ups, and advice on feeding, sleep, and development."
+                }
+              }
+            ]
+          })
+        }}
+      />
     </>
   );
 }

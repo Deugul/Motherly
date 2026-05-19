@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -85,11 +86,12 @@ export default function GynaecologyPage() {
                 Medical Speciality
               </span>
               <h1
-                className="text-5xl lg:text-7xl font-extrabold tracking-tight leading-tight mb-6"
+                className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mb-6"
                 style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}
               >
-                Gynaecology <br />
+                Gynaecology{" "}
                 <span style={{ color: "var(--color-primary)" }}>Consultation</span>
+                <br />{" "}in Chennai
               </h1>
               <p className="text-xl max-w-xl leading-relaxed font-medium" style={{ color: "var(--color-on-surface-variant)" }}>
                 Specialized Reproductive Health Care designed with empathy, precision, and a
@@ -399,9 +401,158 @@ export default function GynaecologyPage() {
           </div>
         </section>
 
+        {/* ── Hidden SEO Content (Crawled by search bots) ── */}
+        <div style={{ display: "none" }}>
+          {/* How to Access Steps */}
+          <section className="space-y-6">
+            <h2>How to Book a Gynaecology Consultation Through Motherly</h2>
+            <p>Steps to access verified gynaecology consultations in India.</p>
+            <ol>
+              <li>
+                <h4>Identify your need</h4>
+                <p>Whether it is a routine antenatal check-up, postnatal follow-up, or a specific concern like bleeding or pain — Motherly connects you with verified specialists.</p>
+              </li>
+              <li>
+                <h4>Choose in-person or virtual</h4>
+                <p>Select a home visit or virtual consultation based on your preference and stage of pregnancy.</p>
+              </li>
+              <li>
+                <h4>Book through the Motherly app</h4>
+                <p>Browse verified gynaecologist profiles, read reviews, and book your slot directly on the Motherly app.</p>
+              </li>
+              <li>
+                <h4>Prepare your questions</h4>
+                <p>Note symptoms, last period date, medications, and any pregnancy history before your consultation.</p>
+              </li>
+            </ol>
+          </section>
+
+          {/* FAQ Accordion */}
+          <section className="space-y-6">
+            <h2>Frequently Asked Questions</h2>
+            <div>
+              <div>
+                <h3>Can I book a gynaecologist online in India?</h3>
+                <p>Yes. Motherly offers verified gynaecology consultations virtually or at home across India. Book through the Motherly app in a few steps.</p>
+              </div>
+              <div>
+                <h3>When should I see a gynaecologist during pregnancy?</h3>
+                <p>Book your first antenatal visit as soon as you confirm your pregnancy — ideally by weeks 8–10. Routine visits are typically every 4 weeks until week 28, then more frequently.</p>
+              </div>
+              <div>
+                <h3>What is a postnatal gynaecology check?</h3>
+                <p>A postnatal gynaecology check at 6 weeks after delivery assesses uterine recovery, perineal healing, contraception, and emotional wellbeing.</p>
+              </div>
+              <div>
+                <h3>Does Motherly have gynaecologists in Chennai?</h3>
+                <p>Yes. Motherly has verified gynaecologists available for consultations in Chennai — both home visits and virtual appointments.</p>
+              </div>
+            </div>
+          </section>
+
+          {/* Useful Resources & Guides */}
+          <section className="space-y-6">
+            <h2>Useful Resources & Guides</h2>
+            <div>
+              <Link href="https://mothrly.com/blogs/pregnancy-diet-plan">
+                pregnancy diet plan
+              </Link>
+              <Link href="https://mothrly.com/blogs/first-trimester-pregnancy-diet-plan">
+                first trimester diet plan
+              </Link>
+              <Link href="https://mothrly.com/blogs/does-postpartum-belly-go-away-a-realistic-recovery-guide-for-new-moms">
+                postpartum belly
+              </Link>
+              <Link href="https://www.mothrly.com/our-services/doulas">
+                doulas
+              </Link>
+              <Link href="https://www.mothrly.com/our-services/postnatal-Recovery-care">
+                postnatal care
+              </Link>
+            </div>
+          </section>
+        </div>
       </main>
       <CTASection />
       <Footer />
+
+      {/* ── JSON-LD Structured Data ── */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "HowTo",
+            "name": "How to Book a Gynaecology Consultation Through Motherly",
+            "description": "Steps to access verified gynaecology consultations in India.",
+            "step": [
+              {
+                "@type": "HowToStep",
+                "name": "Identify your need",
+                "text": "Whether it is a routine antenatal check-up, postnatal follow-up, or a specific concern like bleeding or pain — Motherly connects you with verified specialists."
+              },
+              {
+                "@type": "HowToStep",
+                "name": "Choose in-person or virtual",
+                "text": "Select a home visit or virtual consultation based on your preference and stage of pregnancy."
+              },
+              {
+                "@type": "HowToStep",
+                "name": "Book through the Motherly app",
+                "text": "Browse verified gynaecologist profiles, read reviews, and book your slot directly on the Motherly app."
+              },
+              {
+                "@type": "HowToStep",
+                "name": "Prepare your questions",
+                "text": "Note symptoms, last period date, medications, and any pregnancy history before your consultation."
+              }
+            ]
+          })
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Can I book a gynaecologist online in India?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes. Motherly offers verified gynaecology consultations virtually or at home across India. Book through the Motherly app in a few steps."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "When should I see a gynaecologist during pregnancy?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Book your first antenatal visit as soon as you confirm your pregnancy — ideally by weeks 8–10. Routine visits are typically every 4 weeks until week 28, then more frequently."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What is a postnatal gynaecology check?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "A postnatal gynaecology check at 6 weeks after delivery assesses uterine recovery, perineal healing, contraception, and emotional wellbeing."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Does Motherly have gynaecologists in Chennai?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes. Motherly has verified gynaecologists available for consultations in Chennai — both home visits and virtual appointments."
+                }
+              }
+            ]
+          })
+        }}
+      />
     </>
   );
 }

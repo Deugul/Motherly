@@ -39,19 +39,19 @@ const services = [
     icon: "child_care",
     title: "Nanny Care",
     desc: "Trained nannies offering holistic infant care, light household help and warm emotional companionship for mother and baby.",
-    href: "/our-services/postnatal-Recovery-care",
+    href: "/our-services/nanny-services",
   },
   {
     icon: "spa",
     title: "Postnatal Recovery",
     desc: "Physiotherapy-led programmes for pelvic floor restoration, core strengthening and full postpartum wellness.",
-    href: "/our-services/postnatal-Recovery-care",
+    href: "/our-services/postnatal-recovery-care",
   },
   {
     icon: "pediatrics",
     title: "Pediatrician Consultation",
     desc: "Comprehensive child health consultations from birth through early childhood, covering vaccinations, developmental checks, and common childhood conditions.",
-    href: "/services/nutrition",
+    href: "/services/pediatrician",
   },
 ];
 

@@ -13,11 +13,11 @@ const quickLinks = [
 
 const services = [
   { label: "Doula Services", href: "/our-services/doulas" },
-  { label: "Postnatal Recovery", href: "/our-services/postnatal-Recovery-care" },
+  { label: "Postnatal Recovery", href: "/our-services/postnatal-recovery-care" },
   { label: "Lactation Consultants", href: "/our-services/lactation-consultants" },
-  { label: "Nanny Care", href: "/our-services/nannies-postnatal-care" },
+  { label: "Nanny Care", href: "/our-services/nanny-services" },
   { label: "Gynaecology Consultation", href: "/our-services/gynecology-consultation" },
-  { label: "Nutrition & Pediatrics", href: "/services/nutrition" },
+  { label: "Nutrition & Pediatrics", href: "/services/pediatrician" },
   { label: "Prenatal Yoga", href: "/services/yoga" },
 ];
 

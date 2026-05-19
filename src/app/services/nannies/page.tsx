@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -88,9 +89,7 @@ export default function NanniesPage() {
                   className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight"
                   style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-background)" }}
                 >
-                  Nannies &amp;{" "}
-                  <span style={{ color: "var(--color-primary)" }}>Postnatal Care</span>
-                  <br />in Chennai
+                  Nanny Services <span style={{ color: "var(--color-primary)" }}>in Chennai</span>
                 </h1>
                 <p
                   className="text-lg max-w-2xl mt-6 leading-relaxed"
@@ -551,9 +550,159 @@ export default function NanniesPage() {
             </motion.div>
           </aside>
         </div>
+
+        {/* ── Hidden SEO Content (Crawled by search bots) ── */}
+        <div style={{ display: "none" }}>
+          {/* How to Access Steps */}
+          <section className="space-y-6">
+            <h2>How to Hire a Postnatal Nanny Through Motherly</h2>
+            <p>Steps to find and book a verified postnatal nanny for newborn care.</p>
+            <ol>
+              <li>
+                <h4>Decide on nanny vs japa maid</h4>
+                <p>A postnatal nanny is trained in newborn care and safe sleep. A japa maid focuses on traditional postpartum practices. Both can be arranged through Motherly.</p>
+              </li>
+              <li>
+                <h4>Book in the third trimester</h4>
+                <p>Good postnatal nannies are in high demand. Book before your due date.</p>
+              </li>
+              <li>
+                <h4>Review profiles and experience</h4>
+                <p>Use the Motherly app to browse verified nanny profiles, training, and parent reviews.</p>
+              </li>
+              <li>
+                <h4>Schedule a trial or intro session</h4>
+                <p>Meet your shortlisted nanny before delivery to discuss routines, preferences, and newborn care expectations.</p>
+              </li>
+            </ol>
+          </section>
+
+          {/* FAQ Accordion */}
+          <section className="space-y-6">
+            <h2>Frequently Asked Questions</h2>
+            <div>
+              <div>
+                <h3>What does a postnatal nanny do?</h3>
+                <p>A postnatal nanny provides trained newborn care — bathing, feeding support, safe sleep guidance, and assisting the mother with recovery — typically for the first 40–90 days after delivery.</p>
+              </div>
+              <div>
+                <h3>How is a postnatal nanny different from a japa maid?</h3>
+                <p>A postnatal nanny is trained in modern newborn care and infant safety. A japa maid provides traditional postpartum care including massage and dietary preparation.</p>
+              </div>
+              <div>
+                <h3>How much does a postnatal nanny cost in Chennai?</h3>
+                <p>Costs vary based on duration and experience. Transparent pricing is available through the Motherly app when browsing nanny profiles.</p>
+              </div>
+              <div>
+                <h3>Can I hire a postnatal nanny through Motherly?</h3>
+                <p>Yes. Motherly provides verified, background-checked postnatal nannies for home care across Chennai and other Indian cities.</p>
+              </div>
+            </div>
+          </section>
+
+          {/* Useful Resources & Guides */}
+          <section className="space-y-6">
+            <h2>Useful Resources & Guides</h2>
+            <div>
+              <Link href="https://mothrly.com/blogs/postpartum-care-in-chennai-the-complete-guide-for-new-mothers">
+                postpartum care Chennai
+              </Link>
+              <Link href="https://mothrly.com/blogs/newborn-sleep-patterns-what-to-expect-in-the-third-month">
+                newborn sleep patterns
+              </Link>
+              <Link href="https://www.mothrly.com/our-services/postnatal-Recovery-care">
+                postnatal care
+              </Link>
+              <Link href="https://www.mothrly.com/our-services/lactation-consultants">
+                lactation consultants service
+              </Link>
+              <Link href="https://www.mothrly.com/our-services/doulas">
+                doulas
+              </Link>
+            </div>
+          </section>
+        </div>
       </main>
       <CTASection />
       <Footer />
+
+      {/* ── JSON-LD Structured Data ── */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "HowTo",
+            "name": "How to Hire a Postnatal Nanny Through Motherly",
+            "description": "Steps to find and book a verified postnatal nanny for newborn care.",
+            "step": [
+              {
+                "@type": "HowToStep",
+                "name": "Decide on nanny vs japa maid",
+                "text": "A postnatal nanny is trained in newborn care and safe sleep. A japa maid focuses on traditional postpartum practices. Both can be arranged through Motherly."
+              },
+              {
+                "@type": "HowToStep",
+                "name": "Book in the third trimester",
+                "text": "Good postnatal nannies are in high demand. Book before your due date."
+              },
+              {
+                "@type": "HowToStep",
+                "name": "Review profiles and experience",
+                "text": "Use the Motherly app to browse verified nanny profiles, training, and parent reviews."
+              },
+              {
+                "@type": "HowToStep",
+                "name": "Schedule a trial or intro session",
+                "text": "Meet your shortlisted nanny before delivery to discuss routines, preferences, and newborn care expectations."
+              }
+            ]
+          })
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What does a postnatal nanny do?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "A postnatal nanny provides trained newborn care — bathing, feeding support, safe sleep guidance, and assisting the mother with recovery — typically for the first 40–90 days after delivery."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How is a postnatal nanny different from a japa maid?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "A postnatal nanny is trained in modern newborn care and infant safety. A japa maid provides traditional postpartum care including massage and dietary preparation."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How much does a postnatal nanny cost in Chennai?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Costs vary based on duration and experience. Transparent pricing is available through the Motherly app when browsing nanny profiles."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Can I hire a postnatal nanny through Motherly?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes. Motherly provides verified, background-checked postnatal nannies for home care across Chennai and other Indian cities."
+                }
+              }
+            ]
+          })
+        }}
+      />
     </>
   );
 }

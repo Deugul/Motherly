@@ -8,11 +8,11 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const serviceLinks = [
   { href: "/our-services/doulas", label: "Doula", icon: "child_friendly" },
-  { href: "/our-services/postnatal-Recovery-care", label: "Postnatal Recovery", icon: "spa" },
+  { href: "/our-services/postnatal-recovery-care", label: "Postnatal Recovery", icon: "spa" },
   { href: "/our-services/lactation-consultants", label: "Lactation", icon: "favorite" },
-  { href: "/our-services/nannies-postnatal-care", label: "Nanny Care", icon: "child_care" },
+  { href: "/our-services/nanny-services", label: "Nanny Care", icon: "child_care" },
   { href: "/our-services/gynecology-consultation", label: "Gynaecologist/Obstetrician", icon: "stethoscope" },
-  { href: "/services/nutrition", label: "Pediatrician", icon: "pediatrics" },
+  { href: "/services/pediatrician", label: "Pediatrician", icon: "pediatrics" },
   { href: "/services/yoga", label: "Yoga", icon: "self_improvement" },
 ];
 

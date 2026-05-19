@@ -19,15 +19,17 @@ const manrope = Manrope({
 
 export const metadata: Metadata = {
   title: {
-    default: "Motherly | Your Birth Companion in Chennai",
+    default: "Motherly – Chennai's No1 Mother Care & Baby Care Service at Home",
     template: "%s | Motherly",
   },
   description:
-    "Motherly connects families with expert doulas, lactation consultants, gynaecologists, nannies, and postnatal care specialists in Chennai. Book a consultation today.",
+    "Motherly connects Indian mothers with verified lactation consultants in Chennai, doulas, nannies, and postnatal care experts. Book trusted maternal care on the Motherly app.",
   keywords: [
-    "doula Chennai", "lactation consultant Chennai", "gynaecologist Chennai",
-    "postnatal care Chennai", "nanny care Chennai", "maternal care Chennai",
-    "birth companion Chennai", "pregnancy support Chennai",
+    "Motherly birth companion India",
+    "maternal care app India",
+    "book lactation consultant India",
+    "postnatal care app",
+    "doula India",
   ],
   metadataBase: new URL("https://www.mothrly.com"),
   alternates: { canonical: "/" },
@@ -35,15 +37,16 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_IN",
     siteName: "Motherly",
-    title: "Motherly | Your Birth Companion in Chennai",
+    title: "Motherly – Chennai's No1 Mother Care & Baby Care Service at Home",
     description:
-      "Expert doulas, lactation consultants, gynaecologists, nannies, and postnatal care specialists in Chennai.",
+      "Motherly connects Indian mothers with verified lactation consultants in Chennai, doulas, nannies, and postnatal care experts. Book trusted maternal care on the Motherly app.",
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Motherly — Your Birth Companion" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Motherly | Your Birth Companion in Chennai",
-    description: "Expert maternal care in Chennai — doulas, lactation, gynaecology, nannies & more.",
+    title: "Motherly – Chennai's No1 Mother Care & Baby Care Service at Home",
+    description:
+      "Motherly connects Indian mothers with verified lactation consultants in Chennai, doulas, nannies, and postnatal care experts. Book trusted maternal care on the Motherly app.",
     images: ["/og-image.jpg"],
   },
   verification: {

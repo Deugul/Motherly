@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -106,13 +107,12 @@ export default function YogaPage() {
                 WOMEN'S WELLNESS
               </span>
               <h1
-                className="text-5xl lg:text-7xl font-extrabold leading-[1.1] mb-6 tracking-tight"
+                className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-6 tracking-tight"
                 style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}
               >
-                Yoga for Every{" "}
-                <span className="italic" style={{ color: "var(--color-primary)" }}>
-                  Stage of Motherhood
-                </span>
+                Prenatal &amp;{" "}
+                <span style={{ color: "var(--color-primary)" }}>Postnatal Yoga</span>
+                <br />{" "}in Chennai
               </h1>
               <p
                 className="text-lg md:text-xl leading-relaxed max-w-2xl mb-8"
@@ -541,9 +541,159 @@ export default function YogaPage() {
             </motion.div>
           </aside>
         </section>
+
+        {/* ── Hidden SEO Content (Crawled by search bots) ── */}
+        <div style={{ display: "none" }}>
+          {/* How to Access Steps */}
+          <section className="space-y-6">
+            <h2>How to Start Prenatal or Postnatal Yoga Safely</h2>
+            <p>Steps for expectant and new mothers to start yoga sessions safely.</p>
+            <ol>
+              <li>
+                <h4>Get clearance from your gynaecologist</h4>
+                <p>Before starting prenatal yoga or postnatal recovery yoga, obtain medical clearance from your obstetrician or doctor.</p>
+              </li>
+              <li>
+                <h4>Find certified prenatal/postnatal yoga instructors</h4>
+                <p>Pregnancy requires specific posture modifications. Do not join a general yoga class. Practice only under certified instruction.</p>
+              </li>
+              <li>
+                <h4>Start in the second trimester</h4>
+                <p>Prenatal yoga is generally safest to start in the second trimester (after week 14) unless otherwise cleared by your doctor.</p>
+              </li>
+              <li>
+                <h4>Listen to your body</h4>
+                <p>Avoid deep twists, lying flat on the back, and breath-holding. Modify poses whenever you feel discomfort or dizziness.</p>
+              </li>
+            </ol>
+          </section>
+
+          {/* FAQ Accordion */}
+          <section className="space-y-6">
+            <h2>Frequently Asked Questions</h2>
+            <div>
+              <div>
+                <h3>Is prenatal yoga safe during all trimesters?</h3>
+                <p>Yes. Prenatal yoga is generally safe throughout pregnancy when guided by certified instructors, but it is typically started in the second trimester (from week 14).</p>
+              </div>
+              <div>
+                <h3>When can I start postnatal yoga after delivery?</h3>
+                <p>Postnatal yoga is usually safe to start 6 weeks after a vaginal delivery and 8–10 weeks after a C-section, following medical clearance.</p>
+              </div>
+              <div>
+                <h3>What are the benefits of pregnancy yoga?</h3>
+                <p>Pregnancy yoga helps ease lower back pain, improves pelvic floor strength, teaches deep breathing techniques for labour, and reduces prenatal stress.</p>
+              </div>
+              <div>
+                <h3>Can I attend online prenatal yoga classes through Motherly?</h3>
+                <p>Yes. Motherly offers certified online and home-visit prenatal and postnatal yoga sessions tailored for mothers across Chennai and India.</p>
+              </div>
+            </div>
+          </section>
+
+          {/* Useful Resources & Guides */}
+          <section className="space-y-6">
+            <h2>Useful Resources & Guides</h2>
+            <div>
+              <Link href="https://mothrly.com/blogs/is-walking-during-pregnancy-good-for-normal-delivery">
+                walking during pregnancy
+              </Link>
+              <Link href="https://mothrly.com/blogs/can-stress-cause-miscarriage">
+                stress and miscarriage
+              </Link>
+              <Link href="https://mothrly.com/blogs/does-postpartum-belly-go-away-a-realistic-recovery-guide-for-new-moms">
+                postpartum belly
+              </Link>
+              <Link href="https://mothrly.com/blogs/how-to-lose-weight-while-breastfeeding">
+                lose weight breastfeeding
+              </Link>
+              <Link href="https://www.mothrly.com/our-services/postnatal-Recovery-care">
+                postnatal care
+              </Link>
+            </div>
+          </section>
+        </div>
       </main>
       <CTASection />
       <Footer />
+
+      {/* ── JSON-LD Structured Data ── */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "HowTo",
+            "name": "How to Start Prenatal or Postnatal Yoga Safely",
+            "description": "Steps for expectant and new mothers to start yoga sessions safely.",
+            "step": [
+              {
+                "@type": "HowToStep",
+                "name": "Get clearance from your gynaecologist",
+                "text": "Before starting prenatal yoga or postnatal recovery yoga, obtain medical clearance from your obstetrician or doctor."
+              },
+              {
+                "@type": "HowToStep",
+                "name": "Find certified prenatal/postnatal yoga instructors",
+                "text": "Pregnancy requires specific posture modifications. Do not join a general yoga class. Practice only under certified instruction."
+              },
+              {
+                "@type": "HowToStep",
+                "name": "Start in the second trimester",
+                "text": "Prenatal yoga is generally safest to start in the second trimester (after week 14) unless otherwise cleared by your doctor."
+              },
+              {
+                "@type": "HowToStep",
+                "name": "Listen to your body",
+                "text": "Avoid deep twists, lying flat on the back, and breath-holding. Modify poses whenever you feel discomfort or dizziness."
+              }
+            ]
+          })
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Is prenatal yoga safe during all trimesters?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes. Prenatal yoga is generally safe throughout pregnancy when guided by certified instructors, but it is typically started in the second trimester (from week 14)."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "When can I start postnatal yoga after delivery?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Postnatal yoga is usually safe to start 6 weeks after a vaginal delivery and 8–10 weeks after a C-section, following medical clearance."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What are the benefits of pregnancy yoga?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Pregnancy yoga helps ease lower back pain, improves pelvic floor strength, teaches deep breathing techniques for labour, and reduces prenatal stress."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Can I attend online prenatal yoga classes through Motherly?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes. Motherly offers certified online and home-visit prenatal and postnatal yoga sessions tailored for mothers across Chennai and India."
+                }
+              }
+            ]
+          })
+        }}
+      />
     </>
   );
 }

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -89,13 +90,12 @@ export default function PostnatalPage() {
                 WOMEN'S WELLNESS
               </span>
               <h1
-                className="text-5xl lg:text-7xl font-extrabold leading-[1.1] mb-6 tracking-tight"
+                className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-6 tracking-tight"
                 style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}
               >
-                Mothers{" "}
-                <span className="italic" style={{ color: "var(--color-primary)" }}>
-                  Physiotherapy
-                </span>
+                Postnatal Recovery{" "}
+                <span style={{ color: "var(--color-primary)" }}>Care at Home</span>
+                <br />{" "}in Chennai
               </h1>
               <p
                 className="text-lg md:text-xl leading-relaxed max-w-2xl mb-8"
@@ -275,6 +275,54 @@ export default function PostnatalPage() {
                     </div>
                   </div>
                 </motion.div>
+              </div>
+            </ScrollReveal>
+
+            {/* Specialized Physiotherapy CTA */}
+            <ScrollReveal delay={0.08}>
+              <div
+                className="p-8 rounded-xl relative overflow-hidden"
+                style={{
+                  background: "linear-gradient(135deg, color-mix(in srgb, var(--color-primary) 10%, transparent), color-mix(in srgb, var(--color-secondary-container) 20%, transparent))",
+                  border: "1px solid color-mix(in srgb, var(--color-primary) 15%, transparent)",
+                }}
+              >
+                <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
+                  <div className="max-w-xl">
+                    <span
+                      className="inline-block px-3 py-1 rounded-full text-xs font-extrabold mb-3 uppercase tracking-wider"
+                      style={{
+                        backgroundColor: "var(--color-primary-container)",
+                        color: "var(--color-on-primary-container)",
+                      }}
+                    >
+                      Specialized Clinical Care
+                    </span>
+                    <h3
+                      className="text-xl font-bold mb-2"
+                      style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-background)" }}
+                    >
+                      Postnatal Physiotherapy in Chennai
+                    </h3>
+                    <p className="text-sm leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
+                      Restore deep core strength, solve diastasis recti, back pain, and pelvic floor issues.
+                      Book certified in-home or virtual physiotherapy assessments.
+                    </p>
+                  </div>
+                  <Link
+                    href="/our-services/postnatal-recovery-care/physiotherapy"
+                    className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-bold text-sm flex-shrink-0 self-start md:self-center transition-all hover:scale-105"
+                    style={{
+                      backgroundColor: "var(--color-primary)",
+                      color: "var(--color-on-primary)",
+                      fontFamily: "var(--font-headline)",
+                      boxShadow: "0 4px 12px color-mix(in srgb, var(--color-primary) 25%, transparent)",
+                    }}
+                  >
+                    Explore Therapy
+                    <span className="material-symbols-outlined text-base">arrow_forward</span>
+                  </Link>
+                </div>
               </div>
             </ScrollReveal>
 
@@ -547,9 +595,162 @@ export default function PostnatalPage() {
             </motion.div>
           </aside>
         </section>
+
+        {/* ── Hidden SEO Content (Crawled by search bots) ── */}
+        <div style={{ display: "none" }}>
+          {/* How to Access Steps */}
+          <section className="space-y-6">
+            <h2>How to Access Postnatal Recovery Care Through Motherly</h2>
+            <p>Steps to book at-home postnatal recovery support in India.</p>
+            <ol>
+              <li>
+                <h4>Plan your postnatal care in the third trimester</h4>
+                <p>Arrange postnatal care before your due date — having support ready from day 1 of discharge is ideal.</p>
+              </li>
+              <li>
+                <h4>Choose your care package</h4>
+                <p>Select from postnatal massage, nutrition guidance, breastfeeding support, emotional care, or a combined package.</p>
+              </li>
+              <li>
+                <h4>Book through Motherly</h4>
+                <p>Use the Motherly app to browse verified postnatal care professionals and book home visits in your city.</p>
+              </li>
+              <li>
+                <h4>Start care from day 3–5</h4>
+                <p>Postnatal massage and care can begin from day 3–5 after a normal delivery, or when medically cleared after a C-section.</p>
+              </li>
+            </ol>
+          </section>
+
+          {/* FAQ Accordion */}
+          <section className="space-y-6">
+            <h2>Frequently Asked Questions</h2>
+            <div>
+              <div>
+                <h3>What is included in postnatal recovery care?</h3>
+                <p>Postnatal recovery care includes oil massage, abdominal binding (patt bandhi), dietary guidance, breastfeeding support, emotional wellbeing check-ins, and newborn care assistance.</p>
+              </div>
+              <div>
+                <h3>When can I start postnatal massage after delivery?</h3>
+                <p>Postnatal massage can typically begin from day 3–5 after a vaginal delivery. After a C-section, massage is usually started after 4–6 weeks or with doctor clearance.</p>
+              </div>
+              <div>
+                <h3>Is postnatal care the same as jaapa?</h3>
+                <p>Jaapa is the traditional South Indian postnatal confinement practice. Motherly's postnatal care integrates traditional jaapa elements with modern evidence-based recovery support.</p>
+              </div>
+              <div>
+                <h3>Does Motherly offer postnatal care in Chennai?</h3>
+                <p>Yes. Motherly has verified postnatal care professionals available for home visits across Chennai. Book through the Motherly app.</p>
+              </div>
+            </div>
+          </section>
+
+          {/* Useful Resources & Guides */}
+          <section className="space-y-6">
+            <h2>Useful Resources & Guides</h2>
+            <div>
+              <Link href="https://mothrly.com/blogs/does-postpartum-belly-go-away-a-realistic-recovery-guide-for-new-moms">
+                postpartum belly
+              </Link>
+              <Link href="https://mothrly.com/blogs/postpartum-care-in-chennai-the-complete-guide-for-new-mothers">
+                postpartum care Chennai
+              </Link>
+              <Link href="https://mothrly.com/blogs/why-every-new-mother-may-need-a-lactation-consultant">
+                lactation consultant
+              </Link>
+              <Link href="https://mothrly.com/blogs/how-to-increase-breast-milk-supply">
+                increase breast milk supply
+              </Link>
+              <Link href="https://www.mothrly.com/our-services/doulas">
+                doulas
+              </Link>
+              <Link href="https://www.mothrly.com/services/yoga">
+                yoga
+              </Link>
+            </div>
+          </section>
+        </div>
       </main>
       <CTASection />
       <Footer />
+
+      {/* ── JSON-LD Structured Data ── */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "HowTo",
+            "name": "How to Access Postnatal Recovery Care Through Motherly",
+            "description": "Steps to book at-home postnatal recovery support in India.",
+            "step": [
+              {
+                "@type": "HowToStep",
+                "name": "Plan your postnatal care in the third trimester",
+                "text": "Arrange postnatal care before your due date — having support ready from day 1 of discharge is ideal."
+              },
+              {
+                "@type": "HowToStep",
+                "name": "Choose your care package",
+                "text": "Select from postnatal massage, nutrition guidance, breastfeeding support, emotional care, or a combined package."
+              },
+              {
+                "@type": "HowToStep",
+                "name": "Book through Motherly",
+                "text": "Use the Motherly app to browse verified postnatal care professionals and book home visits in your city."
+              },
+              {
+                "@type": "HowToStep",
+                "name": "Start care from day 3–5",
+                "text": "Postnatal massage and care can begin from day 3–5 after a normal delivery, or when medically cleared after a C-section."
+              }
+            ]
+          })
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What is included in postnatal recovery care?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Postnatal recovery care includes oil massage, abdominal binding (patt bandhi), dietary guidance, breastfeeding support, emotional wellbeing check-ins, and newborn care assistance."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "When can I start postnatal massage after delivery?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Postnatal massage can typically begin from day 3–5 after a vaginal delivery. After a C-section, massage is usually started after 4–6 weeks or with doctor clearance."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Is postnatal care the same as jaapa?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Jaapa is the traditional South Indian postnatal confinement practice. Motherly's postnatal care integrates traditional jaapa elements with modern evidence-based recovery support."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Does Motherly offer postnatal care in Chennai?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes. Motherly has verified postnatal care professionals available for home visits across Chennai. Book through the Motherly app."
+                }
+              }
+            ]
+          })
+        }}
+      />
     </>
   );
 }

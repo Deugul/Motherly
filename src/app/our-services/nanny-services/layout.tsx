@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Hire a Verified Postnatal Nanny Services in Chennai | Motherly",
+  title: "Hire a Verified Postnatal Nanny Services in Chennai",
   description:
     "Find and hire verified postnatal nannies and baby care professionals in Chennai through Motherly. Expert newborn care and mother support — home visits available.",
   keywords: [
@@ -11,7 +11,9 @@ export const metadata: Metadata = {
     "hire nanny after delivery",
     "postnatal baby nurse India",
   ],
-  alternates: { canonical: "https://www.mothrly.com/our-services/nanny-services" },
+  alternates: {
+    canonical: "https://www.mothrly.com/our-services/nanny-services",
+  },
   openGraph: {
     type: "website",
     locale: "en_IN",
@@ -23,6 +25,6 @@ export const metadata: Metadata = {
   },
 };
 
-export default function NanniesLayout({ children }: { children: React.ReactNode }) {
+export default function Layout({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }

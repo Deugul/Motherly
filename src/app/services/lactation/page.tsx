@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -121,12 +122,12 @@ export default function LactationPage() {
                     Care Services
                   </span>
                   <h1
-                    className="text-5xl md:text-6xl font-extrabold leading-tight mb-6"
+                    className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-6"
                     style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}
                   >
-                    Lactation &{" "}
-                    <span style={{ color: "var(--color-primary)" }}>Obstetrician</span>{" "}
-                    Consultation
+                    Lactation{" "}
+                    <span style={{ color: "var(--color-primary)" }}>Consultant</span>
+                    <br />{" "}in Chennai
                   </h1>
                   <p className="text-lg max-w-lg mb-8 leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
                     Expert breastfeeding support from certified lactation consultants, paired with
@@ -449,9 +450,159 @@ export default function LactationPage() {
             </motion.div>
           </div>
         </section>
+
+        {/* ── Hidden SEO Content (Crawled by search bots) ── */}
+        <div style={{ display: "none" }}>
+          {/* How to Access Steps */}
+          <section className="space-y-6">
+            <h2>How to Book a Lactation Consultant Through Motherly</h2>
+            <p>Steps to find and work with a certified lactation consultant in India.</p>
+            <ol>
+              <li>
+                <h4>Identify your breastfeeding challenge</h4>
+                <p>Common reasons to see a lactation consultant: latch pain, low supply, engorgement, mastitis, baby not gaining weight, or returning to work.</p>
+              </li>
+              <li>
+                <h4>Book early</h4>
+                <p>Ideally schedule a lactation consultation for day 2–3 after delivery, before milk fully comes in.</p>
+              </li>
+              <li>
+                <h4>Browse Motherly verified consultants</h4>
+                <p>Use the Motherly app to find IBCLC-certified or trained lactation consultants available for home visits in your city.</p>
+              </li>
+              <li>
+                <h4>Follow the personalised plan</h4>
+                <p>Implement positioning adjustments, feeding schedules, and dietary recommendations from your consultant.</p>
+              </li>
+            </ol>
+          </section>
+
+          {/* FAQ Accordion */}
+          <section className="space-y-6">
+            <h2>Frequently Asked Questions</h2>
+            <div>
+              <div>
+                <h3>What does a lactation consultant do?</h3>
+                <p>A lactation consultant assesses latch quality, milk supply, feeding frequency, and baby weight gain, then provides a personalised breastfeeding support plan.</p>
+              </div>
+              <div>
+                <h3>When should I call a lactation consultant?</h3>
+                <p>Call a lactation consultant if you have persistent nipple pain, low milk supply, a baby struggling to latch, engorgement, mastitis, or a baby not regaining birth weight by 2 weeks.</p>
+              </div>
+              <div>
+                <h3>Do lactation consultants do home visits in India?</h3>
+                <p>Yes. Motherly's verified lactation consultants offer home visits across Chennai and other major Indian cities, as well as virtual consultations.</p>
+              </div>
+              <div>
+                <h3>Is a lactation consultant different from a nurse?</h3>
+                <p>Yes. A lactation consultant specialises exclusively in breastfeeding support. IBCLC (International Board Certified Lactation Consultant) is the gold standard credential.</p>
+              </div>
+            </div>
+          </section>
+
+          {/* Useful Resources & Guides */}
+          <section className="space-y-6">
+            <h2>Useful Resources & Guides</h2>
+            <div>
+              <Link href="https://mothrly.com/blogs/why-every-new-mother-may-need-a-lactation-consultant">
+                why every new mother needs a lactation consultant
+              </Link>
+              <Link href="https://mothrly.com/blogs/why-is-my-breast-milk-not-coming-causes-and-easy-solutions">
+                breast milk not coming
+              </Link>
+              <Link href="https://mothrly.com/blogs/how-to-increase-breast-milk-supply">
+                increase breast milk supply
+              </Link>
+              <Link href="https://mothrly.com/blogs/breastfeeding-rules-every-new-mom-should-know">
+                breastfeeding rules
+              </Link>
+              <Link href="https://www.mothrly.com/our-services/postnatal-recovery-care">
+                postnatal care
+              </Link>
+            </div>
+          </section>
+        </div>
       </main>
       <CTASection />
       <Footer />
+
+      {/* ── JSON-LD Structured Data ── */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "HowTo",
+            "name": "How to Book a Lactation Consultant Through Motherly",
+            "description": "Steps to find and work with a certified lactation consultant in India.",
+            "step": [
+              {
+                "@type": "HowToStep",
+                "name": "Identify your breastfeeding challenge",
+                "text": "Common reasons to see a lactation consultant: latch pain, low supply, engorgement, mastitis, baby not gaining weight, or returning to work."
+              },
+              {
+                "@type": "HowToStep",
+                "name": "Book early",
+                "text": "Ideally schedule a lactation consultation for day 2–3 after delivery, before milk fully comes in."
+              },
+              {
+                "@type": "HowToStep",
+                "name": "Browse Motherly verified consultants",
+                "text": "Use the Motherly app to find IBCLC-certified or trained lactation consultants available for home visits in your city."
+              },
+              {
+                "@type": "HowToStep",
+                "name": "Follow the personalised plan",
+                "text": "Implement positioning adjustments, feeding schedules, and dietary recommendations from your consultant."
+              }
+            ]
+          })
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What does a lactation consultant do?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "A lactation consultant assesses latch quality, milk supply, feeding frequency, and baby weight gain, then provides a personalised breastfeeding support plan."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "When should I call a lactation consultant?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Call a lactation consultant if you have persistent nipple pain, low milk supply, a baby struggling to latch, engorgement, mastitis, or a baby not regaining birth weight by 2 weeks."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Do lactation consultants do home visits in India?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes. Motherly's verified lactation consultants offer home visits across Chennai and other major Indian cities, as well as virtual consultations."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Is a lactation consultant different from a nurse?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes. A lactation consultant specialises exclusively in breastfeeding support. IBCLC (International Board Certified Lactation Consultant) is the gold standard credential."
+                }
+              }
+            ]
+          })
+        }}
+      />
     </>
   );
 }

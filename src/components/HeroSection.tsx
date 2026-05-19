@@ -63,9 +63,7 @@ export default function HeroSection() {
             className="text-5xl sm:text-6xl font-extrabold tracking-tighter leading-[1.05]"
             style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-background)" }}
           >
-            <span style={{ color: "var(--color-primary)" }}>Motherly</span>
-            <br />Your Birth
-            <br />Companion
+            <span style={{ color: "var(--color-primary)" }}>Motherly</span> Your Birth Companion
           </motion.h1>
 
           <motion.div

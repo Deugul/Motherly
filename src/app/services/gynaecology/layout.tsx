@@ -5,11 +5,11 @@ export const metadata: Metadata = {
   description:
     "Book expert gynaecology and obstetrics consultations in Chennai. Motherly connects you with certified gynaecologists for antenatal care, high-risk pregnancy, and postnatal health.",
   keywords: ["gynaecologist Chennai", "obstetrician Chennai", "antenatal care Chennai", "high risk pregnancy Chennai"],
-  alternates: { canonical: "/services/gynaecology" },
+  alternates: { canonical: "https://www.mothrly.com/our-services/gynecology-consultation" },
   openGraph: {
     title: "Gynaecologist & Obstetrician in Chennai | Motherly",
     description: "Certified gynaecologists and obstetricians in Chennai for antenatal, labour, and postnatal care.",
-    url: "/services/gynaecology",
+    url: "https://www.mothrly.com/our-services/gynecology-consultation",
   },
 };
 

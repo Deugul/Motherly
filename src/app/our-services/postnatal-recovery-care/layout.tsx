@@ -11,7 +11,9 @@ export const metadata: Metadata = {
     "postnatal massage India",
     "postpartum home care",
   ],
-  alternates: { canonical: "https://www.mothrly.com/our-services/postnatal-recovery-care" },
+  alternates: {
+    canonical: "https://www.mothrly.com/our-services/postnatal-recovery-care",
+  },
   openGraph: {
     type: "website",
     locale: "en_IN",
@@ -23,6 +25,6 @@ export const metadata: Metadata = {
   },
 };
 
-export default function PostnatalLayout({ children }: { children: React.ReactNode }) {
+export default function Layout({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }

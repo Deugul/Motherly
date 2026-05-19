@@ -21,12 +21,27 @@ const nextConfig: NextConfig = {
       },
       {
         source: "/services/postnatal",
-        destination: "https://mothrly.com/our-services/postnatal-Recovery-care/",
+        destination: "https://mothrly.com/our-services/postnatal-recovery-care/",
         permanent: true,
       },
       {
         source: "/services/gynecologist",
         destination: "https://mothrly.com/our-services/gynecology-consultation/",
+        permanent: true,
+      },
+      {
+        source: "/services/nutrition",
+        destination: "/services/pediatrician",
+        permanent: true,
+      },
+      {
+        source: "/our-services/nannies-postnatal-care",
+        destination: "/our-services/nanny-services",
+        permanent: true,
+      },
+      {
+        source: "/our-services/postnatal-recovery-care/phsiotherapy",
+        destination: "/our-services/postnatal-recovery-care/physiotherapy",
         permanent: true,
       },
     ];
