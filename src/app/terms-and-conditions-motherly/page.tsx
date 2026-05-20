@@ -4,10 +4,10 @@ import Footer from "@/components/Footer";
 const termsText = `MOTHERLYCARE ETHOS PRIVATE LIMITED - Motherly - Terms and Conditions
 Clear and transparent guidelines for using the Motherly platform and services.
 
-MOTHERLYCARE ETHOS PRIVATE LIMITED, on behalf of itself and its affiliates/group companies under the brand "Motherly" ("Motherly"), is the author and publisher of the internet resource https://beige-swallow-278886.hostingersite.com/ and the mobile application 'Motherly'.
+MOTHERLYCARE ETHOS PRIVATE LIMITED, on behalf of itself and its affiliates/group companies under the brand "Motherly" ("Motherly"), is the author and publisher of the internet resource www.mothrly.com/ and the mobile application 'Motherly'.
 
 1. NATURE AND APPLICABILITY OF TERMS
-Please carefully go through these terms and conditions ("Terms") and the privacy policy available at https://beige-swallow-278886.hostingersite.com/privacy-policy/ ("Privacy Policy") before you decide to avail the services made available on Motherly. These Terms and the Privacy Policy together constitute a legal agreement ("Agreement") between you and Motherly in connection with your use of the Services (as defined below).
+Please carefully go through these terms and conditions ("Terms") and the privacy policy available at www.mothrly.com/privacy-policy/ ("Privacy Policy") before you decide to avail the services made available on Motherly. These Terms and the Privacy Policy together constitute a legal agreement ("Agreement") between you and Motherly in connection with your use of the Services (as defined below).
 
 The Agreement applies to you whether you are -
 
@@ -247,9 +247,9 @@ Promote content and activities which are illegal in nature;
 8.2.6. It is expressly clarified that no doctor-patient relationship is established between the user and Practitioner, in any manner whatsoever, by indulging in this Q&A. The Practitioner may provide probable views, recommendations, suggestions and solutions to the question posted. However, it is expressly clarified that any such view, recommendation, suggestion and solution shall not be construed as medical advice. The person in question (being Querist or not) is advised to consult with a doctor in this regard.
 8.2.7. All general Motherly Terms and Conditions shall govern the QA T&C to the extent applicable. Decision of Motherly is final and binding on the issues arising under the QA T&C and Motherly Terms and Conditions.
 9. MOTHERLY DIAGNOSTICS
-Elderly Wellness ("Elderly" or "we") is the service provider of services mentioned below. Elderly under the brand name 'Motherly' operates the said services through https://beige-swallow-278886.hostingersite.com/ and the mobile application 'Motherly' (together, "Website").
+Elderly Wellness ("Elderly" or "we") is the service provider of services mentioned below. Elderly under the brand name 'Motherly' operates the said services through www.mothrly.com/ and the mobile application 'Motherly' (together, "Website").
 
-Please carefully go through these terms and conditions ("Terms") and the privacy policy available at https://beige-swallow-278886.hostingersite.com/privacy-policy/ ("Privacy Policy") before you decide to access the Website or avail the services. These Terms and the Privacy Policy together constitute a legal agreement ("Agreement") between you and Elderly in relation to the Services (as defined below).
+Please carefully go through these terms and conditions ("Terms") and the privacy policy available at www.mothrly.com/privacy-policy/ ("Privacy Policy") before you decide to access the Website or avail the services. These Terms and the Privacy Policy together constitute a legal agreement ("Agreement") between you and Elderly in relation to the Services (as defined below).
 
 Elderly Wellness is a comprehensive platform that connects families with professional, vetted caregivers providing nursing care, physiotherapy, and assisted living support—all in the comfort of home.
 
@@ -305,7 +305,7 @@ The terms in this Clause 10 are applicable only to Practitioners.
 10.2. PROFILE OWNERSHIP AND EDITING RIGHTS
 Motherly ensures easy access to the Practitioners by providing a tool to update your profile information. Motherly reserves the right of ownership of all the Practitioner's profile and photographs and to moderate the changes or updates requested by Practitioners. However, Motherly takes the independent decision whether to publish or reject the requests submitted for the respective changes or updates. You hereby represent and warrant that you are fully entitled under law to upload all content uploaded by you as part of your profile or otherwise while using Motherly's services, and that no such content breaches any third-party rights, including intellectual property rights. Upon becoming aware of a breach of the foregoing representation, Motherly may modify or delete parts of your profile information at its sole discretion with or without notice to you.
 10.3. PATIENT STORIES DISPLAY RIGHTS OF MOTHERLY
-10.3.1. All Critical Content is content created by the Users of https://beige-swallow-278886.hostingersite.com/ ("Website") and the clients of Motherly customers and Practitioners, including the End-Users. As a platform, Motherly does not take responsibility for Critical Content and its role with respect to Critical Content is restricted to that of an 'intermediary' under the Information Technology Act, 2000. The role of Motherly and other legal rights and obligations relating to the Critical Content are further detailed in Clauses in these Terms.
+10.3.1. All Critical Content is content created by the Users of www.mothrly.com/ ("Website") and the clients of Motherly customers and Practitioners, including the End-Users. As a platform, Motherly does not take responsibility for Critical Content and its role with respect to Critical Content is restricted to that of an 'intermediary' under the Information Technology Act, 2000. The role of Motherly and other legal rights and obligations relating to the Critical Content are further detailed in Clauses in these Terms.
 10.3.2. Motherly reserves the right to collect feedback and Critical Content for all the Practitioners, Clinics and Healthcare Providers listed on the Motherly.
 10.3.3. Motherly shall have no obligation to pre-screen, review, flag, filter, modify, refuse or remove any or all Critical Content from any Service, except as required by applicable law.
 10.3.4. You understand that by using the Services you may be exposed to Critical Content or other content that you may find offensive or objectionable. Motherly shall not be liable for any effect on Practitioner's business due to Critical Content of a negative nature. In these respects, you may use the Service at your own risk. Motherly however, as an 'intermediary, takes steps as required to comply with applicable law as regards the publication of Critical Content. The legal rights and obligations with respect to Critical Content and any other information sought to be published by Users are further detailed in Clauses 5 and 12 of these Terms.
@@ -378,7 +378,7 @@ Motherly may retain such information collected from Users from its Motherly or S
 15.2. Any dispute, claim or controversy arising out of or relating to this Agreement, including the determination of the scope or applicability of this Agreement to arbitrate, or your use of the Motherly or the Services or information to which it gives access, shall be determined by arbitration in India, before a sole arbitrator appointed by Motherly. Arbitration shall be conducted in accordance with the Arbitration and Conciliation Act, 1996. The seat of such arbitration shall be Bangalore. All proceedings of such arbitration, including, without limitation, any awards, shall be in the English language. The award shall be final and binding on the parties to the dispute.
 15.3. Subject to the above Clause 15.2, the courts at Bengaluru shall have exclusive jurisdiction over any disputes arising out of or in relation to this Agreement, your use of the Motherly or the Services or the information to which it gives access.
 16. CONTACT INFORMATION GRIEVANCE OFFICER
-16.1. If a User has any questions concerning Motherly, this Agreement, the Services, or anything related to any of the foregoing, Motherly customer support can be reached at the following email address: motherlycareethos@gmail.com or via the contact information available from the following hyperlink: https://beige-swallow-278886.hostingersite.com/contact-us/.
+16.1. If a User has any questions concerning Motherly, this Agreement, the Services, or anything related to any of the foregoing, Motherly customer support can be reached at the following email address: motherlycareethos@gmail.com or via the contact information available from the following hyperlink: www.mothrly.com/contact-us/.
 16.2. In accordance with the Information Technology Act, 2000, and the rules made there under, if you have any grievance with respect to the Motherly or the service, including any discrepancies and grievances with respect to processing of information, you can contact our Grievance Officer through our Contact Us page or write an email to motherlycareethos@gmail.com.
 16.3. In the event you suffer as a result of access or usage of our Motherly by any person in violation of Rule 3 of the IG Rules, please address your grievance to the above person.
 17. SEVERABILITY
@@ -387,22 +387,58 @@ If any provision of the Agreement is held by a court of competent jurisdiction o
 18. WAIVER
 No provision of this Agreement shall be deemed to be waived and no breach excused, unless such waiver or consent shall be in writing and signed by Motherly. Any consent by Motherly to, or a waiver by Motherly of any breach by you, whether expressed or implied, shall not constitute consent to, waiver of, or excuse for any other different or subsequent breach.`;
 
+function renderTermsContent() {
+  const lines = termsText.split("\n").map((line) => line.trim());
+  const contentLines = lines.slice(2).filter((line) => line.length > 0);
+  const secondLevelWithChildren = new Set(
+    contentLines
+      .map((line) => line.match(/^(\d+\.\d+)\.\d+\.\s+/)?.[1])
+      .filter((value): value is string => Boolean(value)),
+  );
+
+  return contentLines.map((line, index) => {
+    if (/^\d+\.\s+/.test(line)) {
+      return (
+        <h2
+          key={`h2-${index}`}
+          className="mt-6 mb-3 text-2xl font-extrabold tracking-tight"
+          style={{ color: "var(--color-on-surface)", fontFamily: "var(--font-headline)" }}
+        >
+          {line}
+        </h2>
+      );
+    }
+
+    const secondLevelMatch = line.match(/^(\d+\.\d+)\.\s+/);
+    if (secondLevelMatch && secondLevelWithChildren.has(secondLevelMatch[1])) {
+      return (
+        <h3
+          key={`h3-${index}`}
+          className="mt-4 mb-2 text-xl font-bold"
+          style={{ color: "var(--color-on-surface)", fontFamily: "var(--font-headline)" }}
+        >
+          {line}
+        </h3>
+      );
+    }
+
+    return <p key={`p-${index}`}>{line}</p>;
+  });
+}
+
 export default function TermsAndConditionsMotherlyPage() {
   return (
     <>
       <Navbar />
-      <main className="pt-24 md:pt-32 pb-16" style={{ backgroundColor: "var(--color-background)" }}>
-        <section className="max-w-5xl mx-auto px-4 sm:px-6 md:px-8">
-          <div
-            className="rounded-3xl p-5 sm:p-6 md:p-10 border"
-            style={{
-              backgroundColor: "var(--color-surface-container-lowest)",
-              borderColor: "color-mix(in srgb, var(--color-outline-variant) 20%, transparent)",
-              boxShadow: "0 8px 28px rgba(45,52,53,0.06)",
-            }}
-          >
+      <main
+        className="legal-page-shell pt-24 pb-16 md:pt-32 md:pb-20"
+        style={{ backgroundColor: "var(--color-background)" }}
+      >
+        <section className="mx-auto max-w-5xl px-4 sm:px-6 md:px-8">
+          <div className="legal-card p-5 sm:p-7 md:p-10">
+            <span className="legal-hero-chip mb-4">Legal Information</span>
             <h1
-              className="text-3xl md:text-4xl font-extrabold tracking-tight mb-4"
+              className="mb-4 text-3xl font-extrabold tracking-tight md:text-4xl"
               style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}
             >
               MOTHERLYCARE ETHOS PRIVATE LIMITED - Motherly - Terms and Conditions
@@ -412,10 +448,10 @@ export default function TermsAndConditionsMotherlyPage() {
             </p>
 
             <article
-              className="policy-content whitespace-pre-wrap break-words"
+              className="policy-content break-words"
               style={{ fontSize: "clamp(0.94rem, 1.25vw, 1.02rem)" }}
             >
-              {termsText}
+              {renderTermsContent()}
             </article>
           </div>
         </section>
