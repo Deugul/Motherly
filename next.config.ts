@@ -1,4 +1,12 @@
 import type { NextConfig } from "next";
+import { BLOG_SEO } from "./src/data/blog-seo";
+
+/** Legacy WordPress root URLs → /blogs/{slug} */
+const legacyBlogRedirects = Object.keys(BLOG_SEO).map((slug) => ({
+  source: `/${slug}`,
+  destination: `/blogs/${slug}`,
+  permanent: true as const,
+}));
 
 const nextConfig: NextConfig = {
   images: {
@@ -21,7 +29,7 @@ const nextConfig: NextConfig = {
       },
       {
         source: "/services/postnatal",
-        destination: "https://mothrly.com/our-services/postnatal-recovery-care/",
+        destination: "/our-services/postnatal-recovery-care",
         permanent: true,
       },
       {
@@ -44,6 +52,7 @@ const nextConfig: NextConfig = {
         destination: "/our-services/postnatal-recovery-care/physiotherapy",
         permanent: true,
       },
+      ...legacyBlogRedirects,
     ];
   },
 };

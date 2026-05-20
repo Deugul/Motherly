@@ -218,7 +218,7 @@ export default function ServicesPage() {
           </Link>
 
           {/* Postnatal Recovery */}
-          <Link href="/services/postnatal" style={{ gridColumn: "span 4" }}>
+          <Link href="/our-services/postnatal-recovery-care" style={{ gridColumn: "span 4" }}>
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}

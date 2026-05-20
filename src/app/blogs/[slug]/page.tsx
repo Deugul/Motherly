@@ -1,9 +1,11 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WpContent from "@/components/WpContent";
+import BlogSeoExtras from "@/components/BlogSeoExtras";
 import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { getBlogSeo } from "@/data/blog-seo";
 
 const WP_API = "https://beige-swallow-278886.hostingersite.com/wp-json/wp/v2";
 const WP_ORIGIN = "https://beige-swallow-278886.hostingersite.com";
@@ -124,17 +126,31 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
+  const seo = getBlogSeo(slug);
   const post = await getPost(slug);
-  if (!post) return { title: "Post Not Found" };
+  if (!post && !seo) return { title: "Post Not Found" };
 
-  const title = stripHtml(post.title.rendered);
-  const description = post.excerpt.rendered.replace(/<[^>]*>/g, "").slice(0, 160).trim();
-  const image = post._embedded?.["wp:featuredmedia"]?.[0]?.source_url;
+  const title = seo?.metaTitle ?? stripHtml(post!.title.rendered);
+  const description =
+    seo?.metaDescription ??
+    stripHtml(post!.excerpt.rendered).slice(0, 160).trim();
+  const canonical = seo?.canonical ?? `https://mothrly.com/blogs/${slug}`;
+  const image = post?._embedded?.["wp:featuredmedia"]?.[0]?.source_url;
 
   return {
     title,
     description,
-    openGraph: { title, description, images: image ? [image] : [] },
+    keywords: seo?.keywords,
+    alternates: { canonical },
+    openGraph: {
+      type: "article",
+      locale: "en_IN",
+      siteName: "Motherly",
+      title,
+      description,
+      url: canonical,
+      images: image ? [image] : [],
+    },
   };
 }
 
@@ -144,6 +160,7 @@ export default async function BlogPostPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
+  const seo = getBlogSeo(slug);
   const [post, relatedPosts] = await Promise.all([
     getPost(slug),
     getRelatedPosts(slug),
@@ -166,7 +183,7 @@ export default async function BlogPostPage({
     );
   }
 
-  const title = stripHtml(post.title.rendered);
+  const title = seo?.h1 ?? stripHtml(post.title.rendered);
   const image = post._embedded?.["wp:featuredmedia"]?.[0]?.source_url;
   const altText = post._embedded?.["wp:featuredmedia"]?.[0]?.alt_text || title;
   const category = post._embedded?.["wp:term"]?.[0]?.[0]?.name;
@@ -266,6 +283,8 @@ export default async function BlogPostPage({
 
           {/* WordPress content — WpContent is a client component that re-attaches FAQ accordion */}
           <WpContent html={sanitizeWpHtml(post.content.rendered)} />
+
+          {seo && <BlogSeoExtras seo={seo} />}
         </article>
 
         {/* Keep Reading */}

@@ -48,8 +48,115 @@ function getInputStyle(hasError?: boolean) {
 
 const easeOut: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
 
+const HOW_TO_STEPS = [
+  {
+    num: "01",
+    title: "Plan your postnatal care in the third trimester",
+    text: "Arrange postnatal care before your due date — having support ready from day 1 of discharge is ideal.",
+  },
+  {
+    num: "02",
+    title: "Choose your care package",
+    text: "Select from postnatal massage, nutrition guidance, breastfeeding support, emotional care, or a combined package.",
+  },
+  {
+    num: "03",
+    title: "Book through Motherly",
+    text: "Use the Motherly app to browse verified postnatal care professionals and book home visits in your city.",
+  },
+  {
+    num: "04",
+    title: "Start care from day 3–5",
+    text: "Postnatal massage and care can begin from day 3–5 after a normal delivery, or when medically cleared after a C-section.",
+  },
+] as const;
+
+const FAQ_ITEMS = [
+  {
+    q: "What is included in postnatal recovery care?",
+    a: "Postnatal recovery care includes oil massage, abdominal binding (patt bandhi), dietary guidance, breastfeeding support, emotional wellbeing check-ins, and newborn care assistance.",
+  },
+  {
+    q: "When can I start postnatal massage after delivery?",
+    a: "Postnatal massage can typically begin from day 3–5 after a vaginal delivery. After a C-section, massage is usually started after 4–6 weeks or with doctor clearance.",
+  },
+  {
+    q: "Is postnatal care the same as jaapa?",
+    a: "Jaapa is the traditional South Indian postnatal confinement practice. Motherly's postnatal care integrates traditional jaapa elements with modern evidence-based recovery support.",
+  },
+  {
+    q: "Does Motherly offer postnatal care in Chennai?",
+    a: "Yes. Motherly has verified postnatal care professionals available for home visits across Chennai. Book through the Motherly app.",
+  },
+] as const;
+
+const KEYWORD_LINKS = [
+  {
+    label: "postpartum belly",
+    title: "Does Postpartum Belly Go Away?",
+    url: "https://mothrly.com/blogs/does-postpartum-belly-go-away-a-realistic-recovery-guide-for-new-moms",
+    icon: "fitness_center",
+  },
+  {
+    label: "postpartum care Chennai",
+    title: "Postpartum Care in Chennai Guide",
+    url: "https://mothrly.com/blogs/postpartum-care-in-chennai-the-complete-guide-for-new-mothers",
+    icon: "map",
+  },
+  {
+    label: "lactation consultant",
+    title: "Why Every New Mother Needs a Lactation Consultant",
+    url: "https://mothrly.com/blogs/why-every-new-mother-may-need-a-lactation-consultant",
+    icon: "assignment_ind",
+  },
+  {
+    label: "increase breast milk supply",
+    title: "How to Increase Breast Milk Supply",
+    url: "https://mothrly.com/blogs/how-to-increase-breast-milk-supply",
+    icon: "water_drop",
+  },
+  {
+    label: "doulas",
+    title: "Doula Services in Chennai",
+    url: "https://www.mothrly.com/our-services/doulas",
+    icon: "pregnant_woman",
+  },
+  {
+    label: "yoga",
+    title: "Prenatal & Postnatal Yoga",
+    url: "https://www.mothrly.com/services/yoga",
+    icon: "self_improvement",
+  },
+] as const;
+
+const HOW_TO_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  name: "How to Access Postnatal Recovery Care Through Motherly",
+  description: "Steps to book at-home postnatal recovery support in India.",
+  step: HOW_TO_STEPS.map((step) => ({
+    "@type": "HowToStep",
+    name: step.title,
+    text: step.text,
+  })),
+};
+
+const FAQ_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: FAQ_ITEMS.map((faq) => ({
+    "@type": "Question",
+    name: faq.q,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.a,
+    },
+  })),
+};
+
 export default function PostnatalPage() {
   const [submitted, setSubmitted] = useState(false);
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   const {
     register,
@@ -94,15 +201,14 @@ export default function PostnatalPage() {
                 style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}
               >
                 Postnatal Recovery{" "}
-                <span style={{ color: "var(--color-primary)" }}>Care at Home</span>
-                <br />{" "}in Chennai
+                <span style={{ color: "var(--color-primary)" }}>Care at Home in Chennai</span>
               </h1>
               <p
                 className="text-lg md:text-xl leading-relaxed max-w-2xl mb-8"
                 style={{ color: "var(--color-on-surface-variant)" }}
               >
-                Personalized postpartum rehabilitation designed to help you rediscover your strength,
-                confidence, and comfort after childbirth.
+                Book verified postnatal recovery care at home in Chennai with Motherly. Expert support
+                for Indian new mothers — massage, nutrition, breastfeeding help, and emotional care.
               </p>
               <div className="flex flex-wrap gap-4">
                 {[
@@ -443,12 +549,17 @@ export default function PostnatalPage() {
                         <label className="text-sm font-semibold ml-1" style={{ color: "var(--color-on-surface-variant)" }}>
                           Select Service
                         </label>
-                        <select {...register("service")} className={inputClass} style={getInputStyle()}>
+                        <select
+                          {...register("service")}
+                          defaultValue="Postnatal Recovery"
+                          className={inputClass}
+                          style={getInputStyle()}
+                        >
+                          <option value="Postnatal Recovery">Postnatal Recovery</option>
                           <option value="Doulas">Doulas</option>
                           <option value="Lactation Consultants">Lactation Consultants</option>
                           <option value="Gynaecology Consultation">Gynaecology Consultation</option>
                           <option value="Nanny Care">Nanny Care</option>
-                          <option value="Postnatal Recovery">Postnatal Recovery</option>
                           <option value="Nutrition Consultation">Nutrition Consultation</option>
                           <option value="Prenatal Yoga">Prenatal Yoga</option>
                         </select>
@@ -596,80 +707,171 @@ export default function PostnatalPage() {
           </aside>
         </section>
 
-        {/* ── Hidden SEO Content (Crawled by search bots) ── */}
-        <div style={{ display: "none" }}>
-          {/* How to Access Steps */}
-          <section className="space-y-6">
-            <h2>How to Access Postnatal Recovery Care Through Motherly</h2>
-            <p>Steps to book at-home postnatal recovery support in India.</p>
-            <ol>
-              <li>
-                <h4>Plan your postnatal care in the third trimester</h4>
-                <p>Arrange postnatal care before your due date — having support ready from day 1 of discharge is ideal.</p>
-              </li>
-              <li>
-                <h4>Choose your care package</h4>
-                <p>Select from postnatal massage, nutrition guidance, breastfeeding support, emotional care, or a combined package.</p>
-              </li>
-              <li>
-                <h4>Book through Motherly</h4>
-                <p>Use the Motherly app to browse verified postnatal care professionals and book home visits in your city.</p>
-              </li>
-              <li>
-                <h4>Start care from day 3–5</h4>
-                <p>Postnatal massage and care can begin from day 3–5 after a normal delivery, or when medically cleared after a C-section.</p>
-              </li>
-            </ol>
+        {/* ── How to book (HowTo schema content) ── */}
+        <ScrollReveal>
+          <section className="mt-20 space-y-6">
+            <h2
+              className="text-3xl font-bold"
+              style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-background)" }}
+            >
+              How to Access Postnatal Recovery Care Through Motherly
+            </h2>
+            <p className="leading-relaxed max-w-3xl" style={{ color: "var(--color-on-surface-variant)" }}>
+              Steps to book at-home postnatal recovery support in India.
+            </p>
+            <motion.div className="space-y-4">
+              {HOW_TO_STEPS.map((step, idx) => (
+                <motion.div
+                  key={step.num}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: idx * 0.06, ease: easeOut }}
+                  className="p-6 rounded-2xl flex gap-5 border transition-all duration-300 hover:shadow-md"
+                  style={{
+                    backgroundColor: "var(--color-surface-container-lowest)",
+                    borderColor: "color-mix(in srgb, var(--color-outline-variant) 15%, transparent)",
+                  }}
+                >
+                  <div
+                    className="text-3xl font-black shrink-0"
+                    style={{ fontFamily: "var(--font-headline)", color: "var(--color-primary)" }}
+                  >
+                    {step.num}
+                  </div>
+                  <div className="space-y-1">
+                    <h3
+                      className="text-lg font-bold"
+                      style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-background)" }}
+                    >
+                      {step.title}
+                    </h3>
+                    <p className="text-sm leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
+                      {step.text}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
           </section>
+        </ScrollReveal>
 
-          {/* FAQ Accordion */}
-          <section className="space-y-6">
-            <h2>Frequently Asked Questions</h2>
-            <div>
-              <div>
-                <h3>What is included in postnatal recovery care?</h3>
-                <p>Postnatal recovery care includes oil massage, abdominal binding (patt bandhi), dietary guidance, breastfeeding support, emotional wellbeing check-ins, and newborn care assistance.</p>
-              </div>
-              <div>
-                <h3>When can I start postnatal massage after delivery?</h3>
-                <p>Postnatal massage can typically begin from day 3–5 after a vaginal delivery. After a C-section, massage is usually started after 4–6 weeks or with doctor clearance.</p>
-              </div>
-              <div>
-                <h3>Is postnatal care the same as jaapa?</h3>
-                <p>Jaapa is the traditional South Indian postnatal confinement practice. Motherly's postnatal care integrates traditional jaapa elements with modern evidence-based recovery support.</p>
-              </div>
-              <div>
-                <h3>Does Motherly offer postnatal care in Chennai?</h3>
-                <p>Yes. Motherly has verified postnatal care professionals available for home visits across Chennai. Book through the Motherly app.</p>
-              </div>
+        {/* ── FAQ (FAQPage schema content) ── */}
+        <ScrollReveal delay={0.1}>
+          <section className="mt-16 space-y-6">
+            <h2
+              className="text-3xl font-bold"
+              style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-background)" }}
+            >
+              Frequently Asked Questions
+            </h2>
+            <div className="space-y-3">
+              {FAQ_ITEMS.map((faq, idx) => {
+                const isOpen = openFaq === idx;
+                return (
+                  <motion.div
+                    key={faq.q}
+                    initial={{ opacity: 0, y: 12 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: idx * 0.05, ease: easeOut }}
+                    className="rounded-2xl border overflow-hidden"
+                    style={{
+                      backgroundColor: "var(--color-surface-container-low)",
+                      borderColor: "color-mix(in srgb, var(--color-outline-variant) 15%, transparent)",
+                    }}
+                  >
+                    <button
+                      type="button"
+                      onClick={() => setOpenFaq(isOpen ? null : idx)}
+                      className="w-full px-6 py-5 flex items-center justify-between text-left font-bold"
+                      style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}
+                    >
+                      <span className="pr-4">{faq.q}</span>
+                      <motion.span
+                        animate={{ rotate: isOpen ? 180 : 0 }}
+                        transition={{ duration: 0.25 }}
+                        className="material-symbols-outlined shrink-0"
+                        style={{ color: "var(--color-primary)" }}
+                      >
+                        keyboard_arrow_down
+                      </motion.span>
+                    </button>
+                    <AnimatePresence initial={false}>
+                      {isOpen && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.25, ease: "easeInOut" }}
+                        >
+                          <div
+                            className="px-6 pb-5 text-sm leading-relaxed border-t"
+                            style={{
+                              color: "var(--color-on-surface-variant)",
+                              borderColor: "color-mix(in srgb, var(--color-outline-variant) 10%, transparent)",
+                            }}
+                          >
+                            <p className="pt-4">{faq.a}</p>
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </motion.div>
+                );
+              })}
             </div>
           </section>
+        </ScrollReveal>
 
-          {/* Useful Resources & Guides */}
-          <section className="space-y-6">
-            <h2>Useful Resources & Guides</h2>
-            <div>
-              <Link href="https://mothrly.com/blogs/does-postpartum-belly-go-away-a-realistic-recovery-guide-for-new-moms">
-                postpartum belly
-              </Link>
-              <Link href="https://mothrly.com/blogs/postpartum-care-in-chennai-the-complete-guide-for-new-mothers">
-                postpartum care Chennai
-              </Link>
-              <Link href="https://mothrly.com/blogs/why-every-new-mother-may-need-a-lactation-consultant">
-                lactation consultant
-              </Link>
-              <Link href="https://mothrly.com/blogs/how-to-increase-breast-milk-supply">
-                increase breast milk supply
-              </Link>
-              <Link href="https://www.mothrly.com/our-services/doulas">
-                doulas
-              </Link>
-              <Link href="https://www.mothrly.com/services/yoga">
-                yoga
-              </Link>
+        {/* ── Keyword interlinks ── */}
+        <ScrollReveal delay={0.15}>
+          <section className="mt-16 space-y-6 mb-4">
+            <h2
+              className="text-3xl font-bold"
+              style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-background)" }}
+            >
+              Useful Resources & Guides
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {KEYWORD_LINKS.map((link, idx) => (
+                <motion.div
+                  key={link.label}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: idx * 0.05, ease: easeOut }}
+                >
+                  <Link
+                    href={link.url}
+                    className="block p-5 rounded-2xl border h-full transition-all duration-300 hover:shadow-md hover:-translate-y-0.5"
+                    style={{
+                      backgroundColor: "var(--color-surface-container-lowest)",
+                      borderColor: "color-mix(in srgb, var(--color-outline-variant) 15%, transparent)",
+                    }}
+                  >
+                    <span
+                      className="material-symbols-outlined mb-3 block"
+                      style={{ color: "var(--color-primary)" }}
+                    >
+                      {link.icon}
+                    </span>
+                    <p
+                      className="text-sm font-bold mb-1"
+                      style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}
+                    >
+                      {link.title}
+                    </p>
+                    <span className="text-xs font-semibold" style={{ color: "var(--color-primary)" }}>
+                      {link.label} →
+                    </span>
+                  </Link>
+                </motion.div>
+              ))}
             </div>
           </section>
-        </div>
+        </ScrollReveal>
+
       </main>
       <CTASection />
       <Footer />
@@ -677,79 +879,11 @@ export default function PostnatalPage() {
       {/* ── JSON-LD Structured Data ── */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "HowTo",
-            "name": "How to Access Postnatal Recovery Care Through Motherly",
-            "description": "Steps to book at-home postnatal recovery support in India.",
-            "step": [
-              {
-                "@type": "HowToStep",
-                "name": "Plan your postnatal care in the third trimester",
-                "text": "Arrange postnatal care before your due date — having support ready from day 1 of discharge is ideal."
-              },
-              {
-                "@type": "HowToStep",
-                "name": "Choose your care package",
-                "text": "Select from postnatal massage, nutrition guidance, breastfeeding support, emotional care, or a combined package."
-              },
-              {
-                "@type": "HowToStep",
-                "name": "Book through Motherly",
-                "text": "Use the Motherly app to browse verified postnatal care professionals and book home visits in your city."
-              },
-              {
-                "@type": "HowToStep",
-                "name": "Start care from day 3–5",
-                "text": "Postnatal massage and care can begin from day 3–5 after a normal delivery, or when medically cleared after a C-section."
-              }
-            ]
-          })
-        }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(HOW_TO_SCHEMA) }}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": [
-              {
-                "@type": "Question",
-                "name": "What is included in postnatal recovery care?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Postnatal recovery care includes oil massage, abdominal binding (patt bandhi), dietary guidance, breastfeeding support, emotional wellbeing check-ins, and newborn care assistance."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "When can I start postnatal massage after delivery?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Postnatal massage can typically begin from day 3–5 after a vaginal delivery. After a C-section, massage is usually started after 4–6 weeks or with doctor clearance."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Is postnatal care the same as jaapa?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Jaapa is the traditional South Indian postnatal confinement practice. Motherly's postnatal care integrates traditional jaapa elements with modern evidence-based recovery support."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Does Motherly offer postnatal care in Chennai?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Yes. Motherly has verified postnatal care professionals available for home visits across Chennai. Book through the Motherly app."
-                }
-              }
-            ]
-          })
-        }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_SCHEMA) }}
       />
     </>
   );
