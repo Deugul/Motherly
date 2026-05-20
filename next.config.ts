@@ -18,33 +18,38 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
-        source: "/services/lactation",
-        destination: "https://mothrly.com/our-services/lactation-consultants/",
+        source: "/our-services/lactation-consultants",
+        destination: "/services/lactation",
         permanent: true,
       },
       {
-        source: "/services/doulas",
-        destination: "https://mothrly.com/our-services/doulas/",
+        source: "/our-services/doulas",
+        destination: "/services/doulas",
         permanent: true,
       },
       {
-        source: "/services/postnatal",
-        destination: "/our-services/postnatal-recovery-care",
+        source: "/our-services/nannies-postnatal-care",
+        destination: "/services/postnatal",
         permanent: true,
       },
       {
-        source: "/services/gynecologist",
-        destination: "https://mothrly.com/our-services/gynecology-consultation/",
+        source: "/our-services/gynecology-consultation",
+        destination: "/services/gynecologist",
+        permanent: true,
+      },
+      {
+        source: "/contact-us",
+        destination: "/contact",
+        permanent: true,
+      },
+      {
+        source: "/our-services",
+        destination: "/services",
         permanent: true,
       },
       {
         source: "/services/nutrition",
         destination: "/services/pediatrician",
-        permanent: true,
-      },
-      {
-        source: "/our-services/nannies-postnatal-care",
-        destination: "/our-services/nanny-services",
         permanent: true,
       },
       {
