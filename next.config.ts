@@ -48,6 +48,21 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: "/terms-and-conditions-motherly",
+        destination: "/terms-and-conditions",
+        permanent: true,
+      },
+      {
+        source: "/privacy-policy-motherly",
+        destination: "/privacy-policy",
+        permanent: true,
+      },
+      {
+        source: "/refund-policy-motherly",
+        destination: "/refund-and-cancellation-policies",
+        permanent: true,
+      },
+      {
         source: "/services/nutrition",
         destination: "/services/pediatrician",
         permanent: true,

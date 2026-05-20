@@ -6,9 +6,9 @@ const quickLinks = [
   { label: "Blogs", href: "/blogs" },
   { label: "Investors", href: "/investors" },
   { label: "Medical Partners", href: "/doctors" },
-  { label: "Privacy Policy", href: "/privacy-policy-motherly" },
-  { label: "Terms and Conditions", href: "/terms-and-conditions-motherly" },
-  { label: "Refund Policy", href: "/refund-policy-motherly" },
+  { label: "Privacy Policy", href: "/privacy-policy" },
+  { label: "Terms and Conditions", href: "/terms-and-conditions" },
+  { label: "Refund Policy", href: "/refund-and-cancellation-policies" },
   { label: "Contact Us", href: "/contact-us" },
 ];
 
