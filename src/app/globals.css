@@ -340,3 +340,41 @@ h1, h2, h3, h4, h5, h6 {
   transform: translateY(-6px);
   box-shadow: 0 12px 32px rgba(45, 52, 53, 0.14) !important;
 }
+
+/* ── Privacy policy content ─────────────────────────────────────────────── */
+.policy-content {
+  color: var(--color-on-surface-variant);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.policy-content h2,
+.policy-content h3,
+.policy-content h4 {
+  color: var(--color-on-surface);
+  font-family: var(--font-headline);
+  font-weight: 700;
+}
+
+.policy-content h2 {
+  font-size: clamp(1.4rem, 2.4vw, 1.75rem);
+  margin-top: 1rem;
+}
+
+.policy-content h3 {
+  font-size: clamp(1.15rem, 2vw, 1.35rem);
+}
+
+.policy-content h4 {
+  font-size: clamp(1rem, 1.7vw, 1.15rem);
+}
+
+.policy-content p {
+  margin-bottom: 0.75rem;
+}
+
+.policy-content ul {
+  list-style: disc;
+  margin-left: 1.5rem;
+}
