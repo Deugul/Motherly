@@ -1,7 +1,6 @@
 import { normalizeServiceSeoUrl } from "./service-seo";
 
 export type KeywordLink = { label: string; url: string };
-
 export type BlogSeoEntry = {
   slug: string;
   h1: string;
