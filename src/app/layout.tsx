@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, Manrope } from "next/font/google";
 import "./globals.css";
 import FontLoader from "@/components/FontLoader";
+import { SOCIAL_PROFILE_URLS } from "@/data/social-links";
 
 const plusJakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -117,6 +118,7 @@ export default function RootLayout({
               areaServed: "Chennai",
               priceRange: "₹₹",
               sameAs: [
+                ...SOCIAL_PROFILE_URLS,
                 "https://play.google.com/store/apps/details?id=com.mothrly",
                 "https://apps.apple.com/in/app/motherly-your-birth-companion/id6746041100",
               ],
