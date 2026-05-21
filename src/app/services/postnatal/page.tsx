@@ -1,1 +1,1 @@
-export { default } from "@/app/our-services1/postnatal-recovery-care/page";
+export { default } from "@/app/our-services/postnatal-recovery-care/page";
