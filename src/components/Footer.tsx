@@ -17,7 +17,7 @@ const services = [
   { label: "Postnatal Recovery", href: "/our-services/postnatal-recovery-care" },
   { label: "Lactation Consultants", href: "/our-services/lactation-consultants" },
   { label: "Nanny Care", href: "/our-services/nanny-services" },
-  { label: "Gynaecology Consultation", href: "/our-services/gynecology-consultation" },
+  { label: "Gynaecology Consultation", href: "/services/gynecologist-consultation" },
   { label: "Nutrition & Pediatrics", href: "/services/pediatrician" },
   { label: "Prenatal Yoga", href: "/services/yoga" },
 ];

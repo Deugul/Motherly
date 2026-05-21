@@ -16,6 +16,7 @@ const LEGACY_SERVICE_ALIASES = new Set([
   "/services/nannies",
   "/services/gynecologist",
   "/services/gynaecology",
+  "/services/gynecology-consultation",
 ]);
 
 const CANONICAL_SERVICE_PATHS = new Set<string>(

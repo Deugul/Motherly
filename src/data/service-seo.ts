@@ -27,6 +27,7 @@ const SERVICE_PATH_REWRITES: [RegExp, string][] = [
   [/\/services\/nannies\b/gi, "/services/nanny-services"],
   [/\/services\/gynecologist\b/gi, "/services/gynecologist-consultation"],
   [/\/services\/gynaecology\b/gi, "/services/gynecologist-consultation"],
+  [/\/services\/gynecology-consultation/gi, "/services/gynecologist-consultation"],
   [/\/services\/nutrition\b/gi, "/services/pediatrician"],
 ];
 

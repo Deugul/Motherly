@@ -83,6 +83,11 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: "/services/gynecology-consultation",
+        destination: "/services/gynecologist-consultation",
+        permanent: true,
+      },
+      {
         source: "/contact-us",
         destination: "/contact",
         permanent: true,
