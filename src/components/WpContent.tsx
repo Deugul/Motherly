@@ -8,17 +8,25 @@ export default function WpContent({ html }: { html: string }) {
     // The WP content renders its own h1 via Elementor; our page already shows a
     // custom title above WpContent, so we hide whichever Elementor block owns
     // the first h1 (works regardless of Elementor version / class naming).
+    // Hide duplicate WP/Elementor title — but never hide a whole section for
+    // single-widget posts (.mb-wrap custom layout only has one .e-parent).
     const wpH1 = document.querySelector<HTMLElement>(".wp-content h1");
-    if (wpH1) {
+    if (wpH1 && !wpH1.closest(".mb-wrap")) {
       const section =
         wpH1.closest<HTMLElement>(".e-parent") ??
         wpH1.closest<HTMLElement>(".elementor-section") ??
         wpH1.closest<HTMLElement>("section");
-      if (section) {
+      const elementorRoot = wpH1.closest<HTMLElement>(".elementor");
+      const parentCount = elementorRoot
+        ? elementorRoot.querySelectorAll(":scope > .e-parent").length
+        : 0;
+      if (section && parentCount > 1) {
         section.style.display = "none";
       } else {
         wpH1.style.display = "none";
       }
+    } else if (wpH1?.closest(".mb-wrap")) {
+      wpH1.style.display = "none";
     }
 
     // ── FAQ accordion ──────────────────────────────────────────────────────────

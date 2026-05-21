@@ -274,11 +274,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ── Elementor hero section fix ─────────────────────────────────────────────
-   WordPress Elementor posts have a "hero" first container that duplicates the
-   title, date/author (with large black SVG icons), intro paragraph, and
-   featured image — all of which are already rendered by our Next.js page
-   header. Hide it entirely. */
-.wp-content .elementor > .e-parent:first-child {
+   Standard Elementor posts have a duplicate "hero" as the first .e-parent
+   (title, date, featured image) while real content lives in later sections.
+   Some posts (e.g. custom HTML in a single text widget) use only one
+   .e-parent — hide the first block only when a second section exists. */
+.wp-content .elementor > .e-parent:first-child:not(:only-child) {
   display: none !important;
 }
 
