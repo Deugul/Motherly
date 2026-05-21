@@ -1,3 +1,5 @@
+import { normalizeServiceSeoUrl } from "./service-seo";
+
 export type KeywordLink = { label: string; url: string };
 
 export type BlogSeoEntry = {
@@ -3396,8 +3398,5 @@ export function getBlogSeo(slug: string): BlogSeoEntry | undefined {
 
 /** Normalize internal links to lowercase postnatal path */
 export function normalizeSeoUrl(url: string): string {
-  return url.replace(
-    /\/our-services\/postnatal-Recovery-care/gi,
-    "/our-services/postnatal-recovery-care"
-  );
+  return normalizeServiceSeoUrl(url);
 }

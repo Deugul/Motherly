@@ -1,12 +1,12 @@
-import type { Metadata } from "next";
 import GynaecologyLayout, { metadata as gynaecologyMetadata } from "@/app/services/gynaecology/layout";
+import { SERVICE_SEO } from "@/data/service-seo";
 
-export const metadata: Metadata = {
+export const metadata = {
   ...gynaecologyMetadata,
-  alternates: { canonical: "https://www.mothrly.com/services/gynecologist" },
+  alternates: { canonical: SERVICE_SEO.gynecologistConsultation.canonical },
   openGraph: {
     ...gynaecologyMetadata.openGraph,
-    url: "https://www.mothrly.com/services/gynecologist",
+    url: SERVICE_SEO.gynecologistConsultation.canonical,
   },
 };
 

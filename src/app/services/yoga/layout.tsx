@@ -1,25 +1,13 @@
-import type { Metadata } from "next";
+import ServiceJsonLd from "@/components/ServiceJsonLd";
+import { SERVICE_SEO, buildServiceMetadata } from "@/data/service-seo";
 
-export const metadata: Metadata = {
-  title: "Prenatal & Postnatal Yoga in Chennai",
-  description:
-    "Book certified prenatal and postnatal yoga sessions in Chennai through Motherly. Safe, expert-guided yoga for Indian mothers during pregnancy and postpartum recovery.",
-  keywords: [
-    "prenatal yoga India",
-    "postnatal yoga India",
-    "pregnancy yoga Chennai",
-    "yoga for pregnant women",
-    "postpartum yoga sessions India",
-  ],
-  alternates: { canonical: "https://www.mothrly.com/services/yoga" },
-  openGraph: {
-    title: "Prenatal & Postnatal Yoga in Chennai | Motherly",
-    description:
-      "Book certified prenatal and postnatal yoga sessions in Chennai through Motherly. Safe, expert-guided yoga for Indian mothers during pregnancy and postpartum recovery.",
-    url: "https://www.mothrly.com/services/yoga",
-  },
-};
+export const metadata = buildServiceMetadata(SERVICE_SEO.yoga);
 
 export default function YogaLayout({ children }: { children: React.ReactNode }) {
-  return <>{children}</>;
+  return (
+    <>
+      {children}
+      <ServiceJsonLd seo={SERVICE_SEO.yoga} />
+    </>
+  );
 }

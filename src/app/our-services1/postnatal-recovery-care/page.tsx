@@ -129,31 +129,6 @@ const KEYWORD_LINKS = [
   },
 ] as const;
 
-const HOW_TO_SCHEMA = {
-  "@context": "https://schema.org",
-  "@type": "HowTo",
-  name: "How to Access Postnatal Recovery Care Through Motherly",
-  description: "Steps to book at-home postnatal recovery support in India.",
-  step: HOW_TO_STEPS.map((step) => ({
-    "@type": "HowToStep",
-    name: step.title,
-    text: step.text,
-  })),
-};
-
-const FAQ_SCHEMA = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: FAQ_ITEMS.map((faq) => ({
-    "@type": "Question",
-    name: faq.q,
-    acceptedAnswer: {
-      "@type": "Answer",
-      text: faq.a,
-    },
-  })),
-};
-
 export default function PostnatalPage() {
   const [submitted, setSubmitted] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -875,16 +850,6 @@ export default function PostnatalPage() {
       </main>
       <CTASection />
       <Footer />
-
-      {/* ── JSON-LD Structured Data ── */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(HOW_TO_SCHEMA) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_SCHEMA) }}
-      />
     </>
   );
 }

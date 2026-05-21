@@ -1,25 +1,13 @@
-import type { Metadata } from "next";
+import ServiceJsonLd from "@/components/ServiceJsonLd";
+import { SERVICE_SEO, buildServiceMetadata } from "@/data/service-seo";
 
-export const metadata: Metadata = {
-  title: "Hire a Verified Doula in Chennai",
-  description:
-    "Find and book verified birth doulas in Chennai through Motherly. Expert emotional and physical birth support for expecting Indian mothers — home visits available.",
-  keywords: [
-    "hire doula India",
-    "birth doula India",
-    "doula service Chennai",
-    "book doula India",
-    "birth support doula",
-  ],
-  alternates: { canonical: "/our-services/doulas" },
-  openGraph: {
-    title: "Hire a Verified Doula in Chennai | Motherly",
-    description:
-      "Find and book verified birth doulas in Chennai through Motherly. Expert emotional and physical birth support for expecting Indian mothers — home visits available.",
-    url: "/our-services/doulas",
-  },
-};
+export const metadata = buildServiceMetadata(SERVICE_SEO.doulas);
 
 export default function DoulasLayout({ children }: { children: React.ReactNode }) {
-  return <>{children}</>;
+  return (
+    <>
+      {children}
+      <ServiceJsonLd seo={SERVICE_SEO.doulas} />
+    </>
+  );
 }

@@ -383,7 +383,7 @@ export default function DoulaPage() {
                       {
                         label: "postnatal care",
                         title: "Our Postnatal Recovery Care Services",
-                        url: "https://www.mothrly.com/our-services/postnatal-Recovery-care",
+                        url: "https://www.mothrly.com/services/postnatal-recovery-care",
                         icon: "healing",
                       },
                       {
@@ -668,82 +668,6 @@ export default function DoulaPage() {
       </main>
       <CTASection />
       <Footer />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "HowTo",
-            "name": "How to Hire a Doula in India Through Motherly",
-            "description": "Steps to find and book a verified birth doula for your pregnancy and delivery.",
-            "step": [
-              {
-                "@type": "HowToStep",
-                "name": "Understand what a doula does",
-                "text": "A doula provides continuous emotional, informational, and physical support before, during, and after birth — complementing your medical team."
-              },
-              {
-                "@type": "HowToStep",
-                "name": "Book early",
-                "text": "Connect with a doula in your second trimester — verified doulas book up quickly, especially in Chennai."
-              },
-              {
-                "@type": "HowToStep",
-                "name": "Browse Motherly profiles",
-                "text": "Use the Motherly app to view verified doula profiles, experience, and reviews in your city."
-              },
-              {
-                "@type": "HowToStep",
-                "name": "Schedule a meet & greet",
-                "text": "Meet your shortlisted doulas virtually or in person before your third trimester to confirm fit."
-              }
-            ]
-          })
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": [
-              {
-                "@type": "Question",
-                "name": "What does a birth doula do?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "A birth doula provides continuous non-medical support during labour — breathing techniques, positioning, emotional reassurance, and communication support with the medical team."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Do I need a doula if I have a good doctor?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "A doula complements your doctor and hospital team. Research shows doulas reduce caesarean rates, shorten labour duration, and improve birth satisfaction."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Are doulas available in Chennai?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Yes. Motherly has a network of verified, trained doulas available for home visits and hospital accompaniment across Chennai."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "How much does a doula cost in India?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Doula fees vary based on experience and services. Browse transparent pricing on the Motherly app to find a doula that fits your budget."
-                }
-              }
-            ]
-          })
-        }}
-      />
     </>
   );
 }

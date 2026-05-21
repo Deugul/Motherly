@@ -1,27 +1,6 @@
-import type { Metadata } from "next";
+import { SERVICE_SEO, buildServiceMetadata } from "@/data/service-seo";
 
-export const metadata: Metadata = {
-  title: "Postnatal Recovery Care at Home in Chennai | Motherly",
-  description:
-    "Book verified postnatal recovery care at home in Chennai with Motherly. Expert support for Indian new mothers — massage, nutrition, breastfeeding help, and emotional care.",
-  keywords: [
-    "postnatal recovery care India",
-    "postpartum care at home",
-    "postnatal care service Chennai",
-    "postnatal massage India",
-    "postpartum home care",
-  ],
-  alternates: { canonical: "https://www.mothrly.com/our-services/postnatal-recovery-care" },
-  openGraph: {
-    type: "website",
-    locale: "en_IN",
-    siteName: "Motherly",
-    title: "Postnatal Recovery Care at Home in Chennai | Motherly",
-    description:
-      "Book verified postnatal recovery care at home in Chennai with Motherly. Expert support for Indian new mothers — massage, nutrition, breastfeeding help, and emotional care.",
-    url: "https://www.mothrly.com/our-services/postnatal-recovery-care",
-  },
-};
+export const metadata = buildServiceMetadata(SERVICE_SEO.postnatalRecoveryCare);
 
 export default function PostnatalLayout({ children }: { children: React.ReactNode }) {
   return <>{children}</>;

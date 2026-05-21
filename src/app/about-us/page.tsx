@@ -161,7 +161,7 @@ export default function AboutPage() {
                     className="font-bold mb-2 text-sm"
                     style={{ color: "var(--color-tertiary-container)", fontFamily: "var(--font-headline)" }}
                   >
-                    2024
+                    2026
                   </span>
                   <h3 className="text-2xl font-bold text-white" style={{ fontFamily: "var(--font-headline)" }}>
                     The Spark

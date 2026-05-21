@@ -2,11 +2,25 @@ import type { MetadataRoute } from "next";
 import { readdir } from "node:fs/promises";
 import path from "node:path";
 import { BLOG_SEO } from "@/data/blog-seo";
+import { SERVICE_SEO } from "@/data/service-seo";
 
 const BASE_URL =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/+$/, "") ?? "https://www.mothrly.com";
 
 const EXCLUDED_SEGMENTS = new Set(["keystatic", "blog-admin"]);
+
+/** Routes that 308 to a canonical service URL — omit from sitemap. */
+const LEGACY_SERVICE_ALIASES = new Set([
+  "/services/lactation",
+  "/services/postnatal",
+  "/services/nannies",
+  "/services/gynecologist",
+  "/services/gynaecology",
+]);
+
+const CANONICAL_SERVICE_PATHS = new Set<string>(
+  Object.values(SERVICE_SEO).map((entry) => entry.path),
+);
 
 function toRouteFromPageFile(filePath: string): string {
   const relativePath = path.relative(path.join(process.cwd(), "src", "app"), filePath);
@@ -18,6 +32,15 @@ function isExcludedRoute(route: string): boolean {
   const segments = route.split("/").filter(Boolean);
   if (segments.length === 0) {
     return false;
+  }
+  if (LEGACY_SERVICE_ALIASES.has(route)) {
+    return true;
+  }
+  if (CANONICAL_SERVICE_PATHS.has(route)) {
+    return true;
+  }
+  if (route.startsWith("/our-services1")) {
+    return true;
   }
   return (
     segments.some((segment) => segment.startsWith("(") || segment.startsWith("_")) ||
@@ -59,6 +82,15 @@ function buildStaticEntries(staticRoutes: string[], now: Date): MetadataRoute.Si
   }));
 }
 
+function buildServiceEntries(now: Date): MetadataRoute.Sitemap {
+  return Object.values(SERVICE_SEO).map((entry) => ({
+    url: entry.canonical,
+    lastModified: now,
+    changeFrequency: "weekly" as const,
+    priority: 0.9,
+  }));
+}
+
 function buildBlogEntries(now: Date): MetadataRoute.Sitemap {
   return Object.keys(BLOG_SEO).map((slug) => ({
     url: `${BASE_URL}/blogs/${slug}`,
@@ -76,5 +108,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     left.localeCompare(right),
   );
 
-  return [...buildStaticEntries(dedupedRoutes, now), ...buildBlogEntries(now)];
+  return [
+    ...buildStaticEntries(dedupedRoutes, now),
+    ...buildServiceEntries(now),
+    ...buildBlogEntries(now),
+  ];
 }

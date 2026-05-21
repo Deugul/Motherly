@@ -171,7 +171,7 @@ export default function Footer() {
           style={{ borderColor: "color-mix(in srgb, var(--color-outline-variant) 15%, transparent)" }}
         >
           <p className="text-sm font-medium" style={{ color: "var(--color-on-surface-variant)" }}>
-            © 2024 Motherly Home Care. All rights reserved. Your health, our heartbeat.
+            © 2026 Motherly Home Care. All rights reserved. Your health, our heartbeat.
           </p>
           <div
             className="flex items-center gap-2 text-sm font-medium"

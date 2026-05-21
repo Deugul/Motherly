@@ -94,7 +94,7 @@ export default function ServicesPage() {
           </Link>
 
           {/* Lactation Consultants */}
-          <Link href="/services/lactation" style={{ gridColumn: "span 5" }}>
+          <Link href="/services/lactation-consultants" style={{ gridColumn: "span 5" }}>
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -143,7 +143,7 @@ export default function ServicesPage() {
           </Link>
 
           {/* Gynaecology */}
-          <Link href="/services/gynaecology" style={{ gridColumn: "span 4" }}>
+          <Link href="/services/gynecologist-consultation" style={{ gridColumn: "span 4" }}>
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -180,7 +180,7 @@ export default function ServicesPage() {
           </Link>
 
           {/* Nannies */}
-          <Link href="/services/nannies" style={{ gridColumn: "span 4" }}>
+          <Link href="/services/nanny-services" style={{ gridColumn: "span 4" }}>
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -218,7 +218,7 @@ export default function ServicesPage() {
           </Link>
 
           {/* Postnatal Recovery */}
-          <Link href="/our-services/postnatal-recovery-care" style={{ gridColumn: "span 4" }}>
+          <Link href="/services/postnatal-recovery-care" style={{ gridColumn: "span 4" }}>
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}

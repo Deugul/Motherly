@@ -19,7 +19,7 @@ const nextConfig: NextConfig = {
     return [
       {
         source: "/our-services/lactation-consultants",
-        destination: "/services/lactation",
+        destination: "/services/lactation-consultants",
         permanent: true,
       },
       {
@@ -28,13 +28,58 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: "/our-services/nanny-services",
+        destination: "/services/nanny-services",
+        permanent: true,
+      },
+      {
         source: "/our-services/nannies-postnatal-care",
-        destination: "/services/postnatal",
+        destination: "/services/nanny-services",
         permanent: true,
       },
       {
         source: "/our-services/gynecology-consultation",
-        destination: "/services/gynecologist",
+        destination: "/services/gynecologist-consultation",
+        permanent: true,
+      },
+      {
+        source: "/our-services/postnatal-recovery-care",
+        destination: "/services/postnatal-recovery-care",
+        permanent: true,
+      },
+      {
+        source: "/our-services/postnatal-Recovery-care",
+        destination: "/services/postnatal-recovery-care",
+        permanent: true,
+      },
+      {
+        source: "/our-services/postnatal-recovery-care/physiotherapy",
+        destination: "/services/postnatal-recovery-care/physiotherapy",
+        permanent: true,
+      },
+      {
+        source: "/services/lactation",
+        destination: "/services/lactation-consultants",
+        permanent: true,
+      },
+      {
+        source: "/services/postnatal",
+        destination: "/services/postnatal-recovery-care",
+        permanent: true,
+      },
+      {
+        source: "/services/nannies",
+        destination: "/services/nanny-services",
+        permanent: true,
+      },
+      {
+        source: "/services/gynecologist",
+        destination: "/services/gynecologist-consultation",
+        permanent: true,
+      },
+      {
+        source: "/services/gynaecology",
+        destination: "/services/gynecologist-consultation",
         permanent: true,
       },
       {
