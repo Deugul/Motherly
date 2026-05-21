@@ -94,25 +94,25 @@ const KEYWORD_LINKS = [
   {
     label: "postpartum belly",
     title: "Does Postpartum Belly Go Away?",
-    url: "https://mothrly.com/blogs/does-postpartum-belly-go-away-a-realistic-recovery-guide-for-new-moms",
+    url: "https://www.mothrly.com/blogs/does-postpartum-belly-go-away-a-realistic-recovery-guide-for-new-moms",
     icon: "fitness_center",
   },
   {
     label: "postpartum care Chennai",
     title: "Postpartum Care in Chennai Guide",
-    url: "https://mothrly.com/blogs/postpartum-care-in-chennai-the-complete-guide-for-new-mothers",
+    url: "https://www.mothrly.com/blogs/postpartum-care-in-chennai-the-complete-guide-for-new-mothers",
     icon: "map",
   },
   {
     label: "lactation consultant",
     title: "Why Every New Mother Needs a Lactation Consultant",
-    url: "https://mothrly.com/blogs/why-every-new-mother-may-need-a-lactation-consultant",
+    url: "https://www.mothrly.com/blogs/why-every-new-mother-may-need-a-lactation-consultant",
     icon: "assignment_ind",
   },
   {
     label: "increase breast milk supply",
     title: "How to Increase Breast Milk Supply",
-    url: "https://mothrly.com/blogs/how-to-increase-breast-milk-supply",
+    url: "https://www.mothrly.com/blogs/how-to-increase-breast-milk-supply",
     icon: "water_drop",
   },
   {

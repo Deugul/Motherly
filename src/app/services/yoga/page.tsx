@@ -595,16 +595,16 @@ export default function YogaPage() {
           <section className="space-y-6">
             <h2>Useful Resources & Guides</h2>
             <div>
-              <Link href="https://mothrly.com/blogs/is-walking-during-pregnancy-good-for-normal-delivery">
+              <Link href="https://www.mothrly.com/blogs/is-walking-during-pregnancy-good-for-normal-delivery">
                 walking during pregnancy
               </Link>
-              <Link href="https://mothrly.com/blogs/can-stress-cause-miscarriage">
+              <Link href="https://www.mothrly.com/blogs/can-stress-cause-miscarriage">
                 stress and miscarriage
               </Link>
-              <Link href="https://mothrly.com/blogs/does-postpartum-belly-go-away-a-realistic-recovery-guide-for-new-moms">
+              <Link href="https://www.mothrly.com/blogs/does-postpartum-belly-go-away-a-realistic-recovery-guide-for-new-moms">
                 postpartum belly
               </Link>
-              <Link href="https://mothrly.com/blogs/how-to-lose-weight-while-breastfeeding">
+              <Link href="https://www.mothrly.com/blogs/how-to-lose-weight-while-breastfeeding">
                 lose weight breastfeeding
               </Link>
               <Link href="https://www.mothrly.com/our-services/postnatal-Recovery-care">

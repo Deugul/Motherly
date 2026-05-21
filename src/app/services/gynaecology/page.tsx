@@ -454,13 +454,13 @@ export default function GynaecologyPage() {
           <section className="space-y-6">
             <h2>Useful Resources & Guides</h2>
             <div>
-              <Link href="https://mothrly.com/blogs/pregnancy-diet-plan">
+              <Link href="https://www.mothrly.com/blogs/pregnancy-diet-plan">
                 pregnancy diet plan
               </Link>
-              <Link href="https://mothrly.com/blogs/first-trimester-pregnancy-diet-plan">
+              <Link href="https://www.mothrly.com/blogs/first-trimester-pregnancy-diet-plan">
                 first trimester diet plan
               </Link>
-              <Link href="https://mothrly.com/blogs/does-postpartum-belly-go-away-a-realistic-recovery-guide-for-new-moms">
+              <Link href="https://www.mothrly.com/blogs/does-postpartum-belly-go-away-a-realistic-recovery-guide-for-new-moms">
                 postpartum belly
               </Link>
               <Link href="https://www.mothrly.com/our-services/doulas">

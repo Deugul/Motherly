@@ -371,13 +371,13 @@ export default function DoulaPage() {
                       {
                         label: "doula vs midwife",
                         title: "Doula vs Midwife: Who Cares for You?",
-                        url: "https://mothrly.com/blogs/doula-vs-midwife-who-cares-for-you-and-your-baby",
+                        url: "https://www.mothrly.com/blogs/doula-vs-midwife-who-cares-for-you-and-your-baby",
                         icon: "compare_arrows",
                       },
                       {
                         label: "lactation consultant",
                         title: "Why You Need a Lactation Consultant",
-                        url: "https://mothrly.com/blogs/why-every-new-mother-may-need-a-lactation-consultant",
+                        url: "https://www.mothrly.com/blogs/why-every-new-mother-may-need-a-lactation-consultant",
                         icon: "assignment_ind",
                       },
                       {
@@ -389,13 +389,13 @@ export default function DoulaPage() {
                       {
                         label: "pregnancy diet plan",
                         title: "The Perfect Pregnancy Diet Plan Guide",
-                        url: "https://mothrly.com/blogs/pregnancy-diet-plan",
+                        url: "https://www.mothrly.com/blogs/pregnancy-diet-plan",
                         icon: "restaurant",
                       },
                       {
                         label: "postpartum care Chennai",
                         title: "Complete Chennai Postpartum Guide",
-                        url: "https://mothrly.com/blogs/postpartum-care-in-chennai-the-complete-guide-for-new-mothers",
+                        url: "https://www.mothrly.com/blogs/postpartum-care-in-chennai-the-complete-guide-for-new-mothers",
                         icon: "map",
                       },
                     ].map((link, idx) => (

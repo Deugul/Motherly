@@ -504,16 +504,16 @@ export default function LactationPage() {
           <section className="space-y-6">
             <h2>Useful Resources & Guides</h2>
             <div>
-              <Link href="https://mothrly.com/blogs/why-every-new-mother-may-need-a-lactation-consultant">
+              <Link href="https://www.mothrly.com/blogs/why-every-new-mother-may-need-a-lactation-consultant">
                 why every new mother needs a lactation consultant
               </Link>
-              <Link href="https://mothrly.com/blogs/why-is-my-breast-milk-not-coming-causes-and-easy-solutions">
+              <Link href="https://www.mothrly.com/blogs/why-is-my-breast-milk-not-coming-causes-and-easy-solutions">
                 breast milk not coming
               </Link>
-              <Link href="https://mothrly.com/blogs/how-to-increase-breast-milk-supply">
+              <Link href="https://www.mothrly.com/blogs/how-to-increase-breast-milk-supply">
                 increase breast milk supply
               </Link>
-              <Link href="https://mothrly.com/blogs/breastfeeding-rules-every-new-mom-should-know">
+              <Link href="https://www.mothrly.com/blogs/breastfeeding-rules-every-new-mom-should-know">
                 breastfeeding rules
               </Link>
               <Link href="https://www.mothrly.com/our-services/postnatal-recovery-care">

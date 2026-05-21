@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ensureCanonicalOrigin } from "../lib/site-url";
 
 export type KeywordLink = { label: string; url: string };
 
@@ -33,7 +34,7 @@ const SERVICE_PATH_REWRITES: [RegExp, string][] = [
 
 /** Normalize legacy /our-services and old /services paths to canonical SEO URLs. */
 export function normalizeServiceSeoUrl(url: string): string {
-  let normalized = url;
+  let normalized = ensureCanonicalOrigin(url);
   for (const [pattern, replacement] of SERVICE_PATH_REWRITES) {
     normalized = normalized.replace(pattern, replacement);
   }
@@ -41,18 +42,19 @@ export function normalizeServiceSeoUrl(url: string): string {
 }
 
 export function buildServiceMetadata(entry: ServiceSeoEntry): Metadata {
+  const canonical = normalizeServiceSeoUrl(entry.canonical);
   return {
     title: entry.metaTitle,
     description: entry.metaDescription,
     keywords: entry.keywords,
-    alternates: { canonical: entry.canonical },
+    alternates: { canonical },
     openGraph: {
       type: "website",
       locale: "en_IN",
       siteName: "Motherly",
       title: entry.metaTitle,
       description: entry.metaDescription,
-      url: entry.canonical,
+      url: canonical,
     },
   };
 }
@@ -77,11 +79,11 @@ export const SERVICE_SEO = {
       "birth support doula",
     ],
     keywordLinks: [
-      { label: "doula vs midwife", url: "https://mothrly.com/blogs/doula-vs-midwife-who-cares-for-you-and-your-baby" },
-      { label: "lactation consultant", url: "https://mothrly.com/blogs/why-every-new-mother-may-need-a-lactation-consultant" },
+      { label: "doula vs midwife", url: "https://www.mothrly.com/blogs/doula-vs-midwife-who-cares-for-you-and-your-baby" },
+      { label: "lactation consultant", url: "https://www.mothrly.com/blogs/why-every-new-mother-may-need-a-lactation-consultant" },
       { label: "postnatal care", url: "https://www.mothrly.com/services/postnatal-recovery-care" },
-      { label: "pregnancy diet plan", url: "https://mothrly.com/blogs/pregnancy-diet-plan" },
-      { label: "postpartum care Chennai", url: "https://mothrly.com/blogs/postpartum-care-in-chennai-the-complete-guide-for-new-mothers" },
+      { label: "pregnancy diet plan", url: "https://www.mothrly.com/blogs/pregnancy-diet-plan" },
+      { label: "postpartum care Chennai", url: "https://www.mothrly.com/blogs/postpartum-care-in-chennai-the-complete-guide-for-new-mothers" },
     ],
     howToSchema: {
       "@context": "https://schema.org",
@@ -121,10 +123,10 @@ export const SERVICE_SEO = {
       "postpartum home care",
     ],
     keywordLinks: [
-      { label: "postpartum belly", url: "https://mothrly.com/blogs/does-postpartum-belly-go-away-a-realistic-recovery-guide-for-new-moms" },
-      { label: "postpartum care Chennai", url: "https://mothrly.com/blogs/postpartum-care-in-chennai-the-complete-guide-for-new-mothers" },
-      { label: "lactation consultant", url: "https://mothrly.com/blogs/why-every-new-mother-may-need-a-lactation-consultant" },
-      { label: "increase breast milk supply", url: "https://mothrly.com/blogs/how-to-increase-breast-milk-supply" },
+      { label: "postpartum belly", url: "https://www.mothrly.com/blogs/does-postpartum-belly-go-away-a-realistic-recovery-guide-for-new-moms" },
+      { label: "postpartum care Chennai", url: "https://www.mothrly.com/blogs/postpartum-care-in-chennai-the-complete-guide-for-new-mothers" },
+      { label: "lactation consultant", url: "https://www.mothrly.com/blogs/why-every-new-mother-may-need-a-lactation-consultant" },
+      { label: "increase breast milk supply", url: "https://www.mothrly.com/blogs/how-to-increase-breast-milk-supply" },
       { label: "doulas", url: "https://www.mothrly.com/services/doulas" },
       { label: "yoga", url: "https://www.mothrly.com/services/yoga" },
     ],
@@ -166,10 +168,10 @@ export const SERVICE_SEO = {
       "lactation support home visit",
     ],
     keywordLinks: [
-      { label: "why every new mother needs a lactation consultant", url: "https://mothrly.com/blogs/why-every-new-mother-may-need-a-lactation-consultant" },
-      { label: "breast milk not coming", url: "https://mothrly.com/blogs/why-is-my-breast-milk-not-coming-causes-and-easy-solutions" },
-      { label: "increase breast milk supply", url: "https://mothrly.com/blogs/how-to-increase-breast-milk-supply" },
-      { label: "breastfeeding rules", url: "https://mothrly.com/blogs/breastfeeding-rules-every-new-mom-should-know" },
+      { label: "why every new mother needs a lactation consultant", url: "https://www.mothrly.com/blogs/why-every-new-mother-may-need-a-lactation-consultant" },
+      { label: "breast milk not coming", url: "https://www.mothrly.com/blogs/why-is-my-breast-milk-not-coming-causes-and-easy-solutions" },
+      { label: "increase breast milk supply", url: "https://www.mothrly.com/blogs/how-to-increase-breast-milk-supply" },
+      { label: "breastfeeding rules", url: "https://www.mothrly.com/blogs/breastfeeding-rules-every-new-mom-should-know" },
       { label: "postnatal care", url: "https://www.mothrly.com/services/postnatal-recovery-care" },
     ],
     howToSchema: {
@@ -210,8 +212,8 @@ export const SERVICE_SEO = {
       "postnatal baby nurse India",
     ],
     keywordLinks: [
-      { label: "postpartum care Chennai", url: "https://mothrly.com/blogs/postpartum-care-in-chennai-the-complete-guide-for-new-mothers" },
-      { label: "newborn sleep patterns", url: "https://mothrly.com/blogs/newborn-sleep-patterns-what-to-expect-in-the-third-month" },
+      { label: "postpartum care Chennai", url: "https://www.mothrly.com/blogs/postpartum-care-in-chennai-the-complete-guide-for-new-mothers" },
+      { label: "newborn sleep patterns", url: "https://www.mothrly.com/blogs/newborn-sleep-patterns-what-to-expect-in-the-third-month" },
       { label: "postnatal care", url: "https://www.mothrly.com/services/postnatal-recovery-care" },
       { label: "lactation consultants service", url: "https://www.mothrly.com/services/lactation-consultants" },
       { label: "doulas", url: "https://www.mothrly.com/services/doulas" },
@@ -254,9 +256,9 @@ export const SERVICE_SEO = {
       "gynaecologist home visit Chennai",
     ],
     keywordLinks: [
-      { label: "pregnancy diet plan", url: "https://mothrly.com/blogs/pregnancy-diet-plan" },
-      { label: "first trimester diet plan", url: "https://mothrly.com/blogs/first-trimester-pregnancy-diet-plan" },
-      { label: "postpartum belly", url: "https://mothrly.com/blogs/does-postpartum-belly-go-away-a-realistic-recovery-guide-for-new-moms" },
+      { label: "pregnancy diet plan", url: "https://www.mothrly.com/blogs/pregnancy-diet-plan" },
+      { label: "first trimester diet plan", url: "https://www.mothrly.com/blogs/first-trimester-pregnancy-diet-plan" },
+      { label: "postpartum belly", url: "https://www.mothrly.com/blogs/does-postpartum-belly-go-away-a-realistic-recovery-guide-for-new-moms" },
       { label: "doulas", url: "https://www.mothrly.com/services/doulas" },
       { label: "postnatal care", url: "https://www.mothrly.com/services/postnatal-recovery-care" },
     ],
@@ -298,9 +300,9 @@ export const SERVICE_SEO = {
       "baby health check India",
     ],
     keywordLinks: [
-      { label: "newborn sleep patterns", url: "https://mothrly.com/blogs/newborn-sleep-patterns-what-to-expect-in-the-third-month" },
-      { label: "signs baby getting enough breast milk", url: "https://mothrly.com/blogs/5-signs-baby-getting-enough-breast-milk" },
-      { label: "breastfeeding rules", url: "https://mothrly.com/blogs/breastfeeding-rules-every-new-mom-should-know" },
+      { label: "newborn sleep patterns", url: "https://www.mothrly.com/blogs/newborn-sleep-patterns-what-to-expect-in-the-third-month" },
+      { label: "signs baby getting enough breast milk", url: "https://www.mothrly.com/blogs/5-signs-baby-getting-enough-breast-milk" },
+      { label: "breastfeeding rules", url: "https://www.mothrly.com/blogs/breastfeeding-rules-every-new-mom-should-know" },
       { label: "lactation consultants service", url: "https://www.mothrly.com/services/lactation-consultants" },
       { label: "postnatal care", url: "https://www.mothrly.com/services/postnatal-recovery-care" },
     ],
@@ -342,10 +344,10 @@ export const SERVICE_SEO = {
       "postpartum yoga sessions India",
     ],
     keywordLinks: [
-      { label: "walking during pregnancy", url: "https://mothrly.com/blogs/how-much-walking-is-safe-during-pregnancy" },
+      { label: "walking during pregnancy", url: "https://www.mothrly.com/blogs/how-much-walking-is-safe-during-pregnancy" },
       { label: "can stress cause miscarriage", url: "https://www.mothrly.com/blogs/can-stress-cause-miscarriage-in-first-trimester" },
-      { label: "postpartum belly", url: "https://mothrly.com/blogs/does-postpartum-belly-go-away-a-realistic-recovery-guide-for-new-moms" },
-      { label: "lose weight while breastfeeding", url: "https://mothrly.com/blogs/why-is-it-so-hard-to-lose-weight-while-breastfeeding" },
+      { label: "postpartum belly", url: "https://www.mothrly.com/blogs/does-postpartum-belly-go-away-a-realistic-recovery-guide-for-new-moms" },
+      { label: "lose weight while breastfeeding", url: "https://www.mothrly.com/blogs/why-is-it-so-hard-to-lose-weight-while-breastfeeding" },
       { label: "postnatal care", url: "https://www.mothrly.com/services/postnatal-recovery-care" },
     ],
     howToSchema: {

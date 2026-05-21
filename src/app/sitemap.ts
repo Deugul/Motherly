@@ -4,8 +4,9 @@ import path from "node:path";
 import { BLOG_SEO } from "@/data/blog-seo";
 import { SERVICE_SEO } from "@/data/service-seo";
 
-const BASE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/+$/, "") ?? "https://www.mothrly.com";
+import { SITE_ORIGIN } from "@/lib/site-url";
+
+const BASE_URL = SITE_ORIGIN;
 
 const EXCLUDED_SEGMENTS = new Set(["keystatic", "blog-admin"]);
 

@@ -5,7 +5,8 @@ import BlogSeoExtras from "@/components/BlogSeoExtras";
 import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
-import { getBlogSeo } from "@/data/blog-seo";
+import { getBlogSeo, normalizeSeoUrl } from "@/data/blog-seo";
+import { SITE_ORIGIN } from "@/lib/site-url";
 
 const WP_API = "https://beige-swallow-278886.hostingersite.com/wp-json/wp/v2";
 const WP_ORIGIN = "https://beige-swallow-278886.hostingersite.com";
@@ -134,7 +135,7 @@ export async function generateMetadata({
   const description =
     seo?.metaDescription ??
     stripHtml(post!.excerpt.rendered).slice(0, 160).trim();
-  const canonical = seo?.canonical ?? `https://mothrly.com/blogs/${slug}`;
+  const canonical = normalizeSeoUrl(seo?.canonical ?? `${SITE_ORIGIN}/blogs/${slug}`);
   const image = post?._embedded?.["wp:featuredmedia"]?.[0]?.source_url;
 
   return {

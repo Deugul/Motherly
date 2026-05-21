@@ -574,13 +574,13 @@ export default function PediatricianPage() {
           <section className="space-y-6">
             <h2>Useful Resources & Guides</h2>
             <div>
-              <Link href="https://mothrly.com/blogs/newborn-sleep-patterns-what-to-expect-in-the-third-month">
+              <Link href="https://www.mothrly.com/blogs/newborn-sleep-patterns-what-to-expect-in-the-third-month">
                 newborn sleep patterns
               </Link>
-              <Link href="https://mothrly.com/blogs/5-signs-baby-getting-enough-breast-milk">
+              <Link href="https://www.mothrly.com/blogs/5-signs-baby-getting-enough-breast-milk">
                 signs baby getting enough breast milk
               </Link>
-              <Link href="https://mothrly.com/blogs/breastfeeding-rules-every-new-mom-should-know">
+              <Link href="https://www.mothrly.com/blogs/breastfeeding-rules-every-new-mom-should-know">
                 breastfeeding rules
               </Link>
               <Link href="https://www.mothrly.com/our-services/lactation-consultants">

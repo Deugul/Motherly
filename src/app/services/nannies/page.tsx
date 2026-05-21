@@ -604,10 +604,10 @@ export default function NanniesPage() {
           <section className="space-y-6">
             <h2>Useful Resources & Guides</h2>
             <div>
-              <Link href="https://mothrly.com/blogs/postpartum-care-in-chennai-the-complete-guide-for-new-mothers">
+              <Link href="https://www.mothrly.com/blogs/postpartum-care-in-chennai-the-complete-guide-for-new-mothers">
                 postpartum care Chennai
               </Link>
-              <Link href="https://mothrly.com/blogs/newborn-sleep-patterns-what-to-expect-in-the-third-month">
+              <Link href="https://www.mothrly.com/blogs/newborn-sleep-patterns-what-to-expect-in-the-third-month">
                 newborn sleep patterns
               </Link>
               <Link href="https://www.mothrly.com/our-services/postnatal-Recovery-care">
