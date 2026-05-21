@@ -108,7 +108,7 @@ export default function DoctorsPage() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         formType: "Doctor Partnership Application",
-        page: "Doctors & Medical Partners",
+        page: "Doctors & Be Medical Partners",
         ...data,
       }),
     });
@@ -292,7 +292,7 @@ export default function DoctorsPage() {
                       className="text-xs font-bold"
                       style={{ color: "var(--color-on-surface)", fontFamily: "var(--font-plus-jakarta)" }}
                     >
-                      Verified Medical Partners
+                      Be Medical Partners
                     </span>
                   </div>
                 </div>

@@ -1,12 +1,54 @@
 import type { NextConfig } from "next";
 import { BLOG_SEO } from "./src/data/blog-seo";
 
-/** Legacy WordPress root URLs → /blogs/{slug} */
-const legacyBlogRedirects = Object.keys(BLOG_SEO).map((slug) => ({
-  source: `/${slug}`,
-  destination: `/blogs/${slug}`,
-  permanent: true as const,
-}));
+/** Legacy WordPress root URLs → /blogs/{slug} (with and without trailing slash) */
+const legacyBlogRedirects = Object.keys(BLOG_SEO).flatMap((slug) => [
+  {
+    source: `/${slug}`,
+    destination: `/blogs/${slug}`,
+    permanent: true as const,
+  },
+  {
+    source: `/${slug}/`,
+    destination: `/blogs/${slug}`,
+    permanent: true as const,
+  },
+  {
+    source: `/blogs/${slug}/`,
+    destination: `/blogs/${slug}`,
+    permanent: true as const,
+  },
+]);
+
+/** Legacy duplicate app routes → canonical /services paths */
+const ourServices1Redirects = [
+  { source: "/our-services1/doulas", destination: "/services/doulas", permanent: true as const },
+  {
+    source: "/our-services1/lactation-consultants",
+    destination: "/services/lactation-consultants",
+    permanent: true as const,
+  },
+  {
+    source: "/our-services1/nanny-services",
+    destination: "/services/nanny-services",
+    permanent: true as const,
+  },
+  {
+    source: "/our-services1/gynecology-consultation",
+    destination: "/services/gynecologist-consultation",
+    permanent: true as const,
+  },
+  {
+    source: "/our-services1/postnatal-recovery-care",
+    destination: "/services/postnatal-recovery-care",
+    permanent: true as const,
+  },
+  {
+    source: "/our-services1/postnatal-recovery-care/physiotherapy",
+    destination: "/services/postnatal-recovery-care/physiotherapy",
+    permanent: true as const,
+  },
+] as const;
 
 const nextConfig: NextConfig = {
   images: {
@@ -48,13 +90,33 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: "/our-services/postnatal-Recovery-care/physiotherapy",
+        destination: "/services/postnatal-recovery-care/physiotherapy",
+        permanent: true,
+      },
+      {
+        source: "/our-services/postnatal-Recovery-care/physiotherapy/:path*",
+        destination: "/services/postnatal-recovery-care/physiotherapy",
+        permanent: true,
+      },
+      {
         source: "/our-services/postnatal-Recovery-care",
+        destination: "/services/postnatal-recovery-care",
+        permanent: true,
+      },
+      {
+        source: "/our-services/postnatal-Recovery-care/:path*",
         destination: "/services/postnatal-recovery-care",
         permanent: true,
       },
       {
         source: "/our-services/postnatal-recovery-care/physiotherapy",
         destination: "/services/postnatal-recovery-care/physiotherapy",
+        permanent: true,
+      },
+      {
+        source: "/terms-and-conditions/",
+        destination: "/terms-and-conditions",
         permanent: true,
       },
       {
@@ -122,6 +184,7 @@ const nextConfig: NextConfig = {
         destination: "/our-services/postnatal-recovery-care/physiotherapy",
         permanent: true,
       },
+      ...ourServices1Redirects,
       ...legacyBlogRedirects,
     ];
   },

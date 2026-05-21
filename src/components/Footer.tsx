@@ -6,7 +6,7 @@ const quickLinks = [
   { label: "Our Services", href: "/services" },
   { label: "Blogs", href: "/blogs" },
   { label: "Investors", href: "/investors" },
-  { label: "Medical Partners", href: "/doctors" },
+  { label: "Be Medical Partners", href: "/doctors" },
   { label: "Privacy Policy", href: "/privacy-policy" },
   { label: "Terms and Conditions", href: "/terms-and-conditions" },
   { label: "Refund Policy", href: "/refund-and-cancellation-policies" },
