@@ -1,26 +1,35 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 export default function WpContent({ html }: { html: string }) {
-  useEffect(() => {
-    // ── FAQ accordion ──────────────────────────────────────────────────────────
-    const faqItems = document.querySelectorAll<HTMLElement>(".mb-faq-item");
-    const faqButtons = document.querySelectorAll<HTMLElement>(".mb-faq-q");
+  const rootRef = useRef<HTMLDivElement>(null);
 
-    function handleFaqClick(this: HTMLElement) {
-      const item = this.closest<HTMLElement>(".mb-faq-item");
+  useEffect(() => {
+    const root = rootRef.current;
+    if (!root) return;
+
+    // ── FAQ accordion (delegated — survives HTML re-injection) ───────────────
+    function handleFaqClick(event: MouseEvent) {
+      const target = event.target as HTMLElement | null;
+      const question = target?.closest<HTMLElement>(".mb-faq-q");
+      if (!question || !root?.contains(question)) return;
+
+      const item = question.closest<HTMLElement>(".mb-faq-item");
       if (!item) return;
+
       const isOpen = item.classList.contains("open");
-      faqItems.forEach((i) => i.classList.remove("open"));
+      root.querySelectorAll<HTMLElement>(".mb-faq-item").forEach((i) => {
+        i.classList.remove("open");
+      });
       if (!isOpen) item.classList.add("open");
     }
 
-    faqButtons.forEach((btn) => btn.addEventListener("click", handleFaqClick));
+    root.addEventListener("click", handleFaqClick);
 
     // ── TOC scroll-spy ─────────────────────────────────────────────────────────
     const tocLinks = Array.from(
-      document.querySelectorAll<HTMLAnchorElement>(".mb-toc a[href^='#']")
+      root.querySelectorAll<HTMLAnchorElement>(".mb-toc a[href^='#']")
     );
     const sectionIds = tocLinks.map((a) => a.getAttribute("href")!.slice(1));
 
@@ -49,13 +58,14 @@ export default function WpContent({ html }: { html: string }) {
     }
 
     return () => {
-      faqButtons.forEach((btn) => btn.removeEventListener("click", handleFaqClick));
+      root.removeEventListener("click", handleFaqClick);
       if (tocLinks.length > 0) window.removeEventListener("scroll", onScroll);
     };
   }, [html]);
 
   return (
     <div
+      ref={rootRef}
       className="wp-content mt-10"
       dangerouslySetInnerHTML={{ __html: html }}
     />

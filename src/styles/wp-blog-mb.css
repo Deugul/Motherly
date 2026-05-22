@@ -24,7 +24,7 @@
   min-width: 0;
   font-family: inherit;
   color: var(--mb-text);
-  line-height: 1.9;
+  line-height: 1.8;
   font-size: 17px;
   background: var(--mb-white);
 }
@@ -36,32 +36,312 @@
 }
 
 .wp-content .mb p {
-  margin: 0 0 1.3rem;
+  margin: 0 0 1.2rem;
   color: var(--mb-text);
 }
 
+.wp-content .mb ul,
+.wp-content .mb ol {
+  margin: 0 0 1.2rem 1.6rem;
+  padding: 0;
+}
+
+.wp-content .mb li {
+  margin-bottom: 0.5rem;
+  color: var(--mb-text);
+  line-height: 1.75;
+}
+
+.wp-content .mb strong {
+  font-weight: 700;
+  color: var(--mb-text);
+}
+
+/* Override global .wp-content h1–h4 inside .mb template */
 .wp-content .mb h1 {
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-family: inherit;
+  font-size: clamp(1.75rem, 4vw, 2.4rem);
   font-weight: 700;
   color: var(--mb-red);
-  line-height: 1.15;
-  margin: 0 0 1.2rem;
-  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin: 0.4rem 0 1.1rem;
+  letter-spacing: -0.01em;
 }
 
 .wp-content .mb h2 {
-  font-size: clamp(1.3rem, 3vw, 1.9rem);
+  font-family: inherit;
+  font-size: clamp(1.2rem, 3vw, 1.65rem);
   font-weight: 700;
   color: var(--mb-red);
-  margin: 3rem 0 1rem;
-  padding-bottom: 0.55rem;
+  margin: 2.6rem 0 0.9rem;
+  padding-bottom: 0.45rem;
   border-bottom: 2px solid var(--mb-cream-b);
   line-height: 1.3;
   scroll-margin-top: 120px;
 }
 
+.wp-content .mb h3 {
+  font-family: inherit;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  font-weight: 700;
+  color: var(--mb-red-mid);
+  margin: 1.8rem 0 0.5rem;
+  line-height: 1.3;
+}
+
+.wp-content .mb h4 {
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--mb-text);
+  margin: 0 0 0.4rem;
+}
+
 .wp-content .mb a {
   color: var(--mb-red);
+  text-decoration: underline;
+}
+
+.wp-content .mb a:hover {
+  color: var(--mb-red-mid);
+}
+
+/* Numbered cards (e.g. Iron, Folate) — layout was in WP <style>, stripped on Next.js */
+.wp-content .mb-methods {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 1.4rem 0 2.2rem;
+}
+
+.wp-content .mb-method {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  background: var(--mb-white);
+  border: 1px solid var(--mb-border);
+  border-radius: var(--mb-rlg);
+  padding: 1.1rem 1.3rem;
+}
+
+.wp-content .mb-method-num {
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+  background: var(--mb-red);
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.wp-content .mb-method h3 {
+  font-size: 1.02rem;
+  font-weight: 700;
+  margin: 0 0 6px;
+  color: var(--mb-red-mid);
+  border: none;
+  padding: 0;
+  line-height: 1.3;
+}
+
+.wp-content .mb-method p {
+  font-size: 15.5px;
+  line-height: 1.7;
+  color: var(--mb-text);
+  margin: 0;
+}
+
+.wp-content .mb-food-table {
+  width: 100%;
+  border-collapse: collapse;
+  border: none;
+  font-size: 16px;
+  margin: 1rem 0 1.8rem;
+}
+
+.wp-content .mb-food-table thead tr {
+  background: var(--mb-red);
+}
+
+.wp-content .mb-food-table thead th {
+  padding: 11px 16px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 15px;
+  text-align: left;
+  border: none;
+}
+
+.wp-content .mb-food-table tbody tr {
+  border-bottom: 1px solid var(--mb-border);
+}
+
+.wp-content .mb-food-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.wp-content .mb-food-table tbody tr:nth-child(even) td {
+  background: var(--mb-cream);
+}
+
+.wp-content .mb-food-table tbody tr:nth-child(odd) td {
+  background: var(--mb-white);
+}
+
+.wp-content .mb-food-table td {
+  padding: 13px 16px;
+  vertical-align: middle;
+  line-height: 1.65;
+  color: var(--mb-text);
+  border: none !important;
+}
+
+.wp-content .mb-food-table td:first-child {
+  font-weight: 700;
+  color: var(--mb-red);
+  width: 38%;
+  font-style: italic;
+}
+
+.wp-content .mb-infobox {
+  background: var(--mb-cream);
+  border: 1px solid var(--mb-border);
+  border-radius: var(--mb-rlg);
+  padding: 1.3rem 1.5rem;
+  margin: 1.4rem 0 2.2rem;
+}
+
+.wp-content .mb-infobox ul {
+  margin: 0;
+  padding: 0 0 0 1.4rem;
+}
+
+.wp-content .mb-infobox li {
+  font-size: 16px;
+  margin-bottom: 8px;
+  line-height: 1.7;
+}
+
+.wp-content .mb-avoid {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 1.4rem 0 2.2rem;
+}
+
+.wp-content .mb-avoid-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background: var(--mb-white);
+  border: 1px solid var(--mb-border);
+  border-radius: var(--mb-r);
+  padding: 0.9rem 1.1rem;
+  font-size: 15.5px;
+  line-height: 1.65;
+}
+
+.wp-content .mb-avoid-item::before {
+  content: "✕";
+  color: #b91c1c;
+  font-weight: 700;
+  font-size: 13px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.wp-content .mb-safe {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 1.4rem 0 2.2rem;
+}
+
+.wp-content .mb-safe-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background: var(--mb-white);
+  border: 1px solid var(--mb-border);
+  border-radius: var(--mb-r);
+  padding: 0.9rem 1.1rem;
+  font-size: 15.5px;
+  line-height: 1.65;
+}
+
+.wp-content .mb-safe-item::before {
+  content: "✓";
+  color: #2d6a3f;
+  font-weight: 700;
+  font-size: 13px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.wp-content .mb-lifestyle {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 1.4rem 0 2.2rem;
+}
+
+.wp-content .mb-lifestyle-item {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  background: var(--mb-white);
+  border: 1px solid var(--mb-border);
+  border-radius: var(--mb-rlg);
+  padding: 1.1rem 1.3rem;
+  border-left: 4px solid var(--mb-red-mid);
+}
+
+.wp-content .mb-lifestyle-body h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0 0 5px;
+  color: var(--mb-red-mid);
+}
+
+.wp-content .mb-lifestyle-body p {
+  font-size: 15.5px;
+  margin: 0;
+  line-height: 1.7;
+}
+
+.wp-content .mb-services {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 14px;
+  margin: 1.4rem 0 2.2rem;
+}
+
+.wp-content .mb-sc {
+  background: var(--mb-white);
+  border: 1px solid var(--mb-border);
+  border-radius: var(--mb-rlg);
+  padding: 1.3rem 1.4rem;
+  border-top: 3px solid var(--mb-red);
+}
+
+.wp-content .mb-sc h3 {
+  font-size: 1.05rem;
+  margin: 0 0 8px;
+  color: var(--mb-red-mid);
+  border: none;
+  padding: 0;
+}
+
+.wp-content .mb-sc p {
+  font-size: 15.5px;
+  line-height: 1.7;
+  margin: 0;
 }
 
 .wp-content .mb-lead {
@@ -167,6 +447,128 @@
   margin-top: 14px;
 }
 
+.wp-content .mb-cta p a {
+  color: rgba(255, 255, 255, 0.95);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.wp-content .mb-cta-sub a {
+  color: rgba(255, 255, 255, 0.92);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* App store badges — styles live in wp-blog-mb.css because <style> in WP HTML is stripped */
+.wp-content .mb-cta-stores {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.wp-content .mb-cta .mb-cta-stores a.mb-store-badge,
+.wp-content .mb-cta .mb-cta-stores a.mb-store-badge:hover,
+.wp-content .mb-cta .mb-cta-stores a.mb-store-badge:focus,
+.wp-content .mb-cta .mb-cta-stores a.mb-store-badge:visited {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #fff;
+  color: var(--mb-red) !important;
+  padding: 7px 18px 7px 12px;
+  border-radius: 12px;
+  min-height: 50px;
+  min-width: 168px;
+  text-decoration: none !important;
+  border-bottom: none;
+  box-shadow: 0 1px 3px rgba(186, 14, 86, 0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
+    sans-serif;
+}
+
+.wp-content .mb-cta .mb-cta-stores a.mb-store-badge:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(186, 14, 86, 0.22);
+  color: var(--mb-red) !important;
+}
+
+.wp-content .mb-store-badge .mb-store-label,
+.wp-content .mb-store-badge .mb-store-name {
+  text-decoration: none !important;
+  border-bottom: none;
+}
+
+.wp-content .mb-store-icon {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wp-content .mb-store-icon svg {
+  display: block;
+  width: 28px !important;
+  height: 28px !important;
+  max-width: 28px !important;
+}
+
+.wp-content .mb-store-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  line-height: 1.15;
+  gap: 1px;
+}
+
+.wp-content .mb-store-badge .mb-store-label {
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #ac2d5e !important;
+  white-space: nowrap;
+}
+
+.wp-content .mb-store-badge--apple .mb-store-label {
+  text-transform: none;
+  letter-spacing: 0.01em;
+  font-size: 9.5px;
+}
+
+.wp-content .mb-store-badge .mb-store-name {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--mb-red) !important;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+
+/* Apple icon: burgundy (WP HTML uses fill="#000") */
+.wp-content .mb-store-badge--apple .mb-store-icon svg path {
+  fill: var(--mb-red) !important;
+}
+
+/* Google Play: keep multi-color triangle from inline SVG fills */
+.wp-content .mb-store-badge--google .mb-store-icon svg path[fill="#00D0FF"] {
+  fill: #00d0ff !important;
+}
+.wp-content .mb-store-badge--google .mb-store-icon svg path[fill="#00F076"] {
+  fill: #00f076 !important;
+}
+.wp-content .mb-store-badge--google .mb-store-icon svg path[fill="#FF3A44"] {
+  fill: #ff3a44 !important;
+}
+.wp-content .mb-store-badge--google .mb-store-icon svg path[fill="#FFB900"] {
+  fill: #ffb900 !important;
+}
+
 .wp-content .mb-author {
   display: flex;
   gap: 15px;
@@ -222,6 +624,8 @@
   border: 1px solid var(--mb-border);
   border-radius: var(--mb-rlg);
   padding: 1.1rem 1.2rem;
+  align-self: flex-start;
+  flex-shrink: 0;
 }
 
 .wp-content .mb-toc-title {
@@ -268,6 +672,83 @@
   font-weight: 600;
 }
 
+/* FAQ accordion — WP <style> is stripped on Next.js; answers hidden until .open */
+.wp-content .mb-faq {
+  margin: 1.4rem 0 2.4rem;
+  border: 1px solid var(--mb-border);
+  border-radius: var(--mb-rlg);
+  overflow: hidden;
+}
+
+.wp-content .mb-faq-item {
+  border-bottom: 1px solid var(--mb-border);
+}
+
+.wp-content .mb-faq-item:last-child {
+  border-bottom: none;
+}
+
+.wp-content .mb-faq-q {
+  font-family: inherit;
+  font-size: clamp(15px, 2vw, 17px);
+  font-weight: 600;
+  color: var(--mb-text);
+  padding: 1rem 1.3rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  background: var(--mb-white);
+  transition: background 0.15s;
+  user-select: none;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.wp-content .mb-faq-q:hover {
+  background: var(--mb-cream);
+}
+
+.wp-content .mb-faq-icon {
+  font-size: 20px;
+  color: var(--mb-red);
+  min-width: 20px;
+  text-align: center;
+  transition: transform 0.22s;
+  flex-shrink: 0;
+  line-height: 1;
+  background: transparent;
+  border-radius: 0;
+  width: auto;
+  height: auto;
+}
+
+.wp-content .mb-faq-a {
+  font-family: inherit;
+  font-size: 16px;
+  color: var(--mb-text);
+  line-height: 1.8;
+  padding: 0 1.3rem;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, padding 0.2s ease;
+}
+
+.wp-content .mb-faq-item.open .mb-faq-a {
+  max-height: 600px;
+  padding: 0.5rem 1.3rem 1.2rem;
+}
+
+.wp-content .mb-faq-item.open .mb-faq-icon {
+  transform: rotate(45deg);
+}
+
+.wp-content .mb-faq-item.open .mb-faq-q {
+  background: var(--mb-cream);
+  color: var(--mb-red);
+}
+
 @media (max-width: 900px) {
   .wp-content .mb-wrap {
     display: block;
@@ -275,6 +756,16 @@
 
   .wp-content .mb-toc {
     display: none;
+  }
+}
+
+@media (max-width: 700px) {
+  .wp-content .mb-services {
+    grid-template-columns: 1fr;
+  }
+
+  .wp-content .mb-food-table td:first-child {
+    width: 45%;
   }
 }
 
@@ -293,5 +784,18 @@
 
   .wp-content .mb-author {
     flex-direction: column;
+  }
+
+  .wp-content .mb-fact {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .wp-content .mb-food-table {
+    font-size: 14.5px;
+  }
+
+  .wp-content .mb-food-table td {
+    padding: 9px 11px;
   }
 }

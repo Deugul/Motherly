@@ -238,9 +238,13 @@ h1, h2, h3, h4, h5, h6 {
   fill: inherit;
 }
 
+/* Store badge SVGs: colors defined in wp-blog-mb.css (not global fill overrides) */
+.wp-content .mb-store-icon svg {
+  max-width: 28px;
+}
+
 /* WordPress custom block classes used by this theme */
-.wp-content .mb-fact-icon,
-.wp-content .mb-faq-icon {
+.wp-content .mb-fact-icon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -252,20 +256,6 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 0.875rem;
   font-weight: 700;
   flex-shrink: 0;
-}
-
-.wp-content .mb-safe-item::before {
-  content: "✓";
-  color: #16a34a;
-  font-weight: 700;
-  margin-right: 0.5rem;
-}
-
-.wp-content .mb-avoid-item::before {
-  content: "✗";
-  color: var(--color-primary);
-  font-weight: 700;
-  margin-right: 0.5rem;
 }
 
 /* Make sure all WP content images are visible even if broken */

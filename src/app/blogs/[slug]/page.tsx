@@ -167,6 +167,22 @@ function sanitizeWpHtml(html: string): string {
           .replace(/\s+target=(?:"_blank"|'_blank')/gi, "")
           .replace(/\s+rel=(?:"[^"]*"|'[^']*')/gi, "")
     )
+    .replace(
+      /<a\b(?=[^>]*\bclass="[^"]*mb-store-badge[^"]*")[^>]*\bhref="https:\/\/play\.google\.com[^"]*"/gi,
+      (tag) =>
+        tag.replace(
+          /\bhref="[^"]*"/i,
+          'href="https://play.google.com/store/apps/details?id=com.mothrly&hl=en_IN"'
+        )
+    )
+    .replace(
+      /<a\b(?=[^>]*\bclass="[^"]*mb-store-badge[^"]*")[^>]*\bhref="https:\/\/apps\.apple\.com[^"]*"/gi,
+      (tag) =>
+        tag.replace(
+          /\bhref="[^"]*"/i,
+          'href="https://apps.apple.com/us/app/motherly-your-birth-companion/id6746041100"'
+        )
+    )
     // Hide WordPress tag pills only (do not match other mb-* blocks)
     .replace(/<div\s+class="mb-tags"[^>]*>\s*(?:<a\b[^>]*>[\s\S]*?<\/a>\s*)*<\/div>/gi, "");
 }
