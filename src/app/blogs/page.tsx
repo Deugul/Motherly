@@ -4,6 +4,8 @@ import CTASection from "@/components/CTASection";
 import BlogPageClient from "@/components/BlogPageClient";
 import type { BlogPost, FeaturedPost } from "@/lib/posts";
 
+export const dynamic = "force-dynamic";
+
 const WP_API = "https://beige-swallow-278886.hostingersite.com/wp-json/wp/v2";
 
 type WpPost = {
@@ -60,7 +62,7 @@ async function fetchWpPosts(): Promise<{
   try {
     const res = await fetch(
       `${WP_API}/posts?_embed&per_page=100&orderby=date&order=desc&_fields=id,slug,title,excerpt,date,link,_links,_embedded`,
-      { next: { revalidate: 300 } }
+      { cache: "no-store" }
     );
     if (!res.ok) return { posts: [], featured: null, categories: [] };
 

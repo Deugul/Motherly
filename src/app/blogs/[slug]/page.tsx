@@ -8,6 +8,8 @@ import type { Metadata } from "next";
 import { getBlogSeo, normalizeSeoUrl } from "@/data/blog-seo";
 import { SITE_ORIGIN } from "@/lib/site-url";
 
+export const dynamic = "force-dynamic";
+
 const WP_API = "https://beige-swallow-278886.hostingersite.com/wp-json/wp/v2";
 const WP_ORIGIN = "https://beige-swallow-278886.hostingersite.com";
 
@@ -59,7 +61,7 @@ async function getPost(slug: string): Promise<WpPost | null> {
   try {
     const res = await fetch(
       `${WP_API}/posts?slug=${encodeURIComponent(slug)}&_embed`,
-      { next: { revalidate: 60 } }
+      { cache: "no-store" }
     );
     if (!res.ok) return null;
     const posts: WpPost[] = await res.json();
@@ -73,7 +75,7 @@ async function getRelatedPosts(currentSlug: string): Promise<RelatedPost[]> {
   try {
     const res = await fetch(
       `${WP_API}/posts?_embed&per_page=4&orderby=date&order=desc`,
-      { next: { revalidate: 60 } }
+      { cache: "no-store" }
     );
     if (!res.ok) return [];
     const posts: WpPost[] = await res.json();
