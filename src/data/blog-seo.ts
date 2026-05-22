@@ -1840,7 +1840,7 @@ export const BLOG_SEO: Record<string, BlogSeoEntry> = {
       { label: "postnatal care", url: "https://www.mothrly.com/our-services/postnatal-recovery-care" },
       { label: "lactation consultants service", url: "https://www.mothrly.com/our-services/lactation-consultants" },
       { label: "nannies", url: "https://www.mothrly.com/our-services/nannies-postnatal-care" },
-      { label: "gynaecology", url: "https://www.mothrly.com/our-services/gynecology-consultation" },
+      { label: "gynaecology", url: "https://www.mothrly.com/services/gynecologist-consultation" },
     ],
     howToSchema: {
       "@context": "https://schema.org",
@@ -2026,7 +2026,7 @@ export const BLOG_SEO: Record<string, BlogSeoEntry> = {
     keywordLinks: [
       { label: "can you walk 10000 steps", url: "https://www.mothrly.com/blogs/can-you-walk-10000-steps-during-pregnancy" },
       { label: "pregnancy diet plan", url: "https://www.mothrly.com/blogs/pregnancy-diet-plan" },
-      { label: "gynaecology", url: "https://www.mothrly.com/our-services/gynecology-consultation" },
+      { label: "gynaecology", url: "https://www.mothrly.com/services/gynecologist-consultation" },
       { label: "yoga", url: "https://www.mothrly.com/services/yoga" },
     ],
     howToSchema: {
@@ -2098,7 +2098,7 @@ export const BLOG_SEO: Record<string, BlogSeoEntry> = {
     keywordLinks: [
       { label: "walking during pregnancy", url: "https://www.mothrly.com/blogs/how-much-walking-is-safe-during-pregnancy" },
       { label: "pregnancy diet plan", url: "https://www.mothrly.com/blogs/pregnancy-diet-plan" },
-      { label: "gynaecology", url: "https://www.mothrly.com/our-services/gynecology-consultation" },
+      { label: "gynaecology", url: "https://www.mothrly.com/services/gynecologist-consultation" },
       { label: "yoga", url: "https://www.mothrly.com/services/yoga" },
     ],
     howToSchema: {
@@ -2171,7 +2171,7 @@ export const BLOG_SEO: Record<string, BlogSeoEntry> = {
       { label: "second trimester diet plan", url: "https://www.mothrly.com/blogs/second-trimester-pregnancy-diet-plan" },
       { label: "pregnancy diet plan", url: "https://www.mothrly.com/blogs/pregnancy-diet-plan" },
       { label: "nutrition service", url: "https://www.mothrly.com/services/nutrition" },
-      { label: "gynaecology", url: "https://www.mothrly.com/our-services/gynecology-consultation" },
+      { label: "gynaecology", url: "https://www.mothrly.com/services/gynecologist-consultation" },
     ],
     howToSchema: {
       "@context": "https://schema.org",
@@ -2244,7 +2244,7 @@ export const BLOG_SEO: Record<string, BlogSeoEntry> = {
       { label: "second trimester diet plan", url: "https://www.mothrly.com/blogs/second-trimester-pregnancy-diet-plan" },
       { label: "third trimester diet plan", url: "https://www.mothrly.com/blogs/third-trimester-pregnancy-diet-plan" },
       { label: "nutrition service", url: "https://www.mothrly.com/services/nutrition" },
-      { label: "gynaecology", url: "https://www.mothrly.com/our-services/gynecology-consultation" },
+      { label: "gynaecology", url: "https://www.mothrly.com/services/gynecologist-consultation" },
     ],
     howToSchema: {
       "@context": "https://schema.org",
@@ -2317,7 +2317,7 @@ export const BLOG_SEO: Record<string, BlogSeoEntry> = {
       { label: "second trimester diet plan", url: "https://www.mothrly.com/blogs/second-trimester-pregnancy-diet-plan" },
       { label: "third trimester diet plan", url: "https://www.mothrly.com/blogs/third-trimester-pregnancy-diet-plan" },
       { label: "nutrition service", url: "https://www.mothrly.com/services/nutrition" },
-      { label: "gynaecology", url: "https://www.mothrly.com/our-services/gynecology-consultation" },
+      { label: "gynaecology", url: "https://www.mothrly.com/services/gynecologist-consultation" },
     ],
     howToSchema: {
       "@context": "https://schema.org",
@@ -2390,7 +2390,7 @@ export const BLOG_SEO: Record<string, BlogSeoEntry> = {
       { label: "pregnancy diet plan", url: "https://www.mothrly.com/blogs/pregnancy-diet-plan" },
       { label: "folic acid first trimester", url: "https://www.mothrly.com/blogs/is-folic-acid-enough-in-first-trimester" },
       { label: "nutrition service", url: "https://www.mothrly.com/services/nutrition" },
-      { label: "gynaecology", url: "https://www.mothrly.com/our-services/gynecology-consultation" },
+      { label: "gynaecology", url: "https://www.mothrly.com/services/gynecologist-consultation" },
     ],
     howToSchema: {
       "@context": "https://schema.org",
@@ -2463,7 +2463,7 @@ export const BLOG_SEO: Record<string, BlogSeoEntry> = {
       { label: "third trimester diet plan", url: "https://www.mothrly.com/blogs/third-trimester-pregnancy-diet-plan" },
       { label: "pregnancy diet plan", url: "https://www.mothrly.com/blogs/pregnancy-diet-plan" },
       { label: "nutrition service", url: "https://www.mothrly.com/services/nutrition" },
-      { label: "gynaecology", url: "https://www.mothrly.com/our-services/gynecology-consultation" },
+      { label: "gynaecology", url: "https://www.mothrly.com/services/gynecologist-consultation" },
     ],
     howToSchema: {
       "@context": "https://schema.org",
@@ -2607,7 +2607,7 @@ export const BLOG_SEO: Record<string, BlogSeoEntry> = {
       { label: "doulas", url: "https://www.mothrly.com/our-services/doulas" },
       { label: "lactation consultant", url: "https://www.mothrly.com/blogs/why-every-new-mother-may-need-a-lactation-consultant" },
       { label: "postnatal care", url: "https://www.mothrly.com/our-services/postnatal-recovery-care" },
-      { label: "gynaecology", url: "https://www.mothrly.com/our-services/gynecology-consultation" },
+      { label: "gynaecology", url: "https://www.mothrly.com/services/gynecologist-consultation" },
     ],
     howToSchema: {
       "@context": "https://schema.org",
@@ -2679,7 +2679,7 @@ export const BLOG_SEO: Record<string, BlogSeoEntry> = {
       { label: "pregnancy diet plan", url: "https://www.mothrly.com/blogs/pregnancy-diet-plan" },
       { label: "vegetarian pregnancy diet", url: "https://www.mothrly.com/blogs/vegetarian-pregnancy-diet-plan-all-9-months" },
       { label: "nutrition service", url: "https://www.mothrly.com/services/nutrition" },
-      { label: "gynaecology", url: "https://www.mothrly.com/our-services/gynecology-consultation" },
+      { label: "gynaecology", url: "https://www.mothrly.com/services/gynecologist-consultation" },
     ],
     howToSchema: {
       "@context": "https://schema.org",
@@ -2751,7 +2751,7 @@ export const BLOG_SEO: Record<string, BlogSeoEntry> = {
       { label: "papaya during pregnancy", url: "https://www.mothrly.com/blogs/papaya-during-pregnancy" },
       { label: "first trimester diet plan", url: "https://www.mothrly.com/blogs/first-trimester-pregnancy-diet-plan" },
       { label: "pregnancy diet plan", url: "https://www.mothrly.com/blogs/pregnancy-diet-plan" },
-      { label: "gynaecology", url: "https://www.mothrly.com/our-services/gynecology-consultation" },
+      { label: "gynaecology", url: "https://www.mothrly.com/services/gynecologist-consultation" },
     ],
     howToSchema: {
       "@context": "https://schema.org",
@@ -2823,7 +2823,7 @@ export const BLOG_SEO: Record<string, BlogSeoEntry> = {
       { label: "pineapple in pregnancy", url: "https://www.mothrly.com/blogs/pineapple-in-pregnancy" },
       { label: "first trimester diet plan", url: "https://www.mothrly.com/blogs/first-trimester-pregnancy-diet-plan" },
       { label: "pregnancy diet plan", url: "https://www.mothrly.com/blogs/pregnancy-diet-plan" },
-      { label: "gynaecology", url: "https://www.mothrly.com/our-services/gynecology-consultation" },
+      { label: "gynaecology", url: "https://www.mothrly.com/services/gynecologist-consultation" },
     ],
     howToSchema: {
       "@context": "https://schema.org",
@@ -2894,7 +2894,7 @@ export const BLOG_SEO: Record<string, BlogSeoEntry> = {
     keywordLinks: [
       { label: "walking during pregnancy", url: "https://www.mothrly.com/blogs/how-much-walking-is-safe-during-pregnancy" },
       { label: "pregnancy diet plan", url: "https://www.mothrly.com/blogs/pregnancy-diet-plan" },
-      { label: "gynaecology", url: "https://www.mothrly.com/our-services/gynecology-consultation" },
+      { label: "gynaecology", url: "https://www.mothrly.com/services/gynecologist-consultation" },
       { label: "doulas", url: "https://www.mothrly.com/our-services/doulas" },
     ],
     howToSchema: {
@@ -2967,7 +2967,7 @@ export const BLOG_SEO: Record<string, BlogSeoEntry> = {
       { label: "first trimester diet plan", url: "https://www.mothrly.com/blogs/first-trimester-pregnancy-diet-plan" },
       { label: "pregnancy diet plan", url: "https://www.mothrly.com/blogs/pregnancy-diet-plan" },
       { label: "nutrition service", url: "https://www.mothrly.com/services/nutrition" },
-      { label: "gynaecology", url: "https://www.mothrly.com/our-services/gynecology-consultation" },
+      { label: "gynaecology", url: "https://www.mothrly.com/services/gynecologist-consultation" },
     ],
     howToSchema: {
       "@context": "https://schema.org",
@@ -3038,7 +3038,7 @@ export const BLOG_SEO: Record<string, BlogSeoEntry> = {
     keywordLinks: [
       { label: "first trimester diet plan", url: "https://www.mothrly.com/blogs/first-trimester-pregnancy-diet-plan" },
       { label: "pregnancy diet plan", url: "https://www.mothrly.com/blogs/pregnancy-diet-plan" },
-      { label: "gynaecology", url: "https://www.mothrly.com/our-services/gynecology-consultation" },
+      { label: "gynaecology", url: "https://www.mothrly.com/services/gynecologist-consultation" },
     ],
     howToSchema: {
       "@context": "https://schema.org",
@@ -3110,7 +3110,7 @@ export const BLOG_SEO: Record<string, BlogSeoEntry> = {
       { label: "first trimester diet plan", url: "https://www.mothrly.com/blogs/first-trimester-pregnancy-diet-plan" },
       { label: "jeera water safety", url: "https://www.mothrly.com/blogs/is-jeera-water-safe-to-drink-in-first-trimester" },
       { label: "pregnancy diet plan", url: "https://www.mothrly.com/blogs/pregnancy-diet-plan" },
-      { label: "gynaecology", url: "https://www.mothrly.com/our-services/gynecology-consultation" },
+      { label: "gynaecology", url: "https://www.mothrly.com/services/gynecologist-consultation" },
       { label: "nutrition service", url: "https://www.mothrly.com/services/nutrition" },
     ],
     howToSchema: {
@@ -3183,7 +3183,7 @@ export const BLOG_SEO: Record<string, BlogSeoEntry> = {
       { label: "jeera water breast milk", url: "https://www.mothrly.com/blogs/does-jeera-water-really-increase-breast-milk" },
       { label: "first trimester diet plan", url: "https://www.mothrly.com/blogs/first-trimester-pregnancy-diet-plan" },
       { label: "methi first trimester", url: "https://www.mothrly.com/blogs/can-you-eat-methi-during-first-trimester" },
-      { label: "gynaecology", url: "https://www.mothrly.com/our-services/gynecology-consultation" },
+      { label: "gynaecology", url: "https://www.mothrly.com/services/gynecologist-consultation" },
     ],
     howToSchema: {
       "@context": "https://schema.org",
@@ -3255,7 +3255,7 @@ export const BLOG_SEO: Record<string, BlogSeoEntry> = {
       { label: "first trimester diet plan", url: "https://www.mothrly.com/blogs/first-trimester-pregnancy-diet-plan" },
       { label: "jeera water", url: "https://www.mothrly.com/blogs/does-jeera-water-really-increase-breast-milk" },
       { label: "walking during pregnancy", url: "https://www.mothrly.com/blogs/how-much-walking-is-safe-during-pregnancy" },
-      { label: "gynaecology", url: "https://www.mothrly.com/our-services/gynecology-consultation" },
+      { label: "gynaecology", url: "https://www.mothrly.com/services/gynecologist-consultation" },
     ],
     howToSchema: {
       "@context": "https://schema.org",
@@ -3327,7 +3327,7 @@ export const BLOG_SEO: Record<string, BlogSeoEntry> = {
       { label: "first trimester diet plan", url: "https://www.mothrly.com/blogs/first-trimester-pregnancy-diet-plan" },
       { label: "walking during pregnancy", url: "https://www.mothrly.com/blogs/how-much-walking-is-safe-during-pregnancy" },
       { label: "yoga", url: "https://www.mothrly.com/services/yoga" },
-      { label: "gynaecology", url: "https://www.mothrly.com/our-services/gynecology-consultation" },
+      { label: "gynaecology", url: "https://www.mothrly.com/services/gynecologist-consultation" },
       { label: "doulas", url: "https://www.mothrly.com/our-services/doulas" },
     ],
     howToSchema: {

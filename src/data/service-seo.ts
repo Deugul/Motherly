@@ -23,11 +23,12 @@ const SERVICE_PATH_REWRITES: [RegExp, string][] = [
   [/\/our-services\/lactation-consultants/gi, "/services/lactation-consultants"],
   [/\/our-services\/nanny-services/gi, "/services/nanny-services"],
   [/\/our-services\/gynecology-consultation/gi, "/services/gynecologist-consultation"],
-  [/\/services\/lactation\b/gi, "/services/lactation-consultants"],
-  [/\/services\/postnatal\b/gi, "/services/postnatal-recovery-care"],
-  [/\/services\/nannies\b/gi, "/services/nanny-services"],
-  [/\/services\/gynecologist\b/gi, "/services/gynecologist-consultation"],
-  [/\/services\/gynaecology\b/gi, "/services/gynecologist-consultation"],
+  // (?!-) avoids matching already-canonical paths (e.g. gynecologist-consultation → …-consultation-consultation)
+  [/\/services\/lactation(?!-)/gi, "/services/lactation-consultants"],
+  [/\/services\/postnatal(?!-)/gi, "/services/postnatal-recovery-care"],
+  [/\/services\/nannies(?!-)/gi, "/services/nanny-services"],
+  [/\/services\/gynecologist(?!-)/gi, "/services/gynecologist-consultation"],
+  [/\/services\/gynaecology(?!-)/gi, "/services/gynecologist-consultation"],
   [/\/services\/gynecology-consultation/gi, "/services/gynecologist-consultation"],
   [/\/services\/nutrition\b/gi, "/services/pediatrician"],
 ];

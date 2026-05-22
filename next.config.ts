@@ -150,6 +150,16 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: "/services/gynecologist-consultation-consultation",
+        destination: "/services/gynecologist-consultation",
+        permanent: true,
+      },
+      {
+        source: "/services/lactation-consultants-consultants",
+        destination: "/services/lactation-consultants",
+        permanent: true,
+      },
+      {
         source: "/about",
         destination: "/about-us",
         permanent: true,
