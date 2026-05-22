@@ -325,6 +325,11 @@ h1, h2, h3, h4, h5, h6 {
   display: none !important;
 }
 
+/* Hide WordPress tag pills at the bottom of blog posts (mb-tags / mb-tag) */
+.wp-content .mb-tags {
+  display: none !important;
+}
+
 /* Hide "Stay Updated with Motherly" newsletter section — form can't submit
    without the WordPress backend, so the whole container is removed */
 .wp-content .e-parent:has(.forminator-ui) {

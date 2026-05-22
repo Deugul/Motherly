@@ -118,7 +118,19 @@ function sanitizeWpHtml(html: string): string {
       'href="/blogs/$1"'
     )
     // Replace every visible occurrence of the staging domain with the real domain
-    .replace(/beige-swallow-278886\.hostingersite\.com/gi, REAL_DOMAIN);
+    .replace(/beige-swallow-278886\.hostingersite\.com/gi, REAL_DOMAIN)
+    // Blog CTA: "Explore Motherly" → Contact Us, same-tab navigation
+    .replace(
+      /<a\b(?=[^>]*\bclass="[^"]*mb-cta-btn[^"]*")[^>]*>/gi,
+      (tag) =>
+        tag
+          .replace(/\bhref="[^"]*"/i, 'href="/contact-us"')
+          .replace(/\s+target=(?:"_blank"|'_blank')/gi, "")
+          .replace(/\s+rel=(?:"[^"]*"|'[^']*')/gi, "")
+    )
+    // Hide WordPress tag pills (Early Pregnancy, etc.) on all blog posts
+    .replace(/<!--\s*TAGS\s*-->[\s\S]*?<div\s+class="mb-tags"[^>]*>[\s\S]*?<\/div>/gi, "")
+    .replace(/<div\s+class="mb-tags"[^>]*>[\s\S]*?<\/div>/gi, "");
 }
 
 export async function generateMetadata({
