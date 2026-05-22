@@ -86,7 +86,7 @@ export default function RootLayout({
               applicationCategory: "HealthApplication",
               offers: {
                 "@type": "Offer",
-                price: "0",
+                price: "₹2500",
                 priceCurrency: "INR",
               },
               aggregateRating: {
