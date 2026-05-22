@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-
 export const metadata: Metadata = {
   title: "Maternal Health & Parenting Blog",
   description:
