@@ -54,15 +54,28 @@ export function resolveBlogPostSeo(
   const keywords =
     parseRankMathKeywords(rm?.keywords) ?? staticSeo?.keywords;
 
-  const h1 =
-    staticSeo?.h1 ||
-    displayH1FromMetaTitle(metaTitle) ||
-    stripHtml(post.title.rendered);
+  /** Visible page title — always the WordPress post title, not the SEO meta title. */
+  const h1 = staticSeo?.h1 || stripHtml(post.title.rendered);
 
   const canonical =
     staticSeo?.canonical ?? `${SITE_ORIGIN}/blogs/${slug}`;
 
   return { metaTitle, metaDescription, keywords, h1, canonical };
+}
+
+/** Card/list excerpt: Rank Math description beats stale WP excerpt field. */
+export function resolvePostCardExcerpt(
+  post: {
+    excerpt: { rendered: string };
+    rank_math_seo?: RankMathSeoFromWp | null;
+  },
+  maxLen = 140
+): string {
+  const raw =
+    post.rank_math_seo?.description?.trim() ||
+    stripHtml(post.excerpt.rendered);
+  if (raw.length <= maxLen) return raw;
+  return `${raw.slice(0, maxLen - 1).trim()}…`;
 }
 
 function stripHtml(html: string): string {

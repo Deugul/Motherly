@@ -3,6 +3,8 @@ import Footer from "@/components/Footer";
 import CTASection from "@/components/CTASection";
 import BlogPageClient from "@/components/BlogPageClient";
 import type { BlogPost, FeaturedPost } from "@/lib/posts";
+import { resolvePostCardExcerpt } from "@/lib/wordpress-seo";
+import type { RankMathSeoFromWp } from "@/lib/wordpress-seo";
 import { fetchWordPress } from "@/lib/wordpress";
 
 type WpPost = {
@@ -13,6 +15,7 @@ type WpPost = {
   excerpt: { rendered: string };
   date: string;
   link: string;
+  rank_math_seo?: RankMathSeoFromWp | null;
   _embedded?: {
     "wp:featuredmedia"?: Array<{ source_url: string }>;
     "wp:term"?: Array<Array<{ id: number; name: string }>>;
@@ -64,7 +67,8 @@ async function fetchWpPosts(): Promise<{
       per_page: "100",
       orderby: "date",
       order: "desc",
-      _fields: "id,slug,title,excerpt,date,link,status,_links,_embedded",
+      _fields:
+        "id,slug,title,excerpt,date,link,status,rank_math_seo,_links,_embedded",
     });
 
     const { data: wpPosts, ok } = await fetchWordPress<WpPost[]>("/posts", params);
@@ -76,8 +80,7 @@ async function fetchWpPosts(): Promise<{
     const blogPosts: BlogPost[] = wpPosts.map((p) => {
       const image = p._embedded?.["wp:featuredmedia"]?.[0]?.source_url ?? "";
       const cat = p._embedded?.["wp:term"]?.[0]?.[0]?.name ?? "Article";
-      const rawExcerpt = stripHtml(p.excerpt?.rendered ?? "");
-      const excerpt = rawExcerpt.length > 140 ? rawExcerpt.slice(0, 137) + "…" : rawExcerpt;
+      const excerpt = resolvePostCardExcerpt(p, 140);
       const date = new Date(p.date).toLocaleDateString("en-US", {
         month: "long",
         day: "numeric",
@@ -116,7 +119,7 @@ async function fetchWpPosts(): Promise<{
     const featured: FeaturedPost = {
       tag: (featuredWp._embedded?.["wp:term"]?.[0]?.[0]?.name ?? "Article").toUpperCase(),
       title: stripHtml(featuredWp.title?.rendered ?? ""),
-      excerpt: stripHtml(featuredWp.excerpt?.rendered ?? "").slice(0, 200),
+      excerpt: resolvePostCardExcerpt(featuredWp, 200),
       image: featuredWp._embedded?.["wp:featuredmedia"]?.[0]?.source_url ?? "",
       author: featuredWp._embedded?.author?.[0]?.name ?? "Motherly Team",
       authorRole: "Healthcare Specialist",
