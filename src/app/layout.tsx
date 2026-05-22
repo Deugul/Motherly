@@ -4,6 +4,7 @@ import "./globals.css";
 import FontLoader from "@/components/FontLoader";
 import ScrollToTop from "@/components/ScrollToTop";
 import { SOCIAL_PROFILE_URLS } from "@/data/social-links";
+import Script from "next/script";
 
 const plusJakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -65,29 +66,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${plusJakarta.variable} ${manrope.variable}`} suppressHydrationWarning>
       <head>
-        {/* Google tag (gtag.js) */}
-        {/* eslint-disable-next-line @next/next/no-sync-scripts */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-MKFG9J3JPM" />
-        <script dangerouslySetInnerHTML={{ __html: `
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-MKFG9J3JPM');
-        `}} />
+        {/* Preload the Hero Background Image for fast mobile LCP */}
+        <link rel="preload" as="image" href="/hero-bg.jpg" />
 
-        {/* Meta Pixel Code */}
-        <script dangerouslySetInnerHTML={{ __html: `
-          !function(f,b,e,v,n,t,s)
-          {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-          n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-          if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-          n.queue=[];t=b.createElement(e);t.async=!0;
-          t.src=v;s=b.getElementsByTagName(e)[0];
-          s.parentNode.insertBefore(t,s)}(window, document,'script',
-          'https://connect.facebook.net/en_US/fbevents.js');
-          fbq('init', '1626727235196727');
-          fbq('track', 'PageView');
-        `}} />
+        {/* Meta Pixel noscript (GTM/Pixel JavaScript is loaded non-blockingly via next/script below) */}
         <noscript dangerouslySetInnerHTML={{ __html: `
           <img height="1" width="1" style="display:none"
             src="https://www.facebook.com/tr?id=1626727235196727&ev=PageView&noscript=1" />
@@ -95,6 +77,34 @@ export default function RootLayout({
       </head>
 
       <body className="antialiased" suppressHydrationWarning>
+        {/* Google Analytics & Meta Pixel non-blocking script loader */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-MKFG9J3JPM"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-MKFG9J3JPM');
+          `}
+        </Script>
+        <Script id="meta-pixel" strategy="afterInteractive">
+          {`
+            !function(f,b,e,v,n,t,s)
+            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window, document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+            fbq('init', '1626727235196727');
+            fbq('track', 'PageView');
+          `}
+        </Script>
+
         <FontLoader />
         <ScrollToTop />
         {children}
