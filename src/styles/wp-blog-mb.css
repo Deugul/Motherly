@@ -1,8 +1,8 @@
 /* WordPress custom blog template (.mb-wrap) — scoped so content always renders on Next.js */
 
 .wp-content .mb-wrap {
-  --mb-red: #8b1a1a;
-  --mb-red-mid: #9b2335;
+  --mb-red: #ba0e56;
+  --mb-red-mid: #f4447f;
   --mb-cream: #faf3f0;
   --mb-cream-b: #f0e6df;
   --mb-text: #1a1a1a;
