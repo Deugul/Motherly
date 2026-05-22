@@ -3,12 +3,11 @@ import Footer from "@/components/Footer";
 import CTASection from "@/components/CTASection";
 import BlogPageClient from "@/components/BlogPageClient";
 import type { BlogPost, FeaturedPost } from "@/lib/posts";
-
-export const dynamic = "force-dynamic";
-
-const WP_API = "https://beige-swallow-278886.hostingersite.com/wp-json/wp/v2";
+import { fetchWordPress } from "@/lib/wordpress";
 
 type WpPost = {
+  id?: number;
+  status?: string;
   slug: string;
   title: { rendered: string };
   excerpt: { rendered: string };
@@ -60,13 +59,16 @@ async function fetchWpPosts(): Promise<{
   categories: string[];
 }> {
   try {
-    const res = await fetch(
-      `${WP_API}/posts?_embed&per_page=100&orderby=date&order=desc&_fields=id,slug,title,excerpt,date,link,_links,_embedded`,
-      { cache: "no-store" }
-    );
-    if (!res.ok) return { posts: [], featured: null, categories: [] };
+    const params = new URLSearchParams({
+      _embed: "",
+      per_page: "100",
+      orderby: "date",
+      order: "desc",
+      _fields: "id,slug,title,excerpt,date,link,status,_links,_embedded",
+    });
 
-    const wpPosts: WpPost[] = await res.json();
+    const { data: wpPosts, ok } = await fetchWordPress<WpPost[]>("/posts", params);
+    if (!ok || !wpPosts) return { posts: [], featured: null, categories: [] };
     if (!Array.isArray(wpPosts) || wpPosts.length === 0) {
       return { posts: [], featured: null, categories: [] };
     }
@@ -90,15 +92,23 @@ async function fetchWpPosts(): Promise<{
         image,
         date,
         readTime: calcReadTime(p.excerpt?.rendered ?? ""),
-        link: p.link,
-        slug: p.slug,
+        link: p.status === "draft" ? undefined : p.link,
+        slug: p.slug?.trim() || (p.id ? String(p.id) : undefined),
+        status: p.status,
+        wpId: p.id,
       };
     });
 
     const categories = [...new Set(blogPosts.map((p) => p.tag))].sort();
 
-    // First post with an image becomes the featured card
+    // Featured: prefer published post with an image (not a draft)
     const featuredWp =
+      wpPosts.find(
+        (p) =>
+          p.status !== "draft" &&
+          p._embedded?.["wp:featuredmedia"]?.[0]?.source_url
+      ) ??
+      wpPosts.find((p) => p.status !== "draft") ??
       wpPosts.find((p) => p._embedded?.["wp:featuredmedia"]?.[0]?.source_url) ??
       wpPosts[0];
     const featuredIndex = wpPosts.indexOf(featuredWp);
@@ -110,8 +120,9 @@ async function fetchWpPosts(): Promise<{
       image: featuredWp._embedded?.["wp:featuredmedia"]?.[0]?.source_url ?? "",
       author: featuredWp._embedded?.author?.[0]?.name ?? "Motherly Team",
       authorRole: "Healthcare Specialist",
-      link: featuredWp.link,
-      slug: featuredWp.slug,
+      link: featuredWp.status === "draft" ? undefined : featuredWp.link,
+      slug: featuredWp.slug?.trim() || (featuredWp.id ? String(featuredWp.id) : undefined),
+      status: featuredWp.status,
     };
 
     // Remove featured post from the grid

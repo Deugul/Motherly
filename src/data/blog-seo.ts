@@ -1973,6 +1973,43 @@ export const BLOG_SEO: Record<string, BlogSeoEntry> = {
       ]
     }
   },
+  "why-every-mother-is-the-beginning-of-a-civilisation": {
+    slug: "why-every-mother-is-the-beginning-of-a-civilisation",
+    h1: "Why Every Mother Is the Beginning of a Civilisation",
+    canonical:
+      "https://www.mothrly.com/blogs/why-every-mother-is-the-beginning-of-a-civilisation",
+    metaTitle:
+      "Why Every Mother Is the Beginning of a Civilisation | Motherly",
+    metaDescription:
+      "Discover the philosophy behind motherhood as the foundation of human civilisation, the keeper of culture, and the most consequential act a person can perform.",
+    keywords: [
+      "philosophy of motherhood",
+      "motherhood and civilisation",
+      "Matru Devo Bhava",
+      "Indian philosophy of mother",
+      "cultural transmission",
+      "legacy of motherhood",
+    ],
+    keywordLinks: [
+      { label: "what is a mother", url: "https://www.mothrly.com/blogs/what-is-a-mother" },
+      { label: "postnatal care", url: "https://www.mothrly.com/our-services/postnatal-recovery-care" },
+      { label: "doulas", url: "https://www.mothrly.com/our-services/doulas" },
+    ],
+    faqSchema: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Why is every mother the beginning of civilisation?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "In Indian philosophical tradition, the mother is the first teacher, the keeper of culture, and the foundation through which values and civilisation are transmitted to the next generation.",
+          },
+        },
+      ],
+    },
+  },
   "what-is-a-mother": {
     slug: "what-is-a-mother",
     h1: "What Is a Mother? The Meaning Behind Motherhood",

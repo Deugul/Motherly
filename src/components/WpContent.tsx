@@ -4,13 +4,6 @@ import { useEffect } from "react";
 
 export default function WpContent({ html }: { html: string }) {
   useEffect(() => {
-    // Hide duplicate in-content h1 only (page header already shows the title).
-    // Do not hide the parent .e-parent — that section often contains the full article.
-    const wpH1 = document.querySelector<HTMLElement>(".wp-content h1");
-    if (wpH1) {
-      wpH1.style.display = "none";
-    }
-
     // ── FAQ accordion ──────────────────────────────────────────────────────────
     const faqItems = document.querySelectorAll<HTMLElement>(".mb-faq-item");
     const faqButtons = document.querySelectorAll<HTMLElement>(".mb-faq-q");

@@ -38,6 +38,9 @@ export interface BlogPost {
   content?: string;
   link?: string;
   slug?: string;
+  /** WordPress status — draft posts only appear in development mode */
+  status?: string;
+  wpId?: number;
 }
 
 function post(
@@ -64,6 +67,8 @@ export interface FeaturedPost {
   authorRole: string;
   link?: string;
   slug?: string;
+  status?: string;
+  wpId?: number;
 }
 
 export const featuredPost: FeaturedPost | null = null;

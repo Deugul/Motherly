@@ -7,20 +7,37 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { getBlogSeo, normalizeSeoUrl } from "@/data/blog-seo";
 import { SITE_ORIGIN } from "@/lib/site-url";
-
-export const dynamic = "force-dynamic";
-
-const WP_API = "https://beige-swallow-278886.hostingersite.com/wp-json/wp/v2";
-const WP_ORIGIN = "https://beige-swallow-278886.hostingersite.com";
+import { getWordPressPostBodyHtml } from "@/lib/wordpress-content";
+import {
+  demoteContentHeadings,
+  resolveBlogPostSeo,
+  type RankMathSeoFromWp,
+} from "@/lib/wordpress-seo";
+import {
+  fetchWordPress,
+  getWordPressBlogMode,
+  isWordPressPostIdSegment,
+  pickWordPressPostBySlug,
+  WP_ORIGIN,
+} from "@/lib/wordpress";
 
 type WpPost = {
+  id?: number;
+  status?: string;
   slug: string;
   title: { rendered: string };
   content: { rendered: string };
   excerpt: { rendered: string };
   date: string;
+  rank_math_seo?: RankMathSeoFromWp | null;
+  /** Elementor HTML when content.rendered is empty (Motherly WP plugin). */
+  motherly_content_html?: string | null;
   _embedded?: {
-    "wp:featuredmedia"?: Array<{ source_url: string; alt_text?: string }>;
+    "wp:featuredmedia"?: Array<{
+      source_url: string;
+      alt_text?: string;
+      title?: { rendered?: string };
+    }>;
     "wp:term"?: Array<Array<{ id: number; name: string }>>;
     author?: Array<{ name: string }>;
   };
@@ -57,28 +74,40 @@ function stripHtml(html: string): string {
     .trim();
 }
 
-async function getPost(slug: string): Promise<WpPost | null> {
-  try {
-    const res = await fetch(
-      `${WP_API}/posts?slug=${encodeURIComponent(slug)}&_embed`,
-      { cache: "no-store" }
-    );
-    if (!res.ok) return null;
-    const posts: WpPost[] = await res.json();
-    return posts[0] ?? null;
-  } catch {
+async function getPostById(id: string): Promise<WpPost | null> {
+  const params = new URLSearchParams({ _embed: "" });
+  const { data: post, ok } = await fetchWordPress<WpPost>(`/posts/${id}`, params);
+  if (!ok || !post?.id) return null;
+  if (post.status === "draft" && getWordPressBlogMode() !== "development") {
     return null;
   }
+  return post;
+}
+
+async function getPost(slugOrId: string): Promise<WpPost | null> {
+  if (isWordPressPostIdSegment(slugOrId)) {
+    return getPostById(slugOrId);
+  }
+
+  const params = new URLSearchParams({
+    slug: slugOrId,
+    _embed: "",
+  });
+  const { data: posts, ok } = await fetchWordPress<WpPost[]>("/posts", params);
+  if (!ok || !posts?.length) return null;
+  return pickWordPressPostBySlug(posts);
 }
 
 async function getRelatedPosts(currentSlug: string): Promise<RelatedPost[]> {
   try {
-    const res = await fetch(
-      `${WP_API}/posts?_embed&per_page=4&orderby=date&order=desc`,
-      { cache: "no-store" }
-    );
-    if (!res.ok) return [];
-    const posts: WpPost[] = await res.json();
+    const params = new URLSearchParams({
+      _embed: "",
+      per_page: "4",
+      orderby: "date",
+      order: "desc",
+    });
+    const { data: posts, ok } = await fetchWordPress<WpPost[]>("/posts", params);
+    if (!ok || !posts) return [];
     return posts
       .filter((p) => p.slug !== currentSlug)
       .slice(0, 3)
@@ -103,6 +132,7 @@ const REAL_DOMAIN = "mothrly.com";
 
 function sanitizeWpHtml(html: string): string {
   return html
+    .replace(/<style\b[^<]*(?:(?!<\/style>)<[^<]*)*<\/style>/gi, "")
     .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, "")
     .replace(/\son\w+="[^"]*"/gi, "")
     .replace(/\son\w+='[^']*'/gi, "")
@@ -116,7 +146,14 @@ function sanitizeWpHtml(html: string): string {
     )
     .replace(/\bold-srcset=/gi, "srcset=")
     .replace(
-      new RegExp(`href="${WP_ORIGIN.replace(/\./g, "\\.")}/(?:[\\w-]+/)*([\\w-]+)/?(?:\\?[^"]*)?"`, "gi"),
+      new RegExp(`href="${WP_ORIGIN.replace(/\./g, "\\.")}/contact-us/?"`, "gi"),
+      'href="/contact-us"'
+    )
+    .replace(
+      new RegExp(
+        `href="${WP_ORIGIN.replace(/\./g, "\\.")}/(?:[\\w-]+/)*(?!contact-us|tag|category|author)([\\w-]+)/?(?:\\?[^"]*)?"`,
+        "gi"
+      ),
       'href="/blogs/$1"'
     )
     // Replace every visible occurrence of the staging domain with the real domain
@@ -130,9 +167,12 @@ function sanitizeWpHtml(html: string): string {
           .replace(/\s+target=(?:"_blank"|'_blank')/gi, "")
           .replace(/\s+rel=(?:"[^"]*"|'[^']*')/gi, "")
     )
-    // Hide WordPress tag pills (Early Pregnancy, etc.) on all blog posts
-    .replace(/<!--\s*TAGS\s*-->[\s\S]*?<div\s+class="mb-tags"[^>]*>[\s\S]*?<\/div>/gi, "")
-    .replace(/<div\s+class="mb-tags"[^>]*>[\s\S]*?<\/div>/gi, "");
+    // Hide WordPress tag pills only (do not match other mb-* blocks)
+    .replace(/<div\s+class="mb-tags"[^>]*>\s*(?:<a\b[^>]*>[\s\S]*?<\/a>\s*)*<\/div>/gi, "");
+}
+
+function prepareWpContentHtml(html: string): string {
+  return demoteContentHeadings(sanitizeWpHtml(html));
 }
 
 export async function generateMetadata({
@@ -141,30 +181,38 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const seo = getBlogSeo(slug);
   const post = await getPost(slug);
-  if (!post && !seo) return { title: "Post Not Found" };
+  const staticSeo = getBlogSeo(slug);
+  if (!post && !staticSeo) return { title: "Post Not Found" };
 
-  const title = seo?.metaTitle ?? stripHtml(post!.title.rendered);
-  const description =
-    seo?.metaDescription ??
-    stripHtml(post!.excerpt.rendered).slice(0, 160).trim();
-  const canonical = normalizeSeoUrl(seo?.canonical ?? `${SITE_ORIGIN}/blogs/${slug}`);
+  const resolved = post
+    ? resolveBlogPostSeo(slug, post)
+    : {
+        metaTitle: staticSeo!.metaTitle,
+        metaDescription: staticSeo!.metaDescription,
+        keywords: staticSeo!.keywords,
+        h1: staticSeo!.h1,
+        canonical: staticSeo!.canonical,
+      };
+
+  const canonical = normalizeSeoUrl(resolved.canonical);
   const image = post?._embedded?.["wp:featuredmedia"]?.[0]?.source_url;
+  const imageAlt =
+    post?._embedded?.["wp:featuredmedia"]?.[0]?.alt_text?.trim() || resolved.h1;
 
   return {
-    title,
-    description,
-    keywords: seo?.keywords,
+    title: resolved.metaTitle,
+    description: resolved.metaDescription,
+    keywords: resolved.keywords,
     alternates: { canonical },
     openGraph: {
       type: "article",
       locale: "en_IN",
       siteName: "Motherly",
-      title,
-      description,
+      title: resolved.metaTitle,
+      description: resolved.metaDescription,
       url: canonical,
-      images: image ? [image] : [],
+      images: image ? [{ url: image, alt: imageAlt }] : [],
     },
   };
 }
@@ -175,7 +223,7 @@ export default async function BlogPostPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const seo = getBlogSeo(slug);
+  const staticSeo = getBlogSeo(slug);
   const [post, relatedPosts] = await Promise.all([
     getPost(slug),
     getRelatedPosts(slug),
@@ -198,9 +246,12 @@ export default async function BlogPostPage({
     );
   }
 
-  const title = seo?.h1 ?? stripHtml(post.title.rendered);
+  const resolved = resolveBlogPostSeo(slug, post);
+  const bodyHtml = prepareWpContentHtml(getWordPressPostBodyHtml(post));
+  const title = resolved.h1;
   const image = post._embedded?.["wp:featuredmedia"]?.[0]?.source_url;
-  const altText = post._embedded?.["wp:featuredmedia"]?.[0]?.alt_text || title;
+  const altText =
+    post._embedded?.["wp:featuredmedia"]?.[0]?.alt_text?.trim() || title;
   const category = post._embedded?.["wp:term"]?.[0]?.[0]?.name;
   const author = post._embedded?.author?.[0]?.name ?? "Motherly Team";
   const date = new Date(post.date).toLocaleDateString("en-US", {
@@ -242,21 +293,34 @@ export default async function BlogPostPage({
             </Link>
           </div>
 
-          {/* Category */}
-          {category && (
-            <span
-              style={{
-                color: "var(--color-primary)",
-                fontSize: "0.75rem",
-                fontWeight: 700,
-                textTransform: "uppercase",
-                letterSpacing: "0.1em",
-                fontFamily: "var(--font-body)",
-              }}
-            >
-              {category}
-            </span>
-          )}
+          {/* Category + draft (dev preview) */}
+          <div className="flex flex-wrap items-center gap-2">
+            {category && (
+              <span
+                style={{
+                  color: "var(--color-primary)",
+                  fontSize: "0.75rem",
+                  fontWeight: 700,
+                  textTransform: "uppercase",
+                  letterSpacing: "0.1em",
+                  fontFamily: "var(--font-body)",
+                }}
+              >
+                {category}
+              </span>
+            )}
+            {post.status === "draft" && (
+              <span
+                className="inline-block px-2 py-0.5 rounded-md text-[10px] font-bold uppercase tracking-wide"
+                style={{
+                  backgroundColor: "#fde8e8",
+                  color: "#8b1a1a",
+                }}
+              >
+                Draft preview
+              </span>
+            )}
+          </div>
 
           {/* Title */}
           <h1
@@ -304,10 +368,24 @@ export default async function BlogPostPage({
             </div>
           )}
 
-          {/* WordPress content — WpContent is a client component that re-attaches FAQ accordion */}
-          <WpContent html={sanitizeWpHtml(post.content.rendered)} />
+          {/* WordPress / Elementor body */}
+          {bodyHtml.trim() ? (
+            <WpContent html={bodyHtml} />
+          ) : (
+            <p
+              className="mt-10 rounded-xl px-5 py-4 text-sm leading-relaxed"
+              style={{
+                backgroundColor: "var(--color-surface-container-low)",
+                color: "var(--color-on-surface-variant)",
+              }}
+            >
+              Article body is empty in WordPress. In the post editor click <strong>Update</strong> to
+              save Elementor content, and ensure the Motherly plugin file on the server is the latest
+              version (it sends Elementor HTML to this site).
+            </p>
+          )}
 
-          {seo && <BlogSeoExtras seo={seo} />}
+          {staticSeo && <BlogSeoExtras seo={staticSeo} />}
         </article>
 
         {/* Keep Reading */}

@@ -8,11 +8,26 @@ import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
 import type { BlogPost } from "@/lib/posts";
 import type { FeaturedPost } from "@/lib/posts";
+import { getBlogPostPath } from "@/lib/wordpress";
 
 const MotionImage = motion.create(Image);
 const easeOut: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
 const DEFAULT_FILTERS = ["All Topics", "Prenatal", "Newborn Care", "Wellness", "Postpartum"];
 const PAGE_SIZE = 3;
+
+function DraftBadge() {
+  return (
+    <span
+      className="inline-block px-2 py-0.5 rounded-md text-[10px] font-bold uppercase tracking-wide"
+      style={{
+        backgroundColor: "var(--color-error-container, #fde8e8)",
+        color: "var(--color-on-error-container, #8b1a1a)",
+      }}
+    >
+      Draft
+    </span>
+  );
+}
 
 function PostModal({ post, onClose }: { post: BlogPost; onClose: () => void }) {
   const overlayRef = useRef<HTMLDivElement>(null);
@@ -236,8 +251,7 @@ export default function BlogPageClient({
             transition={{ duration: 0.3, ease: easeOut }}
             className="relative mb-10 cursor-pointer group"
             onClick={() => {
-              if (featuredPost.slug) router.push(`/blogs/${featuredPost.slug}`, { scroll: true });
-              else if (featuredPost.link) window.open(featuredPost.link, "_blank", "noopener,noreferrer");
+              router.push(getBlogPostPath(featuredPost), { scroll: true });
             }}
           >
             <div
@@ -259,9 +273,12 @@ export default function BlogPageClient({
                 />
               </div>
               <div className="lg:col-span-5 p-8 lg:p-12 space-y-4">
-                <span className="text-xs uppercase tracking-widest font-bold" style={{ color: "var(--color-primary)" }}>
-                  {featuredPost.tag}
-                </span>
+                <div className="flex flex-wrap items-center gap-2">
+                  <span className="text-xs uppercase tracking-widest font-bold" style={{ color: "var(--color-primary)" }}>
+                    {featuredPost.tag}
+                  </span>
+                  {featuredPost.status === "draft" ? <DraftBadge /> : null}
+                </div>
                 <h2
                   className="text-3xl md:text-4xl font-bold leading-tight"
                   style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}
@@ -293,7 +310,7 @@ export default function BlogPageClient({
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {visiblePosts.map((post, i) => (
             <motion.div
-              key={post.link ?? post.title}
+              key={post.wpId ?? post.slug ?? post.link ?? post.title}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
@@ -302,11 +319,16 @@ export default function BlogPageClient({
               style={{ borderRadius: "16px" }}
             >
               <Link
-                href={post.slug ? `/blogs/${post.slug}` : (post.link ?? "#")}
+                href={getBlogPostPath(post)}
                 scroll
-                target={!post.slug && post.link ? "_blank" : undefined}
-                rel={!post.slug && post.link ? "noopener noreferrer" : undefined}
-                onClick={!post.slug && !post.link ? (e) => { e.preventDefault(); setSelectedPost(post); } : undefined}
+                onClick={
+                  !post.slug && !post.wpId
+                    ? (e) => {
+                        e.preventDefault();
+                        setSelectedPost(post);
+                      }
+                    : undefined
+                }
                 className="group block rounded-2xl"
                 style={{
                   backgroundColor: "var(--color-surface-container-lowest)",
@@ -340,15 +362,18 @@ export default function BlogPageClient({
                 </div>
                 {/* Content */}
                 <div className="px-4 pb-5 pt-2 space-y-3">
-                  <span
-                    className="inline-block px-3 py-1 rounded-full text-xs font-bold"
-                    style={{
-                      backgroundColor: `color-mix(in srgb, ${post.tagBg} 30%, transparent)`,
-                      color: post.tagColor,
-                    }}
-                  >
-                    {post.tag}
-                  </span>
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span
+                      className="inline-block px-3 py-1 rounded-full text-xs font-bold"
+                      style={{
+                        backgroundColor: `color-mix(in srgb, ${post.tagBg} 30%, transparent)`,
+                        color: post.tagColor,
+                      }}
+                    >
+                      {post.tag}
+                    </span>
+                    {post.status === "draft" ? <DraftBadge /> : null}
+                  </div>
                   <h3
                     className="text-lg font-bold leading-snug"
                     style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}
