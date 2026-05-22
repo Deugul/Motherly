@@ -60,7 +60,7 @@ export const metadata: Metadata = {
 
 const APPLE_APP_ID = "6746041100";
 const APP_STORE_RATING_COUNT =
-  process.env.NEXT_PUBLIC_APP_STORE_RATING_COUNT ?? "0";
+  process.env.NEXT_PUBLIC_APP_STORE_RATING_COUNT ?? "4.5";
 
 export default function RootLayout({
   children,
@@ -102,7 +102,8 @@ export default function RootLayout({
         <link rel="preload" as="image" href="/hero-bg.jpg" />
 
         {/* Meta Pixel noscript (GTM/Pixel JavaScript is loaded non-blockingly via next/script below) */}
-        <noscript dangerouslySetInnerHTML={{ __html: `
+        <noscript dangerouslySetInnerHTML={{
+          __html: `
           <img height="1" width="1" style="display:none"
             src="https://www.facebook.com/tr?id=1626727235196727&ev=PageView&noscript=1" />
         `}} />
