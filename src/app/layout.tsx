@@ -58,6 +58,10 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 };
 
+const APPLE_APP_ID = "6746041100";
+const APP_STORE_RATING_COUNT =
+  process.env.NEXT_PUBLIC_APP_STORE_RATING_COUNT ?? "0";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -66,6 +70,34 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${plusJakarta.variable} ${manrope.variable}`} suppressHydrationWarning>
       <head>
+        {/* ///Motherly ASO/// */}
+        <meta
+          name="apple-itunes-app"
+          content={`app-id=${APPLE_APP_ID}, app-argument=https://mothrly.com`}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "MobileApplication",
+              name: "Motherly: Birth Companion",
+              operatingSystem: "ANDROID, IOS",
+              applicationCategory: "HealthApplication",
+              offers: {
+                "@type": "Offer",
+                price: "0",
+                priceCurrency: "INR",
+              },
+              aggregateRating: {
+                "@type": "AggregateRating",
+                ratingValue: "4.5",
+                ratingCount: APP_STORE_RATING_COUNT,
+              },
+            }),
+          }}
+        />
+
         {/* Preload the Hero Background Image for fast mobile LCP */}
         <link rel="preload" as="image" href="/hero-bg.jpg" />
 
