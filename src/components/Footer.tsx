@@ -2,7 +2,7 @@ import Link from "next/link";
 import SocialLinks from "@/components/SocialLinks";
 
 const quickLinks = [
-  { label: "About Us", href: "/about" },
+  { label: "About Us", href: "/about-us" },
   { label: "Our Services", href: "/services" },
   { label: "Blogs", href: "/blogs" },
   { label: "Investors", href: "/investors" },

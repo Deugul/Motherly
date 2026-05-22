@@ -66,7 +66,7 @@ export default function OurStorySection() {
           </ScrollReveal>
           <ScrollReveal direction="right" delay={0.4}>
             <Link
-              href="/about"
+              href="/about-us"
               className="inline-flex items-center gap-2 font-bold group"
               style={{ color: "var(--color-primary)", fontFamily: "var(--font-headline)" }}
             >

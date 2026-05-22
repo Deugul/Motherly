@@ -18,7 +18,7 @@ const serviceLinks = [
 
 const links = [
   { href: "/blogs", label: "Blogs" },
-  { href: "/about", label: "About Us" },
+  { href: "/about-us", label: "About Us" },
   { href: "/doctors", label: "Doctors" },
   { href: "/investors", label: "Investors" },
 ];
