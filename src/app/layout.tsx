@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, Manrope } from "next/font/google";
 import "./globals.css";
 import FontLoader from "@/components/FontLoader";
+import ScrollToTop from "@/components/ScrollToTop";
 import { SOCIAL_PROFILE_URLS } from "@/data/social-links";
 
 const plusJakarta = Plus_Jakarta_Sans({
@@ -95,6 +96,7 @@ export default function RootLayout({
 
       <body className="antialiased" suppressHydrationWarning>
         <FontLoader />
+        <ScrollToTop />
         {children}
         <script
           type="application/ld+json"

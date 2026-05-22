@@ -287,10 +287,18 @@ export default async function BlogPostPage({
             <span>{date}</span>
           </div>
 
-          {/* Featured image */}
+          {/* Featured image — full banner visible, no crop */}
           {image && (
-            <div className="mt-8 rounded-2xl overflow-hidden relative aspect-video">
-              <Image src={image} alt={altText} fill className="object-contain object-top" priority />
+            <div className="mt-8 w-full rounded-2xl overflow-hidden">
+              <Image
+                src={image}
+                alt={altText}
+                width={1200}
+                height={500}
+                className="h-auto w-full"
+                priority
+                sizes="(max-width: 1280px) 100vw, 1152px"
+              />
             </div>
           )}
 

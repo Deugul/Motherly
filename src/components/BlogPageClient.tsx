@@ -236,7 +236,7 @@ export default function BlogPageClient({
             transition={{ duration: 0.3, ease: easeOut }}
             className="relative mb-10 cursor-pointer group"
             onClick={() => {
-              if (featuredPost.slug) router.push(`/blogs/${featuredPost.slug}`);
+              if (featuredPost.slug) router.push(`/blogs/${featuredPost.slug}`, { scroll: true });
               else if (featuredPost.link) window.open(featuredPost.link, "_blank", "noopener,noreferrer");
             }}
           >
@@ -303,6 +303,7 @@ export default function BlogPageClient({
             >
               <Link
                 href={post.slug ? `/blogs/${post.slug}` : (post.link ?? "#")}
+                scroll
                 target={!post.slug && post.link ? "_blank" : undefined}
                 rel={!post.slug && post.link ? "noopener noreferrer" : undefined}
                 onClick={!post.slug && !post.link ? (e) => { e.preventDefault(); setSelectedPost(post); } : undefined}
