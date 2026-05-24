@@ -141,7 +141,7 @@ export default function AboutPage() {
               }}
               className="journey-bento"
             >
-              {/* Large image — 2×2 */}
+              {/* Hero image — 2×2 */}
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -151,28 +151,14 @@ export default function AboutPage() {
                 style={{ gridColumn: "span 2", gridRow: "span 2" }}
               >
                 <Image
-                  src="/about-journey-spark.jpg"
-                  alt="Our Care Journey"
+                  src="/about-journey-caregiver.jpg"
+                  alt="Caregiver Support"
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 flex flex-col justify-end p-8" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.6), transparent)" }}>
-                  <span
-                    className="font-bold mb-2 text-sm"
-                    style={{ color: "var(--color-tertiary-container)", fontFamily: "var(--font-headline)" }}
-                  >
-                    2026
-                  </span>
-                  <h3 className="text-2xl font-bold text-white" style={{ fontFamily: "var(--font-headline)" }}>
-                    The Spark
-                  </h3>
-                  <p className="text-white/80 text-sm mt-2">
-                    Founded by a group of nurses who saw a gap in post-operative home recovery.
-                  </p>
-                </div>
               </motion.div>
 
-              {/* 1000+ Families — col-span-2 */}
+              {/* Growing Families — top-right */}
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -205,30 +191,14 @@ export default function AboutPage() {
                 </p>
               </motion.div>
 
-              {/* Secondary image */}
+              {/* 98% satisfaction — bottom-right */}
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.16, ease: easeOut }}
-                className="rounded-[2rem] overflow-hidden relative"
-              >
-                <Image
-                  src="/about-journey-caregiver.jpg"
-                  alt="Caregiver Support"
-                  fill
-                  className="object-cover"
-                />
-              </motion.div>
-
-              {/* 98% satisfaction */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.24, ease: easeOut }}
                 className="rounded-[2rem] p-8 flex flex-col justify-between"
-                style={{ backgroundColor: "var(--color-tertiary)", color: "var(--color-on-tertiary)" }}
+                style={{ gridColumn: "span 2", backgroundColor: "var(--color-tertiary)", color: "var(--color-on-tertiary)" }}
               >
                 <span className="material-symbols-outlined text-4xl">verified_user</span>
                 <div>

@@ -14,7 +14,18 @@ export default function CTASection() {
       style={{ backgroundColor: "var(--color-primary)" }}
     >
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-8 md:gap-16">
-        {/* App image — no phone frame */}
+
+        {/* Mobile-only heading — appears before image */}
+        <ScrollReveal direction="right" className="md:hidden w-full text-center">
+          <h2
+            className="text-3xl font-extrabold tracking-tight"
+            style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-primary)" }}
+          >
+            Ready to start your Journey?
+          </h2>
+        </ScrollReveal>
+
+        {/* App image */}
         <ScrollReveal direction="left" className="flex-1 flex justify-center md:justify-end order-2 md:order-1">
           <Image
             src="/cta-phone-screen.jpg"
@@ -28,7 +39,8 @@ export default function CTASection() {
 
         {/* Content */}
         <div className="flex-1 text-center md:text-left order-1 md:order-2 space-y-6">
-          <ScrollReveal direction="right">
+          {/* Desktop-only heading */}
+          <ScrollReveal direction="right" className="hidden md:block">
             <h2
               className="text-3xl md:text-4xl font-extrabold tracking-tight"
               style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-primary)" }}

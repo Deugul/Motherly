@@ -21,6 +21,7 @@ const services = [
   { label: "Gynaecology Consultation", href: "/services/gynecologist-consultation" },
   { label: "Nutrition & Pediatrics", href: "/services/pediatrician" },
   { label: "Prenatal Yoga", href: "/services/yoga" },
+  { label: "Physiotherapy", href: "/services/postnatal-recovery-care/physiotherapy" },
 ];
 
 export default function Footer() {

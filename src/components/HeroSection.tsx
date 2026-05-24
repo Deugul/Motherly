@@ -18,41 +18,43 @@ const item = {
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-[60vh] md:min-h-[90vh] flex items-start pt-28 md:pt-36 overflow-hidden rounded-b-[2.5rem]">
-      {/* Background */}
-      <div className="absolute inset-0 z-0">
-        <Image
-          src="/hero-bg.jpg"
-          alt="Mother and baby"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-[center_35%]"
-        />
-        <div
-          className="absolute inset-0"
-          style={{ background: "linear-gradient(to right, rgba(255,255,255,0.82) 0%, rgba(255,255,255,0.35) 50%, transparent 100%)" }}
-        />
-      </div>
+    <>
+      {/* ── MOBILE layout: stacked image then content ── */}
+      <section className="md:hidden flex flex-col overflow-hidden rounded-b-[2rem] min-h-screen">
+        {/* Image block — 60vh */}
+        <div className="relative h-[60vh] w-full flex-shrink-0">
+          <Image
+            src="/hero-bg.jpg"
+            alt="Mother and baby"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-[85%_10%]"
+          />
+          <div
+            className="absolute inset-x-0 bottom-0 h-[50%] pointer-events-none"
+            style={{ background: "linear-gradient(to bottom, transparent 0%, white 100%)" }}
+          />
+        </div>
 
-      <div className="relative z-10 px-6 md:px-8 max-w-7xl mx-auto w-full">
+        {/* Content panel — fills remaining 40% */}
         <motion.div
           variants={container}
           initial="hidden"
           animate="visible"
-          className="max-w-lg space-y-5"
+          className="relative z-10 flex-1 px-5 pt-4 pb-7 flex flex-col gap-4 bg-white"
         >
           {/* Badge */}
           <motion.div variants={item}>
             <div
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border text-xs font-bold tracking-widest uppercase"
+              className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border text-[9px] font-bold tracking-widest uppercase"
               style={{
                 backgroundColor: "color-mix(in srgb, var(--color-secondary-container) 80%, transparent)",
                 borderColor: "color-mix(in srgb, var(--color-primary) 12%, transparent)",
                 color: "var(--color-on-secondary-container)",
               }}
             >
-              <span className="material-symbols-outlined text-sm" style={{ color: "var(--color-primary)" }}>ecg_heart</span>
+              <span className="material-symbols-outlined text-xs" style={{ color: "var(--color-primary)" }}>ecg_heart</span>
               Expert Care for Every Step
             </div>
           </motion.div>
@@ -60,26 +62,25 @@ export default function HeroSection() {
           {/* Headline */}
           <motion.h1
             variants={item}
-            className="text-5xl sm:text-6xl font-extrabold tracking-tighter leading-[1.05]"
+            className="text-[2rem] font-extrabold tracking-tighter leading-[1.08]"
             style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-background)" }}
           >
-            <span style={{ color: "var(--color-primary)" }}>Motherly</span> Your Birth Companion
+            <span style={{ color: "var(--color-primary)" }}>Motherly</span>{" "}
+            Your Birth Companion
           </motion.h1>
 
           <motion.div
             variants={item}
-            className="w-16 h-1 rounded-full"
+            className="w-12 h-1 rounded-full"
             style={{ backgroundColor: "color-mix(in srgb, var(--color-primary) 25%, transparent)" }}
           />
 
-          {/* Buttons */}
-          <motion.div variants={item} className="flex flex-col sm:flex-row gap-3 pt-1">
-            <Link href="/services/doulas">
+          {/* CTA Buttons */}
+          <motion.div variants={item} className="flex flex-col gap-3 pt-1">
+            <Link href="/services/doulas" className="block w-full">
               <motion.button
-                whileHover={{ scale: 1.04, y: -2 }}
                 whileTap={{ scale: 0.96 }}
-                transition={{ type: "spring", stiffness: 400, damping: 20 }}
-                className="w-full sm:w-auto px-8 py-3 rounded-xl font-bold text-base"
+                className="w-full px-6 py-3.5 rounded-xl font-bold text-sm"
                 style={{
                   fontFamily: "var(--font-headline)",
                   backgroundColor: "var(--color-primary)",
@@ -90,12 +91,10 @@ export default function HeroSection() {
                 Find a Doula
               </motion.button>
             </Link>
-            <Link href="/contact-us">
+            <Link href="/contact-us" className="block w-full">
               <motion.button
-                whileHover={{ scale: 1.04, y: -2 }}
                 whileTap={{ scale: 0.96 }}
-                transition={{ type: "spring", stiffness: 400, damping: 20 }}
-                className="w-full sm:w-auto px-8 py-3 rounded-xl font-bold text-base border-2"
+                className="w-full px-6 py-3.5 rounded-xl font-bold text-sm border-2"
                 style={{
                   fontFamily: "var(--font-headline)",
                   backgroundColor: "white",
@@ -108,7 +107,103 @@ export default function HeroSection() {
             </Link>
           </motion.div>
         </motion.div>
-      </div>
-    </section>
+      </section>
+
+      {/* ── DESKTOP layout: background overlay ── */}
+      <section className="hidden md:flex relative min-h-[90vh] flex-col overflow-hidden rounded-b-[2.5rem]">
+        {/* Background */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/hero-bg.jpg"
+            alt="Mother and baby"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-[center_35%]"
+          />
+          <div
+            className="absolute inset-0"
+            style={{ background: "linear-gradient(to right, rgba(255,255,255,0.82) 0%, rgba(255,255,255,0.35) 50%, transparent 100%)" }}
+          />
+        </div>
+
+        {/* Content */}
+        <motion.div
+          variants={container}
+          initial="hidden"
+          animate="visible"
+          className="relative z-10 px-8 max-w-7xl mx-auto w-full pt-40 flex-1"
+        >
+          <div className="max-w-lg space-y-5">
+            {/* Badge */}
+            <motion.div variants={item}>
+              <div
+                className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border text-xs font-bold tracking-widest uppercase"
+                style={{
+                  backgroundColor: "color-mix(in srgb, var(--color-secondary-container) 80%, transparent)",
+                  borderColor: "color-mix(in srgb, var(--color-primary) 12%, transparent)",
+                  color: "var(--color-on-secondary-container)",
+                }}
+              >
+                <span className="material-symbols-outlined text-sm" style={{ color: "var(--color-primary)" }}>ecg_heart</span>
+                Expert Care for Every Step
+              </div>
+            </motion.div>
+
+            {/* Headline */}
+            <motion.h1
+              variants={item}
+              className="text-5xl md:text-6xl font-extrabold tracking-tighter leading-[1.08]"
+              style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-background)" }}
+            >
+              <span style={{ color: "var(--color-primary)" }}>Motherly</span>{" "}
+              Your Birth Companion
+            </motion.h1>
+
+            <motion.div
+              variants={item}
+              className="w-16 h-1 rounded-full"
+              style={{ backgroundColor: "color-mix(in srgb, var(--color-primary) 25%, transparent)" }}
+            />
+
+            {/* Buttons */}
+            <motion.div variants={item} className="flex flex-row gap-3 pt-1">
+              <Link href="/services/doulas">
+                <motion.button
+                  whileHover={{ scale: 1.04, y: -2 }}
+                  whileTap={{ scale: 0.96 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 20 }}
+                  className="px-8 py-3 rounded-xl font-bold text-base"
+                  style={{
+                    fontFamily: "var(--font-headline)",
+                    backgroundColor: "var(--color-primary)",
+                    color: "white",
+                    boxShadow: "0 8px 28px color-mix(in srgb, var(--color-primary) 30%, transparent)",
+                  }}
+                >
+                  Find a Doula
+                </motion.button>
+              </Link>
+              <Link href="/contact-us">
+                <motion.button
+                  whileHover={{ scale: 1.04, y: -2 }}
+                  whileTap={{ scale: 0.96 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 20 }}
+                  className="px-8 py-3 rounded-xl font-bold text-base border-2"
+                  style={{
+                    fontFamily: "var(--font-headline)",
+                    backgroundColor: "white",
+                    borderColor: "var(--color-primary)",
+                    color: "var(--color-primary)",
+                  }}
+                >
+                  Get Started
+                </motion.button>
+              </Link>
+            </motion.div>
+          </div>
+        </motion.div>
+      </section>
+    </>
   );
 }

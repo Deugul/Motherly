@@ -64,7 +64,7 @@ export default function ImpactSection() {
           {stats.map((stat, i) => (
             <div
               key={stat.label}
-              className="flex flex-col items-center justify-center py-10 px-6 text-center"
+              className="flex flex-col items-center justify-center py-6 px-3 md:py-10 md:px-6 text-center"
               style={{
                 borderRight: i < stats.length - 1
                   ? "1px solid color-mix(in srgb, var(--color-primary) 20%, transparent)"
@@ -72,13 +72,13 @@ export default function ImpactSection() {
               }}
             >
               <div
-                className="text-4xl md:text-5xl font-extrabold mb-2"
+                className="text-2xl sm:text-3xl md:text-5xl font-extrabold mb-1 md:mb-2"
                 style={{ fontFamily: "var(--font-headline)", color: "var(--color-primary)" }}
               >
                 <CountUp target={stat.value} suffix={stat.suffix} />
               </div>
               <div
-                className="text-sm font-semibold"
+                className="text-xs sm:text-sm font-semibold leading-tight"
                 style={{ color: "var(--color-on-surface-variant)" }}
               >
                 {stat.label}

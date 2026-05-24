@@ -122,7 +122,7 @@ export default function DoctorsPage() {
       <main className="overflow-x-hidden" style={{ backgroundColor: "var(--color-surface)" }}>
 
         {/* ── Hero ── */}
-        <section className="pt-36 pb-24 px-6 max-w-7xl mx-auto">
+        <section className="pt-36 pb-6 px-6 max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
 
             {/* Left: hero content */}
@@ -157,14 +157,14 @@ export default function DoctorsPage() {
 
                 {/* Sub-banner */}
                 <div
-                  className="px-8 py-7 rounded-2xl"
+                  className="px-8 py-7 rounded-2xl flex items-center justify-center"
                   style={{
                     background: "linear-gradient(135deg, color-mix(in srgb, var(--color-primary) 8%, transparent), color-mix(in srgb, var(--color-secondary-container) 40%, transparent))",
                     border: "1px solid color-mix(in srgb, var(--color-primary) 15%, transparent)",
                   }}
                 >
                   <p
-                    className="text-xl md:text-2xl font-extrabold italic"
+                    className="text-sm md:text-base font-extrabold italic whitespace-nowrap"
                     style={{ fontFamily: "var(--font-headline)", color: "var(--color-primary)" }}
                   >
                     "We don't replace your practice. We fill your calendar."
@@ -188,7 +188,7 @@ export default function DoctorsPage() {
                     transition={{ duration: 0.6 }}
                     width={800}
                     height={320}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover object-top"
                   />
                 </div>
               </ScrollReveal>
@@ -271,7 +271,7 @@ export default function DoctorsPage() {
                     transition={{ duration: 0.6 }}
                     width={600}
                     height={480}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover object-top"
                   />
                   {/* Overlay badge */}
                   <div

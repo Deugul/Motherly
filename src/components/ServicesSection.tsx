@@ -60,7 +60,7 @@ export default function ServicesSection() {
     <section className="py-10 md:py-20" style={{ backgroundColor: "var(--color-surface)" }}>
 
       {/* 1 — Title */}
-      <div className="max-w-7xl mx-auto px-8 mb-8">
+      <div className="max-w-7xl mx-auto px-4 md:px-8 mb-8">
         <ScrollReveal>
           <h2
             className="text-4xl md:text-5xl font-extrabold tracking-tight"
@@ -73,7 +73,7 @@ export default function ServicesSection() {
 
       {/* 2 — Horizontally scrolling 1:1 photo strip */}
       <div
-        className="flex gap-4 overflow-x-auto pb-2 px-8 snap-x snap-mandatory"
+        className="flex gap-4 overflow-x-auto pb-2 px-4 md:px-8 snap-x snap-mandatory"
         style={{ scrollbarWidth: "none" }}
       >
         {photos.map((p, i) => (
@@ -111,7 +111,7 @@ export default function ServicesSection() {
       </div>
 
       {/* 3 — Descriptive headline */}
-      <div className="max-w-7xl mx-auto px-8 mt-16 mb-14">
+      <div className="max-w-7xl mx-auto px-4 md:px-8 mt-10 md:mt-16 mb-8 md:mb-14">
         <ScrollReveal>
           <p
             className="text-xs font-bold tracking-widest uppercase mb-4"
@@ -132,7 +132,7 @@ export default function ServicesSection() {
       </div>
 
       {/* 4 — Service cards grid */}
-      <div className="max-w-7xl mx-auto px-8">
+      <div className="max-w-7xl mx-auto px-4 md:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {services.map((s, i) => (
           <motion.div

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useLayoutEffect } from "react";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -9,7 +9,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import CTASection from "@/components/CTASection";
 import ScrollReveal from "@/components/ScrollReveal";
 
 const schema = z.object({
@@ -44,14 +43,72 @@ function getInputStyle(hasError?: boolean) {
   };
 }
 
-const wellnessItems = [
-  "Cervical Cancer Screenings (Pap Smears)",
-  "Contraceptive Counseling & Management",
-  "Menopause Care & Management",
+const easeOut: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
+
+const GYNAE_COVERS = [
+  {
+    title: "Prenatal antenatal check-ups",
+    desc: "Routine pregnancy monitoring including blood pressure, weight, uterine size, foetal heart rate, and symptom review. Your gynaecologist reviews test results and addresses your concerns at each visit.",
+  },
+  {
+    title: "First trimester consultation",
+    desc: "Confirmation of pregnancy, dating scan referral, screening test guidance, supplement prescriptions, and early pregnancy symptom management. Sets the foundation for a well-monitored pregnancy.",
+  },
+  {
+    title: "High-risk pregnancy monitoring",
+    desc: "For pregnancies with gestational diabetes, hypertension, thyroid conditions, or previous complications, our gynaecologists provide more frequent monitoring and specialist referrals where needed.",
+  },
+  {
+    title: "Postnatal six-week check",
+    desc: "Assessment of uterine recovery, wound healing, breastfeeding support referral, pelvic floor guidance, emotional wellbeing screening, and contraception counselling.",
+  },
+  {
+    title: "Virtual consultation for concerns",
+    desc: "For non-emergency questions, bleeding concerns, symptom review, or test result interpretation, same-day virtual consultations mean you are never waiting days to get an answer.",
+  },
+  {
+    title: "General women's health",
+    desc: "PCOS management, menstrual health, cervical screening, and general gynaecological health for women at all stages of their reproductive journey.",
+  },
+];
+
+const FAQS = [
+  {
+    q: "Can I get a home visit from a gynaecologist in Chennai?",
+    a: "Yes. Motherly offers verified gynaecologist home visits across Chennai for prenatal check-ups, postnatal consultations, and women's health concerns. Book directly through the Motherly app.",
+  },
+  {
+    q: "Is a virtual gynaecology consultation appropriate for pregnancy?",
+    a: "Virtual consultations are appropriate for non-emergency reviews, symptom discussions, test result interpretation, and follow-up visits where physical examination is not required. Your gynaecologist will advise if an in-person visit is needed.",
+  },
+  {
+    q: "Can I use Motherly gynaecology alongside my existing hospital doctor?",
+    a: "Absolutely. Motherly gynaecology consultations complement your existing hospital care. Many mothers use Motherly for in-between visits, urgent concerns, and postnatal check-ups they prefer to have at home.",
+  },
+  {
+    q: "How much does a gynaecology consultation cost in Chennai?",
+    a: "Consultation fees vary by visit type (home visit vs virtual) and the nature of the consultation. Browse transparent, current pricing on each gynaecologist's profile through the Motherly app before booking.",
+  },
+  {
+    q: "Does Motherly offer postnatal mental health support through gynaecology?",
+    a: "Yes. Our gynaecologists include postnatal depression and anxiety screening as part of the six-week postnatal check. If specialist mental health support is indicated, appropriate referrals are made.",
+  },
 ];
 
 export default function GynaecologyPage() {
   const [submitted, setSubmitted] = useState(false);
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [formActive, setFormActive] = useState(false);
+  const formWrapperRef = useRef<HTMLElement>(null);
+  const preActivateTop = useRef<number | null>(null);
+  useLayoutEffect(() => {
+    if (formActive && preActivateTop.current !== null && formWrapperRef.current) {
+      const diff = formWrapperRef.current.getBoundingClientRect().top - preActivateTop.current;
+      if (Math.abs(diff) > 1) window.scrollBy({ top: diff, behavior: "instant" });
+      preActivateTop.current = null;
+    }
+  }, [formActive]);
+
   const {
     register,
     handleSubmit,
@@ -72,217 +129,396 @@ export default function GynaecologyPage() {
   return (
     <>
       <Navbar />
-      <main className="pt-24 md:pt-32 pb-12 md:pb-20" style={{ backgroundColor: "var(--color-background)" }}>
+      <main
+        className="pt-28 md:pt-32 pb-20 px-4 sm:px-6 max-w-7xl mx-auto"
+        style={{ backgroundColor: "var(--color-surface)" }}
+      >
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
 
-        {/* ── Hero ── */}
-        <section className="max-w-7xl mx-auto px-6 md:px-8 mb-20">
-          <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            {/* Text */}
-            <ScrollReveal className="lg:col-span-7 z-10">
-              <span
-                className="inline-block px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase mb-6"
-                style={{ backgroundColor: "var(--color-secondary-container)", color: "var(--color-on-secondary-container)" }}
-              >
-                Medical Speciality
-              </span>
-              <h1
-                className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mb-6"
-                style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}
-              >
-                Gynaecology{" "}
-                <span style={{ color: "var(--color-primary)" }}>Consultation</span>
-                <br />{" "}in Chennai
-              </h1>
-              <p className="text-xl max-w-xl leading-relaxed font-medium" style={{ color: "var(--color-on-surface-variant)" }}>
-                Specialized Reproductive Health Care designed with empathy, precision, and a
-                commitment to your long-term wellness.
-              </p>
-            </ScrollReveal>
+          {/* ── Left Column ── */}
+          <div className="lg:col-span-7 space-y-10 lg:space-y-14">
 
-            {/* Image */}
-            <ScrollReveal direction="right" className="lg:col-span-5 relative">
-              <div
-                className="absolute -top-12 -right-12 w-64 h-64 rounded-full blur-3xl opacity-20 pointer-events-none"
-                style={{ backgroundColor: "var(--color-primary-container)" }}
-              />
-              <motion.div
-                className="relative rounded-2xl overflow-hidden shadow-2xl h-[480px]"
-                style={{ transform: "rotate(2deg)" }}
-                whileHover={{ rotate: 0, scale: 1.02 }}
-                transition={{ duration: 0.5 }}
-              >
-                <Image
-                  src="/gynaecology-hero.jpg"
-                  alt="Gynaecology Consultation"
-                  fill
-                  className="object-cover"
-                  priority
-                />
-              </motion.div>
-              <div
-                className="absolute -bottom-6 -left-6 w-20 h-20 rounded-xl shadow-lg flex items-center justify-center overflow-hidden"
-                style={{ backgroundColor: "var(--color-surface-container-lowest)" }}
-              >
-                <Image
-                  src="/logo.png"
-                  alt="Motherly"
-                  width={56}
-                  height={56}
-                  className="object-contain"
-                />
-              </div>
-            </ScrollReveal>
-          </div>
-        </section>
-
-        {/* ── Main Content & Form ── */}
-        <section className="max-w-7xl mx-auto px-6 md:px-8 grid grid-cols-1 lg:grid-cols-12 gap-16">
-
-          {/* Left Column */}
-          <div className="lg:col-span-7 space-y-16">
-            <div>
-              <ScrollReveal>
-                <h2
-                  className="text-3xl font-bold mb-8"
-                  style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}
-                >
-                  Comprehensive Care for Women
-                </h2>
-              </ScrollReveal>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {/* Prenatal */}
-                <motion.div
-                  initial={{ opacity: 0, y: 24 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
-                  className="p-8 rounded-2xl border-l-4 shadow-sm hover:shadow-md transition-all"
-                  style={{
-                    backgroundColor: "var(--color-surface-container-low)",
-                    borderLeftColor: "var(--color-primary)",
-                  }}
-                >
-                  <span
-                    className="material-symbols-outlined text-3xl mb-4"
-                    style={{ color: "var(--color-primary)", display: "block" }}
-                  >
-                    pregnancy
-                  </span>
-                  <h3 className="text-xl font-bold mb-3" style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}>
-                    Prenatal Check-ups
-                  </h3>
-                  <p className="leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
-                    Early detection and expert guidance throughout your pregnancy journey to ensure
-                    the health of both mother and child.
-                  </p>
-                </motion.div>
-
-                {/* Postnatal */}
-                <motion.div
-                  initial={{ opacity: 0, y: 24 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
-                  className="p-8 rounded-2xl border-l-4 shadow-sm hover:shadow-md transition-all"
-                  style={{
-                    backgroundColor: "var(--color-surface-container-low)",
-                    borderLeftColor: "var(--color-tertiary)",
-                  }}
-                >
-                  <span
-                    className="material-symbols-outlined text-3xl mb-4"
-                    style={{ color: "var(--color-tertiary)", display: "block" }}
-                  >
-                    healing
-                  </span>
-                  <h3 className="text-xl font-bold mb-3" style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}>
-                    Postnatal Recovery
-                  </h3>
-                  <p className="leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
-                    Dedicated support following delivery, focusing on physical healing, emotional
-                    health, and lactation advice.
-                  </p>
-                </motion.div>
-
-                {/* General Wellness — full width */}
-                <motion.div
-                  initial={{ opacity: 0, y: 24 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}
-                  className="md:col-span-2 p-8 rounded-2xl shadow-sm border-l-4 hover:shadow-md transition-all"
-                  style={{
-                    backgroundColor: "var(--color-surface-container-lowest)",
-                    borderLeftColor: "var(--color-secondary-container)",
-                  }}
-                >
-                  <div className="flex items-start gap-6">
-                    <div
-                      className="p-4 rounded-xl flex-shrink-0"
-                      style={{ backgroundColor: "var(--color-secondary-container)" }}
-                    >
-                      <span className="material-symbols-outlined text-3xl" style={{ color: "var(--color-on-secondary-container)" }}>
-                        female
-                      </span>
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-bold mb-3" style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}>
-                        General Wellness Consultations
-                      </h3>
-                      <p className="leading-relaxed mb-4" style={{ color: "var(--color-on-surface-variant)" }}>
-                        Routine screenings, reproductive health education, and preventative care
-                        tailored to every stage of a woman's life.
-                      </p>
-                      <ul className="space-y-2">
-                        {wellnessItems.map((item) => (
-                          <li key={item} className="flex items-center gap-2 text-sm" style={{ color: "var(--color-on-surface-variant)" }}>
-                            <span
-                              className="material-symbols-outlined text-xs"
-                              style={{ color: "var(--color-primary)", fontVariationSettings: "'FILL' 1" }}
-                            >
-                              check_circle
-                            </span>
-                            {item}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                </motion.div>
-              </div>
-            </div>
-
-            {/* Why Choose Motherly — pink CTA block */}
+            {/* H1 */}
             <ScrollReveal>
-              <div
-                className="relative rounded-2xl overflow-hidden p-12"
-                style={{ backgroundColor: "var(--color-primary)" }}
-              >
-                <div className="absolute top-0 right-0 w-64 h-64 rounded-full -mr-20 -mt-20 blur-2xl opacity-10 bg-white pointer-events-none" />
-                <div className="relative z-10">
-                  <h4
-                    className="text-2xl font-bold mb-4"
-                    style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-primary)" }}
+              <section>
+                <h1
+                  className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight"
+                  style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-background)" }}
+                >
+                  Gynaecology <span style={{ color: "var(--color-primary)" }}>Consultation</span>{" "}
+                  <span style={{ color: "var(--color-on-background)" }}>in Chennai</span>
+                </h1>
+              </section>
+            </ScrollReveal>
+
+            {/* H2 + Intro */}
+            <ScrollReveal direction="left">
+              <section className="space-y-4">
+                <h2
+                  className="text-2xl md:text-3xl font-bold"
+                  style={{ fontFamily: "var(--font-headline)", color: "var(--color-tertiary)" }}
+                >
+                  Womens Health Care That Comes to You, on Your Schedule
+                </h2>
+                <p className="text-base leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
+                  Motherly provides access to verified{" "}
+                  <Link href="/services/gynecologist-consultation" style={{ color: "var(--color-primary)" }}>
+                    gynaecology consultations
+                  </Link>{" "}
+                  in Chennai. As the preferred obstetric consultation Chennai mothers choose for convenience
+                  and continuity, we offer both prenatal home visits and virtual gynaecology consultations
+                  Chennai families can access without the clinic wait.
+                </p>
+                <p className="text-sm leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
+                  See also:{" "}
+                  <a href="https://mothrly.com/blogs/pregnancy-diet-plan" style={{ color: "var(--color-primary)", textDecoration: "underline" }}>pregnancy diet plan</a>,{" "}
+                  <a href="https://mothrly.com/blogs/first-trimester-pregnancy-diet-plan" style={{ color: "var(--color-primary)", textDecoration: "underline" }}>first trimester diet plan</a>,{" "}
+                  <a href="https://mothrly.com/blogs/does-postpartum-belly-go-away-a-realistic-recovery-guide-for-new-moms" style={{ color: "var(--color-primary)", textDecoration: "underline" }}>postpartum belly</a>,{" "}
+                  <a href="https://www.mothrly.com/our-services/doulas" style={{ color: "var(--color-primary)", textDecoration: "underline" }}>doulas</a>, and{" "}
+                  <a href="https://www.mothrly.com/our-services/postnatal-Recovery-care" style={{ color: "var(--color-primary)", textDecoration: "underline" }}>postnatal care</a>.
+                </p>
+              </section>
+            </ScrollReveal>
+
+            {/* Stats row */}
+            <ScrollReveal direction="left">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                {[
+                  { value: "8 Weeks", label: "Optimal time to begin prenatal gynaecological care" },
+                  { value: "6 Weeks", label: "Postnatal check timeline every new mother needs" },
+                  { value: "Virtual", label: "Consultations available same-day for non-emergency concerns" },
+                  { value: "Verified", label: "Every gynaecologist is credentialled and reviewed" },
+                ].map((stat, i) => (
+                  <motion.div
+                    key={stat.value}
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.45, delay: i * 0.08, ease: easeOut }}
+                    className="p-5 rounded-2xl border flex flex-col items-center text-center"
+                    style={{
+                      backgroundColor: "var(--color-surface-container-low)",
+                      borderColor: "color-mix(in srgb, var(--color-outline-variant) 20%, transparent)",
+                    }}
                   >
-                    Why choose Motherly Care?
-                  </h4>
-                  <p className="text-lg leading-relaxed mb-8 max-w-lg" style={{ color: "color-mix(in srgb, var(--color-on-primary) 90%, transparent)" }}>
-                    We combine clinical expertise with a deeply personal approach to women's
-                    healthcare, creating a sanctuary for wellness.
-                  </p>
+                    <div
+                      className="text-xl md:text-2xl font-black text-center w-full whitespace-pre-line leading-tight"
+                      style={{ fontFamily: "var(--font-headline)", color: "var(--color-primary)" }}
+                    >
+                      {stat.value}
+                    </div>
+                    <p className="text-xs mt-2 leading-snug" style={{ color: "var(--color-on-surface-variant)" }}>
+                      {stat.label}
+                    </p>
+                  </motion.div>
+                ))}
+              </div>
+            </ScrollReveal>
+
+            {/* Featured Image */}
+            <ScrollReveal delay={0.1} direction="right">
+              <div
+                className="relative overflow-hidden rounded-2xl"
+                style={{ boxShadow: "0 12px 32px rgba(45,52,53,0.1)" }}
+              >
+                <motion.div whileHover={{ scale: 1.04 }} transition={{ duration: 0.6 }}>
+                  <Image
+                    src="/gynaecology-hero.jpg"
+                    alt="A compassionate gynaecologist providing dedicated care for expectant mothers in Chennai"
+                    width={800}
+                    height={400}
+                    className="w-full h-[360px] object-cover object-top"
+                  />
+                </motion.div>
+                <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.4), transparent)" }} />
+                <div className="absolute bottom-6 left-6 text-white">
+                  <span
+                    className="px-4 py-1 rounded-full text-xs font-bold"
+                    style={{ backgroundColor: "rgba(172,45,94,0.9)", backdropFilter: "blur(8px)" }}
+                  >
+                    Our Specialists
+                  </span>
+                  <h3 className="text-xl font-bold mt-2 italic" style={{ fontFamily: "var(--font-headline)" }}>
+                    Expert care at every stage of your journey.
+                  </h3>
                 </div>
               </div>
             </ScrollReveal>
+
+            {/* Home visit vs Virtual */}
+            <ScrollReveal direction="right">
+              <section className="space-y-4">
+                <h2
+                  className="text-2xl md:text-3xl font-bold"
+                  style={{ fontFamily: "var(--font-headline)", color: "var(--color-tertiary)" }}
+                >
+                  Home Visit Consultations and Virtual Appointments: Two Ways Motherly Helps
+                </h2>
+                <p className="text-base leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
+                  Motherly offers both in-home gynaecology visits and virtual antenatal and postnatal
+                  consultations in Chennai, because access to expert women's health care should never
+                  require a full day off work or a stressful clinic trip.
+                </p>
+
+                <div className="grid sm:grid-cols-2 gap-4 mt-2">
+                  {[
+                    {
+                      title: "Home visit gynaecology consultation",
+                      body: "Your gynaecologist visits your home at the booked time. Routine antenatal checks, postnatal examinations, blood pressure monitoring, and non-urgent clinical assessments are all conducted in the privacy and comfort of your own space. Ideal for the third trimester when clinic travel is physically demanding.",
+                    },
+                    {
+                      title: "Virtual gynaecology consultation",
+                      body: "For symptom review, test result interpretation, medication queries, follow-up visits, and non-emergency concerns, same-day virtual appointments mean you are never waiting days for an answer that matters. Prescription and referral letters are issued digitally.",
+                    },
+                  ].map((card, i) => (
+                    <motion.div
+                      key={card.title}
+                      initial={{ opacity: 0, y: 16 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.45, delay: i * 0.1, ease: easeOut }}
+                      className="p-5 rounded-2xl border"
+                      style={{
+                        borderColor: "color-mix(in srgb, var(--color-outline-variant) 30%, transparent)",
+                        backgroundColor: "var(--color-surface-container-low)",
+                      }}
+                    >
+                      <h3
+                        className="text-base font-bold mb-2"
+                        style={{ color: "var(--color-primary)", fontFamily: "var(--font-headline)" }}
+                      >
+                        {card.title}
+                      </h3>
+                      <p className="text-sm leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
+                        {card.body}
+                      </p>
+                    </motion.div>
+                  ))}
+                </div>
+              </section>
+            </ScrollReveal>
+
+            {/* What consultations cover */}
+            <ScrollReveal direction="left">
+              <section className="space-y-4">
+                <h2
+                  className="text-2xl md:text-3xl font-bold"
+                  style={{ fontFamily: "var(--font-headline)", color: "var(--color-tertiary)" }}
+                >
+                  What Motherly's Gynaecology Consultations Cover
+                </h2>
+                <div
+                  className="grid sm:grid-cols-2 gap-px border rounded-2xl overflow-hidden"
+                  style={{ borderColor: "color-mix(in srgb, var(--color-outline-variant) 30%, transparent)" }}
+                >
+                  {GYNAE_COVERS.map((item, i) => (
+                    <motion.div
+                      key={item.title}
+                      initial={{ opacity: 0, y: 12 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.4, delay: i * 0.07, ease: easeOut }}
+                      className="p-5"
+                      style={{ backgroundColor: "var(--color-surface-container-low)" }}
+                    >
+                      <h3
+                        className="text-sm font-bold mb-1.5"
+                        style={{ color: "var(--color-primary)", fontFamily: "var(--font-headline)" }}
+                      >
+                        {item.title}
+                      </h3>
+                      <p className="text-sm leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
+                        {item.desc}
+                      </p>
+                    </motion.div>
+                  ))}
+                </div>
+              </section>
+            </ScrollReveal>
+
+            {/* Who Benefits Most */}
+            <ScrollReveal direction="right">
+              <section className="space-y-4">
+                <h2
+                  className="text-2xl md:text-3xl font-bold"
+                  style={{ fontFamily: "var(--font-headline)", color: "var(--color-tertiary)" }}
+                >
+                  Who Benefits Most From Motherly's Gynaecology Services
+                </h2>
+                <p className="text-base" style={{ color: "var(--color-on-surface-variant)" }}>
+                  Our gynaecology consultations are particularly valued by:
+                </p>
+                <ul className="space-y-3">
+                  {[
+                    "Mothers in their third trimester for whom clinic travel is physically exhausting",
+                    "Women who want continuity with a single verified gynaecologist throughout their pregnancy",
+                    "Mothers who need quick access to expert opinion between scheduled hospital appointments",
+                    "Women managing high-risk pregnancies who benefit from more frequent monitoring",
+                    "Postnatal mothers who want their six-week check in the comfort of their home",
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-3 text-sm" style={{ color: "var(--color-on-surface-variant)" }}>
+                      <span
+                        className="material-symbols-outlined text-base mt-0.5 flex-shrink-0"
+                        style={{ color: "var(--color-primary)", fontVariationSettings: "'FILL' 1" }}
+                      >
+                        check_circle
+                      </span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            </ScrollReveal>
+
+            {/* Testimonial */}
+            <ScrollReveal direction="right">
+              <blockquote
+                className="rounded-2xl p-6 border-l-4"
+                style={{
+                  backgroundColor: "color-mix(in srgb, #fef3c7 60%, white)",
+                  borderColor: "#d97706",
+                }}
+              >
+                <p
+                  className="text-base italic leading-relaxed mb-4"
+                  style={{ color: "#92400e" }}
+                >
+                  "My hospital appointments were always rushed and I left with more questions than I
+                  arrived with. My Motherly gynaecologist visited at home every four weeks and actually
+                  sat with me. She explained my scan results, answered every question I had, and made
+                  me feel like my pregnancy mattered. That made all the difference."
+                </p>
+                <footer className="text-sm" style={{ color: "#b45309" }}>
+                  <strong>— Nithya P.</strong>
+                  <span style={{ color: "#a16207" }}> | Second-time mother, Nungambakkam, Chennai</span>
+                </footer>
+              </blockquote>
+            </ScrollReveal>
+
+            {/* FAQ Accordion */}
+            <ScrollReveal direction="left">
+              <section className="space-y-3">
+                <h2
+                  className="text-2xl md:text-3xl font-bold mb-4"
+                  style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}
+                >
+                  Frequently Asked Questions
+                </h2>
+                {FAQS.map((faq, i) => (
+                  <div
+                    key={i}
+                    className="rounded-lg overflow-hidden border"
+                    style={{
+                      backgroundColor: openFaq === i
+                        ? "color-mix(in srgb, var(--color-secondary-container) 30%, white)"
+                        : "var(--color-surface-container-lowest)",
+                      borderColor: openFaq === i
+                        ? "color-mix(in srgb, var(--color-primary) 20%, transparent)"
+                        : "color-mix(in srgb, var(--color-outline-variant) 15%, transparent)",
+                      transition: "background-color 0.2s, border-color 0.2s",
+                    }}
+                  >
+                    <button
+                      onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                      className="w-full px-6 py-5 flex items-center justify-between text-left font-bold"
+                      style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}
+                    >
+                      <span className="pr-4 text-sm md:text-base">
+                        <span className="text-xs font-bold mr-2" style={{ color: "var(--color-primary)" }}>Q{i + 1}</span>
+                        {faq.q}
+                      </span>
+                      <motion.span
+                        animate={{ rotate: openFaq === i ? 180 : 0 }}
+                        transition={{ duration: 0.25 }}
+                        className="material-symbols-outlined shrink-0"
+                        style={{ color: "var(--color-primary)" }}
+                      >
+                        keyboard_arrow_down
+                      </motion.span>
+                    </button>
+                    <AnimatePresence initial={false}>
+                      {openFaq === i && (
+                        <motion.div
+                          key="body"
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.3 }}
+                          style={{ overflow: "hidden" }}
+                        >
+                          <div className="px-5 py-4" style={{ backgroundColor: "color-mix(in srgb, var(--color-secondary-container) 20%, white)" }}>
+                            <p className="text-sm leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
+                              {faq.a}
+                            </p>
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                ))}
+              </section>
+            </ScrollReveal>
+
+            {/* App CTA */}
+            <ScrollReveal>
+              <div
+                className="rounded-2xl p-6 text-center space-y-3"
+                style={{ backgroundColor: "color-mix(in srgb, var(--color-tertiary-container) 30%, white)" }}
+              >
+                <h3
+                  className="text-xl font-bold"
+                  style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}
+                >
+                  Book through the Motherly app
+                </h3>
+                <p className="text-sm" style={{ color: "var(--color-on-surface-variant)" }}>
+                  Browse verified professionals, view profiles and reviews, and book a home visit in minutes.
+                </p>
+                <div className="flex items-center justify-center gap-4 flex-wrap">
+                  <Link href="https://play.google.com/store">
+                    <Image
+                      src="/badge-google-play.png"
+                      alt="Download on Google Play"
+                      width={140}
+                      height={42}
+                      className="h-10 w-auto"
+                    />
+                  </Link>
+                  <Link href="https://apps.apple.com">
+                    <Image
+                      src="/badge-app-store.png"
+                      alt="Download on the App Store"
+                      width={140}
+                      height={42}
+                      className="h-10 w-auto"
+                    />
+                  </Link>
+                </div>
+                <p className="text-xs" style={{ color: "var(--color-on-surface-variant)" }}>
+                  Or visit{" "}
+                  <Link href="https://www.mothrly.com" style={{ color: "var(--color-primary)" }}>
+                    www.mothrly.com
+                  </Link>
+                </p>
+              </div>
+            </ScrollReveal>
+
           </div>
 
-          {/* ── Right: Booking Form ── */}
-          <div className="lg:col-span-5">
+          {/* ── Right Column: Booking Form ── */}
+          <div ref={formWrapperRef as React.RefObject<HTMLDivElement>} className={`lg:col-span-5${!formActive ? " sticky top-28 self-start" : ""}`}>
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
-              className="sticky top-28 p-8 lg:p-10 rounded-2xl border shadow-xl"
+              transition={{ duration: 0.6, delay: 0.2, ease: easeOut }}
+              onFocus={() => {
+                if (!formActive && formWrapperRef.current) {
+                  preActivateTop.current = formWrapperRef.current.getBoundingClientRect().top;
+                }
+                setFormActive(true);
+              }}
+              onBlur={(e) => { if (!e.currentTarget.contains(e.relatedTarget as Node)) setFormActive(false); }}
+              className="p-8 lg:p-10 rounded-2xl border shadow-xl"
               style={{
                 backgroundColor: "var(--color-surface-container-lowest)",
                 borderColor: "color-mix(in srgb, var(--color-outline-variant) 15%, transparent)",
@@ -399,82 +635,10 @@ export default function GynaecologyPage() {
               </AnimatePresence>
             </motion.div>
           </div>
-        </section>
 
-        {/* ── Hidden SEO Content (Crawled by search bots) ── */}
-        <div style={{ display: "none" }}>
-          {/* How to Access Steps */}
-          <section className="space-y-6">
-            <h2>How to Book a Gynaecology Consultation Through Motherly</h2>
-            <p>Steps to access verified gynaecology consultations in India.</p>
-            <ol>
-              <li>
-                <h4>Identify your need</h4>
-                <p>Whether it is a routine antenatal check-up, postnatal follow-up, or a specific concern like bleeding or pain — Motherly connects you with verified specialists.</p>
-              </li>
-              <li>
-                <h4>Choose in-person or virtual</h4>
-                <p>Select a home visit or virtual consultation based on your preference and stage of pregnancy.</p>
-              </li>
-              <li>
-                <h4>Book through the Motherly app</h4>
-                <p>Browse verified gynaecologist profiles, read reviews, and book your slot directly on the Motherly app.</p>
-              </li>
-              <li>
-                <h4>Prepare your questions</h4>
-                <p>Note symptoms, last period date, medications, and any pregnancy history before your consultation.</p>
-              </li>
-            </ol>
-          </section>
-
-          {/* FAQ Accordion */}
-          <section className="space-y-6">
-            <h2>Frequently Asked Questions</h2>
-            <div>
-              <div>
-                <h3>Can I book a gynaecologist online in India?</h3>
-                <p>Yes. Motherly offers verified gynaecology consultations virtually or at home across India. Book through the Motherly app in a few steps.</p>
-              </div>
-              <div>
-                <h3>When should I see a gynaecologist during pregnancy?</h3>
-                <p>Book your first antenatal visit as soon as you confirm your pregnancy — ideally by weeks 8–10. Routine visits are typically every 4 weeks until week 28, then more frequently.</p>
-              </div>
-              <div>
-                <h3>What is a postnatal gynaecology check?</h3>
-                <p>A postnatal gynaecology check at 6 weeks after delivery assesses uterine recovery, perineal healing, contraception, and emotional wellbeing.</p>
-              </div>
-              <div>
-                <h3>Does Motherly have gynaecologists in Chennai?</h3>
-                <p>Yes. Motherly has verified gynaecologists available for consultations in Chennai — both home visits and virtual appointments.</p>
-              </div>
-            </div>
-          </section>
-
-          {/* Useful Resources & Guides */}
-          <section className="space-y-6">
-            <h2>Useful Resources & Guides</h2>
-            <div>
-              <Link href="https://www.mothrly.com/blogs/pregnancy-diet-plan">
-                pregnancy diet plan
-              </Link>
-              <Link href="https://www.mothrly.com/blogs/first-trimester-pregnancy-diet-plan">
-                first trimester diet plan
-              </Link>
-              <Link href="https://www.mothrly.com/blogs/does-postpartum-belly-go-away-a-realistic-recovery-guide-for-new-moms">
-                postpartum belly
-              </Link>
-              <Link href="https://www.mothrly.com/our-services/doulas">
-                doulas
-              </Link>
-              <Link href="https://www.mothrly.com/our-services/postnatal-Recovery-care">
-                postnatal care
-              </Link>
-            </div>
-          </section>
         </div>
       </main>
-      <CTASection />
       <Footer />
-</>
+    </>
   );
 }

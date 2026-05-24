@@ -48,47 +48,6 @@ function getInputStyle(hasError?: boolean) {
 
 const easeOut: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
 
-const HOW_TO_STEPS = [
-  {
-    num: "01",
-    title: "Plan your postnatal care in the third trimester",
-    text: "Arrange postnatal care before your due date — having support ready from day 1 of discharge is ideal.",
-  },
-  {
-    num: "02",
-    title: "Choose your care package",
-    text: "Select from postnatal massage, nutrition guidance, breastfeeding support, emotional care, or a combined package.",
-  },
-  {
-    num: "03",
-    title: "Book through Motherly",
-    text: "Use the Motherly app to browse verified postnatal care professionals and book home visits in your city.",
-  },
-  {
-    num: "04",
-    title: "Start care from day 3–5",
-    text: "Postnatal massage and care can begin from day 3–5 after a normal delivery, or when medically cleared after a C-section.",
-  },
-] as const;
-
-const FAQ_ITEMS = [
-  {
-    q: "What is included in postnatal recovery care?",
-    a: "Postnatal recovery care includes oil massage, abdominal binding (patt bandhi), dietary guidance, breastfeeding support, emotional wellbeing check-ins, and newborn care assistance.",
-  },
-  {
-    q: "When can I start postnatal massage after delivery?",
-    a: "Postnatal massage can typically begin from day 3–5 after a vaginal delivery. After a C-section, massage is usually started after 4–6 weeks or with doctor clearance.",
-  },
-  {
-    q: "Is postnatal care the same as jaapa?",
-    a: "Jaapa is the traditional South Indian postnatal confinement practice. Motherly's postnatal care integrates traditional jaapa elements with modern evidence-based recovery support.",
-  },
-  {
-    q: "Does Motherly offer postnatal care in Chennai?",
-    a: "Yes. Motherly has verified postnatal care professionals available for home visits across Chennai. Book through the Motherly app.",
-  },
-] as const;
 
 const KEYWORD_LINKS = [
   {
@@ -261,190 +220,290 @@ export default function PostnatalPage() {
         {/* ── Main Content & Form Grid ── */}
         <section className="grid grid-cols-1 lg:grid-cols-12 gap-16">
 
-          {/* Left: Benefits & Why Choose */}
-          <div className="lg:col-span-7 space-y-12">
+          {/* Left: Content */}
+          <div className="lg:col-span-7 space-y-14">
 
-            {/* Comprehensive Recovery Focus */}
+            {/* Intro */}
             <ScrollReveal>
               <h2
-                className="text-3xl font-bold mb-8"
-                style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-background)" }}
+                className="text-xl md:text-2xl font-bold mb-4"
+                style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}
               >
-                Comprehensive Recovery Focus
+                Real Recovery for Real Mothers, Starting From Day One After Birth
               </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <p className="leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
+                Motherly brings certified{" "}
+                <a href="/our-services/postnatal-recovery-care" style={{ color: "var(--color-primary)", textDecoration: "underline" }}>
+                  postnatal recovery care
+                </a>{" "}
+                professionals to your home in Chennai. As the trusted postnatal care Chennai mothers depend on, we offer traditional jaapa support and modern recovery guidance, providing the{" "}
+                <span style={{ textDecoration: "underline" }}>fourth trimester</span>{" "}
+                support Chennai families increasingly choose for a safe, nourished recovery.
+              </p>
+            </ScrollReveal>
+
+            {/* Stats */}
+            <ScrollReveal delay={0.05}>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
                 {[
-                  {
-                    icon: "partner_exchange",
-                    title: "Pelvic Floor Recovery",
-                    desc: "Targeted exercises to strengthen pelvic muscles, helping manage incontinence and pelvic organ prolapse postpartum.",
-                    span: false,
-                  },
-                  {
-                    icon: "fitness_center",
-                    title: "Core Strengthening",
-                    desc: "Safely rebuilding abdominal strength and treating Diastasis Recti through controlled, clinical-led movements.",
-                    span: false,
-                  },
-                ].map((card, i) => (
+                  { value: "6 Weeks", label: "minimum recovery window for the postpartum body" },
+                  { value: "40 Days", label: "traditional jaapa confinement supported by modern evidence" },
+                  { value: "3 In 4", label: "new mothers experience postnatal physical or emotional challenges" },
+                  { value: "Day 1", label: "Motherly professionals available from your first day home" },
+                ].map((stat, i) => (
                   <motion.div
-                    key={card.title}
-                    initial={{ opacity: 0, y: 20 }}
+                    key={stat.value}
+                    initial={{ opacity: 0, y: 16 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: i * 0.08, ease: easeOut }}
-                    className="p-8 rounded-xl"
+                    transition={{ duration: 0.45, delay: i * 0.08 }}
+                    className="p-5 rounded-2xl border text-center"
                     style={{
-                      backgroundColor: "var(--color-surface-container-lowest)",
-                      boxShadow: "0 2px 12px rgba(45,52,53,0.06)",
-                      borderTop: "4px solid color-mix(in srgb, var(--color-primary) 20%, transparent)",
+                      backgroundColor: "var(--color-surface-container-low)",
+                      borderColor: "color-mix(in srgb, var(--color-outline-variant) 20%, transparent)",
                     }}
                   >
                     <div
-                      className="w-12 h-12 rounded-full flex items-center justify-center mb-6"
-                      style={{ backgroundColor: "color-mix(in srgb, var(--color-primary) 10%, transparent)" }}
+                      className="text-xl md:text-2xl font-black text-center w-full whitespace-pre-line leading-tight"
+                      style={{ fontFamily: "var(--font-headline)", color: "var(--color-primary)" }}
                     >
-                      <span className="material-symbols-outlined" style={{ color: "var(--color-primary)" }}>
-                        {card.icon}
-                      </span>
+                      {stat.value}
                     </div>
-                    <h3
-                      className="text-xl font-bold mb-3"
-                      style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}
-                    >
-                      {card.title}
-                    </h3>
-                    <p className="text-sm leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
-                      {card.desc}
+                    <p className="text-xs mt-2 leading-snug" style={{ color: "var(--color-on-surface-variant)" }}>
+                      {stat.label}
                     </p>
                   </motion.div>
                 ))}
-
-                {/* Full-width Posture card */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.16, ease: easeOut }}
-                  className="md:col-span-2 p-8 rounded-xl"
-                  style={{
-                    backgroundColor: "var(--color-surface-container-lowest)",
-                    boxShadow: "0 2px 12px rgba(45,52,53,0.06)",
-                    borderTop: "4px solid color-mix(in srgb, var(--color-primary) 20%, transparent)",
-                  }}
-                >
-                  <div className="flex flex-col md:flex-row md:items-center gap-6">
-                    <div
-                      className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0"
-                      style={{ backgroundColor: "color-mix(in srgb, var(--color-primary) 10%, transparent)" }}
-                    >
-                      <span className="material-symbols-outlined" style={{ color: "var(--color-primary)" }}>
-                        accessibility_new
-                      </span>
-                    </div>
-                    <div>
-                      <h3
-                        className="text-xl font-bold mb-3"
-                        style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}
-                      >
-                        Posture Correction
-                      </h3>
-                      <p className="text-sm leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
-                        Relieving "mother's back" and neck tension caused by breastfeeding and carrying your baby
-                        through ergonomic education and spinal mobility.
-                      </p>
-                    </div>
-                  </div>
-                </motion.div>
               </div>
             </ScrollReveal>
 
-            {/* Specialized Physiotherapy CTA */}
-            <ScrollReveal delay={0.08}>
-              <div
-                className="p-8 rounded-xl relative overflow-hidden"
-                style={{
-                  background: "linear-gradient(135deg, color-mix(in srgb, var(--color-primary) 10%, transparent), color-mix(in srgb, var(--color-secondary-container) 20%, transparent))",
-                  border: "1px solid color-mix(in srgb, var(--color-primary) 15%, transparent)",
-                }}
-              >
-                <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
-                  <div className="max-w-xl">
-                    <span
-                      className="inline-block px-3 py-1 rounded-full text-xs font-extrabold mb-3 uppercase tracking-wider"
+            {/* Traditional Jaapa vs Modern Recovery */}
+            <ScrollReveal delay={0.05}>
+              <section className="space-y-5">
+                <h2
+                  className="text-2xl md:text-3xl font-bold"
+                  style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-background)" }}
+                >
+                  Traditional Jaapa Care and Modern Recovery Support: Two Ways Motherly Helps
+                </h2>
+                <p className="leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
+                  Motherly offers both traditional jaapa-based postnatal care and evidence-based modern postnatal recovery support in Chennai, because every mother's needs and preferences are different.
+                </p>
+                <div className="grid md:grid-cols-2 gap-5">
+                  {[
+                    {
+                      title: "Traditional jaapa care",
+                      desc: "Rooted in South Indian postpartum tradition, jaapa care includes oil massage (abhyanga), abdominal binding (patt bandhi), special galactagogue cooking, herbal baths, and structured rest protocols. Our japa professionals are trained in authentic practices and respectful of the cultural rituals important to your family.",
+                    },
+                    {
+                      title: "Modern postnatal recovery care",
+                      desc: "Evidence-based postpartum support covering physical recovery assessment, pelvic floor guidance, C-section wound monitoring, breastfeeding support, postnatal depression screening, and newborn care guidance. Ideal for mothers who want professional, clinically informed care alongside or instead of traditional practices.",
+                    },
+                  ].map((type, i) => (
+                    <motion.div
+                      key={type.title}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.45, delay: i * 0.1 }}
+                      className="p-6 rounded-2xl border"
                       style={{
-                        backgroundColor: "var(--color-primary-container)",
-                        color: "var(--color-on-primary-container)",
+                        backgroundColor: "var(--color-surface-container-lowest)",
+                        borderColor: "color-mix(in srgb, var(--color-outline-variant) 20%, transparent)",
                       }}
                     >
-                      Specialized Clinical Care
-                    </span>
-                    <h3
-                      className="text-xl font-bold mb-2"
-                      style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-background)" }}
-                    >
-                      Postnatal Physiotherapy in Chennai
-                    </h3>
-                    <p className="text-sm leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
-                      Restore deep core strength, solve diastasis recti, back pain, and pelvic floor issues.
-                      Book certified in-home or virtual physiotherapy assessments.
-                    </p>
-                  </div>
-                  <Link
-                    href="/our-services/postnatal-recovery-care/physiotherapy"
-                    className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-bold text-sm flex-shrink-0 self-start md:self-center transition-all hover:scale-105"
-                    style={{
-                      backgroundColor: "var(--color-primary)",
-                      color: "var(--color-on-primary)",
-                      fontFamily: "var(--font-headline)",
-                      boxShadow: "0 4px 12px color-mix(in srgb, var(--color-primary) 25%, transparent)",
-                    }}
-                  >
-                    Explore Therapy
-                    <span className="material-symbols-outlined text-base">arrow_forward</span>
-                  </Link>
+                      <h3 className="text-lg font-bold mb-3" style={{ fontFamily: "var(--font-headline)", color: "var(--color-primary)" }}>
+                        {type.title}
+                      </h3>
+                      <p className="text-sm leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
+                        {type.desc}
+                      </p>
+                    </motion.div>
+                  ))}
                 </div>
+              </section>
+            </ScrollReveal>
+
+            {/* What Is Postnatal Recovery Care */}
+            <ScrollReveal delay={0.05}>
+              <section className="space-y-5">
+                <h2
+                  className="text-2xl md:text-3xl font-bold"
+                  style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-background)" }}
+                >
+                  What Is Postnatal Recovery Care and Why It Matters in India
+                </h2>
+                <p className="leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
+                  The first six weeks after delivery, what medical professionals call the <strong>fourth trimester</strong>, is when your body heals, your hormones recalibrate, and your baby establishes feeding patterns. Professional postnatal care during this window is not a luxury. It is evidence-backed support that reduces the risk of postpartum complications, improves breastfeeding outcomes, and supports maternal mental health.
+                </p>
+                <p className="leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
+                  In Chennai, where nuclear families are increasingly common and traditional multi-generational support is not always available, Motherly's postnatal care bridges a genuine gap in the fourth trimester support Chennai mothers need.
+                </p>
+                {/* Callout */}
+                <div
+                  className="p-6 rounded-2xl border-l-4"
+                  style={{
+                    backgroundColor: "color-mix(in srgb, var(--color-secondary-container) 40%, white)",
+                    borderLeftColor: "var(--color-primary)",
+                  }}
+                >
+                  <h4 className="font-bold mb-2" style={{ color: "var(--color-primary)" }}>The jaapa tradition, reimagined</h4>
+                  <p className="text-sm leading-relaxed" style={{ color: "var(--color-on-surface)" }}>
+                    Traditional South Indian jaapa confinement practices are rooted in genuine physiological wisdom. Motherly's postnatal care integrates these time-tested practices with modern evidence-based recovery support, giving Chennai mothers the best of both.
+                  </p>
+                </div>
+              </section>
+            </ScrollReveal>
+
+            {/* What Motherly's Postnatal Care Includes */}
+            <ScrollReveal delay={0.05}>
+              <section className="space-y-6">
+                <div>
+                  <h2
+                    className="text-2xl md:text-3xl font-bold"
+                    style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-background)" }}
+                  >
+                    What Motherly's Postnatal Care Includes
+                  </h2>
+                  <p className="mt-2 leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
+                    Our postnatal recovery care in Chennai covers every dimension of your fourth trimester:
+                  </p>
+                </div>
+                <div className="grid md:grid-cols-2 gap-5">
+                  {[
+                    {
+                      icon: "self_improvement",
+                      title: "Postnatal oil massage",
+                      desc: "Traditional full-body oil massage helps reduce muscle soreness, improve circulation, relieve joint pain, and promote nervous system recovery. Our trained professionals use appropriate oils for your body type and season.",
+                    },
+                    {
+                      icon: "accessibility_new",
+                      title: "Abdominal binding (patt bandhi)",
+                      desc: "Structured abdominal wrapping supports uterine recovery, reduces diastasis recti risk, and helps new mothers feel more physically stable as they move around in the early weeks.",
+                    },
+                    {
+                      icon: "restaurant",
+                      title: "Postnatal diet and nutrition guidance",
+                      desc: "Our professionals advise on warm, easily digestible, lactation-supportive meals using Indian kitchen staples, from ragi kanji and methi ladoos to iron-rich dals suited to the healing body.",
+                    },
+                    {
+                      icon: "favorite",
+                      title: "Breastfeeding support",
+                      desc: "Early postnatal days are when breastfeeding challenges first appear. Our care professionals work alongside our lactation consultants to support latch, positioning, and milk establishment from day one.",
+                    },
+                    {
+                      icon: "psychology",
+                      title: "Emotional wellbeing check-ins",
+                      desc: "Postnatal mood changes and postpartum depression are real and underdiagnosed in Indian women. Our professionals are trained to recognise warning signs and provide empathetic support.",
+                    },
+                    {
+                      icon: "child_care",
+                      title: "Newborn care guidance",
+                      desc: "Bathing, cord care, safe sleep positioning, and reading your baby's hunger cues — your care professional helps you navigate the steep learning curve of the first days with calm, practical guidance.",
+                    },
+                  ].map((item, i) => (
+                    <motion.div
+                      key={item.title}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.45, delay: i * 0.07 }}
+                      className="p-6 rounded-2xl border"
+                      style={{
+                        backgroundColor: "var(--color-surface-container-lowest)",
+                        borderColor: "color-mix(in srgb, var(--color-outline-variant) 20%, transparent)",
+                      }}
+                    >
+                      <span
+                        className="material-symbols-outlined text-2xl mb-3 block"
+                        style={{ color: "var(--color-primary)", fontVariationSettings: "'FILL' 1" }}
+                      >
+                        {item.icon}
+                      </span>
+                      <h4 className="font-bold mb-2" style={{ fontFamily: "var(--font-headline)", color: "var(--color-primary)" }}>
+                        {item.title}
+                      </h4>
+                      <p className="text-sm leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
+                        {item.desc}
+                      </p>
+                    </motion.div>
+                  ))}
+                </div>
+              </section>
+            </ScrollReveal>
+
+
+            {/* Who Benefits Most */}
+            <ScrollReveal delay={0.05}>
+              <section
+                className="rounded-2xl p-8 space-y-5"
+                style={{ backgroundColor: "var(--color-surface-container-low)" }}
+              >
+                <h2
+                  className="text-2xl md:text-3xl font-bold"
+                  style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-background)" }}
+                >
+                  Who Benefits Most From Postnatal Recovery Care
+                </h2>
+                <p className="leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
+                  Every new mother benefits from professional postnatal support. It is particularly valuable if you are:
+                </p>
+                <ul className="space-y-3">
+                  {[
+                    "Recovering from a C-section and need additional physical and practical support",
+                    "Away from your natal family in Chennai and navigating early motherhood without close family support",
+                    "Experiencing breastfeeding difficulties, low milk supply, or latch challenges",
+                    "A first-time mother overwhelmed by the volume of newborn care decisions",
+                    "Experiencing mood changes, tearfulness, or anxiety that may signal postnatal depression",
+                  ].map((point, i) => (
+                    <li key={i} className="flex gap-3 items-start">
+                      <span
+                        className="material-symbols-outlined text-base mt-0.5 shrink-0"
+                        style={{ color: "var(--color-primary)", fontVariationSettings: "'FILL' 1" }}
+                      >
+                        check_circle
+                      </span>
+                      <span className="text-sm leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>{point}</span>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            </ScrollReveal>
+
+            {/* Testimonial */}
+            <ScrollReveal delay={0.05}>
+              <blockquote
+                className="p-7 rounded-2xl border-l-4 italic"
+                style={{ backgroundColor: "color-mix(in srgb, #fef3c7 60%, white)", borderLeftColor: "#d97706" }}
+              >
+                <p className="text-base leading-relaxed" style={{ color: "var(--color-on-surface)" }}>
+                  "I had a C-section and my mother couldn't travel from Coimbatore in time. My Motherly postnatal care professional arrived the day I came home and just took over. The massage, the food, the guidance on how to hold my baby without straining my wound. I genuinely don't know how I would have managed those first two weeks without her."
+                </p>
+                <footer className="mt-4">
+                  <span className="font-bold not-italic" style={{ color: "var(--color-primary)" }}>— Kavitha R.</span>
+                  <span className="text-sm ml-2 not-italic" style={{ color: "var(--color-on-surface-variant)" }}>| New mother, Adyar, Chennai</span>
+                </footer>
+              </blockquote>
+            </ScrollReveal>
+
+            {/* Note on postnatal depression */}
+            <ScrollReveal delay={0.05}>
+              <div
+                className="p-6 rounded-2xl border-l-4"
+                style={{
+                  backgroundColor: "color-mix(in srgb, var(--color-secondary-container) 40%, white)",
+                  borderLeftColor: "var(--color-primary)",
+                }}
+              >
+                <h4 className="font-bold mb-2" style={{ fontFamily: "var(--font-headline)", color: "var(--color-primary)" }}>
+                  A note on postnatal depression
+                </h4>
+                <p className="text-sm leading-relaxed" style={{ color: "var(--color-on-surface)" }}>
+                  Up to 1 in 5 Indian mothers experiences postnatal depression, yet very few receive timely support. Motherly's postnatal care professionals are trained to recognise early warning signs and connect you with specialist resources. You do not have to manage this alone.
+                </p>
               </div>
             </ScrollReveal>
 
-            {/* Why Choose Motherly */}
-            <ScrollReveal delay={0.1}>
-              <div
-                className="p-10 rounded-xl relative overflow-hidden"
-                style={{ backgroundColor: "var(--color-surface-container-low)" }}
-              >
-                <div className="relative z-10">
-                  <h2
-                    className="text-2xl font-bold mb-6"
-                    style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-background)" }}
-                  >
-                    Why Choose Motherly?
-                  </h2>
-                  <ul className="space-y-4">
-                    {[
-                      "Expert women's health physiotherapists with clinical excellence.",
-                      "Flexible scheduling to fit around your baby's needs.",
-                      "Holistic approach combining physical and emotional wellness.",
-                    ].map((item) => (
-                      <li key={item} className="flex items-start gap-3">
-                        <span
-                          className="material-symbols-outlined text-lg mt-0.5"
-                          style={{ color: "var(--color-primary)" }}
-                        >
-                          check_circle
-                        </span>
-                        <span className="font-medium" style={{ color: "var(--color-on-surface-variant)" }}>
-                          {item}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="absolute -right-10 -bottom-10 opacity-10 pointer-events-none select-none">
-                  <span className="material-symbols-outlined" style={{ fontSize: "10rem" }}>spa</span>
-                </div>
-              </div>
-            </ScrollReveal>
           </div>
 
           {/* Right: Booking Form */}
@@ -682,58 +741,9 @@ export default function PostnatalPage() {
           </aside>
         </section>
 
-        {/* ── How to book (HowTo schema content) ── */}
-        <ScrollReveal>
-          <section className="mt-20 space-y-6">
-            <h2
-              className="text-3xl font-bold"
-              style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-background)" }}
-            >
-              How to Access Postnatal Recovery Care Through Motherly
-            </h2>
-            <p className="leading-relaxed max-w-3xl" style={{ color: "var(--color-on-surface-variant)" }}>
-              Steps to book at-home postnatal recovery support in India.
-            </p>
-            <motion.div className="space-y-4">
-              {HOW_TO_STEPS.map((step, idx) => (
-                <motion.div
-                  key={step.num}
-                  initial={{ opacity: 0, y: 16 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: idx * 0.06, ease: easeOut }}
-                  className="p-6 rounded-2xl flex gap-5 border transition-all duration-300 hover:shadow-md"
-                  style={{
-                    backgroundColor: "var(--color-surface-container-lowest)",
-                    borderColor: "color-mix(in srgb, var(--color-outline-variant) 15%, transparent)",
-                  }}
-                >
-                  <div
-                    className="text-3xl font-black shrink-0"
-                    style={{ fontFamily: "var(--font-headline)", color: "var(--color-primary)" }}
-                  >
-                    {step.num}
-                  </div>
-                  <div className="space-y-1">
-                    <h3
-                      className="text-lg font-bold"
-                      style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-background)" }}
-                    >
-                      {step.title}
-                    </h3>
-                    <p className="text-sm leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
-                      {step.text}
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
-            </motion.div>
-          </section>
-        </ScrollReveal>
-
-        {/* ── FAQ (FAQPage schema content) ── */}
+        {/* ── FAQ ── */}
         <ScrollReveal delay={0.1}>
-          <section className="mt-16 space-y-6">
+          <section className="mt-20 space-y-5">
             <h2
               className="text-3xl font-bold"
               style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-background)" }}
@@ -741,19 +751,53 @@ export default function PostnatalPage() {
               Frequently Asked Questions
             </h2>
             <div className="space-y-3">
-              {FAQ_ITEMS.map((faq, idx) => {
+              {[
+                {
+                  q: "When can postnatal massage begin after delivery?",
+                  a: "Postnatal massage typically begins from day 3 to 5 after a normal vaginal delivery. After a C-section, massage is usually introduced after 4 to 6 weeks with doctor clearance. Our professionals always follow your doctor's guidance.",
+                  link: { label: "postpartum care guide", url: "https://www.mothrly.com/blogs/postpartum-care-in-chennai-the-complete-guide-for-new-mothers" },
+                },
+                {
+                  q: "How long does postnatal care last?",
+                  a: "Traditional jaapa lasts 40 days. Many mothers continue with professional support beyond this. Motherly's care is entirely flexible, from a single session to three months of daily visits.",
+                  link: null,
+                },
+                {
+                  q: "Is postnatal care different after a C-section?",
+                  a: "Yes. C-section recovery involves an abdominal incision that affects the timing and type of massage and binding that can be applied. Our professionals are trained in post-operative recovery and adapt all techniques to your specific situation.",
+                  link: null,
+                },
+                {
+                  q: "How much does postnatal recovery care cost in Chennai?",
+                  a: "Costs vary based on the duration of care, visit frequency, and whether you choose traditional jaapa, modern recovery support, or a combined package. Browse transparent, per-visit pricing from verified professionals directly on the Motherly app.",
+                  link: null,
+                },
+                {
+                  q: "Can postnatal care help with breastfeeding?",
+                  a: "Yes. Our care professionals support breastfeeding through positioning guidance, dietary recommendations, and direct coordination with Motherly's lactation consultants when specialist support is needed.",
+                  links: [
+                    { label: "lactation consultant", url: "/our-services/lactation-consultants" },
+                    { label: "foods that increase breast milk", url: "https://www.mothrly.com/blogs/how-to-increase-breast-milk-supply" },
+                  ],
+                },
+              ].map((faq, idx) => {
                 const isOpen = openFaq === idx;
                 return (
                   <motion.div
-                    key={faq.q}
+                    key={idx}
                     initial={{ opacity: 0, y: 12 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.4, delay: idx * 0.05, ease: easeOut }}
                     className="rounded-2xl border overflow-hidden"
                     style={{
-                      backgroundColor: "var(--color-surface-container-low)",
-                      borderColor: "color-mix(in srgb, var(--color-outline-variant) 15%, transparent)",
+                      backgroundColor: isOpen
+                        ? "color-mix(in srgb, var(--color-secondary-container) 30%, white)"
+                        : "var(--color-surface-container-lowest)",
+                      borderColor: isOpen
+                        ? "color-mix(in srgb, var(--color-primary) 20%, transparent)"
+                        : "color-mix(in srgb, var(--color-outline-variant) 15%, transparent)",
+                      transition: "background-color 0.2s, border-color 0.2s",
                     }}
                   >
                     <button
@@ -762,7 +806,10 @@ export default function PostnatalPage() {
                       className="w-full px-6 py-5 flex items-center justify-between text-left font-bold"
                       style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}
                     >
-                      <span className="pr-4">{faq.q}</span>
+                      <span className="pr-4 text-sm md:text-base">
+                        <span className="text-xs font-bold mr-2" style={{ color: "var(--color-primary)" }}>Q{idx + 1}</span>
+                        {faq.q}
+                      </span>
                       <motion.span
                         animate={{ rotate: isOpen ? 180 : 0 }}
                         transition={{ duration: 0.25 }}
@@ -781,13 +828,31 @@ export default function PostnatalPage() {
                           transition={{ duration: 0.25, ease: "easeInOut" }}
                         >
                           <div
-                            className="px-6 pb-5 text-sm leading-relaxed border-t"
-                            style={{
-                              color: "var(--color-on-surface-variant)",
-                              borderColor: "color-mix(in srgb, var(--color-outline-variant) 10%, transparent)",
-                            }}
+                            className="px-6 pb-5 border-t"
+                            style={{ borderColor: "color-mix(in srgb, var(--color-outline-variant) 10%, transparent)" }}
                           >
-                            <p className="pt-4">{faq.a}</p>
+                            <p className="pt-4 text-sm leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
+                              {faq.a}
+                            </p>
+                            {"link" in faq && faq.link && (
+                              <p className="mt-2 text-xs" style={{ color: "var(--color-on-surface-variant)" }}>
+                                Read more:{" "}
+                                <a href={faq.link.url} style={{ color: "var(--color-primary)", textDecoration: "underline" }}>
+                                  {faq.link.label}
+                                </a>
+                              </p>
+                            )}
+                            {"links" in faq && faq.links && (
+                              <p className="mt-2 text-xs" style={{ color: "var(--color-on-surface-variant)" }}>
+                                Read more:{" "}
+                                {faq.links.map((l, li) => (
+                                  <span key={l.label}>
+                                    <a href={l.url} style={{ color: "var(--color-primary)", textDecoration: "underline" }}>{l.label}</a>
+                                    {li < faq.links!.length - 1 && <span className="mx-2">|</span>}
+                                  </span>
+                                ))}
+                              </p>
+                            )}
                           </div>
                         </motion.div>
                       )}
@@ -797,6 +862,38 @@ export default function PostnatalPage() {
               })}
             </div>
           </section>
+        </ScrollReveal>
+
+        {/* ── Book through App CTA ── */}
+        <ScrollReveal delay={0.1}>
+          <div
+            className="mt-12 rounded-2xl p-8 text-center space-y-4"
+            style={{ backgroundColor: "color-mix(in srgb, var(--color-tertiary-container) 40%, white)" }}
+          >
+            <h3
+              className="text-xl md:text-2xl font-bold"
+              style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}
+            >
+              Book through the Motherly app
+            </h3>
+            <p className="text-sm" style={{ color: "var(--color-on-surface-variant)" }}>
+              Browse verified professionals, view profiles and reviews, and book a home visit in minutes.
+            </p>
+            <div className="flex flex-wrap justify-center gap-4 pt-2">
+              <a href="https://play.google.com/store/apps/details?id=com.mothrly" target="_blank" rel="noopener noreferrer">
+                <Image src="/badge-google-play.png" alt="Download on Google Play" width={135} height={40} className="h-10 w-auto object-contain" />
+              </a>
+              <a href="https://apps.apple.com/in/app/motherly-your-birth-companion/id6746041100" target="_blank" rel="noopener noreferrer">
+                <Image src="/badge-app-store.png" alt="Download on the App Store" width={135} height={40} className="h-10 w-auto object-contain" />
+              </a>
+            </div>
+            <p className="text-xs" style={{ color: "var(--color-on-surface-variant)" }}>
+              Or visit{" "}
+              <a href="https://www.mothrly.com" target="_blank" rel="noopener noreferrer" style={{ color: "var(--color-primary)" }}>
+                www.mothrly.com
+              </a>
+            </p>
+          </div>
         </ScrollReveal>
 
         {/* ── Keyword interlinks ── */}
