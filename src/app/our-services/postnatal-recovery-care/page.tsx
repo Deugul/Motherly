@@ -237,7 +237,7 @@ export default function PostnatalPage() {
                   postnatal recovery care
                 </a>{" "}
                 professionals to your home in Chennai. As the trusted postnatal care Chennai mothers depend on, we offer traditional jaapa support and modern recovery guidance, providing the{" "}
-                <span style={{ textDecoration: "underline" }}>fourth trimester</span>{" "}
+                <span>fourth trimester</span>{" "}
                 support Chennai families increasingly choose for a safe, nourished recovery.
               </p>
             </ScrollReveal>
