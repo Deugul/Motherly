@@ -27,6 +27,8 @@ const schema = z.object({
     "Please select a time between 9 AM and 6 PM"
   ),
   message: z.string().optional(),
+  location: z.string().min(2, "Location is required"),
+  pincode: z.string().regex(/^\d{6}$/, "Enter a valid 6-digit pincode"),
 });
 type FormData = z.infer<typeof schema>;
 
@@ -688,6 +690,20 @@ export default function LactationPage() {
                       <label className="block text-sm font-bold ml-1" style={{ color: "var(--color-on-surface-variant)" }}>Phone Number</label>
                       <input {...register("phone")} type="tel" placeholder="10-digit mobile number" maxLength={10} className={inputClass} style={getInputStyle(!!errors.phone)} />
                       {errors.phone && <p className="text-xs ml-1" style={{ color: "var(--color-error)" }}>{errors.phone.message}</p>}
+                    </div>
+
+                    {/* Location + Pincode */}
+                    <div className="grid grid-cols-2 gap-4">
+                      <div className="space-y-1.5">
+                        <label className="block text-sm font-bold ml-1" style={{ color: "var(--color-on-surface-variant)" }}>Location</label>
+                        <input {...register("location")} type="text" placeholder="Area / Neighbourhood" className={inputClass} style={getInputStyle(!!errors.location)} />
+                        {errors.location && <p className="text-xs ml-1" style={{ color: "var(--color-error)" }}>{errors.location.message}</p>}
+                      </div>
+                      <div className="space-y-1.5">
+                        <label className="block text-sm font-bold ml-1" style={{ color: "var(--color-on-surface-variant)" }}>Pincode</label>
+                        <input {...register("pincode")} type="text" placeholder="6-digit pincode" maxLength={6} className={inputClass} style={getInputStyle(!!errors.pincode)} />
+                        {errors.pincode && <p className="text-xs ml-1" style={{ color: "var(--color-error)" }}>{errors.pincode.message}</p>}
+                      </div>
                     </div>
 
                     <div className="grid grid-cols-2 gap-4">
