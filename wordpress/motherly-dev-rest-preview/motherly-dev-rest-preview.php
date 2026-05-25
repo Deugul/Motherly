@@ -133,6 +133,38 @@ register_rest_field(
     )
 );
 
+/**
+ * Meta keywords for Next.js: WordPress post tags first, then Rank Math focus keyword(s).
+ */
+function motherly_rest_seo_keywords(int $post_id): string
+{
+    $parts = array();
+
+    $tags = wp_get_post_tags($post_id, array('fields' => 'names'));
+    if (is_array($tags)) {
+        foreach ($tags as $name) {
+            $name = trim((string) $name);
+            if ($name !== '') {
+                $parts[] = $name;
+            }
+        }
+    }
+
+    if (empty($parts)) {
+        $focus = trim((string) get_post_meta($post_id, 'rank_math_focus_keyword', true));
+        if ($focus !== '') {
+            foreach (preg_split('/[,;]/', $focus) as $kw) {
+                $kw = trim($kw);
+                if ($kw !== '') {
+                    $parts[] = $kw;
+                }
+            }
+        }
+    }
+
+    return implode(', ', array_unique($parts));
+}
+
 register_rest_field(
     'post',
     'rank_math_seo',
@@ -142,7 +174,7 @@ register_rest_field(
             return array(
                 'title'       => (string) get_post_meta($id, 'rank_math_title', true),
                 'description' => (string) get_post_meta($id, 'rank_math_description', true),
-                'keywords'    => (string) get_post_meta($id, 'rank_math_focus_keyword', true),
+                'keywords'    => motherly_rest_seo_keywords($id),
             );
         },
         'schema' => array(

@@ -25,6 +25,41 @@ export function parseRankMathKeywords(raw: string | undefined): string[] | undef
   return list.length > 0 ? list : undefined;
 }
 
+/** WordPress post_tag names from REST `_embed` (Quick Edit → Tags). */
+export function getWpPostTagNames(
+  embedded?: {
+    "wp:term"?: Array<Array<{ name?: string; taxonomy?: string }>>;
+  } | null
+): string[] | undefined {
+  const groups = embedded?.["wp:term"];
+  if (!groups?.length) return undefined;
+
+  const names: string[] = [];
+  for (const group of groups) {
+    for (const term of group) {
+      if (term.taxonomy === "post_tag" && term.name?.trim()) {
+        names.push(term.name.trim());
+      }
+    }
+  }
+  return names.length > 0 ? names : undefined;
+}
+
+function mergeKeywordLists(...lists: (string[] | undefined)[]): string[] | undefined {
+  const seen = new Set<string>();
+  const merged: string[] = [];
+  for (const list of lists) {
+    for (const kw of list ?? []) {
+      const key = kw.toLowerCase();
+      if (!seen.has(key)) {
+        seen.add(key);
+        merged.push(kw);
+      }
+    }
+  }
+  return merged.length > 0 ? merged : undefined;
+}
+
 /** Visible H1 from Rank Math / meta title (strip " | Motherly" suffix). */
 export function displayH1FromMetaTitle(metaTitle: string): string {
   return metaTitle.split("|")[0]?.trim() || metaTitle.trim();
@@ -36,6 +71,9 @@ export function resolveBlogPostSeo(
     title: { rendered: string };
     excerpt: { rendered: string };
     rank_math_seo?: RankMathSeoFromWp | null;
+    _embedded?: {
+      "wp:term"?: Array<Array<{ name?: string; taxonomy?: string }>>;
+    } | null;
   }
 ): ResolvedBlogSeo {
   const staticSeo = getBlogSeo(slug);
@@ -51,8 +89,12 @@ export function resolveBlogPostSeo(
     staticSeo?.metaDescription ||
     stripHtml(post.excerpt.rendered).slice(0, 160).trim();
 
-  const keywords =
-    parseRankMathKeywords(rm?.keywords) ?? staticSeo?.keywords;
+  /** Tags (Quick Edit) = meta keywords; Rank Math focus keyword is a single SEO target. */
+  const keywords = mergeKeywordLists(
+    getWpPostTagNames(post._embedded),
+    parseRankMathKeywords(rm?.keywords),
+    staticSeo?.keywords
+  );
 
   /** Visible page title — always the WordPress post title, not the SEO meta title. */
   const h1 = staticSeo?.h1 || stripHtml(post.title.rendered);

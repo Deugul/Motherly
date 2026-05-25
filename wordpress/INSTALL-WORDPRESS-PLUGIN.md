@@ -36,7 +36,7 @@ Default: `motherly-dev-preview-change-this-to-a-long-random-string`
 
 ## Rank Math SEO in Next.js
 
-After installing/updating the plugin, re-upload `motherly-dev-rest-preview-standalone.php` (or the zip plugin) so WordPress exposes `rank_math_seo` on `/wp-json/wp/v2/posts`. Next.js reads Rank Math title, description, and keywords automatically.
+After installing/updating the plugin, re-upload `motherly-dev-rest-preview-standalone.php` (or the zip plugin) so WordPress exposes `rank_math_seo` on `/wp-json/wp/v2/posts`. Next.js reads Rank Math title and description; **meta keywords** come from **WordPress Tags** (Quick Edit → Tags). Rank Math **Focus Keyword** is only used when the post has no tags.
 
 Until the plugin is updated, SEO for this post is also defined in `src/data/blog-seo.ts` as a fallback.
 

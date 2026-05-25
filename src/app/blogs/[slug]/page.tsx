@@ -38,7 +38,7 @@ type WpPost = {
       alt_text?: string;
       title?: { rendered?: string };
     }>;
-    "wp:term"?: Array<Array<{ id: number; name: string }>>;
+    "wp:term"?: Array<Array<{ id: number; name: string; taxonomy?: string }>>;
     author?: Array<{ name: string }>;
   };
 };
