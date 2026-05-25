@@ -165,7 +165,7 @@ export default function PediatricianPage() {
               <section className="space-y-4">
                 <h2
                   className="text-2xl md:text-3xl font-bold"
-                  style={{ fontFamily: "var(--font-headline)", color: "var(--color-tertiary)" }}
+                  style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}
                 >
                   Expert Baby Care From a Verified Paediatrician, at Home in Chennai
                 </h2>
@@ -259,7 +259,7 @@ export default function PediatricianPage() {
               <section className="space-y-4">
                 <h2
                   className="text-2xl md:text-3xl font-bold"
-                  style={{ fontFamily: "var(--font-headline)", color: "var(--color-tertiary)" }}
+                  style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}
                 >
                   Paediatric Home Visits and Virtual Consultations: Two Ways Motherly Helps
                 </h2>
@@ -311,7 +311,7 @@ export default function PediatricianPage() {
               <section className="space-y-4">
                 <h2
                   className="text-2xl md:text-3xl font-bold"
-                  style={{ fontFamily: "var(--font-headline)", color: "var(--color-tertiary)" }}
+                  style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}
                 >
                   What Motherly's Paediatrician Visits Include
                 </h2>
@@ -349,7 +349,7 @@ export default function PediatricianPage() {
               <section className="space-y-4">
                 <h2
                   className="text-2xl md:text-3xl font-bold"
-                  style={{ fontFamily: "var(--font-headline)", color: "var(--color-tertiary)" }}
+                  style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}
                 >
                   Who Benefits Most From Paediatric Home Visits
                 </h2>

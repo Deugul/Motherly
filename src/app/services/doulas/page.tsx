@@ -394,8 +394,8 @@ export default function DoulaPage() {
                       title: "Prenatal meetings (2nd and 3rd trimester)",
                       text: "Your doula meets you at home 2 to 3 times before your due date. Together you create your birth plan, discuss your fears and hopes, understand the stages of labour, and prepare your birth partner. This is where trust is built.",
                       links: [
-                        { label: "second trimester guide", url: "https://www.mothrly.com/blogs/second-trimester-pregnancy-guide-for-expecting-mothers" },
-                        { label: "third trimester guide", url: "https://www.mothrly.com/blogs/third-trimester-pregnancy-guide-for-expecting-mothers-in-india" },
+                        { label: "second trimester guide", url: "https://www.mothrly.com/blogs/second-trimester-pregnancy-diet-plan" },
+                        { label: "third trimester guide", url: "https://www.mothrly.com/blogs/third-trimester-pregnancy-diet-plan" },
                       ],
                     },
                     {
@@ -415,7 +415,7 @@ export default function DoulaPage() {
                       title: "Immediate postpartum (golden hour)",
                       text: "In the first hour after birth, your doula supports skin-to-skin bonding and the very first breastfeed, a critical window that sets the foundation for a strong breastfeeding journey.",
                       links: [
-                        { label: "breastfeeding rules", url: "https://www.mothrly.com/blogs/breastfeeding-rules-that-every-new-mother-should-know" },
+                        { label: "breastfeeding rules", url: "https://www.mothrly.com/blogs/breastfeeding-rules-every-new-mom-should-know" },
                         { label: "lactation consultants", url: "/our-services/lactation-consultants" },
                       ],
                     },
@@ -490,7 +490,7 @@ export default function DoulaPage() {
                   {[
                     "A first-time mother navigating birth for the first time, without a clear picture of what to expect",
                     "Planning a natural or unmedicated birth and wanting skilled support to stay on that path",
-                    <>Managing anxiety about birth, medical procedures, or a previous difficult experience. Our article on <a href="https://www.mothrly.com/blogs/stress-during-early-pregnancy" style={{ color: "var(--color-primary)", textDecoration: "underline" }}>stress during early pregnancy</a> covers this in detail</>,
+                    <>Managing anxiety about birth, medical procedures, or a previous difficult experience. Our article on <a href="https://www.mothrly.com/blogs/can-stress-cause-miscarriage-in-first-trimester" style={{ color: "var(--color-primary)", textDecoration: "underline" }}>stress during early pregnancy</a> covers this in detail</>,
                     "Away from your natal family in Chennai and without close support nearby",
                     "A mother who had a previous C-section and is aiming for a VBAC (vaginal birth after caesarean)",
                     "Planning a hospital birth but wanting someone who advocates for your birth preferences",

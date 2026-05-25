@@ -160,7 +160,7 @@ export default function NanniesPage() {
               <section className="space-y-4">
                 <h2
                   className="text-2xl md:text-3xl font-bold"
-                  style={{ fontFamily: "var(--font-headline)", color: "var(--color-tertiary)" }}
+                  style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}
                 >
                   Trusted Hands for Your Newborn, Expert Support for You
                 </h2>
@@ -254,7 +254,7 @@ export default function NanniesPage() {
               <section className="space-y-4">
                 <h2
                   className="text-2xl md:text-3xl font-bold"
-                  style={{ fontFamily: "var(--font-headline)", color: "var(--color-tertiary)" }}
+                  style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}
                 >
                   Daytime Nannies and Live-In Overnight Nanny Support: Two Ways Motherly Helps
                 </h2>
@@ -307,7 +307,7 @@ export default function NanniesPage() {
               <section className="space-y-4">
                 <h2
                   className="text-2xl md:text-3xl font-bold"
-                  style={{ fontFamily: "var(--font-headline)", color: "var(--color-tertiary)" }}
+                  style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}
                 >
                   What a Motherly Postnatal Nanny Provides
                 </h2>
@@ -343,7 +343,7 @@ export default function NanniesPage() {
               <section className="space-y-4">
                 <h2
                   className="text-2xl md:text-3xl font-bold"
-                  style={{ fontFamily: "var(--font-headline)", color: "var(--color-tertiary)" }}
+                  style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}
                 >
                   Who Benefits Most From a Postnatal Nanny
                 </h2>

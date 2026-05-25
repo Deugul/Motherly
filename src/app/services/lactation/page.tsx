@@ -78,84 +78,53 @@ export default function LactationPage() {
       <Navbar />
       <main className="pt-24 md:pt-32 pb-10 md:pb-16" style={{ backgroundColor: "var(--color-background)" }}>
 
-        {/* ── Hero ── */}
-        <section className="max-w-7xl mx-auto px-6 md:px-8 mb-16">
-          <ScrollReveal>
-            <div
-              className="relative overflow-hidden rounded-2xl min-h-[420px] flex items-center"
-              style={{ backgroundColor: "var(--color-surface-container-low)" }}
-            >
-              <div className="absolute -right-20 -top-20 w-96 h-96 rounded-full blur-3xl opacity-5 pointer-events-none"
-                style={{ backgroundColor: "var(--color-primary-container)" }} />
-              <div className="absolute -left-10 -bottom-10 w-72 h-72 rounded-full blur-2xl opacity-10 pointer-events-none"
-                style={{ backgroundColor: "var(--color-secondary-container)" }} />
-
-              <div className="grid md:grid-cols-2 gap-12 relative z-10 p-8 md:p-16 items-center w-full">
-                <div>
-                  <span
-                    className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-bold mb-6"
-                    style={{
-                      backgroundColor: "color-mix(in srgb, var(--color-primary-container) 20%, transparent)",
-                      color: "var(--color-primary)",
-                    }}
-                  >
-                    <span className="material-symbols-outlined text-sm">person_heart</span>
-                    Care Services
-                  </span>
-                  <h1
-                    className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-6"
-                    style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}
-                  >
-                    Book a{" "}
-                    <span style={{ color: "var(--color-primary)" }}>Lactation Consultant</span>
-                    <br />in Chennai
-                  </h1>
-                  <p className="text-lg max-w-lg mb-8 leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
-                    Expert breastfeeding support from certified lactation consultants — hands-on home visits and virtual sessions from day one through your entire nursing journey.
-                  </p>
-                  <div className="flex items-center gap-4">
-                    <div className="flex -space-x-3">
-                      {[0, 1].map((i) => (
-                        <Image
-                          key={i}
-                          src="/lactation-hero.jpg"
-                          alt="Consultant"
-                          width={40} height={40}
-                          className="rounded-full border-2 object-cover"
-                          style={{ borderColor: "var(--color-surface-container-lowest)" }}
-                        />
-                      ))}
-                    </div>
-                    <p className="text-sm" style={{ color: "var(--color-on-surface-variant)" }}>
-                      <span className="font-bold" style={{ color: "var(--color-on-surface)" }}>15+</span> Dedicated Consultants
-                    </p>
-                  </div>
-                </div>
-
-                <div className="relative">
-                  <div
-                    className="absolute inset-0 rounded-2xl -rotate-3 scale-105"
-                    style={{ backgroundColor: "color-mix(in srgb, var(--color-primary) 5%, transparent)" }}
-                  />
-                  <div className="relative z-10 w-full aspect-[4/3] rounded-2xl shadow-xl overflow-hidden">
-                    <Image
-                      src="/lactation-hero.jpg"
-                      alt="Lactation consultant supporting a mother and newborn"
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </ScrollReveal>
-        </section>
-
         {/* ── Main Content + Form ── */}
         <section className="max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
 
           {/* Left Column */}
           <div className="lg:col-span-7 space-y-14">
+
+            {/* Hero */}
+            <ScrollReveal>
+              <span
+                className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-bold mb-6"
+                style={{
+                  backgroundColor: "color-mix(in srgb, var(--color-primary-container) 20%, transparent)",
+                  color: "var(--color-primary)",
+                }}
+              >
+                <span className="material-symbols-outlined text-sm">person_heart</span>
+                Care Services
+              </span>
+              <h1
+                className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-6"
+                style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}
+              >
+                Book a{" "}
+                <span style={{ color: "var(--color-primary)" }}>Lactation Consultant</span>
+                <br />in Chennai
+              </h1>
+              <p className="text-lg max-w-lg mb-8 leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
+                Expert breastfeeding support from certified lactation consultants — hands-on home visits and virtual sessions from day one through your entire nursing journey.
+              </p>
+              <div className="flex items-center gap-4">
+                <div className="flex -space-x-3">
+                  {[0, 1].map((i) => (
+                    <Image
+                      key={i}
+                      src="/lactation-hero.jpg"
+                      alt="Consultant"
+                      width={40} height={40}
+                      className="rounded-full border-2 object-cover"
+                      style={{ borderColor: "var(--color-surface-container-lowest)" }}
+                    />
+                  ))}
+                </div>
+                <p className="text-sm" style={{ color: "var(--color-on-surface-variant)" }}>
+                  <span className="font-bold" style={{ color: "var(--color-on-surface)" }}>15+</span> Dedicated Consultants
+                </p>
+              </div>
+            </ScrollReveal>
 
             {/* Intro */}
             <ScrollReveal direction="left">
@@ -213,6 +182,34 @@ export default function LactationPage() {
                     </p>
                   </motion.div>
                 ))}
+              </div>
+            </ScrollReveal>
+
+            {/* Featured Image */}
+            <ScrollReveal delay={0.1} direction="right">
+              <div
+                className="relative overflow-hidden rounded-2xl"
+                style={{ boxShadow: "0 12px 32px rgba(45,52,53,0.1)" }}
+              >
+                <motion.div whileHover={{ scale: 1.04 }} transition={{ duration: 0.6 }}>
+                  <Image
+                    src="/lactation-hero.jpg"
+                    alt="Certified lactation consultant supporting a new mother with breastfeeding at home in Chennai"
+                    width={800}
+                    height={400}
+                    className="w-full h-[360px] object-cover object-top"
+                  />
+                </motion.div>
+                <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.4), transparent)" }} />
+                <div className="absolute bottom-6 left-6 text-white">
+                  <span
+                    className="px-4 py-1 rounded-full text-xs font-bold"
+                    style={{ backgroundColor: "rgba(172,45,94,0.9)", backdropFilter: "blur(8px)" }}
+                  >
+                    Expert Lactation Care
+                  </span>
+                  <h3 className="text-xl font-bold mt-2 italic">Support from day one.</h3>
+                </div>
               </div>
             </ScrollReveal>
 
@@ -386,7 +383,7 @@ export default function LactationPage() {
                     { text: "Persistent nipple pain or cracking beyond the first week", link: null },
                     {
                       text: "Baby not regaining birth weight by 2 weeks",
-                      link: { label: "signs your baby is getting enough milk", url: "https://www.mothrly.com/blogs/breastfeeding-rules-that-every-new-mother-should-know" },
+                      link: { label: "signs your baby is getting enough milk", url: "https://www.mothrly.com/blogs/5-signs-baby-getting-enough-breast-milk" },
                     },
                     { text: "Breast engorgement that is not relieved by feeding or pumping", link: null },
                     { text: "Symptoms of mastitis, including fever, redness, and breast hardness", link: null },

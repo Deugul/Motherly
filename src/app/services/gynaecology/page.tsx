@@ -156,7 +156,7 @@ export default function GynaecologyPage() {
               <section className="space-y-4">
                 <h2
                   className="text-2xl md:text-3xl font-bold"
-                  style={{ fontFamily: "var(--font-headline)", color: "var(--color-tertiary)" }}
+                  style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}
                 >
                   Womens Health Care That Comes to You, on Your Schedule
                 </h2>
@@ -250,7 +250,7 @@ export default function GynaecologyPage() {
               <section className="space-y-4">
                 <h2
                   className="text-2xl md:text-3xl font-bold"
-                  style={{ fontFamily: "var(--font-headline)", color: "var(--color-tertiary)" }}
+                  style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}
                 >
                   Home Visit Consultations and Virtual Appointments: Two Ways Motherly Helps
                 </h2>
@@ -303,7 +303,7 @@ export default function GynaecologyPage() {
               <section className="space-y-4">
                 <h2
                   className="text-2xl md:text-3xl font-bold"
-                  style={{ fontFamily: "var(--font-headline)", color: "var(--color-tertiary)" }}
+                  style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}
                 >
                   What Motherly's Gynaecology Consultations Cover
                 </h2>
@@ -341,7 +341,7 @@ export default function GynaecologyPage() {
               <section className="space-y-4">
                 <h2
                   className="text-2xl md:text-3xl font-bold"
-                  style={{ fontFamily: "var(--font-headline)", color: "var(--color-tertiary)" }}
+                  style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}
                 >
                   Who Benefits Most From Motherly's Gynaecology Services
                 </h2>

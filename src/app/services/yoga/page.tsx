@@ -154,7 +154,7 @@ export default function YogaPage() {
               <section className="space-y-4">
                 <h2
                   className="text-2xl md:text-3xl font-bold"
-                  style={{ fontFamily: "var(--font-headline)", color: "var(--color-tertiary)" }}
+                  style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}
                 >
                   Yoga Designed for Your Body, at Every Stage of the Maternal Journey
                 </h2>
@@ -240,7 +240,7 @@ export default function YogaPage() {
               <section className="space-y-4">
                 <h2
                   className="text-2xl md:text-3xl font-bold"
-                  style={{ fontFamily: "var(--font-headline)", color: "var(--color-tertiary)" }}
+                  style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}
                 >
                   Prenatal Yoga and Postnatal Yoga: Two Ways Motherly Supports You
                 </h2>
@@ -292,7 +292,7 @@ export default function YogaPage() {
               <section className="space-y-3">
                 <h2
                   className="text-2xl md:text-3xl font-bold"
-                  style={{ fontFamily: "var(--font-headline)", color: "var(--color-tertiary)" }}
+                  style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}
                 >
                   Why Yoga Is One of the Most Evidence-Backed Supports in Maternal Care
                 </h2>
@@ -326,7 +326,7 @@ export default function YogaPage() {
               <section className="space-y-4">
                 <h2
                   className="text-2xl md:text-3xl font-bold"
-                  style={{ fontFamily: "var(--font-headline)", color: "var(--color-tertiary)" }}
+                  style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}
                 >
                   What a Motherly Yoga Session Includes
                 </h2>
@@ -364,7 +364,7 @@ export default function YogaPage() {
               <section className="space-y-4">
                 <h2
                   className="text-2xl md:text-3xl font-bold"
-                  style={{ fontFamily: "var(--font-headline)", color: "var(--color-tertiary)" }}
+                  style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}
                 >
                   Who Benefits Most From Motherly's Yoga Services
                 </h2>

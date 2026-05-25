@@ -227,7 +227,7 @@ export default function PhysiotherapyPage() {
               <section className="space-y-6">
                 <h2
                   className="text-2xl md:text-3xl font-bold"
-                  style={{ fontFamily: "var(--font-headline)", color: "var(--color-tertiary)" }}
+                  style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}
                 >
                   Personalised Postpartum Rehabilitation, Helping You Rediscover Strength, Confidence, and Comfort After Childbirth
                 </h2>
@@ -300,7 +300,7 @@ export default function PhysiotherapyPage() {
               <section className="space-y-4">
                 <h2
                   className="text-2xl md:text-3xl font-bold"
-                  style={{ fontFamily: "var(--font-headline)", color: "var(--color-tertiary)" }}
+                  style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}
                 >
                   In-Clinic Physiotherapy and Virtual Sessions: Two Ways Motherly Helps
                 </h2>
@@ -341,7 +341,7 @@ export default function PhysiotherapyPage() {
               <section className="space-y-4">
                 <h2
                   className="text-2xl md:text-3xl font-bold"
-                  style={{ fontFamily: "var(--font-headline)", color: "var(--color-tertiary)" }}
+                  style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}
                 >
                   What Is Postnatal Physiotherapy and Why Every Mother Needs It
                 </h2>
@@ -370,7 +370,7 @@ export default function PhysiotherapyPage() {
               <section className="space-y-4">
                 <h2
                   className="text-2xl md:text-3xl font-bold"
-                  style={{ fontFamily: "var(--font-headline)", color: "var(--color-tertiary)" }}
+                  style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}
                 >
                   Comprehensive Recovery: What Motherly&apos;s Physiotherapists Treat
                 </h2>
@@ -398,7 +398,7 @@ export default function PhysiotherapyPage() {
               <section className="space-y-4">
                 <h2
                   className="text-2xl md:text-3xl font-bold"
-                  style={{ fontFamily: "var(--font-headline)", color: "var(--color-tertiary)" }}
+                  style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}
                 >
                   Your Postnatal Physiotherapy Journey With Motherly
                 </h2>
@@ -421,7 +421,7 @@ export default function PhysiotherapyPage() {
                         {step.num}
                       </div>
                       <div className="space-y-1.5">
-                        <h3 className="text-base font-bold" style={{ color: "var(--color-tertiary)", fontFamily: "var(--font-headline)" }}>
+                        <h3 className="text-base font-bold" style={{ color: "var(--color-on-surface)", fontFamily: "var(--font-headline)" }}>
                           {step.title}
                         </h3>
                         <p className="text-sm leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>{step.desc}</p>
@@ -445,7 +445,7 @@ export default function PhysiotherapyPage() {
               <section className="space-y-4">
                 <h2
                   className="text-2xl md:text-3xl font-bold"
-                  style={{ fontFamily: "var(--font-headline)", color: "var(--color-tertiary)" }}
+                  style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}
                 >
                   Who Benefits Most From Postnatal Physiotherapy
                 </h2>
@@ -518,7 +518,7 @@ export default function PhysiotherapyPage() {
               <section className="space-y-4">
                 <h2
                   className="text-2xl md:text-3xl font-bold"
-                  style={{ fontFamily: "var(--font-headline)", color: "var(--color-tertiary)" }}
+                  style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}
                 >
                   Why Choose Motherly for Postnatal Physiotherapy in Chennai
                 </h2>
@@ -528,7 +528,7 @@ export default function PhysiotherapyPage() {
                 >
                   {WHY_MOTHERLY.map((item) => (
                     <div key={item.title} className="p-5 space-y-2" style={{ backgroundColor: "color-mix(in srgb, var(--color-tertiary-container) 20%, white)" }}>
-                      <h3 className="text-base font-bold" style={{ color: "var(--color-tertiary)", fontFamily: "var(--font-headline)" }}>
+                      <h3 className="text-base font-bold" style={{ color: "var(--color-on-surface)", fontFamily: "var(--font-headline)" }}>
                         {item.title}
                       </h3>
                       <p className="text-sm leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>{item.desc}</p>

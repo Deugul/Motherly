@@ -116,10 +116,13 @@ export default function PostnatalPage() {
         className="pt-24 md:pt-32 pb-12 md:pb-20 px-4 md:px-6 max-w-7xl mx-auto"
         style={{ backgroundColor: "var(--color-surface)" }}
       >
-        {/* ── Hero Section ── */}
-        <section className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-20">
-          {/* Left */}
-          <div className="lg:col-span-7">
+        {/* ── Main Content & Form Grid ── */}
+        <section className="grid grid-cols-1 lg:grid-cols-12 gap-16">
+
+          {/* Left: Content */}
+          <div className="lg:col-span-7 space-y-14">
+
+            {/* Hero */}
             <ScrollReveal>
               <span
                 className="inline-block px-4 py-1.5 rounded-full text-sm font-bold mb-6 tracking-wide"
@@ -164,64 +167,6 @@ export default function PostnatalPage() {
                 ))}
               </div>
             </ScrollReveal>
-          </div>
-
-          {/* Right: rotated image + review card */}
-          <div className="lg:col-span-5 relative">
-            <div
-              className="absolute -top-6 -left-6 w-32 h-32 rounded-full blur-3xl pointer-events-none"
-              style={{ backgroundColor: "color-mix(in srgb, var(--color-primary-container) 20%, transparent)" }}
-            />
-            <ScrollReveal delay={0.1}>
-              <div className="relative z-10 rounded-2xl overflow-hidden" style={{ transform: "rotate(1deg)", boxShadow: "0 12px 32px rgba(45,52,53,0.1)" }}>
-                <MotionImage
-                  whileHover={{ scale: 1.04 }}
-                  transition={{ duration: 0.6 }}
-                  src="/postnatal-hero.jpg"
-                  alt="Physiotherapist guiding a postpartum mother through exercises"
-                  width={800}
-                  height={500}
-                  className="w-full h-[500px] object-cover"
-                />
-              </div>
-              {/* Floating review card */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.4, ease: easeOut }}
-                className="absolute -bottom-10 -right-4 p-6 rounded-xl z-20 max-w-[200px]"
-                style={{
-                  backgroundColor: "var(--color-surface-container-lowest)",
-                  boxShadow: "0 12px 32px rgba(45,52,53,0.12)",
-                }}
-              >
-                <div className="flex gap-0.5 mb-2">
-                  {Array(5).fill(null).map((_, i) => (
-                    <span
-                      key={i}
-                      className="material-symbols-outlined text-sm"
-                      style={{ color: "var(--color-primary)", fontVariationSettings: "'FILL' 1" }}
-                    >
-                      star
-                    </span>
-                  ))}
-                </div>
-                <p className="text-xs font-bold leading-tight" style={{ color: "var(--color-on-surface)" }}>
-                  "The most supportive recovery journey I've ever had."
-                </p>
-                <p className="text-[10px] mt-2" style={{ color: "var(--color-on-surface-variant)" }}>
-                  — Sarah, Mom of two
-                </p>
-              </motion.div>
-            </ScrollReveal>
-          </div>
-        </section>
-
-        {/* ── Main Content & Form Grid ── */}
-        <section className="grid grid-cols-1 lg:grid-cols-12 gap-16">
-
-          {/* Left: Content */}
-          <div className="lg:col-span-7 space-y-14">
 
             {/* Intro */}
             <ScrollReveal>
@@ -274,6 +219,34 @@ export default function PostnatalPage() {
                     </p>
                   </motion.div>
                 ))}
+              </div>
+            </ScrollReveal>
+
+            {/* Featured Image */}
+            <ScrollReveal delay={0.1} direction="right">
+              <div
+                className="relative overflow-hidden rounded-2xl"
+                style={{ boxShadow: "0 12px 32px rgba(45,52,53,0.1)" }}
+              >
+                <MotionImage
+                  whileHover={{ scale: 1.04 }}
+                  transition={{ duration: 0.6 }}
+                  src="/postnatal-hero.jpg"
+                  alt="Postnatal recovery care specialist supporting a mother at home in Chennai"
+                  width={800}
+                  height={400}
+                  className="w-full h-[360px] object-cover object-top"
+                />
+                <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.4), transparent)" }} />
+                <div className="absolute bottom-6 left-6 text-white">
+                  <span
+                    className="px-4 py-1 rounded-full text-xs font-bold"
+                    style={{ backgroundColor: "rgba(172,45,94,0.9)", backdropFilter: "blur(8px)" }}
+                  >
+                    Trusted Postnatal Care
+                  </span>
+                  <h3 className="text-xl font-bold mt-2 italic">Recovery that starts at home.</h3>
+                </div>
               </div>
             </ScrollReveal>
 
