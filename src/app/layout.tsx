@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, Manrope } from "next/font/google";
 import "./globals.css";
 import ScrollToTop from "@/components/ScrollToTop";
+import FontLoader from "@/components/FontLoader";
 import { SOCIAL_PROFILE_URLS } from "@/data/social-links";
 import Script from "next/script";
 
@@ -97,13 +98,9 @@ export default function RootLayout({
           }}
         />
 
-        {/* Preconnect and load Google Material Symbols Outlined Font */}
+        {/* Preconnect to Google Font APIs */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap"
-        />
       </head>
 
       <body className="antialiased" suppressHydrationWarning>
@@ -142,6 +139,7 @@ export default function RootLayout({
           `}
         </Script>
 
+        <FontLoader />
         <ScrollToTop />
         {children}
         <script

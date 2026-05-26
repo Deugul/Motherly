@@ -152,12 +152,9 @@ export default function Navbar() {
               }}
             >
               Services
-              <span
-                className={`material-symbols-outlined transition-transform duration-200 ${servicesOpen ? "rotate-180" : ""}`}
-                style={{ fontSize: "18px" }}
-              >
-                keyboard_arrow_down
-              </span>
+              <svg className={`w-3.5 h-3.5 transition-transform duration-200 ${servicesOpen ? "rotate-180" : ""}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
               <span
                 className="absolute -bottom-1 left-0 h-0.5 rounded-full"
                 style={{
@@ -221,9 +218,15 @@ export default function Navbar() {
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
         >
-          <span className="material-symbols-outlined" style={{ color: "var(--color-primary)" }}>
-            {mobileOpen ? "close" : "menu"}
-          </span>
+          {mobileOpen ? (
+            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="var(--color-primary)" strokeWidth={2.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          ) : (
+            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="var(--color-primary)" strokeWidth={2.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          )}
         </button>
       </div>
 
@@ -256,12 +259,9 @@ export default function Navbar() {
               }}
             >
               Services
-              <span
-                className={`material-symbols-outlined text-lg transition-transform duration-200 ${mobileServicesOpen ? "rotate-180" : ""}`}
-                style={{ color: "var(--color-on-surface-variant)" }}
-              >
-                keyboard_arrow_down
-              </span>
+              <svg className={`w-4 h-4 text-[var(--color-on-surface-variant)] transition-transform duration-200 ${mobileServicesOpen ? "rotate-180" : ""}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
             </button>
 
             <div

@@ -36,7 +36,9 @@ export default function HeroSection() {
                 color: "var(--color-on-secondary-container)",
               }}
             >
-              <span className="material-symbols-outlined text-xs" style={{ color: "var(--color-primary)" }}>ecg_heart</span>
+              <svg className="w-3 h-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="var(--color-primary)" strokeWidth={3}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12h1.5l2.25-4.5L11.25 18l3-10.5 2.25 4.5h3" />
+              </svg>
               Expert Care for Every Step
             </div>
           </div>
@@ -118,7 +120,9 @@ export default function HeroSection() {
                   color: "var(--color-on-secondary-container)",
                 }}
               >
-                <span className="material-symbols-outlined text-sm" style={{ color: "var(--color-primary)" }}>ecg_heart</span>
+                <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="var(--color-primary)" strokeWidth={3}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12h1.5l2.25-4.5L11.25 18l3-10.5 2.25 4.5h3" />
+                </svg>
                 Expert Care for Every Step
               </div>
             </div>
