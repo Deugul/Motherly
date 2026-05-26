@@ -104,16 +104,16 @@ export default function RootLayout({
           rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap"
         />
+      </head>
 
+      <body className="antialiased" suppressHydrationWarning>
         {/* Meta Pixel noscript (GTM/Pixel JavaScript is loaded non-blockingly via next/script below) */}
         <noscript dangerouslySetInnerHTML={{
           __html: `
           <img height="1" width="1" style="display:none"
             src="https://www.facebook.com/tr?id=1626727235196727&ev=PageView&noscript=1" />
         `}} />
-      </head>
 
-      <body className="antialiased" suppressHydrationWarning>
         {/* Google Analytics & Meta Pixel non-blocking script loader */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-MKFG9J3JPM"
