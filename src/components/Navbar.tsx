@@ -4,7 +4,6 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { motion, AnimatePresence } from "framer-motion";
 
 const serviceLinks = [
   { href: "/services/doulas", label: "Doula", icon: "child_friendly" },
@@ -115,12 +114,10 @@ export default function Navbar() {
   };
 
   return (
-    <motion.nav
-      initial={{ y: -80, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? "bg-white/80 backdrop-blur-2xl shadow-md shadow-black/5" : "bg-white/40 backdrop-blur-xl"
-        }`}
+    <nav
+      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+        scrolled ? "bg-white/80 backdrop-blur-2xl shadow-md shadow-black/5" : "bg-white/40 backdrop-blur-xl"
+      }`}
     >
       <div className="flex justify-between items-center px-6 md:px-10 py-4 max-w-7xl mx-auto">
         {/* Logo */}
@@ -155,14 +152,12 @@ export default function Navbar() {
               }}
             >
               Services
-              <motion.span
-                animate={{ rotate: servicesOpen ? 180 : 0 }}
-                transition={{ duration: 0.2 }}
-                className="material-symbols-outlined"
+              <span
+                className={`material-symbols-outlined transition-transform duration-200 ${servicesOpen ? "rotate-180" : ""}`}
                 style={{ fontSize: "18px" }}
               >
                 keyboard_arrow_down
-              </motion.span>
+              </span>
               <span
                 className="absolute -bottom-1 left-0 h-0.5 rounded-full"
                 style={{
@@ -173,36 +168,29 @@ export default function Navbar() {
               />
             </button>
 
-            <AnimatePresence>
-              {servicesOpen && (
-                <motion.div
-                  key="services-panel"
-                  initial={{ opacity: 0, y: 8, scale: 0.97 }}
-                  animate={{ opacity: 1, y: 0, scale: 1 }}
-                  exit={{ opacity: 0, y: 8, scale: 0.97 }}
-                  transition={{ duration: 0.18, ease: "easeOut" }}
-                  className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-64 rounded-2xl border"
-                  style={{
-                    backgroundColor: "white",
-                    borderColor: "color-mix(in srgb, var(--color-outline-variant) 20%, transparent)",
-                    boxShadow: "0 16px 48px rgba(0,0,0,0.12)",
-                  }}
-                >
-                  <div className="py-2">
-                    {serviceLinks.map((s) => (
-                      <DropdownLink
-                        key={s.href}
-                        href={s.href}
-                        label={s.label}
-                        icon={s.icon}
-                        active={pathname === s.href}
-                        onClick={closeAll}
-                      />
-                    ))}
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
+            {servicesOpen && (
+              <div
+                className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-64 rounded-2xl border transition-all duration-200"
+                style={{
+                  backgroundColor: "white",
+                  borderColor: "color-mix(in srgb, var(--color-outline-variant) 20%, transparent)",
+                  boxShadow: "0 16px 48px rgba(0,0,0,0.12)",
+                }}
+              >
+                <div className="py-2">
+                  {serviceLinks.map((s) => (
+                    <DropdownLink
+                      key={s.href}
+                      href={s.href}
+                      label={s.label}
+                      icon={s.icon}
+                      active={pathname === s.href}
+                      onClick={closeAll}
+                    />
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
 
           {links.map((link) => (
@@ -213,10 +201,8 @@ export default function Navbar() {
         {/* CTA */}
         <div className="hidden md:block">
           <Link href="/contact-us">
-            <motion.button
-              whileHover={{ scale: 1.04 }}
-              whileTap={{ scale: 0.96 }}
-              className="px-7 py-3 rounded-full font-bold text-sm tracking-wide"
+            <button
+              className="px-7 py-3 rounded-full font-bold text-sm tracking-wide transition-all duration-300 hover:scale-104 active:scale-96 cursor-pointer"
               style={{
                 fontFamily: "var(--font-plus-jakarta)",
                 backgroundColor: "var(--color-primary)",
@@ -225,7 +211,7 @@ export default function Navbar() {
               }}
             >
               Contact Us
-            </motion.button>
+            </button>
           </Link>
         </div>
 
@@ -242,109 +228,96 @@ export default function Navbar() {
       </div>
 
       {/* Mobile menu */}
-      <AnimatePresence>
-        {mobileOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="md:hidden overflow-hidden bg-white/95 backdrop-blur-xl border-t"
-            style={{ borderColor: "var(--color-outline-variant)" }}
+      <div
+        className={`md:hidden overflow-hidden bg-white/95 backdrop-blur-xl border-t transition-all duration-300 ${
+          mobileOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0 pointer-events-none"
+        }`}
+        style={{ borderColor: "var(--color-outline-variant)" }}
+      >
+        <div className="px-6 py-6 flex flex-col gap-1">
+          <Link
+            href="/"
+            onClick={() => setMobileOpen(false)}
+            className="text-base font-semibold py-2"
+            style={{ fontFamily: "var(--font-plus-jakarta)", color: pathname === "/" ? "var(--color-primary)" : "var(--color-on-surface)" }}
           >
-            <div className="px-6 py-6 flex flex-col gap-1">
-              <Link
-                href="/"
-                onClick={() => setMobileOpen(false)}
-                className="text-base font-semibold py-2"
-                style={{ fontFamily: "var(--font-plus-jakarta)", color: pathname === "/" ? "var(--color-primary)" : "var(--color-on-surface)" }}
+            Home
+          </Link>
+
+          {/* Mobile Services accordion */}
+          <div>
+            <button
+              onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+              className="w-full flex items-center justify-between text-base font-semibold py-2"
+              style={{
+                fontFamily: "var(--font-plus-jakarta)",
+                color: isServicesActive ? "var(--color-primary)" : "var(--color-on-surface)",
+                background: "none", border: "none", cursor: "pointer",
+              }}
+            >
+              Services
+              <span
+                className={`material-symbols-outlined text-lg transition-transform duration-200 ${mobileServicesOpen ? "rotate-180" : ""}`}
+                style={{ color: "var(--color-on-surface-variant)" }}
               >
-                Home
-              </Link>
+                keyboard_arrow_down
+              </span>
+            </button>
 
-              {/* Mobile Services accordion */}
-              <div>
-                <button
-                  onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
-                  className="w-full flex items-center justify-between text-base font-semibold py-2"
-                  style={{
-                    fontFamily: "var(--font-plus-jakarta)",
-                    color: isServicesActive ? "var(--color-primary)" : "var(--color-on-surface)",
-                    background: "none", border: "none", cursor: "pointer",
-                  }}
-                >
-                  Services
-                  <motion.span
-                    animate={{ rotate: mobileServicesOpen ? 180 : 0 }}
-                    className="material-symbols-outlined text-lg"
-                    style={{ color: "var(--color-on-surface-variant)" }}
-                  >
-                    keyboard_arrow_down
-                  </motion.span>
-                </button>
-
-                <AnimatePresence>
-                  {mobileServicesOpen && (
-                    <motion.div
-                      initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: "auto" }}
-                      exit={{ opacity: 0, height: 0 }}
-                      transition={{ duration: 0.2 }}
-                      className="overflow-hidden pl-4 flex flex-col gap-1"
-                    >
-                      {serviceLinks.map((s) => (
-                        <Link
-                          key={s.href}
-                          href={s.href}
-                          onClick={() => { setMobileOpen(false); setMobileServicesOpen(false); }}
-                          className="flex items-center gap-3 py-2.5 text-sm font-semibold"
-                          style={{
-                            fontFamily: "var(--font-plus-jakarta)",
-                            color: pathname === s.href ? "var(--color-primary)" : "var(--color-on-surface-variant)",
-                          }}
-                        >
-                          <span className="material-symbols-outlined text-lg" style={{ color: "var(--color-primary)" }}>
-                            {s.icon}
-                          </span>
-                          {s.label}
-                        </Link>
-                      ))}
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
-
-              {links.map((link) => (
+            <div
+              className={`overflow-hidden pl-4 flex flex-col gap-1 transition-all duration-300 ${
+                mobileServicesOpen ? "max-h-[350px] opacity-100" : "max-h-0 opacity-0 pointer-events-none"
+              }`}
+            >
+              {serviceLinks.map((s) => (
                 <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setMobileOpen(false)}
-                  className="text-base font-semibold py-2"
+                  key={s.href}
+                  href={s.href}
+                  onClick={() => { setMobileOpen(false); setMobileServicesOpen(false); }}
+                  className="flex items-center gap-3 py-2.5 text-sm font-semibold"
                   style={{
                     fontFamily: "var(--font-plus-jakarta)",
-                    color: pathname === link.href ? "var(--color-primary)" : "var(--color-on-surface)",
+                    color: pathname === s.href ? "var(--color-primary)" : "var(--color-on-surface-variant)",
                   }}
                 >
-                  {link.label}
+                  <span className="material-symbols-outlined text-lg" style={{ color: "var(--color-primary)" }}>
+                    {s.icon}
+                  </span>
+                  {s.label}
                 </Link>
               ))}
-
-              <Link href="/contact-us" onClick={() => setMobileOpen(false)}>
-                <button
-                  className="w-full mt-3 px-6 py-3 rounded-full font-bold text-sm"
-                  style={{
-                    fontFamily: "var(--font-plus-jakarta)",
-                    backgroundColor: "var(--color-primary)",
-                    color: "var(--color-on-primary)",
-                  }}
-                >
-                  Contact Us
-                </button>
-              </Link>
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.nav>
+          </div>
+
+          {links.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              onClick={() => setMobileOpen(false)}
+              className="text-base font-semibold py-2"
+              style={{
+                fontFamily: "var(--font-plus-jakarta)",
+                color: pathname === link.href ? "var(--color-primary)" : "var(--color-on-surface)",
+              }}
+            >
+              {link.label}
+            </Link>
+          ))}
+
+          <Link href="/contact-us" onClick={() => setMobileOpen(false)}>
+            <button
+              className="w-full mt-3 px-6 py-3 rounded-full font-bold text-sm"
+              style={{
+                fontFamily: "var(--font-plus-jakarta)",
+                backgroundColor: "var(--color-primary)",
+                color: "var(--color-on-primary)",
+              }}
+            >
+              Contact Us
+            </button>
+          </Link>
+        </div>
+      </div>
+    </nav>
   );
 }
