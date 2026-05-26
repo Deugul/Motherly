@@ -208,6 +208,19 @@ const nextConfig: NextConfig = {
       ...legacyBlogRedirects,
     ];
   },
+  async headers() {
+    return [
+      {
+        source: "/:path*\\.(jpg|jpeg|gif|png|svg|ico|webp|avif|woff2)",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
+    ];
+  },
 };
 
 export default nextConfig;

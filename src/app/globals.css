@@ -492,3 +492,36 @@ h1, h2, h3, h4, h5, h6 {
     filter: blur(40px);
   }
 }
+
+/* ── Hero entrance animations (Native CSS / GPU accelerated) ── */
+@keyframes heroFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-hero-fade {
+  opacity: 0;
+  animation: heroFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.hero-delay-100 {
+  animation-delay: 100ms;
+}
+
+.hero-delay-200 {
+  animation-delay: 200ms;
+}
+
+.hero-delay-300 {
+  animation-delay: 300ms;
+}
+
+.hero-delay-400 {
+  animation-delay: 400ms;
+}

@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, Manrope } from "next/font/google";
 import "./globals.css";
-import FontLoader from "@/components/FontLoader";
 import ScrollToTop from "@/components/ScrollToTop";
 import { SOCIAL_PROFILE_URLS } from "@/data/social-links";
 import Script from "next/script";
@@ -98,8 +97,13 @@ export default function RootLayout({
           }}
         />
 
-        {/* Preload the Hero Background Image for fast mobile LCP */}
-        <link rel="preload" as="image" href="/hero-bg.jpg" />
+        {/* Preconnect and load Google Material Symbols Outlined Font */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap"
+        />
 
         {/* Meta Pixel noscript (GTM/Pixel JavaScript is loaded non-blockingly via next/script below) */}
         <noscript dangerouslySetInnerHTML={{
@@ -113,9 +117,9 @@ export default function RootLayout({
         {/* Google Analytics & Meta Pixel non-blocking script loader */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-MKFG9J3JPM"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
-        <Script id="google-analytics" strategy="afterInteractive">
+        <Script id="google-analytics" strategy="lazyOnload">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
@@ -123,7 +127,7 @@ export default function RootLayout({
             gtag('config', 'G-MKFG9J3JPM');
           `}
         </Script>
-        <Script id="meta-pixel" strategy="afterInteractive">
+        <Script id="meta-pixel" strategy="lazyOnload">
           {`
             !function(f,b,e,v,n,t,s)
             {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -138,7 +142,6 @@ export default function RootLayout({
           `}
         </Script>
 
-        <FontLoader />
         <ScrollToTop />
         {children}
         <script
