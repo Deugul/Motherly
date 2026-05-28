@@ -7,6 +7,14 @@ type BlogSeoExtrasProps = {
 };
 
 type JsonObject = Record<string, unknown>;
+type SafeFaqQuestion = {
+  "@type": "Question";
+  name: string;
+  acceptedAnswer: {
+    "@type": "Answer";
+    text: string;
+  };
+};
 
 function toPlainText(value: unknown): string {
   if (typeof value !== "string") return "";
@@ -45,9 +53,9 @@ function buildSafeFaqSchema(input: unknown): JsonObject | null {
           "@type": "Answer",
           text: answerText,
         },
-      };
+      } satisfies SafeFaqQuestion;
     })
-    .filter((item): item is JsonObject => Boolean(item));
+    .filter((item): item is SafeFaqQuestion => item !== null);
 
   if (safeQuestions.length === 0) return null;
 
