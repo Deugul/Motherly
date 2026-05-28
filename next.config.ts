@@ -60,6 +60,21 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
+        source: "/S",
+        destination: "/services",
+        permanent: true,
+      },
+      {
+        source: "/s",
+        destination: "/services",
+        permanent: true,
+      },
+      {
+        source: "/:legacyId(\\d+)",
+        destination: "/blogs/:legacyId",
+        permanent: true,
+      },
+      {
         source: "/our-services/lactation-consultants",
         destination: "/services/lactation-consultants",
         permanent: true,
