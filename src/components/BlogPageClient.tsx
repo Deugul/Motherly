@@ -288,12 +288,57 @@ export default function BlogPageClient({
                 <p className="text-lg" style={{ color: "var(--color-on-surface-variant)" }}>
                   {featuredPost.excerpt}
                 </p>
-                <div className="pt-4 flex items-center gap-4">
-                  <div className="w-10 h-10 rounded-full" style={{ backgroundColor: "var(--color-primary-container)" }} />
-                  <div>
-                    <p className="text-sm font-bold" style={{ color: "var(--color-on-surface)" }}>{featuredPost.author}</p>
-                    <p className="text-xs" style={{ color: "var(--color-on-surface-variant)" }}>{featuredPost.authorRole}</p>
+                <div
+                  className="mt-2 rounded-2xl px-4 py-3 flex items-center justify-between gap-3"
+                  style={{
+                    backgroundColor: "color-mix(in srgb, var(--color-primary-container) 22%, white)",
+                    border: "1px solid color-mix(in srgb, var(--color-primary) 16%, transparent)",
+                  }}
+                >
+                  <div className="flex items-center gap-3">
+                    <div
+                      className="relative w-12 h-12 rounded-full p-[2px]"
+                      style={{
+                        background:
+                          "linear-gradient(145deg, color-mix(in srgb, var(--color-primary) 55%, white), color-mix(in srgb, var(--color-tertiary) 45%, white))",
+                        boxShadow: "0 10px 24px color-mix(in srgb, var(--color-primary) 25%, transparent)",
+                      }}
+                    >
+                      <div
+                        className="w-full h-full rounded-full flex items-center justify-center bg-white"
+                      >
+                        <Image
+                          src="/logo.png"
+                          alt="Motherly logo"
+                          width={32}
+                          height={32}
+                          className="object-contain"
+                          priority
+                        />
+                      </div>
+                    </div>
+                    <div>
+                      <p className="text-[11px] uppercase tracking-widest font-semibold" style={{ color: "var(--color-primary)" }}>
+                        Author
+                      </p>
+                      <p className="text-base font-extrabold leading-tight" style={{ color: "var(--color-on-surface)", letterSpacing: "0.01em" }}>
+                        {featuredPost.author}
+                      </p>
+                      <p className="text-xs mt-0.5" style={{ color: "var(--color-on-surface-variant)" }}>
+                        {featuredPost.authorRole}
+                      </p>
+                    </div>
                   </div>
+                  <span
+                    className="inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[11px] font-semibold"
+                    style={{
+                      backgroundColor: "color-mix(in srgb, var(--color-primary) 12%, white)",
+                      color: "var(--color-primary)",
+                    }}
+                  >
+                    <span className="material-symbols-outlined text-sm">verified</span>
+                    Verified
+                  </span>
                 </div>
               </div>
             </div>
@@ -324,9 +369,9 @@ export default function BlogPageClient({
                 onClick={
                   !post.slug && !post.wpId
                     ? (e) => {
-                        e.preventDefault();
-                        setSelectedPost(post);
-                      }
+                      e.preventDefault();
+                      setSelectedPost(post);
+                    }
                     : undefined
                 }
                 className="group block rounded-2xl"
