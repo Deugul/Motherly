@@ -116,7 +116,6 @@ async function fetchAllWordPressBlogPosts(): Promise<SitemapWpPost[]> {
     const { data, ok } = await fetchWordPress<SitemapWpPost[]>("/posts", params);
     if (!ok || !Array.isArray(data) || data.length === 0) break;
     posts.push(...data);
-    if (data.length < perPage) break;
   }
 
   return posts;
