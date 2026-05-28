@@ -60,7 +60,13 @@ export const metadata: Metadata = {
 
 const APPLE_APP_ID = "6746041100";
 const APP_STORE_RATING_COUNT =
-  process.env.NEXT_PUBLIC_APP_STORE_RATING_COUNT ?? "4.5";
+  process.env.NEXT_PUBLIC_APP_STORE_RATING_COUNT ?? "200";
+const APP_STORE_RATING_VALUE =
+  process.env.NEXT_PUBLIC_APP_STORE_RATING_VALUE ?? "4.9";
+const APP_STORE_BEST_RATING =
+  process.env.NEXT_PUBLIC_APP_STORE_BEST_RATING ?? "5";
+const APP_STORE_WORST_RATING =
+  process.env.NEXT_PUBLIC_APP_STORE_WORST_RATING ?? "1";
 
 export default function RootLayout({
   children,
@@ -91,7 +97,9 @@ export default function RootLayout({
               },
               aggregateRating: {
                 "@type": "AggregateRating",
-                ratingValue: "4.5",
+                ratingValue: APP_STORE_RATING_VALUE,
+                bestRating: APP_STORE_BEST_RATING,
+                worstRating: APP_STORE_WORST_RATING,
                 ratingCount: APP_STORE_RATING_COUNT,
               },
             }),
@@ -163,6 +171,13 @@ export default function RootLayout({
               geo: { "@type": "GeoCoordinates", latitude: 13.0827, longitude: 80.2707 },
               areaServed: "Chennai",
               priceRange: "₹₹",
+              aggregateRating: {
+                "@type": "AggregateRating",
+                ratingValue: APP_STORE_RATING_VALUE,
+                bestRating: APP_STORE_BEST_RATING,
+                worstRating: APP_STORE_WORST_RATING,
+                ratingCount: APP_STORE_RATING_COUNT,
+              },
               sameAs: [
                 ...SOCIAL_PROFILE_URLS,
                 "https://play.google.com/store/apps/details?id=com.mothrly",

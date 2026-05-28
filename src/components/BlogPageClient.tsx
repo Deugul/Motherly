@@ -329,7 +329,7 @@ export default function BlogPageClient({
                       </p>
                     </div>
                   </div>
-                  <span
+                  {/* <span
                     className="inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[11px] font-semibold"
                     style={{
                       backgroundColor: "color-mix(in srgb, var(--color-primary) 12%, white)",
@@ -338,7 +338,7 @@ export default function BlogPageClient({
                   >
                     <span className="material-symbols-outlined text-sm">verified</span>
                     Verified
-                  </span>
+                  </span> */}
                 </div>
               </div>
             </div>
