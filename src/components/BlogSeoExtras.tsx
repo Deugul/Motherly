@@ -61,6 +61,7 @@ function buildSafeFaqSchema(input: unknown): JsonObject | null {
 export default function BlogSeoExtras({ seo }: BlogSeoExtrasProps) {
   const howTo = seo.howToSchema;
   const faqSchema = buildSafeFaqSchema(seo.faqSchema);
+  const shouldRenderFaqSchema = process.env.NEXT_PUBLIC_ENABLE_FAQ_SCHEMA === "true";
 
   return (
     <>
@@ -102,7 +103,7 @@ export default function BlogSeoExtras({ seo }: BlogSeoExtrasProps) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(howTo) }}
         />
       )}
-      {faqSchema && (
+      {shouldRenderFaqSchema && faqSchema && (
         <script
           id="blog-faq-schema"
           type="application/ld+json"
