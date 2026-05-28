@@ -265,6 +265,11 @@ export default async function BlogPostPage({
   const resolved = resolveBlogPostSeo(slug, post);
   const bodyHtml = prepareWpContentHtml(getWordPressPostBodyHtml(post));
   const title = resolved.h1;
+  const isCanonicalSlugRoute =
+    !isWordPressPostIdSegment(slug) &&
+    typeof post.slug === "string" &&
+    post.slug.trim().toLowerCase() === slug.trim().toLowerCase();
+  const shouldRenderBlogSeoExtras = Boolean(staticSeo) && isCanonicalSlugRoute;
   const image = post._embedded?.["wp:featuredmedia"]?.[0]?.source_url;
   const altText =
     post._embedded?.["wp:featuredmedia"]?.[0]?.alt_text?.trim() || title;
@@ -401,7 +406,7 @@ export default async function BlogPostPage({
             </p>
           )}
 
-          {staticSeo && <BlogSeoExtras seo={staticSeo} />}
+          {shouldRenderBlogSeoExtras && staticSeo && <BlogSeoExtras seo={staticSeo} />}
         </article>
 
         {/* Keep Reading */}

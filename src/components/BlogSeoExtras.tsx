@@ -6,8 +6,61 @@ type BlogSeoExtrasProps = {
   seo: BlogSeoEntry;
 };
 
+type JsonObject = Record<string, unknown>;
+
+function toPlainText(value: unknown): string {
+  if (typeof value !== "string") return "";
+  return value
+    .replace(/<[^>]*>/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function buildSafeFaqSchema(input: unknown): JsonObject | null {
+  if (!input || typeof input !== "object") return null;
+  const schema = input as JsonObject;
+  const mainEntity = Array.isArray(schema.mainEntity) ? schema.mainEntity : [];
+  const seenQuestions = new Set<string>();
+
+  const safeQuestions = mainEntity
+    .map((entity) => {
+      if (!entity || typeof entity !== "object") return null;
+      const question = entity as JsonObject;
+      const name = toPlainText(question.name);
+      const acceptedAnswer =
+        question.acceptedAnswer && typeof question.acceptedAnswer === "object"
+          ? (question.acceptedAnswer as JsonObject)
+          : null;
+      const answerText = toPlainText(acceptedAnswer?.text);
+
+      if (!name || !answerText) return null;
+      const dedupeKey = name.toLowerCase();
+      if (seenQuestions.has(dedupeKey)) return null;
+      seenQuestions.add(dedupeKey);
+
+      return {
+        "@type": "Question",
+        name,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: answerText,
+        },
+      };
+    })
+    .filter((item): item is JsonObject => Boolean(item));
+
+  if (safeQuestions.length === 0) return null;
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: safeQuestions,
+  };
+}
+
 export default function BlogSeoExtras({ seo }: BlogSeoExtrasProps) {
   const howTo = seo.howToSchema;
+  const faqSchema = buildSafeFaqSchema(seo.faqSchema);
 
   return (
     <>
@@ -44,14 +97,18 @@ export default function BlogSeoExtras({ seo }: BlogSeoExtrasProps) {
 
       {howTo && (
         <script
+          id="blog-howto-schema"
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(howTo) }}
         />
       )}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(seo.faqSchema) }}
-      />
+      {faqSchema && (
+        <script
+          id="blog-faq-schema"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      )}
     </>
   );
 }
