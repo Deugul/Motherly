@@ -59,14 +59,33 @@ export const metadata: Metadata = {
 };
 
 const APPLE_APP_ID = "6746041100";
-const APP_STORE_RATING_COUNT =
-  process.env.NEXT_PUBLIC_APP_STORE_RATING_COUNT ?? "200";
-const APP_STORE_RATING_VALUE =
-  process.env.NEXT_PUBLIC_APP_STORE_RATING_VALUE ?? "4.9";
-const APP_STORE_BEST_RATING =
-  process.env.NEXT_PUBLIC_APP_STORE_BEST_RATING ?? "5";
-const APP_STORE_WORST_RATING =
-  process.env.NEXT_PUBLIC_APP_STORE_WORST_RATING ?? "1";
+
+function parseFloatOrDefault(value: string | undefined, fallback: number): number {
+  const parsed = Number.parseFloat(value ?? "");
+  return Number.isFinite(parsed) ? parsed : fallback;
+}
+
+function parseIntOrDefault(value: string | undefined, fallback: number): number {
+  const parsed = Number.parseInt(value ?? "", 10);
+  return Number.isInteger(parsed) && parsed > 0 ? parsed : fallback;
+}
+
+const APP_STORE_RATING_VALUE = parseFloatOrDefault(
+  process.env.NEXT_PUBLIC_APP_STORE_RATING_VALUE,
+  4.9,
+);
+const APP_STORE_BEST_RATING = parseFloatOrDefault(
+  process.env.NEXT_PUBLIC_APP_STORE_BEST_RATING,
+  5,
+);
+const APP_STORE_WORST_RATING = parseFloatOrDefault(
+  process.env.NEXT_PUBLIC_APP_STORE_WORST_RATING,
+  1,
+);
+const APP_STORE_RATING_COUNT = parseIntOrDefault(
+  process.env.NEXT_PUBLIC_APP_STORE_RATING_COUNT,
+  200,
+);
 
 export default function RootLayout({
   children,
