@@ -3,6 +3,7 @@ import { readdir } from "node:fs/promises";
 import path from "node:path";
 import { BLOG_SEO } from "@/data/blog-seo";
 import { SERVICE_SEO } from "@/data/service-seo";
+import { fetchWordPress } from "@/lib/wordpress";
 
 import { SITE_ORIGIN } from "@/lib/site-url";
 
@@ -93,11 +94,60 @@ function buildServiceEntries(now: Date): MetadataRoute.Sitemap {
   }));
 }
 
-function buildBlogEntries(now: Date): MetadataRoute.Sitemap {
-  return Object.keys(BLOG_SEO).map((slug) => ({
-    url: `${BASE_URL}/blogs/${slug}`,
-    lastModified: now,
-    changeFrequency: "weekly",
+type SitemapWpPost = {
+  slug?: string;
+  modified?: string;
+  date?: string;
+  status?: string;
+};
+
+async function fetchAllWordPressBlogPosts(): Promise<SitemapWpPost[]> {
+  const posts: SitemapWpPost[] = [];
+  const perPage = 100;
+
+  for (let page = 1; page <= 20; page += 1) {
+    const params = new URLSearchParams({
+      per_page: String(perPage),
+      page: String(page),
+      orderby: "date",
+      order: "desc",
+      _fields: "slug,modified,date,status",
+    });
+    const { data, ok } = await fetchWordPress<SitemapWpPost[]>("/posts", params);
+    if (!ok || !Array.isArray(data) || data.length === 0) break;
+    posts.push(...data);
+    if (data.length < perPage) break;
+  }
+
+  return posts;
+}
+
+async function buildBlogEntries(now: Date): Promise<MetadataRoute.Sitemap> {
+  const wpPosts = await fetchAllWordPressBlogPosts();
+  const blogMap = new Map<string, Date>();
+
+  for (const post of wpPosts) {
+    if (post.status && post.status !== "publish") continue;
+    const slug = post.slug?.trim();
+    if (!slug) continue;
+    const lastModified = post.modified ?? post.date;
+    const parsedDate = lastModified ? new Date(lastModified) : now;
+    blogMap.set(
+      `${BASE_URL}/blogs/${slug}`,
+      Number.isNaN(parsedDate.getTime()) ? now : parsedDate,
+    );
+  }
+
+  if (blogMap.size === 0) {
+    for (const slug of Object.keys(BLOG_SEO)) {
+      blogMap.set(`${BASE_URL}/blogs/${slug}`, now);
+    }
+  }
+
+  return Array.from(blogMap.entries()).map(([url, lastModified]) => ({
+    url,
+    lastModified,
+    changeFrequency: "daily",
     priority: 0.8,
   }));
 }
@@ -110,9 +160,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     left.localeCompare(right),
   );
 
+  const blogEntries = await buildBlogEntries(now);
+
   return [
     ...buildStaticEntries(dedupedRoutes, now),
     ...buildServiceEntries(now),
-    ...buildBlogEntries(now),
+    ...blogEntries,
   ];
 }
