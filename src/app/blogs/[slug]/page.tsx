@@ -4,6 +4,7 @@ import WpContent from "@/components/WpContent";
 import BlogSeoExtras from "@/components/BlogSeoExtras";
 import Image from "next/image";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { getBlogSeo, normalizeSeoUrl } from "@/data/blog-seo";
 import { SITE_ORIGIN } from "@/lib/site-url";
@@ -246,20 +247,7 @@ export default async function BlogPostPage({
   ]);
 
   if (!post) {
-    return (
-      <>
-        <Navbar />
-        <main className="pt-40 pb-20 max-w-3xl mx-auto px-6 text-center">
-          <h1 className="text-3xl font-bold mb-6" style={{ color: "var(--color-on-surface)" }}>
-            Post not found
-          </h1>
-          <Link href="/blogs" className="text-sm font-semibold" style={{ color: "var(--color-primary)" }}>
-            ← Back to Blogs
-          </Link>
-        </main>
-        <Footer />
-      </>
-    );
+    notFound();
   }
 
   const resolved = resolveBlogPostSeo(slug, post);
