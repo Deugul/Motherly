@@ -12,6 +12,14 @@ export const revalidate = 300;
 const BASE_URL = SITE_ORIGIN;
 
 const EXCLUDED_SEGMENTS = new Set(["keystatic", "blog-admin"]);
+const REDIRECT_ROUTE_PREFIXES = ["/our-services/"];
+const REDIRECT_ROUTE_PATHS = new Set([
+  "/our-services",
+  "/contact-us",
+  "/terms-and-conditions-motherly",
+  "/privacy-policy-motherly",
+  "/refund-policy-motherly",
+]);
 
 /** Routes that 308 to a canonical service URL — omit from sitemap. */
 const LEGACY_SERVICE_ALIASES = new Set([
@@ -40,6 +48,12 @@ function isExcludedRoute(route: string): boolean {
   const segments = route.split("/").filter(Boolean);
   if (segments.length === 0) {
     return false;
+  }
+  if (REDIRECT_ROUTE_PATHS.has(route)) {
+    return true;
+  }
+  if (REDIRECT_ROUTE_PREFIXES.some((prefix) => route.startsWith(prefix))) {
+    return true;
   }
   if (LEGACY_SERVICE_ALIASES.has(route)) {
     return true;
