@@ -7,6 +7,8 @@ import { fetchWordPress } from "@/lib/wordpress";
 
 import { SITE_ORIGIN } from "@/lib/site-url";
 
+export const revalidate = 300;
+
 const BASE_URL = SITE_ORIGIN;
 
 const EXCLUDED_SEGMENTS = new Set(["keystatic", "blog-admin"]);
@@ -27,7 +29,10 @@ const CANONICAL_SERVICE_PATHS = new Set<string>(
 
 function toRouteFromPageFile(filePath: string): string {
   const relativePath = path.relative(path.join(process.cwd(), "src", "app"), filePath);
-  const routePath = relativePath.replace(/\\/g, "/").replace(/\/page\.tsx$/, "");
+  const routePath = relativePath
+    .replace(/\\/g, "/")
+    .replace(/(^|\/)page\.tsx$/, "")
+    .replace(/\/+$/, "");
   return routePath === "" ? "/" : `/${routePath}`;
 }
 
