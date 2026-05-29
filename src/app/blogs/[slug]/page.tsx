@@ -9,6 +9,7 @@ import type { Metadata } from "next";
 import { getBlogSeo, normalizeSeoUrl } from "@/data/blog-seo";
 import { SITE_ORIGIN } from "@/lib/site-url";
 import { getWordPressPostBodyHtml } from "@/lib/wordpress-content";
+import { stripWpFaqSchemaFromHtml } from "@/lib/strip-wp-faq-schema";
 import {
   demoteContentHeadings,
   resolveBlogPostSeo,
@@ -188,8 +189,12 @@ function sanitizeWpHtml(html: string): string {
     .replace(/<div\s+class="mb-tags"[^>]*>\s*(?:<a\b[^>]*>[\s\S]*?<\/a>\s*)*<\/div>/gi, "");
 }
 
-function prepareWpContentHtml(html: string): string {
-  return demoteContentHeadings(sanitizeWpHtml(html));
+function prepareWpContentHtml(html: string, stripWpFaqSchema = false): string {
+  const sanitized = sanitizeWpHtml(html);
+  const withoutDuplicateFaq = stripWpFaqSchema
+    ? stripWpFaqSchemaFromHtml(sanitized)
+    : sanitized;
+  return demoteContentHeadings(withoutDuplicateFaq);
 }
 
 export async function generateMetadata({
@@ -251,13 +256,19 @@ export default async function BlogPostPage({
   }
 
   const resolved = resolveBlogPostSeo(slug, post);
-  const bodyHtml = prepareWpContentHtml(getWordPressPostBodyHtml(post));
   const title = resolved.h1;
   const isCanonicalSlugRoute =
     !isWordPressPostIdSegment(slug) &&
     typeof post.slug === "string" &&
     post.slug.trim().toLowerCase() === slug.trim().toLowerCase();
   const shouldRenderBlogSeoExtras = Boolean(staticSeo) && isCanonicalSlugRoute;
+  const emitFaqSchema =
+    shouldRenderBlogSeoExtras &&
+    process.env.NEXT_PUBLIC_ENABLE_FAQ_SCHEMA === "true";
+  const bodyHtml = prepareWpContentHtml(
+    getWordPressPostBodyHtml(post),
+    emitFaqSchema,
+  );
   const image = post._embedded?.["wp:featuredmedia"]?.[0]?.source_url;
   const altText =
     post._embedded?.["wp:featuredmedia"]?.[0]?.alt_text?.trim() || title;
@@ -394,7 +405,9 @@ export default async function BlogPostPage({
             </p>
           )}
 
-          {shouldRenderBlogSeoExtras && staticSeo && <BlogSeoExtras seo={staticSeo} />}
+          {shouldRenderBlogSeoExtras && staticSeo && (
+            <BlogSeoExtras seo={staticSeo} emitFaqSchema={emitFaqSchema} />
+          )}
         </article>
 
         {/* Keep Reading */}

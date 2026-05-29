@@ -4,6 +4,8 @@ import { normalizeSeoUrl } from "@/data/blog-seo";
 
 type BlogSeoExtrasProps = {
   seo: BlogSeoEntry;
+  /** When true, emit one FAQPage JSON-LD block from blog-seo data. */
+  emitFaqSchema?: boolean;
 };
 
 type JsonObject = Record<string, unknown>;
@@ -66,10 +68,10 @@ function buildSafeFaqSchema(input: unknown): JsonObject | null {
   };
 }
 
-export default function BlogSeoExtras({ seo }: BlogSeoExtrasProps) {
+export default function BlogSeoExtras({ seo, emitFaqSchema = false }: BlogSeoExtrasProps) {
   const howTo = seo.howToSchema;
   const faqSchema = buildSafeFaqSchema(seo.faqSchema);
-  const shouldRenderFaqSchema = process.env.NEXT_PUBLIC_ENABLE_FAQ_SCHEMA === "true";
+  const shouldRenderFaqSchema = emitFaqSchema && Boolean(faqSchema);
 
   return (
     <>
