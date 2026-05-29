@@ -210,12 +210,12 @@ export async function generateMetadata({
   const resolved = post
     ? resolveBlogPostSeo(slug, post)
     : {
-        metaTitle: staticSeo!.metaTitle,
-        metaDescription: staticSeo!.metaDescription,
-        keywords: staticSeo!.keywords,
-        h1: staticSeo!.h1,
-        canonical: staticSeo!.canonical,
-      };
+      metaTitle: staticSeo!.metaTitle,
+      metaDescription: staticSeo!.metaDescription,
+      keywords: staticSeo!.keywords,
+      h1: staticSeo!.h1,
+      canonical: staticSeo!.canonical,
+    };
 
   const canonical = normalizeSeoUrl(resolved.canonical);
   const image = post?._embedded?.["wp:featuredmedia"]?.[0]?.source_url;
