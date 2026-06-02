@@ -34,7 +34,7 @@ const schema = z.object({
 type FormData = z.infer<typeof schema>;
 
 const inputClass =
-  "w-full h-14 px-4 rounded-md text-sm font-medium outline-none border-2 transition-all duration-200";
+  "w-full h-10 px-4 rounded-md text-sm font-medium outline-none border-2 transition-all duration-200";
 
 function getInputStyle(hasError?: boolean) {
   return {
@@ -529,7 +529,7 @@ export default function GynaecologyPage() {
               <h2 className="text-2xl font-bold mb-2" style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}>
                 Send an Enquiry
               </h2>
-              <p className="text-sm mb-8" style={{ color: "var(--color-on-surface-variant)" }}>
+              <p className="text-sm mb-3" style={{ color: "var(--color-on-surface-variant)" }}>
                 Tell us about your needs and we'll be in touch.
               </p>
 
@@ -549,7 +549,7 @@ export default function GynaecologyPage() {
                     <button onClick={() => setSubmitted(false)} className="mt-2 px-6 py-2.5 rounded-full text-sm font-bold" style={{ fontFamily: "var(--font-headline)", backgroundColor: "var(--color-primary)", color: "var(--color-on-primary)" }}>Submit Another</button>
                   </motion.div>
                 ) : (
-                  <motion.form key="form" initial={{ opacity: 0 }} animate={{ opacity: 1 }} onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+                  <motion.form key="form" initial={{ opacity: 0 }} animate={{ opacity: 1 }} onSubmit={handleSubmit(onSubmit)} className="space-y-3">
                     {/* Service */}
                     <div>
                       <label className="block text-sm font-bold mb-2" style={{ color: "var(--color-on-surface-variant)" }}>Select Service</label>
@@ -617,7 +617,7 @@ export default function GynaecologyPage() {
                     {/* Message */}
                     <div>
                       <label className="block text-sm font-bold mb-2" style={{ color: "var(--color-on-surface-variant)" }}>Message</label>
-                      <textarea {...register("message")} rows={3} placeholder="Share any specific concerns or details..." className="w-full p-4 rounded-md text-sm font-medium outline-none border-2 resize-none transition-all" style={getInputStyle()} />
+                      <textarea {...register("message")} rows={2} placeholder="Share any specific concerns or details..." className="w-full p-4 rounded-md text-sm font-medium outline-none border-2 resize-none transition-all" style={getInputStyle()} />
                     </div>
 
                     {/* Submit */}

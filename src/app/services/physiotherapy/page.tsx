@@ -34,7 +34,7 @@ const schema = z.object({
 type FormData = z.infer<typeof schema>;
 
 const inputClass =
-  "w-full px-4 py-3.5 rounded-md text-sm font-medium outline-none border-2 transition-all duration-200";
+  "w-full px-4 py-2 rounded-md text-sm font-medium outline-none border-2 transition-all duration-200";
 
 function getInputStyle(hasError?: boolean) {
   return {
@@ -687,7 +687,7 @@ export default function PhysiotherapyPage() {
                 >
                   Send an Enquiry
                 </h2>
-                <p className="text-sm mb-8" style={{ color: "var(--color-on-surface-variant)" }}>
+                <p className="text-sm mb-3" style={{ color: "var(--color-on-surface-variant)" }}>
                   Tell us about your needs and we&apos;ll be in touch.
                 </p>
 
@@ -728,7 +728,7 @@ export default function PhysiotherapyPage() {
                     <motion.form
                       key="form"
                       onSubmit={handleSubmit(onSubmit)}
-                      className="space-y-5"
+                      className="space-y-3"
                       initial={{ opacity: 1 }}
                     >
                       <div className="space-y-1.5">
@@ -793,7 +793,7 @@ export default function PhysiotherapyPage() {
                         </label>
                         <textarea
                           {...register("message")}
-                          rows={3}
+                          rows={2}
                           placeholder="Tell us about your specific concern or recovery goal..."
                           className={inputClass}
                           style={{ ...getInputStyle(false), resize: "none" }}

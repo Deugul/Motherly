@@ -34,7 +34,7 @@ const schema = z.object({
 type FormData = z.infer<typeof schema>;
 
 const inputClass =
-  "w-full px-4 py-3 rounded-md text-sm font-medium outline-none border-2 transition-all duration-200";
+  "w-full px-4 py-2 rounded-md text-sm font-medium outline-none border-2 transition-all duration-200";
 
 function getInputStyle(hasError?: boolean) {
   return {
@@ -530,7 +530,7 @@ export default function PediatricianPage() {
                 setFormActive(true);
               }}
               onBlur={(e) => { if (!e.currentTarget.contains(e.relatedTarget as Node)) setFormActive(false); }}
-              className="p-8 rounded-2xl border"
+              className="p-5 rounded-2xl border"
               style={{
                 backgroundColor: "var(--color-surface-container-lowest)",
                 borderColor: "color-mix(in srgb, var(--color-outline-variant) 20%, transparent)",
@@ -543,7 +543,7 @@ export default function PediatricianPage() {
               >
                 Send an Enquiry
               </h3>
-              <p className="mb-8 text-sm" style={{ color: "var(--color-on-surface-variant)" }}>
+              <p className="mb-3 text-sm" style={{ color: "var(--color-on-surface-variant)" }}>
                 Tell us about your child's needs and we'll be in touch.
               </p>
 
@@ -593,7 +593,7 @@ export default function PediatricianPage() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     onSubmit={handleSubmit(onSubmit)}
-                    className="space-y-5"
+                    className="space-y-3"
                   >
                     {/* Service */}
                     <div className="space-y-1.5">
@@ -747,7 +747,7 @@ export default function PediatricianPage() {
                       </label>
                       <textarea
                         {...register("message")}
-                        rows={3}
+                        rows={2}
                         placeholder="Any health concerns or symptoms we should know about..."
                         className={`${inputClass} resize-none`}
                         style={getInputStyle()}
@@ -760,7 +760,7 @@ export default function PediatricianPage() {
                       disabled={isSubmitting}
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.97 }}
-                      className="w-full py-4 rounded-xl font-bold text-lg flex items-center justify-center gap-2 mt-4"
+                      className="w-full py-3 rounded-xl font-bold text-base flex items-center justify-center gap-2 mt-3"
                       style={{
                         fontFamily: "var(--font-headline)",
                         background: isSubmitting ? "var(--color-outline)" : "linear-gradient(135deg, #ba0e56 0%, #f4447f 100%)",

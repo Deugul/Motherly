@@ -16,13 +16,19 @@ export async function POST(req: NextRequest) {
     const data = await req.json();
     const webhookUrl = getWebhook(data.formType ?? "");
 
+    const { phone, location, pincode, ...rest } = data;
+    const payload = {
+      ...rest,
+      ...(phone !== undefined && { "Phone number": phone }),
+      ...(location !== undefined && { "Location": location }),
+      ...(pincode !== undefined && { "Pincode": pincode }),
+      timestamp: new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" }),
+    };
+
     const response = await fetch(webhookUrl, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        ...data,
-        timestamp: new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" }),
-      }),
+      body: JSON.stringify(payload),
     });
 
     const result = await response.json();

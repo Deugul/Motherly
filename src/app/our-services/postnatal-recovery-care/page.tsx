@@ -37,7 +37,7 @@ const schema = z.object({
 type FormData = z.infer<typeof schema>;
 
 const inputClass =
-  "w-full px-4 py-3.5 rounded-md text-sm font-medium outline-none border-2 transition-all duration-200";
+  "w-full px-4 py-2 rounded-md text-sm font-medium outline-none border-2 transition-all duration-200";
 
 function getInputStyle(hasError?: boolean) {
   return {
@@ -501,7 +501,7 @@ export default function PostnatalPage() {
                 >
                   Send an Enquiry
                 </h2>
-                <p className="text-sm mb-8" style={{ color: "var(--color-on-surface-variant)" }}>
+                <p className="text-sm mb-3" style={{ color: "var(--color-on-surface-variant)" }}>
                   Tell us about your needs and we'll be in touch.
                 </p>
 
@@ -551,7 +551,7 @@ export default function PostnatalPage() {
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       onSubmit={handleSubmit(onSubmit)}
-                      className="space-y-5"
+                      className="space-y-3"
                     >
                       {/* Service */}
                       <div className="space-y-1.5">
@@ -672,7 +672,7 @@ export default function PostnatalPage() {
                         </label>
                         <textarea
                           {...register("message")}
-                          rows={3}
+                          rows={2}
                           placeholder="Tell us about your concerns..."
                           className={`${inputClass} resize-none`}
                           style={getInputStyle()}
@@ -685,7 +685,7 @@ export default function PostnatalPage() {
                         disabled={isSubmitting}
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.97 }}
-                        className="w-full py-4 rounded-xl font-extrabold text-lg flex items-center justify-center gap-2 mt-4"
+                        className="w-full py-3 rounded-xl font-extrabold text-base flex items-center justify-center gap-2 mt-3"
                         style={{
                           fontFamily: "var(--font-headline)",
                           background: isSubmitting

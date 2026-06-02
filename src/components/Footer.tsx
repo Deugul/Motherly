@@ -22,6 +22,8 @@ const services = [
   { label: "Nutrition & Pediatrics", href: "/services/pediatrician" },
   { label: "Prenatal Yoga", href: "/services/yoga" },
   { label: "Physiotherapy", href: "/services/postnatal-recovery-care/physiotherapy" },
+  { label: "Baby Care", href: "/services/baby-care" },
+  { label: "Mother Care", href: "/services/mother-care" },
 ];
 
 export default function Footer() {

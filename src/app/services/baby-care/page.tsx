@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useRef, useLayoutEffect } from "react";
-import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -47,58 +46,97 @@ function getInputStyle(hasError?: boolean) {
 
 const easeOut: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
 
-const NANNY_PROVIDES = [
+const BABY_CARE_PROVIDES = [
   {
-    title: "Newborn care (bathing, cord, skin)",
-    desc: "Safe newborn bathing techniques, umbilical cord care, nappy changes, and skin care using gentle, appropriate products. Your nanny handles these with trained confidence so you can observe and learn.",
+    icon: "baby_changing_station",
+    title: "Safe Bathing & Hygiene",
+    desc: "Gentle newborn bathing, cord stump care, nappy hygiene, and skin care for newborn skin appropriate to Chennai's climate.",
   },
   {
-    title: "Feeding support",
-    desc: "Your nanny supports breastfeeding by helping with positioning and timing, and handles bottle feeding or expressed milk feeds so you can sleep. She recognises hunger and satiation cues and maintains your preferred feeding log.",
+    icon: "nutrition",
+    title: "Feeding Support",
+    desc: "Breastfeeding positioning, paced bottle feeding, burping techniques, and coordination with a lactation consultant for complex cases.",
   },
   {
-    title: "Safe sleep support",
-    desc: "Your nanny applies safe sleep practices at every nap and night sleep, placing baby correctly, monitoring temperature, and supporting sleep environment safety based on current evidence.",
+    icon: "bedtime",
+    title: "Sleep Routine",
+    desc: "Age-appropriate sleep routine establishment, safe sleep education (back position, firm flat surface), and settling techniques for newborns.",
   },
   {
-    title: "Night support",
-    desc: "Many families engage their Motherly nanny for overnight or night-shift support, handling settling, feeding, and nappy changes so the mother can sleep in longer unbroken stretches.",
+    icon: "child_care",
+    title: "Baby Massage",
+    desc: "Traditional Indian oil massage using sesame or coconut oil, promoting weight gain, digestion, sleep, and the parent-baby bond.",
+  },
+];
+
+const JOURNEY_STAGES = [
+  {
+    num: 1,
+    title: "First days home from hospital",
+    text: "Your Baby Care specialist can be present from day one, ensuring your newborn is bathed, fed, and settled safely while you recover from birth.",
+    link: null,
   },
   {
-    title: "Light household support",
-    desc: "Preparing lactation-supportive meals, sterilising feeding equipment, managing baby laundry, and keeping the nursery organised, your nanny handles the practical load that makes the rest of recovery possible.",
+    num: 2,
+    title: "Weeks one to four (newborn period)",
+    text: "Daily in-home support covering cord care, bathing, feeding assistance, and monitoring for jaundice or early illness signs with escalation to a paediatrician when needed.",
+    link: { label: "paediatrician in Chennai", url: "/services/pediatrician" },
   },
   {
-    title: "Sibling support",
-    desc: "For families with older children, your nanny helps manage the transition, supervising older siblings during feeds or settling, and ensuring the household continues to function smoothly.",
+    num: 3,
+    title: "Weeks four to twelve (early infancy)",
+    text: "Sleep routine development, introduction of a daily schedule, continued feeding support, and age-appropriate developmental stimulation.",
+    link: { label: "lactation consultants", url: "/services/lactation-consultants" },
   },
+  {
+    num: 4,
+    title: "Three months to one year (ongoing infant care)",
+    text: "Milestone tracking guidance, weaning support, developmental stimulation, and continued professional oversight through Motherly's virtual consultation service.",
+    link: null,
+  },
+];
+
+const WHO_IS_IT_FOR = [
+  "First-time parents who are unsure about safe bathing, feeding, or sleep practices for a newborn",
+  "Parents of twins or multiple infants who need additional trained hands-on support",
+  "Managing a premature baby or a baby with special health needs requiring extra monitoring",
+  "Experiencing postnatal exhaustion and wanting to ensure your baby is professionally supervised while you recover",
+  "Away from extended family in Chennai and without a traditional support system for the early weeks",
+  "Concerned about colic, reflux, feeding difficulties, or slow weight gain in your baby",
 ];
 
 const FAQS = [
   {
-    q: "When should I book a postnatal nanny?",
-    a: "Book during your third trimester, ideally by week 32 to 34. Good postnatal nannies fill quickly, especially for popular due date windows. Booking early allows time for a prenatal introduction meeting.",
-    readMore: { label: "postpartum care in Chennai", href: "https://www.mothrly.com/blogs/postpartum-care-in-chennai-the-complete-guide-for-new-mothers" },
+    q: "How much does Baby Care cost in Chennai?",
+    a: "Baby Care pricing at Motherly depends on whether you choose in-home daily care, overnight newborn support, or virtual consultations, and the duration of engagement. Overnight care is priced separately from daytime visits. Please use the Motherly app or contact us for a customised quote based on your baby's age, your location in Chennai, and your family's specific needs.",
   },
   {
-    q: "What is the difference between a postnatal nanny and a japa maid?",
-    a: "A japa maid provides traditional postpartum care including cooking and massage. A Motherly postnatal nanny specialises in newborn care, infant safety, and feeding support. Many families find using both provides comprehensive coverage.",
+    q: "How is a Motherly Baby Care specialist different from a regular nanny or ayah?",
+    a: "A regular nanny or domestic ayah is not trained in newborn physiology, safe sleep practices, feeding science, or medical monitoring. Motherly's Baby Care specialists are certified newborn care professionals who can identify early warning signs of illness or developmental concerns that an untrained caregiver would miss, and they know when to escalate to a paediatrician.",
   },
   {
-    q: "Can a nanny help with twins or multiples?",
-    a: "Yes. We have nannies with specific experience caring for twins and triplets. Please mention this when browsing profiles and we will ensure appropriate experience matching.",
+    q: "Do you offer overnight Baby Care in Chennai?",
+    a: "Yes. Overnight Baby Care is one of our most requested services, particularly for exhausted mothers in the first few weeks after delivery. A Motherly Baby Care specialist can manage night feeds, settling, and monitoring so you can rest and recover. Overnight shifts are available across Chennai through the Motherly app.",
   },
   {
-    q: "How much does a postnatal nanny services cost in Chennai?",
-    a: "Costs vary based on shift type (daytime, overnight, live-in), experience level, and duration of engagement. Browse transparent, current pricing on each nanny's profile directly through the Motherly app.",
+    q: "Can Baby Care specialists help with colic and reflux?",
+    a: "Yes. Our specialists are trained to identify feeding-related causes of colic and apply soothing techniques that calm a colicky baby. For suspected reflux, your specialist will coordinate with Motherly's paediatric network to ensure your baby receives appropriate medical evaluation.",
   },
   {
-    q: "My mother-in-law is staying with us. Will a nanny create conflict?",
-    a: "Our nannies are trained to integrate respectfully into multi-generational households. They take direction from parents and work collaboratively with family members rather than in competition with them.",
+    q: "At what age can I use Baby Care services?",
+    a: "Motherly's Baby Care services are available from birth through the first year of life. Our specialists are experienced with newborns from day one. For babies older than one year, our service transitions into toddler care guidance, which can be discussed during your initial consultation.",
+  },
+  {
+    q: "Is Baby Care available if I have twins?",
+    a: "Motherly can arrange specialist support for twin care. Depending on your needs, we may recommend two specialists for round-the-clock coverage or one experienced newborn specialist trained in managing multiple infants. Please contact us to discuss your specific twin care requirements.",
+  },
+  {
+    q: "Do you provide Baby Care across all areas of Chennai?",
+    a: "Motherly provides in-home Baby Care services across Chennai including Mylapore, Adyar, Anna Nagar, T. Nagar, Velachery, Nungambakkam, Porur, Sholinganallur, and surrounding areas. Use the Motherly app to confirm availability in your pincode.",
   },
 ];
 
-export default function NanniesPage() {
+export default function BabyCarePage() {
   const [submitted, setSubmitted] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [formActive, setFormActive] = useState(false);
@@ -123,7 +161,7 @@ export default function NanniesPage() {
     await fetch("/api/submit", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ formType: "Service Bookings", page: "Nanny Care", ...data }),
+      body: JSON.stringify({ formType: "Service Bookings", page: "Baby Care", ...data }),
     });
     setSubmitted(true);
     reset();
@@ -133,17 +171,15 @@ export default function NanniesPage() {
     <>
       <Navbar />
       <main
-        className="pt-28 md:pt-32 pb-20 px-4 sm:px-6 max-w-7xl mx-auto"
+        className="pt-24 md:pt-32 pb-12 md:pb-20 px-4 md:px-6 max-w-7xl mx-auto"
         style={{ backgroundColor: "var(--color-surface)" }}
       >
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
 
-          {/* ── Left Column ── */}
-          <div className="lg:col-span-7 space-y-10 lg:space-y-14">
+          <div className="lg:col-span-7 space-y-14">
 
-            {/* H1 */}
             <ScrollReveal>
-              <section>
+              <section className="relative">
                 <div
                   className="absolute -top-10 -left-10 w-40 h-40 rounded-full blur-3xl opacity-60 pointer-events-none"
                   style={{ backgroundColor: "color-mix(in srgb, var(--color-primary-container) 20%, transparent)" }}
@@ -152,48 +188,26 @@ export default function NanniesPage() {
                   className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight"
                   style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-background)" }}
                 >
-                  Nanny Services <span style={{ color: "var(--color-primary)" }}>in Chennai</span>
+                  Book a{" "}
+                  <span style={{ color: "var(--color-primary)" }}>Baby Care Specialist</span>
+                  {" "}in Chennai
                 </h1>
-              </section>
-            </ScrollReveal>
-
-            {/* H2 + Intro */}
-            <ScrollReveal direction="left">
-              <section className="space-y-4">
-                <h2
-                  className="text-2xl md:text-3xl font-bold"
-                  style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}
+                <p
+                  className="text-base md:text-lg mt-4 leading-relaxed"
+                  style={{ color: "var(--color-on-surface-variant)" }}
                 >
-                  Trusted Hands for Your Newborn, Expert Support for You
-                </h2>
-                <p className="text-base leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
-                  Motherly connects Chennai families with verified, trained{" "}
-                  <Link href="https://www.mothrly.com/services/nanny-services" style={{ color: "var(--color-primary)" }}>
-                    Nanny Services in Chennai
-                  </Link>
-                  . As the most trusted newborn care Chennai families rely on, we provide both daytime
-                  and live-in newborn nanny support Chennai parents need, giving new mothers the space
-                  to rest and recover during the most demanding weeks of early parenthood.
-                </p>
-                <p className="text-sm leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
-                  See also:{" "}
-                  <a href="https://mothrly.com/blogs/postpartum-care-in-chennai-the-complete-guide-for-new-mothers" style={{ color: "var(--color-primary)", textDecoration: "underline" }}>postpartum care Chennai</a>,{" "}
-                  <a href="https://mothrly.com/blogs/newborn-sleep-patterns-what-to-expect-in-the-third-month" style={{ color: "var(--color-primary)", textDecoration: "underline" }}>newborn sleep patterns</a>,{" "}
-                  <a href="https://www.mothrly.com/our-services/postnatal-Recovery-care" style={{ color: "var(--color-primary)", textDecoration: "underline" }}>postnatal care</a>,{" "}
-                  <a href="https://www.mothrly.com/our-services/lactation-consultants" style={{ color: "var(--color-primary)", textDecoration: "underline" }}>lactation consultants service</a>, and{" "}
-                  <a href="https://www.mothrly.com/our-services/doulas" style={{ color: "var(--color-primary)", textDecoration: "underline" }}>doulas</a>.
+                  Expert newborn care from verified Baby Care specialists — in-home bathing, feeding support, sleep routines, and traditional baby massage from day one through your baby's first year.
                 </p>
               </section>
             </ScrollReveal>
 
-            {/* Stats row */}
             <ScrollReveal direction="left">
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
                 {[
-                  { value: "40 Days", label: "Traditional Indian newborn care period requiring dedicated support" },
-                  { value: "85%", label: "New mothers report significant sleep deprivation in the first 4 weeks" },
-                  { value: "Day 1", label: "Motherly nannies available from your first day home" },
-                  { value: "Verified", label: "Every nanny background-checked and trained before joining Motherly" },
+                  { value: "98%", label: "Parents felt more confident with their newborn" },
+                  { value: "40+", label: "Verified Baby Care specialists across Chennai" },
+                  { value: "24/7", label: "Overnight Baby Care available on request" },
+                  { value: "0–12", label: "Months Baby age supported by our specialists" },
                 ].map((stat, i) => (
                   <motion.div
                     key={stat.value}
@@ -221,7 +235,6 @@ export default function NanniesPage() {
               </div>
             </ScrollReveal>
 
-            {/* Featured Image */}
             <ScrollReveal delay={0.1} direction="right">
               <div
                 className="relative overflow-hidden rounded-2xl"
@@ -229,8 +242,8 @@ export default function NanniesPage() {
               >
                 <motion.div whileHover={{ scale: 1.04 }} transition={{ duration: 0.6 }}>
                   <Image
-                    src="/nannies-hero.jpg"
-                    alt="A caring Motherly nanny providing attentive newborn support at home in Chennai"
+                    src="/baby-care.png"
+                    alt="A Motherly Baby Care specialist providing gentle newborn care at home in Chennai"
                     width={800}
                     height={400}
                     className="w-full h-[360px] object-cover object-top"
@@ -242,39 +255,51 @@ export default function NanniesPage() {
                     className="px-4 py-1 rounded-full text-xs font-bold"
                     style={{ backgroundColor: "rgba(172,45,94,0.9)", backdropFilter: "blur(8px)" }}
                   >
-                    Our Care
+                    Expert Newborn Care
                   </span>
                   <h3 className="text-xl font-bold mt-2 italic" style={{ fontFamily: "var(--font-headline)" }}>
-                    Every newborn deserves a gentle pair of hands.
+                    Care from day one.
                   </h3>
                 </div>
               </div>
             </ScrollReveal>
 
-            {/* Daytime vs Overnight */}
+            <ScrollReveal direction="left">
+              <section className="space-y-4">
+                <h2
+                  className="text-2xl md:text-3xl font-bold"
+                  style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}
+                >
+                  Expert Baby Care That Goes Beyond Babysitting
+                </h2>
+                <p className="text-base leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
+                  Motherly connects new parents in Chennai with trained, verified newborn care specialists and Baby Care professionals. As the trusted newborn care Chennai families rely on, we provide continuous Baby Care Chennai parents need, from the first hours home through the critical first year of your baby's life.
+                </p>
+                <p className="text-sm leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
+                  See also:{" "}
+                  <a href="/services/pediatrician" style={{ color: "var(--color-primary)", textDecoration: "underline" }}>paediatrician in Chennai</a>,{" "}
+                  <a href="/services/lactation-consultants" style={{ color: "var(--color-primary)", textDecoration: "underline" }}>lactation consultant</a>, and Mother Care services.
+                </p>
+              </section>
+            </ScrollReveal>
+
             <ScrollReveal direction="right">
               <section className="space-y-4">
                 <h2
                   className="text-2xl md:text-3xl font-bold"
                   style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}
                 >
-                  Daytime Nannies and Live-In Overnight Nanny Support: Two Ways Motherly Helps
+                  In-Home Newborn Care and Virtual Consultations: Two Ways Motherly Supports Your Baby
                 </h2>
-                <p className="text-base leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
-                  Motherly offers both daytime postnatal nannies and overnight or live-in nanny support in
-                  Chennai, because the demands of the newborn period change throughout the day and from
-                  family to family.
-                </p>
-
                 <div className="grid sm:grid-cols-2 gap-4 mt-2">
                   {[
                     {
-                      title: "Daytime postnatal nanny",
-                      body: "Your Motherly daytime nanny provides professional newborn care, feeding support, and light household assistance during the day, allowing the mother to rest, recover, and manage older children while knowing her newborn is in trained, attentive hands.",
+                      title: "In-Home Newborn Care",
+                      desc: "An in-home Baby Care specialist provides continuous, hands-on support from the day you bring your baby home. She attends to bathing, feeding assistance, sleep routine establishment, and daily monitoring, staying with your baby while you rest and recover.",
                     },
                     {
-                      title: "Overnight and live-in nanny support",
-                      body: "Many families find that overnight support is where professional help makes the biggest difference. Your nanny handles night feeds, settling, and nappy changes through the night so the recovering mother can sleep in longer, unbroken stretches. Live-in arrangements covering the full 40-day jaapa period are also available.",
+                      title: "Virtual Baby Care Consultations",
+                      desc: "A virtual Baby Care specialist supports you remotely through scheduled video sessions covering feeding questions, sleep guidance, developmental milestone tracking, and concerns about colic or reflux.",
                     },
                   ].map((card, i) => (
                     <motion.div
@@ -296,7 +321,7 @@ export default function NanniesPage() {
                         {card.title}
                       </h3>
                       <p className="text-sm leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
-                        {card.body}
+                        {card.desc}
                       </p>
                     </motion.div>
                   ))}
@@ -304,62 +329,145 @@ export default function NanniesPage() {
               </section>
             </ScrollReveal>
 
-            {/* What a Nanny Provides */}
+            <ScrollReveal direction="right">
+              <section className="space-y-5">
+                <h2
+                  className="text-2xl md:text-3xl font-bold"
+                  style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}
+                >
+                  What Is Baby Care and Why Chennai Parents Are Choosing It
+                </h2>
+                <p className="leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
+                  Baby Care refers to the specialised professional support provided to a newborn or infant to ensure their physical health, hygiene, comfort, and early development. In Chennai, where first-time parents increasingly face newborn care without nearby family guidance, having a trained Baby Care specialist at home is becoming an essential choice among informed families.
+                </p>
+
+                <div
+                  className="p-6 rounded-2xl border-l-4"
+                  style={{
+                    backgroundColor: "color-mix(in srgb, var(--color-secondary-container) 40%, white)",
+                    borderLeftColor: "var(--color-primary)",
+                  }}
+                >
+                  <h4 className="font-bold mb-2" style={{ color: "var(--color-primary)" }}>What the research says</h4>
+                  <p className="text-sm leading-relaxed" style={{ color: "var(--color-on-surface)" }}>
+                    Research consistently shows that professional newborn care support improves breastfeeding success rates, reduces the risk of preventable infant health complications, and significantly lowers parental anxiety in the early postnatal weeks. A Baby Care specialist is not a replacement for your paediatrician or nursing team. She works alongside your medical professionals to ensure your baby thrives between clinical check-ups.
+                  </p>
+                </div>
+              </section>
+            </ScrollReveal>
+
             <ScrollReveal direction="left">
               <section className="space-y-4">
                 <h2
                   className="text-2xl md:text-3xl font-bold"
                   style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}
                 >
-                  What a Motherly Postnatal Nanny Provides
+                  What Our Baby Care Specialists Provide
                 </h2>
-                <div className="grid sm:grid-cols-2 gap-px border rounded-2xl overflow-hidden"
-                  style={{ borderColor: "color-mix(in srgb, var(--color-outline-variant) 30%, transparent)" }}>
-                  {NANNY_PROVIDES.map((item, i) => (
+                <div
+                  className="grid sm:grid-cols-2 gap-px border rounded-2xl overflow-hidden"
+                  style={{ borderColor: "color-mix(in srgb, var(--color-outline-variant) 30%, transparent)" }}
+                >
+                  {BABY_CARE_PROVIDES.map((item, i) => (
                     <motion.div
                       key={item.title}
                       initial={{ opacity: 0, y: 12 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.4, delay: i * 0.07 }}
-                      className="p-5"
+                      className="p-5 flex flex-col gap-3"
                       style={{ backgroundColor: "var(--color-surface-container-low)" }}
                     >
-                      <h3
-                        className="text-sm font-bold mb-1.5"
-                        style={{ color: "var(--color-primary)", fontFamily: "var(--font-headline)" }}
+                      <div
+                        className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0"
+                        style={{
+                          backgroundColor: "color-mix(in srgb, var(--color-primary-container) 50%, white)",
+                          color: "var(--color-primary)",
+                        }}
                       >
-                        {item.title}
-                      </h3>
-                      <p className="text-sm leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
-                        {item.desc}
-                      </p>
+                        <span className="material-symbols-outlined text-xl" style={{ fontVariationSettings: "'FILL' 1" }}>{item.icon}</span>
+                      </div>
+                      <div>
+                        <h3
+                          className="text-sm font-bold mb-1.5"
+                          style={{ color: "var(--color-primary)", fontFamily: "var(--font-headline)" }}
+                        >
+                          {item.title}
+                        </h3>
+                        <p className="text-sm leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
+                          {item.desc}
+                        </p>
+                      </div>
                     </motion.div>
                   ))}
                 </div>
               </section>
             </ScrollReveal>
 
-            {/* Who Benefits Most */}
             <ScrollReveal direction="right">
-              <section className="space-y-4">
+              <section className="space-y-6">
                 <h2
                   className="text-2xl md:text-3xl font-bold"
                   style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}
                 >
-                  Who Benefits Most From a Postnatal Nanny
+                  Baby Care Through Your Baby's First Year
                 </h2>
-                <p className="text-base" style={{ color: "var(--color-on-surface-variant)" }}>
-                  A Motherly postnatal nanny is particularly valuable if you are:
+                <div className="space-y-0">
+                  {JOURNEY_STAGES.map((stage, i) => (
+                    <motion.div
+                      key={stage.num}
+                      initial={{ opacity: 0, x: -16 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.45, delay: i * 0.07 }}
+                      className="flex gap-5 border-b py-6"
+                      style={{ borderColor: "color-mix(in srgb, var(--color-outline-variant) 15%, transparent)" }}
+                    >
+                      <div
+                        className="w-10 h-10 rounded-lg flex items-center justify-center shrink-0 text-white font-black text-base"
+                        style={{ backgroundColor: "var(--color-primary)", fontFamily: "var(--font-headline)" }}
+                      >
+                        {stage.num}
+                      </div>
+                      <div className="space-y-2">
+                        <h4
+                          className="font-bold text-base"
+                          style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}
+                        >
+                          {stage.title}
+                        </h4>
+                        <p className="text-sm leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
+                          {stage.text}
+                        </p>
+                        {stage.link && (
+                          <p className="text-xs" style={{ color: "var(--color-on-surface-variant)" }}>
+                            See also:{" "}
+                            <a href={stage.link.url} style={{ color: "var(--color-primary)", textDecoration: "underline" }}>{stage.link.label}</a>
+                          </p>
+                        )}
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </section>
+            </ScrollReveal>
+
+            <ScrollReveal direction="left">
+              <section
+                className="rounded-2xl p-8 space-y-5"
+                style={{ backgroundColor: "var(--color-surface-container-low)" }}
+              >
+                <h2
+                  className="text-2xl md:text-3xl font-bold"
+                  style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}
+                >
+                  Who Is Baby Care Right For?
+                </h2>
+                <p className="leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
+                  Baby Care from Motherly is particularly valuable if you are:
                 </p>
                 <ul className="space-y-3">
-                  {[
-                    "A nuclear family without extended family staying in Chennai after birth",
-                    "Recovering from a C-section and unable to safely lift and carry your newborn independently in the early weeks",
-                    "Managing twins, triplets, or a new baby alongside a toddler",
-                    "A mother returning to work early who needs a trusted, trained nanny for newborn care from a young age",
-                    "Experiencing severe postpartum fatigue or postnatal depression and needing reliable daily practical support",
-                  ].map((item) => (
+                  {WHO_IS_IT_FOR.map((item) => (
                     <li key={item} className="flex items-start gap-3 text-sm" style={{ color: "var(--color-on-surface-variant)" }}>
                       <span
                         className="material-symbols-outlined text-base mt-0.5 flex-shrink-0"
@@ -374,7 +482,6 @@ export default function NanniesPage() {
               </section>
             </ScrollReveal>
 
-            {/* Testimonial */}
             <ScrollReveal direction="right">
               <blockquote
                 className="rounded-2xl p-6 border-l-4"
@@ -387,19 +494,15 @@ export default function NanniesPage() {
                   className="text-base italic leading-relaxed mb-4"
                   style={{ color: "#92400e" }}
                 >
-                  "We had twins and no family in Chennai. I genuinely do not know how we would have
-                  survived those first six weeks without our Motherly nanny. She handled the nights,
-                  kept a detailed feeding log for both babies, and managed our older son's school run
-                  without us even asking. She became part of our family."
+                  "My daughter had colic for the first six weeks and I had no idea what to do. The Motherly Baby Care specialist helped us establish a feeding and settling routine that changed everything overnight. She also spotted that my baby had a mild latch issue and connected us with a lactation consultant the same week. I cannot imagine those early weeks without Motherly."
                 </p>
                 <footer className="text-sm" style={{ color: "#b45309" }}>
-                  <strong>— Meena and Arvind K.</strong>
-                  <span style={{ color: "#a16207" }}> | Parents of twins, Velachery, Chennai</span>
+                  <strong>— Priya M.</strong>
+                  <span style={{ color: "#a16207" }}> | First-time mother, Mylapore, Chennai</span>
                 </footer>
               </blockquote>
             </ScrollReveal>
 
-            {/* FAQ Accordion */}
             <ScrollReveal direction="left">
               <section className="space-y-3">
                 <h2
@@ -423,6 +526,7 @@ export default function NanniesPage() {
                     }}
                   >
                     <button
+                      type="button"
                       onClick={() => setOpenFaq(openFaq === i ? null : i)}
                       className="w-full px-6 py-5 flex items-center justify-between text-left font-bold"
                       style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}
@@ -450,18 +554,13 @@ export default function NanniesPage() {
                           transition={{ duration: 0.3 }}
                           style={{ overflow: "hidden" }}
                         >
-                          <div className="px-5 py-4 space-y-2" style={{ backgroundColor: "color-mix(in srgb, var(--color-secondary-container) 20%, white)" }}>
-                            <p className="text-sm leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
+                          <div
+                            className="px-6 pb-5 border-t"
+                            style={{ borderColor: "color-mix(in srgb, var(--color-outline-variant) 10%, transparent)" }}
+                          >
+                            <p className="pt-4 text-sm leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
                               {faq.a}
                             </p>
-                            {faq.readMore && (
-                              <p className="text-xs" style={{ color: "var(--color-on-surface-variant)" }}>
-                                Read more:{" "}
-                                <Link href={faq.readMore.href} style={{ color: "var(--color-primary)" }}>
-                                  {faq.readMore.label}
-                                </Link>
-                              </p>
-                            )}
                           </div>
                         </motion.div>
                       )}
@@ -471,14 +570,13 @@ export default function NanniesPage() {
               </section>
             </ScrollReveal>
 
-            {/* App CTA */}
             <ScrollReveal>
               <div
-                className="rounded-2xl p-6 text-center space-y-3"
-                style={{ backgroundColor: "color-mix(in srgb, var(--color-tertiary-container) 30%, white)" }}
+                className="rounded-2xl p-8 text-center space-y-4"
+                style={{ backgroundColor: "color-mix(in srgb, var(--color-tertiary-container) 40%, white)" }}
               >
                 <h3
-                  className="text-xl font-bold"
+                  className="text-xl md:text-2xl font-bold"
                   style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}
                 >
                   Book through the Motherly app
@@ -486,39 +584,38 @@ export default function NanniesPage() {
                 <p className="text-sm" style={{ color: "var(--color-on-surface-variant)" }}>
                   Browse verified professionals, view profiles and reviews, and book a home visit in minutes.
                 </p>
-                <div className="flex items-center justify-center gap-4 flex-wrap">
-                  <Link href="https://play.google.com/store">
+                <div className="flex flex-wrap justify-center gap-4 pt-2">
+                  <a href="https://play.google.com/store/apps/details?id=com.mothrly" target="_blank" rel="noopener noreferrer">
                     <Image
                       src="/badge-google-play.png"
                       alt="Download on Google Play"
-                      width={140}
-                      height={42}
-                      className="h-10 w-auto"
+                      width={135}
+                      height={40}
+                      className="h-10 w-auto object-contain"
                     />
-                  </Link>
-                  <Link href="https://apps.apple.com">
+                  </a>
+                  <a href="https://apps.apple.com/in/app/motherly-your-birth-companion/id6746041100" target="_blank" rel="noopener noreferrer">
                     <Image
                       src="/badge-app-store.png"
                       alt="Download on the App Store"
-                      width={140}
-                      height={42}
-                      className="h-10 w-auto"
+                      width={135}
+                      height={40}
+                      className="h-10 w-auto object-contain"
                     />
-                  </Link>
+                  </a>
                 </div>
                 <p className="text-xs" style={{ color: "var(--color-on-surface-variant)" }}>
                   Or visit{" "}
-                  <Link href="https://www.mothrly.com" style={{ color: "var(--color-primary)" }}>
+                  <a href="https://www.mothrly.com" target="_blank" rel="noopener noreferrer" style={{ color: "var(--color-primary)" }}>
                     www.mothrly.com
-                  </Link>
+                  </a>
                 </p>
               </div>
             </ScrollReveal>
 
           </div>
 
-          {/* ── Right Column: Booking Form ── */}
-          <aside id="booking-form" ref={formWrapperRef} className={`lg:col-span-5${!formActive ? " sticky top-28 self-start" : ""}`}>
+          <aside ref={formWrapperRef} className={`lg:col-span-5${!formActive ? " sticky top-28 self-start" : ""}`}>
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
@@ -598,22 +695,18 @@ export default function NanniesPage() {
                       onSubmit={handleSubmit(onSubmit)}
                       className="space-y-3"
                     >
-                      {/* Service */}
                       <div className="space-y-1.5">
                         <label className="text-sm font-semibold ml-1" style={{ color: "var(--color-on-surface-variant)" }}>
                           Select Service
                         </label>
-                        <select {...register("service")} className={inputClass} style={getInputStyle()}>
-                          <option value="Doulas">Doulas</option>
-                          <option value="Lactation Consultants">Lactation Consultants</option>
-                          <option value="Gynaecology Consultation">Gynaecology Consultation</option>
-                          <option value="Nanny Care">Nanny Care</option>
-                          <option value="Postnatal Recovery">Postnatal Recovery</option>
-                          <option value="Nutrition Consultation">Nutrition Consultation</option>
+                        <select {...register("service")} defaultValue="Baby Care" className={inputClass} style={getInputStyle()}>
+                          <option value="Baby Care">Baby Care</option>
+                          <option value="In-Home Newborn Care">In-Home Newborn Care</option>
+                          <option value="Virtual Baby Care">Virtual Baby Care</option>
+                          <option value="Overnight Baby Care">Overnight Baby Care</option>
                         </select>
                       </div>
 
-                      {/* Name */}
                       <div className="space-y-1.5">
                         <label className="text-sm font-semibold ml-1" style={{ color: "var(--color-on-surface-variant)" }}>
                           Patient Name
@@ -630,7 +723,6 @@ export default function NanniesPage() {
                         )}
                       </div>
 
-                      {/* Email */}
                       <div className="space-y-1.5">
                         <label className="text-sm font-semibold ml-1" style={{ color: "var(--color-on-surface-variant)" }}>
                           Email Address
@@ -647,7 +739,6 @@ export default function NanniesPage() {
                         )}
                       </div>
 
-                      {/* Phone */}
                       <div className="space-y-1.5">
                         <label className="text-sm font-semibold ml-1" style={{ color: "var(--color-on-surface-variant)" }}>
                           Phone Number
@@ -665,7 +756,6 @@ export default function NanniesPage() {
                         )}
                       </div>
 
-                      {/* Location + Pincode */}
                       <div className="grid grid-cols-2 gap-4">
                         <div className="space-y-1.5">
                           <label className="text-sm font-semibold ml-1" style={{ color: "var(--color-on-surface-variant)" }}>Location</label>
@@ -679,7 +769,6 @@ export default function NanniesPage() {
                         </div>
                       </div>
 
-                      {/* Date + Time */}
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div className="space-y-1.5">
                           <label className="text-sm font-semibold ml-1" style={{ color: "var(--color-on-surface-variant)" }}>
@@ -714,7 +803,6 @@ export default function NanniesPage() {
                         </div>
                       </div>
 
-                      {/* Message */}
                       <div className="space-y-1.5">
                         <label className="text-sm font-semibold ml-1" style={{ color: "var(--color-on-surface-variant)" }}>
                           Message
@@ -728,7 +816,6 @@ export default function NanniesPage() {
                         />
                       </div>
 
-                      {/* Submit */}
                       <motion.button
                         type="submit"
                         disabled={isSubmitting}
@@ -775,6 +862,7 @@ export default function NanniesPage() {
               </div>
             </motion.div>
           </aside>
+
         </div>
       </main>
       <Footer />

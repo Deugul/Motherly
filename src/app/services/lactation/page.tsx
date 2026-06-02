@@ -33,7 +33,7 @@ const schema = z.object({
 type FormData = z.infer<typeof schema>;
 
 const inputClass =
-  "w-full px-5 py-4 rounded-md text-sm font-medium outline-none border-2 transition-all duration-200";
+  "w-full px-4 py-2 rounded-md text-sm font-medium outline-none border-2 transition-all duration-200";
 
 function getInputStyle(hasError?: boolean) {
   return {
@@ -617,7 +617,7 @@ export default function LactationPage() {
               >
                 Send an Enquiry
               </h2>
-              <p className="mb-8 text-sm" style={{ color: "var(--color-on-surface-variant)" }}>
+              <p className="mb-3 text-sm" style={{ color: "var(--color-on-surface-variant)" }}>
                 Tell us about your needs and we'll be in touch.
               </p>
 
@@ -660,7 +660,7 @@ export default function LactationPage() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     onSubmit={handleSubmit(onSubmit)}
-                    className="space-y-5"
+                    className="space-y-3"
                   >
                     <div className="space-y-1.5">
                       <label className="block text-sm font-bold ml-1" style={{ color: "var(--color-on-surface-variant)" }}>Select Service</label>
@@ -721,7 +721,7 @@ export default function LactationPage() {
 
                     <div className="space-y-1.5">
                       <label className="block text-sm font-bold ml-1" style={{ color: "var(--color-on-surface-variant)" }}>Message</label>
-                      <textarea {...register("message")} rows={3} placeholder="Tell us about your needs..." className={`${inputClass} resize-none`} style={getInputStyle()} />
+                      <textarea {...register("message")} rows={2} placeholder="Tell us about your needs..." className={`${inputClass} resize-none`} style={getInputStyle()} />
                     </div>
 
                     <motion.button

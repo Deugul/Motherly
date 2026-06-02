@@ -9,11 +9,13 @@ const serviceLinks = [
   { href: "/services/doulas", label: "Doula", icon: "child_friendly" },
   { href: "/services/postnatal-recovery-care", label: "Postnatal Recovery", icon: "spa" },
   { href: "/services/lactation-consultants", label: "Lactation", icon: "favorite" },
-  { href: "/services/nanny-services", label: "Nanny Care", icon: "child_care" },
+  { href: "/services/nanny-services", label: "Nanny Care", icon: "stroller" },
   { href: "/services/gynecologist-consultation", label: "Gynaecologist/Obstetrician", icon: "stethoscope" },
   { href: "/services/pediatrician", label: "Pediatrician", icon: "pediatrics" },
   { href: "/services/yoga", label: "Yoga", icon: "self_improvement" },
   { href: "/services/postnatal-recovery-care/physiotherapy", label: "Physiotherapy", icon: "physical_therapy" },
+  { href: "/services/baby-care", label: "Baby Care", icon: "child_care" },
+  { href: "/services/mother-care", label: "Mother Care", icon: "health_and_safety" },
 ];
 
 const links = [
@@ -52,9 +54,9 @@ function NavLink({ href, label, active }: { href: string; label: string; active:
 }
 
 function DropdownLink({
-  href, label, icon, active, onClick,
+  href, label, icon, active, onClick, iconLoaded,
 }: {
-  href: string; label: string; icon: string; active: boolean; onClick: () => void;
+  href: string; label: string; icon: string; active: boolean; onClick: () => void; iconLoaded: boolean;
 }) {
   const [hovered, setHovered] = useState(false);
   return (
@@ -71,12 +73,16 @@ function DropdownLink({
         transition: "color 0.15s, background-color 0.15s",
       }}
     >
-      <span
-        className="material-symbols-outlined text-xl"
-        style={{ color: active || hovered ? "var(--color-primary)" : "var(--color-on-surface-variant)", transition: "color 0.15s" }}
-      >
-        {icon}
-      </span>
+      {iconLoaded ? (
+        <span
+          className="material-symbols-outlined text-xl"
+          style={{ color: active || hovered ? "var(--color-primary)" : "var(--color-on-surface-variant)", transition: "color 0.15s" }}
+        >
+          {icon}
+        </span>
+      ) : (
+        <span style={{ width: "1.25rem", display: "inline-block", flexShrink: 0 }} />
+      )}
       {label}
     </Link>
   );
@@ -88,13 +94,56 @@ export default function Navbar() {
   const [servicesOpen, setServicesOpen] = useState(false);
   const [servicesHovered, setServicesHovered] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const [iconReady, setIconReady] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const closeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const pathname = usePathname();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    let cancelled = false;
+    const markReady = () => { if (!cancelled) setIconReady(true); };
+
+    // Inject Material Symbols immediately with display=block to prevent FOUT.
+    // FontLoader delays this by 1.5s for Lighthouse — we load it now so icons
+    // are ready before the user can open the dropdown.
+    const FONT_URL =
+      "https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=block";
+
+    if (!document.querySelector(`link[href="${FONT_URL}"]`)) {
+      const link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.href = FONT_URL;
+      document.head.appendChild(link);
+    }
+
+    // Wait until the font is truly usable before showing icons.
+    const waitForFont = () => {
+      document.fonts.load('1em "Material Symbols Outlined"').then((faces) => {
+        if (!cancelled) {
+          if (faces.length > 0) {
+            requestAnimationFrame(() => markReady());
+          } else {
+            // Font face not defined yet — retry shortly
+            setTimeout(waitForFont, 100);
+          }
+        }
+      }).catch(() => setTimeout(waitForFont, 200));
+    };
+
+    waitForFont();
+
+    const timeout = setTimeout(markReady, 4000);
+
+    return () => {
+      cancelled = true;
+      clearTimeout(timeout);
+    };
   }, []);
 
   useEffect(() => {
@@ -133,8 +182,13 @@ export default function Navbar() {
           <div
             className="relative"
             ref={dropdownRef}
-            onMouseEnter={() => setServicesOpen(true)}
-            onMouseLeave={() => setServicesOpen(false)}
+            onMouseEnter={() => {
+              if (closeTimerRef.current) clearTimeout(closeTimerRef.current);
+              setServicesOpen(true);
+            }}
+            onMouseLeave={() => {
+              closeTimerRef.current = setTimeout(() => setServicesOpen(false), 150);
+            }}
           >
             <button
               onClick={() => setServicesOpen(!servicesOpen)}
@@ -166,25 +220,28 @@ export default function Navbar() {
             </button>
 
             {servicesOpen && (
-              <div
-                className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-64 rounded-2xl border transition-all duration-200"
-                style={{
-                  backgroundColor: "white",
-                  borderColor: "color-mix(in srgb, var(--color-outline-variant) 20%, transparent)",
-                  boxShadow: "0 16px 48px rgba(0,0,0,0.12)",
-                }}
-              >
-                <div className="py-2">
-                  {serviceLinks.map((s) => (
-                    <DropdownLink
-                      key={s.href}
-                      href={s.href}
-                      label={s.label}
-                      icon={s.icon}
-                      active={pathname === s.href}
-                      onClick={closeAll}
-                    />
-                  ))}
+              <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 w-64">
+                <div
+                  className="rounded-2xl border"
+                  style={{
+                    backgroundColor: "white",
+                    borderColor: "color-mix(in srgb, var(--color-outline-variant) 20%, transparent)",
+                    boxShadow: "0 16px 48px rgba(0,0,0,0.12)",
+                  }}
+                >
+                  <div className="py-2">
+                    {serviceLinks.map((s) => (
+                      <DropdownLink
+                        key={s.href}
+                        href={s.href}
+                        label={s.label}
+                        icon={s.icon}
+                        active={pathname === s.href}
+                        onClick={closeAll}
+                        iconLoaded={iconReady}
+                      />
+                    ))}
+                  </div>
                 </div>
               </div>
             )}

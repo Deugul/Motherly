@@ -16,6 +16,7 @@ const schema = z.object({
   name: z.string().min(2, "Name is required"),
   email: z.email("Valid email required"),
   service: z.string().min(1),
+  phone: z.string().regex(/^\d{10}$/, "Enter a valid 10-digit phone number"),
   message: z.string().min(5, "Message is required"),
 });
 type FormData = z.infer<typeof schema>;
@@ -191,6 +192,24 @@ export default function ContactPage() {
                         <p className="text-xs ml-1" style={{ color: "var(--color-error)" }}>{errors.email.message}</p>
                       )}
                     </div>
+                  </div>
+
+                  {/* Phone */}
+                  <div className="space-y-2">
+                    <label className="text-sm font-bold ml-1" style={{ color: "var(--color-on-surface-variant)" }}>
+                      Phone Number
+                    </label>
+                    <input
+                      {...register("phone")}
+                      type="tel"
+                      placeholder="10-digit mobile number"
+                      maxLength={10}
+                      className={inputClass}
+                      style={getInputStyle(!!errors.phone)}
+                    />
+                    {errors.phone && (
+                      <p className="text-xs ml-1" style={{ color: "var(--color-error)" }}>{errors.phone.message}</p>
+                    )}
                   </div>
 
                   {/* Service */}
