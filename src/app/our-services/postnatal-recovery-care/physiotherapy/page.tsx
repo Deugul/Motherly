@@ -199,7 +199,7 @@ export default function PhysiotherapyPage() {
                     {/* Mobile Number */}
                     <div className="space-y-1.5">
                       <label className="text-sm font-semibold ml-1" style={{ color: "var(--color-on-surface-variant)" }}>
-                        Mobile Number
+                        Mobile Number *
                       </label>
                       <div className="relative">
                         <span
@@ -212,6 +212,8 @@ export default function PhysiotherapyPage() {
                           {...register("phone")}
                           type="tel"
                           placeholder="98765 43210"
+                          maxLength={10}
+                          required
                           className={`${inputClass} pl-13`}
                           style={getInputStyle(!!errors.phone)}
                         />

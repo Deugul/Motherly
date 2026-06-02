@@ -756,8 +756,8 @@ export default function PhysiotherapyPage() {
                       </div>
 
                       <div className="space-y-1.5">
-                        <label className="block text-sm font-semibold" style={{ color: "var(--color-on-surface-variant)" }}>Phone Number</label>
-                        <input {...register("phone")} type="tel" placeholder="10-digit mobile number" className={inputClass} style={getInputStyle(!!errors.phone)} />
+                        <label className="block text-sm font-semibold" style={{ color: "var(--color-on-surface-variant)" }}>Phone Number *</label>
+                        <input {...register("phone")} type="tel" placeholder="10-digit mobile number" maxLength={10} required className={inputClass} style={getInputStyle(!!errors.phone)} />
                         {errors.phone && <p className="text-xs" style={{ color: "var(--color-error)" }}>{errors.phone.message}</p>}
                       </div>
 

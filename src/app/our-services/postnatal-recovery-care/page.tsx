@@ -607,13 +607,14 @@ export default function PostnatalPage() {
                       {/* Phone */}
                       <div className="space-y-1.5">
                         <label className="text-sm font-semibold ml-1" style={{ color: "var(--color-on-surface-variant)" }}>
-                          Phone Number
+                          Phone Number *
                         </label>
                         <input
                           {...register("phone")}
                           type="tel"
                           placeholder="10-digit mobile number"
                           maxLength={10}
+                          required
                           className={inputClass}
                           style={getInputStyle(!!errors.phone)}
                         />

@@ -11,10 +11,27 @@ function getWebhook(formType: string): string {
   return DEFAULT_WEBHOOK;
 }
 
+const PHONE_REQUIRED_FORM_TYPES = new Set([
+  "Contact Enquiries",
+  "Doctor Partnership Application",
+  "Service Bookings",
+]);
+
+function isValidPhone(value: unknown): value is string {
+  return typeof value === "string" && /^\d{10}$/.test(value);
+}
+
 export async function POST(req: NextRequest) {
   try {
     const data = await req.json();
     const webhookUrl = getWebhook(data.formType ?? "");
+
+    if (PHONE_REQUIRED_FORM_TYPES.has(data.formType) && !isValidPhone(data.phone)) {
+      return NextResponse.json(
+        { result: "error", message: "A valid 10-digit phone number is required." },
+        { status: 400 }
+      );
+    }
 
     const { phone, location, pincode, ...rest } = data;
     const payload = {

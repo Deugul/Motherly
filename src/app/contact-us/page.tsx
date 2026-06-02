@@ -197,13 +197,14 @@ export default function ContactPage() {
                   {/* Phone */}
                   <div className="space-y-2">
                     <label className="text-sm font-bold ml-1" style={{ color: "var(--color-on-surface-variant)" }}>
-                      Phone Number
+                      Phone Number *
                     </label>
                     <input
                       {...register("phone")}
                       type="tel"
                       placeholder="10-digit mobile number"
                       maxLength={10}
+                      required
                       className={inputClass}
                       style={getInputStyle(!!errors.phone)}
                     />

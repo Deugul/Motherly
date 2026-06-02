@@ -581,8 +581,8 @@ export default function GynaecologyPage() {
 
                     {/* Phone */}
                     <div>
-                      <label className="block text-sm font-bold mb-2" style={{ color: "var(--color-on-surface-variant)" }}>Phone Number</label>
-                      <input {...register("phone")} type="tel" placeholder="10-digit mobile number" maxLength={10} className={inputClass} style={getInputStyle(!!errors.phone)} />
+                      <label className="block text-sm font-bold mb-2" style={{ color: "var(--color-on-surface-variant)" }}>Phone Number *</label>
+                      <input {...register("phone")} type="tel" placeholder="10-digit mobile number" maxLength={10} required className={inputClass} style={getInputStyle(!!errors.phone)} />
                       {errors.phone && <p className="text-xs mt-1" style={{ color: "var(--color-error)" }}>{errors.phone.message}</p>}
                     </div>
 

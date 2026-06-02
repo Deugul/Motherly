@@ -9,7 +9,7 @@ import { motion, AnimatePresence } from "framer-motion";
 const schema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
   email: z.string().email("Please enter a valid email"),
-  phone: z.string().min(10, "Phone number must be at least 10 digits"),
+  phone: z.string().regex(/^\d{10}$/, "Enter a valid 10-digit phone number"),
   service: z.string().min(1, "Please select a service"),
   dueDate: z.string().optional(),
   message: z.string().min(10, "Message must be at least 10 characters"),
@@ -105,7 +105,7 @@ export default function EnquiryForm() {
           We got your message!
         </h3>
         <p className="max-w-sm" style={{ color: "var(--color-on-surface-variant)" }}>
-          Our team will reach out within 24 hours. We're excited to support your journey!
+          Our team will reach out within 24 hours. We&apos;re excited to support your journey!
         </p>
         <button
           onClick={() => setSubmitted(false)}
@@ -155,7 +155,9 @@ export default function EnquiryForm() {
           <input
             {...register("phone")}
             type="tel"
-            placeholder="+91 98765 43210"
+            placeholder="10-digit mobile number"
+            maxLength={10}
+            required
             className={inputClass}
             style={getInputStyle(!!errors.phone)}
           />
