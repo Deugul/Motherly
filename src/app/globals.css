@@ -525,3 +525,40 @@ h1, h2, h3, h4, h5, h6 {
 .hero-delay-400 {
   animation-delay: 400ms;
 }
+
+/* ── Lead101 contact form widget ─────────────────────────────────────── */
+#motherly-lead101-form.form-widget-host {
+  min-height: 0 !important;
+  height: auto !important;
+  overflow: visible !important;
+}
+
+#motherly-lead101-form.form-widget-host iframe {
+  display: block;
+  width: 100% !important;
+  border: 0;
+  overflow: hidden !important;
+}
+
+/* Desktop: two-column fields */
+@media (min-width: 1024px) {
+  #motherly-lead101-form.form-widget-host iframe {
+    height: 485px !important;
+    overflow: hidden;
+    min-height: 0 !important;
+  }
+}
+
+/* Mobile / tablet: stacked fields */
+@media (max-width: 1023px) {
+  #motherly-lead101-form.form-widget-host iframe {
+    height: 540px !important;
+    min-height: 0 !important;
+  }
+}
+
+@media (max-width: 430px) {
+  #motherly-lead101-form.form-widget-host iframe {
+    height: 487px !important;
+  }
+}
