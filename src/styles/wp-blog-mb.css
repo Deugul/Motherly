@@ -209,6 +209,48 @@
   font-style: italic;
 }
 
+/* Generic tables inside .mb (mb-table-wrap) — inline WP <style> is stripped on Next.js */
+.wp-content .mb-table-wrap {
+  overflow-x: auto;
+  margin: 2rem 0;
+  border-radius: var(--mb-r);
+  border: 1px solid var(--mb-border);
+}
+
+.wp-content .mb table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 16px;
+  text-align: left;
+  margin: 0;
+}
+
+.wp-content .mb th {
+  background: var(--mb-red);
+  color: var(--mb-white);
+  padding: 1.2rem;
+  font-weight: 700;
+  border: none !important;
+}
+
+.wp-content .mb td {
+  padding: 1rem 1.2rem;
+  border-bottom: 1px solid var(--mb-border) !important;
+  border-left: none !important;
+  border-right: none !important;
+  border-top: none !important;
+  vertical-align: top;
+  color: var(--mb-text);
+}
+
+.wp-content .mb tbody tr:last-child td {
+  border-bottom: none !important;
+}
+
+.wp-content .mb tbody tr:nth-child(even) {
+  background: var(--mb-cream);
+}
+
 .wp-content .mb-infobox {
   background: var(--mb-cream);
   border: 1px solid var(--mb-border);
@@ -672,12 +714,161 @@
   font-weight: 600;
 }
 
+/* Split-layout CTA (newer blog template) */
+.wp-content .mb-cta-split {
+  background: #faf4f6;
+  border-left: 6px solid var(--mb-red);
+  border-radius: 8px;
+  padding: 2.5rem;
+  margin: 3.5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+}
+
+.wp-content .mb-cta-split-content h3 {
+  font-size: 1.5rem;
+  color: var(--mb-text);
+  margin: 0 0 0.5rem;
+  font-weight: 800;
+  border: none;
+  padding: 0;
+}
+
+.wp-content .mb-cta-split-content p {
+  font-size: 16px;
+  color: #555;
+  margin: 0;
+}
+
+.wp-content .mb-cta-split-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex-shrink: 0;
+  width: 100%;
+}
+
+.wp-content .mb-btn-split {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 15px;
+  padding: 14px 24px;
+  border-radius: 6px;
+  text-decoration: none !important;
+  transition: all 0.2s ease;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.wp-content .mb-btn-split-primary {
+  background: var(--mb-red);
+  color: #fff !important;
+}
+
+.wp-content .mb-btn-split-primary:hover {
+  background: #9a0a46;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(186, 14, 86, 0.2);
+}
+
+.wp-content .mb-btn-split-secondary {
+  background: var(--mb-white);
+  color: var(--mb-red) !important;
+  border: 1px solid var(--mb-red);
+}
+
+.wp-content .mb-btn-split-secondary:hover {
+  background: #fff0f5;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+@media (min-width: 768px) {
+  .wp-content .mb-cta-split {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .wp-content .mb-cta-split-actions {
+    width: auto;
+    min-width: 320px;
+  }
+}
+
 /* FAQ accordion — WP <style> is stripped on Next.js; answers hidden until .open */
 .wp-content .mb-faq {
   margin: 1.4rem 0 2.4rem;
   border: 1px solid var(--mb-border);
   border-radius: var(--mb-rlg);
   overflow: hidden;
+}
+
+/* FAQ via <details>/<summary> (newer blog template) */
+.wp-content .mb-faq:has(details) {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border: none;
+  border-radius: 0;
+  overflow: visible;
+}
+
+.wp-content .mb-faq details {
+  background: var(--mb-white);
+  border: 1px solid var(--mb-border);
+  border-radius: var(--mb-r);
+  padding: 18px 20px;
+  transition: all 0.3s ease;
+}
+
+.wp-content .mb-faq details[open] {
+  border-color: var(--mb-red);
+  box-shadow: 0 4px 12px rgba(186, 14, 86, 0.06);
+}
+
+.wp-content .mb-faq summary {
+  font-weight: 700;
+  color: var(--mb-text);
+  cursor: pointer;
+  list-style: none;
+  position: relative;
+  padding-right: 32px;
+  font-size: 17px;
+  margin: 0;
+}
+
+.wp-content .mb-faq summary::-webkit-details-marker {
+  display: none;
+}
+
+.wp-content .mb-faq summary::after {
+  content: "+";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--mb-red);
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1;
+  transition: transform 0.3s ease;
+}
+
+.wp-content .mb-faq details[open] summary::after {
+  content: "−";
+}
+
+.wp-content .mb-faq details p {
+  margin-top: 14px;
+  margin-bottom: 0;
+  color: var(--mb-text);
+  line-height: 1.7;
 }
 
 .wp-content .mb-faq-item {
