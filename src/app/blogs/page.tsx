@@ -6,6 +6,7 @@ import type { BlogPost, FeaturedPost } from "@/lib/posts";
 import { resolvePostCardExcerpt } from "@/lib/wordpress-seo";
 import type { RankMathSeoFromWp } from "@/lib/wordpress-seo";
 import { fetchWordPress } from "@/lib/wordpress";
+import { resolveFeaturedImageUrl } from "@/lib/wordpress-featured-image";
 
 type WpPost = {
   id?: number;
@@ -15,9 +16,11 @@ type WpPost = {
   excerpt: { rendered: string };
   date: string;
   link: string;
+  featured_media?: number;
+  motherly_featured_image_url?: string | null;
   rank_math_seo?: RankMathSeoFromWp | null;
   _embedded?: {
-    "wp:featuredmedia"?: Array<{ source_url: string }>;
+    "wp:featuredmedia"?: Array<{ source_url?: string; code?: string }>;
     "wp:term"?: Array<Array<{ id: number; name: string }>>;
     author?: Array<{ name: string }>;
   };
@@ -68,7 +71,7 @@ async function fetchWpPosts(): Promise<{
       orderby: "date",
       order: "desc",
       _fields:
-        "id,slug,title,excerpt,date,link,status,rank_math_seo,_links,_embedded",
+        "id,slug,title,excerpt,date,link,status,featured_media,motherly_featured_image_url,rank_math_seo,_links,_embedded",
     });
 
     const { data: wpPosts, ok } = await fetchWordPress<WpPost[]>("/posts", params);
@@ -77,8 +80,10 @@ async function fetchWpPosts(): Promise<{
       return { posts: [], featured: null, categories: [] };
     }
 
-    const blogPosts: BlogPost[] = wpPosts.map((p) => {
-      const image = p._embedded?.["wp:featuredmedia"]?.[0]?.source_url ?? "";
+    const resolvedImages = await Promise.all(wpPosts.map((p) => resolveFeaturedImageUrl(p)));
+
+    const blogPosts: BlogPost[] = wpPosts.map((p, index) => {
+      const image = resolvedImages[index] ?? "";
       const cat = p._embedded?.["wp:term"]?.[0]?.[0]?.name ?? "Article";
       const excerpt = resolvePostCardExcerpt(p, 140);
       const date = new Date(p.date).toLocaleDateString("en-US", {
@@ -105,22 +110,23 @@ async function fetchWpPosts(): Promise<{
     const categories = [...new Set(blogPosts.map((p) => p.tag))].sort();
 
     // Featured: prefer published post with an image (not a draft)
-    const featuredWp =
-      wpPosts.find(
-        (p) =>
-          p.status !== "draft" &&
-          p._embedded?.["wp:featuredmedia"]?.[0]?.source_url
-      ) ??
-      wpPosts.find((p) => p.status !== "draft") ??
-      wpPosts.find((p) => p._embedded?.["wp:featuredmedia"]?.[0]?.source_url) ??
-      wpPosts[0];
-    const featuredIndex = wpPosts.indexOf(featuredWp);
+    let featuredImageIndex = resolvedImages.findIndex(
+      (image, i) => wpPosts[i].status !== "draft" && Boolean(image)
+    );
+    if (featuredImageIndex < 0) {
+      const publishedIndex = wpPosts.findIndex((p) => p.status !== "draft");
+      featuredImageIndex =
+        publishedIndex >= 0 ? publishedIndex : resolvedImages.findIndex(Boolean);
+    }
+    if (featuredImageIndex < 0) featuredImageIndex = 0;
+
+    const featuredWp = wpPosts[featuredImageIndex];
 
     const featured: FeaturedPost = {
       tag: (featuredWp._embedded?.["wp:term"]?.[0]?.[0]?.name ?? "Article").toUpperCase(),
       title: stripHtml(featuredWp.title?.rendered ?? ""),
       excerpt: resolvePostCardExcerpt(featuredWp, 200),
-      image: featuredWp._embedded?.["wp:featuredmedia"]?.[0]?.source_url ?? "",
+      image: resolvedImages[featuredImageIndex] ?? "",
       author: featuredWp._embedded?.author?.[0]?.name ?? "Motherly Team",
       authorRole: "Healthcare Specialist",
       link: featuredWp.status === "draft" ? undefined : featuredWp.link,
@@ -129,7 +135,7 @@ async function fetchWpPosts(): Promise<{
     };
 
     // Remove featured post from the grid
-    const gridPosts = blogPosts.filter((_, i) => i !== featuredIndex);
+    const gridPosts = blogPosts.filter((_, i) => i !== featuredImageIndex);
 
     return { posts: gridPosts, featured, categories };
   } catch {

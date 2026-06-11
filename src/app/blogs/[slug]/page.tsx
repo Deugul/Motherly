@@ -22,6 +22,10 @@ import {
   pickWordPressPostBySlug,
   WP_ORIGIN,
 } from "@/lib/wordpress";
+import {
+  getEmbeddedFeaturedImageAlt,
+  resolveFeaturedImageUrl,
+} from "@/lib/wordpress-featured-image";
 
 type WpPost = {
   id?: number;
@@ -31,13 +35,17 @@ type WpPost = {
   content: { rendered: string };
   excerpt: { rendered: string };
   date: string;
+  link?: string;
+  featured_media?: number;
+  motherly_featured_image_url?: string | null;
   rank_math_seo?: RankMathSeoFromWp | null;
   /** Elementor HTML when content.rendered is empty (Motherly WP plugin). */
   motherly_content_html?: string | null;
   _embedded?: {
     "wp:featuredmedia"?: Array<{
-      source_url: string;
+      source_url?: string;
       alt_text?: string;
+      code?: string;
       title?: { rendered?: string };
     }>;
     "wp:term"?: Array<Array<{ id: number; name: string; taxonomy?: string }>>;
@@ -110,21 +118,21 @@ async function getRelatedPosts(currentSlug: string): Promise<RelatedPost[]> {
     });
     const { data: posts, ok } = await fetchWordPress<WpPost[]>("/posts", params);
     if (!ok || !posts) return [];
-    return posts
-      .filter((p) => p.slug !== currentSlug)
-      .slice(0, 3)
-      .map((p) => ({
-        slug: p.slug,
-        title: stripHtml(p.title.rendered),
-        excerpt: stripHtml(p.excerpt.rendered).slice(0, 120),
-        image: p._embedded?.["wp:featuredmedia"]?.[0]?.source_url ?? "",
-        category: (p._embedded?.["wp:term"]?.[0]?.[0]?.name ?? "Article").toUpperCase(),
-        date: new Date(p.date).toLocaleDateString("en-US", {
-          month: "long",
-          day: "numeric",
-          year: "numeric",
-        }),
-      }));
+    const related = posts.filter((p) => p.slug !== currentSlug).slice(0, 3);
+    const images = await Promise.all(related.map((p) => resolveFeaturedImageUrl(p)));
+
+    return related.map((p, index) => ({
+      slug: p.slug,
+      title: stripHtml(p.title.rendered),
+      excerpt: stripHtml(p.excerpt.rendered).slice(0, 120),
+      image: images[index] ?? "",
+      category: (p._embedded?.["wp:term"]?.[0]?.[0]?.name ?? "Article").toUpperCase(),
+      date: new Date(p.date).toLocaleDateString("en-US", {
+        month: "long",
+        day: "numeric",
+        year: "numeric",
+      }),
+    }));
   } catch {
     return [];
   }
@@ -218,9 +226,10 @@ export async function generateMetadata({
     };
 
   const canonical = normalizeSeoUrl(resolved.canonical);
-  const image = post?._embedded?.["wp:featuredmedia"]?.[0]?.source_url;
-  const imageAlt =
-    post?._embedded?.["wp:featuredmedia"]?.[0]?.alt_text?.trim() || resolved.h1;
+  const image = post ? await resolveFeaturedImageUrl(post) : "";
+  const imageAlt = post
+    ? getEmbeddedFeaturedImageAlt(post, resolved.h1)
+    : resolved.h1;
 
   return {
     title: resolved.metaTitle,
@@ -269,9 +278,8 @@ export default async function BlogPostPage({
     getWordPressPostBodyHtml(post),
     emitFaqSchema,
   );
-  const image = post._embedded?.["wp:featuredmedia"]?.[0]?.source_url;
-  const altText =
-    post._embedded?.["wp:featuredmedia"]?.[0]?.alt_text?.trim() || title;
+  const image = await resolveFeaturedImageUrl(post);
+  const altText = getEmbeddedFeaturedImageAlt(post, title);
   const category = post._embedded?.["wp:term"]?.[0]?.[0]?.name;
   const author = post._embedded?.author?.[0]?.name ?? "Motherly Team";
   const date = new Date(post.date).toLocaleDateString("en-US", {

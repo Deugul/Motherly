@@ -122,6 +122,22 @@ function motherly_get_post_html_for_rest(int $post_id): string
 
 register_rest_field(
     'post',
+    'motherly_featured_image_url',
+    array(
+        'get_callback' => function ($post_arr) {
+            $id = (int) $post_arr['id'];
+            $url = get_the_post_thumbnail_url($id, 'full');
+            return is_string($url) && $url !== '' ? $url : '';
+        },
+        'schema' => array(
+            'type'    => 'string',
+            'context' => array('view', 'edit'),
+        ),
+    )
+);
+
+register_rest_field(
+    'post',
     'motherly_content_html',
     array(
         'get_callback' => function ($post_arr) {
