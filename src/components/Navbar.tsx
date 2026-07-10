@@ -4,6 +4,8 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { loadMaterialSymbols } from "@/lib/material-symbols";
+import { useMaterialSymbolsReady } from "@/hooks/useMaterialSymbolsReady";
 
 const serviceLinks = [
   { href: "/services/doulas", label: "Doula", icon: "child_friendly" },
@@ -94,7 +96,7 @@ export default function Navbar() {
   const [servicesOpen, setServicesOpen] = useState(false);
   const [servicesHovered, setServicesHovered] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
-  const [iconReady, setIconReady] = useState(false);
+  const iconReady = useMaterialSymbolsReady();
   const dropdownRef = useRef<HTMLDivElement>(null);
   const closeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const pathname = usePathname();
@@ -106,45 +108,10 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
-    let cancelled = false;
-    const markReady = () => { if (!cancelled) setIconReady(true); };
-
-    // Inject Material Symbols immediately with display=block to prevent FOUT.
-    // FontLoader delays this by 1.5s for Lighthouse — we load it now so icons
-    // are ready before the user can open the dropdown.
-    const FONT_URL =
-      "https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=block";
-
-    if (!document.querySelector(`link[href="${FONT_URL}"]`)) {
-      const link = document.createElement("link");
-      link.rel = "stylesheet";
-      link.href = FONT_URL;
-      document.head.appendChild(link);
+    if (servicesOpen || mobileServicesOpen) {
+      void loadMaterialSymbols();
     }
-
-    // Wait until the font is truly usable before showing icons.
-    const waitForFont = () => {
-      document.fonts.load('1em "Material Symbols Outlined"').then((faces) => {
-        if (!cancelled) {
-          if (faces.length > 0) {
-            requestAnimationFrame(() => markReady());
-          } else {
-            // Font face not defined yet — retry shortly
-            setTimeout(waitForFont, 100);
-          }
-        }
-      }).catch(() => setTimeout(waitForFont, 200));
-    };
-
-    waitForFont();
-
-    const timeout = setTimeout(markReady, 4000);
-
-    return () => {
-      cancelled = true;
-      clearTimeout(timeout);
-    };
-  }, []);
+  }, [servicesOpen, mobileServicesOpen]);
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
