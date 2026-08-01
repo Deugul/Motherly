@@ -13,6 +13,7 @@ import { stripWpFaqSchemaFromHtml } from "@/lib/strip-wp-faq-schema";
 import {
   demoteContentHeadings,
   resolveBlogPostSeo,
+  resolvePostCardExcerpt,
   type RankMathSeoFromWp,
 } from "@/lib/wordpress-seo";
 import {
@@ -37,6 +38,7 @@ import {
   localiseImageUrls,
   neutraliseDeadImageUrls,
 } from "@/lib/blog-image-manifest";
+import { restoreWpBlocks } from "@/lib/restore-wp-blocks";
 
 type WpPost = {
   id?: number;
@@ -105,7 +107,10 @@ function relatedFromPosts(posts: WpPost[], currentSlug: string): RelatedPost[] {
   return related.map((p) => ({
     slug: p.slug,
     title: stripHtml(p.title.rendered),
-    excerpt: stripHtml(p.excerpt.rendered).slice(0, 120),
+    // Shares the card-excerpt resolver so the stylesheet residue baked into the
+    // exported excerpt field is stripped here too, and the article's own lead
+    // paragraph is used when the stored excerpt is unusable.
+    excerpt: resolvePostCardExcerpt(p, 120),
     image:
       p.motherly_featured_image_url?.trim() ||
       p._embedded?.["wp:featuredmedia"]?.[0]?.source_url?.trim() ||
@@ -320,11 +325,13 @@ export default async function BlogPostPage({
   const emitFaqSchema =
     shouldRenderBlogSeoExtras &&
     process.env.NEXT_PUBLIC_ENABLE_FAQ_SCHEMA === "true";
-  const bodyHtml = neutraliseDeadImageUrls(
-    localiseImageUrls(
-      prepareWpContentHtml(getWordPressPostBodyHtml(post), emitFaqSchema),
+  const bodyHtml = restoreWpBlocks(
+    neutraliseDeadImageUrls(
+      localiseImageUrls(
+        prepareWpContentHtml(getWordPressPostBodyHtml(post), emitFaqSchema),
+      ),
+      post.slug,
     ),
-    post.slug,
   );
   const image = await resolveFeaturedImageUrl(post);
   const altText = getEmbeddedFeaturedImageAlt(post, title);
