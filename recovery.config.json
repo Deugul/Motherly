@@ -1,0 +1,60 @@
+{
+  "domains": ["mothrly.com", "blog.mothrly.com", "www.mothrly.com"],
+  "postsJson": "src/data/local-wp-posts.json",
+  "outputDir": "public/blogs",
+  "manifestModule": "src/data/blog-image-manifest.json",
+  "reportDir": "recovery-report",
+
+  "_localSourcesNote": "Folders and .zip archives holding the pre-upload originals. Searched first — highest quality available. Add any further backup folders here.",
+  "localSources": [
+    "C:/Users/Vijayakumar R/Downloads/MOTHERLY BLOG IMAGES",
+    "C:/Users/Vijayakumar R/Downloads/MOTHERLY BLOG IMAGES.zip",
+    "C:/Users/Vijayakumar R/Downloads/MOTHERLY BLOG IMAGES 41 - 50",
+    "C:/Users/Vijayakumar R/Downloads/MOTHERLY BLOG IMAGES 41 - 50.zip",
+    "C:/Users/Vijayakumar R/Downloads/MOTHERLY BLOG IMAGES 51 - 60",
+    "C:/Users/Vijayakumar R/Downloads/MOTHERLY BLOG IMAGES 51 - 60.zip",
+    "C:/Users/Vijayakumar R/Downloads/MOTHERLY BLOG IMAGES 71 - 80",
+    "C:/Users/Vijayakumar R/Downloads/MOTHERLY BLOG IMAGES 71 - 80.zip",
+    "C:/Users/Vijayakumar R/Downloads/MOTHERLY BLOG IMAGES 81 - 90",
+    "C:/Users/Vijayakumar R/Downloads/MOTHERLY BLOG IMAGES 81 - 90.zip",
+    "C:/Users/Vijayakumar R/Downloads",
+    "C:/Users/Vijayakumar R/Desktop",
+    "C:/Users/Vijayakumar R/Pictures"
+  ],
+  "maxZipBytes": 262144000,
+
+  "sources": [
+    "localarchive",
+    "origin",
+    "photon",
+    "wayback",
+    "memento",
+    "archivetoday",
+    "commoncrawl",
+    "googleimages",
+    "bingimages",
+    "yandeximages"
+  ],
+  "enableRetiredCaches": false,
+  "commonCrawlIndexes": 4,
+
+  "formats": ["webp"],
+  "responsiveWidths": [640, 750, 828, 1080, 1200, 1920],
+  "quality": { "webp": 82, "avif": 55, "jpeg": 85 },
+  "blurPlaceholder": true,
+  "naming": "hybrid",
+
+  "concurrency": 4,
+  "retries": 4,
+  "timeoutMs": 45000,
+  "hostDelayMs": {
+    "web.archive.org": 1200,
+    "archive.org": 1200,
+    "index.commoncrawl.org": 600,
+    "default": 250
+  },
+
+  "minBytes": 512,
+  "minPixels": 10000,
+  "updateContent": true
+}

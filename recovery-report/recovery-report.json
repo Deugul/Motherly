@@ -1,0 +1,2444 @@
+{
+  "generatedAt": "2026-08-01T07:27:25.880Z",
+  "config": {
+    "domains": [
+      "mothrly.com",
+      "blog.mothrly.com",
+      "www.mothrly.com"
+    ],
+    "sources": [
+      "origin",
+      "photon",
+      "wayback",
+      "memento",
+      "archivetoday",
+      "commoncrawl",
+      "googleimages",
+      "bingimages",
+      "yandeximages"
+    ],
+    "outputDir": "public/blogs",
+    "naming": "hybrid",
+    "dryRun": false
+  },
+  "totals": {
+    "assets": 160,
+    "recovered": 0,
+    "failed": 160,
+    "recoveryRate": 0,
+    "duplicates": 0,
+    "thumbnailOnly": 0,
+    "derivativeFiles": 0
+  },
+  "bySource": {},
+  "providerStats": {
+    "origin": {
+      "queried": 160,
+      "hits": 0,
+      "images": 0
+    },
+    "photon": {
+      "queried": 160,
+      "hits": 0,
+      "images": 0
+    },
+    "wayback": {
+      "queried": 160,
+      "hits": 0,
+      "images": 0
+    },
+    "memento": {
+      "queried": 160,
+      "hits": 0,
+      "images": 0
+    },
+    "archivetoday": {
+      "queried": 160,
+      "hits": 0,
+      "images": 0
+    },
+    "commoncrawl": {
+      "queried": 160,
+      "hits": 0,
+      "images": 0
+    },
+    "googleimages": {
+      "queried": 160,
+      "hits": 0,
+      "images": 0
+    },
+    "bingimages": {
+      "queried": 160,
+      "hits": 119,
+      "images": 0
+    },
+    "yandeximages": {
+      "queried": 160,
+      "hits": 0,
+      "images": 0
+    }
+  },
+  "duplicates": [],
+  "recovered": [],
+  "failed": [
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/07/161.png",
+      "basename": "161.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "postnatal-recovery-care-at-home-in-chennai-whats-included"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/07/160.png",
+      "basename": "160.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "baby-care-specialist-in-chennai-what-they-do-in-the-first-40-days"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/07/159.png",
+      "basename": "159.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "prenatal-and-postnatal-yoga-in-chennai-benefits-and-when-to-start"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/07/158.png",
+      "basename": "158.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "lactation-consultant-in-chennai-when-to-call-and-what-to-expect"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/07/MOTHERLY-BLOG-IMAGE-11-1.png",
+      "basename": "motherly-blog-image-11-1.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "doula-services-in-chennai-what-a-doula-does-for-new-mothers"
+      ],
+      "attempts": 9,
+      "reasons": []
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/06/156.png",
+      "basename": "156.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "postnatal-recovery-timeline-chennai"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/06/155.png",
+      "basename": "155.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "choose-right-nanny-after-delivery-chennai"
+      ],
+      "attempts": 9,
+      "reasons": []
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/06/154.png",
+      "basename": "154.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "postnatal-physiotherapy-vs-rest"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/06/152.png",
+      "basename": "152.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "postnatal-gynaecologist-visit-in-chennai"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: too small (500 bytes)",
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/06/153.png",
+      "basename": "153.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "baby-first-month-paediatrician-visit"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/06/145.png",
+      "basename": "145.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "nanny-services-in-chennai"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/06/149.png",
+      "basename": "149.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "mother-care-specialist-in-chennai"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)",
+        "bingimages: too small (408 bytes)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/06/148.png",
+      "basename": "148.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "postnatal-physiotherapy-in-chennai"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/06/147.png",
+      "basename": "147.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "pediatrician-consultation-in-chennai"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/06/146.png",
+      "basename": "146.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "gynaecology-consultation-in-chennai"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/06/134.png",
+      "basename": "134.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "yoga-as-medicine-for-mothers"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/06/133.png",
+      "basename": "133.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "anaemia-indian-women-crisis"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: too small (232 bytes)",
+        "bingimages: below minimum resolution (42x42)",
+        "bingimages: too small (416 bytes)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/06/132.png",
+      "basename": "132.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "mothers-gut-microbiome-shapes-baby-health"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)",
+        "bingimages: too small (192 bytes)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/06/131.png",
+      "basename": "131.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "indian-superfoods-for-mothers"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/06/130.png",
+      "basename": "130.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "what-ayurveda-gets-right-about-maternal-care"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/06/129.png",
+      "basename": "129.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "returning-to-work-after-maternity-leave"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/06/128.png",
+      "basename": "128.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "relationship-after-baby-what-helps"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/06/127.png",
+      "basename": "127.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "pelvic-floor-postpartum-recovery"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/06/126-1.png",
+      "basename": "126-1.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "matrescence-identity-transformation-motherhood"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)",
+        "bingimages: too small (298 bytes)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/06/125.png",
+      "basename": "125.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "fourth-trimester-maternal-mental-health-india"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/06/124.png",
+      "basename": "124.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "play-is-how-children-learn"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/06/123.png",
+      "basename": "123.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "iron-deficiency-toddlers-prevention"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/06/119.png",
+      "basename": "119.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "matrescence-the-word-that-changes-everything"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/06/122.png",
+      "basename": "122.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "first-three-years-build-the-brain"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/06/118.png",
+      "basename": "118.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "mom-guilt-where-it-comes-from-and-how-to-let-go"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)",
+        "bingimages: too small (262 bytes)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/06/121.png",
+      "basename": "121.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "toddler-sleep-what-you-have-been-told-is-wrong"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: too small (400 bytes)",
+        "bingimages: below minimum resolution (42x42)",
+        "bingimages: too small (330 bytes)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/06/120.png",
+      "basename": "120.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "toddler-picky-eating-what-is-normal"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: too small (440 bytes)",
+        "bingimages: too small (468 bytes)",
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/06/117.png",
+      "basename": "117.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "postpartum-psychosis-signs-every-family-must-know"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)",
+        "bingimages: too small (432 bytes)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/06/116.png",
+      "basename": "116.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "postpartum-ocd-intrusive-thoughts"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/06/115.png",
+      "basename": "115.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "postpartum-anxiety-more-common-than-ppd"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/Creating-a-Birth-Plan-That-Works.png",
+      "basename": "creating-a-birth-plan-that-works.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "birth-plan-that-works-india"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: too small (462 bytes)",
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/Balancing-Work-and-Pregnancy.png",
+      "basename": "balancing-work-and-pregnancy.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "working-through-pregnancy-honest-guide"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/Prenatal-Supplements-What-Matters.png",
+      "basename": "prenatal-supplements-what-matters.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "prenatal-supplements-what-you-actually-need"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/Pregnancy-Skin-Changes-Explained-1.png",
+      "basename": "pregnancy-skin-changes-explained-1.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "pregnancy-skin-complete-honest-guide"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)",
+        "bingimages: too small (498 bytes)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/Better-Sleep-in-the-Third-Trimester-1.png",
+      "basename": "better-sleep-in-the-third-trimester-1.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "sleep-third-trimester-what-actually-helps"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: too small (462 bytes)",
+        "bingimages: too small (468 bytes)",
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/Preventing-Anaemia-During-Pregnancy.png",
+      "basename": "preventing-anaemia-during-pregnancy.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "iron-deficiency-anaemia-pregnancy-india"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/Embracing-Your-Pregnant-Body.png",
+      "basename": "embracing-your-pregnant-body.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "pregnant-body-image-honest-guide"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)",
+        "bingimages: too small (368 bytes)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/Understanding-Stillbirth-and-Loss.png",
+      "basename": "understanding-stillbirth-and-loss.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "stillbirth-the-unspoken-loss"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/Understanding-High-Risk-Pregnancy.png",
+      "basename": "understanding-high-risk-pregnancy.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "high-risk-pregnancy-honest-guide"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)",
+        "bingimages: too small (402 bytes)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/Pregnancy-Anxiety-Finding-Calm-During-Pregnancy.png",
+      "basename": "pregnancy-anxiety-finding-calm-during-pregnancy.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "pregnancy-anxiety-honest-guide"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/104.png",
+      "basename": "104.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "egg-freezing-facts-india"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/103.png",
+      "basename": "103.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "trying-to-conceive-relationship-strain"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)",
+        "bingimages: too small (450 bytes)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/102.png",
+      "basename": "102.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "secondary-infertility-invisible-grief"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/101.png",
+      "basename": "101.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "fertility-diet-evidence-based"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)",
+        "bingimages: too small (436 bytes)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/100.png",
+      "basename": "100.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "recurrent-pregnancy-loss-causes-and-treatment"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/99.png",
+      "basename": "99.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "after-ivf-failure-what-happens-now"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/98.png",
+      "basename": "98.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "ivf-honest-guide-india"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/97.png",
+      "basename": "97.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "unexplained-infertility-what-tests-miss"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/96.png",
+      "basename": "96.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "ovulation-fertile-window-science"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)",
+        "bingimages: too small (472 bytes)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/95.png",
+      "basename": "95.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "trying-to-conceive-emotional-reality"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)",
+        "bingimages: too small (290 bytes)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/Baby-Eating-First-Solid-Foods.png",
+      "basename": "baby-eating-first-solid-foods.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "introduction-of-solids-first-foods"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/Mother-and-Toddler-in-Gentle-Weaning.png",
+      "basename": "mother-and-toddler-in-gentle-weaning.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "weaning-gentle-transition"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/Breastfeeding-and-Brain-Development.png",
+      "basename": "breastfeeding-and-brain-development.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "breastfeeding-and-the-brain"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/Mother-Breastfeeding-Older-Baby.png",
+      "basename": "mother-breastfeeding-older-baby.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "extended-breastfeeding-cultural-scientific-case"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/Father-Bottle-Feeding-His-Baby.png",
+      "basename": "father-bottle-feeding-his-baby.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "formula-feeding-is-not-failure"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/Working-Mother-Pumping-at-Office.png",
+      "basename": "working-mother-pumping-at-office.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "breastfeeding-and-returning-to-work"
+      ],
+      "attempts": 9,
+      "reasons": []
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/Newborn-Receiving-Colostrum.png",
+      "basename": "newborn-receiving-colostrum.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "colostrum-first-vaccine"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/Healthy-Breastfeeding-Meal.png",
+      "basename": "healthy-breastfeeding-meal.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "what-a-breastfeeding-mother-eats"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/Mother-Getting-Breastfeeding-Support.png",
+      "basename": "mother-getting-breastfeeding-support.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "breastfeeding-challenges-honest-guide"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/Mother-Breastfeeding-Her-Baby.png",
+      "basename": "mother-breastfeeding-her-baby.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "breast-milk-most-complex-biological-substance"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/Mother-Bonding-With-Her-Newborn.png",
+      "basename": "mother-bonding-with-her-newborn.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "mother-baby-bond-science-and-sacred"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/New-Mother-Coping-With-Postpartum-Depression.png",
+      "basename": "new-mother-coping-with-postpartum-depression.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "postpartum-depression-is-biology"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/Indian-Postpartum-Confinement.png",
+      "basename": "indian-postpartum-confinement.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "indian-confinement-period-postpartum"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/Safe-Sleep-Setup-for-Newborn.png",
+      "basename": "safe-sleep-setup-for-newborn.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "newborn-safety-facts-every-parent-must-know"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/Mother-Processing-a-Difficult-Birth.png",
+      "basename": "mother-processing-a-difficult-birth.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "birth-trauma-is-real"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/Premature-Baby-in-NICU-1.png",
+      "basename": "premature-baby-in-nicu-1.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "nicu-when-baby-arrives-early"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/Woman-Recovering-From-C-Section.png",
+      "basename": "woman-recovering-from-c-section.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "caesarean-recovery-honest-guide"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/Parents-With-Their-Newborn.png",
+      "basename": "parents-with-their-newborn.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "newborn-care-first-days"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/Mother-and-Newborn-Golden-Hour.png",
+      "basename": "mother-and-newborn-golden-hour.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "golden-hour-after-birth"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/Woman-in-Labour-at-the-Hospital.png",
+      "basename": "woman-in-labour-at-the-hospital.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "labour-what-actually-happens"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/Ayurvedic-Pregnancy-Care.png",
+      "basename": "ayurvedic-pregnancy-care.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "ayurvedic-pregnancy-classical-approach"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/Pregnant-Woman-Discussing-Birth-Plan.png",
+      "basename": "pregnant-woman-discussing-birth-plan.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "safe-birth-is-a-right"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)",
+        "bingimages: too small (486 bytes)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/Modern-Indian-Woman-Managing-Pregnancy.png",
+      "basename": "modern-indian-woman-managing-pregnancy.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "why-pregnancy-is-harder-now"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/Pregnant-Woman-Doing-Prenatal-Yoga.png",
+      "basename": "pregnant-woman-doing-prenatal-yoga.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "exercise-during-pregnancy"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: too small (430 bytes)",
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/Pregnant-Woman-Coping-With-Anxiety.png",
+      "basename": "pregnant-woman-coping-with-anxiety.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "antenatal-anxiety-and-depression"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/Third-Trimester-Birth-Preparation.png",
+      "basename": "third-trimester-birth-preparation.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "third-trimester-preparation"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/Gestational-Diabetes-Test.png",
+      "basename": "gestational-diabetes-test.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "gestational-diabetes-rising-epidemic"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/Second-Trimester-Visible-Baby-Bump.png",
+      "basename": "second-trimester-visible-baby-bump.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "second-trimester-golden-period"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/Healthy-Pregnancy-Plate.png",
+      "basename": "healthy-pregnancy-plate.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "eating-for-two-is-wrong"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/First-Trimester-Pregnancy-Care.png",
+      "basename": "first-trimester-pregnancy-care.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "first-trimester-what-body-is-doing"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/Woman-Reflecting-on-Motherhood.png",
+      "basename": "woman-reflecting-on-motherhood.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "emotional-readiness-for-motherhood"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/Couple-Discussing-Male-Fertility.png",
+      "basename": "couple-discussing-male-fertility.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "male-fertility-overlooked-half"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/Ayurvedic-Herbs-for-Fertility.png",
+      "basename": "ayurvedic-herbs-for-fertility.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "ayurveda-pre-conception-manual"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/Calm-Woman-Practising-Stress-Reduction.png",
+      "basename": "calm-woman-practising-stress-reduction.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "stress-and-fertility"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/Thyroid-Test-for-Fertility.png",
+      "basename": "thyroid-test-for-fertility.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "thyroid-and-fertility"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)",
+        "bingimages: too small (502 bytes)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/Career-Woman-Considering-Fertility.png",
+      "basename": "career-woman-considering-fertility.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "eggs-ageing-career-woman-fertility"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: too small (470 bytes)",
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/Indian-Woman-With-PCOS-Speaking-to-a-Doctor.png",
+      "basename": "indian-woman-with-pcos-speaking-to-a-doctor.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "pcos-what-you-actually-need"
+      ],
+      "attempts": 9,
+      "reasons": []
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/Woman-Preparing-Her-Body-for-Pregnancy-1.png",
+      "basename": "woman-preparing-her-body-for-pregnancy-1.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "six-months-pre-conception-preparation"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/Couple-Supporting-Each-Other-After-Miscarriage.png",
+      "basename": "couple-supporting-each-other-after-miscarriage.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "miscarriage-what-you-need-to-know"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/Woman-in-Her-30s-Fertility-Journey.png",
+      "basename": "woman-in-her-30s-fertility-journey.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "late-marriage-fertility-reality"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/Young-Couple-With-Newborn-Purpose-of-Family.png",
+      "basename": "young-couple-with-newborn-purpose-of-family.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "why-families-are-built"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/Mother-Telling-Stories-to-Her-Child.png",
+      "basename": "mother-telling-stories-to-her-child.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "stories-you-tell-your-child"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/Family-Embrace-The-Real-Love.png",
+      "basename": "family-embrace-the-real-love.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "what-love-in-a-family-actually-is"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/Woman-as-the-Heart-of-the-Family.png",
+      "basename": "woman-as-the-heart-of-the-family.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "woman-is-the-axis-of-the-family"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/The-Cycle-of-Life-Generations.png",
+      "basename": "the-cycle-of-life-generations.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "human-cycle-is-sacred"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/Two-Indian-Siblings-Playing-Together.png",
+      "basename": "two-indian-siblings-playing-together.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "the-love-between-siblings"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/Father-Participating-in-Childcare.png",
+      "basename": "father-participating-in-childcare.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "fathers-role-is-not-helping-it-is-participating"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/Three-Generations-Family-Legacy.png",
+      "basename": "three-generations-family-legacy.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "what-is-legacy-really-family-you-build"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: too small (418 bytes)",
+        "bingimages: too small (424 bytes)",
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/Mother-and-Newborn-The-Transformation-1.png",
+      "basename": "mother-and-newborn-the-transformation-1.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "what-a-child-actually-changes-about-you"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)",
+        "bingimages: too small (260 bytes)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/Mother-as-the-Beginning-of-Civilisation.png",
+      "basename": "mother-as-the-beginning-of-civilisation.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "why-every-mother-is-the-beginning-of-a-civilisation"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/2-WHEELER.png",
+      "basename": "2-wheeler.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "is-it-safe-to-travel-by-two-wheeler-during-pregnancy"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/WhatsApp-Image-2026-05-04-at-6.47.52-PM.jpeg",
+      "basename": "whatsapp-image-2026-05-04-at-6.47.52-pm.jpeg",
+      "roles": [
+        "inline"
+      ],
+      "posts": [
+        "is-it-safe-to-travel-by-two-wheeler-during-pregnancy"
+      ],
+      "attempts": 9,
+      "reasons": []
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/04/WhatsApp-Image-2026-04-28-at-1.33.57-PM-1.jpeg",
+      "basename": "whatsapp-image-2026-04-28-at-1.33.57-pm-1.jpeg",
+      "roles": [
+        "inline",
+        "featured"
+      ],
+      "posts": [
+        "is-it-safe-to-travel-by-two-wheeler-during-pregnancy",
+        "is-folic-acid-enough-in-first-trimester",
+        "why-do-i-feel-so-cold-during-early-pregnancy",
+        "can-you-eat-methi-during-first-trimester",
+        "is-jeera-water-safe-to-drink-in-first-trimester",
+        "how-to-reduce-morning-sickness-naturally-at-home",
+        "can-stress-cause-miscarriage-in-first-trimester",
+        "is-brown-discharge-normal-in-early-pregnancy",
+        "how-to-confirm-pregnancy-at-home-without-a-kit",
+        "first-signs-of-pregnancy-in-indian-women",
+        "why-is-my-breast-milk-not-coming-causes-and-easy-solutions",
+        "what-to-drink-to-boost-breast-milk-production-at-home"
+      ],
+      "attempts": 9,
+      "reasons": []
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/WhatsApp-Image-2026-05-04-at-6.18.54-PM.jpeg",
+      "basename": "whatsapp-image-2026-05-04-at-6.18.54-pm.jpeg",
+      "roles": [
+        "inline",
+        "featured"
+      ],
+      "posts": [
+        "is-it-safe-to-travel-by-two-wheeler-during-pregnancy",
+        "is-folic-acid-enough-in-first-trimester",
+        "why-do-i-feel-so-cold-during-early-pregnancy",
+        "can-you-eat-methi-during-first-trimester",
+        "is-jeera-water-safe-to-drink-in-first-trimester",
+        "how-to-reduce-morning-sickness-naturally-at-home",
+        "can-stress-cause-miscarriage-in-first-trimester",
+        "is-brown-discharge-normal-in-early-pregnancy",
+        "how-to-confirm-pregnancy-at-home-without-a-kit",
+        "first-signs-of-pregnancy-in-indian-women",
+        "why-is-my-breast-milk-not-coming-causes-and-easy-solutions"
+      ],
+      "attempts": 9,
+      "reasons": []
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/WhatsApp-Image-2026-05-04-at-6.16.44-PM.jpeg",
+      "basename": "whatsapp-image-2026-05-04-at-6.16.44-pm.jpeg",
+      "roles": [
+        "inline",
+        "featured"
+      ],
+      "posts": [
+        "is-it-safe-to-travel-by-two-wheeler-during-pregnancy",
+        "why-do-i-feel-so-cold-during-early-pregnancy",
+        "can-you-eat-methi-during-first-trimester",
+        "is-jeera-water-safe-to-drink-in-first-trimester",
+        "how-to-reduce-morning-sickness-naturally-at-home",
+        "can-stress-cause-miscarriage-in-first-trimester",
+        "is-brown-discharge-normal-in-early-pregnancy",
+        "how-to-confirm-pregnancy-at-home-without-a-kit",
+        "first-signs-of-pregnancy-in-indian-women",
+        "why-is-my-breast-milk-not-coming-causes-and-easy-solutions"
+      ],
+      "attempts": 9,
+      "reasons": []
+    },
+    {
+      "originalUrl": "https://blog.mothrly.com/wp-content/uploads/2026/05/WhatsApp-Image-2026-05-04-at-6.14.05-PM.jpeg",
+      "basename": "whatsapp-image-2026-05-04-at-6.14.05-pm.jpeg",
+      "roles": [
+        "featured",
+        "inline"
+      ],
+      "posts": [
+        "can-you-eat-methi-during-first-trimester"
+      ],
+      "attempts": 9,
+      "reasons": []
+    },
+    {
+      "originalUrl": "https://blog.mothrly.com/wp-content/uploads/2026/05/WhatsApp-Image-2026-05-04-at-6.11.59-PM.jpeg",
+      "basename": "whatsapp-image-2026-05-04-at-6.11.59-pm.jpeg",
+      "roles": [
+        "featured",
+        "inline"
+      ],
+      "posts": [
+        "is-jeera-water-safe-to-drink-in-first-trimester"
+      ],
+      "attempts": 9,
+      "reasons": []
+    },
+    {
+      "originalUrl": "https://blog.mothrly.com/wp-content/uploads/2026/05/WhatsApp-Image-2026-05-04-at-6.05.46-PM.jpeg",
+      "basename": "whatsapp-image-2026-05-04-at-6.05.46-pm.jpeg",
+      "roles": [
+        "featured",
+        "inline"
+      ],
+      "posts": [
+        "how-to-reduce-morning-sickness-naturally-at-home"
+      ],
+      "attempts": 9,
+      "reasons": []
+    },
+    {
+      "originalUrl": "https://blog.mothrly.com/wp-content/uploads/2026/05/WhatsApp-Image-2026-05-04-at-5.49.38-PM.jpeg",
+      "basename": "whatsapp-image-2026-05-04-at-5.49.38-pm.jpeg",
+      "roles": [
+        "featured",
+        "inline"
+      ],
+      "posts": [
+        "can-stress-cause-miscarriage-in-first-trimester"
+      ],
+      "attempts": 9,
+      "reasons": []
+    },
+    {
+      "originalUrl": "https://blog.mothrly.com/wp-content/uploads/2026/05/WhatsApp-Image-2026-05-04-at-5.42.45-PM.jpeg",
+      "basename": "whatsapp-image-2026-05-04-at-5.42.45-pm.jpeg",
+      "roles": [
+        "featured",
+        "inline"
+      ],
+      "posts": [
+        "is-brown-discharge-normal-in-early-pregnancy"
+      ],
+      "attempts": 9,
+      "reasons": []
+    },
+    {
+      "originalUrl": "https://blog.mothrly.com/wp-content/uploads/2026/05/WhatsApp-Image-2026-05-04-at-5.31.59-PM.jpeg",
+      "basename": "whatsapp-image-2026-05-04-at-5.31.59-pm.jpeg",
+      "roles": [
+        "featured",
+        "inline"
+      ],
+      "posts": [
+        "how-to-confirm-pregnancy-at-home-without-a-kit"
+      ],
+      "attempts": 9,
+      "reasons": []
+    },
+    {
+      "originalUrl": "https://blog.mothrly.com/wp-content/uploads/2026/05/WhatsApp-Image-2026-05-04-at-5.34.30-PM.jpeg",
+      "basename": "whatsapp-image-2026-05-04-at-5.34.30-pm.jpeg",
+      "roles": [
+        "featured",
+        "inline"
+      ],
+      "posts": [
+        "first-signs-of-pregnancy-in-indian-women"
+      ],
+      "attempts": 9,
+      "reasons": []
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/WhatsApp-Image-2026-04-28-at-1.33.57-PM-1.jpeg",
+      "basename": "whatsapp-image-2026-04-28-at-1.33.57-pm-1.jpeg",
+      "roles": [
+        "inline"
+      ],
+      "posts": [
+        "why-is-my-breast-milk-not-coming-causes-and-easy-solutions"
+      ],
+      "attempts": 9,
+      "reasons": []
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/04/WhatsApp-Image-2026-04-28-at-1.33.57-PM.jpeg",
+      "basename": "whatsapp-image-2026-04-28-at-1.33.57-pm.jpeg",
+      "roles": [
+        "featured",
+        "inline"
+      ],
+      "posts": [
+        "why-is-it-so-hard-to-lose-weight-while-breastfeeding",
+        "what-to-drink-to-boost-breast-milk-production-at-home"
+      ],
+      "attempts": 9,
+      "reasons": []
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/04/WhatsApp-Image-2026-04-28-at-1.20.12-PM.jpeg",
+      "basename": "whatsapp-image-2026-04-28-at-1.20.12-pm.jpeg",
+      "roles": [
+        "inline",
+        "featured"
+      ],
+      "posts": [
+        "why-is-it-so-hard-to-lose-weight-while-breastfeeding",
+        "when-do-you-lose-the-most-weight-while-breastfeeding",
+        "what-to-drink-to-boost-breast-milk-production-at-home"
+      ],
+      "attempts": 9,
+      "reasons": []
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/04/WhatsApp-Image-2026-04-28-at-1.15.16-PM.jpeg",
+      "basename": "whatsapp-image-2026-04-28-at-1.15.16-pm.jpeg",
+      "roles": [
+        "inline",
+        "featured"
+      ],
+      "posts": [
+        "why-is-it-so-hard-to-lose-weight-while-breastfeeding",
+        "when-do-you-lose-the-most-weight-while-breastfeeding",
+        "what-to-drink-to-boost-breast-milk-production-at-home"
+      ],
+      "attempts": 9,
+      "reasons": []
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/04/WhatsApp-Image-2026-04-28-at-1.15.15-PM.jpeg",
+      "basename": "whatsapp-image-2026-04-28-at-1.15.15-pm.jpeg",
+      "roles": [
+        "inline",
+        "featured"
+      ],
+      "posts": [
+        "when-do-you-lose-the-most-weight-while-breastfeeding",
+        "what-should-a-mother-avoid-eating-while-breastfeeding"
+      ],
+      "attempts": 9,
+      "reasons": []
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/04/WhatsApp-Image-2026-04-28-at-12.52.53-PM.jpeg",
+      "basename": "whatsapp-image-2026-04-28-at-12.52.53-pm.jpeg",
+      "roles": [
+        "inline",
+        "featured"
+      ],
+      "posts": [
+        "what-should-a-mother-avoid-eating-while-breastfeeding",
+        "what-is-the-6-6-6-rule-for-breastfeeding-myth-vs-reality"
+      ],
+      "attempts": 9,
+      "reasons": []
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/04/WhatsApp-Image-2026-04-28-at-12.52.52-PM-1.jpeg",
+      "basename": "whatsapp-image-2026-04-28-at-12.52.52-pm-1.jpeg",
+      "roles": [
+        "inline",
+        "featured"
+      ],
+      "posts": [
+        "what-should-a-mother-avoid-eating-while-breastfeeding",
+        "what-is-the-6-6-6-rule-for-breastfeeding-myth-vs-reality",
+        "what-is-the-4-4-4-rule-for-breastfeeding-a-simple-guide-for-moms"
+      ],
+      "attempts": 9,
+      "reasons": []
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/04/WhatsApp-Image-2026-04-28-at-12.52.52-PM.jpeg",
+      "basename": "whatsapp-image-2026-04-28-at-12.52.52-pm.jpeg",
+      "roles": [
+        "inline",
+        "featured"
+      ],
+      "posts": [
+        "what-is-the-6-6-6-rule-for-breastfeeding-myth-vs-reality",
+        "what-is-the-4-4-4-rule-for-breastfeeding-a-simple-guide-for-moms",
+        "what-is-the-3-3-3-rule-for-breast-milk-everything-you-need-to-know"
+      ],
+      "attempts": 9,
+      "reasons": []
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/04/2-hours.jpeg",
+      "basename": "2-hours.jpeg",
+      "roles": [
+        "inline",
+        "featured"
+      ],
+      "posts": [
+        "what-is-the-4-4-4-rule-for-breastfeeding-a-simple-guide-for-moms",
+        "what-is-the-3-3-3-rule-for-breast-milk-everything-you-need-to-know",
+        "does-feeding-every-2-hours-increase-milk-supply",
+        "foods-that-increase-breast-milk-vs-foods-you-should-avoid-a-complete-guide-for-indian-mothers",
+        "do-grapes-ginger-herbal-teas-affect-breast-milk",
+        "indian-foods-to-increase-breast-milk-supply",
+        "how-to-increase-breast-milk-naturally",
+        "how-to-increase-breast-milk-supply",
+        "vegetarian-pregnancy-diet-plan-all-9-months",
+        "weekly-pregnancy-diet-plan-for-indian-women",
+        "second-trimester-pregnancy-diet-plan",
+        "first-trimester-pregnancy-diet-plan",
+        "pregnancy-diet-plan",
+        "pineapple-in-pregnancy",
+        "how-to-hold-a-baby-when-breastfeeding",
+        "what-is-a-mother",
+        "newborn-sleep-patterns-what-to-expect-in-the-third-month",
+        "why-every-new-mother-may-need-a-lactation-consultant",
+        "10-essential-nutrition-tips-for-a-healthy-pregnancy",
+        "doula-vs-midwife-who-cares-for-you-and-your-baby"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/04/JEERA-WATER.jpeg",
+      "basename": "jeera-water.jpeg",
+      "roles": [
+        "inline",
+        "featured"
+      ],
+      "posts": [
+        "what-is-the-3-3-3-rule-for-breast-milk-everything-you-need-to-know",
+        "does-feeding-every-2-hours-increase-milk-supply",
+        "does-jeera-water-really-increase-breast-milk",
+        "foods-that-increase-breast-milk-vs-foods-you-should-avoid-a-complete-guide-for-indian-mothers",
+        "how-much-walking-is-safe-during-pregnancy",
+        "do-grapes-ginger-herbal-teas-affect-breast-milk",
+        "indian-foods-to-increase-breast-milk-supply",
+        "how-to-increase-breast-milk-naturally",
+        "how-to-increase-breast-milk-supply",
+        "vegetarian-pregnancy-diet-plan-all-9-months",
+        "weekly-pregnancy-diet-plan-for-indian-women",
+        "second-trimester-pregnancy-diet-plan",
+        "first-trimester-pregnancy-diet-plan",
+        "pregnancy-diet-plan",
+        "pineapple-in-pregnancy",
+        "how-to-hold-a-baby-when-breastfeeding",
+        "what-is-a-mother",
+        "newborn-sleep-patterns-what-to-expect-in-the-third-month",
+        "why-every-new-mother-may-need-a-lactation-consultant",
+        "10-essential-nutrition-tips-for-a-healthy-pregnancy",
+        "doula-vs-midwife-who-cares-for-you-and-your-baby"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/04/POSTPARTUM-BELLY.jpeg",
+      "basename": "postpartum-belly.jpeg",
+      "roles": [
+        "inline",
+        "featured"
+      ],
+      "posts": [
+        "does-feeding-every-2-hours-increase-milk-supply",
+        "does-postpartum-belly-go-away-a-realistic-recovery-guide-for-new-moms",
+        "foods-that-increase-breast-milk-vs-foods-you-should-avoid-a-complete-guide-for-indian-mothers",
+        "do-grapes-ginger-herbal-teas-affect-breast-milk",
+        "indian-foods-to-increase-breast-milk-supply",
+        "how-to-increase-breast-milk-naturally",
+        "how-to-increase-breast-milk-supply",
+        "vegetarian-pregnancy-diet-plan-all-9-months",
+        "weekly-pregnancy-diet-plan-for-indian-women",
+        "second-trimester-pregnancy-diet-plan",
+        "first-trimester-pregnancy-diet-plan",
+        "pregnancy-diet-plan",
+        "pineapple-in-pregnancy",
+        "how-to-hold-a-baby-when-breastfeeding",
+        "what-is-a-mother",
+        "newborn-sleep-patterns-what-to-expect-in-the-third-month",
+        "why-every-new-mother-may-need-a-lactation-consultant",
+        "10-essential-nutrition-tips-for-a-healthy-pregnancy",
+        "doula-vs-midwife-who-cares-for-you-and-your-baby"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)",
+        "bingimages: too small (496 bytes)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/04/Motherly-Your-Birth-Companion.png",
+      "basename": "motherly-your-birth-companion.png",
+      "roles": [
+        "inline"
+      ],
+      "posts": [
+        "does-jeera-water-really-increase-breast-milk",
+        "does-postpartum-belly-go-away-a-realistic-recovery-guide-for-new-moms",
+        "how-much-walking-is-safe-during-pregnancy"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/04/FOODS.jpeg",
+      "basename": "foods.jpeg",
+      "roles": [
+        "featured",
+        "inline"
+      ],
+      "posts": [
+        "foods-that-increase-breast-milk-vs-foods-you-should-avoid-a-complete-guide-for-indian-mothers"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/04/HOW-MUCH-WALKING-IS-SAFE.jpeg",
+      "basename": "how-much-walking-is-safe.jpeg",
+      "roles": [
+        "featured",
+        "inline"
+      ],
+      "posts": [
+        "how-much-walking-is-safe-during-pregnancy"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/04/DO-grapes.jpeg",
+      "basename": "do-grapes.jpeg",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "do-grapes-ginger-herbal-teas-affect-breast-milk"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/04/WhatsApp-Image-2026-04-21-at-3.59.39-PM.jpeg",
+      "basename": "whatsapp-image-2026-04-21-at-3.59.39-pm.jpeg",
+      "roles": [
+        "inline"
+      ],
+      "posts": [
+        "do-grapes-ginger-herbal-teas-affect-breast-milk",
+        "breastfeeding-rules-every-new-mom-should-know"
+      ],
+      "attempts": 9,
+      "reasons": []
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/04/Breastfeeding-rules.jpeg",
+      "basename": "breastfeeding-rules.jpeg",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "breastfeeding-rules-every-new-mom-should-know"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/04/WhatsApp-Image-2026-04-21-at-3.45.30-PM.jpeg",
+      "basename": "whatsapp-image-2026-04-21-at-3.45.30-pm.jpeg",
+      "roles": [
+        "inline"
+      ],
+      "posts": [
+        "breastfeeding-rules-every-new-mom-should-know"
+      ],
+      "attempts": 9,
+      "reasons": []
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/04/WhatsApp-Image-2026-04-21-at-4.25.18-PM.jpeg",
+      "basename": "whatsapp-image-2026-04-21-at-4.25.18-pm.jpeg",
+      "roles": [
+        "inline",
+        "featured"
+      ],
+      "posts": [
+        "breastfeeding-rules-every-new-mom-should-know",
+        "can-you-walk-10000-steps-during-pregnancy"
+      ],
+      "attempts": 9,
+      "reasons": []
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/04/best_indian_foods.jpeg",
+      "basename": "best_indian_foods.jpeg",
+      "roles": [
+        "inline",
+        "featured"
+      ],
+      "posts": [
+        "breastfeeding-rules-every-new-mom-should-know",
+        "indian-foods-to-increase-breast-milk-supply",
+        "can-you-walk-10000-steps-during-pregnancy",
+        "5-signs-baby-getting-enough-breast-milk"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/04/5signs.jpeg",
+      "basename": "5signs.jpeg",
+      "roles": [
+        "inline",
+        "featured"
+      ],
+      "posts": [
+        "can-you-walk-10000-steps-during-pregnancy",
+        "5-signs-baby-getting-enough-breast-milk"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: too small (502 bytes)",
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/04/WhatsApp-Image-2026-03-30-at-6.21.27-PM.jpeg",
+      "basename": "whatsapp-image-2026-03-30-at-6.21.27-pm.jpeg",
+      "roles": [
+        "inline",
+        "featured"
+      ],
+      "posts": [
+        "5-signs-baby-getting-enough-breast-milk",
+        "postpartum-care-in-chennai-the-complete-guide-for-new-mothers",
+        "composition-of-breast-milk-understanding-what-human-milk-contains",
+        "how-to-increase-breast-milk-supplyafter-c-section-delivery",
+        "what-to-eat-to-increase-breast-milkthe-complete-food-guide-for-breastfeeding-mothers",
+        "what-to-drink-to-increase-breast-milkthe-complete-guide-for-breastfeeding-mothers",
+        "when-does-breast-milk-start-during-pregnancy",
+        "third-trimester-pregnancy-diet-plan"
+      ],
+      "attempts": 9,
+      "reasons": []
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/03/WhatsApp-Image-2026-03-30-at-6.28.27-PM.jpeg",
+      "basename": "whatsapp-image-2026-03-30-at-6.28.27-pm.jpeg",
+      "roles": [
+        "inline",
+        "featured"
+      ],
+      "posts": [
+        "5-signs-baby-getting-enough-breast-milk",
+        "postpartum-care-in-chennai-the-complete-guide-for-new-mothers",
+        "composition-of-breast-milk-understanding-what-human-milk-contains",
+        "how-to-increase-breast-milk-supplyafter-c-section-delivery",
+        "what-to-eat-to-increase-breast-milkthe-complete-food-guide-for-breastfeeding-mothers",
+        "what-to-drink-to-increase-breast-milkthe-complete-guide-for-breastfeeding-mothers",
+        "when-does-breast-milk-start-during-pregnancy",
+        "third-trimester-pregnancy-diet-plan"
+      ],
+      "attempts": 9,
+      "reasons": []
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/03/WhatsApp-Image-2026-03-30-at-5.56.36-PM-1.jpeg",
+      "basename": "whatsapp-image-2026-03-30-at-5.56.36-pm-1.jpeg",
+      "roles": [
+        "inline",
+        "featured"
+      ],
+      "posts": [
+        "postpartum-care-in-chennai-the-complete-guide-for-new-mothers",
+        "composition-of-breast-milk-understanding-what-human-milk-contains",
+        "how-to-increase-breast-milk-supplyafter-c-section-delivery",
+        "what-to-eat-to-increase-breast-milkthe-complete-food-guide-for-breastfeeding-mothers",
+        "what-to-drink-to-increase-breast-milkthe-complete-guide-for-breastfeeding-mothers",
+        "when-does-breast-milk-start-during-pregnancy",
+        "third-trimester-pregnancy-diet-plan"
+      ],
+      "attempts": 9,
+      "reasons": []
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/03/WhatsApp-Image-2026-03-23-at-4.48.39-PM.jpeg",
+      "basename": "whatsapp-image-2026-03-23-at-4.48.39-pm.jpeg",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "what-to-eat-to-increase-breast-milkthe-complete-food-guide-for-breastfeeding-mothers"
+      ],
+      "attempts": 9,
+      "reasons": []
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/03/WhatsApp-Image-2026-03-23-at-4.33.35-PM.jpeg",
+      "basename": "whatsapp-image-2026-03-23-at-4.33.35-pm.jpeg",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "what-to-drink-to-increase-breast-milkthe-complete-guide-for-breastfeeding-mothers"
+      ],
+      "attempts": 9,
+      "reasons": []
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/03/WhatsApp-Image-2026-03-23-at-4.33.33-PM.jpeg",
+      "basename": "whatsapp-image-2026-03-23-at-4.33.33-pm.jpeg",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "when-does-breast-milk-start-during-pregnancy"
+      ],
+      "attempts": 9,
+      "reasons": []
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/03/WhatsApp-Image-2026-03-23-at-4.33.36-PM.jpeg",
+      "basename": "whatsapp-image-2026-03-23-at-4.33.36-pm.jpeg",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "how-to-increase-breast-milk-naturally"
+      ],
+      "attempts": 9,
+      "reasons": []
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/03/WhatsApp-Image-2026-03-23-at-4.33.34-PM.jpeg",
+      "basename": "whatsapp-image-2026-03-23-at-4.33.34-pm.jpeg",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "how-to-increase-breast-milk-supply"
+      ],
+      "attempts": 9,
+      "reasons": []
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/03/WhatsApp-Image-2026-03-13-at-5.21.01-PM.jpeg",
+      "basename": "whatsapp-image-2026-03-13-at-5.21.01-pm.jpeg",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "vegetarian-pregnancy-diet-plan-all-9-months"
+      ],
+      "attempts": 9,
+      "reasons": []
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/03/WhatsApp-Image-2026-03-11-at-8.50.31-PM.jpeg",
+      "basename": "whatsapp-image-2026-03-11-at-8.50.31-pm.jpeg",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "third-trimester-pregnancy-diet-plan"
+      ],
+      "attempts": 9,
+      "reasons": []
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/03/Blog-image-motherly-1.png",
+      "basename": "blog-image-motherly-1.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "weekly-pregnancy-diet-plan-for-indian-women"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/02/WhatsApp-Image-2026-03-11-at-8.09.29-PM.jpeg",
+      "basename": "whatsapp-image-2026-03-11-at-8.09.29-pm.jpeg",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "second-trimester-pregnancy-diet-plan"
+      ],
+      "attempts": 9,
+      "reasons": []
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/02/first-trimester-1.png",
+      "basename": "first-trimester-1.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "first-trimester-pregnancy-diet-plan"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: too small (428 bytes)",
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/02/WhatsApp-Image-2026-03-11-at-8.21.29-PM.jpeg",
+      "basename": "whatsapp-image-2026-03-11-at-8.21.29-pm.jpeg",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "pregnancy-diet-plan"
+      ],
+      "attempts": 9,
+      "reasons": []
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/02/PAPAYA-BLOG-IMG.png",
+      "basename": "papaya-blog-img.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "papaya-during-pregnancy"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: too small (468 bytes)",
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/01/PINEAPPLE-BLOG-IMG.png",
+      "basename": "pineapple-blog-img.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "pineapple-in-pregnancy"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)",
+        "bingimages: too small (468 bytes)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2025/11/How-To-Hold-A-Baby-When-Breastfeeding.jpg",
+      "basename": "how-to-hold-a-baby-when-breastfeeding.jpg",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "how-to-hold-a-baby-when-breastfeeding"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2025/10/What-Is-a-Mother.jpg",
+      "basename": "what-is-a-mother.jpg",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "what-is-a-mother"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2025/08/Newborn-Sleep-Patterns-What-to-Expect-in-the-third-Month.jpg",
+      "basename": "newborn-sleep-patterns-what-to-expect-in-the-third-month.jpg",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "newborn-sleep-patterns-what-to-expect-in-the-third-month"
+      ],
+      "attempts": 9,
+      "reasons": []
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2025/08/The-Complete-Guide-Why-Every-New-Mother-May-Need-a-Lactation-Consultant.jpg",
+      "basename": "the-complete-guide-why-every-new-mother-may-need-a-lactation-consultant.jpg",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "why-every-new-mother-may-need-a-lactation-consultant"
+      ],
+      "attempts": 9,
+      "reasons": []
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2025/08/10-Essential-Nutrition-Tips-for-a-Healthy-Pregnancy.jpg",
+      "basename": "10-essential-nutrition-tips-for-a-healthy-pregnancy.jpg",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "10-essential-nutrition-tips-for-a-healthy-pregnancy"
+      ],
+      "attempts": 9,
+      "reasons": [
+        "bingimages: below minimum resolution (42x42)"
+      ]
+    },
+    {
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2025/07/Doula-vs-Midwife-Who-Cares-for-You-and-Your-Baby.jpg",
+      "basename": "doula-vs-midwife-who-cares-for-you-and-your-baby.jpg",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "doula-vs-midwife-who-cares-for-you-and-your-baby"
+      ],
+      "attempts": 9,
+      "reasons": []
+    }
+  ],
+  "rewrite": {
+    "postsTouched": 0,
+    "totalReplacements": 0
+  },
+  "unreachableHosts": [
+    "timetravel.mementoweb.org",
+    "archive.ph",
+    "archive.is",
+    "archive.li",
+    "archive.vn",
+    "archive.md",
+    "index.commoncrawl.org"
+  ]
+}

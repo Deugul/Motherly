@@ -8,6 +8,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
+    "recover:blog-images": "node scripts/recover-blog-images/index.mjs",
+    "recover:blog-images:dry": "node scripts/recover-blog-images/index.mjs --dry-run",
     "postinstall": "node scripts/patch-keystatic.js"
   },
   "dependencies": {

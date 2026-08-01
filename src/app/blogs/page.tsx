@@ -7,6 +7,7 @@ import { resolvePostCardExcerpt } from "@/lib/wordpress-seo";
 import type { RankMathSeoFromWp } from "@/lib/wordpress-seo";
 import { fetchWordPress } from "@/lib/wordpress";
 import { resolveFeaturedImageUrl } from "@/lib/wordpress-featured-image";
+import { getBlogImageProps } from "@/lib/blog-image-manifest";
 import { listLocalWpPosts } from "@/lib/local-wp-posts";
 
 type WpPost = {
@@ -70,10 +71,15 @@ function mapWpPostsToBlogData(wpPosts: WpPost[]): {
   }
 
   const blogPosts: BlogPost[] = wpPosts.map((p) => {
-    const image =
+    const rawImage =
       p.motherly_featured_image_url?.trim() ||
       p._embedded?.["wp:featuredmedia"]?.[0]?.source_url?.trim() ||
       "";
+    // Recovered local copy when available; branded artwork when the original
+    // is still on the retired WordPress origin (which would render broken).
+    const image =
+      getBlogImageProps(rawImage, "", { width: 1200, height: 500, seed: p.slug ?? "" })
+        ?.src ?? rawImage;
     const cat = p._embedded?.["wp:term"]?.[0]?.[0]?.name ?? "Article";
     const excerpt = resolvePostCardExcerpt(p, 140);
     const date = new Date(p.date).toLocaleDateString("en-US", {

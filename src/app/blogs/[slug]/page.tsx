@@ -31,6 +31,12 @@ import {
   getLocalWpPostById,
   getLocalWpPostBySlug,
 } from "@/lib/local-wp-posts";
+import {
+  getAbsoluteImageUrl,
+  getBlogImageProps,
+  localiseImageUrls,
+  neutraliseDeadImageUrls,
+} from "@/lib/blog-image-manifest";
 
 type WpPost = {
   id?: number;
@@ -257,6 +263,8 @@ export async function generateMetadata({
   const imageAlt = post
     ? getEmbeddedFeaturedImageAlt(post, resolved.h1)
     : resolved.h1;
+  // Recovered local copy when available, original URL otherwise; always absolute.
+  const ogImage = getAbsoluteImageUrl(image, SITE_ORIGIN);
 
   return {
     title: resolved.metaTitle,
@@ -270,7 +278,13 @@ export async function generateMetadata({
       title: resolved.metaTitle,
       description: resolved.metaDescription,
       url: canonical,
-      images: image ? [{ url: image, alt: imageAlt }] : [],
+      images: ogImage ? [{ url: ogImage, alt: imageAlt }] : [],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: resolved.metaTitle,
+      description: resolved.metaDescription,
+      images: ogImage ? [ogImage] : [],
     },
   };
 }
@@ -301,12 +315,19 @@ export default async function BlogPostPage({
   const emitFaqSchema =
     shouldRenderBlogSeoExtras &&
     process.env.NEXT_PUBLIC_ENABLE_FAQ_SCHEMA === "true";
-  const bodyHtml = prepareWpContentHtml(
-    getWordPressPostBodyHtml(post),
-    emitFaqSchema,
+  const bodyHtml = neutraliseDeadImageUrls(
+    localiseImageUrls(
+      prepareWpContentHtml(getWordPressPostBodyHtml(post), emitFaqSchema),
+    ),
+    post.slug,
   );
   const image = await resolveFeaturedImageUrl(post);
   const altText = getEmbeddedFeaturedImageAlt(post, title);
+  const featuredImageProps = getBlogImageProps(image, altText, {
+    width: 1200,
+    height: 500,
+    seed: post.slug,
+  });
   const category = post._embedded?.["wp:term"]?.[0]?.[0]?.name;
   const author = post._embedded?.author?.[0]?.name ?? "Motherly Team";
   const date = new Date(post.date).toLocaleDateString("en-US", {
@@ -408,14 +429,12 @@ export default async function BlogPostPage({
             <span>{date}</span>
           </div>
 
-          {/* Featured image — full banner visible, no crop */}
-          {image && (
+          {/* Featured image — full banner visible, no crop.
+              Recovered images supply true intrinsic size + blur placeholder. */}
+          {featuredImageProps && (
             <div className="mt-8 w-full rounded-2xl overflow-hidden">
               <Image
-                src={image}
-                alt={altText}
-                width={1200}
-                height={500}
+                {...featuredImageProps}
                 className="h-auto w-full"
                 priority
                 sizes="(max-width: 1280px) 100vw, 1152px"

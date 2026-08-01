@@ -1,0 +1,19 @@
+{
+  "matches": [],
+  "foldersOfInterest": [
+    "C:/Users/Vijayakumar R/Downloads/MOTHERLY BLOG IMAGES.zip (10 images: 44.png-53.png)",
+    "C:/Users/Vijayakumar R/Downloads/MOTHERLY BLOG IMAGES 41 - 50.zip (10 images: actually 85.png-94.png despite the zip name)",
+    "C:/Users/Vijayakumar R/Downloads/MOTHERLY BLOG IMAGES 51 - 60.zip (10 images: actually 95.png-104.png despite the zip name)",
+    "C:/Users/Vijayakumar R/Downloads/MOTHERLY BLOG IMAGES 71 - 80.zip (10 images: actually 115.png-124.png despite the zip name)",
+    "C:/Users/Vijayakumar R/Downloads/MOTHERLY BLOG IMAGES 81 - 90.zip (10 images: actually 125.png-134.png despite the zip name)",
+    "C:/Users/Vijayakumar R/Downloads/MOTHERLY BLOG IMAGES (10 images, unzipped folder, mirrors the base zip: 44.png-53.png)",
+    "C:/Users/Vijayakumar R/Downloads/MOTHERLY BLOG IMAGES 41 - 50 (10 images, unzipped folder, mirrors zip: 85.png-94.png)",
+    "C:/Users/Vijayakumar R/Downloads/MOTHERLY BLOG IMAGES 51 - 60 (10 images, unzipped folder, mirrors zip: 95.png-104.png)",
+    "C:/Users/Vijayakumar R/Downloads/MOTHERLY BLOG IMAGES 71 - 80 (10 images, unzipped folder, mirrors zip: 115.png-124.png)",
+    "C:/Users/Vijayakumar R/Downloads/MOTHERLY BLOG IMAGES 81 - 90 (10 images, unzipped folder, mirrors zip: 125.png-134.png)",
+    "C:/Users/Vijayakumar R/Downloads/motherly_webp (10 .webp images, numbers 47-53 plus blog_01-blog_03, duplicate content already covered above)",
+    "C:/Users/Vijayakumar R/.cursor/projects/c-Projects-motherly-website/assets (95 images pasted into Cursor chats for this project; filenames are UUID-renamed so content is unverified without opening each file - only 2 are WhatsApp-dated screenshots, from 2026-05-22 and 2026-05-28, neither matching a date in the missing list)"
+  ],
+  "totalImagesScanned": 46399,
+  "notes": "Swept all of C:\\Users\\Vijayakumar R (OneDrive, Desktop, Documents, Pictures, Downloads, AppData minus Local\\Temp, node_modules, .git, .next excluded) plus every .zip under 250MB found there, including nested zips inside Downloads. No other fixed drive exists on this machine (only C:). Every one of the 6 confirmed MOTHERLY BLOG IMAGES sources only contains numbered images in the ranges 44-53, 85-94, 95-104, 115-124, 125-134 - none overlap the 14 numeric filenames still missing (145-161). No file anywhere on disk (indexed or inside any zip) matched any of the 107 missing names after normalizing (lowercase, strip extension, strip trailing -<digit>, strip non-alphanumeric characters)."
+}
