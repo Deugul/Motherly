@@ -8,6 +8,7 @@
  */
 
 import fs from "node:fs/promises";
+import { existsSync } from "node:fs";
 import path from "node:path";
 
 /** Build src -> local mapping for every URL form an asset was ever seen as. */
@@ -111,12 +112,33 @@ export async function rewriteContent(results, inventory, cfg) {
 
   // Manifest: everything the app needs for next/image, keyed by local path
   // and cross-referenced by the original URL for canonical/OG rewriting.
+  // Merged with any existing manifest, never replaced: once post content has
+  // been rewritten to /blogs/… paths, those images no longer look like
+  // recoverable assets on a later run, so a plain overwrite would silently drop
+  // every mapping earned by previous runs.
+  let previous = { images: {}, byOriginalUrl: {} };
+  try {
+    previous = JSON.parse(await fs.readFile(cfg.manifestModulePath, "utf8"));
+  } catch {
+    /* first run — nothing to merge */
+  }
+
   const manifest = {
     generatedAt: new Date().toISOString(),
     publicPrefix: cfg.publicPrefix,
-    images: {},
-    byOriginalUrl: {},
+    images: { ...(previous.images || {}) },
+    byOriginalUrl: { ...(previous.byOriginalUrl || {}) },
   };
+
+  // Drop stale entries whose file no longer exists on disk.
+  for (const key of Object.keys(manifest.images)) {
+    if (!existsSync(path.join(process.cwd(), "public", key.replace(/^\//, "")))) {
+      delete manifest.images[key];
+      for (const [orig, local] of Object.entries(manifest.byOriginalUrl)) {
+        if (local === key) delete manifest.byOriginalUrl[orig];
+      }
+    }
+  }
 
   for (const r of results) {
     if (!r.recovered) continue;

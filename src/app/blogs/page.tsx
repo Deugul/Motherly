@@ -30,6 +30,11 @@ type WpPost = {
 
 function stripHtml(html: string): string {
   return html
+    // Exported posts are full HTML documents — drop non-text regions entirely,
+    // or CSS and script bodies survive into excerpts.
+    .replace(/<!--[\s\S]*?-->/g, "")
+    .replace(/<head\b[^>]*>[\s\S]*?<\/head>/gi, "")
+    .replace(/<(script|style|noscript|template|svg)\b[^>]*>[\s\S]*?<\/\1>/gi, "")
     .replace(/<[^>]*>/g, "")
     .replace(/&#(\d+);/g, (_, n) => String.fromCharCode(parseInt(n, 10)))
     .replace(/&#x([0-9a-fA-F]+);/g, (_, h) => String.fromCharCode(parseInt(h, 16)))

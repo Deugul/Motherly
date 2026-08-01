@@ -47,8 +47,16 @@ const placeholders = (placeholderJson as { placeholders: Placeholder[] }).placeh
 /** True once a recovery run has produced at least one image. */
 export const hasRecoveredImages = Object.keys(manifest.images).length > 0;
 
-/** Any image URL still pointing at the retired WordPress origin. */
-const DEAD_ORIGIN = /https?:\/\/(?:www\.|blog\.)?mothrly\.com\/wp-content\/uploads\/[^"'\s)]+/gi;
+/**
+ * Any image URL still pointing at a WordPress uploads path.
+ *
+ * Host-agnostic on purpose. The media lived on mothrly.com and
+ * blog.mothrly.com, but the app rewrites post content to `WP_ORIGIN`, which
+ * resolves to a parked Hostinger domain — so matching only mothrly.com lets
+ * those through and they render as broken tiles.
+ */
+const DEAD_ORIGIN = /https?:\/\/[^"'\s)]+\/wp-content\/uploads\/[^"'\s)]+/gi;
+const DEAD_ORIGIN_TEST = /\/wp-content\/uploads\//i;
 
 /** Stable hash so a given post always gets the same placeholder variant. */
 function seedIndex(seed: string, length: number): number {
@@ -135,7 +143,7 @@ export function getBlogImageProps(
 
   // Not recovered. The old WordPress origin is retired, so pointing at it would
   // render a broken image — serve branded artwork instead.
-  const isDead = !trimmed || /(?:^|\/\/)(?:www\.|blog\.)?mothrly\.com\/wp-content\//i.test(trimmed);
+  const isDead = !trimmed || DEAD_ORIGIN_TEST.test(trimmed);
   if (isDead) {
     const ph = getPlaceholder(fallback?.seed || trimmed || fallbackAlt);
     if (!ph) return null;
