@@ -4,6 +4,7 @@ import path from "node:path";
 import { BLOG_SEO } from "@/data/blog-seo";
 import { SERVICE_SEO } from "@/data/service-seo";
 import { fetchWordPress } from "@/lib/wordpress";
+import { listLocalWpPosts } from "@/lib/local-wp-posts";
 
 import { SITE_ORIGIN } from "@/lib/site-url";
 
@@ -154,6 +155,18 @@ async function buildBlogEntries(now: Date): Promise<MetadataRoute.Sitemap> {
       `${BASE_URL}/blogs/${slug}`,
       Number.isNaN(parsedDate.getTime()) ? now : parsedDate,
     );
+  }
+
+  if (blogMap.size === 0) {
+    for (const post of listLocalWpPosts()) {
+      const slug = post.slug?.trim();
+      if (!slug) continue;
+      const parsedDate = post.date ? new Date(post.date) : now;
+      blogMap.set(
+        `${BASE_URL}/blogs/${slug}`,
+        Number.isNaN(parsedDate.getTime()) ? now : parsedDate,
+      );
+    }
   }
 
   if (blogMap.size === 0) {

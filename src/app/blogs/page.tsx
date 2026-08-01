@@ -7,6 +7,7 @@ import { resolvePostCardExcerpt } from "@/lib/wordpress-seo";
 import type { RankMathSeoFromWp } from "@/lib/wordpress-seo";
 import { fetchWordPress } from "@/lib/wordpress";
 import { resolveFeaturedImageUrl } from "@/lib/wordpress-featured-image";
+import { listLocalWpPosts } from "@/lib/local-wp-posts";
 
 type WpPost = {
   id?: number;
@@ -59,6 +60,74 @@ const TAG_THEME = {
   tagColor: "var(--color-on-secondary-container)",
 };
 
+function mapWpPostsToBlogData(wpPosts: WpPost[]): {
+  posts: BlogPost[];
+  featured: FeaturedPost | null;
+  categories: string[];
+} {
+  if (!wpPosts.length) {
+    return { posts: [], featured: null, categories: [] };
+  }
+
+  const blogPosts: BlogPost[] = wpPosts.map((p) => {
+    const image =
+      p.motherly_featured_image_url?.trim() ||
+      p._embedded?.["wp:featuredmedia"]?.[0]?.source_url?.trim() ||
+      "";
+    const cat = p._embedded?.["wp:term"]?.[0]?.[0]?.name ?? "Article";
+    const excerpt = resolvePostCardExcerpt(p, 140);
+    const date = new Date(p.date).toLocaleDateString("en-US", {
+      month: "long",
+      day: "numeric",
+      year: "numeric",
+    });
+
+    return {
+      tag: cat.toUpperCase(),
+      ...TAG_THEME,
+      title: stripHtml(p.title?.rendered ?? ""),
+      excerpt,
+      image,
+      date,
+      readTime: calcReadTime(p.excerpt?.rendered ?? ""),
+      link: p.status === "draft" ? undefined : p.link,
+      slug: p.slug?.trim() || (p.id ? String(p.id) : undefined),
+      status: p.status,
+      wpId: p.id,
+    };
+  });
+
+  const categories = [...new Set(blogPosts.map((p) => p.tag))].sort();
+
+  let featuredImageIndex = blogPosts.findIndex(
+    (p, i) => wpPosts[i].status !== "draft" && Boolean(p.image)
+  );
+  if (featuredImageIndex < 0) {
+    const publishedIndex = wpPosts.findIndex((p) => p.status !== "draft");
+    featuredImageIndex =
+      publishedIndex >= 0 ? publishedIndex : blogPosts.findIndex((p) => p.image);
+  }
+  if (featuredImageIndex < 0) featuredImageIndex = 0;
+
+  const featuredWp = wpPosts[featuredImageIndex];
+  const featuredCard = blogPosts[featuredImageIndex];
+
+  const featured: FeaturedPost = {
+    tag: (featuredWp._embedded?.["wp:term"]?.[0]?.[0]?.name ?? "Article").toUpperCase(),
+    title: stripHtml(featuredWp.title?.rendered ?? ""),
+    excerpt: resolvePostCardExcerpt(featuredWp, 200),
+    image: featuredCard.image,
+    author: featuredWp._embedded?.author?.[0]?.name ?? "Motherly Team",
+    authorRole: "Healthcare Specialist",
+    link: featuredWp.status === "draft" ? undefined : featuredWp.link,
+    slug: featuredWp.slug?.trim() || (featuredWp.id ? String(featuredWp.id) : undefined),
+    status: featuredWp.status,
+  };
+
+  const gridPosts = blogPosts.filter((_, i) => i !== featuredImageIndex);
+  return { posts: gridPosts, featured, categories };
+}
+
 async function fetchWpPosts(): Promise<{
   posts: BlogPost[];
   featured: FeaturedPost | null;
@@ -74,73 +143,23 @@ async function fetchWpPosts(): Promise<{
         "id,slug,title,excerpt,date,link,status,featured_media,motherly_featured_image_url,rank_math_seo,_links,_embedded",
     });
 
-    const { data: wpPosts, ok } = await fetchWordPress<WpPost[]>("/posts", params);
-    if (!ok || !wpPosts) return { posts: [], featured: null, categories: [] };
-    if (!Array.isArray(wpPosts) || wpPosts.length === 0) {
-      return { posts: [], featured: null, categories: [] };
+    const { data: remotePosts, ok } = await fetchWordPress<WpPost[]>("/posts", params);
+    if (ok && Array.isArray(remotePosts) && remotePosts.length > 0) {
+      const resolvedImages = await Promise.all(
+        remotePosts.map((p) => resolveFeaturedImageUrl(p))
+      );
+      const withImages = remotePosts.map((p, index) => ({
+        ...p,
+        motherly_featured_image_url:
+          p.motherly_featured_image_url?.trim() || resolvedImages[index] || null,
+      }));
+      return mapWpPostsToBlogData(withImages);
     }
-
-    const resolvedImages = await Promise.all(wpPosts.map((p) => resolveFeaturedImageUrl(p)));
-
-    const blogPosts: BlogPost[] = wpPosts.map((p, index) => {
-      const image = resolvedImages[index] ?? "";
-      const cat = p._embedded?.["wp:term"]?.[0]?.[0]?.name ?? "Article";
-      const excerpt = resolvePostCardExcerpt(p, 140);
-      const date = new Date(p.date).toLocaleDateString("en-US", {
-        month: "long",
-        day: "numeric",
-        year: "numeric",
-      });
-
-      return {
-        tag: cat.toUpperCase(),
-        ...TAG_THEME,
-        title: stripHtml(p.title?.rendered ?? ""),
-        excerpt,
-        image,
-        date,
-        readTime: calcReadTime(p.excerpt?.rendered ?? ""),
-        link: p.status === "draft" ? undefined : p.link,
-        slug: p.slug?.trim() || (p.id ? String(p.id) : undefined),
-        status: p.status,
-        wpId: p.id,
-      };
-    });
-
-    const categories = [...new Set(blogPosts.map((p) => p.tag))].sort();
-
-    // Featured: prefer published post with an image (not a draft)
-    let featuredImageIndex = resolvedImages.findIndex(
-      (image, i) => wpPosts[i].status !== "draft" && Boolean(image)
-    );
-    if (featuredImageIndex < 0) {
-      const publishedIndex = wpPosts.findIndex((p) => p.status !== "draft");
-      featuredImageIndex =
-        publishedIndex >= 0 ? publishedIndex : resolvedImages.findIndex(Boolean);
-    }
-    if (featuredImageIndex < 0) featuredImageIndex = 0;
-
-    const featuredWp = wpPosts[featuredImageIndex];
-
-    const featured: FeaturedPost = {
-      tag: (featuredWp._embedded?.["wp:term"]?.[0]?.[0]?.name ?? "Article").toUpperCase(),
-      title: stripHtml(featuredWp.title?.rendered ?? ""),
-      excerpt: resolvePostCardExcerpt(featuredWp, 200),
-      image: resolvedImages[featuredImageIndex] ?? "",
-      author: featuredWp._embedded?.author?.[0]?.name ?? "Motherly Team",
-      authorRole: "Healthcare Specialist",
-      link: featuredWp.status === "draft" ? undefined : featuredWp.link,
-      slug: featuredWp.slug?.trim() || (featuredWp.id ? String(featuredWp.id) : undefined),
-      status: featuredWp.status,
-    };
-
-    // Remove featured post from the grid
-    const gridPosts = blogPosts.filter((_, i) => i !== featuredImageIndex);
-
-    return { posts: gridPosts, featured, categories };
   } catch {
-    return { posts: [], featured: null, categories: [] };
+    // fall through to local dump
   }
+
+  return mapWpPostsToBlogData(listLocalWpPosts() as WpPost[]);
 }
 
 export default async function BlogsPage() {

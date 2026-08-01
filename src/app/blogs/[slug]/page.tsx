@@ -26,6 +26,11 @@ import {
   getEmbeddedFeaturedImageAlt,
   resolveFeaturedImageUrl,
 } from "@/lib/wordpress-featured-image";
+import {
+  getLocalRelatedWpPosts,
+  getLocalWpPostById,
+  getLocalWpPostBySlug,
+} from "@/lib/local-wp-posts";
 
 type WpPost = {
   id?: number;
@@ -84,14 +89,36 @@ function stripHtml(html: string): string {
     .trim();
 }
 
+function relatedFromPosts(posts: WpPost[], currentSlug: string): RelatedPost[] {
+  const related = posts.filter((p) => p.slug !== currentSlug).slice(0, 3);
+  return related.map((p) => ({
+    slug: p.slug,
+    title: stripHtml(p.title.rendered),
+    excerpt: stripHtml(p.excerpt.rendered).slice(0, 120),
+    image:
+      p.motherly_featured_image_url?.trim() ||
+      p._embedded?.["wp:featuredmedia"]?.[0]?.source_url?.trim() ||
+      "",
+    category: (p._embedded?.["wp:term"]?.[0]?.[0]?.name ?? "Article").toUpperCase(),
+    date: new Date(p.date).toLocaleDateString("en-US", {
+      month: "long",
+      day: "numeric",
+      year: "numeric",
+    }),
+  }));
+}
+
 async function getPostById(id: string): Promise<WpPost | null> {
   const params = new URLSearchParams({ _embed: "" });
   const { data: post, ok } = await fetchWordPress<WpPost>(`/posts/${id}`, params);
-  if (!ok || !post?.id) return null;
-  if (post.status === "draft" && getWordPressBlogMode() !== "development") {
-    return null;
+  if (ok && post?.id) {
+    if (post.status === "draft" && getWordPressBlogMode() !== "development") {
+      return null;
+    }
+    return post;
   }
-  return post;
+  const local = getLocalWpPostById(Number(id));
+  return local as WpPost | null;
 }
 
 async function getPost(slugOrId: string): Promise<WpPost | null> {
@@ -104,8 +131,10 @@ async function getPost(slugOrId: string): Promise<WpPost | null> {
     _embed: "",
   });
   const { data: posts, ok } = await fetchWordPress<WpPost[]>("/posts", params);
-  if (!ok || !posts?.length) return null;
-  return pickWordPressPostBySlug(posts);
+  if (ok && posts?.length) {
+    return pickWordPressPostBySlug(posts);
+  }
+  return getLocalWpPostBySlug(slugOrId) as WpPost | null;
 }
 
 async function getRelatedPosts(currentSlug: string): Promise<RelatedPost[]> {
@@ -117,25 +146,23 @@ async function getRelatedPosts(currentSlug: string): Promise<RelatedPost[]> {
       order: "desc",
     });
     const { data: posts, ok } = await fetchWordPress<WpPost[]>("/posts", params);
-    if (!ok || !posts) return [];
-    const related = posts.filter((p) => p.slug !== currentSlug).slice(0, 3);
-    const images = await Promise.all(related.map((p) => resolveFeaturedImageUrl(p)));
-
-    return related.map((p, index) => ({
-      slug: p.slug,
-      title: stripHtml(p.title.rendered),
-      excerpt: stripHtml(p.excerpt.rendered).slice(0, 120),
-      image: images[index] ?? "",
-      category: (p._embedded?.["wp:term"]?.[0]?.[0]?.name ?? "Article").toUpperCase(),
-      date: new Date(p.date).toLocaleDateString("en-US", {
-        month: "long",
-        day: "numeric",
-        year: "numeric",
-      }),
-    }));
+    if (ok && posts?.length) {
+      const images = await Promise.all(posts.map((p) => resolveFeaturedImageUrl(p)));
+      const withImages = posts.map((p, index) => ({
+        ...p,
+        motherly_featured_image_url:
+          p.motherly_featured_image_url?.trim() || images[index] || null,
+      }));
+      return relatedFromPosts(withImages, currentSlug);
+    }
   } catch {
-    return [];
+    // fall through to local dump
   }
+
+  return relatedFromPosts(
+    getLocalRelatedWpPosts(currentSlug, 3) as WpPost[],
+    currentSlug
+  );
 }
 
 const REAL_DOMAIN = "mothrly.com";
