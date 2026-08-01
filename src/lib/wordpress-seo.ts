@@ -70,6 +70,8 @@ export function resolveBlogPostSeo(
   post: {
     title: { rendered: string };
     excerpt: { rendered: string };
+    /** Used to derive a description when the stored excerpt is unusable. */
+    content?: { rendered: string };
     rank_math_seo?: RankMathSeoFromWp | null;
     _embedded?: {
       "wp:term"?: Array<Array<{ name?: string; taxonomy?: string }>>;
@@ -84,10 +86,13 @@ export function resolveBlogPostSeo(
     staticSeo?.metaTitle ||
     stripHtml(post.title.rendered);
 
+  // The exported excerpt field carries stylesheet residue, so it is run through
+  // the same resolver the cards use — otherwise that CSS ends up in the meta
+  // description, the Open Graph tags and Google's search snippet.
   const metaDescription =
     rm?.description?.trim() ||
     staticSeo?.metaDescription ||
-    stripHtml(post.excerpt.rendered).slice(0, 160).trim();
+    resolvePostCardExcerpt(post, 160);
 
   /** Tags (Quick Edit) = meta keywords; Rank Math focus keyword is a single SEO target. */
   const keywords = mergeKeywordLists(
