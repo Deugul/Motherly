@@ -1,5 +1,18 @@
 import { getBlogSeo } from "@/data/blog-seo";
+import blogKeywords from "@/data/blog-keywords.json";
 import { SITE_ORIGIN } from "@/lib/site-url";
+
+/**
+ * Keywords lifted from the authored .docx briefs by
+ * `scripts/extract-blog-keywords.mjs`, keyed by post slug.
+ */
+const AUTHORED_KEYWORDS = (blogKeywords as { bySlug?: Record<string, string[]> }).bySlug ?? {};
+
+/** Hand-authored keywords for a slug, if the briefs covered it. */
+export function getAuthoredKeywords(slug: string): string[] | undefined {
+  const list = AUTHORED_KEYWORDS[slug];
+  return list?.length ? list : undefined;
+}
 
 /** Rank Math fields exposed by Motherly Dev REST Preview plugin on WP. */
 export type RankMathSeoFromWp = {
@@ -188,7 +201,8 @@ export function resolveBlogPostSeo(
   const authored = mergeKeywordLists(
     getWpPostTagNames(post._embedded),
     parseRankMathKeywords(rm?.keywords),
-    staticSeo?.keywords
+    staticSeo?.keywords,
+    getAuthoredKeywords(slug)
   );
 
   // Fall back to terms derived from the title so every post ships keywords,
