@@ -1,7 +1,28 @@
 {
-  "generatedAt": "2026-08-01T09:15:37.072Z",
+  "generatedAt": "2026-08-01T09:35:31.470Z",
   "publicPrefix": "/blogs",
   "images": {
+    "/blogs/is-brown-discharge-normal-in-early-pregnancy-featured.jpg": {
+      "src": "/blogs/is-brown-discharge-normal-in-early-pregnancy-featured.jpg",
+      "width": 474,
+      "height": 266,
+      "alt": "Is Brown Discharge Normal in Early Pregnancy?",
+      "blurDataURL": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAACwAQCdASoQAAkAAwBSJZACdADFyVgAAP3Sb5cA/Z58u4IM8+uz0I4A7qJYbj/4mZY8+yF/6s4v+LjiuGl6QAAA",
+      "responsive": [],
+      "recoveredFrom": {
+        "provider": "bingimages",
+        "sourceUrl": "https://tse1.mm.bing.net/th?id=OIF.jJ71kobzWheL%2fu4sE0GDpw",
+        "snapshot": null
+      },
+      "originalUrl": "https://blog.mothrly.com/wp-content/uploads/2026/05/WhatsApp-Image-2026-05-04-at-5.42.45-PM.jpeg",
+      "roles": [
+        "featured",
+        "inline"
+      ],
+      "posts": [
+        "is-brown-discharge-normal-in-early-pregnancy"
+      ]
+    },
     "/blogs/postnatal-recovery-care-at-home-in-chennai-whats-included-featured.png": {
       "src": "/blogs/postnatal-recovery-care-at-home-in-chennai-whats-included-featured.png",
       "width": 1812,
@@ -1870,6 +1891,12 @@
     }
   },
   "byOriginalUrl": {
+    "https://blog.mothrly.com/wp-content/uploads/2026/05/WhatsApp-Image-2026-05-04-at-5.42.45-PM.jpeg": "/blogs/is-brown-discharge-normal-in-early-pregnancy-featured.jpg",
+    "https://mothrly.com/wp-content/uploads/2026/05/WhatsApp-Image-2026-05-04-at-5.42.45-PM.jpeg": "/blogs/is-brown-discharge-normal-in-early-pregnancy-featured.jpg",
+    "https://blog.mothrly.com/wp-content/uploads/2026/05/WhatsApp-Image-2026-05-04-at-5.42.45-PM-300x178.jpeg": "/blogs/is-brown-discharge-normal-in-early-pregnancy-featured.jpg",
+    "https://blog.mothrly.com/wp-content/uploads/2026/05/WhatsApp-Image-2026-05-04-at-5.42.45-PM-1024x607.jpeg": "/blogs/is-brown-discharge-normal-in-early-pregnancy-featured.jpg",
+    "https://blog.mothrly.com/wp-content/uploads/2026/05/WhatsApp-Image-2026-05-04-at-5.42.45-PM-768x455.jpeg": "/blogs/is-brown-discharge-normal-in-early-pregnancy-featured.jpg",
+    "https://blog.mothrly.com/wp-content/uploads/2026/05/WhatsApp-Image-2026-05-04-at-5.42.45-PM-1536x910.jpeg": "/blogs/is-brown-discharge-normal-in-early-pregnancy-featured.jpg",
     "https://mothrly.com/wp-content/uploads/2026/07/161.png": "/blogs/postnatal-recovery-care-at-home-in-chennai-whats-included-featured.png",
     "https://mothrly.com/wp-content/uploads/2026/07/160.png": "/blogs/baby-care-specialist-in-chennai-what-they-do-in-the-first-40-days-featured.png",
     "https://mothrly.com/wp-content/uploads/2026/07/159.png": "/blogs/prenatal-and-postnatal-yoga-in-chennai-benefits-and-when-to-start-featured.png",
@@ -1972,5 +1999,5 @@
     "https://mothrly.com/wp-content/uploads/2026/04/5signs-768x455.jpeg": "/blogs/5signs.jpg",
     "https://mothrly.com/wp-content/uploads/2026/04/5signs-1536x910.jpeg": "/blogs/5signs.jpg"
   },
-  "postsBackup": "local-wp-posts.json.backup-1785575737088.json"
+  "postsBackup": "local-wp-posts.json.backup-1785576931490.json"
 }

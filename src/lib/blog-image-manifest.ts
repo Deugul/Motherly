@@ -39,10 +39,15 @@ type Placeholder = {
   width: number;
   height: number;
   blurDataURL?: string;
-  responsive: Array<{ src: string; width: number }>;
 };
 
-const placeholders = (placeholderJson as { placeholders: Placeholder[] }).placeholders ?? [];
+/**
+ * Per-post cover artwork, keyed by slug. Each is rendered in the same layout as
+ * the real blog covers and carries that post's own headline, so an unrecovered
+ * post reads as designed rather than as a missing image.
+ */
+const placeholdersBySlug =
+  (placeholderJson as { bySlug?: Record<string, Placeholder> }).bySlug ?? {};
 
 /** True once a recovery run has produced at least one image. */
 export const hasRecoveredImages = Object.keys(manifest.images).length > 0;
@@ -58,21 +63,13 @@ export const hasRecoveredImages = Object.keys(manifest.images).length > 0;
 const DEAD_ORIGIN = /https?:\/\/[^"'\s)]+\/wp-content\/uploads\/[^"'\s)]+/gi;
 const DEAD_ORIGIN_TEST = /\/wp-content\/uploads\//i;
 
-/** Stable hash so a given post always gets the same placeholder variant. */
-function seedIndex(seed: string, length: number): number {
-  if (length <= 0) return 0;
-  let h = 0;
-  for (let i = 0; i < seed.length; i++) h = (h * 31 + seed.charCodeAt(i)) >>> 0;
-  return h % length;
-}
-
 /**
- * Branded fallback artwork for a post whose original image is not recovered.
- * Deterministic by seed so a blog grid does not repeat a single tile.
+ * Branded cover for a post whose original image was not recovered.
+ * `seed` is the post slug; a post without generated artwork returns null so the
+ * caller can decide what to render rather than showing someone else's cover.
  */
 export function getPlaceholder(seed = ""): Placeholder | null {
-  if (!placeholders.length) return null;
-  return placeholders[seedIndex(seed, placeholders.length)];
+  return placeholdersBySlug[seed] ?? null;
 }
 
 /** Strip WordPress `-1024x768` style size suffixes to reach the original. */
@@ -174,12 +171,9 @@ export function neutraliseDeadImageUrls(html: string, seed = ""): string {
   const ph = getPlaceholder(seed);
   if (!ph) return html;
 
-  let n = 0;
-  return html.replace(DEAD_ORIGIN, () => {
-    // Vary within the post so repeated inline images are not identical.
-    const variant = getPlaceholder(`${seed}:${n++}`);
-    return variant?.src ?? ph.src;
-  });
+  // Inline images fall back to the post's own cover — it carries that post's
+  // headline, so it stays on-topic wherever it appears in the article.
+  return html.replace(DEAD_ORIGIN, () => ph.src);
 }
 
 /** Rewrite every recovered URL inside a WordPress HTML blob to its local copy. */

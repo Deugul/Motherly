@@ -29,14 +29,47 @@ const INK = "#1a1a1a";
 /** Segoe UI is the closest geometric sans installed; Plus Jakarta Sans is web-only. */
 const FONT = "Segoe UI, Selawik, Tahoma, DejaVu Sans, sans-serif";
 
-/** Background tints, varied per post so a grid of covers is not monotonous. */
+/**
+ * Background tints, varied per post so a grid of covers is not monotonous.
+ * All stay inside the brand blush/rose family — the real covers never stray
+ * into unrelated hues, so neither do these.
+ */
 const TINTS = [
-  { a: "#F6E7EC", b: "#EADFE2", panel: ["#F7D9E4", "#E9B9CC"] },
-  { a: "#F3E9E4", b: "#E6DCD6", panel: ["#F6DCD0", "#E3BCAC"] },
-  { a: "#EDE8EE", b: "#DFD9E2", panel: ["#E7DAEE", "#C9B7D6"] },
-  { a: "#E8EDEC", b: "#D9E2E1", panel: ["#D7E8E5", "#B3CFCA"] },
-  { a: "#F5EAE0", b: "#E7DACE", panel: ["#F7E2C9", "#E0C29B"] },
+  { a: "#F7E8EE", b: "#EADFE3", panel: ["#F9DCE6", "#E7B4C8"] },
+  { a: "#F6EAE6", b: "#E9DCD7", panel: ["#F9DFD5", "#E5B9A9"] },
+  { a: "#F4E6EA", b: "#E4D6DB", panel: ["#F6D4DE", "#DDA9BE"] },
+  { a: "#F8ECEC", b: "#EBDCDC", panel: ["#FADEDE", "#E8B6B6"] },
+  { a: "#F5E7F0", b: "#E6D8E2", panel: ["#F7D8EA", "#DDACC8"] },
 ];
+
+/** The real brand mark, trimmed and inlined so covers need no network access. */
+let LOGO_DATA_URI = null;
+async function logoDataUri() {
+  if (LOGO_DATA_URI) return LOGO_DATA_URI;
+  const src = path.join(process.cwd(), "public", "MOTHERLY - PINK.png");
+  const png = await sharp(src).trim({ threshold: 10 }).png().toBuffer();
+  LOGO_DATA_URI = `data:image/png;base64,${png.toString("base64")}`;
+  return LOGO_DATA_URI;
+}
+
+/** White version of the mark, for use over the tinted panel. */
+let LOGO_WHITE_URI = null;
+async function logoWhiteDataUri() {
+  if (LOGO_WHITE_URI) return LOGO_WHITE_URI;
+  const src = path.join(process.cwd(), "public", "MOTHERLY - PINK.png");
+  const trimmed = await sharp(src).trim({ threshold: 10 }).png().toBuffer();
+  // Keep the alpha shape, replace every colour channel with white.
+  const { width, height } = await sharp(trimmed).metadata();
+  const alpha = await sharp(trimmed).extractChannel("alpha").toBuffer();
+  const white = await sharp({
+    create: { width, height, channels: 3, background: "#ffffff" },
+  })
+    .joinChannel(alpha)
+    .png()
+    .toBuffer();
+  LOGO_WHITE_URI = `data:image/png;base64,${white.toString("base64")}`;
+  return LOGO_WHITE_URI;
+}
 
 const esc = (s) =>
   String(s).replace(/[&<>"']/g, (c) =>
@@ -118,7 +151,7 @@ function splitTitle(title) {
   return { headline: clean, subtitle: "" };
 }
 
-function svg(title, seed) {
+function svg(title, seed, logoPink, logoWhite) {
   const t = TINTS[seed % TINTS.length];
   const { headline, subtitle } = splitTitle(title);
 
@@ -179,22 +212,14 @@ function svg(title, seed) {
     <rect x="${px}" y="${py}" width="${pw}" height="${ph}" rx="10" fill="url(#panel)"/>
   </g>
   <rect x="${px}" y="${py}" width="${pw}" height="${ph}" rx="10" fill="url(#glow)"/>
-  <g opacity="0.30" stroke="#ffffff" stroke-width="3" fill="none" stroke-linecap="round">
-    <path d="M ${px + pw / 2 - 210} ${py + ph * 0.62} a 210 210 0 0 1 420 0"/>
-    <path d="M ${px + pw / 2 - 145} ${py + ph * 0.62} a 145 145 0 0 1 290 0"/>
-    <path d="M ${px + pw / 2 - 80} ${py + ph * 0.62} a 80 80 0 0 1 160 0"/>
-  </g>
-  <circle cx="${px + pw / 2}" cy="${py + ph * 0.62}" r="13" fill="#ffffff" opacity="0.5"/>
+
+  <!-- Brand mark as a large watermark where the photograph would sit -->
+  <image href="${logoWhite}" x="${px + pw / 2 - 210}" y="${py + ph / 2 - 260}"
+         width="420" height="520" opacity="0.42" preserveAspectRatio="xMidYMid meet"/>
 
   <!-- Brand mark, top right -->
-  <g transform="translate(${W - 210}, 74)" opacity="0.92">
-    <g fill="none" stroke="${PINK}" stroke-width="7" stroke-linecap="round">
-      <path d="M 44 8 a 22 22 0 1 1 -0.1 0"/>
-      <path d="M 22 52 a 26 26 0 1 0 44 0 a 26 26 0 1 0 -44 0"/>
-    </g>
-    <text x="44" y="122" text-anchor="middle" font-family="${FONT}" font-size="30"
-          font-weight="600" letter-spacing="1" fill="${PINK}">Motherly</text>
-  </g>
+  <image href="${logoPink}" x="${W - 236}" y="62" width="150" height="186"
+         opacity="0.95" preserveAspectRatio="xMidYMid meet"/>
 
   <!-- Text card -->
   <g filter="url(#soft)">
@@ -225,7 +250,8 @@ function seedOf(str) {
 }
 
 export async function renderCover(title, seed) {
-  return sharp(Buffer.from(svg(title, seed))).png({ quality: 92 }).toBuffer();
+  const [logoPink, logoWhite] = await Promise.all([logoDataUri(), logoWhiteDataUri()]);
+  return sharp(Buffer.from(svg(title, seed, logoPink, logoWhite))).png({ quality: 92 }).toBuffer();
 }
 
 async function main() {

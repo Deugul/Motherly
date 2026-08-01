@@ -1,33 +1,371 @@
 {
-  "generatedAt": "2026-08-01T09:11:38.188Z",
-  "placeholders": [
-    {
-      "src": "/blogs/placeholder-1.png",
+  "generatedAt": "2026-08-01T09:36:13.315Z",
+  "bySlug": {
+    "nanny-services-in-chennai": {
+      "src": "/blogs/placeholder-nanny-services-in-chennai.png",
       "width": 1812,
       "height": 1074,
-      "blurDataURL": "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAADQAQCdASoQAAkAAwBSJYgC7AEPC614AAD+9O7Xb3oUS09asCcDiISDYkAAAA==",
-      "responsive": []
+      "blurDataURL": "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACQAQCdASoQAAkAAwBSJQAAUsjsGAAA/vcRajlblrfMhOGjq36IycZ199JLYAAA"
     },
-    {
-      "src": "/blogs/placeholder-2.png",
+    "mother-care-specialist-in-chennai": {
+      "src": "/blogs/placeholder-mother-care-specialist-in-chennai.png",
       "width": 1812,
       "height": 1074,
-      "blurDataURL": "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAACwAQCdASoQAAkAAwBSJYgAAudRywgAAP72RIDuSSdOcmyb/1L8kQnfXgAAAA==",
-      "responsive": []
+      "blurDataURL": "data:image/webp;base64,UklGRj4AAABXRUJQVlA4IDIAAABwAQCdASoQAAkAAwBSJS7AIwARYAD+8YvXsWDZN8ax9q8pMJilw44z4/ndbRj8tGJAAA=="
     },
-    {
-      "src": "/blogs/placeholder-3.png",
+    "postnatal-physiotherapy-in-chennai": {
+      "src": "/blogs/placeholder-postnatal-physiotherapy-in-chennai.png",
       "width": 1812,
       "height": 1074,
-      "blurDataURL": "data:image/webp;base64,UklGRjQAAABXRUJQVlA4ICgAAACwAQCdASoQAAkAAwBSJQAAXRveBm4AAP72H/Zwtr3yAff/E0wJzVgA",
-      "responsive": []
+      "blurDataURL": "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAABQAQCdASoQAAkAAwBSJTB1gDEAAP7w9+9dnQENhpK85xHYyJxp/obQ/p0B6AAA"
     },
-    {
-      "src": "/blogs/placeholder-4.png",
+    "pediatrician-consultation-in-chennai": {
+      "src": "/blogs/placeholder-pediatrician-consultation-in-chennai.png",
       "width": 1812,
       "height": 1074,
-      "blurDataURL": "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAACwAQCdASoQAAkAAwBSJYgAAudfvQKAAP7yMjyMNPGPXuWp2/88SjJSjYAAAA==",
-      "responsive": []
+      "blurDataURL": "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAABwAQCdASoQAAkAAwBSJTB1owARYAD+8UPRZ3I9443+5OsD0eSIN//xHmop4gAA"
+    },
+    "gynaecology-consultation-in-chennai": {
+      "src": "/blogs/placeholder-gynaecology-consultation-in-chennai.png",
+      "width": 1812,
+      "height": 1074,
+      "blurDataURL": "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAABwAQCdASoQAAkAAwBSJTB1qaAYxgD+8UQ4vMy3l/Qx8ByHYyJxp/oaOFlyXQAA"
+    },
+    "mother-baby-bond-science-and-sacred": {
+      "src": "/blogs/placeholder-mother-baby-bond-science-and-sacred.png",
+      "width": 1812,
+      "height": 1074,
+      "blurDataURL": "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACwAQCdASoQAAkAAwBSJQBOgCHfTAwAAP73Dl+g98/z/8tVGeLagXQ4Ppk/+QAA"
+    },
+    "postpartum-depression-is-biology": {
+      "src": "/blogs/placeholder-postpartum-depression-is-biology.png",
+      "width": 1812,
+      "height": 1074,
+      "blurDataURL": "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAADQAQCdASoQAAkAAwBSJQBOgCHgAqtgAAD+9w5foPazjU2artzNOlYF2+klsAAA"
+    },
+    "indian-confinement-period-postpartum": {
+      "src": "/blogs/placeholder-indian-confinement-period-postpartum.png",
+      "width": 1812,
+      "height": 1074,
+      "blurDataURL": "data:image/webp;base64,UklGRjwAAABXRUJQVlA4IDAAAACwAQCdASoQAAkAAwBSJQAAVD+MT0GAAP73EWo6LutFyyPIzw1Ol/WXDy/p0B6AAAA="
+    },
+    "newborn-safety-facts-every-parent-must-know": {
+      "src": "/blogs/placeholder-newborn-safety-facts-every-parent-must-know.png",
+      "width": 1812,
+      "height": 1074,
+      "blurDataURL": "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAACwAQCdASoQAAkAAwBSJQBOgCHfTAwAAP73Dl9+fsdijBqOeEUFCZGPy0YkAA=="
+    },
+    "birth-trauma-is-real": {
+      "src": "/blogs/placeholder-birth-trauma-is-real.png",
+      "width": 1812,
+      "height": 1074,
+      "blurDataURL": "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAACwAQCdASoQAAkAAwBSJQBOgCHfTAwAAP73Dl9+fszRO+YgcH7qAb22QciAAA=="
+    },
+    "nicu-when-baby-arrives-early": {
+      "src": "/blogs/placeholder-nicu-when-baby-arrives-early.png",
+      "width": 1812,
+      "height": 1074,
+      "blurDataURL": "data:image/webp;base64,UklGRj4AAABXRUJQVlA4IDIAAABQAQCdASoQAAkAAwBSJS7AADEAAP7xi7drEVL8KEjh+hyi7NAT8DL30EbD+dkNLgAAAA=="
+    },
+    "caesarean-recovery-honest-guide": {
+      "src": "/blogs/placeholder-caesarean-recovery-honest-guide.png",
+      "width": 1812,
+      "height": 1074,
+      "blurDataURL": "data:image/webp;base64,UklGRj4AAABXRUJQVlA4IDIAAADQAQCdASoQAAkAAwBSJQBdgCHhTLdvAAD+9xARYaQcGuYYe4jgw+jmoqBawNemF0wAAA=="
+    },
+    "newborn-care-first-days": {
+      "src": "/blogs/placeholder-newborn-care-first-days.png",
+      "width": 1812,
+      "height": 1074,
+      "blurDataURL": "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAACwAQCdASoQAAkAAwBSJQBOgCHf6cbwAP73Dl9+fs0h3K+vCkuQm8QJvmJAAA=="
+    },
+    "golden-hour-after-birth": {
+      "src": "/blogs/placeholder-golden-hour-after-birth.png",
+      "width": 1812,
+      "height": 1074,
+      "blurDataURL": "data:image/webp;base64,UklGRjwAAABXRUJQVlA4IDAAAACwAQCdASoQAAkAAwBSJQAAU7THgRwAAP73EWo5W5bGT8U0a/LMGeXLWz99JLYAAAA="
+    },
+    "labour-what-actually-happens": {
+      "src": "/blogs/placeholder-labour-what-actually-happens.png",
+      "width": 1812,
+      "height": 1074,
+      "blurDataURL": "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAADwAQCdASoQAAkAAwBSJQBdgCHhb69ISxQA/vcQEWLxDJzSEgnRVvkqTlTC6YAA"
+    },
+    "is-folic-acid-enough-in-first-trimester": {
+      "src": "/blogs/placeholder-is-folic-acid-enough-in-first-trimester.png",
+      "width": 1812,
+      "height": 1074,
+      "blurDataURL": "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACQAQCdASoQAAkAAwBSJQAAU7P2cAAA/vcRajlblsZPoO9UcDAHdIMV/vpJbAAA"
+    },
+    "why-do-i-feel-so-cold-during-early-pregnancy": {
+      "src": "/blogs/placeholder-why-do-i-feel-so-cold-during-early-pregnancy.png",
+      "width": 1812,
+      "height": 1074,
+      "blurDataURL": "data:image/webp;base64,UklGRjwAAABXRUJQVlA4IDAAAABwAQCdASoQAAkAAwBSJTB1owARYAD+8YvWHztAL4lelvFX7/a4fSH8LuUxfPJQAAA="
+    },
+    "can-you-eat-methi-during-first-trimester": {
+      "src": "/blogs/placeholder-can-you-eat-methi-during-first-trimester.png",
+      "width": 1812,
+      "height": 1074,
+      "blurDataURL": "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAACwAQCdASoQAAkAAwBSJQBOgCG8BinAAP73Dl+g98XNpzEkJXIncMyfSS2AAA=="
+    },
+    "is-jeera-water-safe-to-drink-in-first-trimester": {
+      "src": "/blogs/placeholder-is-jeera-water-safe-to-drink-in-first-trimester.png",
+      "width": 1812,
+      "height": 1074,
+      "blurDataURL": "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACwAQCdASoQAAkAAwBSJQBOgCHfTAwAAP73Dl9+fsdijErjixgaFn8/cg5EAAAA"
+    },
+    "how-to-reduce-morning-sickness-naturally-at-home": {
+      "src": "/blogs/placeholder-how-to-reduce-morning-sickness-naturally-at-home.png",
+      "width": 1812,
+      "height": 1074,
+      "blurDataURL": "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACwAQCdASoQAAkAAwBSJQBOgCHfTAwAAP73Dl9+fsdikLF4bvpo4k/CIlNzagAA"
+    },
+    "can-stress-cause-miscarriage-in-first-trimester": {
+      "src": "/blogs/placeholder-can-stress-cause-miscarriage-in-first-trimester.png",
+      "width": 1812,
+      "height": 1074,
+      "blurDataURL": "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAADQAQCdASoQAAkAAwBSJQBOgCHfc+yuAAD+9w5ffn7HYowa4B86XITeJkHIgAAA"
+    },
+    "how-to-confirm-pregnancy-at-home-without-a-kit": {
+      "src": "/blogs/placeholder-how-to-confirm-pregnancy-at-home-without-a-kit.png",
+      "width": 1812,
+      "height": 1074,
+      "blurDataURL": "data:image/webp;base64,UklGRjwAAABXRUJQVlA4IDAAAADwAQCdASoQAAkAAwBSJQBdgCHhXPgtToAA/vcQETKNK0k7UPcRwJtPTTCpcl0AAAA="
+    },
+    "first-signs-of-pregnancy-in-indian-women": {
+      "src": "/blogs/placeholder-first-signs-of-pregnancy-in-indian-women.png",
+      "width": 1812,
+      "height": 1074,
+      "blurDataURL": "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACwAQCdASoQAAkAAwBSJQAAXOvpfDBkAP72EG/jsbjCj+4lsbuheNDzM376SWwA"
+    },
+    "why-is-my-breast-milk-not-coming-causes-and-easy-solutions": {
+      "src": "/blogs/placeholder-why-is-my-breast-milk-not-coming-causes-and-easy-solutions.png",
+      "width": 1812,
+      "height": 1074,
+      "blurDataURL": "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAACQAQCdASoQAAkAAwBSJQAAXOpny6AA/vcOX35+x2KMGpWXF1ncPtk/+QAAAA=="
+    },
+    "why-is-it-so-hard-to-lose-weight-while-breastfeeding": {
+      "src": "/blogs/placeholder-why-is-it-so-hard-to-lose-weight-while-breastfeeding.png",
+      "width": 1812,
+      "height": 1074,
+      "blurDataURL": "data:image/webp;base64,UklGRjYAAABXRUJQVlA4ICoAAACQAQCdASoQAAkAAwBSJQAAXOn7rAAA/vcOX35+x2KMGp2n3dlP7LkugAA="
+    },
+    "when-do-you-lose-the-most-weight-while-breastfeeding": {
+      "src": "/blogs/placeholder-when-do-you-lose-the-most-weight-while-breastfeeding.png",
+      "width": 1812,
+      "height": 1074,
+      "blurDataURL": "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACwAQCdASoQAAkAAwBSJQBOgCHfTAwAAP73Dl9+fsdijBrkPBrdjTI/EHIgAAAA"
+    },
+    "what-to-drink-to-boost-breast-milk-production-at-home": {
+      "src": "/blogs/placeholder-what-to-drink-to-boost-breast-milk-production-at-home.png",
+      "width": 1812,
+      "height": 1074,
+      "blurDataURL": "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAACQAQCdASoQAAkAAwBSJQAAXOpny6AA/vcOX35+x2KS0DDrauQFkPOyGlwAAA=="
+    },
+    "what-should-a-mother-avoid-eating-while-breastfeeding": {
+      "src": "/blogs/placeholder-what-should-a-mother-avoid-eating-while-breastfeeding.png",
+      "width": 1812,
+      "height": 1074,
+      "blurDataURL": "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAADQAQCdASoQAAkAAwBSJQBOgCHfc+0oAAD+9w5ffn7M0Tvl4SG5LrocH0yf/IAA"
+    },
+    "what-is-the-6-6-6-rule-for-breastfeeding-myth-vs-reality": {
+      "src": "/blogs/placeholder-what-is-the-6-6-6-rule-for-breastfeeding-myth-vs-reality.png",
+      "width": 1812,
+      "height": 1074,
+      "blurDataURL": "data:image/webp;base64,UklGRjYAAABXRUJQVlA4ICoAAACQAQCdASoQAAkAAwBSJQAAXOn7rAAA/vcOX35vY3psiFpvIGf2yf/IAAA="
+    },
+    "what-is-the-4-4-4-rule-for-breastfeeding-a-simple-guide-for-moms": {
+      "src": "/blogs/placeholder-what-is-the-4-4-4-rule-for-breastfeeding-a-simple-guide-for-moms.png",
+      "width": 1812,
+      "height": 1074,
+      "blurDataURL": "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAADQAQCdASoQAAkAAwBSJQBdgCHhTLZSIAD+9xARYZ4Y57FY8qjlMca7LkugAA=="
+    },
+    "what-is-the-3-3-3-rule-for-breast-milk-everything-you-need-to-know": {
+      "src": "/blogs/placeholder-what-is-the-3-3-3-rule-for-breast-milk-everything-you-need-to-know.png",
+      "width": 1812,
+      "height": 1074,
+      "blurDataURL": "data:image/webp;base64,UklGRjwAAABXRUJQVlA4IDAAAABwAQCdASoQAAkAAwBSJTB1owARYAD+8UPRZ3I9443+9VLb8kVsJEG//4jzUU8QAAA="
+    },
+    "does-feeding-every-2-hours-increase-milk-supply": {
+      "src": "/blogs/placeholder-does-feeding-every-2-hours-increase-milk-supply.png",
+      "width": 1812,
+      "height": 1074,
+      "blurDataURL": "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAACQAQCdASoQAAkAAwBSJQAAXOpny6AA/vcOX35+x2KMGo6dKvoNAnx2yf/IAA=="
+    },
+    "does-jeera-water-really-increase-breast-milk": {
+      "src": "/blogs/placeholder-does-jeera-water-really-increase-breast-milk.png",
+      "width": 1812,
+      "height": 1074,
+      "blurDataURL": "data:image/webp;base64,UklGRkAAAABXRUJQVlA4IDQAAABQAQCdASoQAAkAAwBSJTB1gDEAAP7w9+9qeobJ2jcOvVlL1KHJegfhcosgLzsvvpJbAAAA"
+    },
+    "does-postpartum-belly-go-away-a-realistic-recovery-guide-for-new-moms": {
+      "src": "/blogs/placeholder-does-postpartum-belly-go-away-a-realistic-recovery-guide-for-new-moms.png",
+      "width": 1812,
+      "height": 1074,
+      "blurDataURL": "data:image/webp;base64,UklGRjwAAABXRUJQVlA4IDAAAADQAQCdASoQAAkAAwBSJQBdgCHhTLXjgAD+9xARMo0rSTw+HuI4HR6M/+FS5LoAAAA="
+    },
+    "foods-that-increase-breast-milk-vs-foods-you-should-avoid-a-complete-guide-for-indian-mothers": {
+      "src": "/blogs/placeholder-foods-that-increase-breast-milk-vs-foods-you-should-avoid-a-complete-guide-for-indian-mothers.png",
+      "width": 1812,
+      "height": 1074,
+      "blurDataURL": "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACwAQCdASoQAAkAAwBSJQAAUwr4/lAAAP73EWo6Ls2XHfvSF++U2zfbff30ktgA"
+    },
+    "how-much-walking-is-safe-during-pregnancy": {
+      "src": "/blogs/placeholder-how-much-walking-is-safe-during-pregnancy.png",
+      "width": 1812,
+      "height": 1074,
+      "blurDataURL": "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACQAQCdASoQAAkAAwBSJQAAU7QGHwAA/vcRajlblsZB14+5Jbb1iaio/06A9AAA"
+    },
+    "do-grapes-ginger-herbal-teas-affect-breast-milk": {
+      "src": "/blogs/placeholder-do-grapes-ginger-herbal-teas-affect-breast-milk.png",
+      "width": 1812,
+      "height": 1074,
+      "blurDataURL": "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAADQAQCdASoQAAkAAwBSJQBdgCHhTLXjgAD+9xARMo0rSTmkJBGIxQBYBQf53FAA"
+    },
+    "breastfeeding-rules-every-new-mom-should-know": {
+      "src": "/blogs/placeholder-breastfeeding-rules-every-new-mom-should-know.png",
+      "width": 1812,
+      "height": 1074,
+      "blurDataURL": "data:image/webp;base64,UklGRjwAAABXRUJQVlA4IDAAAACwAQCdASoQAAkAAwBSJQAAU7THoMxAAP73EWo5W5bGT8U0a+13VOTUVH+nQHoAAAA="
+    },
+    "can-you-walk-10000-steps-during-pregnancy": {
+      "src": "/blogs/placeholder-can-you-walk-10000-steps-during-pregnancy.png",
+      "width": 1812,
+      "height": 1074,
+      "blurDataURL": "data:image/webp;base64,UklGRjYAAABXRUJQVlA4ICoAAACQAQCdASoQAAkAAwBSJQAAXOpny6AA/vcOX35+x2GDMZeaxleXbJ/8gAA="
+    },
+    "postpartum-care-in-chennai-the-complete-guide-for-new-mothers": {
+      "src": "/blogs/placeholder-postpartum-care-in-chennai-the-complete-guide-for-new-mothers.png",
+      "width": 1812,
+      "height": 1074,
+      "blurDataURL": "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAADQAQCdASoQAAkAAwBSJQBOgCHhTLVYAAD+9xARMo0rSTGtEpfWksC5WnIUQAAA"
+    },
+    "composition-of-breast-milk-understanding-what-human-milk-contains": {
+      "src": "/blogs/placeholder-composition-of-breast-milk-understanding-what-human-milk-contains.png",
+      "width": 1812,
+      "height": 1074,
+      "blurDataURL": "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAABwAQCdASoQAAkAAwBSJTB1owARYAD+8YvWI3w8MyQto6cSogIhwyEpMfloxIAA"
+    },
+    "how-to-increase-breast-milk-supplyafter-c-section-delivery": {
+      "src": "/blogs/placeholder-how-to-increase-breast-milk-supplyafter-c-section-delivery.png",
+      "width": 1812,
+      "height": 1074,
+      "blurDataURL": "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAADQAQCdASoQAAkAAwBSJQBOgCHfc+yuAAD+9w5ffn7HYpCyLHnZQ1COI81FPEAA"
+    },
+    "what-to-eat-to-increase-breast-milkthe-complete-food-guide-for-breastfeeding-mothers": {
+      "src": "/blogs/placeholder-what-to-eat-to-increase-breast-milkthe-complete-food-guide-for-breastfeeding-mothers.png",
+      "width": 1812,
+      "height": 1074,
+      "blurDataURL": "data:image/webp;base64,UklGRjwAAABXRUJQVlA4IDAAAACwAQCdASoQAAkAAwBSJQAAUwr4/lAAAP73EWo6LuiCGuXUAYZM9WyRCxfv30ktgAA="
+    },
+    "what-to-drink-to-increase-breast-milkthe-complete-guide-for-breastfeeding-mothers": {
+      "src": "/blogs/placeholder-what-to-drink-to-increase-breast-milkthe-complete-guide-for-breastfeeding-mothers.png",
+      "width": 1812,
+      "height": 1074,
+      "blurDataURL": "data:image/webp;base64,UklGRjwAAABXRUJQVlA4IDAAAACwAQCdASoQAAkAAwBSJQAAUwr4/lAAAP73EWo6Luh8/Pqc4aOrfpwED9vN++klsAA="
+    },
+    "when-does-breast-milk-start-during-pregnancy": {
+      "src": "/blogs/placeholder-when-does-breast-milk-start-during-pregnancy.png",
+      "width": 1812,
+      "height": 1074,
+      "blurDataURL": "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACQAQCdASoQAAkAAwBSJQAAU7QGHwAA/vcRajouzZdHV6nqTZgMguKi/ToD0AAA"
+    },
+    "how-to-increase-breast-milk-naturally": {
+      "src": "/blogs/placeholder-how-to-increase-breast-milk-naturally.png",
+      "width": 1812,
+      "height": 1074,
+      "blurDataURL": "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAADQAQCdASoQAAkAAwBSJQBOgCHgAFxoAAD+9w5foPazjbRjW2JH0XBo2Wp0B6AA"
+    },
+    "how-to-increase-breast-milk-supply": {
+      "src": "/blogs/placeholder-how-to-increase-breast-milk-supply.png",
+      "width": 1812,
+      "height": 1074,
+      "blurDataURL": "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACwAQCdASoQAAkAAwBSJQAAU7THoL6AAP73EWo5W5a3zKhRIyGpJEYnx99JLYAA"
+    },
+    "vegetarian-pregnancy-diet-plan-all-9-months": {
+      "src": "/blogs/placeholder-vegetarian-pregnancy-diet-plan-all-9-months.png",
+      "width": 1812,
+      "height": 1074,
+      "blurDataURL": "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAADQAQCdASoQAAkAAwBSJQBOgCG659yqAAD+9w5foPfGYkqiNkJpBFiPNRTxAAAA"
+    },
+    "third-trimester-pregnancy-diet-plan": {
+      "src": "/blogs/placeholder-third-trimester-pregnancy-diet-plan.png",
+      "width": 1812,
+      "height": 1074,
+      "blurDataURL": "data:image/webp;base64,UklGRj4AAABXRUJQVlA4IDIAAABQAQCdASoQAAkAAwBSJS7AADEAAP7x0rdrMt5fAZfavt6V0tcM3nzwRIui6LzshpcAAA=="
+    },
+    "weekly-pregnancy-diet-plan-for-indian-women": {
+      "src": "/blogs/placeholder-weekly-pregnancy-diet-plan-for-indian-women.png",
+      "width": 1812,
+      "height": 1074,
+      "blurDataURL": "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAADQAQCdASoQAAkAAwBSJQBdgCHhXPdERAD+9xARYaQcGuYYeyPAaZlor387igAA"
+    },
+    "second-trimester-pregnancy-diet-plan": {
+      "src": "/blogs/placeholder-second-trimester-pregnancy-diet-plan.png",
+      "width": 1812,
+      "height": 1074,
+      "blurDataURL": "data:image/webp;base64,UklGRjwAAABXRUJQVlA4IDAAAACwAQCdASoQAAkAAwBSJQBOgCHfbzKAAP73Dl+BzVPQGw/MdBdTi3PUx8C7fSS2AAA="
+    },
+    "first-trimester-pregnancy-diet-plan": {
+      "src": "/blogs/placeholder-first-trimester-pregnancy-diet-plan.png",
+      "width": 1812,
+      "height": 1074,
+      "blurDataURL": "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAADQAQCdASoQAAkAAwBSJQBOgCHgBqF+AAD+9w5fgc1T0BoCZjZxTOYeb5aMSAAA"
+    },
+    "pregnancy-diet-plan": {
+      "src": "/blogs/placeholder-pregnancy-diet-plan.png",
+      "width": 1812,
+      "height": 1074,
+      "blurDataURL": "data:image/webp;base64,UklGRjYAAABXRUJQVlA4ICoAAACQAQCdASoQAAkAAwBSJQAAXOpny6AA/vcOX35+zNE747wM9iaw3mQogAA="
+    },
+    "papaya-during-pregnancy": {
+      "src": "/blogs/placeholder-papaya-during-pregnancy.png",
+      "width": 1812,
+      "height": 1074,
+      "blurDataURL": "data:image/webp;base64,UklGRkAAAABXRUJQVlA4IDQAAABwAQCdASoQAAkAAwBSJS7AIwARYAD+8UPRZ1pIO7OAnL1KGSUe1xej+RfxfMccH0yf/IAA"
+    },
+    "pineapple-in-pregnancy": {
+      "src": "/blogs/placeholder-pineapple-in-pregnancy.png",
+      "width": 1812,
+      "height": 1074,
+      "blurDataURL": "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAABwAQCdASoQAAkAAwBSJTB1owARYAD+8YvWH/A8zWWcP2q//PlhqSq9y0YkAA=="
+    },
+    "how-to-hold-a-baby-when-breastfeeding": {
+      "src": "/blogs/placeholder-how-to-hold-a-baby-when-breastfeeding.png",
+      "width": 1812,
+      "height": 1074,
+      "blurDataURL": "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAADQAQCdASoQAAkAAwBSJQBdgCHhTLXjgAD+9xARMo0rRft8NkGewc0NRvcuS6AA"
+    },
+    "what-is-a-mother": {
+      "src": "/blogs/placeholder-what-is-a-mother.png",
+      "width": 1812,
+      "height": 1074,
+      "blurDataURL": "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAACwAQCdASoQAAkAAwBSJQBOgCHfUD0wAP73Dl9+fs0h5jAd3lDf571HYYBgAA=="
+    },
+    "newborn-sleep-patterns-what-to-expect-in-the-third-month": {
+      "src": "/blogs/placeholder-newborn-sleep-patterns-what-to-expect-in-the-third-month.png",
+      "width": 1812,
+      "height": 1074,
+      "blurDataURL": "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAACQAQCdASoQAAkAAwBSJQAAXOn7rAAA/vcOX35+x2KQsYddsMTuOfmQogAAAA=="
+    },
+    "why-every-new-mother-may-need-a-lactation-consultant": {
+      "src": "/blogs/placeholder-why-every-new-mother-may-need-a-lactation-consultant.png",
+      "width": 1812,
+      "height": 1074,
+      "blurDataURL": "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAADQAQCdASoQAAkAAwBSJQBOgCHhTLVYAAD+9xARMo0rSTGtEs2FiIxEiDC6YAAA"
+    },
+    "10-essential-nutrition-tips-for-a-healthy-pregnancy": {
+      "src": "/blogs/placeholder-10-essential-nutrition-tips-for-a-healthy-pregnancy.png",
+      "width": 1812,
+      "height": 1074,
+      "blurDataURL": "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACwAQCdASoQAAkAAwBSJQBdgCG+pehcAP73EBEyjSzZu0GwIw9AymowGpMLpgAA"
+    },
+    "doula-vs-midwife-who-cares-for-you-and-your-baby": {
+      "src": "/blogs/placeholder-doula-vs-midwife-who-cares-for-you-and-your-baby.png",
+      "width": 1812,
+      "height": 1074,
+      "blurDataURL": "data:image/webp;base64,UklGRjYAAABXRUJQVlA4ICoAAACQAQCdASoQAAkAAwBSJQAAXOn7rAAA/vcOX35+x2KMGp2n3dlP7LkugAA="
     }
-  ]
+  }
 }
