@@ -26,6 +26,9 @@ const PINK_SOFT = "#f4447f";
 const CARD = "#EFE9E4";
 const INK = "#1a1a1a";
 
+/** Shown in the cover footer. */
+const SITE_URL = "www.mothrly.com";
+
 /** Segoe UI is the closest geometric sans installed; Plus Jakarta Sans is web-only. */
 const FONT = "Segoe UI, Selawik, Tahoma, DejaVu Sans, sans-serif";
 
@@ -52,23 +55,27 @@ async function logoDataUri() {
   return LOGO_DATA_URI;
 }
 
-/** White version of the mark, for use over the tinted panel. */
-let LOGO_WHITE_URI = null;
-async function logoWhiteDataUri() {
-  if (LOGO_WHITE_URI) return LOGO_WHITE_URI;
+/**
+ * Recoloured version of the mark for the watermark. White washed out against
+ * the blush panel, so the watermark uses a deeper rose that reads tone-on-tone.
+ */
+const WATERMARK_COLOUR = "#C2456F";
+
+const LOGO_TINTS = new Map();
+async function logoTintDataUri(colour) {
+  if (LOGO_TINTS.has(colour)) return LOGO_TINTS.get(colour);
   const src = path.join(process.cwd(), "public", "MOTHERLY - PINK.png");
   const trimmed = await sharp(src).trim({ threshold: 10 }).png().toBuffer();
-  // Keep the alpha shape, replace every colour channel with white.
+  // Keep the alpha shape, replace every colour channel with the target colour.
   const { width, height } = await sharp(trimmed).metadata();
   const alpha = await sharp(trimmed).extractChannel("alpha").toBuffer();
-  const white = await sharp({
-    create: { width, height, channels: 3, background: "#ffffff" },
-  })
+  const tinted = await sharp({ create: { width, height, channels: 3, background: colour } })
     .joinChannel(alpha)
     .png()
     .toBuffer();
-  LOGO_WHITE_URI = `data:image/png;base64,${white.toString("base64")}`;
-  return LOGO_WHITE_URI;
+  const uri = `data:image/png;base64,${tinted.toString("base64")}`;
+  LOGO_TINTS.set(colour, uri);
+  return uri;
 }
 
 const esc = (s) =>
@@ -185,6 +192,11 @@ function svg(title, seed, logoPink, logoWhite) {
     .map((l, i) => `<tspan x="${cardX + padX}" dy="${i === 0 ? 0 : subLead}">${esc(l)}</tspan>`)
     .join("");
 
+  // Footer metrics: the URL is measured so it always sits inside the card.
+  const urlSize = 26;
+  const urlW = measure(SITE_URL, urlSize, false);
+  const footerInner = cardW - padX * 2;
+
   // Left panel stands in for the photograph.
   const px = 72, py = 56, pw = 736, ph = H - 112;
 
@@ -193,7 +205,7 @@ function svg(title, seed, logoPink, logoWhite) {
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0%" stop-color="${t.a}"/><stop offset="100%" stop-color="${t.b}"/>
     </linearGradient>
-    <linearGradient id="panel" x1="0" y1="0" x2="0.7" y2="1">
+    <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0%" stop-color="${t.panel[0]}"/><stop offset="100%" stop-color="${t.panel[1]}"/>
     </linearGradient>
     <radialGradient id="glow" cx="0.3" cy="0.25" r="0.8">
@@ -215,7 +227,7 @@ function svg(title, seed, logoPink, logoWhite) {
 
   <!-- Brand mark as a large watermark where the photograph would sit -->
   <image href="${logoWhite}" x="${px + pw / 2 - 210}" y="${py + ph / 2 - 260}"
-         width="420" height="520" opacity="0.42" preserveAspectRatio="xMidYMid meet"/>
+         width="420" height="520" opacity="0.34" preserveAspectRatio="xMidYMid meet"/>
 
   <!-- Brand mark, top right -->
   <image href="${logoPink}" x="${W - 236}" y="62" width="150" height="186"
@@ -232,12 +244,14 @@ function svg(title, seed, logoPink, logoWhite) {
   ${subLines.length ? `<text font-family="${FONT}" font-size="34" font-weight="400" fill="${INK}"
         x="${cardX + 64}" y="${subTop}" opacity="0.86">${subTspans}</text>` : ""}
 
-  <!-- Footer rule -->
-  <g transform="translate(${cardX + 64}, ${cardY + cardH - 62})">
+  <!-- Footer rule. Anchored to the card's right inner edge so the URL can never
+       overflow, with the rule stopping short of the measured text width. -->
+  <g transform="translate(${cardX + padX}, ${cardY + cardH - 62})">
     <path d="M 0 -6 l 9 9 l -9 9 l -9 -9 z" fill="${INK}" opacity="0.75"/>
-    <line x1="22" y1="3" x2="${cardW - 330}" y2="3" stroke="${INK}" stroke-width="2" opacity="0.5"/>
-    <text x="${cardW - 128}" y="13" text-anchor="middle" font-family="${FONT}" font-size="26"
-          fill="${INK}" opacity="0.8">www.mothrly.com</text>
+    <line x1="22" y1="3" x2="${Math.round(footerInner - urlW - 28)}" y2="3"
+          stroke="${INK}" stroke-width="2" opacity="0.5"/>
+    <text x="${footerInner}" y="13" text-anchor="end" font-family="${FONT}" font-size="${urlSize}"
+          fill="${INK}" opacity="0.8">${esc(SITE_URL)}</text>
   </g>
 </svg>`;
 }
@@ -250,7 +264,7 @@ function seedOf(str) {
 }
 
 export async function renderCover(title, seed) {
-  const [logoPink, logoWhite] = await Promise.all([logoDataUri(), logoWhiteDataUri()]);
+  const [logoPink, logoWhite] = await Promise.all([logoDataUri(), logoTintDataUri(WATERMARK_COLOUR)]);
   return sharp(Buffer.from(svg(title, seed, logoPink, logoWhite))).png({ quality: 92 }).toBuffer();
 }
 
