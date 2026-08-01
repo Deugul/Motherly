@@ -1,35 +1,214 @@
 {
-  "generatedAt": "2026-08-01T06:56:44.389Z",
+  "generatedAt": "2026-08-01T09:15:37.072Z",
   "publicPrefix": "/blogs",
   "images": {
+    "/blogs/postnatal-recovery-care-at-home-in-chennai-whats-included-featured.png": {
+      "src": "/blogs/postnatal-recovery-care-at-home-in-chennai-whats-included-featured.png",
+      "width": 1812,
+      "height": 1074,
+      "alt": "The Fourth Trimester: A Complete Guide to Postnatal Recovery Care in Chennai",
+      "blurDataURL": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAAAQAgCdASoQAAkAAwBSJZgCdAD1k0Y4g0yAAPa04PFDSnzt4kJnPYDBuVYZKTzQ2R1nW4bsxjKRiSfbPZArnxpQkq3G9a1N7t2xUBYAAAA=",
+      "responsive": [],
+      "recoveredFrom": {
+        "provider": "localarchive",
+        "sourceUrl": "local:161.png",
+        "snapshot": null
+      },
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/07/161.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "postnatal-recovery-care-at-home-in-chennai-whats-included"
+      ]
+    },
+    "/blogs/baby-care-specialist-in-chennai-what-they-do-in-the-first-40-days-featured.png": {
+      "src": "/blogs/baby-care-specialist-in-chennai-what-they-do-in-the-first-40-days-featured.png",
+      "width": 1812,
+      "height": 1074,
+      "alt": "Newborn Care Made Easier: What a Baby Care Specialist Does in Chennai",
+      "blurDataURL": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAAAQAgCdASoQAAkAAwBSJYgCdAEf5vNpHLeAAP7z70voc5W1ycclHK8jjwV1t9+OqQ7QBt+twnOk6SYYRd/f6sPQo+SQAAAA",
+      "responsive": [],
+      "recoveredFrom": {
+        "provider": "localarchive",
+        "sourceUrl": "local:160.png",
+        "snapshot": null
+      },
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/07/160.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "baby-care-specialist-in-chennai-what-they-do-in-the-first-40-days"
+      ]
+    },
+    "/blogs/prenatal-and-postnatal-yoga-in-chennai-benefits-and-when-to-start-featured.png": {
+      "src": "/blogs/prenatal-and-postnatal-yoga-in-chennai-benefits-and-when-to-start-featured.png",
+      "width": 1812,
+      "height": 1074,
+      "alt": "Safe Prenatal and Postnatal Yoga in Chennai: A Trimester-by-Trimester Guide",
+      "blurDataURL": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAADwAQCdASoQAAkAAwBSJQBOgB7A56V7l5AA4cxSJO/1POHA8qQa41tVmkvuaCxdcWuVnzav0M5Z/VkZpOgX/MBQ2vZE2SsDi0B5aBM18AA=",
+      "responsive": [],
+      "recoveredFrom": {
+        "provider": "localarchive",
+        "sourceUrl": "local:159.png",
+        "snapshot": null
+      },
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/07/159.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "prenatal-and-postnatal-yoga-in-chennai-benefits-and-when-to-start"
+      ]
+    },
+    "/blogs/lactation-consultant-in-chennai-when-to-call-and-what-to-expect-featured.png": {
+      "src": "/blogs/lactation-consultant-in-chennai-when-to-call-and-what-to-expect-featured.png",
+      "width": 1812,
+      "height": 1074,
+      "alt": "Struggling With Breastfeeding? When to See a Lactation Consultant in Chennai",
+      "blurDataURL": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAADQAQCdASoQAAkAAwBSJYgCdAD5+KTVQAD+BfLi9xT9Brk1AQXEWjwHmqAS55cZwLueWgX9db/YQYjWYFGM/Ae8PF1DL1lCcxQBvfDGwaBumAAA",
+      "responsive": [],
+      "recoveredFrom": {
+        "provider": "localarchive",
+        "sourceUrl": "local:158.png",
+        "snapshot": null
+      },
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/07/158.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "lactation-consultant-in-chennai-when-to-call-and-what-to-expect"
+      ]
+    },
+    "/blogs/motherly-blog-image-11-1.png": {
+      "src": "/blogs/motherly-blog-image-11-1.png",
+      "width": 1812,
+      "height": 1074,
+      "alt": "What Does a Doula Do? A Chennai Parent’s Guide to Birth and Postpartum Support",
+      "blurDataURL": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAACQAQCdASoQAAkAAwBSJYgCdABoXJAA/sp33GsziuQtMvtCUOZ4QAhNuWJ1Bm3zy7EiQJsrFe9roCHK1+e9TK6/eQyeVwAA",
+      "responsive": [],
+      "recoveredFrom": {
+        "provider": "localarchive",
+        "sourceUrl": "local:MOTHERLY-BLOG-IMAGE-11-1.png",
+        "snapshot": null
+      },
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/07/MOTHERLY-BLOG-IMAGE-11-1.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "doula-services-in-chennai-what-a-doula-does-for-new-mothers"
+      ]
+    },
+    "/blogs/postnatal-recovery-timeline-chennai-featured.png": {
+      "src": "/blogs/postnatal-recovery-timeline-chennai-featured.png",
+      "width": 1812,
+      "height": 1074,
+      "alt": "The Complete Postnatal Recovery Timeline for New Mothers in Chennai",
+      "blurDataURL": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAADQAQCdASoQAAkAAwBSJZgCdADaDVCsAAD+yngkd9wMPr6PF3fhS66eKQoDFthsB6pC0Nq8STdOBbiebqg7ekrMPW8TWc1zxN2wAA==",
+      "responsive": [],
+      "recoveredFrom": {
+        "provider": "localarchive",
+        "sourceUrl": "local:156.png",
+        "snapshot": null
+      },
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/06/156.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "postnatal-recovery-timeline-chennai"
+      ]
+    },
+    "/blogs/choose-right-nanny-after-delivery-chennai-featured.png": {
+      "src": "/blogs/choose-right-nanny-after-delivery-chennai-featured.png",
+      "width": 1812,
+      "height": 1074,
+      "alt": "How to Choose the Right Nanny After Delivery in Chennai: The Complete Decision Guide",
+      "blurDataURL": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADwAQCdASoQAAkAAwBSJYwCdB2gAcsiegAA/uhskfi5gHPHLZRNNi+Whfpn6g0FBOkNf/ySqYwjyhZiYo4tsINJ9VJ9gDCUpjIqcIAA",
+      "responsive": [],
+      "recoveredFrom": {
+        "provider": "localarchive",
+        "sourceUrl": "local:155.png",
+        "snapshot": null
+      },
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/06/155.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "choose-right-nanny-after-delivery-chennai"
+      ]
+    },
+    "/blogs/postnatal-physiotherapy-vs-rest-featured.png": {
+      "src": "/blogs/postnatal-physiotherapy-vs-rest-featured.png",
+      "width": 1812,
+      "height": 1074,
+      "alt": "Postnatal Physiotherapy vs. Rest: What New Mothers in Chennai Actually Need",
+      "blurDataURL": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAADQAQCdASoQAAkAAwBSJYwCdADsi0roAAD+7ltFM1G0m5A0wCFTM9CUKfd/YL+dKTBnzTM1MrQo6m8t69qA8S5BRjJFlaRqnwAAAA==",
+      "responsive": [],
+      "recoveredFrom": {
+        "provider": "localarchive",
+        "sourceUrl": "local:154.png",
+        "snapshot": null
+      },
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/06/154.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "postnatal-physiotherapy-vs-rest"
+      ]
+    },
+    "/blogs/postnatal-gynaecologist-visit-in-chennai-featured.png": {
+      "src": "/blogs/postnatal-gynaecologist-visit-in-chennai-featured.png",
+      "width": 1812,
+      "height": 1074,
+      "alt": "When Should You See a Gynaecologist After Delivery? A Chennai Mother's Guide",
+      "blurDataURL": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAADwAQCdASoQAAkAAwBSJZQC7AYq1hr8MeQA/vIWlXgzYGsaxKOYzXVPJk4kwGwTs2RnAbk/DyVjks0w/FAceiISzTjfOJlImt0js71FpRYbwymQwAA=",
+      "responsive": [],
+      "recoveredFrom": {
+        "provider": "localarchive",
+        "sourceUrl": "local:152.png",
+        "snapshot": null
+      },
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/06/152.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "postnatal-gynaecologist-visit-in-chennai"
+      ]
+    },
+    "/blogs/baby-first-month-paediatrician-visit-featured.png": {
+      "src": "/blogs/baby-first-month-paediatrician-visit-featured.png",
+      "width": 1812,
+      "height": 1074,
+      "alt": "Baby's First Month: Why a Paediatrician Visit in the First Week Matters",
+      "blurDataURL": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADwAQCdASoQAAkAAwBSJZwAAq+a92H+uSAA/tgY6jr13JKf1G1R7iFR6y95cbHOL1g03hFw99r7ym83FFjBWkssJ7pSwSDisJWn6EAA",
+      "responsive": [],
+      "recoveredFrom": {
+        "provider": "localarchive",
+        "sourceUrl": "local:153.png",
+        "snapshot": null
+      },
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/06/153.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "baby-first-month-paediatrician-visit"
+      ]
+    },
     "/blogs/yoga-as-medicine-for-mothers-featured.png": {
       "src": "/blogs/yoga-as-medicine-for-mothers-featured.png",
       "width": 1812,
       "height": 1074,
       "alt": "Yoga Is Not a Fitness Class. For Mothers, It Is a System of Physical and Mental Medicine That Has No Equivalent in the Modern World.",
       "blurDataURL": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAAAQAgCdASoQAAkAAwBSJQBdgCL4wv0VB+QAAP6UvYlPeyzC9dRDXn3D3QdPvPNmXICoT+/NxUv8XV38xwyc7csjGkeHlKYm1JaktdFwAAA=",
-      "responsive": [
-        {
-          "src": "/blogs/yoga-as-medicine-for-mothers-featured-640w.webp",
-          "width": 640
-        },
-        {
-          "src": "/blogs/yoga-as-medicine-for-mothers-featured-750w.webp",
-          "width": 750
-        },
-        {
-          "src": "/blogs/yoga-as-medicine-for-mothers-featured-828w.webp",
-          "width": 828
-        },
-        {
-          "src": "/blogs/yoga-as-medicine-for-mothers-featured-1080w.webp",
-          "width": 1080
-        },
-        {
-          "src": "/blogs/yoga-as-medicine-for-mothers-featured-1200w.webp",
-          "width": 1200
-        }
-      ],
+      "responsive": [],
       "recoveredFrom": {
         "provider": "localarchive",
         "sourceUrl": "local:134.png",
@@ -49,28 +228,7 @@
       "height": 1074,
       "alt": "71% of Indian Women Are Anaemic Before They Get Pregnant. This Is Not a Statistic. This Is a Crisis That Is Harming Mothers and Babies Right Now.",
       "blurDataURL": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAADQAQCdASoQAAkAAwBSJQBOgBuGWQc8AAD+qtp9lf61NgWCWcfvJ8PTHwDrooSJAbk8/3u4kKk0iCtgTO7QVw4XBIxMuqRjgAA=",
-      "responsive": [
-        {
-          "src": "/blogs/anaemia-indian-women-crisis-featured-640w.webp",
-          "width": 640
-        },
-        {
-          "src": "/blogs/anaemia-indian-women-crisis-featured-750w.webp",
-          "width": 750
-        },
-        {
-          "src": "/blogs/anaemia-indian-women-crisis-featured-828w.webp",
-          "width": 828
-        },
-        {
-          "src": "/blogs/anaemia-indian-women-crisis-featured-1080w.webp",
-          "width": 1080
-        },
-        {
-          "src": "/blogs/anaemia-indian-women-crisis-featured-1200w.webp",
-          "width": 1200
-        }
-      ],
+      "responsive": [],
       "recoveredFrom": {
         "provider": "localarchive",
         "sourceUrl": "local:133.png",
@@ -90,28 +248,7 @@
       "height": 1074,
       "alt": "The Mother's Gut Microbiome Shapes the Baby's Health for Decades. What Every Mother Needs to Know About the Ecosystem Inside Her.",
       "blurDataURL": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAADwAQCdASoQAAkAAwBSJQBOgCNY+AlC9AAA/oie/zY4uPgqwt559NpkcivqYTRH2jmAzamYLIbiB8Ca484EKX5pFDF4bVXdBVfhhLWgAbfdYAAA",
-      "responsive": [
-        {
-          "src": "/blogs/mothers-gut-microbiome-shapes-baby-health-featured-640w.webp",
-          "width": 640
-        },
-        {
-          "src": "/blogs/mothers-gut-microbiome-shapes-baby-health-featured-750w.webp",
-          "width": 750
-        },
-        {
-          "src": "/blogs/mothers-gut-microbiome-shapes-baby-health-featured-828w.webp",
-          "width": 828
-        },
-        {
-          "src": "/blogs/mothers-gut-microbiome-shapes-baby-health-featured-1080w.webp",
-          "width": 1080
-        },
-        {
-          "src": "/blogs/mothers-gut-microbiome-shapes-baby-health-featured-1200w.webp",
-          "width": 1200
-        }
-      ],
+      "responsive": [],
       "recoveredFrom": {
         "provider": "localarchive",
         "sourceUrl": "local:132.png",
@@ -131,28 +268,7 @@
       "height": 1074,
       "alt": "The Indian Pantry Contains Some of the Most Scientifically Validated Health Foods in the World. Most Indian Mothers Are Not Eating Enough of Them.",
       "blurDataURL": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAABQAgCdASoQAAkAAwBSJZACdAYtzwRupsiTboAA/ugApSsJ7L4T03OcCbiFeXL3oQYvlvYjIUvjCIdiohFwhtr/z9HRT4BvSR6ITRUbTzctV9sZMz8b93e2sAA=",
-      "responsive": [
-        {
-          "src": "/blogs/indian-superfoods-for-mothers-featured-640w.webp",
-          "width": 640
-        },
-        {
-          "src": "/blogs/indian-superfoods-for-mothers-featured-750w.webp",
-          "width": 750
-        },
-        {
-          "src": "/blogs/indian-superfoods-for-mothers-featured-828w.webp",
-          "width": 828
-        },
-        {
-          "src": "/blogs/indian-superfoods-for-mothers-featured-1080w.webp",
-          "width": 1080
-        },
-        {
-          "src": "/blogs/indian-superfoods-for-mothers-featured-1200w.webp",
-          "width": 1200
-        }
-      ],
+      "responsive": [],
       "recoveredFrom": {
         "provider": "localarchive",
         "sourceUrl": "local:131.png",
@@ -172,28 +288,7 @@
       "height": 1074,
       "alt": "Ayurveda Does Not Need to Be Believed in to Work. Here Is What the Ancient System of Maternal Care Gets Right That Modern Medicine Is Only Now Acknowledging.",
       "blurDataURL": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAADwAQCdASoQAAkAAwBSJZACdAD0IYhESkAA/pkhvw3yNPAJecaZZPoUlOL9juOWzQCRnJ5y5uAlUzyk04pcjzsaiCMBE3kUH87BXBLDDEtgAA==",
-      "responsive": [
-        {
-          "src": "/blogs/what-ayurveda-gets-right-about-maternal-care-featured-640w.webp",
-          "width": 640
-        },
-        {
-          "src": "/blogs/what-ayurveda-gets-right-about-maternal-care-featured-750w.webp",
-          "width": 750
-        },
-        {
-          "src": "/blogs/what-ayurveda-gets-right-about-maternal-care-featured-828w.webp",
-          "width": 828
-        },
-        {
-          "src": "/blogs/what-ayurveda-gets-right-about-maternal-care-featured-1080w.webp",
-          "width": 1080
-        },
-        {
-          "src": "/blogs/what-ayurveda-gets-right-about-maternal-care-featured-1200w.webp",
-          "width": 1200
-        }
-      ],
+      "responsive": [],
       "recoveredFrom": {
         "provider": "localarchive",
         "sourceUrl": "local:130.png",
@@ -213,28 +308,7 @@
       "height": 1074,
       "alt": "Going Back to Work After Maternity Leave Is One of the Hardest Things a Mother Does. Nobody Makes It Easy. Here Is How to Navigate It.",
       "blurDataURL": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADwAQCdASoQAAkAAwBSJQBOgB6TLvXKsZAA/ondIC2edIDKyxnp1PJxaux4P2+xOYBqVe53SuOlpT27j67X3P3MizCThW+QR5o+DgAA",
-      "responsive": [
-        {
-          "src": "/blogs/returning-to-work-after-maternity-leave-featured-640w.webp",
-          "width": 640
-        },
-        {
-          "src": "/blogs/returning-to-work-after-maternity-leave-featured-750w.webp",
-          "width": 750
-        },
-        {
-          "src": "/blogs/returning-to-work-after-maternity-leave-featured-828w.webp",
-          "width": 828
-        },
-        {
-          "src": "/blogs/returning-to-work-after-maternity-leave-featured-1080w.webp",
-          "width": 1080
-        },
-        {
-          "src": "/blogs/returning-to-work-after-maternity-leave-featured-1200w.webp",
-          "width": 1200
-        }
-      ],
+      "responsive": [],
       "recoveredFrom": {
         "provider": "localarchive",
         "sourceUrl": "local:129.png",
@@ -254,28 +328,7 @@
       "height": 1074,
       "alt": "The Research Says That Relationship Satisfaction Drops After Having a Baby. Here Is Why, What It Does Not Mean, and What Actually Helps.",
       "blurDataURL": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAADwAQCdASoQAAkAAwBSJZQCdADJ1fU56QAA/ukg3SSoYYlBenEM1G2Zn+VRLsgUtEeRsNeiFL+YJoi9IxRcWcqvis/FLwo4dKuDlfBxAAA=",
-      "responsive": [
-        {
-          "src": "/blogs/relationship-after-baby-what-helps-featured-640w.webp",
-          "width": 640
-        },
-        {
-          "src": "/blogs/relationship-after-baby-what-helps-featured-750w.webp",
-          "width": 750
-        },
-        {
-          "src": "/blogs/relationship-after-baby-what-helps-featured-828w.webp",
-          "width": 828
-        },
-        {
-          "src": "/blogs/relationship-after-baby-what-helps-featured-1080w.webp",
-          "width": 1080
-        },
-        {
-          "src": "/blogs/relationship-after-baby-what-helps-featured-1200w.webp",
-          "width": 1200
-        }
-      ],
+      "responsive": [],
       "recoveredFrom": {
         "provider": "localarchive",
         "sourceUrl": "local:128.png",
@@ -295,28 +348,7 @@
       "height": 1074,
       "alt": "Nobody Talks About the Pelvic Floor Because Nobody Talks About It. The Most Important Part of Postpartum Physical Recovery That Women Are Left to Figure Out Alone.",
       "blurDataURL": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAAAwAgCdASoQAAkAAwBSJZQCdAEfVGSm+613gAD+bOHNr7swJGXKxhjlrTBKFKAWlN0ANFhNp40xsPIXfEOb3tfrWLUjajE0wt3UjGlc0QMzyknRgQQAAA==",
-      "responsive": [
-        {
-          "src": "/blogs/pelvic-floor-postpartum-recovery-featured-640w.webp",
-          "width": 640
-        },
-        {
-          "src": "/blogs/pelvic-floor-postpartum-recovery-featured-750w.webp",
-          "width": 750
-        },
-        {
-          "src": "/blogs/pelvic-floor-postpartum-recovery-featured-828w.webp",
-          "width": 828
-        },
-        {
-          "src": "/blogs/pelvic-floor-postpartum-recovery-featured-1080w.webp",
-          "width": 1080
-        },
-        {
-          "src": "/blogs/pelvic-floor-postpartum-recovery-featured-1200w.webp",
-          "width": 1200
-        }
-      ],
+      "responsive": [],
       "recoveredFrom": {
         "provider": "localarchive",
         "sourceUrl": "local:127.png",
@@ -336,28 +368,7 @@
       "height": 1074,
       "alt": "Matrescence: The Developmental Transition That Nobody Tells You About. Becoming a Mother Changes Who You Are. This Is Normal. This Has a Name.",
       "blurDataURL": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADwAQCdASoQAAkAAwBSJYgCdAD0mVHl5wAA/onpyaV4xrh97VZYT6mQDpOkCCyj2FIRhb/NDKmic7fT7YL55APZglHEl9d9EX4IgAAA",
-      "responsive": [
-        {
-          "src": "/blogs/matrescence-identity-transformation-motherhood-featured-640w.webp",
-          "width": 640
-        },
-        {
-          "src": "/blogs/matrescence-identity-transformation-motherhood-featured-750w.webp",
-          "width": 750
-        },
-        {
-          "src": "/blogs/matrescence-identity-transformation-motherhood-featured-828w.webp",
-          "width": 828
-        },
-        {
-          "src": "/blogs/matrescence-identity-transformation-motherhood-featured-1080w.webp",
-          "width": 1080
-        },
-        {
-          "src": "/blogs/matrescence-identity-transformation-motherhood-featured-1200w.webp",
-          "width": 1200
-        }
-      ],
+      "responsive": [],
       "recoveredFrom": {
         "provider": "localarchive",
         "sourceUrl": "local:126.png",
@@ -377,28 +388,7 @@
       "height": 1074,
       "alt": "The Fourth Trimester Is the Most Dangerous Time for a Mother's Mental Health. Why India's Postpartum Care System Is Failing Its Women.",
       "blurDataURL": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAADQAQCdASoQAAkAAwBSJYgCdAEKtgJ2gAD+7DDcUs12id02sorb0Tuf1v49zys5Ue5S3KVvbl8HsRnK9rEAHV+WEwyIHOjezAAAAA==",
-      "responsive": [
-        {
-          "src": "/blogs/fourth-trimester-maternal-mental-health-india-featured-640w.webp",
-          "width": 640
-        },
-        {
-          "src": "/blogs/fourth-trimester-maternal-mental-health-india-featured-750w.webp",
-          "width": 750
-        },
-        {
-          "src": "/blogs/fourth-trimester-maternal-mental-health-india-featured-828w.webp",
-          "width": 828
-        },
-        {
-          "src": "/blogs/fourth-trimester-maternal-mental-health-india-featured-1080w.webp",
-          "width": 1080
-        },
-        {
-          "src": "/blogs/fourth-trimester-maternal-mental-health-india-featured-1200w.webp",
-          "width": 1200
-        }
-      ],
+      "responsive": [],
       "recoveredFrom": {
         "provider": "localarchive",
         "sourceUrl": "local:125.png",
@@ -418,28 +408,7 @@
       "height": 1074,
       "alt": "Play Is Not a Break From Learning. It Is the Primary Way Children Learn Everything That Matters. What the Science of Play Tells Parents.",
       "blurDataURL": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAADwAQCdASoQAAkAAwBSJagCdAEe3JcfDAAA/vFB5AOT1aY9DN6a8M+F1XMc+4JiMESsbDWI0Y/UzLUx+/i4ot/YeZBvgAAA",
-      "responsive": [
-        {
-          "src": "/blogs/play-is-how-children-learn-featured-640w.webp",
-          "width": 640
-        },
-        {
-          "src": "/blogs/play-is-how-children-learn-featured-750w.webp",
-          "width": 750
-        },
-        {
-          "src": "/blogs/play-is-how-children-learn-featured-828w.webp",
-          "width": 828
-        },
-        {
-          "src": "/blogs/play-is-how-children-learn-featured-1080w.webp",
-          "width": 1080
-        },
-        {
-          "src": "/blogs/play-is-how-children-learn-featured-1200w.webp",
-          "width": 1200
-        }
-      ],
+      "responsive": [],
       "recoveredFrom": {
         "provider": "localarchive",
         "sourceUrl": "local:124.png",
@@ -459,28 +428,7 @@
       "height": 1074,
       "alt": "Iron Deficiency Is the Most Common Nutritional Deficiency in Indian Toddlers. The Damage It Does Is Real. Here Is How to Prevent It.",
       "blurDataURL": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAAAQAgCdASoQAAkAAwBSJQBOgCL4w7CtZdMAAP7xSM48H7xA+5ERjQ3WOD1JcobhLb0OXzHXkNhKfF0zz6LbJ4ERFHDdQ/qoLM8sL0A/QAwAAA==",
-      "responsive": [
-        {
-          "src": "/blogs/iron-deficiency-toddlers-prevention-featured-640w.webp",
-          "width": 640
-        },
-        {
-          "src": "/blogs/iron-deficiency-toddlers-prevention-featured-750w.webp",
-          "width": 750
-        },
-        {
-          "src": "/blogs/iron-deficiency-toddlers-prevention-featured-828w.webp",
-          "width": 828
-        },
-        {
-          "src": "/blogs/iron-deficiency-toddlers-prevention-featured-1080w.webp",
-          "width": 1080
-        },
-        {
-          "src": "/blogs/iron-deficiency-toddlers-prevention-featured-1200w.webp",
-          "width": 1200
-        }
-      ],
+      "responsive": [],
       "recoveredFrom": {
         "provider": "localarchive",
         "sourceUrl": "local:123.png",
@@ -500,28 +448,7 @@
       "height": 1074,
       "alt": "There Is a Word for What You Are Going Through. It Is Called Matrescence. And Understanding It Will Change How You See Yourself.",
       "blurDataURL": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAADQAQCdASoQAAkAAwBSJQBOgCB4iqor2ADifwI0f1xe99AN2ryEW62pK89bNWuSFFW367IHJvYm/6VTl+7KXzg+tWv52TBjEE96jqiQAAA=",
-      "responsive": [
-        {
-          "src": "/blogs/matrescence-the-word-that-changes-everything-featured-640w.webp",
-          "width": 640
-        },
-        {
-          "src": "/blogs/matrescence-the-word-that-changes-everything-featured-750w.webp",
-          "width": 750
-        },
-        {
-          "src": "/blogs/matrescence-the-word-that-changes-everything-featured-828w.webp",
-          "width": 828
-        },
-        {
-          "src": "/blogs/matrescence-the-word-that-changes-everything-featured-1080w.webp",
-          "width": 1080
-        },
-        {
-          "src": "/blogs/matrescence-the-word-that-changes-everything-featured-1200w.webp",
-          "width": 1200
-        }
-      ],
+      "responsive": [],
       "recoveredFrom": {
         "provider": "localarchive",
         "sourceUrl": "local:119.png",
@@ -541,28 +468,7 @@
       "height": 1074,
       "alt": "The First Three Years Build the Brain. What Happens in This Window Cannot Fully Be Recovered Later. Here Is What Actually Matters.",
       "blurDataURL": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADwAQCdASoQAAkAAwBSJQBOgCPcCrJrBoAA/tFuTr+1Qo5FRvO3NGDXBOZbSU/qJMvhYkl9t7GfbB/6UbUW+c7d2ehGIlyhnGW3QAAA",
-      "responsive": [
-        {
-          "src": "/blogs/first-three-years-build-the-brain-featured-640w.webp",
-          "width": 640
-        },
-        {
-          "src": "/blogs/first-three-years-build-the-brain-featured-750w.webp",
-          "width": 750
-        },
-        {
-          "src": "/blogs/first-three-years-build-the-brain-featured-828w.webp",
-          "width": 828
-        },
-        {
-          "src": "/blogs/first-three-years-build-the-brain-featured-1080w.webp",
-          "width": 1080
-        },
-        {
-          "src": "/blogs/first-three-years-build-the-brain-featured-1200w.webp",
-          "width": 1200
-        }
-      ],
+      "responsive": [],
       "recoveredFrom": {
         "provider": "localarchive",
         "sourceUrl": "local:122.png",
@@ -582,28 +488,7 @@
       "height": 1074,
       "alt": "The Weight of Mom Guilt. Why It Affects Almost Every Mother — and Why Most of It Is Completely Unjustified.",
       "blurDataURL": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAADwAQCdASoQAAkAAwBSJYwCdAEVLFruV0AA/psWfQjXw7H85T4Y7DCH5lYGwe93kAp2olMz77LeO/i15lcL5HRRWbFDEY+k++/Q8lfJEAA=",
-      "responsive": [
-        {
-          "src": "/blogs/mom-guilt-where-it-comes-from-and-how-to-let-go-featured-640w.webp",
-          "width": 640
-        },
-        {
-          "src": "/blogs/mom-guilt-where-it-comes-from-and-how-to-let-go-featured-750w.webp",
-          "width": 750
-        },
-        {
-          "src": "/blogs/mom-guilt-where-it-comes-from-and-how-to-let-go-featured-828w.webp",
-          "width": 828
-        },
-        {
-          "src": "/blogs/mom-guilt-where-it-comes-from-and-how-to-let-go-featured-1080w.webp",
-          "width": 1080
-        },
-        {
-          "src": "/blogs/mom-guilt-where-it-comes-from-and-how-to-let-go-featured-1200w.webp",
-          "width": 1200
-        }
-      ],
+      "responsive": [],
       "recoveredFrom": {
         "provider": "localarchive",
         "sourceUrl": "local:118.png",
@@ -623,28 +508,7 @@
       "height": 1074,
       "alt": "Sleep Is Not a Behaviour Problem. It Is a Biology Problem. Why Everything You Have Been Told About Toddler Sleep Is Probably Wrong.",
       "blurDataURL": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADQAQCdASoQAAkAAwBSJZACdADha8pcAAD+2qujQFepmOt5tWu1yA6GqL/wk2uL1/3mTusfbH2yBXWfS7U6Rg2FPPeplaCBA8RUNAAA",
-      "responsive": [
-        {
-          "src": "/blogs/toddler-sleep-what-you-have-been-told-is-wrong-featured-640w.webp",
-          "width": 640
-        },
-        {
-          "src": "/blogs/toddler-sleep-what-you-have-been-told-is-wrong-featured-750w.webp",
-          "width": 750
-        },
-        {
-          "src": "/blogs/toddler-sleep-what-you-have-been-told-is-wrong-featured-828w.webp",
-          "width": 828
-        },
-        {
-          "src": "/blogs/toddler-sleep-what-you-have-been-told-is-wrong-featured-1080w.webp",
-          "width": 1080
-        },
-        {
-          "src": "/blogs/toddler-sleep-what-you-have-been-told-is-wrong-featured-1200w.webp",
-          "width": 1200
-        }
-      ],
+      "responsive": [],
       "recoveredFrom": {
         "provider": "localarchive",
         "sourceUrl": "local:121.png",
@@ -664,28 +528,7 @@
       "height": 1074,
       "alt": "Your Toddler Is Not a Picky Eater. They Are a Normal Human Being Doing Exactly What Biology Designed Them to Do.",
       "blurDataURL": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADQAQCdASoQAAkAAwBSJQBOgB7HFuyUoAD+65ApYZfHxGs1hx4k76DFyOECImyeABTmh6YQ7bNfViHoPblqVUL6hUyQGTqA1lENOgAA",
-      "responsive": [
-        {
-          "src": "/blogs/toddler-picky-eating-what-is-normal-featured-640w.webp",
-          "width": 640
-        },
-        {
-          "src": "/blogs/toddler-picky-eating-what-is-normal-featured-750w.webp",
-          "width": 750
-        },
-        {
-          "src": "/blogs/toddler-picky-eating-what-is-normal-featured-828w.webp",
-          "width": 828
-        },
-        {
-          "src": "/blogs/toddler-picky-eating-what-is-normal-featured-1080w.webp",
-          "width": 1080
-        },
-        {
-          "src": "/blogs/toddler-picky-eating-what-is-normal-featured-1200w.webp",
-          "width": 1200
-        }
-      ],
+      "responsive": [],
       "recoveredFrom": {
         "provider": "localarchive",
         "sourceUrl": "local:120.png",
@@ -705,28 +548,7 @@
       "height": 1074,
       "alt": "Postpartum Psychosis Is a Medical Emergency. One in a Thousand Mothers Experiences It. Every Family Should Know the Signs.",
       "blurDataURL": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAAAQAgCdASoQAAkAAwBSJZwC7ADhirbej4QAAP7YfZhxQ4alg7zgcL6ezLT9/WfDXTc9CAs4BGLo7Gt82spGPt+C+5j0vnAA",
-      "responsive": [
-        {
-          "src": "/blogs/postpartum-psychosis-signs-every-family-must-know-featured-640w.webp",
-          "width": 640
-        },
-        {
-          "src": "/blogs/postpartum-psychosis-signs-every-family-must-know-featured-750w.webp",
-          "width": 750
-        },
-        {
-          "src": "/blogs/postpartum-psychosis-signs-every-family-must-know-featured-828w.webp",
-          "width": 828
-        },
-        {
-          "src": "/blogs/postpartum-psychosis-signs-every-family-must-know-featured-1080w.webp",
-          "width": 1080
-        },
-        {
-          "src": "/blogs/postpartum-psychosis-signs-every-family-must-know-featured-1200w.webp",
-          "width": 1200
-        }
-      ],
+      "responsive": [],
       "recoveredFrom": {
         "provider": "localarchive",
         "sourceUrl": "local:117.png",
@@ -746,28 +568,7 @@
       "height": 1074,
       "alt": "She Kept Thinking She Might Drop the Baby. She Was Not Dangerous. She Had Postpartum OCD. Here Is What That Actually Is.",
       "blurDataURL": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAACwAQCdASoQAAkAAwBSJZwAAp1UmVZAAP7zYFP5CiPeF20lp2PY+TiVSeBKu/nFIydLl3HdM8POTJeG9Tp9GD3g0u6tgAAA",
-      "responsive": [
-        {
-          "src": "/blogs/postpartum-ocd-intrusive-thoughts-featured-640w.webp",
-          "width": 640
-        },
-        {
-          "src": "/blogs/postpartum-ocd-intrusive-thoughts-featured-750w.webp",
-          "width": 750
-        },
-        {
-          "src": "/blogs/postpartum-ocd-intrusive-thoughts-featured-828w.webp",
-          "width": 828
-        },
-        {
-          "src": "/blogs/postpartum-ocd-intrusive-thoughts-featured-1080w.webp",
-          "width": 1080
-        },
-        {
-          "src": "/blogs/postpartum-ocd-intrusive-thoughts-featured-1200w.webp",
-          "width": 1200
-        }
-      ],
+      "responsive": [],
       "recoveredFrom": {
         "provider": "localarchive",
         "sourceUrl": "local:116.png",
@@ -787,28 +588,7 @@
       "height": 1074,
       "alt": "Postpartum Anxiety Is More Common Than Postpartum Depression. And Almost Nobody Is Talking About It.",
       "blurDataURL": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAACwAQCdASoQAAkAAwBSJZwAAv990UgwAP7zPbqPRPn93De+UJUvh691yU5+l40tgWI74G6Dti07mC4eI2NRqSrYAAA=",
-      "responsive": [
-        {
-          "src": "/blogs/postpartum-anxiety-more-common-than-ppd-featured-640w.webp",
-          "width": 640
-        },
-        {
-          "src": "/blogs/postpartum-anxiety-more-common-than-ppd-featured-750w.webp",
-          "width": 750
-        },
-        {
-          "src": "/blogs/postpartum-anxiety-more-common-than-ppd-featured-828w.webp",
-          "width": 828
-        },
-        {
-          "src": "/blogs/postpartum-anxiety-more-common-than-ppd-featured-1080w.webp",
-          "width": 1080
-        },
-        {
-          "src": "/blogs/postpartum-anxiety-more-common-than-ppd-featured-1200w.webp",
-          "width": 1200
-        }
-      ],
+      "responsive": [],
       "recoveredFrom": {
         "provider": "localarchive",
         "sourceUrl": "local:115.png",
@@ -822,34 +602,213 @@
         "postpartum-anxiety-more-common-than-ppd"
       ]
     },
+    "/blogs/creating-a-birth-plan-that-works.png": {
+      "src": "/blogs/creating-a-birth-plan-that-works.png",
+      "width": 1812,
+      "height": 1074,
+      "alt": "Birth Plans Are Not Naive. They Are a Conversation. How to Write One That Actually Gets Respected in an Indian Hospital.",
+      "blurDataURL": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADQAQCdASoQAAkAAwBSJYwCdAD5586aAAD+yUUxL6ChMyggrTFZzwQek3I34IwiUVP91ffW9UcsICBQPLh3LlfFl0HKegFB/Ad1CwAA",
+      "responsive": [],
+      "recoveredFrom": {
+        "provider": "localarchive",
+        "sourceUrl": "local:Creating-a-Birth-Plan-That-Works.png",
+        "snapshot": null
+      },
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/Creating-a-Birth-Plan-That-Works.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "birth-plan-that-works-india"
+      ]
+    },
+    "/blogs/balancing-work-and-pregnancy.png": {
+      "src": "/blogs/balancing-work-and-pregnancy.png",
+      "width": 1812,
+      "height": 1074,
+      "alt": "She Is 6 Months Pregnant and Running a Team Meeting. The Truth About Working Through Pregnancy Nobody Talks About Honestly.",
+      "blurDataURL": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAAAQAgCdASoQAAkAAwBSJYwCdAEQM/c82kfAAOJ/RCS+Gvd72UaQnu6yr13Pc9+8u0E9MBlXzhs0u6l8S7UbAuMTDXAAAA==",
+      "responsive": [],
+      "recoveredFrom": {
+        "provider": "localarchive",
+        "sourceUrl": "local:Balancing-Work-and-Pregnancy.png",
+        "snapshot": null
+      },
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/Balancing-Work-and-Pregnancy.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "working-through-pregnancy-honest-guide"
+      ]
+    },
+    "/blogs/prenatal-supplements-what-matters.png": {
+      "src": "/blogs/prenatal-supplements-what-matters.png",
+      "width": 1812,
+      "height": 1074,
+      "alt": "The Prenatal Supplement Shelf Is Overwhelming. Here Is Exactly What You Actually Need — and What Is Marketing.",
+      "blurDataURL": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAADQAQCdASoQAAkAAwBSJYwCdADaGHWkaAD+Z9G1Run9zXfabk1L2yX4/OISaV0bEdpAP4NnXQBk71MMh+wPQAAA",
+      "responsive": [],
+      "recoveredFrom": {
+        "provider": "localarchive",
+        "sourceUrl": "local:Prenatal-Supplements-What-Matters.png",
+        "snapshot": null
+      },
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/Prenatal-Supplements-What-Matters.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "prenatal-supplements-what-you-actually-need"
+      ]
+    },
+    "/blogs/pregnancy-skin-changes-explained-1.png": {
+      "src": "/blogs/pregnancy-skin-changes-explained-1.png",
+      "width": 1812,
+      "height": 1074,
+      "alt": "Pregnancy Glow Is Real. But So Are Melasma, Stretch Marks, and Hair Loss. The Complete Truth About Your Skin During Pregnancy.",
+      "blurDataURL": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAADQAQCdASoQAAkAAwBSJYgCdADdDbsrwAD+7mVUQQGGk7foKQjK+SGw7mk8NflNWskEhuejZE9ArOpLD2FTsN017zAAAA==",
+      "responsive": [],
+      "recoveredFrom": {
+        "provider": "localarchive",
+        "sourceUrl": "local:Pregnancy-Skin-Changes-Explained-1.png",
+        "snapshot": null
+      },
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/Pregnancy-Skin-Changes-Explained-1.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "pregnancy-skin-complete-honest-guide"
+      ]
+    },
+    "/blogs/better-sleep-in-the-third-trimester-1.png": {
+      "src": "/blogs/better-sleep-in-the-third-trimester-1.png",
+      "width": 1812,
+      "height": 1074,
+      "alt": "Nobody Sleeps Well in the Third Trimester. But There Are Specific, Evidence-Based Things That Make a Real Difference.",
+      "blurDataURL": "data:image/webp;base64,UklGRkAAAABXRUJQVlA4IDQAAABQAQCdASoQAAkAAwBSJZQABAAAAP7xBj5IJbJ1H+EqSzHuJSX/M0+shAYFYYcBNmEANHAA",
+      "responsive": [],
+      "recoveredFrom": {
+        "provider": "localarchive",
+        "sourceUrl": "local:Better-Sleep-in-the-Third-Trimester-1.png",
+        "snapshot": null
+      },
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/Better-Sleep-in-the-Third-Trimester-1.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "sleep-third-trimester-what-actually-helps"
+      ]
+    },
+    "/blogs/preventing-anaemia-during-pregnancy.png": {
+      "src": "/blogs/preventing-anaemia-during-pregnancy.png",
+      "width": 1812,
+      "height": 1074,
+      "alt": "Iron Deficiency Anaemia Affects 50% of Pregnant Women in India. It Is Also Entirely Preventable. Here Is the Complete Guide.",
+      "blurDataURL": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAAAQAgCdASoQAAkAAwBSJZgCdAD0owh/vsVAAP6RGWVQuvSb7r9sZa1dYJ2eu2plFWTLhBjgbSmmXDNKK24G5k9GhcE00048AmzDW/1EiZI+MmmhX/KYnUAA",
+      "responsive": [],
+      "recoveredFrom": {
+        "provider": "localarchive",
+        "sourceUrl": "local:Preventing-Anaemia-During-Pregnancy.png",
+        "snapshot": null
+      },
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/Preventing-Anaemia-During-Pregnancy.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "iron-deficiency-anaemia-pregnancy-india"
+      ]
+    },
+    "/blogs/embracing-your-pregnant-body.png": {
+      "src": "/blogs/embracing-your-pregnant-body.png",
+      "width": 1812,
+      "height": 1074,
+      "alt": "Your Pregnant Body Is Not a Problem to Be Fixed. It Is Doing Something Extraordinary. Why Pregnancy Body Image Needs a Complete Rethink.",
+      "blurDataURL": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAADQAQCdASoQAAkAAwBSJYgCdADhbFTpCADLQqJLkTLpsLFzKddpJswgRWaTsRmF8SAK+Zz+jpfHw9fkyyTC79JlvBsBorjd57n9AMbwAAA=",
+      "responsive": [],
+      "recoveredFrom": {
+        "provider": "localarchive",
+        "sourceUrl": "local:Embracing-Your-Pregnant-Body.png",
+        "snapshot": null
+      },
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/Embracing-Your-Pregnant-Body.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "pregnant-body-image-honest-guide"
+      ]
+    },
+    "/blogs/understanding-stillbirth-and-loss.png": {
+      "src": "/blogs/understanding-stillbirth-and-loss.png",
+      "width": 1812,
+      "height": 1074,
+      "alt": "Stillbirth. The Word Nobody Will Say Out Loud. The Loss That Nobody Knows How to Support.",
+      "blurDataURL": "data:image/webp;base64,UklGRjwAAABXRUJQVlA4IDAAAADQAQCdASoQAAkAAwBSJZwAAujezYaswAD++YAi63/8GrR1AjrfMUR0mS+mwA36AAA=",
+      "responsive": [],
+      "recoveredFrom": {
+        "provider": "localarchive",
+        "sourceUrl": "local:Understanding-Stillbirth-and-Loss.png",
+        "snapshot": null
+      },
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/Understanding-Stillbirth-and-Loss.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "stillbirth-the-unspoken-loss"
+      ]
+    },
+    "/blogs/understanding-high-risk-pregnancy.png": {
+      "src": "/blogs/understanding-high-risk-pregnancy.png",
+      "width": 1812,
+      "height": 1074,
+      "alt": "High-Risk Pregnancy Is Not a Sentence. It Is a Category That Requires More Attention — and More Support. Here Is What That Means for You.",
+      "blurDataURL": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAACwAQCdASoQAAkAAwBSJZwAAfgmIzMAAPliK29neBuKO1apuq27K05QfyZgJY+Zx4liCNuGgyvw4uN/8j5zxhl+wgcGGCHrdv3jCAHGsAA=",
+      "responsive": [],
+      "recoveredFrom": {
+        "provider": "localarchive",
+        "sourceUrl": "local:Understanding-High-Risk-Pregnancy.png",
+        "snapshot": null
+      },
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/Understanding-High-Risk-Pregnancy.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "high-risk-pregnancy-honest-guide"
+      ]
+    },
+    "/blogs/pregnancy-anxiety-finding-calm-during-pregnancy.png": {
+      "src": "/blogs/pregnancy-anxiety-finding-calm-during-pregnancy.png",
+      "width": 1812,
+      "height": 1074,
+      "alt": "I Am Pregnant. And I Am Terrified. Why Pregnancy Anxiety Is Normal, When It Becomes a Problem, and What Actually Helps.",
+      "blurDataURL": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAAAQAgCdASoQAAkAAwBSJYwCdAEWo8ZyozqAAP7YcTPb484ofT70AtuE8lQ61oX6HqVTy+C9dIBdsNAlJH08Ok3lSA5A1JJFPr44qV0FJGLdVJgAAAA=",
+      "responsive": [],
+      "recoveredFrom": {
+        "provider": "localarchive",
+        "sourceUrl": "local:Pregnancy-Anxiety-Finding-Calm-During-Pregnancy.png",
+        "snapshot": null
+      },
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/Pregnancy-Anxiety-Finding-Calm-During-Pregnancy.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "pregnancy-anxiety-honest-guide"
+      ]
+    },
     "/blogs/egg-freezing-facts-india-featured.png": {
       "src": "/blogs/egg-freezing-facts-india-featured.png",
       "width": 1812,
       "height": 1074,
       "alt": "Egg Freezing at 32: Is It Too Late, Is It Necessary, and Is Everything Your Doctor Told You Actually True?",
       "blurDataURL": "data:image/webp;base64,UklGRkQAAABXRUJQVlA4IDgAAACwAQCdASoQAAkAAwBSJYgCdAEQ+LJAAP7x0MToM6glR34Z7zZ0AmrzQNdjpvE3NuHV/tIebGQAAA==",
-      "responsive": [
-        {
-          "src": "/blogs/egg-freezing-facts-india-featured-640w.webp",
-          "width": 640
-        },
-        {
-          "src": "/blogs/egg-freezing-facts-india-featured-750w.webp",
-          "width": 750
-        },
-        {
-          "src": "/blogs/egg-freezing-facts-india-featured-828w.webp",
-          "width": 828
-        },
-        {
-          "src": "/blogs/egg-freezing-facts-india-featured-1080w.webp",
-          "width": 1080
-        },
-        {
-          "src": "/blogs/egg-freezing-facts-india-featured-1200w.webp",
-          "width": 1200
-        }
-      ],
+      "responsive": [],
       "recoveredFrom": {
         "provider": "localarchive",
         "sourceUrl": "local:104.png",
@@ -869,28 +828,7 @@
       "height": 1074,
       "alt": "Trying to Conceive Is Destroying Our Relationship. You Are Not the Only Couple Going Through This. Here Is What Helps.",
       "blurDataURL": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADwAQCdASoQAAkAAwBSJZQC7AEfk5IOQUAA/tKTgo398CDYBFpWccuX7s+ynYi4UpphJZTIw8s7jNEacjoCqORUTZcWPJtYwiJYAAAA",
-      "responsive": [
-        {
-          "src": "/blogs/trying-to-conceive-relationship-strain-featured-640w.webp",
-          "width": 640
-        },
-        {
-          "src": "/blogs/trying-to-conceive-relationship-strain-featured-750w.webp",
-          "width": 750
-        },
-        {
-          "src": "/blogs/trying-to-conceive-relationship-strain-featured-828w.webp",
-          "width": 828
-        },
-        {
-          "src": "/blogs/trying-to-conceive-relationship-strain-featured-1080w.webp",
-          "width": 1080
-        },
-        {
-          "src": "/blogs/trying-to-conceive-relationship-strain-featured-1200w.webp",
-          "width": 1200
-        }
-      ],
+      "responsive": [],
       "recoveredFrom": {
         "provider": "localarchive",
         "sourceUrl": "local:103.png",
@@ -910,28 +848,7 @@
       "height": 1074,
       "alt": "She Already Has One Child. Why Can She Not Have Another? The Invisible Grief of Secondary Infertility.",
       "blurDataURL": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAAAQAgCdASoQAAkAAwBSJYwCdAEPSTwLvuiAAPa/Ah1nUB9bZmZkt/yuYD4gFBHxdvFbZEVNxHdJb3HiHROQx3Dkdslyl8QjDAVNlL4mXCuFaRfvpMqLGgLyFugF1AAA",
-      "responsive": [
-        {
-          "src": "/blogs/secondary-infertility-invisible-grief-featured-640w.webp",
-          "width": 640
-        },
-        {
-          "src": "/blogs/secondary-infertility-invisible-grief-featured-750w.webp",
-          "width": 750
-        },
-        {
-          "src": "/blogs/secondary-infertility-invisible-grief-featured-828w.webp",
-          "width": 828
-        },
-        {
-          "src": "/blogs/secondary-infertility-invisible-grief-featured-1080w.webp",
-          "width": 1080
-        },
-        {
-          "src": "/blogs/secondary-infertility-invisible-grief-featured-1200w.webp",
-          "width": 1200
-        }
-      ],
+      "responsive": [],
       "recoveredFrom": {
         "provider": "localarchive",
         "sourceUrl": "local:102.png",
@@ -951,28 +868,7 @@
       "height": 1074,
       "alt": "The Fertility Diet That Reproductive Endocrinologists Actually Follow. It Is Not What Wellness Influencers Are Telling You.",
       "blurDataURL": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAADwAQCdASoQAAkAAwBSJZQC7ADp+Uo4UoAA/uGYdwpvKjGoTcwLhx+5WcHhNtH/bBfX9iQKeYWq5AsMG8t8aWwN52BTJgkAAAA=",
-      "responsive": [
-        {
-          "src": "/blogs/fertility-diet-evidence-based-featured-640w.webp",
-          "width": 640
-        },
-        {
-          "src": "/blogs/fertility-diet-evidence-based-featured-750w.webp",
-          "width": 750
-        },
-        {
-          "src": "/blogs/fertility-diet-evidence-based-featured-828w.webp",
-          "width": 828
-        },
-        {
-          "src": "/blogs/fertility-diet-evidence-based-featured-1080w.webp",
-          "width": 1080
-        },
-        {
-          "src": "/blogs/fertility-diet-evidence-based-featured-1200w.webp",
-          "width": 1200
-        }
-      ],
+      "responsive": [],
       "recoveredFrom": {
         "provider": "localarchive",
         "sourceUrl": "local:101.png",
@@ -992,28 +888,7 @@
       "height": 1074,
       "alt": "Two Losses. Three Losses. When Does a Miscarriage Become a Pattern — and What Does Modern Medicine Actually Know About Recurrent Pregnancy Loss?",
       "blurDataURL": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAADQAQCdASoQAAkAAwBSJYwC7ADdqZiDeAD+t8xanzw+X0nlApscT1FPXfdRk5ySW1UTVznBdARU+3yzrxpiFkrWTsqoqut6AAA=",
-      "responsive": [
-        {
-          "src": "/blogs/recurrent-pregnancy-loss-causes-and-treatment-featured-640w.webp",
-          "width": 640
-        },
-        {
-          "src": "/blogs/recurrent-pregnancy-loss-causes-and-treatment-featured-750w.webp",
-          "width": 750
-        },
-        {
-          "src": "/blogs/recurrent-pregnancy-loss-causes-and-treatment-featured-828w.webp",
-          "width": 828
-        },
-        {
-          "src": "/blogs/recurrent-pregnancy-loss-causes-and-treatment-featured-1080w.webp",
-          "width": 1080
-        },
-        {
-          "src": "/blogs/recurrent-pregnancy-loss-causes-and-treatment-featured-1200w.webp",
-          "width": 1200
-        }
-      ],
+      "responsive": [],
       "recoveredFrom": {
         "provider": "localarchive",
         "sourceUrl": "local:100.png",
@@ -1033,28 +908,7 @@
       "height": 1074,
       "alt": "The IVF Cycle Failed. What Happens Now — to Your Body, to Your Relationship, and to Your Hope.",
       "blurDataURL": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAACwAQCdASoQAAkAAwBSJYwCdACC2MIAAP7SnYj3qhj6tr27Gusu0BRVZSEXShr2wKY9ldcFSzJwyM+GXo4yVVLUMMAAAA==",
-      "responsive": [
-        {
-          "src": "/blogs/after-ivf-failure-what-happens-now-featured-640w.webp",
-          "width": 640
-        },
-        {
-          "src": "/blogs/after-ivf-failure-what-happens-now-featured-750w.webp",
-          "width": 750
-        },
-        {
-          "src": "/blogs/after-ivf-failure-what-happens-now-featured-828w.webp",
-          "width": 828
-        },
-        {
-          "src": "/blogs/after-ivf-failure-what-happens-now-featured-1080w.webp",
-          "width": 1080
-        },
-        {
-          "src": "/blogs/after-ivf-failure-what-happens-now-featured-1200w.webp",
-          "width": 1200
-        }
-      ],
+      "responsive": [],
       "recoveredFrom": {
         "provider": "localarchive",
         "sourceUrl": "local:99.png",
@@ -1074,28 +928,7 @@
       "height": 1074,
       "alt": "IVF Is Not a Last Resort. It Is a Medical Option. Here Is the Honest, Jargon-Free Guide Every Indian Woman Deserves Before She Decides.",
       "blurDataURL": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAADQAQCdASoQAAkAAwBSJbACdAEQ075PAAD4rEkXAdwy3i2EqZZB3+YzYW12xnOVl2F3LipJXZEl4klL2017jYAA",
-      "responsive": [
-        {
-          "src": "/blogs/ivf-honest-guide-india-featured-640w.webp",
-          "width": 640
-        },
-        {
-          "src": "/blogs/ivf-honest-guide-india-featured-750w.webp",
-          "width": 750
-        },
-        {
-          "src": "/blogs/ivf-honest-guide-india-featured-828w.webp",
-          "width": 828
-        },
-        {
-          "src": "/blogs/ivf-honest-guide-india-featured-1080w.webp",
-          "width": 1080
-        },
-        {
-          "src": "/blogs/ivf-honest-guide-india-featured-1200w.webp",
-          "width": 1200
-        }
-      ],
+      "responsive": [],
       "recoveredFrom": {
         "provider": "localarchive",
         "sourceUrl": "local:98.png",
@@ -1115,28 +948,7 @@
       "height": 1074,
       "alt": "\"Unexplained Infertility\" Is Not a Diagnosis. It Is a Failure of Investigation. Here Is What the Tests Are Missing.",
       "blurDataURL": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAAAQAgCdASoQAAkAAwBSJYwCsAEUi4e8GW2AAP73CYbGAj+lN7HV1fF7MSA3kVck9f69tVwgMzoE2M8V+LPAB9edV7AAAA==",
-      "responsive": [
-        {
-          "src": "/blogs/unexplained-infertility-what-tests-miss-featured-640w.webp",
-          "width": 640
-        },
-        {
-          "src": "/blogs/unexplained-infertility-what-tests-miss-featured-750w.webp",
-          "width": 750
-        },
-        {
-          "src": "/blogs/unexplained-infertility-what-tests-miss-featured-828w.webp",
-          "width": 828
-        },
-        {
-          "src": "/blogs/unexplained-infertility-what-tests-miss-featured-1080w.webp",
-          "width": 1080
-        },
-        {
-          "src": "/blogs/unexplained-infertility-what-tests-miss-featured-1200w.webp",
-          "width": 1200
-        }
-      ],
+      "responsive": [],
       "recoveredFrom": {
         "provider": "localarchive",
         "sourceUrl": "local:97.png",
@@ -1156,28 +968,7 @@
       "height": 1074,
       "alt": "Most Couples Are Missing Their Fertile Window by 48 Hours. Here Is the Science of Ovulation That Changes Everything.",
       "blurDataURL": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAAAQAgCdASoQAAkAAwBSJYgCdAEeg8Tlt+lAAP7CFs8jHijDrOdzHSLsc0QIacc3sP1k5kUSjF8wln5h38V2dzcM44mE3pJB5Y8phr4da8YB56XAAAA=",
-      "responsive": [
-        {
-          "src": "/blogs/ovulation-fertile-window-science-featured-640w.webp",
-          "width": 640
-        },
-        {
-          "src": "/blogs/ovulation-fertile-window-science-featured-750w.webp",
-          "width": 750
-        },
-        {
-          "src": "/blogs/ovulation-fertile-window-science-featured-828w.webp",
-          "width": 828
-        },
-        {
-          "src": "/blogs/ovulation-fertile-window-science-featured-1080w.webp",
-          "width": 1080
-        },
-        {
-          "src": "/blogs/ovulation-fertile-window-science-featured-1200w.webp",
-          "width": 1200
-        }
-      ],
+      "responsive": [],
       "recoveredFrom": {
         "provider": "localarchive",
         "sourceUrl": "local:96.png",
@@ -1197,28 +988,7 @@
       "height": 1074,
       "alt": "You Are Not Broken. You Are Not Alone. The Honest Truth About What It Actually Feels Like to Try and Not Succeed.",
       "blurDataURL": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAAAwAgCdASoQAAkAAwBSJbACdH8AF8tTkAVIwAD+30XRG+diZoRUwpgb7PPMDqyqlRfLKbNGzinRobsT/l7mrAjxKlS7RiGzgAA=",
-      "responsive": [
-        {
-          "src": "/blogs/trying-to-conceive-emotional-reality-featured-640w.webp",
-          "width": 640
-        },
-        {
-          "src": "/blogs/trying-to-conceive-emotional-reality-featured-750w.webp",
-          "width": 750
-        },
-        {
-          "src": "/blogs/trying-to-conceive-emotional-reality-featured-828w.webp",
-          "width": 828
-        },
-        {
-          "src": "/blogs/trying-to-conceive-emotional-reality-featured-1080w.webp",
-          "width": 1080
-        },
-        {
-          "src": "/blogs/trying-to-conceive-emotional-reality-featured-1200w.webp",
-          "width": 1200
-        }
-      ],
+      "responsive": [],
       "recoveredFrom": {
         "provider": "localarchive",
         "sourceUrl": "local:95.png",
@@ -1238,28 +1008,7 @@
       "height": 1074,
       "alt": "The Foods You Introduce Before 12 Months Shape Your Child’s Relationship With Food for the Rest of Their Life. Here Is How to Get This Right.",
       "blurDataURL": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAAAQAgCdASoQAAkAAwBSJQBOgCPUD4YQW7oAAP6bsNhxaqVEwp+JbWMqx/QeWXtPT5KmV2YoUnLKtxR2b5dRN/kqXdLt5m0zNgwraR1u/UpxI5kmOiLOyPyFiMyAAA==",
-      "responsive": [
-        {
-          "src": "/blogs/baby-eating-first-solid-foods-640w.webp",
-          "width": 640
-        },
-        {
-          "src": "/blogs/baby-eating-first-solid-foods-750w.webp",
-          "width": 750
-        },
-        {
-          "src": "/blogs/baby-eating-first-solid-foods-828w.webp",
-          "width": 828
-        },
-        {
-          "src": "/blogs/baby-eating-first-solid-foods-1080w.webp",
-          "width": 1080
-        },
-        {
-          "src": "/blogs/baby-eating-first-solid-foods-1200w.webp",
-          "width": 1200
-        }
-      ],
+      "responsive": [],
       "recoveredFrom": {
         "provider": "localarchive",
         "sourceUrl": "local:Baby Eating First Solid Foods.png",
@@ -1279,28 +1028,7 @@
       "height": 1074,
       "alt": "Weaning Does Not Have to Be Traumatic. The Gentle, Child-Led Approach That Respects Both Baby and Mother.",
       "blurDataURL": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAACwAQCdASoQAAkAAwBSJQBOgB4LdvIAAP7YZnG7TPoJCP7z1ayZHNOk7nzM9Q5whEMiLMjHdBDldqqq7L27mINS55vvVNk0DyDpbzz3NoAAAA==",
-      "responsive": [
-        {
-          "src": "/blogs/mother-and-toddler-in-gentle-weaning-640w.webp",
-          "width": 640
-        },
-        {
-          "src": "/blogs/mother-and-toddler-in-gentle-weaning-750w.webp",
-          "width": 750
-        },
-        {
-          "src": "/blogs/mother-and-toddler-in-gentle-weaning-828w.webp",
-          "width": 828
-        },
-        {
-          "src": "/blogs/mother-and-toddler-in-gentle-weaning-1080w.webp",
-          "width": 1080
-        },
-        {
-          "src": "/blogs/mother-and-toddler-in-gentle-weaning-1200w.webp",
-          "width": 1200
-        }
-      ],
+      "responsive": [],
       "recoveredFrom": {
         "provider": "localarchive",
         "sourceUrl": "local:Mother and Toddler in Gentle Weaning.png",
@@ -1320,28 +1048,7 @@
       "height": 1074,
       "alt": "Breastfeeding for Six Months Adds Measurable Points to Your Child’s IQ. Here Is the Science Behind the Most Important Nutritional Gift You Can Give.",
       "blurDataURL": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAADQAQCdASoQAAkAAwBSJQBOgBuocu3bgAD+3UQzqPvr8KH6ev8HT7AZXxN2EVJeTV8L11UMtCNzBFMRhkDsAsAA",
-      "responsive": [
-        {
-          "src": "/blogs/breastfeeding-and-brain-development-640w.webp",
-          "width": 640
-        },
-        {
-          "src": "/blogs/breastfeeding-and-brain-development-750w.webp",
-          "width": 750
-        },
-        {
-          "src": "/blogs/breastfeeding-and-brain-development-828w.webp",
-          "width": 828
-        },
-        {
-          "src": "/blogs/breastfeeding-and-brain-development-1080w.webp",
-          "width": 1080
-        },
-        {
-          "src": "/blogs/breastfeeding-and-brain-development-1200w.webp",
-          "width": 1200
-        }
-      ],
+      "responsive": [],
       "recoveredFrom": {
         "provider": "localarchive",
         "sourceUrl": "local:Breastfeeding and Brain Development.png",
@@ -1361,28 +1068,7 @@
       "height": 1074,
       "alt": "The WHO Recommends Breastfeeding Until Two Years and Beyond. Here Is Why And Why Indian Culture Has Always Known This.",
       "blurDataURL": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAADwAQCdASoQAAkAAwBSJaACdADhaPc96gAA/sqr062Va9amcYHZd2xJODRaZMf7BAHUxj23+gQhaI2/gAoFsvMyF8NEvHW1RZhua24XbAAAAA==",
-      "responsive": [
-        {
-          "src": "/blogs/mother-breastfeeding-older-baby-640w.webp",
-          "width": 640
-        },
-        {
-          "src": "/blogs/mother-breastfeeding-older-baby-750w.webp",
-          "width": 750
-        },
-        {
-          "src": "/blogs/mother-breastfeeding-older-baby-828w.webp",
-          "width": 828
-        },
-        {
-          "src": "/blogs/mother-breastfeeding-older-baby-1080w.webp",
-          "width": 1080
-        },
-        {
-          "src": "/blogs/mother-breastfeeding-older-baby-1200w.webp",
-          "width": 1200
-        }
-      ],
+      "responsive": [],
       "recoveredFrom": {
         "provider": "localarchive",
         "sourceUrl": "local:Mother Breastfeeding Older Baby.png",
@@ -1402,28 +1088,7 @@
       "height": 1074,
       "alt": "Formula Feeding Is Not Failure. When Breastfeeding Is Not Possible, Here Is How to Feed Your Baby Safely and With Confidence.",
       "blurDataURL": "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAADQAQCdASoQAAkAAwBSJQBOgCHdB5VxiAD+9xtswvTEH98/zJSamWOUf11X3E9LyqoPFMv26t2t0QpspsQAAA==",
-      "responsive": [
-        {
-          "src": "/blogs/father-bottle-feeding-his-baby-640w.webp",
-          "width": 640
-        },
-        {
-          "src": "/blogs/father-bottle-feeding-his-baby-750w.webp",
-          "width": 750
-        },
-        {
-          "src": "/blogs/father-bottle-feeding-his-baby-828w.webp",
-          "width": 828
-        },
-        {
-          "src": "/blogs/father-bottle-feeding-his-baby-1080w.webp",
-          "width": 1080
-        },
-        {
-          "src": "/blogs/father-bottle-feeding-his-baby-1200w.webp",
-          "width": 1200
-        }
-      ],
+      "responsive": [],
       "recoveredFrom": {
         "provider": "localarchive",
         "sourceUrl": "local:Father Bottle Feeding His Baby.png",
@@ -1443,28 +1108,7 @@
       "height": 1074,
       "alt": "Returning to Work Does Not Have to Mean Stopping Breastfeeding. Here Is the Honest Guide to Doing Both.",
       "blurDataURL": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAADQAQCdASoQAAkAAwBSJZQCdADN9PMPgAD+xgO3OWOWV8b6nrPj6n1upzrQlQJex0cEiGEni3nVgrh5JiIbuu6YyV0GbVvzdb6tB0yKJgB5AAAA",
-      "responsive": [
-        {
-          "src": "/blogs/working-mother-pumping-at-office-640w.webp",
-          "width": 640
-        },
-        {
-          "src": "/blogs/working-mother-pumping-at-office-750w.webp",
-          "width": 750
-        },
-        {
-          "src": "/blogs/working-mother-pumping-at-office-828w.webp",
-          "width": 828
-        },
-        {
-          "src": "/blogs/working-mother-pumping-at-office-1080w.webp",
-          "width": 1080
-        },
-        {
-          "src": "/blogs/working-mother-pumping-at-office-1200w.webp",
-          "width": 1200
-        }
-      ],
+      "responsive": [],
       "recoveredFrom": {
         "provider": "localarchive",
         "sourceUrl": "local:Working Mother Pumping at Office.png",
@@ -1484,28 +1128,7 @@
       "height": 1074,
       "alt": "Breast Milk Is Your Baby’s First and Most Sophisticated Immune Education. What Colostrum Is and Why the First Feeds Are So Critical.",
       "blurDataURL": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAAAQAgCdASoQAAkAAwBSJQBOgCPcBWXICTwAAOJvqnikA4WuR+IuRuboDSNNWsi7uUzzsmyUVqdaOPlI0FsTr5d0ohV9z+dxQAA=",
-      "responsive": [
-        {
-          "src": "/blogs/newborn-receiving-colostrum-640w.webp",
-          "width": 640
-        },
-        {
-          "src": "/blogs/newborn-receiving-colostrum-750w.webp",
-          "width": 750
-        },
-        {
-          "src": "/blogs/newborn-receiving-colostrum-828w.webp",
-          "width": 828
-        },
-        {
-          "src": "/blogs/newborn-receiving-colostrum-1080w.webp",
-          "width": 1080
-        },
-        {
-          "src": "/blogs/newborn-receiving-colostrum-1200w.webp",
-          "width": 1200
-        }
-      ],
+      "responsive": [],
       "recoveredFrom": {
         "provider": "localarchive",
         "sourceUrl": "local:Newborn Receiving Colostrum.png",
@@ -1525,28 +1148,7 @@
       "height": 1074,
       "alt": "What a Breastfeeding Mother Eats Shapes Her Baby’s Health, Palate, and Relationship With Food for Life. Here Is What to Eat and Why.",
       "blurDataURL": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAADwAQCdASoQAAkAAwBSJYgCdAEe55dwgWAA/Xd4rlnZ6fF+VeFOqiTqwUr5hUCQe6r1rhZS941vQFPMpCFqTwOOHW+ud+itto/ARLYAAAA=",
-      "responsive": [
-        {
-          "src": "/blogs/healthy-breastfeeding-meal-640w.webp",
-          "width": 640
-        },
-        {
-          "src": "/blogs/healthy-breastfeeding-meal-750w.webp",
-          "width": 750
-        },
-        {
-          "src": "/blogs/healthy-breastfeeding-meal-828w.webp",
-          "width": 828
-        },
-        {
-          "src": "/blogs/healthy-breastfeeding-meal-1080w.webp",
-          "width": 1080
-        },
-        {
-          "src": "/blogs/healthy-breastfeeding-meal-1200w.webp",
-          "width": 1200
-        }
-      ],
+      "responsive": [],
       "recoveredFrom": {
         "provider": "localarchive",
         "sourceUrl": "local:Healthy Breastfeeding Meal.png",
@@ -1566,28 +1168,7 @@
       "height": 1074,
       "alt": "Nobody Told Me Breastfeeding Would Be This Hard. The Honest Guide to the Most Common Challenges and How to Solve Them.",
       "blurDataURL": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAACwAQCdASoQAAkAAwBSJZACdACCglngAOJ5yTbXu8ZZiaQmhC+ugGslUxvfgijj1HP93cx3pM8fIFkjc5ad5vzwDUBCgAAA",
-      "responsive": [
-        {
-          "src": "/blogs/mother-getting-breastfeeding-support-640w.webp",
-          "width": 640
-        },
-        {
-          "src": "/blogs/mother-getting-breastfeeding-support-750w.webp",
-          "width": 750
-        },
-        {
-          "src": "/blogs/mother-getting-breastfeeding-support-828w.webp",
-          "width": 828
-        },
-        {
-          "src": "/blogs/mother-getting-breastfeeding-support-1080w.webp",
-          "width": 1080
-        },
-        {
-          "src": "/blogs/mother-getting-breastfeeding-support-1200w.webp",
-          "width": 1200
-        }
-      ],
+      "responsive": [],
       "recoveredFrom": {
         "provider": "localarchive",
         "sourceUrl": "local:Mother Getting Breastfeeding Support.png",
@@ -1607,28 +1188,7 @@
       "height": 1074,
       "alt": "Breast Milk Is Not Simply Food. It Is the Most Complex Biological Substance Known to Science. Here Is What It Actually Contains.",
       "blurDataURL": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAADwAQCdASoQAAkAAwBSJQBOgB7BFoT/hYAA/rQv2T9mTUWGSPYa/irnNhXACbZRijWWCm8/1efnr11uUM+ApJTq3And1asS4o2rVVB6MIbs1wAA",
-      "responsive": [
-        {
-          "src": "/blogs/mother-breastfeeding-her-baby-640w.webp",
-          "width": 640
-        },
-        {
-          "src": "/blogs/mother-breastfeeding-her-baby-750w.webp",
-          "width": 750
-        },
-        {
-          "src": "/blogs/mother-breastfeeding-her-baby-828w.webp",
-          "width": 828
-        },
-        {
-          "src": "/blogs/mother-breastfeeding-her-baby-1080w.webp",
-          "width": 1080
-        },
-        {
-          "src": "/blogs/mother-breastfeeding-her-baby-1200w.webp",
-          "width": 1200
-        }
-      ],
+      "responsive": [],
       "recoveredFrom": {
         "provider": "localarchive",
         "sourceUrl": "local:Mother Breastfeeding Her Baby.png",
@@ -1642,34 +1202,413 @@
         "breast-milk-most-complex-biological-substance"
       ]
     },
+    "/blogs/ayurvedic-pregnancy-care.png": {
+      "src": "/blogs/ayurvedic-pregnancy-care.png",
+      "width": 1812,
+      "height": 1074,
+      "alt": "Ayurveda Has Been Guiding Indian Pregnancies for 5000 Years. Here Is What the Classical Texts Say   And Why It Still Applies Today",
+      "blurDataURL": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAACwAQCdASoQAAkAAwBSJYwCdACSqw8AAP7ASdkob9ovKHzKACMeGV3fz/QInEiKut6jpiFRpJ2TN1ZFamgMSldf8QcyXG61o/e95SUgAAA=",
+      "responsive": [],
+      "recoveredFrom": {
+        "provider": "localarchive",
+        "sourceUrl": "local:Ayurvedic-Pregnancy-Care.png",
+        "snapshot": null
+      },
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/Ayurvedic-Pregnancy-Care.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "ayurvedic-pregnancy-classical-approach"
+      ]
+    },
+    "/blogs/pregnant-woman-discussing-birth-plan.png": {
+      "src": "/blogs/pregnant-woman-discussing-birth-plan.png",
+      "width": 1812,
+      "height": 1074,
+      "alt": "A Safe Birth Is Not a Luxury. It Is a Right. What Every Pregnant Woman in India Deserves to Know About Her Birth Options",
+      "blurDataURL": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAADQAQCdASoQAAkAAwBSJZgCdADp5m8RAAD9UDnLpPvuSumUnY9e/gRX1ab6IDEYDHaSGaSIog8AtF9Y1E/7BHuEMFF/WipT+R/s8VLgAAA=",
+      "responsive": [],
+      "recoveredFrom": {
+        "provider": "localarchive",
+        "sourceUrl": "local:Pregnant-Woman-Discussing-Birth-Plan.png",
+        "snapshot": null
+      },
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/Pregnant-Woman-Discussing-Birth-Plan.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "safe-birth-is-a-right"
+      ]
+    },
+    "/blogs/modern-indian-woman-managing-pregnancy.png": {
+      "src": "/blogs/modern-indian-woman-managing-pregnancy.png",
+      "width": 1812,
+      "height": 1074,
+      "alt": "Pregnancy in 2026 Is Objectively Harder Than It Was for Our Mothers. Here Are the Specific Reasons   And What to Do About Each One",
+      "blurDataURL": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAAAQAgCdASoQAAkAAwBSJZwC7ADicLJ8zciAAP7reb33U64buUH477T5vUTKsSWksQYLyqdOY4fFRbLywa/G+6srsH6y9NTRI1DNVvoWopYwEyXyBZAAAA==",
+      "responsive": [],
+      "recoveredFrom": {
+        "provider": "localarchive",
+        "sourceUrl": "local:Modern-Indian-Woman-Managing-Pregnancy.png",
+        "snapshot": null
+      },
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/Modern-Indian-Woman-Managing-Pregnancy.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "why-pregnancy-is-harder-now"
+      ]
+    },
+    "/blogs/pregnant-woman-doing-prenatal-yoga.png": {
+      "src": "/blogs/pregnant-woman-doing-prenatal-yoga.png",
+      "width": 1812,
+      "height": 1074,
+      "alt": "Exercise During Pregnancy Is Not Dangerous. Inactivity Is. What Indian Women Need to Know About Movement and Pregnancy",
+      "blurDataURL": "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAACQAQCdASoQAAkAAwBSJZ2HgU0AqkAA/vDhv0pEPdxqcc5yTSOxR+y/egAAAA==",
+      "responsive": [],
+      "recoveredFrom": {
+        "provider": "localarchive",
+        "sourceUrl": "local:Pregnant-Woman-Doing-Prenatal-Yoga.png",
+        "snapshot": null
+      },
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/Pregnant-Woman-Doing-Prenatal-Yoga.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "exercise-during-pregnancy"
+      ]
+    },
+    "/blogs/pregnant-woman-coping-with-anxiety.png": {
+      "src": "/blogs/pregnant-woman-coping-with-anxiety.png",
+      "width": 1812,
+      "height": 1074,
+      "alt": "Antenatal Anxiety and Depression Affect One in Five Pregnant Women. The Conversation About Maternal Mental Health Cannot Wait Until After Birth",
+      "blurDataURL": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAAAQAgCdASoQAAkAAwBSJZQCdAEXWaumlgPAAP7sf6mKoy1j/d6xuP71aNUGbITAWRAqZ3LVe00pLxVWJlpzVoGlwAA=",
+      "responsive": [],
+      "recoveredFrom": {
+        "provider": "localarchive",
+        "sourceUrl": "local:Pregnant-Woman-Coping-With-Anxiety.png",
+        "snapshot": null
+      },
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/Pregnant-Woman-Coping-With-Anxiety.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "antenatal-anxiety-and-depression"
+      ]
+    },
+    "/blogs/third-trimester-birth-preparation.png": {
+      "src": "/blogs/third-trimester-birth-preparation.png",
+      "width": 1812,
+      "height": 1074,
+      "alt": "The Third Trimester Is Not Just Waiting. It Is the Most Important Preparation Period of Your Life. Here Is How to Use It We",
+      "blurDataURL": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAADwAQCdASoQAAkAAwBSJZwAAwlHxKCeWtQAzj89vgY0fk14m1XNSR2G2uEx4H2wvQYLzZPCYlxo47vktJCDbdlrCgez2oEAAAA=",
+      "responsive": [],
+      "recoveredFrom": {
+        "provider": "localarchive",
+        "sourceUrl": "local:Third-Trimester-Birth-Preparation.png",
+        "snapshot": null
+      },
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/Third-Trimester-Birth-Preparation.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "third-trimester-preparation"
+      ]
+    },
+    "/blogs/gestational-diabetes-test.png": {
+      "src": "/blogs/gestational-diabetes-test.png",
+      "width": 1812,
+      "height": 1074,
+      "alt": "Gestational Diabetes Is Affecting 10 to 20% of Indian Pregnancies. Most Women Had No Idea They Were at Risk. Here Is What to Know",
+      "blurDataURL": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAADQAQCdASoQAAkAAwBSJZwAAxWyTXX0gAD+4Xu7lFW5LYpxU7Ilj6Jxp9cXhzu04k+9NSjcsz5Itjz6FRL0hdgyl5dUdAReHAA=",
+      "responsive": [],
+      "recoveredFrom": {
+        "provider": "localarchive",
+        "sourceUrl": "local:Gestational-Diabetes-Test.png",
+        "snapshot": null
+      },
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/Gestational-Diabetes-Test.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "gestational-diabetes-rising-epidemic"
+      ]
+    },
+    "/blogs/second-trimester-visible-baby-bump.png": {
+      "src": "/blogs/second-trimester-visible-baby-bump.png",
+      "width": 1812,
+      "height": 1074,
+      "alt": "The Second Trimester Is When Pregnancy Becomes Real. What to Expect, What to Enjoy, and What to Prepare For",
+      "blurDataURL": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAAAQAgCdASoQAAkAAwBSJZwAAt4q9jTGOBQAAP7dbR2qnmrUUmatK4/vQxxaYz1PnT+rhqCny86bBqDBgn9DcI0sutsAN+gA",
+      "responsive": [],
+      "recoveredFrom": {
+        "provider": "localarchive",
+        "sourceUrl": "local:Second-Trimester-Visible-Baby-Bump.png",
+        "snapshot": null
+      },
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/Second-Trimester-Visible-Baby-Bump.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "second-trimester-golden-period"
+      ]
+    },
+    "/blogs/healthy-pregnancy-plate.png": {
+      "src": "/blogs/healthy-pregnancy-plate.png",
+      "width": 1812,
+      "height": 1074,
+      "alt": "Eating for Two Is One of the Most Harmful Pieces of Pregnancy Advice Ever Given. Here Is What You Actually Need",
+      "blurDataURL": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAADwAQCdASoQAAkAAwBSJZQCw7DO2s394gAA/tc7PBzWZH+F88Ws2742VjsckIB/S51o24WZj3d8TtUPxLnxnB+IL50BPpc9/yqy8CAON54AAA==",
+      "responsive": [],
+      "recoveredFrom": {
+        "provider": "localarchive",
+        "sourceUrl": "local:Healthy-Pregnancy-Plate.png",
+        "snapshot": null
+      },
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/Healthy-Pregnancy-Plate.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "eating-for-two-is-wrong"
+      ]
+    },
+    "/blogs/first-trimester-pregnancy-care.png": {
+      "src": "/blogs/first-trimester-pregnancy-care.png",
+      "width": 1812,
+      "height": 1074,
+      "alt": "The First Trimester Is When Everything Critical Happens and When You Feel the Worst. What Your Body Is Actually Doing in Those Twelve Weeks",
+      "blurDataURL": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAADwAQCdASoQAAkAAwBSJZQCdADMjUzjAgAA/gkGkTweraQVg29AfgByMdNmchbu6frIplNJr8lJVXEcn7iNE4AqeCgAAA==",
+      "responsive": [],
+      "recoveredFrom": {
+        "provider": "localarchive",
+        "sourceUrl": "local:First-Trimester-Pregnancy-Care.png",
+        "snapshot": null
+      },
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/First-Trimester-Pregnancy-Care.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "first-trimester-what-body-is-doing"
+      ]
+    },
+    "/blogs/woman-reflecting-on-motherhood.png": {
+      "src": "/blogs/woman-reflecting-on-motherhood.png",
+      "width": 1812,
+      "height": 1074,
+      "alt": "Physical Readiness Gets All the Attention. Emotional Readiness for Motherhood Gets Almost None. This Is the Part Nobody Prepares You For",
+      "blurDataURL": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAADwAQCdASoQAAkAAwBSJZwCo9DhYxbUfYAAzdQcnflLZCx/KW+t5XjKmGizN19YGAg8xLIQSWaEv7SoskNoj+0Bhb5/BT1oNKZAAA==",
+      "responsive": [],
+      "recoveredFrom": {
+        "provider": "localarchive",
+        "sourceUrl": "local:Woman-Reflecting-on-Motherhood.png",
+        "snapshot": null
+      },
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/Woman-Reflecting-on-Motherhood.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "emotional-readiness-for-motherhood"
+      ]
+    },
+    "/blogs/couple-discussing-male-fertility.png": {
+      "src": "/blogs/couple-discussing-male-fertility.png",
+      "width": 1812,
+      "height": 1074,
+      "alt": "Half of All Fertility Challenges Involve Male Factors. Why Is the Entire Conversation Still About the Woman?",
+      "blurDataURL": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADQAQCdASoQAAkAAwBSJQBOgB6J1DJYAAD91bymMYJRMBXURy0tErT4xoS7VOqu9+vTGgURpObalyatHLPpLauCAmstbtYV9ciLKAAA",
+      "responsive": [],
+      "recoveredFrom": {
+        "provider": "localarchive",
+        "sourceUrl": "local:Couple-Discussing-Male-Fertility.png",
+        "snapshot": null
+      },
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/Couple-Discussing-Male-Fertility.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "male-fertility-overlooked-half"
+      ]
+    },
+    "/blogs/ayurvedic-herbs-for-fertility.png": {
+      "src": "/blogs/ayurvedic-herbs-for-fertility.png",
+      "width": 1812,
+      "height": 1074,
+      "alt": "Ayurveda Has a 5,000-Year-Old Manual for Preparing Your Body for Pregnancy. Modern Science Is Only Now Catching Up",
+      "blurDataURL": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAAAQAgCdASoQAAkAAwBSJYwCdAEfvt/dsm1wAP7uVDPHKVw07mNQoK93oFw7qFE9h9i87uW8+AMy7cGu4wjJm+OFaIKUXnp5ul8QAA==",
+      "responsive": [],
+      "recoveredFrom": {
+        "provider": "localarchive",
+        "sourceUrl": "local:Ayurvedic-Herbs-for-Fertility.png",
+        "snapshot": null
+      },
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/Ayurvedic-Herbs-for-Fertility.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "ayurveda-pre-conception-manual"
+      ]
+    },
+    "/blogs/calm-woman-practising-stress-reduction.png": {
+      "src": "/blogs/calm-woman-practising-stress-reduction.png",
+      "width": 1812,
+      "height": 1074,
+      "alt": "She Was Told to Relax and She Would Get Pregnant. This Is Both True and Not True. The Real Science of Stress and Fertility.",
+      "blurDataURL": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAADQAQCdASoQAAkAAwBSJQBOgCLHbv4vQAD+m65wsweCBzC20PS6F1LjMXuQn+AhHg+AmL1tcH2+DaRC4upEezcMh+7Hl0AA",
+      "responsive": [],
+      "recoveredFrom": {
+        "provider": "localarchive",
+        "sourceUrl": "local:Calm-Woman-Practising-Stress-Reduction.png",
+        "snapshot": null
+      },
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/Calm-Woman-Practising-Stress-Reduction.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "stress-and-fertility"
+      ]
+    },
+    "/blogs/thyroid-test-for-fertility.png": {
+      "src": "/blogs/thyroid-test-for-fertility.png",
+      "width": 1812,
+      "height": 1074,
+      "alt": "Your Thyroid Could Be the Reason You Are Not Getting Pregnant And Most Doctors Are Not Testing It Thoroughly Enough",
+      "blurDataURL": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAADwAQCdASoQAAkAAwBSJZACdADMCm6qY4AA/un/a7ctS2Mjr00s4WLgav2MCWeoWz1sDyzQ3RjToMCbL3FuYb5H7ucjGiameGwNHNbwMftYAA==",
+      "responsive": [],
+      "recoveredFrom": {
+        "provider": "localarchive",
+        "sourceUrl": "local:Thyroid-Test-for-Fertility.png",
+        "snapshot": null
+      },
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/Thyroid-Test-for-Fertility.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "thyroid-and-fertility"
+      ]
+    },
+    "/blogs/career-woman-considering-fertility.png": {
+      "src": "/blogs/career-woman-considering-fertility.png",
+      "width": 1812,
+      "height": 1074,
+      "alt": "Nobody Told Me My Eggs Were Ageing While I Was Building My Career. The Conversation That Could Have Changed Everything",
+      "blurDataURL": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAAAwAgCdASoQAAkAAwBSJYwCdAEPUt4hwAQkAAD9tmFY1KbxEq+PThlKJ7IVneQB/iGyLrSZ81odiowmwz+td0nkqJeMGL7O/N/ubfSafFuSB6AA",
+      "responsive": [],
+      "recoveredFrom": {
+        "provider": "localarchive",
+        "sourceUrl": "local:Career-Woman-Considering-Fertility.png",
+        "snapshot": null
+      },
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/Career-Woman-Considering-Fertility.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "eggs-ageing-career-woman-fertility"
+      ]
+    },
+    "/blogs/indian-woman-with-pcos-speaking-to-a-doctor.png": {
+      "src": "/blogs/indian-woman-with-pcos-speaking-to-a-doctor.png",
+      "width": 1812,
+      "height": 1074,
+      "alt": "PCOS Affects One in Five Indian Women. Most of Them Were Told to Lose Weight and Come Back. Here Is What They Actually Need.",
+      "blurDataURL": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADwAQCdASoQAAkAAwBSJYwCdAEC137pLcAA/QN6Xwu36Z7aR11oni531NSbgosuWRuHmMfSD8QXLQlPrFqtzZ7Vk++CZnWGX+mDxAAA",
+      "responsive": [],
+      "recoveredFrom": {
+        "provider": "localarchive",
+        "sourceUrl": "local:Indian-Woman-With-PCOS-Speaking-to-a-Doctor.png",
+        "snapshot": null
+      },
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/Indian-Woman-With-PCOS-Speaking-to-a-Doctor.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "pcos-what-you-actually-need"
+      ]
+    },
+    "/blogs/woman-preparing-her-body-for-pregnancy-1.png": {
+      "src": "/blogs/woman-preparing-her-body-for-pregnancy-1.png",
+      "width": 1812,
+      "height": 1074,
+      "alt": "Your Body Needs Six Months of Preparation Before Conception. Most Women Start After the Positive Test. Here Is Why That Matters",
+      "blurDataURL": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAADwAQCdASoQAAkAAwBSJQBOgCPOrkKZUoAA/qNN/xKD0Nfitzy6H86SVZXZII5qjUymk8XVjOcINY5rTGUNtxJ1mBQJgDoTM0muTwCPheQAAA==",
+      "responsive": [],
+      "recoveredFrom": {
+        "provider": "localarchive",
+        "sourceUrl": "local:Woman-Preparing-Her-Body-for-Pregnancy-1.png",
+        "snapshot": null
+      },
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/Woman-Preparing-Her-Body-for-Pregnancy-1.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "six-months-pre-conception-preparation"
+      ]
+    },
+    "/blogs/couple-supporting-each-other-after-miscarriage.png": {
+      "src": "/blogs/couple-supporting-each-other-after-miscarriage.png",
+      "width": 1812,
+      "height": 1074,
+      "alt": "One in Four Pregnancies Ends in Miscarriage. The Silence Around It Is Making It Harder to Bear. Here Is What You Actually Need to Know",
+      "blurDataURL": "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACwAQCdASoQAAkAAwBSJZwAAudcCVTIAP75bvH+gRfNuj3gmShO9oIEryAI3wAA",
+      "responsive": [],
+      "recoveredFrom": {
+        "provider": "localarchive",
+        "sourceUrl": "local:Couple-Supporting-Each-Other-After-Miscarriage.png",
+        "snapshot": null
+      },
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/Couple-Supporting-Each-Other-After-Miscarriage.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "miscarriage-what-you-need-to-know"
+      ]
+    },
+    "/blogs/woman-in-her-30s-fertility-journey.png": {
+      "src": "/blogs/woman-in-her-30s-fertility-journey.png",
+      "width": 1812,
+      "height": 1074,
+      "alt": "She Got Married at 32. She Tried for Two Years. She Blames Herself. But the Real Story Is Not What She Thinks",
+      "blurDataURL": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADwAQCdASoQAAkAAwBSJZwAAt2FEIr/6wAA8fRCy2x5D9ww1ey0RJeyVd2oNa2N6h8dq9m3tJhPk/Kb3lzOaOBLyue7HxFJvA84gcAA",
+      "responsive": [],
+      "recoveredFrom": {
+        "provider": "localarchive",
+        "sourceUrl": "local:Woman-in-Her-30s-Fertility-Journey.png",
+        "snapshot": null
+      },
+      "originalUrl": "https://mothrly.com/wp-content/uploads/2026/05/Woman-in-Her-30s-Fertility-Journey.png",
+      "roles": [
+        "featured"
+      ],
+      "posts": [
+        "late-marriage-fertility-reality"
+      ]
+    },
     "/blogs/young-couple-with-newborn-purpose-of-family.png": {
       "src": "/blogs/young-couple-with-newborn-purpose-of-family.png",
       "width": 1812,
       "height": 1074,
       "alt": "Nobody Actually Plans a Family for the Rational Reasons They Give. The Real Reasons Are Deeper, Older, and More Important",
       "blurDataURL": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAACwAQCdASoQAAkAAwBSJQBOgBt7uBAAAP7tE+roy+x+KKVtwbiH1wxCmOCh+AQxGQH9OvWBrKiqmx/J7PZc3awptpkAAA==",
-      "responsive": [
-        {
-          "src": "/blogs/young-couple-with-newborn-purpose-of-family-640w.webp",
-          "width": 640
-        },
-        {
-          "src": "/blogs/young-couple-with-newborn-purpose-of-family-750w.webp",
-          "width": 750
-        },
-        {
-          "src": "/blogs/young-couple-with-newborn-purpose-of-family-828w.webp",
-          "width": 828
-        },
-        {
-          "src": "/blogs/young-couple-with-newborn-purpose-of-family-1080w.webp",
-          "width": 1080
-        },
-        {
-          "src": "/blogs/young-couple-with-newborn-purpose-of-family-1200w.webp",
-          "width": 1200
-        }
-      ],
+      "responsive": [],
       "recoveredFrom": {
         "provider": "localarchive",
         "sourceUrl": "local:Young Couple With Newborn Purpose of Family.png",
@@ -1689,28 +1628,7 @@
       "height": 1074,
       "alt": "The Stories You Tell Your Child Are the Most Important Stories in the World. Why Cultural Transmission Is a Mother’s Sacred Responsibility",
       "blurDataURL": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADQAQCdASoQAAkAAwBSJQBOgBiudoVWAAD0ZM4MvF5E+JkSpiyFd+2SrU2wyENDO+xOKNuzgkkxAZ2P6AYL2+5uPSWENSa4NmWl2KAA",
-      "responsive": [
-        {
-          "src": "/blogs/mother-telling-stories-to-her-child-640w.webp",
-          "width": 640
-        },
-        {
-          "src": "/blogs/mother-telling-stories-to-her-child-750w.webp",
-          "width": 750
-        },
-        {
-          "src": "/blogs/mother-telling-stories-to-her-child-828w.webp",
-          "width": 828
-        },
-        {
-          "src": "/blogs/mother-telling-stories-to-her-child-1080w.webp",
-          "width": 1080
-        },
-        {
-          "src": "/blogs/mother-telling-stories-to-her-child-1200w.webp",
-          "width": 1200
-        }
-      ],
+      "responsive": [],
       "recoveredFrom": {
         "provider": "localarchive",
         "sourceUrl": "local:Mother Telling Stories to Her Child.png",
@@ -1730,28 +1648,7 @@
       "height": 1074,
       "alt": "What Love in a Family Actually Is Not the Romantic Version, But the Real, Sustaining, Imperfect, Permanent Kind",
       "blurDataURL": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAADQAQCdASoQAAkAAwBSJQBOgB89CMnRAAD+jy6QPA5D0dt8JXgOeHmZHbH/jAZzGUMIyVHJShbREYwbAzBnx5SAAAA=",
-      "responsive": [
-        {
-          "src": "/blogs/family-embrace-the-real-love-640w.webp",
-          "width": 640
-        },
-        {
-          "src": "/blogs/family-embrace-the-real-love-750w.webp",
-          "width": 750
-        },
-        {
-          "src": "/blogs/family-embrace-the-real-love-828w.webp",
-          "width": 828
-        },
-        {
-          "src": "/blogs/family-embrace-the-real-love-1080w.webp",
-          "width": 1080
-        },
-        {
-          "src": "/blogs/family-embrace-the-real-love-1200w.webp",
-          "width": 1200
-        }
-      ],
+      "responsive": [],
       "recoveredFrom": {
         "provider": "localarchive",
         "sourceUrl": "local:Family Embrace The Real Love.png",
@@ -1771,28 +1668,7 @@
       "height": 1074,
       "alt": "She Is Not Just a Mother. She Is the Axis Around Which the Family Turns. Why a Woman’s Role in the Family Is Not a Limitation but a Superpower",
       "blurDataURL": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAAAQAgCdASoQAAkAAwBSJagCdADpJ6FnyEwAAP3tiHTRUJmKeo0/4WrSmxbSEAbJnnl81AErPJrtUfW83f7TC2yhKPTiB+DARjOs721k6JvgAA==",
-      "responsive": [
-        {
-          "src": "/blogs/woman-as-the-heart-of-the-family-640w.webp",
-          "width": 640
-        },
-        {
-          "src": "/blogs/woman-as-the-heart-of-the-family-750w.webp",
-          "width": 750
-        },
-        {
-          "src": "/blogs/woman-as-the-heart-of-the-family-828w.webp",
-          "width": 828
-        },
-        {
-          "src": "/blogs/woman-as-the-heart-of-the-family-1080w.webp",
-          "width": 1080
-        },
-        {
-          "src": "/blogs/woman-as-the-heart-of-the-family-1200w.webp",
-          "width": 1200
-        }
-      ],
+      "responsive": [],
       "recoveredFrom": {
         "provider": "localarchive",
         "sourceUrl": "local:Woman as the Heart of the Family.png",
@@ -1812,28 +1688,7 @@
       "height": 1074,
       "alt": "Birth, Growth, Love, Loss, and the Next Generation: Why the Human Cycle Is Sacred and What Happens When We Stop Seeing It That Way",
       "blurDataURL": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAADwAQCdASoQAAkAAwBSJYgCdADw3NptFAAA/sljX7MfgsW7SC9FOl7PdJuYqzfQjlfwjX1nmcEQWYjVA5LOsCJMuivCTSDkQAA=",
-      "responsive": [
-        {
-          "src": "/blogs/the-cycle-of-life-generations-640w.webp",
-          "width": 640
-        },
-        {
-          "src": "/blogs/the-cycle-of-life-generations-750w.webp",
-          "width": 750
-        },
-        {
-          "src": "/blogs/the-cycle-of-life-generations-828w.webp",
-          "width": 828
-        },
-        {
-          "src": "/blogs/the-cycle-of-life-generations-1080w.webp",
-          "width": 1080
-        },
-        {
-          "src": "/blogs/the-cycle-of-life-generations-1200w.webp",
-          "width": 1200
-        }
-      ],
+      "responsive": [],
       "recoveredFrom": {
         "provider": "localarchive",
         "sourceUrl": "local:The Cycle of Life Generations.png",
@@ -1853,28 +1708,7 @@
       "height": 1074,
       "alt": "The Love Between Siblings Is the Longest Relationship Most People Will Ever Have. Why Does Nobody Talk About What It Does to a Child?",
       "blurDataURL": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAADwAQCdASoQAAkAAwBSJZQCdAEWueuBkhAA/QCf34yys5ZyPi7fVbG5MjL8p06coGNUHYUJkO699HbiJ5i+TY65YqhZYAAA",
-      "responsive": [
-        {
-          "src": "/blogs/two-indian-siblings-playing-together-640w.webp",
-          "width": 640
-        },
-        {
-          "src": "/blogs/two-indian-siblings-playing-together-750w.webp",
-          "width": 750
-        },
-        {
-          "src": "/blogs/two-indian-siblings-playing-together-828w.webp",
-          "width": 828
-        },
-        {
-          "src": "/blogs/two-indian-siblings-playing-together-1080w.webp",
-          "width": 1080
-        },
-        {
-          "src": "/blogs/two-indian-siblings-playing-together-1200w.webp",
-          "width": 1200
-        }
-      ],
+      "responsive": [],
       "recoveredFrom": {
         "provider": "localarchive",
         "sourceUrl": "local:Two Indian Siblings Playing Together.png",
@@ -1894,28 +1728,7 @@
       "height": 1074,
       "alt": "The Father’s Role Is Not Helping. It Is Participating. The Difference That Changes Everything for Mother and Child",
       "blurDataURL": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAADQAQCdASoQAAkAAwBSJQBOgCK3/P9HAAD+TbrgQSxN4/YxF6KJ3w1MuhlgLLfwKNc4OHCAu86gS0iGYSmHTW+gX84AAA==",
-      "responsive": [
-        {
-          "src": "/blogs/father-participating-in-childcare-640w.webp",
-          "width": 640
-        },
-        {
-          "src": "/blogs/father-participating-in-childcare-750w.webp",
-          "width": 750
-        },
-        {
-          "src": "/blogs/father-participating-in-childcare-828w.webp",
-          "width": 828
-        },
-        {
-          "src": "/blogs/father-participating-in-childcare-1080w.webp",
-          "width": 1080
-        },
-        {
-          "src": "/blogs/father-participating-in-childcare-1200w.webp",
-          "width": 1200
-        }
-      ],
+      "responsive": [],
       "recoveredFrom": {
         "provider": "localarchive",
         "sourceUrl": "local:Father Participating in Childcare.png",
@@ -1935,28 +1748,7 @@
       "height": 1074,
       "alt": "What Is Legacy, Really? Why the Family You Build Is the Most Enduring Thing You Will Ever Create",
       "blurDataURL": "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAADwAQCdASoQAAkAAwBSJZQCdAEPPsoYFUAA/up7YPP0jdlFyFxkOs6r0wJSZVNSwfJdixN8Og66UaVQPv1AAA==",
-      "responsive": [
-        {
-          "src": "/blogs/three-generations-family-legacy-640w.webp",
-          "width": 640
-        },
-        {
-          "src": "/blogs/three-generations-family-legacy-750w.webp",
-          "width": 750
-        },
-        {
-          "src": "/blogs/three-generations-family-legacy-828w.webp",
-          "width": 828
-        },
-        {
-          "src": "/blogs/three-generations-family-legacy-1080w.webp",
-          "width": 1080
-        },
-        {
-          "src": "/blogs/three-generations-family-legacy-1200w.webp",
-          "width": 1200
-        }
-      ],
+      "responsive": [],
       "recoveredFrom": {
         "provider": "localarchive",
         "sourceUrl": "local:Three Generations Family Legacy.png",
@@ -1976,28 +1768,7 @@
       "height": 1074,
       "alt": "What a Child Actually Changes About You   Not the Instagram Version, But the True and Irreversible Transformation",
       "blurDataURL": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAADQAQCdASoQAAkAAwBSJQBOgMWbsRs1AAD+8KXi1bjn9U9dke3YO1NtJ0+22XoyqlGoqOdzAroJRrLpOggsxbGWZkem78HJ94dAt011FLKAAA==",
-      "responsive": [
-        {
-          "src": "/blogs/mother-and-newborn-the-transformation-1-640w.webp",
-          "width": 640
-        },
-        {
-          "src": "/blogs/mother-and-newborn-the-transformation-1-750w.webp",
-          "width": 750
-        },
-        {
-          "src": "/blogs/mother-and-newborn-the-transformation-1-828w.webp",
-          "width": 828
-        },
-        {
-          "src": "/blogs/mother-and-newborn-the-transformation-1-1080w.webp",
-          "width": 1080
-        },
-        {
-          "src": "/blogs/mother-and-newborn-the-transformation-1-1200w.webp",
-          "width": 1200
-        }
-      ],
+      "responsive": [],
       "recoveredFrom": {
         "provider": "localarchive",
         "sourceUrl": "local:Mother and Newborn The Transformation.png",
@@ -2017,28 +1788,7 @@
       "height": 1074,
       "alt": "Why Every Mother Is the Beginning of a Civilisation   The Philosophy of Giving Life That Modern Culture Has Forgotten",
       "blurDataURL": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADwAQCdASoQAAkAAwBSJZwAAxOgXFDbKCwA/vFSQC49M4xrUZqaOtYeOkhB02+mfMUttwEgdo3OjEpFBnbdmp1ulXyO/GoWBuZrzQAA",
-      "responsive": [
-        {
-          "src": "/blogs/mother-as-the-beginning-of-civilisation-640w.webp",
-          "width": 640
-        },
-        {
-          "src": "/blogs/mother-as-the-beginning-of-civilisation-750w.webp",
-          "width": 750
-        },
-        {
-          "src": "/blogs/mother-as-the-beginning-of-civilisation-828w.webp",
-          "width": 828
-        },
-        {
-          "src": "/blogs/mother-as-the-beginning-of-civilisation-1080w.webp",
-          "width": 1080
-        },
-        {
-          "src": "/blogs/mother-as-the-beginning-of-civilisation-1200w.webp",
-          "width": 1200
-        }
-      ],
+      "responsive": [],
       "recoveredFrom": {
         "provider": "localarchive",
         "sourceUrl": "local:Mother as the Beginning of Civilisation.png",
@@ -2058,28 +1808,7 @@
       "height": 1074,
       "alt": "Is It Safe to Travel by Two-Wheeler During Pregnancy?",
       "blurDataURL": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAAAwAgCdASoQAAkAAwBSJZQCdAYtLUgawepjgAD+zvZjHRIHNodlPSoyke9z5+WdbvBpwo2xS38fPt9HnKnEQ8ZUQpJjDku2y8GflfkiD/Z4ZoCHBK4AU91LtsAAAA==",
-      "responsive": [
-        {
-          "src": "/blogs/2-wheeler-640w.webp",
-          "width": 640
-        },
-        {
-          "src": "/blogs/2-wheeler-750w.webp",
-          "width": 750
-        },
-        {
-          "src": "/blogs/2-wheeler-828w.webp",
-          "width": 828
-        },
-        {
-          "src": "/blogs/2-wheeler-1080w.webp",
-          "width": 1080
-        },
-        {
-          "src": "/blogs/2-wheeler-1200w.webp",
-          "width": 1200
-        }
-      ],
+      "responsive": [],
       "recoveredFrom": {
         "provider": "localarchive",
         "sourceUrl": "local:2 WHEELER.png",
@@ -2099,28 +1828,7 @@
       "height": 948,
       "alt": "Best Indian Foods to Increase Breast Milk Supply Fast",
       "blurDataURL": "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAAAQAgCdASoQAAkAAwBSJZgCdAEX81KUHHkAAP3Hn2aZbqn24Bt/KO4slEbfB7iAY8OahdgSDahbAFXHql6uygr7vvd10TCIgcu7hVszB7691kIh6WvBG/odGeFdFnxsjCIAAA==",
-      "responsive": [
-        {
-          "src": "/blogs/best-indian-foods-640w.webp",
-          "width": 640
-        },
-        {
-          "src": "/blogs/best-indian-foods-750w.webp",
-          "width": 750
-        },
-        {
-          "src": "/blogs/best-indian-foods-828w.webp",
-          "width": 828
-        },
-        {
-          "src": "/blogs/best-indian-foods-1080w.webp",
-          "width": 1080
-        },
-        {
-          "src": "/blogs/best-indian-foods-1200w.webp",
-          "width": 1200
-        }
-      ],
+      "responsive": [],
       "recoveredFrom": {
         "provider": "localarchive",
         "sourceUrl": "local:best_indian_foods.jpeg",
@@ -2144,28 +1852,7 @@
       "height": 948,
       "alt": "5 Signs Your Baby Is Getting Enough Breast Milk",
       "blurDataURL": "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAAAwAgCdASoQAAkAAwBSJZACdAaYuxU5RtuRgAD+883oOluLYXzq034Jkf0bPptpV8P91cHqsl5LG/prFc9PaOGMGN/v+oy+iveE4LEdgNNr1CNg2jSVxhTGQEiDoykLkUAAAA==",
-      "responsive": [
-        {
-          "src": "/blogs/5signs-640w.webp",
-          "width": 640
-        },
-        {
-          "src": "/blogs/5signs-750w.webp",
-          "width": 750
-        },
-        {
-          "src": "/blogs/5signs-828w.webp",
-          "width": 828
-        },
-        {
-          "src": "/blogs/5signs-1080w.webp",
-          "width": 1080
-        },
-        {
-          "src": "/blogs/5signs-1200w.webp",
-          "width": 1200
-        }
-      ],
+      "responsive": [],
       "recoveredFrom": {
         "provider": "localarchive",
         "sourceUrl": "local:5signs.jpeg",
@@ -2183,6 +1870,16 @@
     }
   },
   "byOriginalUrl": {
+    "https://mothrly.com/wp-content/uploads/2026/07/161.png": "/blogs/postnatal-recovery-care-at-home-in-chennai-whats-included-featured.png",
+    "https://mothrly.com/wp-content/uploads/2026/07/160.png": "/blogs/baby-care-specialist-in-chennai-what-they-do-in-the-first-40-days-featured.png",
+    "https://mothrly.com/wp-content/uploads/2026/07/159.png": "/blogs/prenatal-and-postnatal-yoga-in-chennai-benefits-and-when-to-start-featured.png",
+    "https://mothrly.com/wp-content/uploads/2026/07/158.png": "/blogs/lactation-consultant-in-chennai-when-to-call-and-what-to-expect-featured.png",
+    "https://mothrly.com/wp-content/uploads/2026/07/MOTHERLY-BLOG-IMAGE-11-1.png": "/blogs/motherly-blog-image-11-1.png",
+    "https://mothrly.com/wp-content/uploads/2026/06/156.png": "/blogs/postnatal-recovery-timeline-chennai-featured.png",
+    "https://mothrly.com/wp-content/uploads/2026/06/155.png": "/blogs/choose-right-nanny-after-delivery-chennai-featured.png",
+    "https://mothrly.com/wp-content/uploads/2026/06/154.png": "/blogs/postnatal-physiotherapy-vs-rest-featured.png",
+    "https://mothrly.com/wp-content/uploads/2026/06/152.png": "/blogs/postnatal-gynaecologist-visit-in-chennai-featured.png",
+    "https://mothrly.com/wp-content/uploads/2026/06/153.png": "/blogs/baby-first-month-paediatrician-visit-featured.png",
     "https://mothrly.com/wp-content/uploads/2026/06/134.png": "/blogs/yoga-as-medicine-for-mothers-featured.png",
     "https://mothrly.com/wp-content/uploads/2026/06/133.png": "/blogs/anaemia-indian-women-crisis-featured.png",
     "https://mothrly.com/wp-content/uploads/2026/06/132.png": "/blogs/mothers-gut-microbiome-shapes-baby-health-featured.png",
@@ -2203,6 +1900,16 @@
     "https://mothrly.com/wp-content/uploads/2026/06/117.png": "/blogs/postpartum-psychosis-signs-every-family-must-know-featured.png",
     "https://mothrly.com/wp-content/uploads/2026/06/116.png": "/blogs/postpartum-ocd-intrusive-thoughts-featured.png",
     "https://mothrly.com/wp-content/uploads/2026/06/115.png": "/blogs/postpartum-anxiety-more-common-than-ppd-featured.png",
+    "https://mothrly.com/wp-content/uploads/2026/05/Creating-a-Birth-Plan-That-Works.png": "/blogs/creating-a-birth-plan-that-works.png",
+    "https://mothrly.com/wp-content/uploads/2026/05/Balancing-Work-and-Pregnancy.png": "/blogs/balancing-work-and-pregnancy.png",
+    "https://mothrly.com/wp-content/uploads/2026/05/Prenatal-Supplements-What-Matters.png": "/blogs/prenatal-supplements-what-matters.png",
+    "https://mothrly.com/wp-content/uploads/2026/05/Pregnancy-Skin-Changes-Explained-1.png": "/blogs/pregnancy-skin-changes-explained-1.png",
+    "https://mothrly.com/wp-content/uploads/2026/05/Better-Sleep-in-the-Third-Trimester-1.png": "/blogs/better-sleep-in-the-third-trimester-1.png",
+    "https://mothrly.com/wp-content/uploads/2026/05/Preventing-Anaemia-During-Pregnancy.png": "/blogs/preventing-anaemia-during-pregnancy.png",
+    "https://mothrly.com/wp-content/uploads/2026/05/Embracing-Your-Pregnant-Body.png": "/blogs/embracing-your-pregnant-body.png",
+    "https://mothrly.com/wp-content/uploads/2026/05/Understanding-Stillbirth-and-Loss.png": "/blogs/understanding-stillbirth-and-loss.png",
+    "https://mothrly.com/wp-content/uploads/2026/05/Understanding-High-Risk-Pregnancy.png": "/blogs/understanding-high-risk-pregnancy.png",
+    "https://mothrly.com/wp-content/uploads/2026/05/Pregnancy-Anxiety-Finding-Calm-During-Pregnancy.png": "/blogs/pregnancy-anxiety-finding-calm-during-pregnancy.png",
     "https://mothrly.com/wp-content/uploads/2026/05/104.png": "/blogs/egg-freezing-facts-india-featured.png",
     "https://mothrly.com/wp-content/uploads/2026/05/103.png": "/blogs/trying-to-conceive-relationship-strain-featured.png",
     "https://mothrly.com/wp-content/uploads/2026/05/102.png": "/blogs/secondary-infertility-invisible-grief-featured.png",
@@ -2223,6 +1930,26 @@
     "https://mothrly.com/wp-content/uploads/2026/05/Healthy-Breastfeeding-Meal.png": "/blogs/healthy-breastfeeding-meal.png",
     "https://mothrly.com/wp-content/uploads/2026/05/Mother-Getting-Breastfeeding-Support.png": "/blogs/mother-getting-breastfeeding-support.png",
     "https://mothrly.com/wp-content/uploads/2026/05/Mother-Breastfeeding-Her-Baby.png": "/blogs/mother-breastfeeding-her-baby.png",
+    "https://mothrly.com/wp-content/uploads/2026/05/Ayurvedic-Pregnancy-Care.png": "/blogs/ayurvedic-pregnancy-care.png",
+    "https://mothrly.com/wp-content/uploads/2026/05/Pregnant-Woman-Discussing-Birth-Plan.png": "/blogs/pregnant-woman-discussing-birth-plan.png",
+    "https://mothrly.com/wp-content/uploads/2026/05/Modern-Indian-Woman-Managing-Pregnancy.png": "/blogs/modern-indian-woman-managing-pregnancy.png",
+    "https://mothrly.com/wp-content/uploads/2026/05/Pregnant-Woman-Doing-Prenatal-Yoga.png": "/blogs/pregnant-woman-doing-prenatal-yoga.png",
+    "https://mothrly.com/wp-content/uploads/2026/05/Pregnant-Woman-Coping-With-Anxiety.png": "/blogs/pregnant-woman-coping-with-anxiety.png",
+    "https://mothrly.com/wp-content/uploads/2026/05/Third-Trimester-Birth-Preparation.png": "/blogs/third-trimester-birth-preparation.png",
+    "https://mothrly.com/wp-content/uploads/2026/05/Gestational-Diabetes-Test.png": "/blogs/gestational-diabetes-test.png",
+    "https://mothrly.com/wp-content/uploads/2026/05/Second-Trimester-Visible-Baby-Bump.png": "/blogs/second-trimester-visible-baby-bump.png",
+    "https://mothrly.com/wp-content/uploads/2026/05/Healthy-Pregnancy-Plate.png": "/blogs/healthy-pregnancy-plate.png",
+    "https://mothrly.com/wp-content/uploads/2026/05/First-Trimester-Pregnancy-Care.png": "/blogs/first-trimester-pregnancy-care.png",
+    "https://mothrly.com/wp-content/uploads/2026/05/Woman-Reflecting-on-Motherhood.png": "/blogs/woman-reflecting-on-motherhood.png",
+    "https://mothrly.com/wp-content/uploads/2026/05/Couple-Discussing-Male-Fertility.png": "/blogs/couple-discussing-male-fertility.png",
+    "https://mothrly.com/wp-content/uploads/2026/05/Ayurvedic-Herbs-for-Fertility.png": "/blogs/ayurvedic-herbs-for-fertility.png",
+    "https://mothrly.com/wp-content/uploads/2026/05/Calm-Woman-Practising-Stress-Reduction.png": "/blogs/calm-woman-practising-stress-reduction.png",
+    "https://mothrly.com/wp-content/uploads/2026/05/Thyroid-Test-for-Fertility.png": "/blogs/thyroid-test-for-fertility.png",
+    "https://mothrly.com/wp-content/uploads/2026/05/Career-Woman-Considering-Fertility.png": "/blogs/career-woman-considering-fertility.png",
+    "https://mothrly.com/wp-content/uploads/2026/05/Indian-Woman-With-PCOS-Speaking-to-a-Doctor.png": "/blogs/indian-woman-with-pcos-speaking-to-a-doctor.png",
+    "https://mothrly.com/wp-content/uploads/2026/05/Woman-Preparing-Her-Body-for-Pregnancy-1.png": "/blogs/woman-preparing-her-body-for-pregnancy-1.png",
+    "https://mothrly.com/wp-content/uploads/2026/05/Couple-Supporting-Each-Other-After-Miscarriage.png": "/blogs/couple-supporting-each-other-after-miscarriage.png",
+    "https://mothrly.com/wp-content/uploads/2026/05/Woman-in-Her-30s-Fertility-Journey.png": "/blogs/woman-in-her-30s-fertility-journey.png",
     "https://mothrly.com/wp-content/uploads/2026/05/Young-Couple-With-Newborn-Purpose-of-Family.png": "/blogs/young-couple-with-newborn-purpose-of-family.png",
     "https://mothrly.com/wp-content/uploads/2026/05/Mother-Telling-Stories-to-Her-Child.png": "/blogs/mother-telling-stories-to-her-child.png",
     "https://mothrly.com/wp-content/uploads/2026/05/Family-Embrace-The-Real-Love.png": "/blogs/family-embrace-the-real-love.png",
@@ -2245,5 +1972,5 @@
     "https://mothrly.com/wp-content/uploads/2026/04/5signs-768x455.jpeg": "/blogs/5signs.jpg",
     "https://mothrly.com/wp-content/uploads/2026/04/5signs-1536x910.jpeg": "/blogs/5signs.jpg"
   },
-  "postsBackup": "local-wp-posts.json.backup-1785567404424.json"
+  "postsBackup": "local-wp-posts.json.backup-1785575737088.json"
 }

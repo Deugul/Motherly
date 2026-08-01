@@ -1,0 +1,303 @@
+{
+  "accepted": [
+    {
+      "image": "105.png",
+      "wpFile": "Pregnancy-Anxiety-Finding-Calm-During-Pregnancy.png",
+      "slug": "pregnancy-anxiety-honest-guide",
+      "confidence": "high"
+    },
+    {
+      "image": "106.png",
+      "wpFile": "Understanding-High-Risk-Pregnancy.png",
+      "slug": "high-risk-pregnancy-honest-guide",
+      "confidence": "high"
+    },
+    {
+      "image": "107.png",
+      "wpFile": "Understanding-Stillbirth-and-Loss.png",
+      "slug": "stillbirth-the-unspoken-loss",
+      "confidence": "medium"
+    },
+    {
+      "image": "108.png",
+      "wpFile": "Embracing-Your-Pregnant-Body.png",
+      "slug": "pregnant-body-image-honest-guide",
+      "confidence": "medium"
+    },
+    {
+      "image": "109.png",
+      "wpFile": "Preventing-Anaemia-During-Pregnancy.png",
+      "slug": "iron-deficiency-anaemia-pregnancy-india",
+      "confidence": "high"
+    },
+    {
+      "image": "110.png",
+      "wpFile": "Better-Sleep-in-the-Third-Trimester-1.png",
+      "slug": "sleep-third-trimester-what-actually-helps",
+      "confidence": "high"
+    },
+    {
+      "image": "111.png",
+      "wpFile": "Pregnancy-Skin-Changes-Explained-1.png",
+      "slug": "pregnancy-skin-complete-honest-guide",
+      "confidence": "high"
+    },
+    {
+      "image": "112.png",
+      "wpFile": "Prenatal-Supplements-What-Matters.png",
+      "slug": "prenatal-supplements-what-you-actually-need",
+      "confidence": "high"
+    },
+    {
+      "image": "113.png",
+      "wpFile": "Balancing-Work-and-Pregnancy.png",
+      "slug": "working-through-pregnancy-honest-guide",
+      "confidence": "medium"
+    },
+    {
+      "image": "114.png",
+      "wpFile": "Creating-a-Birth-Plan-That-Works.png",
+      "slug": "birth-plan-that-works-india",
+      "confidence": "medium"
+    },
+    {
+      "image": "60.png",
+      "wpFile": "Thyroid-Test-for-Fertility.png",
+      "slug": "thyroid-and-fertility",
+      "confidence": "high"
+    },
+    {
+      "image": "157.png",
+      "wpFile": "MOTHERLY-BLOG-IMAGE-11-1.png",
+      "slug": "doula-services-in-chennai-what-a-doula-does-for-new-mothers",
+      "confidence": "high"
+    },
+    {
+      "image": "55.png",
+      "wpFile": "Woman-in-Her-30s-Fertility-Journey.png",
+      "slug": "late-marriage-fertility-reality",
+      "confidence": "high"
+    },
+    {
+      "image": "56.png",
+      "wpFile": "Couple-Supporting-Each-Other-After-Miscarriage.png",
+      "slug": "miscarriage-what-you-need-to-know",
+      "confidence": "high"
+    },
+    {
+      "image": "57.png",
+      "wpFile": "Woman-Preparing-Her-Body-for-Pregnancy-1.png",
+      "slug": "six-months-pre-conception-preparation",
+      "confidence": "high"
+    },
+    {
+      "image": "58.png",
+      "wpFile": "Indian-Woman-With-PCOS-Speaking-to-a-Doctor.png",
+      "slug": "pcos-what-you-actually-need",
+      "confidence": "high"
+    },
+    {
+      "image": "59.png",
+      "wpFile": "Career-Woman-Considering-Fertility.png",
+      "slug": "eggs-ageing-career-woman-fertility",
+      "confidence": "high"
+    },
+    {
+      "image": "61.png",
+      "wpFile": "Calm-Woman-Practising-Stress-Reduction.png",
+      "slug": "stress-and-fertility",
+      "confidence": "high"
+    },
+    {
+      "image": "62.png",
+      "wpFile": "Ayurvedic-Herbs-for-Fertility.png",
+      "slug": "ayurveda-pre-conception-manual",
+      "confidence": "high"
+    },
+    {
+      "image": "63.png",
+      "wpFile": "Couple-Discussing-Male-Fertility.png",
+      "slug": "male-fertility-overlooked-half",
+      "confidence": "high"
+    },
+    {
+      "image": "64.png",
+      "wpFile": "Woman-Reflecting-on-Motherhood.png",
+      "slug": "emotional-readiness-for-motherhood",
+      "confidence": "high"
+    },
+    {
+      "image": "65.png",
+      "wpFile": "First-Trimester-Pregnancy-Care.png",
+      "slug": "first-trimester-what-body-is-doing",
+      "confidence": "high"
+    },
+    {
+      "image": "66.png",
+      "wpFile": "Healthy-Pregnancy-Plate.png",
+      "slug": "eating-for-two-is-wrong",
+      "confidence": "high"
+    },
+    {
+      "image": "67.png",
+      "wpFile": "Second-Trimester-Visible-Baby-Bump.png",
+      "slug": "second-trimester-golden-period",
+      "confidence": "medium"
+    },
+    {
+      "image": "68.png",
+      "wpFile": "Gestational-Diabetes-Test.png",
+      "slug": "gestational-diabetes-rising-epidemic",
+      "confidence": "high"
+    },
+    {
+      "image": "69.png",
+      "wpFile": "Third-Trimester-Birth-Preparation.png",
+      "slug": "third-trimester-preparation",
+      "confidence": "high"
+    },
+    {
+      "image": "70.png",
+      "wpFile": "Pregnant-Woman-Coping-With-Anxiety.png",
+      "slug": "antenatal-anxiety-and-depression",
+      "confidence": "high"
+    },
+    {
+      "image": "71.png",
+      "wpFile": "Pregnant-Woman-Doing-Prenatal-Yoga.png",
+      "slug": "exercise-during-pregnancy",
+      "confidence": "high"
+    },
+    {
+      "image": "72.png",
+      "wpFile": "Modern-Indian-Woman-Managing-Pregnancy.png",
+      "slug": "why-pregnancy-is-harder-now",
+      "confidence": "high"
+    },
+    {
+      "image": "73.png",
+      "wpFile": "Pregnant-Woman-Discussing-Birth-Plan.png",
+      "slug": "safe-birth-is-a-right",
+      "confidence": "high"
+    },
+    {
+      "image": "74.png",
+      "wpFile": "Ayurvedic-Pregnancy-Care.png",
+      "slug": "ayurvedic-pregnancy-classical-approach",
+      "confidence": "high"
+    }
+  ],
+  "rejected": [
+    {
+      "image": "135.png",
+      "headline": "Why Vaccinating Your Baby Matters",
+      "subtitle": "Separating facts from misinformation to keep children safe and healthy",
+      "matchedSlug": null,
+      "matchedWpFile": null,
+      "matchedTitle": null,
+      "confidence": "none",
+      "batch": "MATCH-BATCH-1.json",
+      "reason": "no match"
+    },
+    {
+      "image": "136.png",
+      "headline": "Every Child Develops at Their Own Pace",
+      "subtitle": "Why comparison often causes more anxiety than clarity.",
+      "matchedSlug": null,
+      "matchedWpFile": null,
+      "matchedTitle": null,
+      "confidence": "none",
+      "batch": "MATCH-BATCH-2.json",
+      "reason": "no match"
+    },
+    {
+      "image": "137.png",
+      "headline": "How Much Screen Time Is Too Much?",
+      "subtitle": "A realistic, research based guide for today's families.",
+      "matchedSlug": null,
+      "matchedWpFile": null,
+      "matchedTitle": null,
+      "confidence": "none",
+      "batch": "MATCH-BATCH-2.json",
+      "reason": "no match"
+    },
+    {
+      "image": "138.png",
+      "headline": "Fever Is Not the Enemy",
+      "subtitle": "Why a fever is often a sign that the immune system is doing its job.",
+      "matchedSlug": null,
+      "matchedWpFile": null,
+      "matchedTitle": null,
+      "confidence": "none",
+      "batch": "MATCH-BATCH-2.json",
+      "reason": "no match"
+    },
+    {
+      "image": "139.png",
+      "headline": "The Wisdom in Indian Parenting",
+      "subtitle": "Lessons from tradition that align with modern child development research",
+      "matchedSlug": null,
+      "matchedWpFile": null,
+      "matchedTitle": null,
+      "confidence": "none",
+      "batch": "MATCH-BATCH-2.json",
+      "reason": "no match"
+    },
+    {
+      "image": "140.png",
+      "headline": "The Four Phases Every Woman Should Know",
+      "subtitle": "A practical guide to understanding your body's natural rhythms",
+      "matchedSlug": null,
+      "matchedWpFile": null,
+      "matchedTitle": null,
+      "confidence": "none",
+      "batch": "MATCH-BATCH-2.json",
+      "reason": "no match"
+    },
+    {
+      "image": "141.png",
+      "headline": "When Pain Is Treated as Normal",
+      "subtitle": "Why endometriosis remains one of the most overlooked conditions in women",
+      "matchedSlug": null,
+      "matchedWpFile": null,
+      "matchedTitle": null,
+      "confidence": "none",
+      "batch": "MATCH-BATCH-2.json",
+      "reason": "no match"
+    },
+    {
+      "image": "143.png",
+      "headline": "IVF Is Not a Guaranteed Solution",
+      "subtitle": "Why informed expectations are essential before beginning the journey.",
+      "matchedSlug": null,
+      "matchedWpFile": null,
+      "matchedTitle": null,
+      "confidence": "none",
+      "batch": "MATCH-BATCH-2.json",
+      "reason": "no match"
+    },
+    {
+      "image": "144.png",
+      "headline": "Women's Sexual Health Matters",
+      "subtitle": "The questions, concerns, and conditions too many women face in silence.",
+      "matchedSlug": null,
+      "matchedWpFile": null,
+      "matchedTitle": null,
+      "confidence": "none",
+      "batch": "MATCH-BATCH-2.json",
+      "reason": "no match"
+    },
+    {
+      "image": "142.png",
+      "headline": "The Small Gland With a Big Impact",
+      "subtitle": "Understanding how thyroid function affects a woman's health.",
+      "matchedSlug": "thyroid-and-fertility",
+      "matchedWpFile": "Thyroid-Test-for-Fertility.png",
+      "matchedTitle": "Your Thyroid Could Be the Reason You Are Not Getting Pregnant And Most Doctors Are Not Testing It Thoroughly Enough",
+      "confidence": "medium",
+      "batch": "MATCH-BATCH-2.json",
+      "reason": "duplicate claim on Thyroid-Test-for-Fertility.png"
+    }
+  ],
+  "minConfidence": "medium"
+}

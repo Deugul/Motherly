@@ -1,117 +1,33 @@
 {
-  "generatedAt": "2026-08-01T07:09:45.171Z",
+  "generatedAt": "2026-08-01T09:11:38.188Z",
   "placeholders": [
     {
       "src": "/blogs/placeholder-1.png",
       "width": 1812,
       "height": 1074,
       "blurDataURL": "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAADQAQCdASoQAAkAAwBSJYgC7AEPC614AAD+9O7Xb3oUS09asCcDiISDYkAAAA==",
-      "responsive": [
-        {
-          "src": "/blogs/placeholder-1-640w.webp",
-          "width": 640
-        },
-        {
-          "src": "/blogs/placeholder-1-750w.webp",
-          "width": 750
-        },
-        {
-          "src": "/blogs/placeholder-1-828w.webp",
-          "width": 828
-        },
-        {
-          "src": "/blogs/placeholder-1-1080w.webp",
-          "width": 1080
-        },
-        {
-          "src": "/blogs/placeholder-1-1200w.webp",
-          "width": 1200
-        }
-      ]
+      "responsive": []
     },
     {
       "src": "/blogs/placeholder-2.png",
       "width": 1812,
       "height": 1074,
       "blurDataURL": "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAACwAQCdASoQAAkAAwBSJYgAAudRywgAAP72RIDuSSdOcmyb/1L8kQnfXgAAAA==",
-      "responsive": [
-        {
-          "src": "/blogs/placeholder-2-640w.webp",
-          "width": 640
-        },
-        {
-          "src": "/blogs/placeholder-2-750w.webp",
-          "width": 750
-        },
-        {
-          "src": "/blogs/placeholder-2-828w.webp",
-          "width": 828
-        },
-        {
-          "src": "/blogs/placeholder-2-1080w.webp",
-          "width": 1080
-        },
-        {
-          "src": "/blogs/placeholder-2-1200w.webp",
-          "width": 1200
-        }
-      ]
+      "responsive": []
     },
     {
       "src": "/blogs/placeholder-3.png",
       "width": 1812,
       "height": 1074,
       "blurDataURL": "data:image/webp;base64,UklGRjQAAABXRUJQVlA4ICgAAACwAQCdASoQAAkAAwBSJQAAXRveBm4AAP72H/Zwtr3yAff/E0wJzVgA",
-      "responsive": [
-        {
-          "src": "/blogs/placeholder-3-640w.webp",
-          "width": 640
-        },
-        {
-          "src": "/blogs/placeholder-3-750w.webp",
-          "width": 750
-        },
-        {
-          "src": "/blogs/placeholder-3-828w.webp",
-          "width": 828
-        },
-        {
-          "src": "/blogs/placeholder-3-1080w.webp",
-          "width": 1080
-        },
-        {
-          "src": "/blogs/placeholder-3-1200w.webp",
-          "width": 1200
-        }
-      ]
+      "responsive": []
     },
     {
       "src": "/blogs/placeholder-4.png",
       "width": 1812,
       "height": 1074,
       "blurDataURL": "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAACwAQCdASoQAAkAAwBSJYgAAudfvQKAAP7yMjyMNPGPXuWp2/88SjJSjYAAAA==",
-      "responsive": [
-        {
-          "src": "/blogs/placeholder-4-640w.webp",
-          "width": 640
-        },
-        {
-          "src": "/blogs/placeholder-4-750w.webp",
-          "width": 750
-        },
-        {
-          "src": "/blogs/placeholder-4-828w.webp",
-          "width": 828
-        },
-        {
-          "src": "/blogs/placeholder-4-1080w.webp",
-          "width": 1080
-        },
-        {
-          "src": "/blogs/placeholder-4-1200w.webp",
-          "width": 1200
-        }
-      ]
+      "responsive": []
     }
   ]
 }
