@@ -351,18 +351,21 @@ export default async function BlogPostPage({
   return (
     <>
       <Navbar />
-      <main className="pt-32 pb-20" style={{ backgroundColor: "var(--color-background)" }}>
+      {/* Top padding clears the fixed navbar; it scales down on small screens
+          where the navbar is shorter and 8rem of dead space dominates the fold. */}
+      <main
+        className="pt-24 sm:pt-28 lg:pt-32 pb-12 sm:pb-20 px-4 sm:px-6"
+        style={{ backgroundColor: "var(--color-background)" }}
+      >
         <article
-          className="max-w-7xl mx-auto"
+          className="max-w-7xl mx-auto p-5 sm:p-8 lg:p-10 rounded-2xl sm:rounded-3xl"
           style={{
-            padding: "2.5rem 2rem",
             backgroundColor: "var(--color-surface-container-lowest)",
-            borderRadius: "1.5rem",
             boxShadow: "0 4px 24px rgba(45,52,53,0.07)",
           }}
         >
           {/* Back */}
-          <div className="mb-8">
+          <div className="mb-5 sm:mb-8">
             <Link
               href="/blogs"
               style={{
@@ -478,7 +481,7 @@ export default async function BlogPostPage({
 
         {/* Keep Reading */}
         {relatedPosts.length > 0 && (
-          <section className="max-w-7xl mx-auto mt-16" style={{ padding: "0 2rem" }}>
+          <section className="max-w-7xl mx-auto mt-12 sm:mt-16 px-1 sm:px-4">
             <h2
               className="text-2xl md:text-3xl font-extrabold mb-8"
               style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}

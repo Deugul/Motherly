@@ -180,7 +180,7 @@ export default async function BlogsPage() {
     <>
       <Navbar />
       <main
-        className="pt-32 pb-20 max-w-7xl mx-auto px-6"
+        className="pt-24 sm:pt-28 lg:pt-32 pb-12 sm:pb-20 max-w-7xl mx-auto px-4 sm:px-6"
         style={{ backgroundColor: "var(--color-background)" }}
       >
         <BlogPageClient posts={wpPosts} featuredPost={featured} categories={categories} />

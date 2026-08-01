@@ -45,6 +45,96 @@ export function getWpPostTagNames(
   return names.length > 0 ? names : undefined;
 }
 
+/**
+ * Words that carry no search intent on their own. Kept deliberately small —
+ * over-filtering strips the domain terms the keywords exist to capture.
+ */
+const KEYWORD_STOPWORDS = new Set([
+  "the", "a", "an", "and", "or", "but", "of", "to", "in", "on", "for", "with",
+  "is", "are", "was", "were", "be", "been", "it", "its", "this", "that", "these",
+  "those", "you", "your", "yours", "we", "our", "they", "their", "them", "she",
+  "her", "hers", "he", "him", "his", "i", "me", "my", "not", "no", "yes", "so",
+  "if", "then", "than", "as", "at", "by", "from", "into", "about", "what", "why",
+  "how", "when", "where", "who", "which", "will", "can", "could", "should",
+  "would", "do", "does", "did", "done", "just", "only", "more", "most", "much",
+  "many", "every", "all", "some", "any", "here", "there", "now", "one", "two",
+  "up", "out", "over", "after", "before", "during", "while", "because", "guide",
+  "complete", "actually", "really", "nobody", "everything", "things", "thing",
+]);
+
+/**
+ * Domain terms worth keeping as keywords whenever they appear, even though a
+ * frequency-based approach would discard some of them as too common.
+ */
+const PRIORITY_TERMS = [
+  "pregnancy", "pregnant", "postnatal", "postpartum", "prenatal", "antenatal",
+  "breastfeeding", "lactation", "newborn", "baby", "infant", "toddler", "mother",
+  "maternal", "motherhood", "fertility", "infertility", "ivf", "pcos", "doula",
+  "midwife", "nanny", "gynaecology", "gynecology", "paediatric", "pediatric",
+  "physiotherapy", "nutrition", "anaemia", "anemia", "thyroid", "miscarriage",
+  "trimester", "labour", "labor", "birth", "childbirth", "recovery", "chennai",
+  "india", "indian", "ayurveda", "ayurvedic", "yoga", "sleep", "mental health",
+  "depression", "anxiety", "confinement", "c-section", "caesarean",
+];
+
+/**
+ * Derive keywords from the post title and category.
+ *
+ * Only 48 of the exported posts carry Rank Math or hand-written SEO keywords,
+ * and the offline dump has no WordPress tags, so most posts would otherwise
+ * ship no keywords tag at all. This produces a small, relevant set from the
+ * terms the article is actually about rather than padding it out.
+ */
+export function deriveKeywords(
+  title: string,
+  category?: string,
+  limit = 8
+): string[] | undefined {
+  const clean = title
+    .toLowerCase()
+    .replace(/[^a-z0-9\s-]/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+  if (!clean) return undefined;
+
+  const words = clean.split(" ").filter((w) => w.length > 2 && !KEYWORD_STOPWORDS.has(w));
+  const picked: string[] = [];
+  const push = (term: string) => {
+    const t = term.trim();
+    if (t && !picked.some((p) => p.toLowerCase() === t.toLowerCase())) picked.push(t);
+  };
+
+  // 1. Domain terms present in the title, in priority order.
+  for (const term of PRIORITY_TERMS) {
+    if (clean.includes(term)) push(term);
+  }
+
+  // 2. Two-word phrases from the title — these read as real search queries.
+  //    Phrases anchored on a domain term come first; incidental pairs like
+  //    "tells becoming" are only used to fill remaining slots.
+  const bigrams: string[] = [];
+  for (let i = 0; i < words.length - 1; i++) {
+    bigrams.push(`${words[i]} ${words[i + 1]}`);
+  }
+  const anchored = bigrams.filter((b) =>
+    PRIORITY_TERMS.some((t) => b.includes(t))
+  );
+  for (const b of [...anchored, ...bigrams]) {
+    if (picked.length >= limit) break;
+    push(b);
+  }
+
+  // 3. Remaining single terms.
+  for (const w of words) {
+    if (picked.length >= limit) break;
+    push(w);
+  }
+
+  if (category?.trim()) push(category.trim().toLowerCase());
+
+  return picked.length > 0 ? picked.slice(0, limit) : undefined;
+}
+
 function mergeKeywordLists(...lists: (string[] | undefined)[]): string[] | undefined {
   const seen = new Set<string>();
   const merged: string[] = [];
@@ -95,11 +185,20 @@ export function resolveBlogPostSeo(
     resolvePostCardExcerpt(post, 160);
 
   /** Tags (Quick Edit) = meta keywords; Rank Math focus keyword is a single SEO target. */
-  const keywords = mergeKeywordLists(
+  const authored = mergeKeywordLists(
     getWpPostTagNames(post._embedded),
     parseRankMathKeywords(rm?.keywords),
     staticSeo?.keywords
   );
+
+  // Fall back to terms derived from the title so every post ships keywords,
+  // not just the 48 with hand-written SEO entries.
+  const keywords =
+    authored ??
+    deriveKeywords(
+      stripHtml(post.title.rendered),
+      post._embedded?.["wp:term"]?.[0]?.[0]?.name
+    );
 
   /** Visible page title — always the WordPress post title, not the SEO meta title. */
   const h1 = staticSeo?.h1 || stripHtml(post.title.rendered);
