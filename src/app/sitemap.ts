@@ -22,7 +22,12 @@ const REDIRECT_ROUTE_PATHS = new Set([
   "/refund-policy-motherly",
 ]);
 
-/** Routes that 308 to a canonical service URL — omit from sitemap. */
+/**
+ * Routes that resolve to a canonical service URL — omit from sitemap.
+ * Either they 308 to the canonical path, or they render 200 while declaring
+ * a different canonical (submitting those triggers "Duplicate, Google chose
+ * a different canonical" in Search Console).
+ */
 const LEGACY_SERVICE_ALIASES = new Set([
   "/services/lactation",
   "/services/postnatal",
@@ -30,6 +35,8 @@ const LEGACY_SERVICE_ALIASES = new Set([
   "/services/gynecologist",
   "/services/gynaecology",
   "/services/gynecology-consultation",
+  // Renders 200 but canonicalizes to /services/postnatal-recovery-care/physiotherapy
+  "/services/physiotherapy",
 ]);
 
 const CANONICAL_SERVICE_PATHS = new Set<string>(
