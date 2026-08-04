@@ -82,13 +82,13 @@ export default function LactationPage() {
       <main className="pt-24 md:pt-32 pb-10 md:pb-16" style={{ backgroundColor: "var(--color-background)" }}>
 
         {/* ── Main Content + Form ── */}
-        <section className="max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+        <section className="max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12">
 
           {/* Left Column */}
-          <div className="lg:col-span-7 space-y-14">
+          <div className="contents lg:block lg:col-span-7 lg:space-y-14">
 
             {/* Hero */}
-            <ScrollReveal>
+            <ScrollReveal className="-order-1 lg:order-none">
               <span
                 className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-bold mb-6"
                 style={{
@@ -592,7 +592,7 @@ export default function LactationPage() {
           </div>
 
           {/* ── Right Column: Booking Form ── */}
-          <div ref={formWrapperRef as React.RefObject<HTMLDivElement>} className={`lg:col-span-5${!formActive ? " sticky top-28 self-start" : ""}`}>
+          <div ref={formWrapperRef as React.RefObject<HTMLDivElement>} className={`-order-1 lg:order-none lg:col-span-5${!formActive ? " lg:sticky lg:top-28 lg:self-start" : ""}`}>
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
@@ -659,7 +659,7 @@ export default function LactationPage() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     onSubmit={handleSubmit(onSubmit)}
-                    className="space-y-3 overflow-y-auto overscroll-contain max-h-[calc(100dvh-13rem)] pr-1"
+                    className="space-y-3 overflow-y-auto max-h-[calc(100dvh-13rem)] pr-1"
                   >
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                       <div className="space-y-1.5">

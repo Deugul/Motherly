@@ -147,7 +147,7 @@ export default function PhysiotherapyPage() {
                 initial={{ opacity: 0, x: 30 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.2, ease: easeOut }}
-                className="rounded-xl border sticky top-28"
+                className="rounded-xl border lg:sticky lg:top-28"
                 style={{
                   backgroundColor: "var(--color-surface-container-lowest)",
                   borderColor: "color-mix(in srgb, var(--color-outline-variant) 10%, transparent)",
@@ -167,7 +167,7 @@ export default function PhysiotherapyPage() {
 
                   <form
                     onSubmit={handleSubmit(onSubmit)}
-                    className="space-y-5 overflow-y-auto overscroll-contain max-h-[calc(100dvh-15rem)] pr-1"
+                    className="space-y-5 overflow-y-auto max-h-[calc(100dvh-15rem)] pr-1"
                   >
                     {/* Selected Service */}
                     <div className="space-y-1.5">

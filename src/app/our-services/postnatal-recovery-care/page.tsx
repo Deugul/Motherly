@@ -123,10 +123,10 @@ export default function PostnatalPage() {
         <section className="grid grid-cols-1 lg:grid-cols-12 gap-16">
 
           {/* Left: Content */}
-          <div className="lg:col-span-7 space-y-14">
+          <div className="contents lg:block lg:col-span-7 lg:space-y-14">
 
             {/* Hero */}
-            <ScrollReveal>
+            <ScrollReveal className="-order-1 lg:order-none">
               <span
                 className="inline-block px-4 py-1.5 rounded-full text-sm font-bold mb-6 tracking-wide"
                 style={{
@@ -486,12 +486,12 @@ export default function PostnatalPage() {
           </div>
 
           {/* Right: Booking Form */}
-          <aside className="lg:col-span-5">
+          <aside className="-order-1 lg:order-none lg:col-span-5">
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.2, ease: easeOut }}
-              className="rounded-xl border sticky top-28"
+              className="rounded-xl border lg:sticky lg:top-28"
               style={{
                 backgroundColor: "var(--color-surface-container-lowest)",
                 borderColor: "color-mix(in srgb, var(--color-outline-variant) 10%, transparent)",
@@ -555,7 +555,7 @@ export default function PostnatalPage() {
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       onSubmit={handleSubmit(onSubmit)}
-                      className="space-y-3 overflow-y-auto overscroll-contain max-h-[calc(100dvh-13rem)] pr-1"
+                      className="space-y-3 overflow-y-auto max-h-[calc(100dvh-13rem)] pr-1"
                     >
                       {/* Service */}
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">

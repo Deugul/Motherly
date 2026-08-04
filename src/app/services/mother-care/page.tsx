@@ -167,11 +167,13 @@ export default function MotherCarePage() {
         className="pt-24 md:pt-32 pb-12 md:pb-20 px-4 md:px-6 max-w-7xl mx-auto"
         style={{ backgroundColor: "var(--color-surface)" }}
       >
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
 
-          <div className="lg:col-span-7 space-y-14">
+          {/* `contents` on mobile lets the form sit between the hero and the rest
+              of the content column; on lg it is a normal 7-column grid item. */}
+          <div className="contents lg:block lg:col-span-7 lg:space-y-14">
 
-            <ScrollReveal>
+            <ScrollReveal className="-order-1 lg:order-none">
               <section className="relative">
                 <div
                   className="absolute -top-10 -left-10 w-40 h-40 rounded-full blur-3xl opacity-60 pointer-events-none"
@@ -598,7 +600,7 @@ export default function MotherCarePage() {
 
           </div>
 
-          <aside ref={formWrapperRef} className={`lg:col-span-5${!formActive ? " sticky top-28 self-start" : ""}`}>
+          <aside ref={formWrapperRef} className={`-order-1 lg:order-none lg:col-span-5${!formActive ? " lg:sticky lg:top-28 lg:self-start" : ""}`}>
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
@@ -676,7 +678,7 @@ export default function MotherCarePage() {
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       onSubmit={handleSubmit(onSubmit)}
-                      className="space-y-3 overflow-y-auto overscroll-contain max-h-[calc(100dvh-13rem)] pr-1"
+                      className="space-y-3 overflow-y-auto max-h-[calc(100dvh-13rem)] pr-1"
                     >
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                         <div className="space-y-1.5">
