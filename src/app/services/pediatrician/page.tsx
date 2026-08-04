@@ -12,6 +12,7 @@ const MotionImage = motion.create(Image);
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
+import AppDownloadButton from "@/components/AppDownloadButton";
 
 const schema = z.object({
   service: z.string().min(1),
@@ -180,6 +181,9 @@ export default function PediatricianPage() {
                   both paediatric home visits and virtual child health consultations Chennai families
                   can access without queuing in busy clinics during the vulnerable early weeks.
                 </p>
+                <div className="mt-6">
+                  <AppDownloadButton variant="hero" />
+                </div>
                 <p className="text-sm leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
                   See also:{" "}
                   <a href="https://mothrly.com/blogs/newborn-sleep-patterns-what-to-expect-in-the-third-month" style={{ color: "var(--color-primary)", textDecoration: "underline" }}>newborn sleep patterns</a>,{" "}
@@ -486,25 +490,8 @@ export default function PediatricianPage() {
                 <p className="text-sm" style={{ color: "var(--color-on-surface-variant)" }}>
                   Browse verified professionals, view profiles and reviews, and book a home visit in minutes.
                 </p>
-                <div className="flex items-center justify-center gap-4 flex-wrap">
-                  <Link href="https://play.google.com/store">
-                    <Image
-                      src="/badge-google-play.png"
-                      alt="Download on Google Play"
-                      width={140}
-                      height={42}
-                      className="h-10 w-auto"
-                    />
-                  </Link>
-                  <Link href="https://apps.apple.com">
-                    <Image
-                      src="/badge-app-store.png"
-                      alt="Download on the App Store"
-                      width={140}
-                      height={42}
-                      className="h-10 w-auto"
-                    />
-                  </Link>
+                <div className="flex justify-center pt-2">
+                  <AppDownloadButton variant="card" />
                 </div>
                 <p className="text-xs" style={{ color: "var(--color-on-surface-variant)" }}>
                   Or visit{" "}

@@ -8,6 +8,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { motion, AnimatePresence } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import AppDownloadButton from "@/components/AppDownloadButton";
 
 // Form validation schema matching other services
 const enquirySchema = z.object({
@@ -115,6 +116,9 @@ export default function PhysiotherapyPage() {
                 >
                   Book certified postnatal physiotherapy in Chennai. Restore pelvic floor strength, heal diastasis recti, recover from C-section rehab, and solve back pain with personalized in-clinic and virtual sessions.
                 </p>
+                <div className="mt-6">
+                  <AppDownloadButton variant="hero" />
+                </div>
                 <div className="flex flex-wrap gap-4">
                   {[
                     { icon: "verified_user", label: "Certified Clinical Specialists" },

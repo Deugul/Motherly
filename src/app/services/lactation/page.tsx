@@ -9,6 +9,7 @@ import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
+import AppDownloadButton from "@/components/AppDownloadButton";
 
 const schema = z.object({
   service: z.string().min(1),
@@ -109,6 +110,9 @@ export default function LactationPage() {
               <p className="text-lg max-w-lg mb-8 leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
                 Expert breastfeeding support from certified lactation consultants — hands-on home visits and virtual sessions from day one through your entire nursing journey.
               </p>
+              <div className="mt-6">
+                <AppDownloadButton variant="hero" />
+              </div>
               <div className="flex items-center gap-4">
                 <div className="flex -space-x-3">
                   {[0, 1].map((i) => (
@@ -573,13 +577,8 @@ export default function LactationPage() {
                 <p className="text-sm" style={{ color: "var(--color-on-surface-variant)" }}>
                   Browse verified professionals, view profiles and reviews, and book a home visit in minutes.
                 </p>
-                <div className="flex flex-wrap justify-center gap-4 pt-2">
-                  <a href="https://play.google.com/store/apps/details?id=com.mothrly" target="_blank" rel="noopener noreferrer">
-                    <Image src="/badge-google-play.png" alt="Download on Google Play" width={135} height={40} className="h-10 w-auto object-contain" />
-                  </a>
-                  <a href="https://apps.apple.com/in/app/motherly-your-birth-companion/id6746041100" target="_blank" rel="noopener noreferrer">
-                    <Image src="/badge-app-store.png" alt="Download on the App Store" width={135} height={40} className="h-10 w-auto object-contain" />
-                  </a>
+                <div className="flex justify-center pt-2">
+                  <AppDownloadButton variant="card" />
                 </div>
                 <p className="text-xs" style={{ color: "var(--color-on-surface-variant)" }}>
                   Or visit{" "}

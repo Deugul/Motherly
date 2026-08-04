@@ -9,6 +9,7 @@ import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
+import AppDownloadButton from "@/components/AppDownloadButton";
 
 const schema = z.object({
   service: z.string().min(1),
@@ -198,6 +199,9 @@ export default function BabyCarePage() {
                 >
                   Expert newborn care from verified Baby Care specialists — in-home bathing, feeding support, sleep routines, and traditional baby massage from day one through your baby's first year.
                 </p>
+                <div className="mt-6">
+                  <AppDownloadButton variant="hero" />
+                </div>
               </section>
             </ScrollReveal>
 
@@ -584,25 +588,8 @@ export default function BabyCarePage() {
                 <p className="text-sm" style={{ color: "var(--color-on-surface-variant)" }}>
                   Browse verified professionals, view profiles and reviews, and book a home visit in minutes.
                 </p>
-                <div className="flex flex-wrap justify-center gap-4 pt-2">
-                  <a href="https://play.google.com/store/apps/details?id=com.mothrly" target="_blank" rel="noopener noreferrer">
-                    <Image
-                      src="/badge-google-play.png"
-                      alt="Download on Google Play"
-                      width={135}
-                      height={40}
-                      className="h-10 w-auto object-contain"
-                    />
-                  </a>
-                  <a href="https://apps.apple.com/in/app/motherly-your-birth-companion/id6746041100" target="_blank" rel="noopener noreferrer">
-                    <Image
-                      src="/badge-app-store.png"
-                      alt="Download on the App Store"
-                      width={135}
-                      height={40}
-                      className="h-10 w-auto object-contain"
-                    />
-                  </a>
+                <div className="flex justify-center pt-2">
+                  <AppDownloadButton variant="card" />
                 </div>
                 <p className="text-xs" style={{ color: "var(--color-on-surface-variant)" }}>
                   Or visit{" "}
