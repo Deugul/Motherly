@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import type { MouseEvent } from "react";
 
 const PLAY_STORE_URL =
-  "https://play.google.com/store/apps/details?id=com.kreosoft.monthly&pcampaignid=web_share";
+  "https://play.google.com/store/apps/details?id=com.mothrly&pcampaignid=web_share";
 const APP_STORE_URL =
   "https://apps.apple.com/in/app/motherly-birth-companion/id6746041100";
 
@@ -58,7 +58,6 @@ export default function AppDownloadButton({
           "0 8px 24px color-mix(in srgb, var(--color-primary) 25%, transparent)",
       }}
     >
-      <span className="material-symbols-outlined text-xl">download</span>
       Download the Motherly App
     </motion.a>
   );
