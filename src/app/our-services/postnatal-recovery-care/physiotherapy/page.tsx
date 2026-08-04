@@ -161,7 +161,10 @@ export default function PhysiotherapyPage() {
                     Connect with our certified women's health physiotherapists in Chennai.
                   </p>
 
-                  <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+                  <form
+                    onSubmit={handleSubmit(onSubmit)}
+                    className="space-y-5 overflow-y-auto overscroll-contain max-h-[calc(100dvh-15rem)] pr-1"
+                  >
                     {/* Selected Service */}
                     <div className="space-y-1.5">
                       <label className="text-sm font-semibold ml-1" style={{ color: "var(--color-on-surface-variant)" }}>
@@ -241,18 +244,30 @@ export default function PhysiotherapyPage() {
                     </div>
 
                     {/* Submit Button */}
-                    <button
-                      type="submit"
-                      disabled={isSubmitting}
-                      className="w-full py-4 rounded-xl font-bold text-sm tracking-wide transition-all active:scale-[0.98] disabled:opacity-50"
-                      style={{
-                        backgroundColor: "var(--color-primary)",
-                        color: "var(--color-on-primary)",
-                        boxShadow: "0 8px 20px color-mix(in srgb, var(--color-primary) 25%, transparent)",
-                      }}
+                    <div
+                      className="sticky bottom-0 pb-1"
+                      style={{ backgroundColor: "var(--color-surface-container-lowest)" }}
                     >
-                      {isSubmitting ? "Submitting..." : "Send an Enquiry"}
-                    </button>
+                      <div
+                        className="h-4 -mt-4 pointer-events-none"
+                        style={{
+                          background:
+                            "linear-gradient(to top, var(--color-surface-container-lowest), transparent)",
+                        }}
+                      />
+                      <button
+                        type="submit"
+                        disabled={isSubmitting}
+                        className="w-full py-4 rounded-xl font-bold text-sm tracking-wide transition-all active:scale-[0.98] disabled:opacity-50"
+                        style={{
+                          backgroundColor: "var(--color-primary)",
+                          color: "var(--color-on-primary)",
+                          boxShadow: "0 8px 20px color-mix(in srgb, var(--color-primary) 25%, transparent)",
+                        }}
+                      >
+                        {isSubmitting ? "Submitting..." : "Send an Enquiry"}
+                      </button>
+                    </div>
 
                     <AnimatePresence>
                       {submitSuccess === true && (

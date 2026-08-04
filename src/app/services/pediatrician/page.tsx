@@ -593,7 +593,7 @@ export default function PediatricianPage() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     onSubmit={handleSubmit(onSubmit)}
-                    className="space-y-3"
+                    className="space-y-3 overflow-y-auto overscroll-contain max-h-[calc(100dvh-13rem)] pr-1"
                   >
                     {/* Service */}
                     <div className="space-y-1.5">
@@ -628,43 +628,45 @@ export default function PediatricianPage() {
                     </div>
 
                     {/* Email */}
-                    <div className="space-y-1.5">
-                      <label className="text-sm font-semibold ml-1" style={{ color: "var(--color-on-surface-variant)" }}>
-                        Email Address
-                      </label>
-                      <input
-                        {...register("email")}
-                        type="email"
-                        placeholder="email@example.com"
-                        className={inputClass}
-                        style={getInputStyle(!!errors.email)}
-                      />
-                      {errors.email && (
-                        <p className="text-xs ml-1" style={{ color: "var(--color-error)" }}>{errors.email.message}</p>
-                      )}
-                    </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                      <div className="space-y-1.5">
+                        <label className="text-sm font-semibold ml-1" style={{ color: "var(--color-on-surface-variant)" }}>
+                          Email Address
+                        </label>
+                        <input
+                          {...register("email")}
+                          type="email"
+                          placeholder="email@example.com"
+                          className={inputClass}
+                          style={getInputStyle(!!errors.email)}
+                        />
+                        {errors.email && (
+                          <p className="text-xs ml-1" style={{ color: "var(--color-error)" }}>{errors.email.message}</p>
+                        )}
+                      </div>
 
-                    {/* Phone */}
-                    <div className="space-y-1.5">
-                      <label className="text-sm font-semibold ml-1" style={{ color: "var(--color-on-surface-variant)" }}>
-                        Phone Number *
-                      </label>
-                      <input
-                        {...register("phone")}
-                        type="tel"
-                        placeholder="10-digit mobile number"
-                        maxLength={10}
-                        required
-                        className={inputClass}
-                        style={getInputStyle(!!errors.phone)}
-                      />
-                      {errors.phone && (
-                        <p className="text-xs ml-1" style={{ color: "var(--color-error)" }}>{errors.phone.message}</p>
-                      )}
+                      {/* Phone */}
+                      <div className="space-y-1.5">
+                        <label className="text-sm font-semibold ml-1" style={{ color: "var(--color-on-surface-variant)" }}>
+                          Phone Number *
+                        </label>
+                        <input
+                          {...register("phone")}
+                          type="tel"
+                          placeholder="10-digit mobile number"
+                          maxLength={10}
+                          required
+                          className={inputClass}
+                          style={getInputStyle(!!errors.phone)}
+                        />
+                        {errors.phone && (
+                          <p className="text-xs ml-1" style={{ color: "var(--color-error)" }}>{errors.phone.message}</p>
+                        )}
+                      </div>
                     </div>
 
                     {/* Location + Pincode */}
-                    <div className="grid grid-cols-2 gap-4">
+                    <div className="grid grid-cols-2 gap-3">
                       <div className="space-y-1.5">
                         <label className="text-sm font-semibold ml-1" style={{ color: "var(--color-on-surface-variant)" }}>Location</label>
                         <input {...register("location")} type="text" placeholder="Area / Neighbourhood" className={inputClass} style={getInputStyle(!!errors.location)} />
@@ -756,35 +758,47 @@ export default function PediatricianPage() {
                     </div>
 
                     {/* Submit */}
-                    <motion.button
-                      type="submit"
-                      disabled={isSubmitting}
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.97 }}
-                      className="w-full py-3 rounded-xl font-bold text-base flex items-center justify-center gap-2 mt-3"
-                      style={{
-                        fontFamily: "var(--font-headline)",
-                        background: isSubmitting ? "var(--color-outline)" : "linear-gradient(135deg, #ba0e56 0%, #f4447f 100%)",
-                        color: "var(--color-on-primary)",
-                        boxShadow: "0 8px 24px color-mix(in srgb, var(--color-primary) 25%, transparent)",
-                        cursor: isSubmitting ? "not-allowed" : "pointer",
-                      }}
+                    <div
+                      className="sticky bottom-0 pb-1"
+                      style={{ backgroundColor: "var(--color-surface-container-lowest)" }}
                     >
-                      {isSubmitting ? (
-                        <>
-                          <motion.span
-                            animate={{ rotate: 360 }}
-                            transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                            className="material-symbols-outlined text-xl"
-                          >
-                            progress_activity
-                          </motion.span>
-                          Booking...
-                        </>
-                      ) : (
-                        "Submit Enquiry"
-                      )}
-                    </motion.button>
+                      <div
+                        className="h-4 -mt-4 pointer-events-none"
+                        style={{
+                          background:
+                            "linear-gradient(to top, var(--color-surface-container-lowest), transparent)",
+                        }}
+                      />
+                      <motion.button
+                        type="submit"
+                        disabled={isSubmitting}
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.97 }}
+                        className="w-full py-3 rounded-xl font-bold text-base flex items-center justify-center gap-2"
+                        style={{
+                          fontFamily: "var(--font-headline)",
+                          background: isSubmitting ? "var(--color-outline)" : "linear-gradient(135deg, #ba0e56 0%, #f4447f 100%)",
+                          color: "var(--color-on-primary)",
+                          boxShadow: "0 8px 24px color-mix(in srgb, var(--color-primary) 25%, transparent)",
+                          cursor: isSubmitting ? "not-allowed" : "pointer",
+                        }}
+                      >
+                        {isSubmitting ? (
+                          <>
+                            <motion.span
+                              animate={{ rotate: 360 }}
+                              transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                              className="material-symbols-outlined text-xl"
+                            >
+                              progress_activity
+                            </motion.span>
+                            Booking...
+                          </>
+                        ) : (
+                          "Submit Enquiry"
+                        )}
+                      </motion.button>
+                    </div>
 
                     <div className="flex items-center justify-center gap-2 text-sm mt-4" style={{ color: "var(--color-on-surface-variant)" }}>
                       <span className="material-symbols-outlined text-sm" style={{ color: "var(--color-tertiary)" }}>lock</span>
