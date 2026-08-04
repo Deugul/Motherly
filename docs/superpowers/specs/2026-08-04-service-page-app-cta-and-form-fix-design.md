@@ -206,6 +206,39 @@ drifted on three of them. Extracting a shared `ServiceEnquiryForm` component wou
 prevent further drift but produces a much larger diff and requires reconciling the
 drifted pages. Recommended as a separate piece of work.
 
+## Changes made during implementation
+
+Five decisions changed after this spec was first written. Recorded here so the
+document matches what shipped.
+
+**Android package reverted to `com.mothrly`.** The brief specified
+`com.kreosoft.monthly` and that was the original decision, but the component was
+edited back to `com.mothrly` during implementation and that was confirmed as
+correct. Consequence: no link corrections were needed anywhere, so the planned
+`CTASection` and blog-template edits were dropped entirely.
+
+**No download icon.** The leading `material-symbols-outlined` icon was removed;
+the button is text only.
+
+**Pinned submit uses `sticky bottom-0`, not a flex footer.** The original design
+made the card a flex column with a height-capped scrolling field region. That
+works, but it forces an extra wrapper element and a reindentation of roughly 130
+lines on each of 11 pages. A `sticky bottom-0` footer inside a scrolling form
+produces the identical result with two small edits per page. The form itself
+carries `overflow-y-auto overscroll-contain max-h-[calc(100dvh-13rem)]` and the
+submit button sits in a sticky footer with a matching background and a short fade.
+
+**Five pages had placeholder store links, not three.** gynaecology and nannies
+also carried bare `https://play.google.com/store` links, alongside yoga,
+physiotherapy and pediatrician. All five are fixed by the card conversion.
+
+**`services/physiotherapy` is not a reduced-field page.** It carries the full
+field set under different labels ("Service", "Full Name", "Preferred Date",
+"Preferred Time"), which an earlier label-matching survey missed. It received
+full pairing. The genuinely reduced pages are `pediatrician` (no Patient Name,
+Date or Time) and `our-services/postnatal-recovery-care/physiotherapy` (Service,
+Name, Mobile, Email only).
+
 ## Verification
 
 1. `npx tsc --noEmit` — clean
