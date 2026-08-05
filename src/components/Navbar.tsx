@@ -6,6 +6,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { loadMaterialSymbols } from "@/lib/material-symbols";
 import { useMaterialSymbolsReady } from "@/hooks/useMaterialSymbolsReady";
+import AppDownloadButton from "@/components/AppDownloadButton";
 
 const serviceLinks = [
   { href: "/services/doulas", label: "Doula", icon: "child_friendly" },
@@ -219,21 +220,9 @@ export default function Navbar() {
           ))}
         </div>
 
-        {/* CTA */}
+        {/* App download CTA */}
         <div className="hidden md:block">
-          <Link href="/contact-us">
-            <button
-              className="px-7 py-3 rounded-full font-bold text-sm tracking-wide transition-all duration-300 hover:scale-104 active:scale-96 cursor-pointer"
-              style={{
-                fontFamily: "var(--font-plus-jakarta)",
-                backgroundColor: "var(--color-primary)",
-                color: "var(--color-on-primary)",
-                boxShadow: "0 8px 24px color-mix(in srgb, var(--color-primary) 30%, transparent)",
-              }}
-            >
-              Contact Us
-            </button>
-          </Link>
+          <AppDownloadButton variant="navbar" />
         </div>
 
         {/* Mobile hamburger */}
@@ -328,18 +317,9 @@ export default function Navbar() {
             </Link>
           ))}
 
-          <Link href="/contact-us" onClick={() => setMobileOpen(false)}>
-            <button
-              className="w-full mt-3 px-6 py-3 rounded-full font-bold text-sm"
-              style={{
-                fontFamily: "var(--font-plus-jakarta)",
-                backgroundColor: "var(--color-primary)",
-                color: "var(--color-on-primary)",
-              }}
-            >
-              Contact Us
-            </button>
-          </Link>
+          <div className="mt-3" onClick={() => setMobileOpen(false)}>
+            <AppDownloadButton variant="navbar" className="w-full" />
+          </div>
         </div>
       </div>
     </nav>
