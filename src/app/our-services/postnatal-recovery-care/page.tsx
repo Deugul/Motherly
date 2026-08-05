@@ -70,9 +70,10 @@ export default function PostnatalPage() {
         style={{ backgroundColor: "var(--color-surface)" }}
       >
         {/* ── Main Content & Form Grid ── */}
-        <section className="grid grid-cols-1 lg:grid-cols-12 gap-16">
+        <section>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
 
-          {/* Left: Content */}
+          {/* Left: Hero */}
           <div className="contents lg:block lg:col-span-7 lg:space-y-14">
 
             {/* Hero */}
@@ -106,7 +107,7 @@ export default function PostnatalPage() {
                   serviceOptions={["Doulas","Lactation Consultants","Gynaecology Consultation","Nanny Care","Postnatal Recovery","Nutrition Consultation"]}
                 />
               </div>
-              <div className="flex flex-wrap gap-4">
+              <div className="flex flex-wrap gap-4 mt-4">
                 {[
                   { icon: "verified_user", label: "Certified Specialists" },
                   { icon: "home_health", label: "In-Clinic & Virtual" },
@@ -126,6 +127,42 @@ export default function PostnatalPage() {
                 ))}
               </div>
             </ScrollReveal>
+
+          </div>
+
+          {/* ── Right Column: Service image ── */}
+          <aside className="lg:col-span-5 lg:self-start">
+            {/* Featured Image */}
+            <ScrollReveal delay={0.1} direction="right">
+              <div
+                className="relative overflow-hidden rounded-2xl"
+                style={{ boxShadow: "0 12px 32px rgba(45,52,53,0.1)" }}
+              >
+                <MotionImage
+                  whileHover={{ scale: 1.04 }}
+                  transition={{ duration: 0.6 }}
+                  src="/postnatal-hero.jpg"
+                  alt="Postnatal recovery care specialist supporting a mother at home in Chennai"
+                  width={800}
+                  height={400}
+                  className="w-full h-[360px] lg:min-h-[480px] lg:h-[520px] object-cover object-top"
+                />
+                <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.4), transparent)" }} />
+                <div className="absolute bottom-6 left-6 text-white">
+                  <span
+                    className="px-4 py-1 rounded-full text-xs font-bold"
+                    style={{ backgroundColor: "rgba(172,45,94,0.9)", backdropFilter: "blur(8px)" }}
+                  >
+                    Trusted Postnatal Care
+                  </span>
+                  <h3 className="text-xl font-bold mt-2 italic">Recovery that starts at home.</h3>
+                </div>
+              </div>
+            </ScrollReveal>
+          </aside>
+        </div>
+
+        <div className="mt-12 lg:mt-14 space-y-14">
 
             {/* Intro */}
             <ScrollReveal>
@@ -181,7 +218,6 @@ export default function PostnatalPage() {
               </div>
             </ScrollReveal>
 
-            
             {/* Traditional Jaapa vs Modern Recovery */}
             <ScrollReveal delay={0.05}>
               <section className="space-y-5">
@@ -409,10 +445,7 @@ export default function PostnatalPage() {
               </div>
             </ScrollReveal>
 
-          </div>
-
-          {/* Right: Booking Form */}
-          
+        </div>
         </section>
 
         {/* ── FAQ ── */}
@@ -609,38 +642,6 @@ export default function PostnatalPage() {
                   </Link>
                 </motion.div>
               ))}
-
-          {/* ── Right Column: Service image ── */}
-          <aside className="lg:col-span-5 lg:self-start">
-            {/* Featured Image */}
-            <ScrollReveal delay={0.1} direction="right">
-              <div
-                className="relative overflow-hidden rounded-2xl"
-                style={{ boxShadow: "0 12px 32px rgba(45,52,53,0.1)" }}
-              >
-                <MotionImage
-                  whileHover={{ scale: 1.04 }}
-                  transition={{ duration: 0.6 }}
-                  src="/postnatal-hero.jpg"
-                  alt="Postnatal recovery care specialist supporting a mother at home in Chennai"
-                  width={800}
-                  height={400}
-                  className="w-full h-[360px] lg:min-h-[480px] lg:h-[520px] object-cover object-top"
-                />
-                <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.4), transparent)" }} />
-                <div className="absolute bottom-6 left-6 text-white">
-                  <span
-                    className="px-4 py-1 rounded-full text-xs font-bold"
-                    style={{ backgroundColor: "rgba(172,45,94,0.9)", backdropFilter: "blur(8px)" }}
-                  >
-                    Trusted Postnatal Care
-                  </span>
-                  <h3 className="text-xl font-bold mt-2 italic">Recovery that starts at home.</h3>
-                </div>
-              </div>
-            </ScrollReveal>
-          </aside>
-
             </div>
           </section>
         </ScrollReveal>

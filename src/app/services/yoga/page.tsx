@@ -119,9 +119,45 @@ export default function YogaPage() {
               </section>
             </ScrollReveal>
 
-            {/* Stats row */}
-            <ScrollReveal direction="left">
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+    
+          </div>
+
+          {/* ── Right Column: Service image ── */}
+          <aside className="lg:col-span-5 lg:self-start">
+            {/* Featured Image */}
+            <ScrollReveal delay={0.1} direction="right">
+              <div
+                className="relative overflow-hidden rounded-2xl"
+                style={{ boxShadow: "0 12px 32px rgba(45,52,53,0.1)" }}
+              >
+                <motion.div whileHover={{ scale: 1.04 }} transition={{ duration: 0.6 }}>
+                  <Image
+                    src="/yoga-hero.jpg"
+                    alt="Certified prenatal yoga instructor guiding a mother through gentle breathwork in Chennai"
+                    width={800}
+                    height={400}
+                    className="w-full h-[360px] lg:min-h-[480px] lg:h-[520px] object-cover object-top"
+                  />
+                </motion.div>
+                <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.4), transparent)" }} />
+                <div className="absolute bottom-6 left-6 text-white">
+                  <span
+                    className="px-4 py-1 rounded-full text-xs font-bold"
+                    style={{ backgroundColor: "rgba(172,45,94,0.9)", backdropFilter: "blur(8px)" }}
+                  >
+                    Our Practice
+                  </span>
+                  <h3 className="text-xl font-bold mt-2 italic" style={{ fontFamily: "var(--font-headline)" }}>
+                    Movement begins before birth.
+                  </h3>
+                </div>
+              </div>
+            </ScrollReveal>
+          </aside>
+        </div>
+                {/* Stats row */}
+                <ScrollReveal direction="left">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-5">
                 {[
                   { value: "14\nWeeks", label: "Safe time to begin prenatal yoga for most uncomplicated pregnancies" },
                   { value: "31%\nReduction", label: "In perceived labour pain reported by regular prenatal yoga practitioners" },
@@ -153,6 +189,8 @@ export default function YogaPage() {
                 ))}
               </div>
             </ScrollReveal>
+
+        <div className="mt-12 lg:mt-14 space-y-14">
 
             
             {/* Prenatal vs Postnatal */}
@@ -439,46 +477,8 @@ export default function YogaPage() {
                 </p>
               </div>
             </ScrollReveal>
-
-          </div>
-
-          
-
-
-          {/* ── Right Column: Service image ── */}
-          <aside className="lg:col-span-5 lg:self-start">
-            {/* Featured Image */}
-            <ScrollReveal delay={0.1} direction="right">
-              <div
-                className="relative overflow-hidden rounded-2xl"
-                style={{ boxShadow: "0 12px 32px rgba(45,52,53,0.1)" }}
-              >
-                <motion.div whileHover={{ scale: 1.04 }} transition={{ duration: 0.6 }}>
-                  <Image
-                    src="/yoga-hero.jpg"
-                    alt="Certified prenatal yoga instructor guiding a mother through gentle breathwork in Chennai"
-                    width={800}
-                    height={400}
-                    className="w-full h-[360px] lg:min-h-[480px] lg:h-[520px] object-cover object-top"
-                  />
-                </motion.div>
-                <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.4), transparent)" }} />
-                <div className="absolute bottom-6 left-6 text-white">
-                  <span
-                    className="px-4 py-1 rounded-full text-xs font-bold"
-                    style={{ backgroundColor: "rgba(172,45,94,0.9)", backdropFilter: "blur(8px)" }}
-                  >
-                    Our Practice
-                  </span>
-                  <h3 className="text-xl font-bold mt-2 italic" style={{ fontFamily: "var(--font-headline)" }}>
-                    Movement begins before birth.
-                  </h3>
-                </div>
-              </div>
-            </ScrollReveal>
-          </aside>
-
         </div>
+
       </main>
       <Footer />
     </>

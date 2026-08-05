@@ -68,9 +68,46 @@ export default function DoulaPage() {
               </section>
             </ScrollReveal>
 
-            {/* Stats Row */}
-            <ScrollReveal delay={0.1} direction="left">
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+         
+
+          </div>
+
+          {/* ── Right Column: Service image ── */}
+          <aside className="lg:col-span-5 lg:self-start">
+            {/* Featured Image */}
+            <ScrollReveal delay={0.1} direction="right">
+              <div
+                className="relative overflow-hidden rounded-2xl"
+                style={{ boxShadow: "0 12px 32px rgba(45,52,53,0.1)" }}
+              >
+                <MotionImage
+                  whileHover={{ scale: 1.04 }}
+                  transition={{ duration: 0.6 }}
+                  src="/doulas-hero.jpg"
+                  alt="A professional doula providing comfort and support to an expectant mother"
+                  width={800}
+                  height={520}
+                  className="w-full h-[420px] lg:h-[520px] object-cover object-top"
+                />
+                <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.4), transparent)" }} />
+                <div className="absolute bottom-6 left-6 text-white">
+                  <span
+                    className="px-4 py-1 rounded-full text-xs font-bold"
+                    style={{ backgroundColor: "rgba(172,45,94,0.9)", backdropFilter: "blur(8px)" }}
+                  >
+                    Our Philosophy
+                  </span>
+                  <h3 className="text-xl font-bold mt-2 italic" style={{ fontFamily: "var(--font-headline)" }}>
+                    Support beyond the clinical.
+                  </h3>
+                </div>
+              </div>
+            </ScrollReveal>
+          </aside>
+        </div>
+           {/* Stats Row */}
+           <ScrollReveal delay={0.1} direction="left">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-5">
                 {[
                   { value: "98%", label: "Mothers felt more confident during labour" },
                   { value: "40%", label: "Reduction in caesarean rates with continuous doula support" },
@@ -103,7 +140,8 @@ export default function DoulaPage() {
               </div>
             </ScrollReveal>
 
-                        {/* Birth Doula vs Postpartum Doula */}
+        <div className="mt-12 lg:mt-14 space-y-14">
+            {/* Birth Doula vs Postpartum Doula */}
             <ScrollReveal delay={0.1} direction="left">
               <section className="space-y-6">
                 <h2
@@ -668,45 +706,8 @@ export default function DoulaPage() {
               </div>
             </ScrollReveal>
 
-          </div>
-
-          {/* ── Right Column: Service image ── */}
-          <aside className="lg:col-span-5 lg:self-start">
-{/* Featured Image — full width after form column removed */}
-            <ScrollReveal delay={0.1} direction="right">
-              <div
-                className="relative overflow-hidden rounded-2xl"
-                style={{ boxShadow: "0 12px 32px rgba(45,52,53,0.1)" }}
-              >
-                <MotionImage
-                  whileHover={{ scale: 1.04 }}
-                  transition={{ duration: 0.6 }}
-                  src="/doulas-hero.jpg"
-                  alt="A professional doula providing comfort and support to an expectant mother"
-                  width={800}
-                  height={520}
-                  className="w-full h-[420px] lg:h-[520px] object-cover object-top"
-                />
-                <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.4), transparent)" }} />
-                <div className="absolute bottom-6 left-6 text-white">
-                  <span
-                    className="px-4 py-1 rounded-full text-xs font-bold"
-                    style={{ backgroundColor: "rgba(172,45,94,0.9)", backdropFilter: "blur(8px)" }}
-                  >
-                    Our Philosophy
-                  </span>
-                  <h3 className="text-xl font-bold mt-2 italic" style={{ fontFamily: "var(--font-headline)" }}>
-                    Support beyond the clinical.
-                  </h3>
-                </div>
-              </div>
-            </ScrollReveal>
-          </aside>
-
-
-          
         </div>
-</main>
+      </main>
       <Footer />
     </>
   );

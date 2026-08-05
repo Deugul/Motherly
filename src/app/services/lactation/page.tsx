@@ -22,7 +22,8 @@ export default function LactationPage() {
       <main className="pt-24 md:pt-32 pb-10 md:pb-16" style={{ backgroundColor: "var(--color-background)" }}>
 
         {/* ── Main Content + Form ── */}
-        <section className="max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12">
+        <section className="max-w-7xl mx-auto px-4 md:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
 
           {/* Left Column */}
           <div className="contents lg:block lg:col-span-7 lg:space-y-14">
@@ -75,33 +76,45 @@ export default function LactationPage() {
               </div>
             </ScrollReveal>
 
-            {/* Intro */}
-            <ScrollReveal direction="left">
-              <h2
-                className="text-xl md:text-2xl font-bold mb-4"
-                style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}
-              >
-                Expert Breastfeeding Support, When You Need It Most
-              </h2>
-              <p className="leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
-                Motherly connects new mothers in Chennai with certified{" "}
-                <a href="https://mothrly.com/blogs/why-every-new-mother-may-need-a-lactation-consultant" style={{ color: "var(--color-primary)", textDecoration: "underline" }}>
-                  lactation consultants
-                </a>
-                . As the leading breastfeeding support Chennai mothers trust, we provide hands-on lactation care in Chennai at home, from day one through your entire nursing journey.
-              </p>
-              <p className="text-sm leading-relaxed mt-3" style={{ color: "var(--color-on-surface-variant)" }}>
-                See also:{" "}
-                <a href="https://mothrly.com/blogs/why-is-my-breast-milk-not-coming-causes-and-easy-solutions" style={{ color: "var(--color-primary)", textDecoration: "underline" }}>breast milk not coming</a>,{" "}
-                <a href="https://mothrly.com/blogs/how-to-increase-breast-milk-supply" style={{ color: "var(--color-primary)", textDecoration: "underline" }}>increase breast milk supply</a>,{" "}
-                <a href="https://mothrly.com/blogs/breastfeeding-rules-every-new-mom-should-know" style={{ color: "var(--color-primary)", textDecoration: "underline" }}>breastfeeding rules</a>, and{" "}
-                <a href="https://www.mothrly.com/our-services/postnatal-Recovery-care" style={{ color: "var(--color-primary)", textDecoration: "underline" }}>postnatal care</a>.
-              </p>
-            </ScrollReveal>
+         
 
-            {/* Stats */}
-            <ScrollReveal delay={0.05} direction="left">
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+          </div>
+
+          {/* ── Right Column: Service image ── */}
+          <aside className="lg:col-span-5 lg:self-start">
+            {/* Featured Image */}
+            <ScrollReveal delay={0.1} direction="right">
+              <div
+                className="relative overflow-hidden rounded-2xl"
+                style={{ boxShadow: "0 12px 32px rgba(45,52,53,0.1)" }}
+              >
+                <motion.div whileHover={{ scale: 1.04 }} transition={{ duration: 0.6 }}>
+                  <Image
+                    src="/lactation-hero.jpg"
+                    alt="Certified lactation consultant supporting a new mother with breastfeeding at home in Chennai"
+                    width={800}
+                    height={400}
+                    className="w-full h-[360px] lg:min-h-[480px] lg:h-[520px] object-cover object-top"
+                  />
+                </motion.div>
+                <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.4), transparent)" }} />
+                <div className="absolute bottom-6 left-6 text-white">
+                  <span
+                    className="px-4 py-1 rounded-full text-xs font-bold"
+                    style={{ backgroundColor: "rgba(172,45,94,0.9)", backdropFilter: "blur(8px)" }}
+                  >
+                    Expert Lactation Care
+                  </span>
+                  <h3 className="text-xl font-bold mt-2 italic">Support from day one.</h3>
+                </div>
+              </div>
+            </ScrollReveal>
+          </aside>
+        </div>
+
+           {/* Stats */}
+           <ScrollReveal delay={0.05} direction="left">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-5">
                 {[
                   { value: "80%", label: "Breastfeeding difficulties can be resolved with early professional support" },
                   { value: "6 Weeks", label: "The most critical window for establishing long-term milk supply" },
@@ -134,7 +147,32 @@ export default function LactationPage() {
               </div>
             </ScrollReveal>
 
-            
+        <div className="mt-12 lg:mt-14 space-y-14">
+
+            {/* Intro */}
+            <ScrollReveal direction="left">
+              <h2
+                className="text-xl md:text-2xl font-bold mb-4"
+                style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}
+              >
+                Expert Breastfeeding Support, When You Need It Most
+              </h2>
+              <p className="leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
+                Motherly connects new mothers in Chennai with certified{" "}
+                <a href="https://mothrly.com/blogs/why-every-new-mother-may-need-a-lactation-consultant" style={{ color: "var(--color-primary)", textDecoration: "underline" }}>
+                  lactation consultants
+                </a>
+                . As the leading breastfeeding support Chennai mothers trust, we provide hands-on lactation care in Chennai at home, from day one through your entire nursing journey.
+              </p>
+              <p className="text-sm leading-relaxed mt-3" style={{ color: "var(--color-on-surface-variant)" }}>
+                See also:{" "}
+                <a href="https://mothrly.com/blogs/why-is-my-breast-milk-not-coming-causes-and-easy-solutions" style={{ color: "var(--color-primary)", textDecoration: "underline" }}>breast milk not coming</a>,{" "}
+                <a href="https://mothrly.com/blogs/how-to-increase-breast-milk-supply" style={{ color: "var(--color-primary)", textDecoration: "underline" }}>increase breast milk supply</a>,{" "}
+                <a href="https://mothrly.com/blogs/breastfeeding-rules-every-new-mom-should-know" style={{ color: "var(--color-primary)", textDecoration: "underline" }}>breastfeeding rules</a>, and{" "}
+                <a href="https://www.mothrly.com/our-services/postnatal-Recovery-care" style={{ color: "var(--color-primary)", textDecoration: "underline" }}>postnatal care</a>.
+              </p>
+            </ScrollReveal>
+
             {/* In-Home vs Virtual */}
             <ScrollReveal delay={0.05} direction="right">
               <section className="space-y-5">
@@ -506,41 +544,9 @@ export default function LactationPage() {
             </ScrollReveal>
 
 
-          {/* ── Right Column: Service image ── */}
-          <aside className="lg:col-span-5 lg:self-start">
-            {/* Featured Image */}
-            <ScrollReveal delay={0.1} direction="right">
-              <div
-                className="relative overflow-hidden rounded-2xl"
-                style={{ boxShadow: "0 12px 32px rgba(45,52,53,0.1)" }}
-              >
-                <motion.div whileHover={{ scale: 1.04 }} transition={{ duration: 0.6 }}>
-                  <Image
-                    src="/lactation-hero.jpg"
-                    alt="Certified lactation consultant supporting a new mother with breastfeeding at home in Chennai"
-                    width={800}
-                    height={400}
-                    className="w-full h-[360px] lg:min-h-[480px] lg:h-[520px] object-cover object-top"
-                  />
-                </motion.div>
-                <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.4), transparent)" }} />
-                <div className="absolute bottom-6 left-6 text-white">
-                  <span
-                    className="px-4 py-1 rounded-full text-xs font-bold"
-                    style={{ backgroundColor: "rgba(172,45,94,0.9)", backdropFilter: "blur(8px)" }}
-                  >
-                    Expert Lactation Care
-                  </span>
-                  <h3 className="text-xl font-bold mt-2 italic">Support from day one.</h3>
-                </div>
-              </div>
-            </ScrollReveal>
-          </aside>
+                  </div>
 
-          </div>
-
-
-        </section>
+      </section>
 
       </main>
       <Footer />

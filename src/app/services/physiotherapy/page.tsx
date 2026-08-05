@@ -187,7 +187,51 @@ export default function PhysiotherapyPage() {
                   serviceOptions={["Physiotherapy","Pelvic Floor Rehabilitation","Diastasis Recti Treatment","C-Section Rehab","Return to Exercise"]}
                 />
                 </div>
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+               
+              </section>
+            </ScrollReveal>
+
+        
+          </div>
+
+          {/* ── Right Column: Service image ── */}
+          <aside className="lg:col-span-5 lg:self-start">
+            {/* Featured Image */}
+            <ScrollReveal delay={0.1} direction="right">
+              <div
+                className="relative overflow-hidden rounded-2xl"
+                style={{ boxShadow: "0 12px 32px rgba(45,52,53,0.1)" }}
+              >
+                <motion.div whileHover={{ scale: 1.04 }} transition={{ duration: 0.6 }}>
+                  <Image
+                    src="/Physiotherapy.jpg"
+                    alt="Certified women's health physiotherapist guiding postnatal rehabilitation in Chennai"
+                    width={800}
+                    height={400}
+                    className="w-full h-[360px] lg:min-h-[480px] lg:h-[520px] object-cover object-top"
+                  />
+                </motion.div>
+                <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.4), transparent)" }} />
+                <div className="absolute bottom-6 left-6 text-white">
+                  <span
+                    className="px-4 py-1 rounded-full text-xs font-bold"
+                    style={{ backgroundColor: "rgba(172,45,94,0.9)", backdropFilter: "blur(8px)" }}
+                  >
+                    Our Approach
+                  </span>
+                  <h3 className="text-xl font-bold mt-2 italic" style={{ fontFamily: "var(--font-headline)" }}>
+                    Evidence-based care tailored to every mother.
+                  </h3>
+                </div>
+              </div>
+            </ScrollReveal>
+          </aside>
+        </div>
+            
+            {/* In-Clinic vs Virtual */}
+            <ScrollReveal direction="left">
+              <section>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-5 mb-5">
                   {[
                     { value: "1 In 3", label: "Mothers experience pelvic floor dysfunction after childbirth that physiotherapy can address" },
                     { value: "60%", label: "Of postpartum back and pelvic pain cases improve significantly with targeted physiotherapy" },
@@ -212,11 +256,6 @@ export default function PhysiotherapyPage() {
                   ))}
                 </div>
               </section>
-            </ScrollReveal>
-
-            
-            {/* In-Clinic vs Virtual */}
-            <ScrollReveal direction="left">
               <section className="space-y-4">
                 <h2
                   className="text-2xl md:text-3xl font-bold"
@@ -255,6 +294,8 @@ export default function PhysiotherapyPage() {
                 </div>
               </section>
             </ScrollReveal>
+
+        <div className="mt-12 lg:mt-14 space-y-14">
 
             {/* What Is Postnatal Physiotherapy */}
             <ScrollReveal direction="right">
@@ -570,46 +611,8 @@ export default function PhysiotherapyPage() {
                 </p>
               </div>
             </ScrollReveal>
-
-          </div>
-
-          
-
-
-          {/* ── Right Column: Service image ── */}
-          <aside className="lg:col-span-5 lg:self-start">
-            {/* Featured Image */}
-            <ScrollReveal delay={0.1} direction="right">
-              <div
-                className="relative overflow-hidden rounded-2xl"
-                style={{ boxShadow: "0 12px 32px rgba(45,52,53,0.1)" }}
-              >
-                <motion.div whileHover={{ scale: 1.04 }} transition={{ duration: 0.6 }}>
-                  <Image
-                    src="/Physiotherapy.jpg"
-                    alt="Certified women's health physiotherapist guiding postnatal rehabilitation in Chennai"
-                    width={800}
-                    height={400}
-                    className="w-full h-[360px] lg:min-h-[480px] lg:h-[520px] object-cover object-top"
-                  />
-                </motion.div>
-                <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.4), transparent)" }} />
-                <div className="absolute bottom-6 left-6 text-white">
-                  <span
-                    className="px-4 py-1 rounded-full text-xs font-bold"
-                    style={{ backgroundColor: "rgba(172,45,94,0.9)", backdropFilter: "blur(8px)" }}
-                  >
-                    Our Approach
-                  </span>
-                  <h3 className="text-xl font-bold mt-2 italic" style={{ fontFamily: "var(--font-headline)" }}>
-                    Evidence-based care tailored to every mother.
-                  </h3>
-                </div>
-              </div>
-            </ScrollReveal>
-          </aside>
-
         </div>
+
       </main>
       <Footer />
     </>

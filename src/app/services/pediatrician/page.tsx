@@ -138,9 +138,45 @@ export default function PediatricianPage() {
               </section>
             </ScrollReveal>
 
-            {/* Stats row */}
-            <ScrollReveal direction="left">
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+     
+          </div>
+
+          {/* ── Right Column: Service image ── */}
+          <aside className="lg:col-span-5 lg:self-start">
+            {/* Featured Image */}
+            <ScrollReveal delay={0.1} direction="right">
+              <div
+                className="relative overflow-hidden rounded-2xl"
+                style={{ boxShadow: "0 12px 32px rgba(45,52,53,0.1)" }}
+              >
+                <MotionImage
+                  whileHover={{ scale: 1.04 }}
+                  transition={{ duration: 0.6 }}
+                  src="/Pediatrician-hero.jpg"
+                  alt="A verified paediatrician conducting a newborn home visit in Chennai"
+                  width={800}
+                  height={400}
+                  className="w-full h-[360px] lg:min-h-[480px] lg:h-[520px] object-cover object-top"
+                />
+                <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.4), transparent)" }} />
+                <div className="absolute bottom-6 left-6 text-white">
+                  <span
+                    className="px-4 py-1 rounded-full text-xs font-bold"
+                    style={{ backgroundColor: "rgba(172,45,94,0.9)", backdropFilter: "blur(8px)" }}
+                  >
+                    Expert Newborn Care
+                  </span>
+                  <h3 className="text-xl font-bold mt-2 italic" style={{ fontFamily: "var(--font-headline)" }}>
+                    Care that comes to you.
+                  </h3>
+                </div>
+              </div>
+            </ScrollReveal>
+          </aside>
+        </div>
+               {/* Stats row */}
+               <ScrollReveal direction="left">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-5">
                 {[
                   { value: "3 to 5\nDay", label: "First critical paediatric check after hospital discharge" },
                   { value: "12\nStandard", label: "Immunisation-linked paediatric visits in the first year" },
@@ -171,7 +207,9 @@ export default function PediatricianPage() {
                   </motion.div>
                 ))}
               </div>
-            </ScrollReveal>
+            </ScrollReveal> 
+
+        <div className="mt-12 lg:mt-14 space-y-14">
 
             
             {/* Home visit vs Virtual */}
@@ -415,46 +453,8 @@ export default function PediatricianPage() {
                 </p>
               </div>
             </ScrollReveal>
-
-          </div>
-
-          
-
-
-          {/* ── Right Column: Service image ── */}
-          <aside className="lg:col-span-5 lg:self-start">
-            {/* Featured Image */}
-            <ScrollReveal delay={0.1} direction="right">
-              <div
-                className="relative overflow-hidden rounded-2xl"
-                style={{ boxShadow: "0 12px 32px rgba(45,52,53,0.1)" }}
-              >
-                <MotionImage
-                  whileHover={{ scale: 1.04 }}
-                  transition={{ duration: 0.6 }}
-                  src="/Pediatrician-hero.jpg"
-                  alt="A verified paediatrician conducting a newborn home visit in Chennai"
-                  width={800}
-                  height={400}
-                  className="w-full h-[360px] lg:min-h-[480px] lg:h-[520px] object-cover object-top"
-                />
-                <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.4), transparent)" }} />
-                <div className="absolute bottom-6 left-6 text-white">
-                  <span
-                    className="px-4 py-1 rounded-full text-xs font-bold"
-                    style={{ backgroundColor: "rgba(172,45,94,0.9)", backdropFilter: "blur(8px)" }}
-                  >
-                    Expert Newborn Care
-                  </span>
-                  <h3 className="text-xl font-bold mt-2 italic" style={{ fontFamily: "var(--font-headline)" }}>
-                    Care that comes to you.
-                  </h3>
-                </div>
-              </div>
-            </ScrollReveal>
-          </aside>
-
         </div>
+
       </main>
       <Footer />
     </>
