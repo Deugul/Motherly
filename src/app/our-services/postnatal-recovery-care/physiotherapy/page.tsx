@@ -8,6 +8,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { motion, AnimatePresence } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import AppDownloadButton from "@/components/AppDownloadButton";
 
 // Form validation schema matching other services
 const enquirySchema = z.object({
@@ -115,6 +116,9 @@ export default function PhysiotherapyPage() {
                 >
                   Book certified postnatal physiotherapy in Chennai. Restore pelvic floor strength, heal diastasis recti, recover from C-section rehab, and solve back pain with personalized in-clinic and virtual sessions.
                 </p>
+                <div className="mt-6">
+                  <AppDownloadButton variant="hero" />
+                </div>
                 <div className="flex flex-wrap gap-4">
                   {[
                     { icon: "verified_user", label: "Certified Clinical Specialists" },
@@ -143,7 +147,7 @@ export default function PhysiotherapyPage() {
                 initial={{ opacity: 0, x: 30 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.2, ease: easeOut }}
-                className="rounded-xl border sticky top-28"
+                className="rounded-xl border lg:sticky lg:top-28"
                 style={{
                   backgroundColor: "var(--color-surface-container-lowest)",
                   borderColor: "color-mix(in srgb, var(--color-outline-variant) 10%, transparent)",
@@ -161,7 +165,10 @@ export default function PhysiotherapyPage() {
                     Connect with our certified women's health physiotherapists in Chennai.
                   </p>
 
-                  <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+                  <form
+                    onSubmit={handleSubmit(onSubmit)}
+                    className="space-y-5 overflow-y-auto max-h-[calc(100dvh-15rem)] pr-1"
+                  >
                     {/* Selected Service */}
                     <div className="space-y-1.5">
                       <label className="text-sm font-semibold ml-1" style={{ color: "var(--color-on-surface-variant)" }}>
@@ -241,18 +248,30 @@ export default function PhysiotherapyPage() {
                     </div>
 
                     {/* Submit Button */}
-                    <button
-                      type="submit"
-                      disabled={isSubmitting}
-                      className="w-full py-4 rounded-xl font-bold text-sm tracking-wide transition-all active:scale-[0.98] disabled:opacity-50"
-                      style={{
-                        backgroundColor: "var(--color-primary)",
-                        color: "var(--color-on-primary)",
-                        boxShadow: "0 8px 20px color-mix(in srgb, var(--color-primary) 25%, transparent)",
-                      }}
+                    <div
+                      className="sticky bottom-0 pb-1"
+                      style={{ backgroundColor: "var(--color-surface-container-lowest)" }}
                     >
-                      {isSubmitting ? "Submitting..." : "Send an Enquiry"}
-                    </button>
+                      <div
+                        className="h-4 -mt-4 pointer-events-none"
+                        style={{
+                          background:
+                            "linear-gradient(to top, var(--color-surface-container-lowest), transparent)",
+                        }}
+                      />
+                      <button
+                        type="submit"
+                        disabled={isSubmitting}
+                        className="w-full py-4 rounded-xl font-bold text-sm tracking-wide transition-all active:scale-[0.98] disabled:opacity-50"
+                        style={{
+                          backgroundColor: "var(--color-primary)",
+                          color: "var(--color-on-primary)",
+                          boxShadow: "0 8px 20px color-mix(in srgb, var(--color-primary) 25%, transparent)",
+                        }}
+                      >
+                        {isSubmitting ? "Submitting..." : "Send an Enquiry"}
+                      </button>
+                    </div>
 
                     <AnimatePresence>
                       {submitSuccess === true && (

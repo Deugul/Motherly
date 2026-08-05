@@ -9,6 +9,7 @@ import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
+import AppDownloadButton from "@/components/AppDownloadButton";
 
 const schema = z.object({
   service: z.string().min(1),
@@ -166,11 +167,13 @@ export default function MotherCarePage() {
         className="pt-24 md:pt-32 pb-12 md:pb-20 px-4 md:px-6 max-w-7xl mx-auto"
         style={{ backgroundColor: "var(--color-surface)" }}
       >
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
 
-          <div className="lg:col-span-7 space-y-14">
+          {/* `contents` on mobile lets the form sit between the hero and the rest
+              of the content column; on lg it is a normal 7-column grid item. */}
+          <div className="contents lg:block lg:col-span-7 lg:space-y-14">
 
-            <ScrollReveal>
+            <ScrollReveal className="-order-1 lg:order-none">
               <section className="relative">
                 <div
                   className="absolute -top-10 -left-10 w-40 h-40 rounded-full blur-3xl opacity-60 pointer-events-none"
@@ -190,6 +193,9 @@ export default function MotherCarePage() {
                 >
                   Comprehensive postnatal care from verified Mother Care specialists — in-home recovery support, traditional oil massage, nutritional guidance, and emotional wellbeing from day one after delivery.
                 </p>
+                <div className="mt-6">
+                  <AppDownloadButton variant="hero" />
+                </div>
               </section>
             </ScrollReveal>
 
@@ -580,25 +586,8 @@ export default function MotherCarePage() {
                 <p className="text-sm" style={{ color: "var(--color-on-surface-variant)" }}>
                   Browse verified professionals, view profiles and reviews, and book a home visit in minutes.
                 </p>
-                <div className="flex flex-wrap justify-center gap-4 pt-2">
-                  <a href="https://play.google.com/store/apps/details?id=com.mothrly" target="_blank" rel="noopener noreferrer">
-                    <Image
-                      src="/badge-google-play.png"
-                      alt="Download on Google Play"
-                      width={135}
-                      height={40}
-                      className="h-10 w-auto object-contain"
-                    />
-                  </a>
-                  <a href="https://apps.apple.com/in/app/motherly-your-birth-companion/id6746041100" target="_blank" rel="noopener noreferrer">
-                    <Image
-                      src="/badge-app-store.png"
-                      alt="Download on the App Store"
-                      width={135}
-                      height={40}
-                      className="h-10 w-auto object-contain"
-                    />
-                  </a>
+                <div className="flex justify-center pt-2">
+                  <AppDownloadButton variant="card" />
                 </div>
                 <p className="text-xs" style={{ color: "var(--color-on-surface-variant)" }}>
                   Or visit{" "}
@@ -611,7 +600,7 @@ export default function MotherCarePage() {
 
           </div>
 
-          <aside ref={formWrapperRef} className={`lg:col-span-5${!formActive ? " sticky top-28 self-start" : ""}`}>
+          <aside ref={formWrapperRef} className={`-order-1 lg:order-none lg:col-span-5${!formActive ? " lg:sticky lg:top-28 lg:self-start" : ""}`}>
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
@@ -689,71 +678,75 @@ export default function MotherCarePage() {
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       onSubmit={handleSubmit(onSubmit)}
-                      className="space-y-3"
+                      className="space-y-3 overflow-y-auto max-h-[calc(100dvh-13rem)] pr-1"
                     >
-                      <div className="space-y-1.5">
-                        <label className="text-sm font-semibold ml-1" style={{ color: "var(--color-on-surface-variant)" }}>
-                          Select Service
-                        </label>
-                        <select {...register("service")} defaultValue="Mother Care" className={inputClass} style={getInputStyle()}>
-                          <option value="Mother Care">Mother Care</option>
-                          <option value="In-Home Mother Care">In-Home Mother Care</option>
-                          <option value="Virtual Mother Care">Virtual Mother Care</option>
-                          <option value="Full Confinement Care">Full Confinement Care</option>
-                        </select>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div className="space-y-1.5">
+                          <label className="text-sm font-semibold ml-1" style={{ color: "var(--color-on-surface-variant)" }}>
+                            Select Service
+                          </label>
+                          <select {...register("service")} defaultValue="Mother Care" className={inputClass} style={getInputStyle()}>
+                            <option value="Mother Care">Mother Care</option>
+                            <option value="In-Home Mother Care">In-Home Mother Care</option>
+                            <option value="Virtual Mother Care">Virtual Mother Care</option>
+                            <option value="Full Confinement Care">Full Confinement Care</option>
+                          </select>
+                        </div>
+
+                        <div className="space-y-1.5">
+                          <label className="text-sm font-semibold ml-1" style={{ color: "var(--color-on-surface-variant)" }}>
+                            Patient Name
+                          </label>
+                          <input
+                            {...register("name")}
+                            type="text"
+                            placeholder="Your Full Name"
+                            className={inputClass}
+                            style={getInputStyle(!!errors.name)}
+                          />
+                          {errors.name && (
+                            <p className="text-xs ml-1" style={{ color: "var(--color-error)" }}>{errors.name.message}</p>
+                          )}
+                        </div>
                       </div>
 
-                      <div className="space-y-1.5">
-                        <label className="text-sm font-semibold ml-1" style={{ color: "var(--color-on-surface-variant)" }}>
-                          Patient Name
-                        </label>
-                        <input
-                          {...register("name")}
-                          type="text"
-                          placeholder="Your Full Name"
-                          className={inputClass}
-                          style={getInputStyle(!!errors.name)}
-                        />
-                        {errors.name && (
-                          <p className="text-xs ml-1" style={{ color: "var(--color-error)" }}>{errors.name.message}</p>
-                        )}
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div className="space-y-1.5">
+                          <label className="text-sm font-semibold ml-1" style={{ color: "var(--color-on-surface-variant)" }}>
+                            Email Address
+                          </label>
+                          <input
+                            {...register("email")}
+                            type="email"
+                            placeholder="email@example.com"
+                            className={inputClass}
+                            style={getInputStyle(!!errors.email)}
+                          />
+                          {errors.email && (
+                            <p className="text-xs ml-1" style={{ color: "var(--color-error)" }}>{errors.email.message}</p>
+                          )}
+                        </div>
+
+                        <div className="space-y-1.5">
+                          <label className="text-sm font-semibold ml-1" style={{ color: "var(--color-on-surface-variant)" }}>
+                            Phone Number *
+                          </label>
+                          <input
+                            {...register("phone")}
+                            type="tel"
+                            placeholder="10-digit mobile number"
+                            maxLength={10}
+                            required
+                            className={inputClass}
+                            style={getInputStyle(!!errors.phone)}
+                          />
+                          {errors.phone && (
+                            <p className="text-xs ml-1" style={{ color: "var(--color-error)" }}>{errors.phone.message}</p>
+                          )}
+                        </div>
                       </div>
 
-                      <div className="space-y-1.5">
-                        <label className="text-sm font-semibold ml-1" style={{ color: "var(--color-on-surface-variant)" }}>
-                          Email Address
-                        </label>
-                        <input
-                          {...register("email")}
-                          type="email"
-                          placeholder="email@example.com"
-                          className={inputClass}
-                          style={getInputStyle(!!errors.email)}
-                        />
-                        {errors.email && (
-                          <p className="text-xs ml-1" style={{ color: "var(--color-error)" }}>{errors.email.message}</p>
-                        )}
-                      </div>
-
-                      <div className="space-y-1.5">
-                        <label className="text-sm font-semibold ml-1" style={{ color: "var(--color-on-surface-variant)" }}>
-                          Phone Number *
-                        </label>
-                        <input
-                          {...register("phone")}
-                          type="tel"
-                          placeholder="10-digit mobile number"
-                          maxLength={10}
-                          required
-                          className={inputClass}
-                          style={getInputStyle(!!errors.phone)}
-                        />
-                        {errors.phone && (
-                          <p className="text-xs ml-1" style={{ color: "var(--color-error)" }}>{errors.phone.message}</p>
-                        )}
-                      </div>
-
-                      <div className="grid grid-cols-2 gap-4">
+                      <div className="grid grid-cols-2 gap-3">
                         <div className="space-y-1.5">
                           <label className="text-sm font-semibold ml-1" style={{ color: "var(--color-on-surface-variant)" }}>Location</label>
                           <input {...register("location")} type="text" placeholder="Area / Neighbourhood" className={inputClass} style={getInputStyle(!!errors.location)} />
@@ -766,7 +759,7 @@ export default function MotherCarePage() {
                         </div>
                       </div>
 
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                         <div className="space-y-1.5">
                           <label className="text-sm font-semibold ml-1" style={{ color: "var(--color-on-surface-variant)" }}>
                             Select Date
@@ -813,46 +806,58 @@ export default function MotherCarePage() {
                         />
                       </div>
 
-                      <motion.button
-                        type="submit"
-                        disabled={isSubmitting}
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.97 }}
-                        className="w-full py-3 rounded-xl font-bold text-base flex items-center justify-center gap-2 mt-3"
-                        style={{
-                          fontFamily: "var(--font-headline)",
-                          background: isSubmitting ? "var(--color-outline)" : "linear-gradient(135deg, #ba0e56 0%, #f4447f 100%)",
-                          color: "var(--color-on-primary)",
-                          boxShadow: "0 8px 24px color-mix(in srgb, var(--color-primary) 25%, transparent)",
-                          cursor: isSubmitting ? "not-allowed" : "pointer",
-                        }}
+                      <div
+                        className="sticky bottom-0 pb-1"
+                        style={{ backgroundColor: "var(--color-surface-container-lowest)" }}
                       >
-                        {isSubmitting ? (
-                          <>
-                            <motion.span
-                              animate={{ rotate: 360 }}
-                              transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                              className="material-symbols-outlined text-xl"
-                            >
-                              progress_activity
-                            </motion.span>
-                            Submitting...
-                          </>
-                        ) : (
-                          <>
-                            Submit Enquiry
-                            <span className="material-symbols-outlined text-xl">arrow_forward</span>
-                          </>
-                        )}
-                      </motion.button>
+                        <div
+                          className="h-4 -mt-4 pointer-events-none"
+                          style={{
+                            background:
+                              "linear-gradient(to top, var(--color-surface-container-lowest), transparent)",
+                          }}
+                        />
+                        <motion.button
+                          type="submit"
+                          disabled={isSubmitting}
+                          whileHover={{ scale: 1.02 }}
+                          whileTap={{ scale: 0.97 }}
+                          className="w-full py-3 rounded-xl font-bold text-base flex items-center justify-center gap-2"
+                          style={{
+                            fontFamily: "var(--font-headline)",
+                            background: isSubmitting ? "var(--color-outline)" : "linear-gradient(135deg, #ba0e56 0%, #f4447f 100%)",
+                            color: "var(--color-on-primary)",
+                            boxShadow: "0 8px 24px color-mix(in srgb, var(--color-primary) 25%, transparent)",
+                            cursor: isSubmitting ? "not-allowed" : "pointer",
+                          }}
+                        >
+                          {isSubmitting ? (
+                            <>
+                              <motion.span
+                                animate={{ rotate: 360 }}
+                                transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                                className="material-symbols-outlined text-xl"
+                              >
+                                progress_activity
+                              </motion.span>
+                              Submitting...
+                            </>
+                          ) : (
+                            <>
+                              Submit Enquiry
+                              <span className="material-symbols-outlined text-xl">arrow_forward</span>
+                            </>
+                          )}
+                        </motion.button>
 
-                      <p
-                        className="text-center mt-3 leading-relaxed"
-                        style={{ fontSize: "10px", color: "var(--color-on-surface-variant)", opacity: 0.6 }}
-                      >
-                        By submitting, you agree to our privacy policy. Your information is kept confidential
-                        and shared only with your assigned caregiver.
-                      </p>
+                        <p
+                          className="text-center mt-2 leading-relaxed"
+                          style={{ fontSize: "10px", color: "var(--color-on-surface-variant)", opacity: 0.6 }}
+                        >
+                          By submitting, you agree to our privacy policy. Your information is kept confidential
+                          and shared only with your assigned caregiver.
+                        </p>
+                      </div>
                     </motion.form>
                   )}
                 </AnimatePresence>

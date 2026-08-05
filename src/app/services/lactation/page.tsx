@@ -9,6 +9,7 @@ import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
+import AppDownloadButton from "@/components/AppDownloadButton";
 
 const schema = z.object({
   service: z.string().min(1),
@@ -81,13 +82,13 @@ export default function LactationPage() {
       <main className="pt-24 md:pt-32 pb-10 md:pb-16" style={{ backgroundColor: "var(--color-background)" }}>
 
         {/* ── Main Content + Form ── */}
-        <section className="max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+        <section className="max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12">
 
           {/* Left Column */}
-          <div className="lg:col-span-7 space-y-14">
+          <div className="contents lg:block lg:col-span-7 lg:space-y-14">
 
             {/* Hero */}
-            <ScrollReveal>
+            <ScrollReveal className="-order-1 lg:order-none">
               <span
                 className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-bold mb-6"
                 style={{
@@ -109,6 +110,9 @@ export default function LactationPage() {
               <p className="text-lg max-w-lg mb-8 leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
                 Expert breastfeeding support from certified lactation consultants — hands-on home visits and virtual sessions from day one through your entire nursing journey.
               </p>
+              <div className="mt-6">
+                <AppDownloadButton variant="hero" />
+              </div>
               <div className="flex items-center gap-4">
                 <div className="flex -space-x-3">
                   {[0, 1].map((i) => (
@@ -573,13 +577,8 @@ export default function LactationPage() {
                 <p className="text-sm" style={{ color: "var(--color-on-surface-variant)" }}>
                   Browse verified professionals, view profiles and reviews, and book a home visit in minutes.
                 </p>
-                <div className="flex flex-wrap justify-center gap-4 pt-2">
-                  <a href="https://play.google.com/store/apps/details?id=com.mothrly" target="_blank" rel="noopener noreferrer">
-                    <Image src="/badge-google-play.png" alt="Download on Google Play" width={135} height={40} className="h-10 w-auto object-contain" />
-                  </a>
-                  <a href="https://apps.apple.com/in/app/motherly-your-birth-companion/id6746041100" target="_blank" rel="noopener noreferrer">
-                    <Image src="/badge-app-store.png" alt="Download on the App Store" width={135} height={40} className="h-10 w-auto object-contain" />
-                  </a>
+                <div className="flex justify-center pt-2">
+                  <AppDownloadButton variant="card" />
                 </div>
                 <p className="text-xs" style={{ color: "var(--color-on-surface-variant)" }}>
                   Or visit{" "}
@@ -593,7 +592,7 @@ export default function LactationPage() {
           </div>
 
           {/* ── Right Column: Booking Form ── */}
-          <div ref={formWrapperRef as React.RefObject<HTMLDivElement>} className={`lg:col-span-5${!formActive ? " sticky top-28 self-start" : ""}`}>
+          <div ref={formWrapperRef as React.RefObject<HTMLDivElement>} className={`-order-1 lg:order-none lg:col-span-5${!formActive ? " lg:sticky lg:top-28 lg:self-start" : ""}`}>
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
@@ -660,40 +659,44 @@ export default function LactationPage() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     onSubmit={handleSubmit(onSubmit)}
-                    className="space-y-3"
+                    className="space-y-3 overflow-y-auto max-h-[calc(100dvh-13rem)] pr-1"
                   >
-                    <div className="space-y-1.5">
-                      <label className="block text-sm font-bold ml-1" style={{ color: "var(--color-on-surface-variant)" }}>Select Service</label>
-                      <select {...register("service")} className={inputClass} style={getInputStyle()}>
-                        <option value="Doulas">Doulas</option>
-                        <option value="Lactation Consultants">Lactation Consultants</option>
-                        <option value="Gynaecology Consultation">Gynaecology Consultation</option>
-                        <option value="Nanny Care">Nanny Care</option>
-                        <option value="Postnatal Recovery">Postnatal Recovery</option>
-                        <option value="Nutrition Consultation">Nutrition Consultation</option>
-                      </select>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                      <div className="space-y-1.5">
+                        <label className="block text-sm font-bold ml-1" style={{ color: "var(--color-on-surface-variant)" }}>Select Service</label>
+                        <select {...register("service")} className={inputClass} style={getInputStyle()}>
+                          <option value="Doulas">Doulas</option>
+                          <option value="Lactation Consultants">Lactation Consultants</option>
+                          <option value="Gynaecology Consultation">Gynaecology Consultation</option>
+                          <option value="Nanny Care">Nanny Care</option>
+                          <option value="Postnatal Recovery">Postnatal Recovery</option>
+                          <option value="Nutrition Consultation">Nutrition Consultation</option>
+                        </select>
+                      </div>
+
+                      <div className="space-y-1.5">
+                        <label className="block text-sm font-bold ml-1" style={{ color: "var(--color-on-surface-variant)" }}>Patient Name</label>
+                        <input {...register("name")} type="text" placeholder="Your full name" className={inputClass} style={getInputStyle(!!errors.name)} />
+                        {errors.name && <p className="text-xs ml-1" style={{ color: "var(--color-error)" }}>{errors.name.message}</p>}
+                      </div>
                     </div>
 
-                    <div className="space-y-1.5">
-                      <label className="block text-sm font-bold ml-1" style={{ color: "var(--color-on-surface-variant)" }}>Patient Name</label>
-                      <input {...register("name")} type="text" placeholder="Your full name" className={inputClass} style={getInputStyle(!!errors.name)} />
-                      {errors.name && <p className="text-xs ml-1" style={{ color: "var(--color-error)" }}>{errors.name.message}</p>}
-                    </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                      <div className="space-y-1.5">
+                        <label className="block text-sm font-bold ml-1" style={{ color: "var(--color-on-surface-variant)" }}>Email Address</label>
+                        <input {...register("email")} type="email" placeholder="example@motherly.com" className={inputClass} style={getInputStyle(!!errors.email)} />
+                        {errors.email && <p className="text-xs ml-1" style={{ color: "var(--color-error)" }}>{errors.email.message}</p>}
+                      </div>
 
-                    <div className="space-y-1.5">
-                      <label className="block text-sm font-bold ml-1" style={{ color: "var(--color-on-surface-variant)" }}>Email Address</label>
-                      <input {...register("email")} type="email" placeholder="example@motherly.com" className={inputClass} style={getInputStyle(!!errors.email)} />
-                      {errors.email && <p className="text-xs ml-1" style={{ color: "var(--color-error)" }}>{errors.email.message}</p>}
-                    </div>
-
-                    <div className="space-y-1.5">
-                      <label className="block text-sm font-bold ml-1" style={{ color: "var(--color-on-surface-variant)" }}>Phone Number *</label>
-                      <input {...register("phone")} type="tel" placeholder="10-digit mobile number" maxLength={10} required className={inputClass} style={getInputStyle(!!errors.phone)} />
-                      {errors.phone && <p className="text-xs ml-1" style={{ color: "var(--color-error)" }}>{errors.phone.message}</p>}
+                      <div className="space-y-1.5">
+                        <label className="block text-sm font-bold ml-1" style={{ color: "var(--color-on-surface-variant)" }}>Phone Number *</label>
+                        <input {...register("phone")} type="tel" placeholder="10-digit mobile number" maxLength={10} required className={inputClass} style={getInputStyle(!!errors.phone)} />
+                        {errors.phone && <p className="text-xs ml-1" style={{ color: "var(--color-error)" }}>{errors.phone.message}</p>}
+                      </div>
                     </div>
 
                     {/* Location + Pincode */}
-                    <div className="grid grid-cols-2 gap-4">
+                    <div className="grid grid-cols-2 gap-3">
                       <div className="space-y-1.5">
                         <label className="block text-sm font-bold ml-1" style={{ color: "var(--color-on-surface-variant)" }}>Location</label>
                         <input {...register("location")} type="text" placeholder="Area / Neighbourhood" className={inputClass} style={getInputStyle(!!errors.location)} />
@@ -706,7 +709,7 @@ export default function LactationPage() {
                       </div>
                     </div>
 
-                    <div className="grid grid-cols-2 gap-4">
+                    <div className="grid grid-cols-2 gap-3">
                       <div className="space-y-1.5">
                         <label className="block text-sm font-bold ml-1" style={{ color: "var(--color-on-surface-variant)" }}>Select Date</label>
                         <input {...register("date")} type="date" min={new Date().toISOString().split("T")[0]} className={inputClass} style={getInputStyle(!!errors.date)} />
@@ -724,27 +727,39 @@ export default function LactationPage() {
                       <textarea {...register("message")} rows={2} placeholder="Tell us about your needs..." className={`${inputClass} resize-none`} style={getInputStyle()} />
                     </div>
 
-                    <motion.button
-                      type="submit"
-                      disabled={isSubmitting}
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.97 }}
-                      className="w-full py-5 rounded-xl font-bold text-lg flex items-center justify-center gap-2"
-                      style={{
-                        fontFamily: "var(--font-headline)",
-                        backgroundColor: isSubmitting ? "var(--color-outline)" : "var(--color-primary)",
-                        color: "var(--color-on-primary)",
-                        cursor: isSubmitting ? "not-allowed" : "pointer",
-                        boxShadow: "0 4px 20px color-mix(in srgb, var(--color-primary) 25%, transparent)",
-                      }}
+                    <div
+                      className="sticky bottom-0 pb-1"
+                      style={{ backgroundColor: "var(--color-surface-container-lowest)" }}
                     >
-                      {isSubmitting ? (
-                        <>
-                          <motion.span animate={{ rotate: 360 }} transition={{ duration: 1, repeat: Infinity, ease: "linear" }} className="material-symbols-outlined text-xl">progress_activity</motion.span>
-                          Submitting...
-                        </>
-                      ) : "Submit Enquiry"}
-                    </motion.button>
+                      <div
+                        className="h-4 -mt-4 pointer-events-none"
+                        style={{
+                          background:
+                            "linear-gradient(to top, var(--color-surface-container-lowest), transparent)",
+                        }}
+                      />
+                      <motion.button
+                        type="submit"
+                        disabled={isSubmitting}
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.97 }}
+                        className="w-full py-5 rounded-xl font-bold text-lg flex items-center justify-center gap-2"
+                        style={{
+                          fontFamily: "var(--font-headline)",
+                          backgroundColor: isSubmitting ? "var(--color-outline)" : "var(--color-primary)",
+                          color: "var(--color-on-primary)",
+                          cursor: isSubmitting ? "not-allowed" : "pointer",
+                          boxShadow: "0 4px 20px color-mix(in srgb, var(--color-primary) 25%, transparent)",
+                        }}
+                      >
+                        {isSubmitting ? (
+                          <>
+                            <motion.span animate={{ rotate: 360 }} transition={{ duration: 1, repeat: Infinity, ease: "linear" }} className="material-symbols-outlined text-xl">progress_activity</motion.span>
+                            Submitting...
+                          </>
+                        ) : "Submit Enquiry"}
+                      </motion.button>
+                    </div>
 
                     <div className="flex items-center justify-center gap-2 text-sm mt-6" style={{ color: "var(--color-on-surface-variant)" }}>
                       <span className="material-symbols-outlined text-sm" style={{ color: "var(--color-tertiary)" }}>verified_user</span>

@@ -10,6 +10,7 @@ import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
+import AppDownloadButton from "@/components/AppDownloadButton";
 
 const schema = z.object({
   service: z.string().min(1),
@@ -135,13 +136,13 @@ export default function GynaecologyPage() {
         className="pt-28 md:pt-32 pb-20 px-4 sm:px-6 max-w-7xl mx-auto"
         style={{ backgroundColor: "var(--color-surface)" }}
       >
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
 
           {/* ── Left Column ── */}
-          <div className="lg:col-span-7 space-y-10 lg:space-y-14">
+          <div className="contents lg:block lg:col-span-7 lg:space-y-14">
 
             {/* H1 */}
-            <ScrollReveal>
+            <ScrollReveal className="-order-1 lg:order-none">
               <section>
                 <h1
                   className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight"
@@ -171,6 +172,9 @@ export default function GynaecologyPage() {
                   and continuity, we offer both prenatal home visits and virtual gynaecology consultations
                   Chennai families can access without the clinic wait.
                 </p>
+                <div className="mt-6">
+                  <AppDownloadButton variant="hero" />
+                </div>
                 <p className="text-sm leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
                   See also:{" "}
                   <a href="https://mothrly.com/blogs/pregnancy-diet-plan" style={{ color: "var(--color-primary)", textDecoration: "underline" }}>pregnancy diet plan</a>,{" "}
@@ -476,25 +480,8 @@ export default function GynaecologyPage() {
                 <p className="text-sm" style={{ color: "var(--color-on-surface-variant)" }}>
                   Browse verified professionals, view profiles and reviews, and book a home visit in minutes.
                 </p>
-                <div className="flex items-center justify-center gap-4 flex-wrap">
-                  <Link href="https://play.google.com/store">
-                    <Image
-                      src="/badge-google-play.png"
-                      alt="Download on Google Play"
-                      width={140}
-                      height={42}
-                      className="h-10 w-auto"
-                    />
-                  </Link>
-                  <Link href="https://apps.apple.com">
-                    <Image
-                      src="/badge-app-store.png"
-                      alt="Download on the App Store"
-                      width={140}
-                      height={42}
-                      className="h-10 w-auto"
-                    />
-                  </Link>
+                <div className="flex justify-center pt-2">
+                  <AppDownloadButton variant="card" />
                 </div>
                 <p className="text-xs" style={{ color: "var(--color-on-surface-variant)" }}>
                   Or visit{" "}
@@ -508,7 +495,7 @@ export default function GynaecologyPage() {
           </div>
 
           {/* ── Right Column: Booking Form ── */}
-          <div ref={formWrapperRef as React.RefObject<HTMLDivElement>} className={`lg:col-span-5${!formActive ? " sticky top-28 self-start" : ""}`}>
+          <div ref={formWrapperRef as React.RefObject<HTMLDivElement>} className={`-order-1 lg:order-none lg:col-span-5${!formActive ? " lg:sticky lg:top-28 lg:self-start" : ""}`}>
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
@@ -549,45 +536,47 @@ export default function GynaecologyPage() {
                     <button onClick={() => setSubmitted(false)} className="mt-2 px-6 py-2.5 rounded-full text-sm font-bold" style={{ fontFamily: "var(--font-headline)", backgroundColor: "var(--color-primary)", color: "var(--color-on-primary)" }}>Submit Another</button>
                   </motion.div>
                 ) : (
-                  <motion.form key="form" initial={{ opacity: 0 }} animate={{ opacity: 1 }} onSubmit={handleSubmit(onSubmit)} className="space-y-3">
-                    {/* Service */}
-                    <div>
-                      <label className="block text-sm font-bold mb-2" style={{ color: "var(--color-on-surface-variant)" }}>Select Service</label>
-                      <div className="relative">
-                        <select {...register("service")} className={inputClass} style={getInputStyle()}>
-                          <option value="Doulas">Doulas</option>
-                          <option value="Lactation Consultants">Lactation Consultants</option>
-                          <option value="Gynaecology Consultation">Gynaecology Consultation</option>
-                          <option value="Nanny Care">Nanny Care</option>
-                          <option value="Postnatal Recovery">Postnatal Recovery</option>
-                          <option value="Nutrition Consultation">Nutrition Consultation</option>
-                        </select>
+                  <motion.form key="form" initial={{ opacity: 0 }} animate={{ opacity: 1 }} onSubmit={handleSubmit(onSubmit)} className="space-y-3 overflow-y-auto max-h-[calc(100dvh-13rem)] pr-1">
+                    {/* Service + Name */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                      <div>
+                        <label className="block text-sm font-bold mb-2" style={{ color: "var(--color-on-surface-variant)" }}>Select Service</label>
+                        <div className="relative">
+                          <select {...register("service")} className={inputClass} style={getInputStyle()}>
+                            <option value="Doulas">Doulas</option>
+                            <option value="Lactation Consultants">Lactation Consultants</option>
+                            <option value="Gynaecology Consultation">Gynaecology Consultation</option>
+                            <option value="Nanny Care">Nanny Care</option>
+                            <option value="Postnatal Recovery">Postnatal Recovery</option>
+                            <option value="Nutrition Consultation">Nutrition Consultation</option>
+                          </select>
+                        </div>
+                      </div>
+
+                      <div>
+                        <label className="block text-sm font-bold mb-2" style={{ color: "var(--color-on-surface-variant)" }}>Patient Name</label>
+                        <input {...register("name")} type="text" placeholder="Your full name" className={inputClass} style={getInputStyle(!!errors.name)} />
+                        {errors.name && <p className="text-xs mt-1" style={{ color: "var(--color-error)" }}>{errors.name.message}</p>}
                       </div>
                     </div>
 
-                    {/* Name */}
-                    <div>
-                      <label className="block text-sm font-bold mb-2" style={{ color: "var(--color-on-surface-variant)" }}>Patient Name</label>
-                      <input {...register("name")} type="text" placeholder="Your full name" className={inputClass} style={getInputStyle(!!errors.name)} />
-                      {errors.name && <p className="text-xs mt-1" style={{ color: "var(--color-error)" }}>{errors.name.message}</p>}
-                    </div>
+                    {/* Email + Phone */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                      <div>
+                        <label className="block text-sm font-bold mb-2" style={{ color: "var(--color-on-surface-variant)" }}>Email Address</label>
+                        <input {...register("email")} type="email" placeholder="example@email.com" className={inputClass} style={getInputStyle(!!errors.email)} />
+                        {errors.email && <p className="text-xs mt-1" style={{ color: "var(--color-error)" }}>{errors.email.message}</p>}
+                      </div>
 
-                    {/* Email */}
-                    <div>
-                      <label className="block text-sm font-bold mb-2" style={{ color: "var(--color-on-surface-variant)" }}>Email Address</label>
-                      <input {...register("email")} type="email" placeholder="example@email.com" className={inputClass} style={getInputStyle(!!errors.email)} />
-                      {errors.email && <p className="text-xs mt-1" style={{ color: "var(--color-error)" }}>{errors.email.message}</p>}
-                    </div>
-
-                    {/* Phone */}
-                    <div>
-                      <label className="block text-sm font-bold mb-2" style={{ color: "var(--color-on-surface-variant)" }}>Phone Number *</label>
-                      <input {...register("phone")} type="tel" placeholder="10-digit mobile number" maxLength={10} required className={inputClass} style={getInputStyle(!!errors.phone)} />
-                      {errors.phone && <p className="text-xs mt-1" style={{ color: "var(--color-error)" }}>{errors.phone.message}</p>}
+                      <div>
+                        <label className="block text-sm font-bold mb-2" style={{ color: "var(--color-on-surface-variant)" }}>Phone Number *</label>
+                        <input {...register("phone")} type="tel" placeholder="10-digit mobile number" maxLength={10} required className={inputClass} style={getInputStyle(!!errors.phone)} />
+                        {errors.phone && <p className="text-xs mt-1" style={{ color: "var(--color-error)" }}>{errors.phone.message}</p>}
+                      </div>
                     </div>
 
                     {/* Location + Pincode */}
-                    <div className="grid grid-cols-2 gap-4">
+                    <div className="grid grid-cols-2 gap-3">
                       <div className="space-y-1.5">
                         <label className="text-sm font-semibold ml-1" style={{ color: "var(--color-on-surface-variant)" }}>Location</label>
                         <input {...register("location")} type="text" placeholder="Area / Neighbourhood" className={inputClass} style={getInputStyle(!!errors.location)} />
@@ -601,7 +590,7 @@ export default function GynaecologyPage() {
                     </div>
 
                     {/* Date + Time */}
-                    <div className="grid grid-cols-2 gap-4">
+                    <div className="grid grid-cols-2 gap-3">
                       <div>
                         <label className="block text-sm font-bold mb-2" style={{ color: "var(--color-on-surface-variant)" }}>Select Date</label>
                         <input {...register("date")} type="date" min={new Date().toISOString().split("T")[0]} className={inputClass} style={getInputStyle(!!errors.date)} />
@@ -621,24 +610,36 @@ export default function GynaecologyPage() {
                     </div>
 
                     {/* Submit */}
-                    <motion.button
-                      type="submit"
-                      disabled={isSubmitting}
-                      whileHover={{ scale: 1.02, y: -2 }}
-                      whileTap={{ scale: 0.97 }}
-                      className="w-full h-14 rounded-xl font-bold text-lg flex items-center justify-center gap-2"
-                      style={{
-                        fontFamily: "var(--font-headline)",
-                        backgroundColor: isSubmitting ? "var(--color-outline)" : "var(--color-primary)",
-                        color: "var(--color-on-primary)",
-                        cursor: isSubmitting ? "not-allowed" : "pointer",
-                        boxShadow: "0 8px 24px color-mix(in srgb, var(--color-primary) 25%, transparent)",
-                      }}
+                    <div
+                      className="sticky bottom-0 pb-1"
+                      style={{ backgroundColor: "var(--color-surface-container-lowest)" }}
                     >
-                      {isSubmitting ? (
-                        <><motion.span animate={{ rotate: 360 }} transition={{ duration: 1, repeat: Infinity, ease: "linear" }} className="material-symbols-outlined text-xl">progress_activity</motion.span>Submitting...</>
-                      ) : "Submit Enquiry"}
-                    </motion.button>
+                      <div
+                        className="h-4 -mt-4 pointer-events-none"
+                        style={{
+                          background:
+                            "linear-gradient(to top, var(--color-surface-container-lowest), transparent)",
+                        }}
+                      />
+                      <motion.button
+                        type="submit"
+                        disabled={isSubmitting}
+                        whileHover={{ scale: 1.02, y: -2 }}
+                        whileTap={{ scale: 0.97 }}
+                        className="w-full h-14 rounded-xl font-bold text-lg flex items-center justify-center gap-2"
+                        style={{
+                          fontFamily: "var(--font-headline)",
+                          backgroundColor: isSubmitting ? "var(--color-outline)" : "var(--color-primary)",
+                          color: "var(--color-on-primary)",
+                          cursor: isSubmitting ? "not-allowed" : "pointer",
+                          boxShadow: "0 8px 24px color-mix(in srgb, var(--color-primary) 25%, transparent)",
+                        }}
+                      >
+                        {isSubmitting ? (
+                          <><motion.span animate={{ rotate: 360 }} transition={{ duration: 1, repeat: Infinity, ease: "linear" }} className="material-symbols-outlined text-xl">progress_activity</motion.span>Submitting...</>
+                        ) : "Submit Enquiry"}
+                      </motion.button>
+                    </div>
 
                     <p className="text-xs text-center leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
                       By booking, you agree to our{" "}
