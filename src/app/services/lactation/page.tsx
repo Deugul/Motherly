@@ -70,7 +70,7 @@ export default function LactationPage() {
                     />
                   ))}
                 </div>
-                <p className="text-sm" style={{ color: "var(--color-on-surface-variant)" }}>
+                <p className="text-sm mt-5" style={{ color: "var(--color-on-surface-variant)" }}>
                   <span className="font-bold" style={{ color: "var(--color-on-surface)" }}>15+</span> Dedicated Consultants
                 </p>
               </div>
