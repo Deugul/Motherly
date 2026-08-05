@@ -111,37 +111,9 @@ export default function MotherCarePage() {
 
           {/* `contents` on mobile lets the form sit between the hero and the rest
               of the content column; on lg it is a normal 7-column grid item. */}
-          <div className="contents lg:block lg:col-span-12 lg:space-y-14">
+          <div className="contents lg:block lg:col-span-7 lg:space-y-14">
 
-            <ScrollReveal className="-order-1 lg:order-none">
-              <section className="relative">
-                <div
-                  className="absolute -top-10 -left-10 w-40 h-40 rounded-full blur-3xl opacity-60 pointer-events-none"
-                  style={{ backgroundColor: "color-mix(in srgb, var(--color-primary-container) 20%, transparent)" }}
-                />
-                <h1
-                  className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight"
-                  style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-background)" }}
-                >
-                  Book a{" "}
-                  <span style={{ color: "var(--color-primary)" }}>Mother Care Specialist</span>
-                  {" "}in Chennai
-                </h1>
-                <p
-                  className="text-base md:text-lg mt-4 leading-relaxed"
-                  style={{ color: "var(--color-on-surface-variant)" }}
-                >
-                  Comprehensive postnatal care from verified Mother Care specialists — in-home recovery support, traditional oil massage, nutritional guidance, and emotional wellbeing from day one after delivery.
-                </p>
-                <div className="mt-6">
-                  <ServiceEnquiryCta
-                  serviceKey="mother-care"
-                  serviceOptions={["Mother Care","In-Home Mother Care","Virtual Mother Care","Full Confinement Care"]}
-                />
-                </div>
-              </section>
-            </ScrollReveal>
-
+            
             <ScrollReveal direction="left">
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
                 {[
@@ -544,6 +516,40 @@ export default function MotherCarePage() {
           </div>
 
           
+
+
+          {/* ── Right Column: Service image ── */}
+          <aside className="lg:col-span-5 lg:self-start">
+            {/* Featured Image */}
+            <ScrollReveal className="-order-1 lg:order-none">
+              <section className="relative">
+                <div
+                  className="absolute -top-10 -left-10 w-40 h-40 rounded-full blur-3xl opacity-60 pointer-events-none"
+                  style={{ backgroundColor: "color-mix(in srgb, var(--color-primary-container) 20%, transparent)" }}
+                />
+                <h1
+                  className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight"
+                  style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-background)" }}
+                >
+                  Book a{" "}
+                  <span style={{ color: "var(--color-primary)" }}>Mother Care Specialist</span>
+                  {" "}in Chennai
+                </h1>
+                <p
+                  className="text-base md:text-lg mt-4 leading-relaxed"
+                  style={{ color: "var(--color-on-surface-variant)" }}
+                >
+                  Comprehensive postnatal care from verified Mother Care specialists — in-home recovery support, traditional oil massage, nutritional guidance, and emotional wellbeing from day one after delivery.
+                </p>
+                <div className="mt-6">
+                  <ServiceEnquiryCta
+                  serviceKey="mother-care"
+                  serviceOptions={["Mother Care","In-Home Mother Care","Virtual Mother Care","Full Confinement Care"]}
+                />
+                </div>
+              </section>
+            </ScrollReveal>
+          </aside>
 
         </div>
       </main>

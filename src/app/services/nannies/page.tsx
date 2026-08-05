@@ -80,7 +80,7 @@ export default function NanniesPage() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
 
           {/* ── Left Column ── */}
-          <div className="contents lg:block lg:col-span-12 lg:space-y-14">
+          <div className="contents lg:block lg:col-span-7 lg:space-y-14">
 
             {/* H1 */}
             <ScrollReveal className="-order-1 lg:order-none">
@@ -168,37 +168,7 @@ export default function NanniesPage() {
               </div>
             </ScrollReveal>
 
-            {/* Featured Image */}
-            <ScrollReveal delay={0.1} direction="right">
-              <div
-                className="relative overflow-hidden rounded-2xl"
-                style={{ boxShadow: "0 12px 32px rgba(45,52,53,0.1)" }}
-              >
-                <motion.div whileHover={{ scale: 1.04 }} transition={{ duration: 0.6 }}>
-                  <Image
-                    src="/nannies-hero.jpg"
-                    alt="A caring Motherly nanny providing attentive newborn support at home in Chennai"
-                    width={800}
-                    height={400}
-                    className="w-full h-[360px] object-cover object-top"
-                  />
-                </motion.div>
-                <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.4), transparent)" }} />
-                <div className="absolute bottom-6 left-6 text-white">
-                  <span
-                    className="px-4 py-1 rounded-full text-xs font-bold"
-                    style={{ backgroundColor: "rgba(172,45,94,0.9)", backdropFilter: "blur(8px)" }}
-                  >
-                    Our Care
-                  </span>
-                  <h3 className="text-xl font-bold mt-2 italic" style={{ fontFamily: "var(--font-headline)" }}>
-                    Every newborn deserves a gentle pair of hands.
-                  </h3>
-                </div>
-              </div>
-            </ScrollReveal>
-
-            {/* Daytime vs Overnight */}
+                        {/* Daytime vs Overnight */}
             <ScrollReveal direction="right">
               <section className="space-y-4">
                 <h2
@@ -447,9 +417,43 @@ export default function NanniesPage() {
 
           </div>
 
+          {/* ── Right Column: Service image ── */}
+          <aside className="lg:col-span-5 lg:self-start">
+{/* Featured Image */}
+            <ScrollReveal delay={0.1} direction="right">
+              <div
+                className="relative overflow-hidden rounded-2xl"
+                style={{ boxShadow: "0 12px 32px rgba(45,52,53,0.1)" }}
+              >
+                <motion.div whileHover={{ scale: 1.04 }} transition={{ duration: 0.6 }}>
+                  <Image
+                    src="/nannies-hero.jpg"
+                    alt="A caring Motherly nanny providing attentive newborn support at home in Chennai"
+                    width={800}
+                    height={400}
+                    className="w-full h-[360px] lg:min-h-[480px] lg:h-auto object-cover object-top"
+                  />
+                </motion.div>
+                <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.4), transparent)" }} />
+                <div className="absolute bottom-6 left-6 text-white">
+                  <span
+                    className="px-4 py-1 rounded-full text-xs font-bold"
+                    style={{ backgroundColor: "rgba(172,45,94,0.9)", backdropFilter: "blur(8px)" }}
+                  >
+                    Our Care
+                  </span>
+                  <h3 className="text-xl font-bold mt-2 italic" style={{ fontFamily: "var(--font-headline)" }}>
+                    Every newborn deserves a gentle pair of hands.
+                  </h3>
+                </div>
+              </div>
+            </ScrollReveal>
+          </aside>
+
+
           
         </div>
-      </main>
+</main>
       <Footer />
     </>
   );

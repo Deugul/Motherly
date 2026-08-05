@@ -117,37 +117,9 @@ export default function BabyCarePage() {
       >
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
 
-          <div className="contents lg:block lg:col-span-12 lg:space-y-14">
+          <div className="contents lg:block lg:col-span-7 lg:space-y-14">
 
-            <ScrollReveal className="-order-1 lg:order-none">
-              <section className="relative">
-                <div
-                  className="absolute -top-10 -left-10 w-40 h-40 rounded-full blur-3xl opacity-60 pointer-events-none"
-                  style={{ backgroundColor: "color-mix(in srgb, var(--color-primary-container) 20%, transparent)" }}
-                />
-                <h1
-                  className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight"
-                  style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-background)" }}
-                >
-                  Book a{" "}
-                  <span style={{ color: "var(--color-primary)" }}>Baby Care Specialist</span>
-                  {" "}in Chennai
-                </h1>
-                <p
-                  className="text-base md:text-lg mt-4 leading-relaxed"
-                  style={{ color: "var(--color-on-surface-variant)" }}
-                >
-                  Expert newborn care from verified Baby Care specialists — in-home bathing, feeding support, sleep routines, and traditional baby massage from day one through your baby's first year.
-                </p>
-                <div className="mt-6">
-                  <ServiceEnquiryCta
-                  serviceKey="baby-care"
-                  serviceOptions={["Baby Care","In-Home Newborn Care","Virtual Baby Care","Overnight Baby Care"]}
-                />
-                </div>
-              </section>
-            </ScrollReveal>
-
+            
             <ScrollReveal direction="left">
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
                 {[
@@ -546,6 +518,40 @@ export default function BabyCarePage() {
           </div>
 
           
+
+
+          {/* ── Right Column: Service image ── */}
+          <aside className="lg:col-span-5 lg:self-start">
+            {/* Featured Image */}
+            <ScrollReveal className="-order-1 lg:order-none">
+              <section className="relative">
+                <div
+                  className="absolute -top-10 -left-10 w-40 h-40 rounded-full blur-3xl opacity-60 pointer-events-none"
+                  style={{ backgroundColor: "color-mix(in srgb, var(--color-primary-container) 20%, transparent)" }}
+                />
+                <h1
+                  className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight"
+                  style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-background)" }}
+                >
+                  Book a{" "}
+                  <span style={{ color: "var(--color-primary)" }}>Baby Care Specialist</span>
+                  {" "}in Chennai
+                </h1>
+                <p
+                  className="text-base md:text-lg mt-4 leading-relaxed"
+                  style={{ color: "var(--color-on-surface-variant)" }}
+                >
+                  Expert newborn care from verified Baby Care specialists — in-home bathing, feeding support, sleep routines, and traditional baby massage from day one through your baby's first year.
+                </p>
+                <div className="mt-6">
+                  <ServiceEnquiryCta
+                  serviceKey="baby-care"
+                  serviceOptions={["Baby Care","In-Home Newborn Care","Virtual Baby Care","Overnight Baby Care"]}
+                />
+                </div>
+              </section>
+            </ScrollReveal>
+          </aside>
 
         </div>
       </main>
