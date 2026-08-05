@@ -23,13 +23,7 @@ const schema = z.object({
       t.setHours(0, 0, 0, 0);
       return new Date(val) >= t;
     }, "Please select today or a future date"),
-  time: z
-    .string()
-    .min(1, "Time is required")
-    .refine((val) => {
-      const [h] = val.split(":").map(Number);
-      return h >= 9 && h < 18;
-    }, "Please select a time between 9 AM and 6 PM"),
+  time: z.string().min(1, "Time is required"),
   message: z.string().optional(),
   location: z.string().min(2, "Location is required"),
   pincode: z.string().regex(/^\d{6}$/, "Enter a valid 6-digit pincode"),
@@ -268,8 +262,6 @@ export default function ServiceBookingForm({
               <input
                 {...register("time")}
                 type="time"
-                min="09:00"
-                max="18:00"
                 className={inputClass}
                 style={getInputStyle(!!errors.time)}
               />
