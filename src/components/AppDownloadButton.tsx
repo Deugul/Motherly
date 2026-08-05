@@ -19,7 +19,7 @@ function isIOS(): boolean {
   return navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1;
 }
 
-type Variant = "hero" | "card";
+type Variant = "hero" | "card" | "navbar";
 
 export default function AppDownloadButton({
   variant = "hero",
@@ -36,10 +36,15 @@ export default function AppDownloadButton({
     window.open(APP_STORE_URL, "_blank", "noopener,noreferrer");
   };
 
+  const label =
+    variant === "navbar" ? "Download Motherly Mobile App" : "Download the Motherly App";
+
   const sizing =
     variant === "hero"
-      ? "w-full sm:w-auto px-8 py-3.5 text-base"
-      : "px-7 py-3 text-sm";
+      ? "w-full sm:w-auto px-8 py-3.5 text-base rounded-xl"
+      : variant === "navbar"
+        ? "px-5 py-2.5 text-sm rounded-full"
+        : "px-7 py-3 text-sm rounded-xl";
 
   return (
     <motion.a
@@ -49,7 +54,7 @@ export default function AppDownloadButton({
       rel="noopener noreferrer"
       whileHover={{ scale: 1.03, y: -2 }}
       whileTap={{ scale: 0.97 }}
-      className={`inline-flex items-center justify-center gap-2 rounded-xl font-bold transition-all ${sizing} ${className}`}
+      className={`inline-flex items-center justify-center gap-2 font-bold transition-all ${sizing} ${className}`}
       style={{
         fontFamily: "var(--font-headline)",
         background: "linear-gradient(135deg, #ba0e56 0%, #f4447f 100%)",
@@ -58,7 +63,7 @@ export default function AppDownloadButton({
           "0 8px 24px color-mix(in srgb, var(--color-primary) 25%, transparent)",
       }}
     >
-      Download the Motherly App
+      {label}
     </motion.a>
   );
 }

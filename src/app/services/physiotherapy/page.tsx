@@ -11,40 +11,8 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 import AppDownloadButton from "@/components/AppDownloadButton";
+import ServiceEnquiryCta from "@/components/ServiceEnquiryCta";
 
-const schema = z.object({
-  service: z.string().min(1),
-  name: z.string()
-    .min(2, "Name must be at least 2 characters")
-    .max(50, "Name must not exceed 50 characters")
-    .regex(/^[a-zA-Z\s]+$/, "Name must contain only letters"),
-  email: z.string().email("Valid email required"),
-  phone: z.string().regex(/^\d{10}$/, "Enter a valid 10-digit phone number"),
-  date: z.string().min(1, "Date is required").refine(
-    (val) => { const t = new Date(); t.setHours(0, 0, 0, 0); return new Date(val) >= t; },
-    "Please select today or a future date"
-  ),
-  time: z.string().min(1, "Time is required").refine(
-    (val) => { const [h] = val.split(":").map(Number); return h >= 9 && h < 18; },
-    "Please select a time between 9 AM and 6 PM"
-  ),
-  message: z.string().optional(),
-  location: z.string().min(2, "Location is required"),
-  pincode: z.string().regex(/^\d{6}$/, "Enter a valid 6-digit pincode"),
-});
-type FormData = z.infer<typeof schema>;
-
-const inputClass =
-  "w-full px-4 py-2 rounded-md text-sm font-medium outline-none border-2 transition-all duration-200";
-
-function getInputStyle(hasError?: boolean) {
-  return {
-    backgroundColor: "var(--color-surface-container-low)",
-    color: "var(--color-on-surface)",
-    borderColor: hasError ? "var(--color-error)" : "transparent",
-    fontFamily: "var(--font-body)",
-  };
-}
 
 const easeOut: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
 
@@ -173,35 +141,7 @@ const FAQS = [
 ];
 
 export default function PhysiotherapyPage() {
-  const [submitted, setSubmitted] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
-  const [formActive, setFormActive] = useState(false);
-  const formWrapperRef = useRef<HTMLElement>(null);
-  const preActivateTop = useRef<number | null>(null);
-  useLayoutEffect(() => {
-    if (formActive && preActivateTop.current !== null && formWrapperRef.current) {
-      const diff = formWrapperRef.current.getBoundingClientRect().top - preActivateTop.current;
-      if (Math.abs(diff) > 1) window.scrollBy({ top: diff, behavior: "instant" });
-      preActivateTop.current = null;
-    }
-  }, [formActive]);
-
-  const {
-    register,
-    handleSubmit,
-    formState: { errors, isSubmitting },
-    reset,
-  } = useForm<FormData>({ resolver: zodResolver(schema) });
-
-  const onSubmit = async (data: FormData) => {
-    await fetch("/api/submit", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ formType: "Service Bookings", page: "Physiotherapy", ...data }),
-    });
-    setSubmitted(true);
-    reset();
-  };
 
   return (
     <>
@@ -213,7 +153,7 @@ export default function PhysiotherapyPage() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
 
           {/* ── Left Column ── */}
-          <div className="contents lg:block lg:col-span-7 lg:space-y-14">
+          <div className="contents lg:block lg:col-span-12 lg:space-y-14">
 
             {/* H1 */}
             <ScrollReveal className="-order-1 lg:order-none">
@@ -242,7 +182,10 @@ export default function PhysiotherapyPage() {
                   through in-clinic and virtual sessions. As the trusted postpartum rehabilitation Chennai mothers choose for clinically led, personalised recovery, we help you rebuild strength, resolve pain, and feel at home in your body again.
                 </p>
                 <div className="mt-6">
-                  <AppDownloadButton variant="hero" />
+                  <ServiceEnquiryCta
+                  serviceKey="physiotherapy"
+                  serviceOptions={["Physiotherapy","Pelvic Floor Rehabilitation","Diastasis Recti Treatment","C-Section Rehab","Return to Exercise"]}
+                />
                 </div>
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
                   {[
@@ -659,181 +602,7 @@ export default function PhysiotherapyPage() {
 
           </div>
 
-          {/* ── Right Column: Booking Form ── */}
-          <aside ref={formWrapperRef} className={`-order-1 lg:order-none lg:col-span-5${!formActive ? " lg:sticky lg:top-28 lg:self-start" : ""}`}>
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.2, ease: easeOut }}
-              onFocus={() => {
-                if (!formActive && formWrapperRef.current) {
-                  preActivateTop.current = formWrapperRef.current.getBoundingClientRect().top;
-                }
-                setFormActive(true);
-              }}
-              onBlur={(e) => { if (!e.currentTarget.contains(e.relatedTarget as Node)) setFormActive(false); }}
-              className="rounded-xl border"
-              style={{
-                backgroundColor: "var(--color-surface-container-lowest)",
-                borderColor: "color-mix(in srgb, var(--color-outline-variant) 10%, transparent)",
-                boxShadow: "0 12px 32px rgba(45,52,53,0.08)",
-              }}
-            >
-              <div className="p-8 lg:p-10">
-                <h2
-                  className="text-2xl font-bold mb-2"
-                  style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-background)" }}
-                >
-                  Send an Enquiry
-                </h2>
-                <p className="text-sm mb-3" style={{ color: "var(--color-on-surface-variant)" }}>
-                  Tell us about your needs and we&apos;ll be in touch.
-                </p>
-
-                <AnimatePresence mode="wait">
-                  {submitted ? (
-                    <motion.div
-                      key="success"
-                      initial={{ opacity: 0, scale: 0.9 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      className="flex flex-col items-center text-center py-12 gap-4"
-                    >
-                      <div
-                        className="w-16 h-16 rounded-full flex items-center justify-center"
-                        style={{ backgroundColor: "var(--color-secondary-container)" }}
-                      >
-                        <span className="material-symbols-outlined text-4xl" style={{ color: "var(--color-primary)" }}>
-                          check_circle
-                        </span>
-                      </div>
-                      <h3
-                        className="text-2xl font-bold"
-                        style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-background)" }}
-                      >
-                        Enquiry Sent!
-                      </h3>
-                      <p className="text-sm" style={{ color: "var(--color-on-surface-variant)" }}>
-                        We&apos;ll connect you with a certified physiotherapist in Chennai shortly.
-                      </p>
-                      <button
-                        onClick={() => setSubmitted(false)}
-                        className="mt-2 text-sm font-semibold underline"
-                        style={{ color: "var(--color-primary)" }}
-                      >
-                        Send another enquiry
-                      </button>
-                    </motion.div>
-                  ) : (
-                    <motion.form
-                      key="form"
-                      onSubmit={handleSubmit(onSubmit)}
-                      className="space-y-3 overflow-y-auto max-h-[calc(100dvh-13rem)] pr-1"
-                      initial={{ opacity: 1 }}
-                    >
-                      {/* Service + Full Name */}
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                        <div className="space-y-1.5">
-                          <label className="block text-sm font-semibold" style={{ color: "var(--color-on-surface-variant)" }}>Service</label>
-                          <select {...register("service")} className={inputClass} style={getInputStyle(!!errors.service)}>
-                            <option value="Physiotherapy">Physiotherapy</option>
-                            <option value="Pelvic Floor Rehabilitation">Pelvic Floor Rehabilitation</option>
-                            <option value="Diastasis Recti Treatment">Diastasis Recti Treatment</option>
-                            <option value="C-Section Rehab">C-Section Rehab</option>
-                            <option value="Return to Exercise">Return to Exercise</option>
-                          </select>
-                          {errors.service && <p className="text-xs" style={{ color: "var(--color-error)" }}>{errors.service.message}</p>}
-                        </div>
-
-                        <div className="space-y-1.5">
-                          <label className="block text-sm font-semibold" style={{ color: "var(--color-on-surface-variant)" }}>Full Name</label>
-                          <input {...register("name")} type="text" placeholder="Your name" className={inputClass} style={getInputStyle(!!errors.name)} />
-                          {errors.name && <p className="text-xs" style={{ color: "var(--color-error)" }}>{errors.name.message}</p>}
-                        </div>
-                      </div>
-
-                      {/* Email + Phone */}
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                        <div className="space-y-1.5">
-                          <label className="block text-sm font-semibold" style={{ color: "var(--color-on-surface-variant)" }}>Email Address</label>
-                          <input {...register("email")} type="email" placeholder="you@example.com" className={inputClass} style={getInputStyle(!!errors.email)} />
-                          {errors.email && <p className="text-xs" style={{ color: "var(--color-error)" }}>{errors.email.message}</p>}
-                        </div>
-
-                        <div className="space-y-1.5">
-                          <label className="block text-sm font-semibold" style={{ color: "var(--color-on-surface-variant)" }}>Phone Number *</label>
-                          <input {...register("phone")} type="tel" placeholder="10-digit mobile number" maxLength={10} required className={inputClass} style={getInputStyle(!!errors.phone)} />
-                          {errors.phone && <p className="text-xs" style={{ color: "var(--color-error)" }}>{errors.phone.message}</p>}
-                        </div>
-                      </div>
-
-                      {/* Location + Pincode */}
-                      <div className="grid grid-cols-2 gap-3">
-                        <div className="space-y-1.5">
-                          <label className="block text-sm font-semibold" style={{ color: "var(--color-on-surface-variant)" }}>Location</label>
-                          <input {...register("location")} type="text" placeholder="Area / Neighbourhood" className={inputClass} style={getInputStyle(!!errors.location)} />
-                          {errors.location && <p className="text-xs" style={{ color: "var(--color-error)" }}>{errors.location.message}</p>}
-                        </div>
-                        <div className="space-y-1.5">
-                          <label className="block text-sm font-semibold" style={{ color: "var(--color-on-surface-variant)" }}>Pincode</label>
-                          <input {...register("pincode")} type="text" placeholder="6-digit pincode" maxLength={6} className={inputClass} style={getInputStyle(!!errors.pincode)} />
-                          {errors.pincode && <p className="text-xs" style={{ color: "var(--color-error)" }}>{errors.pincode.message}</p>}
-                        </div>
-                      </div>
-
-                      {/* Preferred Date + Time */}
-                      <div className="grid grid-cols-2 gap-3">
-                        <div className="space-y-1.5">
-                          <label className="block text-sm font-semibold" style={{ color: "var(--color-on-surface-variant)" }}>Preferred Date</label>
-                          <input {...register("date")} type="date" className={inputClass} style={getInputStyle(!!errors.date)} />
-                          {errors.date && <p className="text-xs" style={{ color: "var(--color-error)" }}>{errors.date.message}</p>}
-                        </div>
-
-                        <div className="space-y-1.5">
-                          <label className="block text-sm font-semibold" style={{ color: "var(--color-on-surface-variant)" }}>Preferred Time</label>
-                          <input {...register("time")} type="time" className={inputClass} style={getInputStyle(!!errors.time)} />
-                          {errors.time && <p className="text-xs" style={{ color: "var(--color-error)" }}>{errors.time.message}</p>}
-                        </div>
-                      </div>
-
-                      <div className="space-y-1.5">
-                        <label className="block text-sm font-semibold" style={{ color: "var(--color-on-surface-variant)" }}>
-                          Message <span className="font-normal opacity-60">(optional)</span>
-                        </label>
-                        <textarea
-                          {...register("message")}
-                          rows={2}
-                          placeholder="Tell us about your specific concern or recovery goal..."
-                          className={inputClass}
-                          style={{ ...getInputStyle(false), resize: "none" }}
-                        />
-                      </div>
-
-                      <div
-                        className="sticky bottom-0 pb-1"
-                        style={{ backgroundColor: "var(--color-surface-container-lowest)" }}
-                      >
-                        <div
-                          className="h-4 -mt-4 pointer-events-none"
-                          style={{
-                            background:
-                              "linear-gradient(to top, var(--color-surface-container-lowest), transparent)",
-                          }}
-                        />
-                        <button
-                          type="submit"
-                          disabled={isSubmitting}
-                          className="w-full py-3.5 rounded-md font-semibold text-base transition-all active:scale-[0.98] disabled:opacity-60"
-                          style={{ backgroundColor: "var(--color-primary)", color: "var(--color-on-primary)", fontFamily: "var(--font-headline)" }}
-                        >
-                          {isSubmitting ? "Sending…" : "Send Enquiry"}
-                        </button>
-                      </div>
-                    </motion.form>
-                  )}
-                </AnimatePresence>
-              </div>
-            </motion.div>
-          </aside>
+          
 
         </div>
       </main>

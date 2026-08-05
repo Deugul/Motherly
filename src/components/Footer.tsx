@@ -48,6 +48,17 @@ export default function Footer() {
             <p className="text-sm leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
               Your trusted birth companion — providing expert, compassionate care for every step of motherhood.
             </p>
+            <Link
+              href="/contact-us"
+              className="inline-flex items-center justify-center rounded-full px-6 py-2.5 text-sm font-bold"
+              style={{
+                fontFamily: "var(--font-plus-jakarta)",
+                backgroundColor: "var(--color-primary)",
+                color: "var(--color-on-primary)",
+              }}
+            >
+              Contact Us
+            </Link>
           </div>
 
           {/* Quick Links */}

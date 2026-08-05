@@ -1,27 +1,12 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import AppDownloadButton from "@/components/AppDownloadButton";
+import ServiceEnquiryCta from "@/components/ServiceEnquiryCta";
 
-// Form validation schema matching other services
-const enquirySchema = z.object({
-  name: z.string().min(2, "Name must be at least 2 characters"),
-  phone: z.string().regex(/^[6-9]\d{9}$/, "Please enter a valid 10-digit Indian mobile number"),
-  email: z.string().email("Please enter a valid email address").optional().or(z.literal("")),
-  service: z.string().min(1, "Please select a service"),
-  notes: z.string().optional(),
-});
-
-type EnquiryFormData = z.infer<typeof enquirySchema>;
-
-const easeOut = [0.25, 0.46, 0.45, 0.94] as any;
+const easeOut = [0.25, 0.46, 0.45, 0.94] as const;
 
 function ScrollReveal({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
   return (
@@ -37,54 +22,6 @@ function ScrollReveal({ children, delay = 0 }: { children: React.ReactNode; dela
 }
 
 export default function PhysiotherapyPage() {
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitSuccess, setSubmitSuccess] = useState<boolean | null>(null);
-
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors },
-  } = useForm<EnquiryFormData>({
-    resolver: zodResolver(enquirySchema),
-    defaultValues: {
-      service: "Postnatal Physiotherapy",
-      notes: "Enquiry for Postnatal Physiotherapy in Chennai.",
-    },
-  });
-
-  const onSubmit = async (data: EnquiryFormData) => {
-    setIsSubmitting(true);
-    try {
-      const response = await fetch("/api/submit", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...data, page: "Physiotherapy" }),
-      });
-      if (response.ok) {
-        setSubmitSuccess(true);
-        reset();
-      } else {
-        setSubmitSuccess(false);
-      }
-    } catch {
-      setSubmitSuccess(false);
-    } finally {
-      setIsSubmitting(false);
-      setTimeout(() => setSubmitSuccess(null), 5000);
-    }
-  };
-
-  const inputClass =
-    "w-full px-4 py-3 rounded-xl text-sm transition-all outline-none border focus:border-[var(--color-primary)]";
-
-  const getInputStyle = (hasError: boolean) => ({
-    backgroundColor: "var(--color-surface-container-highest)",
-    borderColor: hasError ? "var(--color-error)" : "color-mix(in srgb, var(--color-outline) 15%, transparent)",
-    fontFamily: "var(--font-manrope)",
-    color: "var(--color-on-surface)",
-  });
-
   return (
     <>
       <Navbar />
@@ -117,7 +54,16 @@ export default function PhysiotherapyPage() {
                   Book certified postnatal physiotherapy in Chennai. Restore pelvic floor strength, heal diastasis recti, recover from C-section rehab, and solve back pain with personalized in-clinic and virtual sessions.
                 </p>
                 <div className="mt-6">
-                  <AppDownloadButton variant="hero" />
+                  <ServiceEnquiryCta
+                    serviceKey="physiotherapy"
+                    serviceOptions={[
+                      "Physiotherapy",
+                      "Pelvic Floor Rehabilitation",
+                      "Diastasis Recti Treatment",
+                      "C-Section Rehab",
+                      "Return to Exercise",
+                    ]}
+                  />
                 </div>
                 <div className="flex flex-wrap gap-4">
                   {[
@@ -140,167 +86,6 @@ export default function PhysiotherapyPage() {
                 </div>
               </ScrollReveal>
             </div>
-
-            {/* Booking Form (Right side) */}
-            <aside className="lg:col-span-5">
-              <motion.div
-                initial={{ opacity: 0, x: 30 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.2, ease: easeOut }}
-                className="rounded-xl border lg:sticky lg:top-28"
-                style={{
-                  backgroundColor: "var(--color-surface-container-lowest)",
-                  borderColor: "color-mix(in srgb, var(--color-outline-variant) 10%, transparent)",
-                  boxShadow: "0 12px 32px rgba(45,52,53,0.08)",
-                }}
-              >
-                <div className="p-8 lg:p-10">
-                  <h2
-                    className="text-2xl font-bold mb-2"
-                    style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-background)" }}
-                  >
-                    Send an Enquiry
-                  </h2>
-                  <p className="text-xs mb-6" style={{ color: "var(--color-on-surface-variant)" }}>
-                    Connect with our certified women's health physiotherapists in Chennai.
-                  </p>
-
-                  <form
-                    onSubmit={handleSubmit(onSubmit)}
-                    className="space-y-5 overflow-y-auto max-h-[calc(100dvh-15rem)] pr-1"
-                  >
-                    {/* Selected Service */}
-                    <div className="space-y-1.5">
-                      <label className="text-sm font-semibold ml-1" style={{ color: "var(--color-on-surface-variant)" }}>
-                        Service Requested
-                      </label>
-                      <select
-                        {...register("service")}
-                        className={inputClass}
-                        style={getInputStyle(!!errors.service)}
-                      >
-                        <option value="Postnatal Physiotherapy">Postnatal Physiotherapy</option>
-                        <option value="Lactation Consulting">Lactation Consulting</option>
-                        <option value="Nanny Care">Nanny Care</option>
-                        <option value="Postnatal Recovery">Postnatal Recovery</option>
-                      </select>
-                    </div>
-
-                    {/* Patient Name */}
-                    <div className="space-y-1.5">
-                      <label className="text-sm font-semibold ml-1" style={{ color: "var(--color-on-surface-variant)" }}>
-                        Patient Name
-                      </label>
-                      <input
-                        {...register("name")}
-                        type="text"
-                        placeholder="Your Full Name"
-                        className={inputClass}
-                        style={getInputStyle(!!errors.name)}
-                      />
-                      {errors.name && (
-                        <p className="text-xs ml-1" style={{ color: "var(--color-error)" }}>{errors.name.message}</p>
-                      )}
-                    </div>
-
-                    {/* Mobile Number */}
-                    <div className="space-y-1.5">
-                      <label className="text-sm font-semibold ml-1" style={{ color: "var(--color-on-surface-variant)" }}>
-                        Mobile Number *
-                      </label>
-                      <div className="relative">
-                        <span
-                          className="absolute left-4 top-1/2 -translate-y-1/2 text-sm font-bold"
-                          style={{ color: "var(--color-on-surface-variant)" }}
-                        >
-                          +91
-                        </span>
-                        <input
-                          {...register("phone")}
-                          type="tel"
-                          placeholder="98765 43210"
-                          maxLength={10}
-                          required
-                          className={`${inputClass} pl-13`}
-                          style={getInputStyle(!!errors.phone)}
-                        />
-                      </div>
-                      {errors.phone && (
-                        <p className="text-xs ml-1" style={{ color: "var(--color-error)" }}>{errors.phone.message}</p>
-                      )}
-                    </div>
-
-                    {/* Optional Email */}
-                    <div className="space-y-1.5">
-                      <label className="text-sm font-semibold ml-1" style={{ color: "var(--color-on-surface-variant)" }}>
-                        Email Address (Optional)
-                      </label>
-                      <input
-                        {...register("email")}
-                        type="email"
-                        placeholder="name@example.com"
-                        className={inputClass}
-                        style={getInputStyle(!!errors.email)}
-                      />
-                      {errors.email && (
-                        <p className="text-xs ml-1" style={{ color: "var(--color-error)" }}>{errors.email.message}</p>
-                      )}
-                    </div>
-
-                    {/* Submit Button */}
-                    <div
-                      className="sticky bottom-0 pb-1"
-                      style={{ backgroundColor: "var(--color-surface-container-lowest)" }}
-                    >
-                      <div
-                        className="h-4 -mt-4 pointer-events-none"
-                        style={{
-                          background:
-                            "linear-gradient(to top, var(--color-surface-container-lowest), transparent)",
-                        }}
-                      />
-                      <button
-                        type="submit"
-                        disabled={isSubmitting}
-                        className="w-full py-4 rounded-xl font-bold text-sm tracking-wide transition-all active:scale-[0.98] disabled:opacity-50"
-                        style={{
-                          backgroundColor: "var(--color-primary)",
-                          color: "var(--color-on-primary)",
-                          boxShadow: "0 8px 20px color-mix(in srgb, var(--color-primary) 25%, transparent)",
-                        }}
-                      >
-                        {isSubmitting ? "Submitting..." : "Send an Enquiry"}
-                      </button>
-                    </div>
-
-                    <AnimatePresence>
-                      {submitSuccess === true && (
-                        <motion.p
-                          initial={{ opacity: 0, y: 10 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          exit={{ opacity: 0 }}
-                          className="text-center text-xs font-bold"
-                          style={{ color: "var(--color-primary)" }}
-                        >
-                          Enquiry submitted successfully! We will connect soon.
-                        </motion.p>
-                      )}
-                      {submitSuccess === false && (
-                        <motion.p
-                          initial={{ opacity: 0, y: 10 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          exit={{ opacity: 0 }}
-                          className="text-center text-xs font-bold"
-                          style={{ color: "var(--color-error)" }}
-                        >
-                          Something went wrong. Please try again.
-                        </motion.p>
-                      )}
-                    </AnimatePresence>
-                  </form>
-                </div>
-              </motion.div>
-            </aside>
           </div>
         </section>
       </main>
