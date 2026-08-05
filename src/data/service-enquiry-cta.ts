@@ -20,7 +20,7 @@ export type ServiceEnquiryCtaConfig = {
 
 export const SERVICE_ENQUIRY_CTA: Record<ServiceEnquiryKey, ServiceEnquiryCtaConfig> = {
   doulas: {
-    ctaLabel: "Book Your Doula",
+    ctaLabel: "Book Your Doula Here",
     defaultService: "Doulas",
     pageLabel: "Doulas",
   },
