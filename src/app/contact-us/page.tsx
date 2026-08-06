@@ -16,11 +16,11 @@ export default function ContactPage() {
     <>
       <Navbar />
       <main
-        className="pt-24 md:pt-32 pb-12 md:pb-20 px-4 md:px-6 max-w-7xl mx-auto"
+        className="pt-28 md:pt-32 pb-12 md:pb-20 px-4 md:px-6 max-w-7xl mx-auto"
         style={{ backgroundColor: "var(--color-surface)" }}
       >
         <ScrollReveal>
-          <header className="mb-20 text-center max-w-3xl mx-auto">
+          <header className="mb-12 md:mb-20 text-center max-w-3xl mx-auto">
             <span
               className="text-xs font-bold tracking-widest uppercase mb-4 block"
               style={{ color: "var(--color-primary)" }}
@@ -28,13 +28,13 @@ export default function ContactPage() {
               Get In Touch
             </span>
             <h1
-              className="text-5xl md:text-6xl font-extrabold tracking-tight leading-tight mb-6"
+              className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-tight mb-6 break-words"
               style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}
             >
               We're here to support your{" "}
               <span style={{ color: "var(--color-primary)" }}>motherhood</span> journey.
             </h1>
-            <p className="text-lg leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
+            <p className="text-base sm:text-lg leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
               Whether you have questions about our home care services or just need a friendly ear,
               our team of specialists is ready to help.
             </p>
@@ -75,7 +75,7 @@ export default function ContactPage() {
                 className="rounded-2xl overflow-hidden"
                 style={{ boxShadow: "0 12px 32px rgba(45,52,53,0.06)" }}
               >
-                <div className="h-64 relative group overflow-hidden">
+                <div className="h-48 sm:h-64 relative group overflow-hidden">
                   <Image
                     src="https://lh3.googleusercontent.com/aida-public/AB6AXuAo1LWRTnwOPeaxJdMNgJU-kc7q9UcjKqdZ1lfaIcmcjF25UsCYExOizAbCYYUZslHdsTdDj4IIPHgD-9_DdN_gPlWdoB8TS7JagsE5RJzOvA7eBKLF2d3qSiI32pDxKXFOvml55TTHzKZaJh0ALpKqWj6TpZoDep3-LMM5G3oeTyADTjp6BeBRa6Sw81LFyftnKDIuvdTYGT6QsM4dpudWO0AoHhWI_JHUdfb_F2DLQxRUNaOeBedmlmag-mFIzUO7YqEW0sH1I8wn"
                     alt="Location map"
@@ -88,7 +88,7 @@ export default function ContactPage() {
                   />
                 </div>
                 <div
-                  className="p-8"
+                  className="p-6 sm:p-8"
                   style={{ backgroundColor: "var(--color-surface-container-lowest)" }}
                 >
                   <h3
