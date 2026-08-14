@@ -1,5 +1,6 @@
-"use client";
-
+// Server component on purpose: the hero is static markup with CSS-only
+// animations, so keeping it off the client bundle cuts hydration work on the
+// one section that decides LCP.
 import Image from "next/image";
 import Link from "next/link";
 
@@ -14,7 +15,10 @@ export default function HeroSection() {
             src="/hero-bg.jpg"
             alt="Mother and baby"
             fill
-            priority
+            // Both hero variants share one src and one `sizes`, so they resolve
+            // to the same URL and eager-loading them costs a single request.
+            loading="eager"
+            fetchPriority="high"
             sizes="(max-width: 768px) 100vw, 50vw"
             className="object-cover object-[85%_10%]"
           />
@@ -97,7 +101,8 @@ export default function HeroSection() {
             src="/hero-bg.jpg"
             alt="Mother and baby"
             fill
-            priority
+            loading="eager"
+            fetchPriority="high"
             sizes="(max-width: 768px) 100vw, 50vw"
             className="object-cover object-[center_35%]"
           />
@@ -143,7 +148,7 @@ export default function HeroSection() {
 
             {/* Buttons */}
             <div className="flex flex-row gap-3 pt-1 animate-hero-fade hero-delay-400">
-              <Link href="/services/doulas">
+              <Link href="/services/doulas" className="inline-flex">
                 <button
                   className="px-8 py-3 rounded-xl font-bold text-base transition-all duration-300 hover:scale-104 hover:-translate-y-0.5 active:scale-96 cursor-pointer"
                   style={{
@@ -156,7 +161,7 @@ export default function HeroSection() {
                   Find a Doula
                 </button>
               </Link>
-              <Link href="/contact-us">
+              <Link href="/contact-us" className="inline-flex">
                 <button
                   className="px-8 py-3 rounded-xl font-bold text-base border-2 transition-all duration-300 hover:scale-104 hover:-translate-y-0.5 active:scale-96 cursor-pointer"
                   style={{

@@ -63,12 +63,12 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div className="space-y-5">
-            <h4
+            <h3
               className="font-bold text-lg tracking-tight"
               style={{ fontFamily: "var(--font-plus-jakarta)", color: "var(--color-on-surface)" }}
             >
               Quick Links
-            </h4>
+            </h3>
             <nav className="flex flex-col gap-3">
               {quickLinks.map(({ label, href }) => (
                 <Link
@@ -85,12 +85,12 @@ export default function Footer() {
 
           {/* Services */}
           <div className="space-y-5">
-            <h4
+            <h3
               className="font-bold text-lg tracking-tight"
               style={{ fontFamily: "var(--font-plus-jakarta)", color: "var(--color-on-surface)" }}
             >
               Services
-            </h4>
+            </h3>
             <nav className="flex flex-col gap-3">
               {services.map(({ label, href }) => (
                 <Link
@@ -107,12 +107,12 @@ export default function Footer() {
 
           {/* Contact */}
           <div className="space-y-5">
-            <h4
+            <h3
               className="font-bold text-lg tracking-tight"
               style={{ fontFamily: "var(--font-plus-jakarta)", color: "var(--color-on-surface)" }}
             >
               Contact
-            </h4>
+            </h3>
             <div className="flex flex-col gap-5">
               <a
                 href="tel:+918698697000"

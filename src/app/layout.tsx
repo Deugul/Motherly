@@ -1,13 +1,11 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, Manrope } from "next/font/google";
-import Script from "next/script";
 import "./globals.css";
 import ScrollToTop from "@/components/ScrollToTop";
 import FontLoader from "@/components/FontLoader";
 import DeferredAnalytics from "@/components/DeferredAnalytics";
+import { GTM_ID, META_PIXEL_ID } from "@/lib/analytics-ids";
 import { SOCIAL_PROFILE_URLS } from "@/data/social-links";
-
-const GTM_ID = "GTM-NWKJVWXJ";
 
 const plusJakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -145,18 +143,11 @@ export default function RootLayout({
         <noscript dangerouslySetInnerHTML={{
           __html: `
           <img height="1" width="1" style="display:none"
-            src="https://www.facebook.com/tr?id=1626727235196727&ev=PageView&noscript=1" />
+            src="https://www.facebook.com/tr?id=${META_PIXEL_ID}&ev=PageView&noscript=1" />
         `}} />
 
-        {/* Google Tag Manager */}
-        <Script id="google-tag-manager" strategy="afterInteractive">{`
-          (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-          })(window,document,'script','dataLayer','${GTM_ID}');
-        `}</Script>
-
+        {/* GTM, GA4 and the Meta pixel all boot from DeferredAnalytics — see the
+            note there for why they must not load during the initial paint. */}
         <DeferredAnalytics />
         <FontLoader />
         <ScrollToTop />
