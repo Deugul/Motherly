@@ -149,37 +149,43 @@ async function fetchAllWordPressBlogPosts(): Promise<SitemapWpPost[]> {
 }
 
 async function buildBlogEntries(now: Date): Promise<MetadataRoute.Sitemap> {
-  const wpPosts = await fetchAllWordPressBlogPosts();
   const blogMap = new Map<string, Date>();
 
-  for (const post of wpPosts) {
-    if (post.status && post.status !== "publish") continue;
+  // 1. Populate from local WP posts data (guarantees local posts are present)
+  for (const post of listLocalWpPosts()) {
     const slug = post.slug?.trim();
     if (!slug) continue;
-    const lastModified = post.modified ?? post.date;
-    const parsedDate = lastModified ? new Date(lastModified) : now;
+    const parsedDate = post.date ? new Date(post.date) : now;
     blogMap.set(
       `${BASE_URL}/blogs/${slug}`,
       Number.isNaN(parsedDate.getTime()) ? now : parsedDate,
     );
   }
 
-  if (blogMap.size === 0) {
-    for (const post of listLocalWpPosts()) {
+  // 2. Add any entries from BLOG_SEO
+  for (const slug of Object.keys(BLOG_SEO)) {
+    const url = `${BASE_URL}/blogs/${slug}`;
+    if (!blogMap.has(url)) {
+      blogMap.set(url, now);
+    }
+  }
+
+  // 3. Merge from remote WordPress API if available
+  try {
+    const wpPosts = await fetchAllWordPressBlogPosts();
+    for (const post of wpPosts) {
+      if (post.status && post.status !== "publish") continue;
       const slug = post.slug?.trim();
       if (!slug) continue;
-      const parsedDate = post.date ? new Date(post.date) : now;
+      const lastModified = post.modified ?? post.date;
+      const parsedDate = lastModified ? new Date(lastModified) : now;
       blogMap.set(
         `${BASE_URL}/blogs/${slug}`,
         Number.isNaN(parsedDate.getTime()) ? now : parsedDate,
       );
     }
-  }
-
-  if (blogMap.size === 0) {
-    for (const slug of Object.keys(BLOG_SEO)) {
-      blogMap.set(`${BASE_URL}/blogs/${slug}`, now);
-    }
+  } catch {
+    // Fail silently if remote WP is offline
   }
 
   return Array.from(blogMap.entries()).map(([url, lastModified]) => ({
