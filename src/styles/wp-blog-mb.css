@@ -836,15 +836,18 @@
   font-weight: 700;
   color: var(--mb-text);
   cursor: pointer;
-  list-style: none;
+  list-style: none !important;
   position: relative;
-  padding-right: 32px;
+  padding-right: 40px;
   font-size: 17px;
   margin: 0;
+  user-select: none;
 }
 
-.wp-content .mb-faq summary::-webkit-details-marker {
-  display: none;
+.wp-content .mb-faq summary::-webkit-details-marker,
+.wp-content .mb-faq summary::marker {
+  display: none !important;
+  content: "" !important;
 }
 
 .wp-content .mb-faq summary::after {
@@ -853,15 +856,25 @@
   right: 0;
   top: 50%;
   transform: translateY(-50%);
+  width: 28px;
+  height: 28px;
+  background: #faf4f6;
+  border: 1px solid var(--mb-red);
+  border-radius: 50%;
   color: var(--mb-red);
-  font-size: 24px;
-  font-weight: 400;
+  font-size: 18px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   line-height: 1;
-  transition: transform 0.3s ease;
+  transition: all 0.25s ease;
 }
 
 .wp-content .mb-faq details[open] summary::after {
   content: "−";
+  background: var(--mb-red);
+  color: #ffffff;
 }
 
 .wp-content .mb-faq details p {

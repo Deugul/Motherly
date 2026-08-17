@@ -3426,6 +3426,254 @@ export const BLOG_SEO: Record<string, BlogSeoEntry> = {
       ]
     }
   },
+  "baby-not-latching-chennai-breastfeeding-problems-and-fixes": {
+    slug: "baby-not-latching-chennai-breastfeeding-problems-and-fixes",
+    h1: "Baby Not Latching? A Guide to Breastfeeding Problems and Fixes",
+    canonical: "https://www.mothrly.com/blogs/baby-not-latching-chennai-breastfeeding-problems-and-fixes",
+    metaTitle: "Baby Not Latching? Breastfeeding Problems & Fixes | Chennai",
+    metaDescription: "Baby not latching? A Chennai guide to common breastfeeding problems — latch issues, positioning, and when the problem needs professional help.",
+    keywords: [
+      "breastfeeding difficulties chennai",
+      "latching issues",
+      "baby not latching",
+      "breastfeeding positions",
+      "breastfeeding support chennai"
+    ],
+    keywordLinks: [
+      { label: "lactation support", url: "https://www.mothrly.com/services/lactation-consultants" },
+      { label: "premature baby care at home", url: "https://www.mothrly.com/blogs/premature-baby-care-at-home-in-chennai-after-nicu-discharge" },
+      { label: "NICU baby care at home", url: "https://www.mothrly.com/blogs/nicu-baby-care-at-home-in-chennai-what-happens-after-discharge" },
+      { label: "twin baby care at home", url: "https://www.mothrly.com/blogs/twin-baby-care-at-home-in-chennai-what-changes-with-two" },
+      { label: "ongoing lactation support at home", url: "https://www.mothrly.com/blogs/lactation-support-at-home-in-chennai-what-ongoing-help-looks-like" }
+    ],
+    faqSchema: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Can a bad latch cause low milk supply?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes — over days or weeks, an ineffective latch means the breast isn't being drained well, which can genuinely reduce supply even if it started out normal."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is nipple pain normal in the first week?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Some tenderness in the first few days is common, but pain that doesn't ease within the first minute of a feed, or that persists throughout, usually points to a fixable positioning issue rather than something to simply push through."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Should I stop breastfeeding if my baby won't latch?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not necessarily. Most latching problems are fixable with the right hands-on support — pumping to protect supply in the meantime is often a better bridge than stopping altogether."
+          }
+        }
+      ]
+    }
+  },
+  "lactation-support-at-home-in-chennai-what-ongoing-help-looks-like": {
+    slug: "lactation-support-at-home-in-chennai-what-ongoing-help-looks-like",
+    h1: "Lactation Support at Home in Chennai: What Ongoing Help Looks Like",
+    canonical: "https://www.mothrly.com/blogs/lactation-support-at-home-in-chennai-what-ongoing-help-looks-like",
+    metaTitle: "Lactation Support at Home in Chennai | Ongoing Help Guide",
+    metaDescription: "What does ongoing at-home lactation support actually include? A Chennai guide to lactation support plans vs a one-time consultation.",
+    keywords: [
+      "lactation support chennai",
+      "lactation support specialist",
+      "breastfeeding support home care",
+      "lactation support home care"
+    ],
+    keywordLinks: [
+      { label: "lactation support", url: "https://www.mothrly.com/services/lactation-consultants" },
+      { label: "baby care support", url: "https://www.mothrly.com/services/baby-care" },
+      { label: "premature baby care", url: "https://www.mothrly.com/blogs/premature-baby-care-at-home-in-chennai-after-nicu-discharge" },
+      { label: "twin baby care at home", url: "https://www.mothrly.com/blogs/twin-baby-care-at-home-in-chennai-what-changes-with-two" },
+      { label: "NICU baby care at home", url: "https://www.mothrly.com/blogs/nicu-baby-care-at-home-in-chennai-what-happens-after-discharge" }
+    ],
+    faqSchema: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How much does ongoing lactation support cost compared to one visit?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It's generally priced as a package rather than per visit — ask for a written breakdown of how many sessions are included and what triggers an extension."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can lactation support help if I'm combination feeding?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes — a specialist can help you build a plan that protects supply while combining breast and bottle, rather than treating it as an all-or-nothing choice."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does ongoing support replace my paediatrician's weight checks?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. It complements those checks by tracking feeding behaviour day to day, but weight and growth monitoring still sits with your paediatrician."
+          }
+        }
+      ]
+    }
+  },
+  "nicu-baby-care-at-home-in-chennai-what-happens-after-discharge": {
+    slug: "nicu-baby-care-at-home-in-chennai-what-happens-after-discharge",
+    h1: "NICU Baby Care at Home in Chennai: What Happens After Discharge",
+    canonical: "https://www.mothrly.com/blogs/nicu-baby-care-at-home-in-chennai-what-happens-after-discharge",
+    metaTitle: "NICU Baby Care at Home in Chennai | After Discharge Guide",
+    metaDescription: "What does NICU baby care at home actually involve after discharge? A Chennai guide to NICU-trained caregiver support and warning signs.",
+    keywords: [
+      "NICU baby care chennai",
+      "NICU nurse chennai",
+      "NICU home care",
+      "NICU assisted care"
+    ],
+    keywordLinks: [
+      { label: "baby care services", url: "https://www.mothrly.com/services/baby-care" },
+      { label: "lactation consultants", url: "https://www.mothrly.com/services/lactation-consultants" },
+      { label: "premature baby care at home", url: "https://www.mothrly.com/blogs/premature-baby-care-at-home-in-chennai-after-nicu-discharge" },
+      { label: "twin baby care at home", url: "https://www.mothrly.com/blogs/twin-baby-care-at-home-in-chennai-what-changes-with-two" }
+    ],
+    faqSchema: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How soon after NICU discharge should home care start?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ideally arranged before discharge, so a trained caregiver is in place from day one rather than during the adjustment period at home."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can a NICU-trained caregiver manage medical equipment on their own?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Only under direct medical guidance and within the scope confirmed by your paediatrician — always clarify exactly what a caregiver is trained and permitted to handle before discharge."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is NICU home care only for very premature babies?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. It applies to any baby who spent time in the NICU, regardless of the reason — including full-term babies admitted for jaundice, infection, or breathing support."
+          }
+        }
+      ]
+    }
+  },
+  "twin-baby-care-at-home-in-chennai-what-changes-with-two": {
+    slug: "twin-baby-care-at-home-in-chennai-what-changes-with-two",
+    h1: "Twin Baby Care at Home in Chennai: What Changes With Two",
+    canonical: "https://www.mothrly.com/blogs/twin-baby-care-at-home-in-chennai-what-changes-with-two",
+    metaTitle: "Twin Baby Care at Home in Chennai | What Changes With Two",
+    metaDescription: "What actually changes when caring for newborn twins? A Chennai guide to twin baby care at home, staffing, and realistic routines.",
+    keywords: [
+      "twin baby care chennai",
+      "twin baby home care",
+      "newborn twins chennai",
+      "twin nanny chennai"
+    ],
+    keywordLinks: [
+      { label: "baby care services", url: "https://www.mothrly.com/services/baby-care" },
+      { label: "lactation support", url: "https://www.mothrly.com/services/lactation-consultants" },
+      { label: "premature baby care", url: "https://www.mothrly.com/blogs/premature-baby-care-at-home-in-chennai-after-nicu-discharge" },
+      { label: "NICU baby care at home", url: "https://www.mothrly.com/blogs/nicu-baby-care-at-home-in-chennai-what-happens-after-discharge" }
+    ],
+    faqSchema: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Do twins need two separate lactation consultations?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Often, yes — latch and supply challenges can differ meaningfully between each twin, so a specialist assessing both individually tends to get better results than a single generic session."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is it normal for twins to be born premature?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes — twin pregnancies more frequently end before full term, so many twins spend time in the NICU before coming home. Our guides to premature baby care at home and NICU baby care at home cover what that transition involves."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How soon should we arrange twin-specific care?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ideally before delivery, during the third trimester — twin pregnancies often deliver earlier than expected, so having care confirmed in advance avoids a last-minute scramble."
+          }
+        }
+      ]
+    }
+  },
+  "premature-baby-care-at-home-in-chennai-after-nicu-discharge": {
+    slug: "premature-baby-care-at-home-in-chennai-after-nicu-discharge",
+    h1: "Premature Baby Care at Home in Chennai: A Parent's Guide After NICU Discharge",
+    canonical: "https://www.mothrly.com/blogs/premature-baby-care-at-home-in-chennai-after-nicu-discharge",
+    metaTitle: "Premature Baby Care at Home in Chennai | After NICU Discharge",
+    metaDescription: "What does premature baby care at home actually involve after NICU discharge? A Chennai guide to feeding, warmth, and monitoring for preemies.",
+    keywords: [
+      "premature baby care chennai",
+      "preterm baby care",
+      "pre term baby home care",
+      "preemie care chennai"
+    ],
+    keywordLinks: [
+      { label: "baby care services", url: "https://www.mothrly.com/services/baby-care" },
+      { label: "lactation support", url: "https://www.mothrly.com/services/lactation-consultants" },
+      { label: "NICU baby care at home", url: "https://www.mothrly.com/blogs/nicu-baby-care-at-home-in-chennai-what-happens-after-discharge" },
+      { label: "twin baby care at home", url: "https://www.mothrly.com/blogs/twin-baby-care-at-home-in-chennai-what-changes-with-two" }
+    ],
+    faqSchema: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is 'corrected age' and why does it matter?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Corrected age adjusts a premature baby's age based on their original due date rather than their actual birth date — it's the more accurate way to track developmental milestones for the first couple of years, and most paediatricians use it rather than the calendar birth date."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do all premature babies need NICU-trained home care?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not always — it depends on how early the baby was born and whether there are ongoing medical needs. Our guide to NICU baby care at home in Chennai covers when that specific level of support makes sense."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "When can a premature baby start regular paediatrician-recommended activities like tummy time?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Usually based on corrected age rather than actual birth date — always confirm the right timing with your paediatrician rather than following a generic newborn timeline."
+          }
+        }
+      ]
+    }
+  },
 };
 
 export function getBlogSeo(slug: string): BlogSeoEntry | undefined {
