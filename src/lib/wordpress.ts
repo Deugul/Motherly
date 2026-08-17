@@ -62,6 +62,7 @@ export function applyWordPressBlogQueryParams(params: URLSearchParams): URLSearc
 export function getWordPressFetchInit(): RequestInit {
   return {
     next: { revalidate: BLOG_REVALIDATE_SECONDS },
+    signal: AbortSignal.timeout(5000),
   };
 }
 
@@ -97,7 +98,8 @@ export async function fetchWordPress<T>(
     const data = (await res.json()) as T;
     return { data, ok: true };
   } catch (error) {
-    console.error("[wordpress] fetch failed:", error);
+    const msg = error instanceof Error ? error.message : String(error);
+    console.warn(`[wordpress] Remote API fetch notice (${path}): ${msg}. Serving local blog posts.`);
     return { data: null, ok: false };
   }
 }
