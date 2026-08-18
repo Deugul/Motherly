@@ -1,13 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CTASection from "@/components/CTASection";
 import ScrollReveal from "@/components/ScrollReveal";
 import SocialLinks from "@/components/SocialLinks";
 import Lead101FormWidget from "@/components/Lead101FormWidget";
+import { OFFICE_ADDRESS_LINES, OFFICE_MAP_QUERY } from "@/data/contact-channels";
 
 const easeOut: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
 
@@ -75,16 +75,17 @@ export default function ContactPage() {
                 className="rounded-2xl overflow-hidden"
                 style={{ boxShadow: "0 12px 32px rgba(45,52,53,0.06)" }}
               >
-                <div className="h-48 sm:h-64 relative group overflow-hidden">
-                  <Image
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAo1LWRTnwOPeaxJdMNgJU-kc7q9UcjKqdZ1lfaIcmcjF25UsCYExOizAbCYYUZslHdsTdDj4IIPHgD-9_DdN_gPlWdoB8TS7JagsE5RJzOvA7eBKLF2d3qSiI32pDxKXFOvml55TTHzKZaJh0ALpKqWj6TpZoDep3-LMM5G3oeTyADTjp6BeBRa6Sw81LFyftnKDIuvdTYGT6QsM4dpudWO0AoHhWI_JHUdfb_F2DLQxRUNaOeBedmlmag-mFIzUO7YqEW0sH1I8wn"
-                    alt="Location map"
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-700"
-                  />
-                  <div
-                    className="absolute inset-0 transition-colors group-hover:opacity-0"
-                    style={{ backgroundColor: "color-mix(in srgb, var(--color-primary) 10%, transparent)" }}
+                {/* Real interactive Google map pinned to the office.
+                    The ?output=embed form needs no API key or billing account. */}
+                <div className="h-48 sm:h-64 relative overflow-hidden">
+                  <iframe
+                    title={`Map showing the Motherly office at ${OFFICE_ADDRESS_LINES.join(", ")}`}
+                    src={`https://www.google.com/maps?q=${encodeURIComponent(OFFICE_MAP_QUERY)}&z=16&output=embed`}
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    allowFullScreen
+                    className="absolute inset-0 w-full h-full"
+                    style={{ border: 0 }}
                   />
                 </div>
                 <div
@@ -100,11 +101,26 @@ export default function ContactPage() {
                     </span>
                     Our Office
                   </h3>
-                  <p className="leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
-                    Chennai, Tamil Nadu
-                    <br />
-                    India
-                  </p>
+                  <address
+                    className="not-italic leading-relaxed"
+                    style={{ color: "var(--color-on-surface-variant)" }}
+                  >
+                    {OFFICE_ADDRESS_LINES.map((line) => (
+                      <span key={line} className="block">
+                        {line}
+                      </span>
+                    ))}
+                  </address>
+                  <a
+                    href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(OFFICE_MAP_QUERY)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 mt-4 text-sm font-bold"
+                    style={{ fontFamily: "var(--font-headline)", color: "var(--color-primary)" }}
+                  >
+                    Get directions
+                    <span className="material-symbols-outlined text-base">arrow_forward</span>
+                  </a>
                 </div>
               </div>
             </ScrollReveal>

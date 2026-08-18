@@ -12,6 +12,9 @@ import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 import AppDownloadButton from "@/components/AppDownloadButton";
 import ServiceEnquiryCta from "@/components/ServiceEnquiryCta";
+import InlineCtaBand from "@/components/InlineCtaBand";
+import ServiceReviews from "@/components/ServiceReviews";
+import RelatedReading from "@/components/RelatedReading";
 
 
 const easeOut: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
@@ -435,29 +438,8 @@ export default function PhysiotherapyPage() {
               </section>
             </ScrollReveal>
 
-            {/* Testimonial: Anitha K. */}
-            <ScrollReveal direction="right">
-              <blockquote
-                className="rounded-2xl p-6 border-l-4"
-                style={{ borderLeftColor: "#d97706", backgroundColor: "color-mix(in srgb, #fef3c7 60%, white)" }}
-              >
-                <p className="text-base italic leading-relaxed mb-4" style={{ color: "#92400e" }}>
-                  &ldquo;I thought leaking a little when I laughed was just something mothers lived with. My Motherly physiotherapist assessed me properly, found that my pelvic floor was actually hypertonic rather than weak (which is why Kegels were making me worse), and gave me the right treatment. Six weeks later I was completely dry. I wish I had come sooner.&rdquo;
-                </p>
-                <footer className="flex items-center gap-3">
-                  <div
-                    className="w-9 h-9 rounded-full flex items-center justify-center font-bold text-sm"
-                    style={{ backgroundColor: "#d97706", color: "#fff" }}
-                  >
-                    A
-                  </div>
-                  <div>
-                    <div className="text-sm font-bold" style={{ color: "#92400e" }}>Anitha K.</div>
-                    <div className="text-xs" style={{ color: "#b45309" }}>Mother of two, Mylapore, Chennai</div>
-                  </div>
-                </footer>
-              </blockquote>
-            </ScrollReveal>
+            {/* What mothers say */}
+            <ServiceReviews serviceKey="physiotherapy" />
 
             {/* Pelvic floor myths note */}
             <ScrollReveal direction="right">
@@ -498,6 +480,15 @@ export default function PhysiotherapyPage() {
                 </div>
               </section>
             </ScrollReveal>
+
+            {/* Mid-page CTA — before the FAQ, for visitors who already decided */}
+            <InlineCtaBand
+              heading="Ready for a proper pelvic floor assessment?"
+              subheading="A physiotherapist-led assessment tells you what your body actually needs, before you start exercises."
+              action={
+                <ServiceEnquiryCta serviceKey="physiotherapy" label="Book Now" />
+              }
+            />
 
             {/* FAQ — 7 questions */}
             <ScrollReveal direction="left">
@@ -584,6 +575,9 @@ export default function PhysiotherapyPage() {
                 })}
               </section>
             </ScrollReveal>
+
+            {/* Related reading */}
+            <RelatedReading serviceKey="physiotherapy" />
 
             {/* App CTA */}
             <ScrollReveal>

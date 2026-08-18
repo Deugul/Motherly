@@ -12,6 +12,9 @@ import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 import AppDownloadButton from "@/components/AppDownloadButton";
 import ServiceEnquiryCta from "@/components/ServiceEnquiryCta";
+import InlineCtaBand from "@/components/InlineCtaBand";
+import ServiceReviews from "@/components/ServiceReviews";
+import RelatedReading from "@/components/RelatedReading";
 
 
 const easeOut: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
@@ -126,9 +129,9 @@ export default function NanniesPage() {
                   See also:{" "}
                   <a href="https://mothrly.com/blogs/postpartum-care-in-chennai-the-complete-guide-for-new-mothers" style={{ color: "var(--color-primary)", textDecoration: "underline" }}>postpartum care Chennai</a>,{" "}
                   <a href="https://mothrly.com/blogs/newborn-sleep-patterns-what-to-expect-in-the-third-month" style={{ color: "var(--color-primary)", textDecoration: "underline" }}>newborn sleep patterns</a>,{" "}
-                  <a href="https://www.mothrly.com/our-services/postnatal-Recovery-care" style={{ color: "var(--color-primary)", textDecoration: "underline" }}>postnatal care</a>,{" "}
-                  <a href="https://www.mothrly.com/our-services/lactation-consultants" style={{ color: "var(--color-primary)", textDecoration: "underline" }}>lactation consultants service</a>, and{" "}
-                  <a href="https://www.mothrly.com/our-services/doulas" style={{ color: "var(--color-primary)", textDecoration: "underline" }}>doulas</a>.
+                  <a href="https://www.mothrly.com/services/postnatal-recovery-care" style={{ color: "var(--color-primary)", textDecoration: "underline" }}>postnatal care</a>,{" "}
+                  <a href="https://www.mothrly.com/services/lactation-consultants" style={{ color: "var(--color-primary)", textDecoration: "underline" }}>lactation consultants service</a>, and{" "}
+                  <a href="https://www.mothrly.com/services/doulas" style={{ color: "var(--color-primary)", textDecoration: "underline" }}>doulas</a>.
                 </p>
               </section>
             </ScrollReveal>
@@ -331,30 +334,17 @@ export default function NanniesPage() {
               </section>
             </ScrollReveal>
 
-            {/* Testimonial */}
-            <ScrollReveal direction="right">
-              <blockquote
-                className="rounded-2xl p-6 border-l-4"
-                style={{
-                  backgroundColor: "color-mix(in srgb, #fef3c7 60%, white)",
-                  borderColor: "#d97706",
-                }}
-              >
-                <p
-                  className="text-base italic leading-relaxed mb-4"
-                  style={{ color: "#92400e" }}
-                >
-                  "We had twins and no family in Chennai. I genuinely do not know how we would have
-                  survived those first six weeks without our Motherly nanny. She handled the nights,
-                  kept a detailed feeding log for both babies, and managed our older son's school run
-                  without us even asking. She became part of our family."
-                </p>
-                <footer className="text-sm" style={{ color: "#b45309" }}>
-                  <strong>— Meena and Arvind K.</strong>
-                  <span style={{ color: "#a16207" }}> | Parents of twins, Velachery, Chennai</span>
-                </footer>
-              </blockquote>
-            </ScrollReveal>
+            {/* What mothers say */}
+            <ServiceReviews serviceKey="nannies" />
+
+            {/* Mid-page CTA — before the FAQ, for visitors who already decided */}
+            <InlineCtaBand
+              heading="Need a verified nanny at home?"
+              subheading="Tell us your dates and hours, and we'll match you with a background-checked caregiver."
+              action={
+                <ServiceEnquiryCta serviceKey="nannies" label="Book Now" />
+              }
+            />
 
             {/* FAQ Accordion */}
             <ScrollReveal direction="left">
@@ -427,6 +417,9 @@ export default function NanniesPage() {
                 ))}
               </section>
             </ScrollReveal>
+
+            {/* Related reading */}
+            <RelatedReading serviceKey="nannies" />
 
             {/* App CTA */}
             <ScrollReveal>

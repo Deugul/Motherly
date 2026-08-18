@@ -10,14 +10,14 @@ const quickLinks = [
   { label: "Privacy Policy", href: "/privacy-policy" },
   { label: "Terms and Conditions", href: "/terms-and-conditions" },
   { label: "Refund Policy", href: "/refund-and-cancellation-policies" },
-  { label: "Contact Us", href: "/contact-us" },
+  { label: "Contact Us", href: "/contact" },
 ];
 
 const services = [
-  { label: "Doula Services", href: "/our-services/doulas" },
-  { label: "Postnatal Recovery", href: "/our-services/postnatal-recovery-care" },
-  { label: "Lactation Consultants", href: "/our-services/lactation-consultants" },
-  { label: "Nanny Care", href: "/our-services/nanny-services" },
+  { label: "Doula Services", href: "/services/doulas" },
+  { label: "Postnatal Recovery", href: "/services/postnatal-recovery-care" },
+  { label: "Lactation Consultants", href: "/services/lactation-consultants" },
+  { label: "Nanny Care", href: "/services/nanny-services" },
   { label: "Gynaecology Consultation", href: "/services/gynecologist-consultation" },
   { label: "Nutrition & Pediatrics", href: "/services/pediatrician" },
   { label: "Prenatal Yoga", href: "/services/yoga" },
@@ -49,7 +49,7 @@ export default function Footer() {
               Your trusted birth companion — providing expert, compassionate care for every step of motherhood.
             </p>
             <Link
-              href="/contact-us"
+              href="/contact"
               className="inline-flex items-center justify-center rounded-full px-6 py-2.5 text-sm font-bold"
               style={{
                 fontFamily: "var(--font-plus-jakarta)",

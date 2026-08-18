@@ -59,7 +59,7 @@ export default function CTASection() {
           </ScrollReveal>
 
           <ScrollReveal direction="right" delay={0.2}>
-            <Link href="/contact-us">
+            <Link href="/contact">
               <motion.button
                 whileHover={{ scale: 1.04, y: -2 }}
                 whileTap={{ scale: 0.97 }}

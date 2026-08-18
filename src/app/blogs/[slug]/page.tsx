@@ -200,7 +200,7 @@ function sanitizeWpHtml(html: string): string {
     .replace(/\bold-srcset=/gi, "srcset=")
     .replace(
       new RegExp(`href="${WP_ORIGIN.replace(/\./g, "\\.")}/contact-us/?"`, "gi"),
-      'href="/contact-us"'
+      'href="/contact"'
     )
     .replace(
       new RegExp(
@@ -216,7 +216,7 @@ function sanitizeWpHtml(html: string): string {
       /<a\b(?=[^>]*\bclass="[^"]*mb-cta-btn[^"]*")[^>]*>/gi,
       (tag) =>
         tag
-          .replace(/\bhref="[^"]*"/i, 'href="/contact-us"')
+          .replace(/\bhref="[^"]*"/i, 'href="/contact"')
           .replace(/\s+target=(?:"_blank"|'_blank')/gi, "")
           .replace(/\s+rel=(?:"[^"]*"|'[^']*')/gi, "")
     )

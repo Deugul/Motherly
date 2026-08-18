@@ -142,10 +142,10 @@ export default function PhysiotherapyPage() {
         <h2>Deep Resources Links</h2>
         <ul>
           <li><Link href="/blogs">Mothers Health Blogs & Articles</Link></li>
-          <li><Link href="/our-services/postnatal-recovery-care">Postnatal Recovery Care at Home in Chennai</Link></li>
-          <li><Link href="/our-services/lactation-consultants">Certified Lactation Consultants in Chennai</Link></li>
-          <li><Link href="/our-services/doulas">Verified Birth Companion Doulas</Link></li>
-          <li><Link href="/our-services/nanny-services">Verified Postnatal Nanny Services</Link></li>
+          <li><Link href="/services/postnatal-recovery-care">Postnatal Recovery Care at Home in Chennai</Link></li>
+          <li><Link href="/services/lactation-consultants">Certified Lactation Consultants in Chennai</Link></li>
+          <li><Link href="/services/doulas">Verified Birth Companion Doulas</Link></li>
+          <li><Link href="/services/nanny-services">Verified Postnatal Nanny Services</Link></li>
         </ul>
       </div>
 </>

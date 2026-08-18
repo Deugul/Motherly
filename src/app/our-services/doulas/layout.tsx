@@ -11,12 +11,12 @@ export const metadata: Metadata = {
     "book doula India",
     "birth support doula",
   ],
-  alternates: { canonical: "/our-services/doulas" },
+  alternates: { canonical: "/services/doulas" },
   openGraph: {
     title: "Hire a Verified Doula in Chennai | Motherly",
     description:
       "Find and book verified birth doulas in Chennai through Motherly. Expert emotional and physical birth support for expecting Indian mothers — home visits available.",
-    url: "/our-services/doulas",
+    url: "/services/doulas",
   },
 };
 

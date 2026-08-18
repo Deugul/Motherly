@@ -8,8 +8,20 @@ import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 import AppDownloadButton from "@/components/AppDownloadButton";
 import ServiceEnquiryCta from "@/components/ServiceEnquiryCta";
+import ServiceReviews from "@/components/ServiceReviews";
+import RelatedReading from "@/components/RelatedReading";
+import InlineCtaBand from "@/components/InlineCtaBand";
 
 const MotionImage = motion.create(Image);
+
+const DOULA_SERVICE_OPTIONS = [
+  "Doulas",
+  "Lactation Consultants",
+  "Gynaecology Consultation",
+  "Nanny Care",
+  "Postnatal Recovery",
+  "Nutrition Consultation",
+];
 
 export default function DoulaPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -54,7 +66,7 @@ export default function DoulaPage() {
                   Motherly connects expecting mothers in{" "}
                   <strong style={{ color: "var(--color-on-surface)" }}>Chennai</strong>{" "}
                   with trained, verified{" "}
-                  <a href="/our-services/doulas" style={{ color: "var(--color-primary)", textDecoration: "underline" }}>
+                  <a href="/services/doulas" style={{ color: "var(--color-primary)", textDecoration: "underline" }}>
                     birth doulas and postpartum doulas
                   </a>
                   . As the trusted birth companion Chennai mothers rely on, we provide continuous labour support Chennai families need, before, during, and after delivery.
@@ -62,7 +74,7 @@ export default function DoulaPage() {
                 <div className="mt-6">
                   <ServiceEnquiryCta
                   serviceKey="doulas"
-                  serviceOptions={["Doulas","Lactation Consultants","Gynaecology Consultation","Nanny Care","Postnatal Recovery","Nutrition Consultation"]}
+                  serviceOptions={DOULA_SERVICE_OPTIONS}
                 />
                 </div>
               </section>
@@ -141,111 +153,6 @@ export default function DoulaPage() {
             </ScrollReveal>
 
         <div className="mt-12 lg:mt-14 space-y-14">
-            {/* Birth Doula vs Postpartum Doula */}
-            <ScrollReveal delay={0.1} direction="left">
-              <section className="space-y-6">
-                <h2
-                  className="text-2xl md:text-3xl font-bold"
-                  style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-background)" }}
-                >
-                  Birth Doulas and Postpartum Doulas: Two Ways Motherly Supports You
-                </h2>
-                <p className="leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
-                  Motherly offers both birth doulas and postpartum doulas in Chennai, two distinct but complementary forms of support across the full perinatal journey.
-                </p>
-                <div className="grid md:grid-cols-2 gap-5">
-                  {[
-                    {
-                      title: "Birth doula",
-                      desc: "A birth doula provides continuous support from early labour through delivery. She attends your prenatal meetings, is on-call from 38 weeks, stays with you throughout active labour and delivery, and supports the golden hour immediately after birth. Her focus is on your physical comfort, emotional steadiness, and informed decision-making during one of the most intense experiences of your life.",
-                    },
-                    {
-                      title: "Postpartum doula",
-                      desc: "A postpartum doula supports you after birth, typically for the first 4 to 12 weeks. She helps with newborn care, breastfeeding establishment, household adjustment, and maternal emotional recovery. Where a birth doula is focused on the event of birth, a postpartum doula is focused on the transition into motherhood that follows.",
-                    },
-                  ].map((type, i) => (
-                    <motion.div
-                      key={type.title}
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.45, delay: i * 0.1 }}
-                      className="p-6 rounded-2xl border"
-                      style={{
-                        backgroundColor: "var(--color-surface-container-lowest)",
-                        borderColor: "color-mix(in srgb, var(--color-outline-variant) 20%, transparent)",
-                      }}
-                    >
-                      <h3
-                        className="text-lg font-bold mb-3"
-                        style={{ fontFamily: "var(--font-headline)", color: "var(--color-primary)" }}
-                      >
-                        {type.title}
-                      </h3>
-                      <p className="text-sm leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
-                        {type.desc}
-                      </p>
-                    </motion.div>
-                  ))}
-                </div>
-              </section>
-            </ScrollReveal>
-
-            {/* What Is a Doula */}
-            <ScrollReveal delay={0.1} direction="right">
-              <section className="space-y-5">
-                <h2
-                  className="text-2xl md:text-3xl font-bold"
-                  style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-background)" }}
-                >
-                  What Is a Doula and Why Chennai Mothers Are Choosing One
-                </h2>
-                <p className="leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
-                  A doula is a trained birth companion who offers non-medical support throughout your pregnancy, labour, and the early{" "}
-                  <a href="/our-services/postnatal-recovery-care" style={{ color: "var(--color-primary)", textDecoration: "underline" }}>postpartum period</a>
-                  . In Chennai, where most hospital births move at a fast clinical pace, having dedicated labour support Chennai mothers can count on is becoming an increasingly valued choice among informed families.
-                </p>
-                <p className="leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
-                  Motherly's doulas are background-verified, trained in evidence-based birth support, and deeply familiar with the Indian birth context, including navigating hospital protocols in Chennai's top maternity facilities.
-                </p>
-                <p className="leading-relaxed text-sm" style={{ color: "var(--color-on-surface-variant)" }}>
-                  See also:{" "}
-                  <a href="https://mothrly.com/blogs/why-every-new-mother-may-need-a-lactation-consultant" style={{ color: "var(--color-primary)", textDecoration: "underline" }}>lactation consultant</a>,{" "}
-                  <a href="https://www.mothrly.com/our-services/postnatal-Recovery-care" style={{ color: "var(--color-primary)", textDecoration: "underline" }}>postnatal care</a>,{" "}
-                  <a href="https://mothrly.com/blogs/pregnancy-diet-plan" style={{ color: "var(--color-primary)", textDecoration: "underline" }}>pregnancy diet plan</a>, and{" "}
-                  <a href="https://mothrly.com/blogs/postpartum-care-in-chennai-the-complete-guide-for-new-mothers" style={{ color: "var(--color-primary)", textDecoration: "underline" }}>postpartum care Chennai</a>.
-                </p>
-
-                {/* Research callout */}
-                <div
-                  className="p-6 rounded-2xl border-l-4"
-                  style={{
-                    backgroundColor: "color-mix(in srgb, var(--color-secondary-container) 40%, white)",
-                    borderLeftColor: "var(--color-primary)",
-                  }}
-                >
-                  <h4 className="font-bold mb-2" style={{ color: "var(--color-primary)" }}>What the research says</h4>
-                  <p className="text-sm leading-relaxed" style={{ color: "var(--color-on-surface)" }}>
-                    Research published in the <strong>Cochrane Database of Systematic Reviews</strong> found that women who received continuous support during labour were more likely to have spontaneous vaginal births, less likely to need pain medication, and reported greater satisfaction with their birth experience, regardless of the setting or type of support person.
-                  </p>
-                </div>
-
-                {/* Note box */}
-                <div
-                  className="p-5 rounded-2xl border"
-                  style={{
-                    backgroundColor: "var(--color-surface-container-low)",
-                    borderColor: "color-mix(in srgb, var(--color-outline-variant) 20%, transparent)",
-                  }}
-                >
-                  <p className="text-sm leading-relaxed" style={{ color: "var(--color-on-surface)" }}>
-                    A doula is <strong>not</strong> a replacement for your obstetrician or nursing team. She works <strong>alongside</strong> your medical professionals. To understand the full difference, read our guide on{" "}
-                    <a href="https://www.mothrly.com/blogs/doula-vs-midwife-who-cares-for-you-and-your-baby" style={{ color: "var(--color-primary)", textDecoration: "underline" }}>doula vs midwife</a>.
-                  </p>
-                </div>
-              </section>
-            </ScrollReveal>
-
             {/* What Motherly's Doulas Provide */}
             <ScrollReveal delay={0.1} direction="left">
               <section
@@ -328,6 +235,124 @@ export default function DoulaPage() {
               </section>
             </ScrollReveal>
 
+            {/* CTA repeated once visitors know what is included */}
+            <InlineCtaBand
+              heading="This is the support you were looking for?"
+              subheading="Tell us your due date and we'll match you with a verified Chennai doula."
+              action={
+                <ServiceEnquiryCta
+                  serviceKey="doulas"
+                  label="Book Your Doula"
+                  serviceOptions={DOULA_SERVICE_OPTIONS}
+                />
+              }
+            />
+
+            {/* Birth Doula vs Postpartum Doula */}
+            <ScrollReveal delay={0.1} direction="left">
+              <section className="space-y-6">
+                <h2
+                  className="text-2xl md:text-3xl font-bold"
+                  style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-background)" }}
+                >
+                  Birth Doulas and Postpartum Doulas: Two Ways Motherly Supports You
+                </h2>
+                <p className="leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
+                  Motherly offers both birth doulas and postpartum doulas in Chennai, two distinct but complementary forms of support across the full perinatal journey.
+                </p>
+                <div className="grid md:grid-cols-2 gap-5">
+                  {[
+                    {
+                      title: "Birth doula",
+                      desc: "A birth doula provides continuous support from early labour through delivery. She attends your prenatal meetings, is on-call from 38 weeks, stays with you throughout active labour and delivery, and supports the golden hour immediately after birth. Her focus is on your physical comfort, emotional steadiness, and informed decision-making during one of the most intense experiences of your life.",
+                    },
+                    {
+                      title: "Postpartum doula",
+                      desc: "A postpartum doula supports you after birth, typically for the first 4 to 12 weeks. She helps with newborn care, breastfeeding establishment, household adjustment, and maternal emotional recovery. Where a birth doula is focused on the event of birth, a postpartum doula is focused on the transition into motherhood that follows.",
+                    },
+                  ].map((type, i) => (
+                    <motion.div
+                      key={type.title}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.45, delay: i * 0.1 }}
+                      className="p-6 rounded-2xl border"
+                      style={{
+                        backgroundColor: "var(--color-surface-container-lowest)",
+                        borderColor: "color-mix(in srgb, var(--color-outline-variant) 20%, transparent)",
+                      }}
+                    >
+                      <h3
+                        className="text-lg font-bold mb-3"
+                        style={{ fontFamily: "var(--font-headline)", color: "var(--color-primary)" }}
+                      >
+                        {type.title}
+                      </h3>
+                      <p className="text-sm leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
+                        {type.desc}
+                      </p>
+                    </motion.div>
+                  ))}
+                </div>
+              </section>
+            </ScrollReveal>
+
+            {/* What Is a Doula */}
+            <ScrollReveal delay={0.1} direction="right">
+              <section className="space-y-5">
+                <h2
+                  className="text-2xl md:text-3xl font-bold"
+                  style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-background)" }}
+                >
+                  What Is a Doula and Why Chennai Mothers Are Choosing One
+                </h2>
+                <p className="leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
+                  A doula is a trained birth companion who offers non-medical support throughout your pregnancy, labour, and the early{" "}
+                  <a href="/services/postnatal-recovery-care" style={{ color: "var(--color-primary)", textDecoration: "underline" }}>postpartum period</a>
+                  . In Chennai, where most hospital births move at a fast clinical pace, having dedicated labour support Chennai mothers can count on is becoming an increasingly valued choice among informed families.
+                </p>
+                <p className="leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
+                  Motherly's doulas are background-verified, trained in evidence-based birth support, and deeply familiar with the Indian birth context, including navigating hospital protocols in Chennai's top maternity facilities.
+                </p>
+                <p className="leading-relaxed text-sm" style={{ color: "var(--color-on-surface-variant)" }}>
+                  See also:{" "}
+                  <a href="https://mothrly.com/blogs/why-every-new-mother-may-need-a-lactation-consultant" style={{ color: "var(--color-primary)", textDecoration: "underline" }}>lactation consultant</a>,{" "}
+                  <a href="https://www.mothrly.com/services/postnatal-recovery-care" style={{ color: "var(--color-primary)", textDecoration: "underline" }}>postnatal care</a>,{" "}
+                  <a href="https://mothrly.com/blogs/pregnancy-diet-plan" style={{ color: "var(--color-primary)", textDecoration: "underline" }}>pregnancy diet plan</a>, and{" "}
+                  <a href="https://mothrly.com/blogs/postpartum-care-in-chennai-the-complete-guide-for-new-mothers" style={{ color: "var(--color-primary)", textDecoration: "underline" }}>postpartum care Chennai</a>.
+                </p>
+
+                {/* Research callout */}
+                <div
+                  className="p-6 rounded-2xl border-l-4"
+                  style={{
+                    backgroundColor: "color-mix(in srgb, var(--color-secondary-container) 40%, white)",
+                    borderLeftColor: "var(--color-primary)",
+                  }}
+                >
+                  <h4 className="font-bold mb-2" style={{ color: "var(--color-primary)" }}>What the research says</h4>
+                  <p className="text-sm leading-relaxed" style={{ color: "var(--color-on-surface)" }}>
+                    Research published in the <strong>Cochrane Database of Systematic Reviews</strong> found that women who received continuous support during labour were more likely to have spontaneous vaginal births, less likely to need pain medication, and reported greater satisfaction with their birth experience, regardless of the setting or type of support person.
+                  </p>
+                </div>
+
+                {/* Note box */}
+                <div
+                  className="p-5 rounded-2xl border"
+                  style={{
+                    backgroundColor: "var(--color-surface-container-low)",
+                    borderColor: "color-mix(in srgb, var(--color-outline-variant) 20%, transparent)",
+                  }}
+                >
+                  <p className="text-sm leading-relaxed" style={{ color: "var(--color-on-surface)" }}>
+                    A doula is <strong>not</strong> a replacement for your obstetrician or nursing team. She works <strong>alongside</strong> your medical professionals. To understand the full difference, read our guide on{" "}
+                    <a href="https://www.mothrly.com/blogs/doula-vs-midwife-who-cares-for-you-and-your-baby" style={{ color: "var(--color-primary)", textDecoration: "underline" }}>doula vs midwife</a>.
+                  </p>
+                </div>
+              </section>
+            </ScrollReveal>
+
             {/* When Does Doula Support Begin and End */}
             <ScrollReveal delay={0.1} direction="right">
               <section className="space-y-6">
@@ -369,7 +394,7 @@ export default function DoulaPage() {
                       text: "In the first hour after birth, your doula supports skin-to-skin bonding and the very first breastfeed, a critical window that sets the foundation for a strong breastfeeding journey.",
                       links: [
                         { label: "breastfeeding rules", url: "https://www.mothrly.com/blogs/breastfeeding-rules-every-new-mom-should-know" },
-                        { label: "lactation consultants", url: "/our-services/lactation-consultants" },
+                        { label: "lactation consultants", url: "/services/lactation-consultants" },
                       ],
                     },
                     {
@@ -377,7 +402,7 @@ export default function DoulaPage() {
                       title: "Postnatal home visit",
                       text: "1 to 3 days after delivery, your doula visits you at home to check in on your recovery and answer your questions. For extended postpartum doula support, this can continue for weeks.",
                       links: [
-                        { label: "postnatal recovery care", url: "/our-services/postnatal-recovery-care" },
+                        { label: "postnatal recovery care", url: "/services/postnatal-recovery-care" },
                       ],
                     },
                   ].map((step, i) => (
@@ -462,24 +487,8 @@ export default function DoulaPage() {
               </section>
             </ScrollReveal>
 
-            {/* Testimonial */}
-            <ScrollReveal delay={0.1} direction="right">
-              <blockquote
-                className="p-7 rounded-2xl border-l-4 italic"
-                style={{
-                  backgroundColor: "color-mix(in srgb, #fef3c7 60%, white)",
-                  borderLeftColor: "#d97706",
-                }}
-              >
-                <p className="text-base leading-relaxed" style={{ color: "var(--color-on-surface)" }}>
-                  "I had no family in Chennai and was terrified of going into labour alone with just my husband. My Motherly doula arrived two hours into my contractions and I immediately felt calmer. She coached my husband too, which was something I didn't even know I needed. I honestly don't think my birth would have gone the way it did without her."
-                </p>
-                <footer className="mt-4">
-                  <span className="font-bold not-italic" style={{ color: "var(--color-primary)" }}>— Priya S.</span>
-                  <span className="text-sm ml-2 not-italic" style={{ color: "var(--color-on-surface-variant)" }}>| First-time mother, Chennai</span>
-                </footer>
-              </blockquote>
-            </ScrollReveal>
+            {/* What mothers say */}
+            <ServiceReviews serviceKey="doulas" />
 
             {/* A note for Chennai mothers */}
             <ScrollReveal delay={0.1}>
@@ -495,6 +504,19 @@ export default function DoulaPage() {
                 </p>
               </div>
             </ScrollReveal>
+
+            {/* Second CTA — catches visitors before the FAQ and enquiry form */}
+            <InlineCtaBand
+              heading="Doulas book out fast in Chennai."
+              subheading="Most mothers connect with their doula in the second trimester. Check who's free around your due date."
+              action={
+                <ServiceEnquiryCta
+                  serviceKey="doulas"
+                  label="Check Availability"
+                  serviceOptions={DOULA_SERVICE_OPTIONS}
+                />
+              }
+            />
 
             {/* How Motherly's Doula Network Is Different */}
             <ScrollReveal delay={0.1} direction="left">
@@ -603,12 +625,12 @@ export default function DoulaPage() {
                     {
                       q: "Can a doula help if I'm planning a C-section?",
                       a: "Absolutely. Doula support is highly valuable for planned and emergency C-sections, from emotional preparation beforehand to supporting skin-to-skin bonding and postnatal recovery in the days that follow.",
-                      link: { label: "postnatal recovery care", url: "/our-services/postnatal-recovery-care" },
+                      link: { label: "postnatal recovery care", url: "/services/postnatal-recovery-care" },
                     },
                     {
                       q: "What other services does Motherly offer alongside doulas?",
                       a: "Motherly offers a full range of maternal care in Chennai, including lactation consultants, postnatal recovery care, postnatal nannies, gynaecology consultations, prenatal yoga, and nutrition support. All bookable through the Motherly app.",
-                      link: { label: "lactation consultants", url: "/our-services/lactation-consultants" },
+                      link: { label: "lactation consultants", url: "/services/lactation-consultants" },
                     },
                   ].map((faq, idx) => {
                     const isOpen = openFaq === idx;
@@ -678,6 +700,9 @@ export default function DoulaPage() {
                 </div>
               </section>
             </ScrollReveal>
+
+            {/* Related reading */}
+            <RelatedReading serviceKey="doulas" />
 
             {/* Book through App CTA */}
             <ScrollReveal delay={0.1}>

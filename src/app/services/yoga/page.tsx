@@ -12,6 +12,9 @@ import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 import AppDownloadButton from "@/components/AppDownloadButton";
 import ServiceEnquiryCta from "@/components/ServiceEnquiryCta";
+import InlineCtaBand from "@/components/InlineCtaBand";
+import ServiceReviews from "@/components/ServiceReviews";
+import RelatedReading from "@/components/RelatedReading";
 
 
 const easeOut: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
@@ -272,7 +275,7 @@ export default function YogaPage() {
                   <Link href="https://mothrly.com/blogs/why-is-it-so-hard-to-lose-weight-while-breastfeeding" style={{ color: "var(--color-primary)" }}>
                     lose weight while breastfeeding
                   </Link>, and{" "}
-                  <Link href="https://www.mothrly.com/our-services/postnatal-Recovery-care" style={{ color: "var(--color-primary)" }}>
+                  <Link href="https://www.mothrly.com/services/postnatal-recovery-care" style={{ color: "var(--color-primary)" }}>
                     postnatal care
                   </Link>.
                 </p>
@@ -352,27 +355,17 @@ export default function YogaPage() {
               </section>
             </ScrollReveal>
 
-            {/* Testimonial */}
-            <ScrollReveal direction="right">
-              <blockquote
-                className="rounded-2xl p-6 border-l-4"
-                style={{
-                  backgroundColor: "color-mix(in srgb, #fef3c7 60%, white)",
-                  borderColor: "#d97706",
-                }}
-              >
-                <p className="text-base italic leading-relaxed mb-4" style={{ color: "#92400e" }}>
-                  "I started prenatal yoga at 16 weeks with my Motherly instructor and it completely
-                  changed my relationship with my pregnancy. The breathing techniques she taught me in
-                  class are the reason I got through 18 hours of labour without an epidural. I still
-                  use them now when my toddler is testing me."
-                </p>
-                <footer className="text-sm" style={{ color: "#b45309" }}>
-                  <strong>— Ananya S.</strong>
-                  <span style={{ color: "#a16207" }}> | Mother of one, Kilpauk, Chennai</span>
-                </footer>
-              </blockquote>
-            </ScrollReveal>
+            {/* What mothers say */}
+            <ServiceReviews serviceKey="yoga" />
+
+            {/* Mid-page CTA — before the FAQ, for visitors who already decided */}
+            <InlineCtaBand
+              heading="Ready to start your first session?"
+              subheading="Prenatal and postnatal yoga with instructors trained for every trimester."
+              action={
+                <ServiceEnquiryCta serviceKey="yoga" label="Book Now" />
+              }
+            />
 
             {/* FAQ Accordion */}
             <ScrollReveal direction="left">
@@ -450,6 +443,9 @@ export default function YogaPage() {
                 })}
               </section>
             </ScrollReveal>
+
+            {/* Related reading */}
+            <RelatedReading serviceKey="yoga" />
 
             {/* App CTA */}
             <ScrollReveal>

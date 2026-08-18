@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     "gynaecologist home visit Chennai",
   ],
   alternates: {
-    canonical: "https://www.mothrly.com/our-services/gynecology-consultation",
+    canonical: "https://www.mothrly.com/services/gynecologist-consultation",
   },
   openGraph: {
     type: "website",
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     title: "Book a Gynaecology Consultation in Chennai | Motherly",
     description:
       "Book verified gynaecology consultations in Chennai through Motherly — prenatal check-ups, postnatal care, and women's health support for Indian mothers at home or online.",
-    url: "https://www.mothrly.com/our-services/gynecology-consultation",
+    url: "https://www.mothrly.com/services/gynecologist-consultation",
   },
 };
 
