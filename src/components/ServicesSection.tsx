@@ -60,7 +60,7 @@ export default function ServicesSection() {
             Our <span style={{ color: "var(--color-primary)" }}>Services</span>
           </h2>
           <p
-            className="text-3xl md:text-4xl font-bold leading-snug max-w-4xl"
+            className="text-xl  leading-snug max-w-4xl"
             style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}
           >
             At Motherly, we provide a comprehensive range of maternal care services tailored to your needs.{" "}
