@@ -7,6 +7,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CTASection from "@/components/CTASection";
 import ScrollReveal from "@/components/ScrollReveal";
+import InlineCtaBand from "@/components/InlineCtaBand";
 
 const MotionImage = motion.create(Image);
 const easeOut: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
@@ -17,6 +18,19 @@ export default function AboutPage() {
     <>
       <Navbar />
       <main className="pt-24 md:pt-32 overflow-x-hidden" style={{ backgroundColor: "var(--color-background)" }}>
+
+        {/* ── Top CTA ──
+            Visitors landing here from search or social used to have to read the
+            whole brand story before finding the first way to act. This is the
+            shortcut for anyone checking credibility before booking. */}
+        <div className="max-w-7xl mx-auto px-4 md:px-8 pt-2">
+          <InlineCtaBand
+            heading="Already know what you need?"
+            subheading="Browse our maternal care services and book a verified professional in Chennai."
+            primaryLabel="Explore Our Services"
+            primaryHref="/services"
+          />
+        </div>
 
         {/* ── Hero ── */}
         <section className="max-w-7xl mx-auto px-4 md:px-8 py-10 md:py-20">
@@ -254,7 +268,7 @@ export default function AboutPage() {
                 Schedule a complimentary discovery call with our care coordination team today.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 relative z-10">
-                <Link href="/contact-us">
+                <Link href="/contact">
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.97 }}

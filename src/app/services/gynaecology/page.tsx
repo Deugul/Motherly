@@ -12,6 +12,9 @@ import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 import AppDownloadButton from "@/components/AppDownloadButton";
 import ServiceEnquiryCta from "@/components/ServiceEnquiryCta";
+import InlineCtaBand from "@/components/InlineCtaBand";
+import ServiceReviews from "@/components/ServiceReviews";
+import RelatedReading from "@/components/RelatedReading";
 
 
 const easeOut: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
@@ -123,8 +126,8 @@ export default function GynaecologyPage() {
                   <a href="https://mothrly.com/blogs/pregnancy-diet-plan" style={{ color: "var(--color-primary)", textDecoration: "underline" }}>pregnancy diet plan</a>,{" "}
                   <a href="https://mothrly.com/blogs/first-trimester-pregnancy-diet-plan" style={{ color: "var(--color-primary)", textDecoration: "underline" }}>first trimester diet plan</a>,{" "}
                   <a href="https://mothrly.com/blogs/does-postpartum-belly-go-away-a-realistic-recovery-guide-for-new-moms" style={{ color: "var(--color-primary)", textDecoration: "underline" }}>postpartum belly</a>,{" "}
-                  <a href="https://www.mothrly.com/our-services/doulas" style={{ color: "var(--color-primary)", textDecoration: "underline" }}>doulas</a>, and{" "}
-                  <a href="https://www.mothrly.com/our-services/postnatal-Recovery-care" style={{ color: "var(--color-primary)", textDecoration: "underline" }}>postnatal care</a>.
+                  <a href="https://www.mothrly.com/services/doulas" style={{ color: "var(--color-primary)", textDecoration: "underline" }}>doulas</a>, and{" "}
+                  <a href="https://www.mothrly.com/services/postnatal-recovery-care" style={{ color: "var(--color-primary)", textDecoration: "underline" }}>postnatal care</a>.
                 </p>
               </section>
             </ScrollReveal>
@@ -328,30 +331,17 @@ export default function GynaecologyPage() {
               </section>
             </ScrollReveal>
 
-            {/* Testimonial */}
-            <ScrollReveal direction="right">
-              <blockquote
-                className="rounded-2xl p-6 border-l-4"
-                style={{
-                  backgroundColor: "color-mix(in srgb, #fef3c7 60%, white)",
-                  borderColor: "#d97706",
-                }}
-              >
-                <p
-                  className="text-base italic leading-relaxed mb-4"
-                  style={{ color: "#92400e" }}
-                >
-                  "My hospital appointments were always rushed and I left with more questions than I
-                  arrived with. My Motherly gynaecologist visited at home every four weeks and actually
-                  sat with me. She explained my scan results, answered every question I had, and made
-                  me feel like my pregnancy mattered. That made all the difference."
-                </p>
-                <footer className="text-sm" style={{ color: "#b45309" }}>
-                  <strong>— Nithya P.</strong>
-                  <span style={{ color: "#a16207" }}> | Second-time mother, Nungambakkam, Chennai</span>
-                </footer>
-              </blockquote>
-            </ScrollReveal>
+            {/* What mothers say */}
+            <ServiceReviews serviceKey="gynaecology" />
+
+            {/* Mid-page CTA — before the FAQ, for visitors who already decided */}
+            <InlineCtaBand
+              heading="Ready to book your consultation?"
+              subheading="Home visits and virtual consultations with experienced gynaecologists in Chennai."
+              action={
+                <ServiceEnquiryCta serviceKey="gynaecology" label="Book Now" />
+              }
+            />
 
             {/* FAQ Accordion */}
             <ScrollReveal direction="left">
@@ -416,6 +406,9 @@ export default function GynaecologyPage() {
                 ))}
               </section>
             </ScrollReveal>
+
+            {/* Related reading */}
+            <RelatedReading serviceKey="gynaecology" />
 
             {/* App CTA */}
             <ScrollReveal>

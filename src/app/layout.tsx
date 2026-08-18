@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, Manrope } from "next/font/google";
 import "./globals.css";
 import ScrollToTop from "@/components/ScrollToTop";
+import ChatWidget from "@/components/ChatWidget";
 import FontLoader from "@/components/FontLoader";
 import DeferredAnalytics from "@/components/DeferredAnalytics";
 import { GTM_ID, META_PIXEL_ID } from "@/lib/analytics-ids";
@@ -152,6 +153,7 @@ export default function RootLayout({
         <FontLoader />
         <ScrollToTop />
         {children}
+        <ChatWidget />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

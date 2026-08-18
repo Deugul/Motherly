@@ -150,6 +150,7 @@ export default function ServiceBookingForm({
                 type="text"
                 placeholder="Your Full Name"
                 className={inputClass}
+                aria-invalid={!!errors.name}
                 style={getInputStyle(!!errors.name)}
               />
               {errors.name && (
@@ -170,6 +171,7 @@ export default function ServiceBookingForm({
                 type="email"
                 placeholder="email@example.com"
                 className={inputClass}
+                aria-invalid={!!errors.email}
                 style={getInputStyle(!!errors.email)}
               />
               {errors.email && (
@@ -189,6 +191,7 @@ export default function ServiceBookingForm({
                 maxLength={10}
                 required
                 className={inputClass}
+                aria-invalid={!!errors.phone}
                 style={getInputStyle(!!errors.phone)}
               />
               {errors.phone && (
@@ -209,6 +212,7 @@ export default function ServiceBookingForm({
                 type="text"
                 placeholder="Area / Neighbourhood"
                 className={inputClass}
+                aria-invalid={!!errors.location}
                 style={getInputStyle(!!errors.location)}
               />
               {errors.location && (
@@ -227,6 +231,7 @@ export default function ServiceBookingForm({
                 placeholder="6-digit pincode"
                 maxLength={6}
                 className={inputClass}
+                aria-invalid={!!errors.pincode}
                 style={getInputStyle(!!errors.pincode)}
               />
               {errors.pincode && (
@@ -247,6 +252,7 @@ export default function ServiceBookingForm({
                 type="date"
                 min={new Date().toISOString().split("T")[0]}
                 className={inputClass}
+                aria-invalid={!!errors.date}
                 style={getInputStyle(!!errors.date)}
               />
               {errors.date && (
@@ -263,6 +269,7 @@ export default function ServiceBookingForm({
                 {...register("time")}
                 type="time"
                 className={inputClass}
+                aria-invalid={!!errors.time}
                 style={getInputStyle(!!errors.time)}
               />
               {errors.time && (

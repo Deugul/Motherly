@@ -123,6 +123,26 @@ h1, h2, h3, h4, h5, h6 {
   scrollbar-width: none;
 }
 
+/* Brand-consistent focus state for every form control.
+   Field borders previously fell back to grey/transparent on focus while the
+   rest of the site used the rose accent, so focus was easy to lose. The
+   !important is deliberate: the form components set borderColor inline, and an
+   inline style would otherwise win over this rule. */
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--color-primary) !important;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-primary) 18%, transparent);
+}
+
+/* Keep the error state visible even while the field is focused. */
+input[aria-invalid="true"]:focus,
+select[aria-invalid="true"]:focus,
+textarea[aria-invalid="true"]:focus {
+  border-color: var(--color-error) !important;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-error) 18%, transparent);
+}
+
 ::selection {
   background-color: var(--color-secondary-container);
 }

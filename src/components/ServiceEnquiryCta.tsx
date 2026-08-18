@@ -10,11 +10,18 @@ export default function ServiceEnquiryCta({
   serviceKey,
   serviceOptions,
   className = "",
+  label,
   children,
 }: {
   serviceKey: ServiceEnquiryKey;
   serviceOptions?: string[];
   className?: string;
+  /**
+   * Overrides the configured button text. Used by the mid-page CTAs, which
+   * repeat the ask in shorter words than the hero button ("Check Availability"
+   * rather than "Book Your Doula Here").
+   */
+  label?: string;
   /** Custom form body (e.g. pediatrician). Defaults to ServiceBookingForm. */
   children?: React.ReactNode;
 }) {
@@ -36,7 +43,7 @@ export default function ServiceEnquiryCta({
           boxShadow: "0 8px 24px color-mix(in srgb, var(--color-primary) 25%, transparent)",
         }}
       >
-        {config.ctaLabel}
+        {label ?? config.ctaLabel}
       </motion.button>
 
       <EnquiryModal open={open} onClose={() => setOpen(false)}>

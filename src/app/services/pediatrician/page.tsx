@@ -11,6 +11,9 @@ import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 import AppDownloadButton from "@/components/AppDownloadButton";
 import ServiceEnquiryCta from "@/components/ServiceEnquiryCta";
+import InlineCtaBand from "@/components/InlineCtaBand";
+import ServiceReviews from "@/components/ServiceReviews";
+import RelatedReading from "@/components/RelatedReading";
 
 
 const easeOut: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
@@ -132,8 +135,8 @@ export default function PediatricianPage() {
                   <a href="https://mothrly.com/blogs/newborn-sleep-patterns-what-to-expect-in-the-third-month" style={{ color: "var(--color-primary)", textDecoration: "underline" }}>newborn sleep patterns</a>,{" "}
                   <a href="https://mothrly.com/blogs/5-signs-baby-getting-enough-breast-milk" style={{ color: "var(--color-primary)", textDecoration: "underline" }}>signs baby getting enough breast milk</a>,{" "}
                   <a href="https://mothrly.com/blogs/breastfeeding-rules-every-new-mom-should-know" style={{ color: "var(--color-primary)", textDecoration: "underline" }}>breastfeeding rules</a>,{" "}
-                  <a href="https://www.mothrly.com/our-services/lactation-consultants" style={{ color: "var(--color-primary)", textDecoration: "underline" }}>lactation consultants service</a>, and{" "}
-                  <a href="https://www.mothrly.com/our-services/postnatal-Recovery-care" style={{ color: "var(--color-primary)", textDecoration: "underline" }}>postnatal care</a>.
+                  <a href="https://www.mothrly.com/services/lactation-consultants" style={{ color: "var(--color-primary)", textDecoration: "underline" }}>lactation consultants service</a>, and{" "}
+                  <a href="https://www.mothrly.com/services/postnatal-recovery-care" style={{ color: "var(--color-primary)", textDecoration: "underline" }}>postnatal care</a>.
                 </p>
               </section>
             </ScrollReveal>
@@ -336,27 +339,17 @@ export default function PediatricianPage() {
               </section>
             </ScrollReveal>
 
-            {/* Testimonial */}
-            <ScrollReveal direction="right">
-              <blockquote
-                className="rounded-2xl p-6 border-l-4"
-                style={{
-                  backgroundColor: "color-mix(in srgb, #fef3c7 60%, white)",
-                  borderColor: "#d97706",
-                }}
-              >
-                <p className="text-base italic leading-relaxed mb-4" style={{ color: "#92400e" }}>
-                  "Our daughter had jaundice and I was terrified every time we had to take her to the
-                  clinic. Having our Motherly paediatrician visit at home changed everything. She was
-                  calm, thorough, and explained every reading to us. By week three we felt completely
-                  confident about our baby's health for the first time."
-                </p>
-                <footer className="text-sm" style={{ color: "#b45309" }}>
-                  <strong>— Sunitha and Ravi N.</strong>
-                  <span style={{ color: "#a16207" }}> | Parents of one, Besant Nagar, Chennai</span>
-                </footer>
-              </blockquote>
-            </ScrollReveal>
+            {/* What mothers say */}
+            <ServiceReviews serviceKey="pediatrician" />
+
+            {/* Mid-page CTA — before the FAQ, for visitors who already decided */}
+            <InlineCtaBand
+              heading="Want a paediatrician to visit at home?"
+              subheading="Vaccinations, developmental checks and newborn concerns, without the clinic waiting room."
+              action={
+                <ServiceEnquiryCta serviceKey="pediatrician" label="Book Now" />
+              }
+            />
 
             {/* FAQ Accordion */}
             <ScrollReveal direction="left">
@@ -426,6 +419,9 @@ export default function PediatricianPage() {
                 })}
               </section>
             </ScrollReveal>
+
+            {/* Related reading */}
+            <RelatedReading serviceKey="pediatrician" />
 
             {/* App CTA */}
             <ScrollReveal>

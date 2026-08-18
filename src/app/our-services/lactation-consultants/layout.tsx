@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     "lactation support home visit",
   ],
   alternates: {
-    canonical: "https://www.mothrly.com/our-services/lactation-consultants",
+    canonical: "https://www.mothrly.com/services/lactation-consultants",
   },
   openGraph: {
     type: "website",
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     title: "Book a Lactation Consultant in Chennai | Motherly",
     description:
       "Find and book certified lactation consultants in Chennai through Motherly. Get expert breastfeeding help at home — latch issues, low supply, and more solved.",
-    url: "https://www.mothrly.com/our-services/lactation-consultants",
+    url: "https://www.mothrly.com/services/lactation-consultants",
   },
 };
 

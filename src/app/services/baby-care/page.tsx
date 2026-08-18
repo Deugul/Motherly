@@ -11,6 +11,9 @@ import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 import AppDownloadButton from "@/components/AppDownloadButton";
 import ServiceEnquiryCta from "@/components/ServiceEnquiryCta";
+import InlineCtaBand from "@/components/InlineCtaBand";
+import ServiceReviews from "@/components/ServiceReviews";
+import RelatedReading from "@/components/RelatedReading";
 
 
 const easeOut: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
@@ -440,26 +443,17 @@ export default function BabyCarePage() {
               </section>
             </ScrollReveal>
 
-            <ScrollReveal direction="right">
-              <blockquote
-                className="rounded-2xl p-6 border-l-4"
-                style={{
-                  backgroundColor: "color-mix(in srgb, #fef3c7 60%, white)",
-                  borderColor: "#d97706",
-                }}
-              >
-                <p
-                  className="text-base italic leading-relaxed mb-4"
-                  style={{ color: "#92400e" }}
-                >
-                  "My daughter had colic for the first six weeks and I had no idea what to do. The Motherly Baby Care specialist helped us establish a feeding and settling routine that changed everything overnight. She also spotted that my baby had a mild latch issue and connected us with a lactation consultant the same week. I cannot imagine those early weeks without Motherly."
-                </p>
-                <footer className="text-sm" style={{ color: "#b45309" }}>
-                  <strong>— Priya M.</strong>
-                  <span style={{ color: "#a16207" }}> | First-time mother, Mylapore, Chennai</span>
-                </footer>
-              </blockquote>
-            </ScrollReveal>
+            {/* What mothers say */}
+            <ServiceReviews serviceKey="baby-care" />
+
+            {/* Mid-page CTA — before the FAQ, for visitors who already decided */}
+            <InlineCtaBand
+              heading="Ready to book baby care at home?"
+              subheading="Trained specialists for feeding, settling and newborn routines, in your own home."
+              action={
+                <ServiceEnquiryCta serviceKey="baby-care" label="Book Now" />
+              }
+            />
 
             <ScrollReveal direction="left">
               <section className="space-y-3">
@@ -527,6 +521,9 @@ export default function BabyCarePage() {
                 ))}
               </section>
             </ScrollReveal>
+
+            {/* Related reading */}
+            <RelatedReading serviceKey="baby-care" />
 
             <ScrollReveal>
               <div

@@ -76,7 +76,7 @@ export default function HeroSection() {
                 Find a Doula
               </button>
             </Link>
-            <Link href="/contact-us" className="block w-full">
+            <Link href="/contact" className="block w-full">
               <button
                 className="w-full px-6 py-3.5 rounded-xl font-bold text-sm border-2 transition-transform active:scale-96 cursor-pointer"
                 style={{
@@ -161,7 +161,7 @@ export default function HeroSection() {
                   Find a Doula
                 </button>
               </Link>
-              <Link href="/contact-us" className="inline-flex">
+              <Link href="/contact" className="inline-flex">
                 <button
                   className="px-8 py-3 rounded-xl font-bold text-base border-2 transition-all duration-300 hover:scale-104 hover:-translate-y-0.5 active:scale-96 cursor-pointer"
                   style={{

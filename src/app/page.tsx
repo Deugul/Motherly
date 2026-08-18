@@ -17,9 +17,11 @@ export default function Home() {
       <Navbar />
       <main className="pt-20 overflow-x-hidden">
         <HeroSection />
+        {/* Services sits directly under the Hero so a first-time visitor sees
+            what they can book before reading the brand story. */}
+        <ServicesSection />
         <OurStorySection />
         <WhyMotherlySection />
-        <ServicesSection />
         <CTASection />
         <TestimonialsSection />
       </main>

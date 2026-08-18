@@ -11,6 +11,9 @@ import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 import AppDownloadButton from "@/components/AppDownloadButton";
 import ServiceEnquiryCta from "@/components/ServiceEnquiryCta";
+import InlineCtaBand from "@/components/InlineCtaBand";
+import ServiceReviews from "@/components/ServiceReviews";
+import RelatedReading from "@/components/RelatedReading";
 
 
 const easeOut: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
@@ -438,26 +441,17 @@ export default function MotherCarePage() {
               </section>
             </ScrollReveal>
 
-            <ScrollReveal direction="right">
-              <blockquote
-                className="rounded-2xl p-6 border-l-4"
-                style={{
-                  backgroundColor: "color-mix(in srgb, #fef3c7 60%, white)",
-                  borderColor: "#d97706",
-                }}
-              >
-                <p
-                  className="text-base italic leading-relaxed mb-4"
-                  style={{ color: "#92400e" }}
-                >
-                  "I had no family nearby and was completely unprepared for how difficult the first two weeks would be after my C-section. My Motherly Mother Care specialist came every morning, took care of everything from my dressing to my meals, and even showed me how to properly hold and feed my baby. By week three I actually felt like myself again."
-                </p>
-                <footer className="text-sm" style={{ color: "#b45309" }}>
-                  <strong>— Revathi S.</strong>
-                  <span style={{ color: "#a16207" }}> | First-time mother, Adyar, Chennai</span>
-                </footer>
-              </blockquote>
-            </ScrollReveal>
+            {/* What mothers say */}
+            <ServiceReviews serviceKey="mother-care" />
+
+            {/* Mid-page CTA — before the FAQ, for visitors who already decided */}
+            <InlineCtaBand
+              heading="Ready to book your mother care specialist?"
+              subheading="Recovery support, wound care, nutrition and rest — arranged around your household."
+              action={
+                <ServiceEnquiryCta serviceKey="mother-care" label="Book Now" />
+              }
+            />
 
             <ScrollReveal direction="left">
               <section className="space-y-3">
@@ -525,6 +519,9 @@ export default function MotherCarePage() {
                 ))}
               </section>
             </ScrollReveal>
+
+            {/* Related reading */}
+            <RelatedReading serviceKey="mother-care" />
 
             <ScrollReveal>
               <div
