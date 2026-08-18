@@ -10,6 +10,17 @@ export const WHATSAPP_NUMBER = "918698697000";
 export const SUPPORT_PHONE = "+918698697000";
 export const SUPPORT_PHONE_DISPLAY = "+91 86986 97000";
 
+/** Registered office. Used by the contact page address block and its map. */
+export const OFFICE_ADDRESS_LINES = [
+  "3rd Floor, Alpha Block, SSPDL Alpha City",
+  "301-B3, Rajiv Gandhi Salai, Navalur",
+  "Tamil Nadu 600130, India",
+];
+
+/** Single-line form for Google Maps embed and directions links. */
+export const OFFICE_MAP_QUERY =
+  "SSPDL Alpha City, 301-B3, Rajiv Gandhi Salai, Navalur, Chennai, Tamil Nadu 600130";
+
 export const WHATSAPP_GREETING =
   "Hi Motherly, I'd like to know more about your maternal care services.";
 

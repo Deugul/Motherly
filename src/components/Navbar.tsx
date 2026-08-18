@@ -158,34 +158,60 @@ export default function Navbar() {
               closeTimerRef.current = setTimeout(() => setServicesOpen(false), 150);
             }}
           >
-            <button
-              onClick={() => setServicesOpen(!servicesOpen)}
+            {/* The label navigates to /contact; the chevron is a separate
+                control so the dropdown stays reachable by click as well as
+                hover (hover alone is unusable on touch + keyboard). */}
+            <div
+              className="flex items-center gap-1 relative"
               onMouseEnter={() => setServicesHovered(true)}
               onMouseLeave={() => setServicesHovered(false)}
-              className="flex items-center gap-1 text-sm font-semibold relative focus:outline-none"
-              style={{
-                fontFamily: "var(--font-plus-jakarta)",
-                color: isServicesActive || servicesHovered ? "var(--color-primary)" : "var(--color-on-surface-variant)",
-                transition: "color 0.2s",
-                background: "none",
-                border: "none",
-                cursor: "pointer",
-                padding: 0,
-              }}
             >
-              Services
-              <svg className={`w-3.5 h-3.5 transition-transform duration-200 ${servicesOpen ? "rotate-180" : ""}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-              </svg>
+              <Link
+                href="/services"
+                onClick={closeAll}
+                className="text-sm font-semibold focus:outline-none"
+                style={{
+                  fontFamily: "var(--font-plus-jakarta)",
+                  color:
+                    isServicesActive || servicesHovered
+                      ? "var(--color-primary)"
+                      : "var(--color-on-surface-variant)",
+                  transition: "color 0.2s",
+                }}
+              >
+                Services
+              </Link>
+              <button
+                type="button"
+                onClick={() => setServicesOpen(!servicesOpen)}
+                aria-expanded={servicesOpen}
+                aria-label="Toggle services menu"
+                className="flex items-center focus:outline-none"
+                style={{
+                  color:
+                    isServicesActive || servicesHovered
+                      ? "var(--color-primary)"
+                      : "var(--color-on-surface-variant)",
+                  transition: "color 0.2s",
+                  background: "none",
+                  border: "none",
+                  cursor: "pointer",
+                  padding: 0,
+                }}
+              >
+                <svg className={`w-3.5 h-3.5 transition-transform duration-200 ${servicesOpen ? "rotate-180" : ""}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
               <span
-                className="absolute -bottom-1 left-0 h-0.5 rounded-full"
+                className="absolute -bottom-1 left-0 h-0.5 rounded-full pointer-events-none"
                 style={{
                   backgroundColor: "var(--color-primary)",
                   width: isServicesActive || servicesHovered ? "100%" : "0%",
                   transition: "width 0.25s ease",
                 }}
               />
-            </button>
+            </div>
 
             {servicesOpen && (
               <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 w-64">
@@ -260,22 +286,33 @@ export default function Navbar() {
             Home
           </Link>
 
-          {/* Mobile Services accordion */}
+          {/* Mobile Services accordion — label navigates, chevron expands */}
           <div>
-            <button
-              onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
-              className="w-full flex items-center justify-between text-base font-semibold py-2"
-              style={{
-                fontFamily: "var(--font-plus-jakarta)",
-                color: isServicesActive ? "var(--color-primary)" : "var(--color-on-surface)",
-                background: "none", border: "none", cursor: "pointer",
-              }}
-            >
-              Services
-              <svg className={`w-4 h-4 text-[var(--color-on-surface-variant)] transition-transform duration-200 ${mobileServicesOpen ? "rotate-180" : ""}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-              </svg>
-            </button>
+            <div className="w-full flex items-center justify-between">
+              <Link
+                href="/contact"
+                onClick={() => { setMobileOpen(false); setMobileServicesOpen(false); }}
+                className="flex-1 text-base font-semibold py-2"
+                style={{
+                  fontFamily: "var(--font-plus-jakarta)",
+                  color: isServicesActive ? "var(--color-primary)" : "var(--color-on-surface)",
+                }}
+              >
+                Services
+              </Link>
+              <button
+                type="button"
+                onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+                aria-expanded={mobileServicesOpen}
+                aria-label="Toggle services menu"
+                className="p-2 -mr-2"
+                style={{ background: "none", border: "none", cursor: "pointer" }}
+              >
+                <svg className={`w-4 h-4 text-[var(--color-on-surface-variant)] transition-transform duration-200 ${mobileServicesOpen ? "rotate-180" : ""}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+            </div>
 
             <div
               className={`overflow-hidden pl-4 flex flex-col gap-1 transition-all duration-300 ${

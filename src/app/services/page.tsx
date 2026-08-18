@@ -54,7 +54,7 @@ export default function ServicesPage() {
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(12, 1fr)",
-            gridTemplateRows: "repeat(2, 400px)",
+            gridTemplateRows: "repeat(4, 400px)",
             gap: "1.5rem",
           }}
           className="bento-grid"
@@ -281,6 +281,234 @@ export default function ServicesPage() {
               >
                 Learn More
               </span>
+            </motion.div>
+          </Link>
+
+          {/* Pediatrician */}
+          <Link href="/services/pediatrician" style={{ gridColumn: "span 4" }}>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.0, ease: easeOut }}
+              whileHover={{ scale: 1.02 }}
+              className="group rounded-2xl p-8 flex flex-col justify-between h-full cursor-pointer"
+              style={{ backgroundColor: "var(--color-secondary-container)" }}
+            >
+              <div>
+                <div className="relative w-full h-32 rounded-xl overflow-hidden mb-6">
+                  <Image
+                    src="/Pediatrician-hero.jpg"
+                    alt="A paediatrician examining a newborn during a home visit"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 33vw"
+                    className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                  />
+                </div>
+                <h2
+                  className="text-2xl font-bold mb-3"
+                  style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-secondary-container)" }}
+                >
+                  Pediatrician
+                </h2>
+                <p className="mb-6" style={{ color: "color-mix(in srgb, var(--color-on-secondary-container) 70%, transparent)" }}>
+                  Vaccinations, growth checks and newborn concerns, reviewed at home instead of a
+                  crowded clinic.
+                </p>
+              </div>
+              <span
+                className="flex items-center gap-2 font-bold group/btn"
+                style={{ fontFamily: "var(--font-headline)", color: "var(--color-primary)" }}
+              >
+                Learn More
+                <span className="material-symbols-outlined text-lg transition-transform group-hover/btn:translate-x-1">
+                  arrow_forward
+                </span>
+              </span>
+            </motion.div>
+          </Link>
+
+          {/* Prenatal & Postnatal Yoga */}
+          <Link href="/services/yoga" style={{ gridColumn: "span 4" }}>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1, ease: easeOut }}
+              whileHover={{ scale: 1.02 }}
+              className="group rounded-2xl p-8 flex flex-col justify-between shadow-sm border h-full cursor-pointer"
+              style={{
+                backgroundColor: "var(--color-surface-container-lowest)",
+                borderColor: "color-mix(in srgb, var(--color-outline-variant) 15%, transparent)",
+              }}
+            >
+              <div>
+                <div className="relative w-full h-32 rounded-xl overflow-hidden mb-6">
+                  <Image
+                    src="/yoga-hero.jpg"
+                    alt="A prenatal yoga session guided by a Motherly instructor"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 33vw"
+                    className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                  />
+                </div>
+                <h2
+                  className="text-2xl font-bold mb-3"
+                  style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}
+                >
+                  Prenatal Yoga
+                </h2>
+                <p className="mb-6" style={{ color: "var(--color-on-surface-variant)" }}>
+                  Breathwork and movement built around your trimester, taught by instructors trained
+                  for pregnancy.
+                </p>
+              </div>
+              <span
+                className="font-bold underline decoration-2 underline-offset-4"
+                style={{
+                  fontFamily: "var(--font-headline)",
+                  color: "var(--color-primary)",
+                  textDecorationColor: "var(--color-primary)",
+                }}
+              >
+                Learn More
+              </span>
+            </motion.div>
+          </Link>
+
+          {/* Physiotherapy */}
+          <Link href="/services/postnatal-recovery-care/physiotherapy" style={{ gridColumn: "span 4" }}>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2, ease: easeOut }}
+              whileHover={{ scale: 1.02 }}
+              className="rounded-2xl p-8 flex flex-col justify-between h-full cursor-pointer border-t border-transparent transition-all"
+              style={{ backgroundColor: "var(--color-surface-container-high)" }}
+            >
+              <div>
+                <div className="relative w-full h-32 rounded-xl overflow-hidden mb-6">
+                  <Image
+                    src="/Physiotherapy.jpg"
+                    alt="A postnatal physiotherapy assessment session"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 33vw"
+                    className="object-cover object-top"
+                  />
+                </div>
+                <h2
+                  className="text-2xl font-bold mb-3"
+                  style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}
+                >
+                  Physiotherapy
+                </h2>
+                <p className="mb-6" style={{ color: "var(--color-on-surface-variant)" }}>
+                  Pelvic floor and core rehabilitation, assessed properly before a single exercise is
+                  prescribed.
+                </p>
+              </div>
+              <span
+                className="flex items-center gap-2 font-bold group/btn"
+                style={{ fontFamily: "var(--font-headline)", color: "var(--color-primary)" }}
+              >
+                Learn More
+                <span className="material-symbols-outlined text-lg transition-transform group-hover/btn:translate-x-1">
+                  arrow_forward
+                </span>
+              </span>
+            </motion.div>
+          </Link>
+
+          {/* Baby Care */}
+          <Link href="/services/baby-care" style={{ gridColumn: "span 6" }}>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.0, ease: easeOut }}
+              whileHover={{ scale: 1.01 }}
+              className="group relative rounded-2xl overflow-hidden h-full cursor-pointer"
+              style={{ backgroundColor: "var(--color-surface-container-lowest)" }}
+            >
+              <div className="absolute inset-0 z-0">
+                <Image
+                  src="/baby-care.png"
+                  alt="A Motherly baby care specialist settling a newborn"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover opacity-90 transition-transform duration-700 group-hover:scale-105"
+                />
+                <div
+                  className="absolute inset-0"
+                  style={{ background: "linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 50%, transparent 100%)" }}
+                />
+              </div>
+              <div className="absolute bottom-0 left-0 p-8 z-10 text-white w-full">
+                <span
+                  className="inline-block px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-4"
+                  style={{ backgroundColor: "var(--color-primary-container)", color: "var(--color-on-primary-container)" }}
+                >
+                  Newborn
+                </span>
+                <h2 className="text-3xl font-bold mb-3" style={{ fontFamily: "var(--font-headline)" }}>
+                  Baby Care
+                </h2>
+                <p className="max-w-md mb-6 text-white/80">
+                  Feeding routines, settling, sleep and day-to-day newborn care from trained
+                  specialists in your own home.
+                </p>
+                <span className="flex items-center gap-2 font-bold text-sm text-white group-hover:underline" style={{ fontFamily: "var(--font-headline)" }}>
+                  Learn More
+                  <span className="material-symbols-outlined text-lg transition-transform group-hover:translate-x-1">arrow_forward</span>
+                </span>
+              </div>
+            </motion.div>
+          </Link>
+
+          {/* Mother Care */}
+          <Link href="/services/mother-care" style={{ gridColumn: "span 6" }}>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1, ease: easeOut }}
+              whileHover={{ scale: 1.01 }}
+              className="group relative rounded-2xl overflow-hidden h-full cursor-pointer"
+              style={{ backgroundColor: "var(--color-surface-container-lowest)" }}
+            >
+              <div className="absolute inset-0 z-0">
+                <Image
+                  src="/mother-care.png"
+                  alt="A Motherly specialist supporting a mother's recovery at home"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover opacity-90 transition-transform duration-700 group-hover:scale-105"
+                />
+                <div
+                  className="absolute inset-0"
+                  style={{ background: "linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 50%, transparent 100%)" }}
+                />
+              </div>
+              <div className="absolute bottom-0 left-0 p-8 z-10 text-white w-full">
+                <span
+                  className="inline-block px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-4"
+                  style={{ backgroundColor: "var(--color-primary-container)", color: "var(--color-on-primary-container)" }}
+                >
+                  Recovery
+                </span>
+                <h2 className="text-3xl font-bold mb-3" style={{ fontFamily: "var(--font-headline)" }}>
+                  Mother Care
+                </h2>
+                <p className="max-w-md mb-6 text-white/80">
+                  Wound care, massage, nutrition and rest — practical support for the mother, not
+                  only the baby.
+                </p>
+                <span className="flex items-center gap-2 font-bold text-sm text-white group-hover:underline" style={{ fontFamily: "var(--font-headline)" }}>
+                  Learn More
+                  <span className="material-symbols-outlined text-lg transition-transform group-hover:translate-x-1">arrow_forward</span>
+                </span>
+              </div>
             </motion.div>
           </Link>
         </div>

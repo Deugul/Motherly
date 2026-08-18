@@ -123,6 +123,47 @@ h1, h2, h3, h4, h5, h6 {
   scrollbar-width: none;
 }
 
+/* ── Enquiry form flip card ────────────────────────────────────────────
+   The booking form flips to a thank-you panel on success. Both faces are
+   absolutely stacked so the wrapper can animate between their two heights;
+   the wrapper's height is set inline from a measurement in JS. */
+.motherly-flip {
+  position: relative;
+  perspective: 1600px;
+  transition: height 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.motherly-flip__inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.motherly-flip.is-flipped .motherly-flip__inner {
+  transform: rotateY(180deg);
+}
+
+.motherly-flip__face {
+  position: absolute;
+  inset-inline: 0;
+  top: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.motherly-flip__face--back {
+  transform: rotateY(180deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .motherly-flip,
+  .motherly-flip__inner {
+    transition: none;
+  }
+}
+
 /* Brand-consistent focus state for every form control.
    Field borders previously fell back to grey/transparent on focus while the
    rest of the site used the rose accent, so focus was easy to lose. The
