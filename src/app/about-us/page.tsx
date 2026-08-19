@@ -64,6 +64,24 @@ export default function AboutPage() {
                   Motherly was born from a simple truth: every mother deserves a village. We are
                   redefining home care through a lens of empathy, editorial excellence, and clinical precision.
                 </p>
+
+                {/* Shortcut for visitors who came here to check credibility before
+                    booking — the full CTA still sits at the foot of the page. */}
+                <div className="mt-8">
+                  <Link
+                    href="/services"
+                    className="inline-flex items-center gap-2 rounded-xl px-7 py-3.5 text-base font-bold transition-transform hover:scale-[1.03]"
+                    style={{
+                      fontFamily: "var(--font-headline)",
+                      backgroundColor: "var(--color-primary)",
+                      color: "var(--color-on-primary)",
+                      boxShadow: "0 8px 24px color-mix(in srgb, var(--color-primary) 25%, transparent)",
+                    }}
+                  >
+                    Explore Our Services
+                    <span className="material-symbols-outlined text-base">arrow_forward</span>
+                  </Link>
+                </div>
               </ScrollReveal>
 
               {/* Mission / Vision + Image */}

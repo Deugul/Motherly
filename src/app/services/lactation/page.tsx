@@ -11,9 +11,6 @@ import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 import AppDownloadButton from "@/components/AppDownloadButton";
 import ServiceEnquiryCta from "@/components/ServiceEnquiryCta";
-import InlineCtaBand from "@/components/InlineCtaBand";
-import ServiceReviews from "@/components/ServiceReviews";
-import RelatedReading from "@/components/RelatedReading";
 
 
 export default function LactationPage() {
@@ -172,7 +169,7 @@ export default function LactationPage() {
                 <a href="https://mothrly.com/blogs/why-is-my-breast-milk-not-coming-causes-and-easy-solutions" style={{ color: "var(--color-primary)", textDecoration: "underline" }}>breast milk not coming</a>,{" "}
                 <a href="https://mothrly.com/blogs/how-to-increase-breast-milk-supply" style={{ color: "var(--color-primary)", textDecoration: "underline" }}>increase breast milk supply</a>,{" "}
                 <a href="https://mothrly.com/blogs/breastfeeding-rules-every-new-mom-should-know" style={{ color: "var(--color-primary)", textDecoration: "underline" }}>breastfeeding rules</a>, and{" "}
-                <a href="https://www.mothrly.com/services/postnatal-recovery-care" style={{ color: "var(--color-primary)", textDecoration: "underline" }}>postnatal care</a>.
+                <a href="https://www.mothrly.com/services/postnatal-Recovery-care" style={{ color: "var(--color-primary)", textDecoration: "underline" }}>postnatal care</a>.
               </p>
             </ScrollReveal>
 
@@ -380,8 +377,21 @@ export default function LactationPage() {
               </section>
             </ScrollReveal>
 
-            {/* What mothers say */}
-            <ServiceReviews serviceKey="lactation" />
+            {/* Testimonial */}
+            <ScrollReveal delay={0.05} direction="right">
+              <blockquote
+                className="p-7 rounded-2xl border-l-4 italic"
+                style={{ backgroundColor: "color-mix(in srgb, #fef3c7 60%, white)", borderLeftColor: "#d97706" }}
+              >
+                <p className="text-base leading-relaxed" style={{ color: "var(--color-on-surface)" }}>
+                  "My baby was losing weight and I was in so much pain I was ready to stop at day 5. My Motherly lactation consultant came the next morning, watched one feed, spotted the shallow latch immediately, and repositioned us both. Within two days my pain was gone and my baby was gaining. I wish I had called on day one."
+                </p>
+                <footer className="mt-4">
+                  <span className="font-bold not-italic" style={{ color: "var(--color-primary)" }}>— Deepa M.</span>
+                  <span className="text-sm ml-2 not-italic" style={{ color: "var(--color-on-surface-variant)" }}>| Mother of one, Anna Nagar, Chennai</span>
+                </footer>
+              </blockquote>
+            </ScrollReveal>
 
             {/* Book early callout */}
             <ScrollReveal delay={0.05} direction="left">
@@ -401,14 +411,13 @@ export default function LactationPage() {
               </div>
             </ScrollReveal>
 
-            {/* Mid-page CTA — before the FAQ, for visitors who already decided */}
-            <InlineCtaBand
-              heading="Struggling with feeding right now?"
-              subheading="Most latch problems are fixable in one or two home visits. Book a consultant near you."
-              action={
-                <ServiceEnquiryCta serviceKey="lactation" label="Book Your Lactation Consult" />
-              }
-            />
+            {/* Pre-FAQ CTA — last chance to act before the page turns into reference reading. */}
+            <div className="flex justify-center my-12">
+                <ServiceEnquiryCta
+                  serviceKey="lactation"
+                  serviceOptions={["Doulas","Lactation Consultants","Gynaecology Consultation","Nanny Care","Postnatal Recovery","Nutrition Consultation"]}
+                />
+            </div>
 
             {/* FAQ */}
             <ScrollReveal delay={0.05} direction="right">
@@ -514,9 +523,6 @@ export default function LactationPage() {
                 </div>
               </section>
             </ScrollReveal>
-
-            {/* Related reading */}
-            <RelatedReading serviceKey="lactation" />
 
             {/* App CTA */}
             <ScrollReveal delay={0.05}>

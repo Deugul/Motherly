@@ -194,6 +194,8 @@ textarea[aria-invalid="true"]:focus {
   font-family: var(--font-body);
   font-size: 1.0625rem;
   line-height: 1.8;
+  container-type: inline-size;
+  container-name: wp-content;
 }
 
 .wp-content h1,
@@ -659,6 +661,7 @@ textarea[aria-invalid="true"]:focus {
   --mb-text: #1a1a1a;
   --mb-muted: #666;
   --mb-border: #e2d0c8;
+  --mb-white: #ffffff;
   --mb-r: 8px;
   --mb-rlg: 12px;
 }
@@ -667,14 +670,17 @@ textarea[aria-invalid="true"]:focus {
 
 .wp-content .mb-wrap {
   display: flex;
-  gap: 2rem;
-  align-items: flex-start;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: stretch;
   position: relative;
 }
 
 .wp-content .mb {
   flex: 1;
   min-width: 0;
+  width: 100%;
+  max-width: 100%;
 }
 
 .wp-content .mb *,
@@ -1008,13 +1014,71 @@ textarea[aria-invalid="true"]:focus {
 
 /* Responsive --------------------------------------------------- */
 
-@media (max-width: 900px) {
+/* Wide viewports: sidebar TOC beside the article */
+@media (min-width: 901px) {
   .wp-content .mb-wrap {
-    display: block;
+    flex-direction: row;
+    gap: 2rem;
+    align-items: flex-start;
+  }
+}
+
+/* Phones: hide sticky sidebar (article stays full width) */
+@media (max-width: 900px) {
+  .wp-content .mb-toc {
+    display: none;
+  }
+}
+
+/*
+ * Narrow *containers* (mobile preview frame, in-app WebView columns, etc.)
+ * — viewport can still be desktop-wide, so media queries alone miss this.
+ */
+@container wp-content (max-width: 720px) {
+  .wp-content .mb-wrap {
+    flex-direction: column !important;
+    gap: 1.5rem;
+  }
+
+  .wp-content .mb {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
   }
 
   .wp-content .mb-toc {
-    display: none;
+    display: none !important;
+    position: static !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-height: none !important;
+  }
+
+  .wp-content .mb h1,
+  .wp-content .mb h2 {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    word-break: normal;
+  }
+
+  .wp-content .mb-table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    max-width: 100%;
+    margin: 1.25rem 0;
+    border: 1px solid var(--mb-border);
+    border-radius: var(--mb-r);
+    background: var(--mb-white);
+  }
+
+  .wp-content .mb-table-wrap table {
+    min-width: 520px;
+    font-size: 14px;
+  }
+
+  .wp-content .mb-table-wrap th,
+  .wp-content .mb-table-wrap td {
+    padding: 0.65rem 0.75rem;
   }
 }
 

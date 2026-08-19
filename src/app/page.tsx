@@ -17,8 +17,8 @@ export default function Home() {
       <Navbar />
       <main className="pt-20 overflow-x-hidden">
         <HeroSection />
-        {/* Services sits directly under the Hero so a first-time visitor sees
-            what they can book before reading the brand story. */}
+        {/* Services sits directly under the hero so visitors reach something
+            bookable before the brand story, not after it. */}
         <ServicesSection />
         <OurStorySection />
         <WhyMotherlySection />

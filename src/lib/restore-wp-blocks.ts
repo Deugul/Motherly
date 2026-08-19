@@ -212,6 +212,15 @@ function restoreToc(html: string): string {
   );
 }
 
+/** Wrap bare comparison tables so borders + horizontal scroll work without inline WP CSS. */
+function restoreTables(html: string): string {
+  return html.replace(/<table\b[\s\S]*?<\/table>/gi, (table, offset) => {
+    const before = html.slice(Math.max(0, offset - 120), offset);
+    if (/class="mb-table-wrap"[^>]*>\s*$/i.test(before)) return table;
+    return `<div class="mb-table-wrap">${table}</div>`;
+  });
+}
+
 /** Two-column shell: article beside the sticky contents rail. */
 function wrapLayout(html: string): string {
   if (/class="mb-wrap"/.test(html)) return html;
@@ -241,6 +250,7 @@ export function restoreWpBlocks(html: string): string {
   out = restoreCta(out);
   out = restoreAuthor(out);
   out = restoreToc(out);
+  out = restoreTables(out);
   out = wrapLayout(out);
   return out;
 }

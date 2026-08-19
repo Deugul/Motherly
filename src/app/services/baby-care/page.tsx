@@ -455,6 +455,23 @@ export default function BabyCarePage() {
               }
             />
 
+            {/* Related reading — internal links use relative paths so they resolve
+                on the canonical host without an extra redirect hop. */}
+            <p className="text-sm leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
+              See also:{" "}
+              <a href="/blogs/baby-care-specialist-in-chennai-what-they-do-in-the-first-40-days" style={{ color: "var(--color-primary)", textDecoration: "underline" }}>what a baby care specialist does in the first 40 days</a>,{" "}
+              <a href="/blogs/baby-first-month-paediatrician-visit" style={{ color: "var(--color-primary)", textDecoration: "underline" }}>your baby&apos;s first paediatrician visit</a>, and{" "}
+              <a href="/blogs/toddler-sleep-what-you-have-been-told-is-wrong" style={{ color: "var(--color-primary)", textDecoration: "underline" }}>what the research says about infant sleep</a>.
+            </p>
+
+            {/* Pre-FAQ CTA — last chance to act before the page turns into reference reading. */}
+            <div className="flex justify-center my-12">
+                <ServiceEnquiryCta
+                serviceKey="baby-care"
+                serviceOptions={["Baby Care","In-Home Newborn Care","Virtual Baby Care","Overnight Baby Care"]}
+                />
+            </div>
+
             <ScrollReveal direction="left">
               <section className="space-y-3">
                 <h2

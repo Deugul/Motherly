@@ -346,6 +346,14 @@ export default function NanniesPage() {
               }
             />
 
+            {/* Pre-FAQ CTA — last chance to act before the page turns into reference reading. */}
+            <div className="flex justify-center my-12">
+                <ServiceEnquiryCta
+                serviceKey="nannies"
+                serviceOptions={["Doulas","Lactation Consultants","Gynaecology Consultation","Nanny Care","Postnatal Recovery","Nutrition Consultation"]}
+                />
+            </div>
+
             {/* FAQ Accordion */}
             <ScrollReveal direction="left">
               <section className="space-y-3">

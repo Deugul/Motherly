@@ -8,20 +8,8 @@ import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 import AppDownloadButton from "@/components/AppDownloadButton";
 import ServiceEnquiryCta from "@/components/ServiceEnquiryCta";
-import ServiceReviews from "@/components/ServiceReviews";
-import RelatedReading from "@/components/RelatedReading";
-import InlineCtaBand from "@/components/InlineCtaBand";
 
 const MotionImage = motion.create(Image);
-
-const DOULA_SERVICE_OPTIONS = [
-  "Doulas",
-  "Lactation Consultants",
-  "Gynaecology Consultation",
-  "Nanny Care",
-  "Postnatal Recovery",
-  "Nutrition Consultation",
-];
 
 export default function DoulaPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -74,7 +62,7 @@ export default function DoulaPage() {
                 <div className="mt-6">
                   <ServiceEnquiryCta
                   serviceKey="doulas"
-                  serviceOptions={DOULA_SERVICE_OPTIONS}
+                  serviceOptions={["Doulas","Lactation Consultants","Gynaecology Consultation","Nanny Care","Postnatal Recovery","Nutrition Consultation"]}
                 />
                 </div>
               </section>
@@ -219,12 +207,12 @@ export default function DoulaPage() {
                         <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>{item.icon}</span>
                       </div>
                       <div>
-                        <h4
+                        <h3
                           className="text-lg font-bold mb-2"
                           style={{ fontFamily: "var(--font-headline)", color: "var(--color-primary)" }}
                         >
                           {item.title}
-                        </h4>
+                        </h3>
                         <p className="text-sm leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
                           {item.desc}
                         </p>
@@ -235,18 +223,16 @@ export default function DoulaPage() {
               </section>
             </ScrollReveal>
 
-            {/* CTA repeated once visitors know what is included */}
-            <InlineCtaBand
-              heading="This is the support you were looking for?"
-              subheading="Tell us your due date and we'll match you with a verified Chennai doula."
-              action={
+            {/* Mid-page CTA — catches visitors who are convinced by the offer
+                and should not have to scroll to the foot of the page to act. */}
+            <ScrollReveal delay={0.1} direction="none">
+              <div className="flex justify-center">
                 <ServiceEnquiryCta
                   serviceKey="doulas"
-                  label="Book Your Doula"
-                  serviceOptions={DOULA_SERVICE_OPTIONS}
+                  serviceOptions={["Doulas","Lactation Consultants","Gynaecology Consultation","Nanny Care","Postnatal Recovery","Nutrition Consultation"]}
                 />
-              }
-            />
+              </div>
+            </ScrollReveal>
 
             {/* Birth Doula vs Postpartum Doula */}
             <ScrollReveal delay={0.1} direction="left">
@@ -318,7 +304,7 @@ export default function DoulaPage() {
                 <p className="leading-relaxed text-sm" style={{ color: "var(--color-on-surface-variant)" }}>
                   See also:{" "}
                   <a href="https://mothrly.com/blogs/why-every-new-mother-may-need-a-lactation-consultant" style={{ color: "var(--color-primary)", textDecoration: "underline" }}>lactation consultant</a>,{" "}
-                  <a href="https://www.mothrly.com/services/postnatal-recovery-care" style={{ color: "var(--color-primary)", textDecoration: "underline" }}>postnatal care</a>,{" "}
+                  <a href="/services/postnatal-recovery-care" style={{ color: "var(--color-primary)", textDecoration: "underline" }}>postnatal care</a>,{" "}
                   <a href="https://mothrly.com/blogs/pregnancy-diet-plan" style={{ color: "var(--color-primary)", textDecoration: "underline" }}>pregnancy diet plan</a>, and{" "}
                   <a href="https://mothrly.com/blogs/postpartum-care-in-chennai-the-complete-guide-for-new-mothers" style={{ color: "var(--color-primary)", textDecoration: "underline" }}>postpartum care Chennai</a>.
                 </p>
@@ -331,7 +317,7 @@ export default function DoulaPage() {
                     borderLeftColor: "var(--color-primary)",
                   }}
                 >
-                  <h4 className="font-bold mb-2" style={{ color: "var(--color-primary)" }}>What the research says</h4>
+                  <h3 className="font-bold mb-2" style={{ color: "var(--color-primary)" }}>What the research says</h3>
                   <p className="text-sm leading-relaxed" style={{ color: "var(--color-on-surface)" }}>
                     Research published in the <strong>Cochrane Database of Systematic Reviews</strong> found that women who received continuous support during labour were more likely to have spontaneous vaginal births, less likely to need pain medication, and reported greater satisfaction with their birth experience, regardless of the setting or type of support person.
                   </p>
@@ -422,12 +408,12 @@ export default function DoulaPage() {
                         {step.num}
                       </div>
                       <div className="space-y-2">
-                        <h4
+                        <h3
                           className="font-bold text-base"
                           style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}
                         >
                           {step.title}
-                        </h4>
+                        </h3>
                         <p className="text-sm leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
                           {step.text}
                         </p>
@@ -487,8 +473,24 @@ export default function DoulaPage() {
               </section>
             </ScrollReveal>
 
-            {/* What mothers say */}
-            <ServiceReviews serviceKey="doulas" />
+            {/* Testimonial */}
+            <ScrollReveal delay={0.1} direction="right">
+              <blockquote
+                className="p-7 rounded-2xl border-l-4 italic"
+                style={{
+                  backgroundColor: "color-mix(in srgb, #fef3c7 60%, white)",
+                  borderLeftColor: "#d97706",
+                }}
+              >
+                <p className="text-base leading-relaxed" style={{ color: "var(--color-on-surface)" }}>
+                  "I had no family in Chennai and was terrified of going into labour alone with just my husband. My Motherly doula arrived two hours into my contractions and I immediately felt calmer. She coached my husband too, which was something I didn't even know I needed. I honestly don't think my birth would have gone the way it did without her."
+                </p>
+                <footer className="mt-4">
+                  <span className="font-bold not-italic" style={{ color: "var(--color-primary)" }}>— Priya S.</span>
+                  <span className="text-sm ml-2 not-italic" style={{ color: "var(--color-on-surface-variant)" }}>| First-time mother, Chennai</span>
+                </footer>
+              </blockquote>
+            </ScrollReveal>
 
             {/* A note for Chennai mothers */}
             <ScrollReveal delay={0.1}>
@@ -496,27 +498,14 @@ export default function DoulaPage() {
                 className="p-6 rounded-2xl"
                 style={{ backgroundColor: "color-mix(in srgb, var(--color-secondary-container) 50%, white)" }}
               >
-                <h4 className="font-bold mb-2" style={{ fontFamily: "var(--font-headline)", color: "var(--color-primary)" }}>
+                <h3 className="font-bold mb-2" style={{ fontFamily: "var(--font-headline)", color: "var(--color-primary)" }}>
                   A note for Chennai mothers
-                </h4>
+                </h3>
                 <p className="text-sm leading-relaxed" style={{ color: "var(--color-on-surface)" }}>
                   Many families here rely on the mother's mother (paati) or mother-in-law as the primary birth support figure. A Motherly doula works alongside family, not instead of them. If your paati is in the room, your doula is there to ensure the whole support system works together, smoothly and calmly.
                 </p>
               </div>
             </ScrollReveal>
-
-            {/* Second CTA — catches visitors before the FAQ and enquiry form */}
-            <InlineCtaBand
-              heading="Doulas book out fast in Chennai."
-              subheading="Most mothers connect with their doula in the second trimester. Check who's free around your due date."
-              action={
-                <ServiceEnquiryCta
-                  serviceKey="doulas"
-                  label="Check Availability"
-                  serviceOptions={DOULA_SERVICE_OPTIONS}
-                />
-              }
-            />
 
             {/* How Motherly's Doula Network Is Different */}
             <ScrollReveal delay={0.1} direction="left">
@@ -573,9 +562,9 @@ export default function DoulaPage() {
                         {feature.icon}
                       </span>
                       <div>
-                        <h4 className="font-bold mb-1" style={{ fontFamily: "var(--font-headline)", color: "var(--color-primary)" }}>
+                        <h3 className="font-bold mb-1" style={{ fontFamily: "var(--font-headline)", color: "var(--color-primary)" }}>
                           {feature.title}
-                        </h4>
+                        </h3>
                         <p className="text-sm leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
                           {feature.desc}
                         </p>
@@ -584,6 +573,16 @@ export default function DoulaPage() {
                   ))}
                 </div>
               </section>
+            </ScrollReveal>
+
+            {/* Pre-FAQ CTA — last exit before the page turns into reference reading. */}
+            <ScrollReveal delay={0.1} direction="none">
+              <div className="flex justify-center">
+                <ServiceEnquiryCta
+                  serviceKey="doulas"
+                  serviceOptions={["Doulas","Lactation Consultants","Gynaecology Consultation","Nanny Care","Postnatal Recovery","Nutrition Consultation"]}
+                />
+              </div>
             </ScrollReveal>
 
             {/* FAQ */}
@@ -700,9 +699,6 @@ export default function DoulaPage() {
                 </div>
               </section>
             </ScrollReveal>
-
-            {/* Related reading */}
-            <RelatedReading serviceKey="doulas" />
 
             {/* Book through App CTA */}
             <ScrollReveal delay={0.1}>

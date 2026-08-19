@@ -351,6 +351,21 @@ export default function PediatricianPage() {
               }
             />
 
+            {/* Pre-FAQ CTA — last chance to act before the page turns into reference reading. */}
+            <div className="flex justify-center my-12">
+                <ServiceEnquiryCta
+                  serviceKey="pediatrician"
+                  serviceOptions={[
+                    "Pediatrician Consultation",
+                    "Doulas",
+                    "Lactation Consultants",
+                    "Gynaecology Consultation",
+                    "Nanny Care",
+                    "Postnatal Recovery",
+                  ]}
+                />
+            </div>
+
             {/* FAQ Accordion */}
             <ScrollReveal direction="left">
               <section className="space-y-3">

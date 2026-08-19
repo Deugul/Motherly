@@ -13,9 +13,6 @@ import CTASection from "@/components/CTASection";
 import ScrollReveal from "@/components/ScrollReveal";
 import AppDownloadButton from "@/components/AppDownloadButton";
 import ServiceEnquiryCta from "@/components/ServiceEnquiryCta";
-import InlineCtaBand from "@/components/InlineCtaBand";
-import ServiceReviews from "@/components/ServiceReviews";
-import RelatedReading from "@/components/RelatedReading";
 
 const MotionImage = motion.create(Image);
 
@@ -51,7 +48,7 @@ const KEYWORD_LINKS = [
   {
     label: "doulas",
     title: "Doula Services in Chennai",
-    url: "https://www.mothrly.com/services/doulas",
+    url: "https://www.mothrly.com/our-services/doulas",
     icon: "pregnant_woman",
   },
   {
@@ -177,7 +174,7 @@ export default function PostnatalPage() {
               </h2>
               <p className="leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
                 Motherly brings certified{" "}
-                <a href="/services/postnatal-recovery-care" style={{ color: "var(--color-primary)", textDecoration: "underline" }}>
+                <a href="/our-services/postnatal-recovery-care" style={{ color: "var(--color-primary)", textDecoration: "underline" }}>
                   postnatal recovery care
                 </a>{" "}
                 professionals to your home in Chennai. As the trusted postnatal care Chennai mothers depend on, we offer traditional jaapa support and modern recovery guidance, providing the{" "}
@@ -414,8 +411,21 @@ export default function PostnatalPage() {
               </section>
             </ScrollReveal>
 
-            {/* What mothers say */}
-            <ServiceReviews serviceKey="postnatal-recovery" />
+            {/* Testimonial */}
+            <ScrollReveal delay={0.05}>
+              <blockquote
+                className="p-7 rounded-2xl border-l-4 italic"
+                style={{ backgroundColor: "color-mix(in srgb, #fef3c7 60%, white)", borderLeftColor: "#d97706" }}
+              >
+                <p className="text-base leading-relaxed" style={{ color: "var(--color-on-surface)" }}>
+                  "I had a C-section and my mother couldn't travel from Coimbatore in time. My Motherly postnatal care professional arrived the day I came home and just took over. The massage, the food, the guidance on how to hold my baby without straining my wound. I genuinely don't know how I would have managed those first two weeks without her."
+                </p>
+                <footer className="mt-4">
+                  <span className="font-bold not-italic" style={{ color: "var(--color-primary)" }}>— Kavitha R.</span>
+                  <span className="text-sm ml-2 not-italic" style={{ color: "var(--color-on-surface-variant)" }}>| New mother, Adyar, Chennai</span>
+                </footer>
+              </blockquote>
+            </ScrollReveal>
 
             {/* Note on postnatal depression */}
             <ScrollReveal delay={0.05}>
@@ -438,15 +448,13 @@ export default function PostnatalPage() {
         </div>
         </section>
 
-        {/* Mid-page CTA — before the FAQ, for visitors who already decided */}
-        <InlineCtaBand
-          className="mb-14"
-          heading="Ready to plan your recovery care?"
-          subheading="Tell us your delivery date and we'll build a recovery plan around it."
-          action={
-            <ServiceEnquiryCta serviceKey="postnatal-recovery" label="Book Now" />
-          }
-        />
+        {/* Pre-FAQ CTA — last chance to act before the page turns into reference reading. */}
+        <div className="flex justify-center my-12">
+            <ServiceEnquiryCta
+              serviceKey="postnatal-recovery"
+              serviceOptions={["Doulas","Lactation Consultants","Gynaecology Consultation","Nanny Care","Postnatal Recovery","Nutrition Consultation"]}
+            />
+        </div>
 
         {/* ── FAQ ── */}
         <ScrollReveal delay={0.1}>
@@ -483,7 +491,7 @@ export default function PostnatalPage() {
                   q: "Can postnatal care help with breastfeeding?",
                   a: "Yes. Our care professionals support breastfeeding through positioning guidance, dietary recommendations, and direct coordination with Motherly's lactation consultants when specialist support is needed.",
                   links: [
-                    { label: "lactation consultant", url: "/services/lactation-consultants" },
+                    { label: "lactation consultant", url: "/our-services/lactation-consultants" },
                     { label: "foods that increase breast milk", url: "https://www.mothrly.com/blogs/how-to-increase-breast-milk-supply" },
                   ],
                 },
@@ -570,9 +578,6 @@ export default function PostnatalPage() {
             </div>
           </section>
         </ScrollReveal>
-
-        {/* Related reading */}
-        <RelatedReading serviceKey="postnatal-recovery" className="mb-14" />
 
         {/* ── Book through App CTA ── */}
         <ScrollReveal delay={0.1}>

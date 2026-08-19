@@ -240,8 +240,16 @@ function sanitizeWpHtml(html: string): string {
     .replace(/<div\s+class="mb-tags"[^>]*>\s*(?:<a\b[^>]*>[\s\S]*?<\/a>\s*)*<\/div>/gi, "");
 }
 
+function stripExportedHtmlDocumentShell(html: string): string {
+  return html
+    .replace(/<!DOCTYPE[^>]*>/gi, "")
+    .replace(/<\/?html[^>]*>/gi, "")
+    .replace(/<head\b[^>]*>[\s\S]*?<\/head>/gi, "")
+    .replace(/<\/?body[^>]*>/gi, "");
+}
+
 function prepareWpContentHtml(html: string, stripWpFaqSchema = false): string {
-  const sanitized = sanitizeWpHtml(html);
+  const sanitized = sanitizeWpHtml(stripExportedHtmlDocumentShell(html));
   const withoutDuplicateFaq = stripWpFaqSchema
     ? stripWpFaqSchemaFromHtml(sanitized)
     : sanitized;

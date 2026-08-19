@@ -453,6 +453,23 @@ export default function MotherCarePage() {
               }
             />
 
+            {/* Related reading — internal links use relative paths so they resolve
+                on the canonical host without an extra redirect hop. */}
+            <p className="text-sm leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
+              See also:{" "}
+              <a href="/blogs/mother-care-specialist-in-chennai" style={{ color: "var(--color-primary)", textDecoration: "underline" }}>what a mother care specialist does</a>,{" "}
+              <a href="/blogs/postnatal-recovery-timeline-chennai" style={{ color: "var(--color-primary)", textDecoration: "underline" }}>the complete postnatal recovery timeline</a>, and{" "}
+              <a href="/blogs/fourth-trimester-maternal-mental-health-india" style={{ color: "var(--color-primary)", textDecoration: "underline" }}>maternal mental health in the fourth trimester</a>.
+            </p>
+
+            {/* Pre-FAQ CTA — last chance to act before the page turns into reference reading. */}
+            <div className="flex justify-center my-12">
+                <ServiceEnquiryCta
+                serviceKey="mother-care"
+                serviceOptions={["Mother Care","In-Home Mother Care","Virtual Mother Care","Full Confinement Care"]}
+                />
+            </div>
+
             <ScrollReveal direction="left">
               <section className="space-y-3">
                 <h2

@@ -212,9 +212,12 @@
 /* Generic tables inside .mb (mb-table-wrap) — inline WP <style> is stripped on Next.js */
 .wp-content .mb-table-wrap {
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  max-width: 100%;
   margin: 2rem 0;
   border-radius: var(--mb-r);
   border: 1px solid var(--mb-border);
+  background: var(--mb-white);
 }
 
 .wp-content .mb table {
@@ -979,6 +982,22 @@
 
   .wp-content .mb-toc {
     display: none;
+  }
+
+  .wp-content .mb-table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    max-width: 100%;
+  }
+
+  .wp-content .mb-table-wrap table {
+    min-width: 520px;
+    font-size: 14px;
+  }
+
+  .wp-content .mb-table-wrap th,
+  .wp-content .mb-table-wrap td {
+    padding: 0.65rem 0.75rem;
   }
 }
 

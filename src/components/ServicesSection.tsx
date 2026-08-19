@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import ScrollReveal from "./ScrollReveal";
-import InlineCtaBand from "./InlineCtaBand";
 
 const easeOut: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
 
@@ -50,17 +49,29 @@ export default function ServicesSection() {
   return (
     <section className="py-10 md:py-20" style={{ backgroundColor: "var(--color-surface)" }}>
 
-      {/* 1 — Title + descriptive headline */}
-      <div className="max-w-7xl mx-auto px-4 md:px-8 mb-8 md:mb-14">
+      {/* 1 — Title */}
+      <div className="max-w-7xl mx-auto px-4 md:px-8 mb-8">
         <ScrollReveal>
           <h2
-            className="text-4xl md:text-5xl font-extrabold tracking-tight mb-6"
+            className="text-4xl md:text-5xl font-extrabold tracking-tight"
             style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}
           >
             Our <span style={{ color: "var(--color-primary)" }}>Services</span>
           </h2>
+        </ScrollReveal>
+      </div>
+
+      {/* 2 — Descriptive headline */}
+      <div className="max-w-7xl mx-auto px-4 md:px-8 mb-8 md:mb-14">
+        <ScrollReveal>
           <p
-            className="text-xl  leading-snug max-w-4xl"
+            className="text-xs font-bold tracking-widest uppercase mb-4"
+            style={{ color: "var(--color-primary)" }}
+          >
+            Services
+          </p>
+          <p
+            className="text-3xl md:text-4xl font-bold leading-snug max-w-4xl"
             style={{ fontFamily: "var(--font-headline)", color: "var(--color-on-surface)" }}
           >
             At Motherly, we provide a comprehensive range of maternal care services tailored to your needs.{" "}
@@ -71,7 +82,7 @@ export default function ServicesSection() {
         </ScrollReveal>
       </div>
 
-      {/* 2 — Service cards grid */}
+      {/* 3 — Service cards grid */}
       <div className="max-w-7xl mx-auto px-4 md:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {services.map((s, i) => (
@@ -126,18 +137,6 @@ export default function ServicesSection() {
           </motion.div>
         ))}
         </div>
-      </div>
-
-      {/* 3 — Mid-page CTA, so visitors can act straight off the service grid */}
-      <div className="max-w-7xl mx-auto px-4 md:px-8 mt-10 md:mt-14">
-        <InlineCtaBand
-          heading="Found the care you were looking for?"
-          subheading="Talk to our care team and we'll match you with a verified professional near you."
-          primaryLabel="Book Consultation"
-          primaryHref="/contact"
-          secondaryLabel="View All Services"
-          secondaryHref="/services"
-        />
       </div>
 
     </section>

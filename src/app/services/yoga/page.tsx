@@ -367,6 +367,14 @@ export default function YogaPage() {
               }
             />
 
+            {/* Pre-FAQ CTA — last chance to act before the page turns into reference reading. */}
+            <div className="flex justify-center my-12">
+                <ServiceEnquiryCta
+                serviceKey="yoga"
+                serviceOptions={["Doulas","Lactation Consultants","Gynaecology Consultation","Nanny Care","Postnatal Recovery","Nutrition Consultation","Prenatal Yoga"]}
+                />
+            </div>
+
             {/* FAQ Accordion */}
             <ScrollReveal direction="left">
               <section className="space-y-3">
