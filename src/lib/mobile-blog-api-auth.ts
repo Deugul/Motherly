@@ -1,6 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
+import { MOBILE_BLOG_API_KEY as MOBILE_BLOG_API_KEY_BUILTIN } from "@/config/mobile-blog-api-key";
 
-const API_KEY_ENV = "MOBILE_BLOG_API_KEY";
+function getExpectedMobileBlogApiKey(): string {
+  const fromEnv = process.env.MOBILE_BLOG_API_KEY?.trim();
+  return fromEnv || MOBILE_BLOG_API_KEY_BUILTIN;
+}
 
 export function readMobileBlogApiKey(req: NextRequest): string | null {
   const headerKey = req.headers.get("x-api-key")?.trim();
@@ -15,8 +19,7 @@ export function readMobileBlogApiKey(req: NextRequest): string | null {
 }
 
 export function isMobileBlogApiAuthorized(req: NextRequest): boolean {
-  const expected = process.env[API_KEY_ENV]?.trim();
-  if (!expected) return false;
+  const expected = getExpectedMobileBlogApiKey();
   const provided = readMobileBlogApiKey(req);
   return Boolean(provided && provided === expected);
 }
