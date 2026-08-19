@@ -167,10 +167,16 @@ export default function BlogPageClient({
     return matchFilter && matchSearch;
   });
 
-  // Reset to one row whenever the filter or search changes
-  useEffect(() => {
+  // Reset pagination when filter or search changes (in handlers, not an effect).
+  const selectFilter = (f: string) => {
+    setActiveFilter(f);
     setVisibleCount(PAGE_SIZE);
-  }, [activeFilter, search]);
+  };
+
+  const updateSearch = (value: string) => {
+    setSearch(value);
+    setVisibleCount(PAGE_SIZE);
+  };
 
   const visiblePosts = filtered.slice(0, visibleCount);
   const hasMore = filtered.length > visibleCount;
@@ -206,7 +212,7 @@ export default function BlogPageClient({
             {filterList.map((f) => (
               <button
                 key={f}
-                onClick={() => setActiveFilter(f)}
+                onClick={() => selectFilter(f)}
                 className="flex-shrink-0 px-5 py-2 rounded-full text-sm font-semibold transition-all duration-200"
                 style={
                   activeFilter === f
@@ -231,7 +237,7 @@ export default function BlogPageClient({
               type="text"
               placeholder="Search articles..."
               value={search}
-              onChange={(e) => setSearch(e.target.value)}
+              onChange={(e) => updateSearch(e.target.value)}
               className="w-full pl-12 pr-4 py-3 rounded-xl text-sm outline-none border-2 border-transparent transition-all"
               style={{
                 backgroundColor: "var(--color-surface-container-low)",
