@@ -1,11 +1,9 @@
 export const dynamic = "force-dynamic";
 
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 import {
-  isMobileBlogApiAuthorized,
   mobileBlogApiCorsHeaders,
   mobileBlogApiOptionsResponse,
-  mobileBlogApiUnauthorizedResponse,
 } from "@/lib/mobile-blog-api-auth";
 import { getMobileBlogPost } from "@/lib/mobile-blog-api";
 
@@ -15,11 +13,7 @@ export async function OPTIONS() {
   return mobileBlogApiOptionsResponse();
 }
 
-export async function GET(req: NextRequest, context: RouteContext) {
-  if (!isMobileBlogApiAuthorized(req)) {
-    return mobileBlogApiUnauthorizedResponse();
-  }
-
+export async function GET(_req: Request, context: RouteContext) {
   const { slug } = await context.params;
   const post = await getMobileBlogPost(slug);
 
