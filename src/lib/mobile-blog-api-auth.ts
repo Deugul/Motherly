@@ -2,8 +2,9 @@ import { NextRequest, NextResponse } from "next/server";
 import { MOBILE_BLOG_API_KEY as MOBILE_BLOG_API_KEY_BUILTIN } from "@/config/mobile-blog-api-key";
 
 function getExpectedMobileBlogApiKey(): string {
-  const fromEnv = process.env.MOBILE_BLOG_API_KEY?.trim();
-  return fromEnv || MOBILE_BLOG_API_KEY_BUILTIN;
+  // Always use the committed key — mobile team shares this; no Vercel env required.
+  // (A MOBILE_BLOG_API_KEY env on Vercel with a wrong value would otherwise block auth.)
+  return MOBILE_BLOG_API_KEY_BUILTIN;
 }
 
 export function readMobileBlogApiKey(req: NextRequest): string | null {
