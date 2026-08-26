@@ -2,10 +2,11 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CTASection from "@/components/CTASection";
 import BlogPageClient from "@/components/BlogPageClient";
+import BlogArchiveIndex, { type ArchiveLink } from "@/components/BlogArchiveIndex";
 import type { BlogPost, FeaturedPost } from "@/lib/posts";
 import { resolvePostCardExcerpt } from "@/lib/wordpress-seo";
 import type { RankMathSeoFromWp } from "@/lib/wordpress-seo";
-import { fetchWordPress } from "@/lib/wordpress";
+import { fetchWordPress, getBlogPostPath } from "@/lib/wordpress";
 import { resolveFeaturedImageUrl } from "@/lib/wordpress-featured-image";
 import { getBlogImageProps } from "@/lib/blog-image-manifest";
 import { listLocalWpPosts } from "@/lib/local-wp-posts";
@@ -66,11 +67,13 @@ const TAG_THEME = {
   tagColor: "var(--color-on-secondary-container)",
 };
 
-function mapWpPostsToBlogData(wpPosts: WpPost[]): {
+type BlogPageData = {
   posts: BlogPost[];
   featured: FeaturedPost | null;
   categories: string[];
-} {
+};
+
+function mapWpPostsToBlogData(wpPosts: WpPost[]): BlogPageData {
   if (!wpPosts.length) {
     return { posts: [], featured: null, categories: [] };
   }
@@ -139,11 +142,64 @@ function mapWpPostsToBlogData(wpPosts: WpPost[]): {
   return { posts: gridPosts, featured, categories };
 }
 
-async function fetchWpPosts(): Promise<{
-  posts: BlogPost[];
-  featured: FeaturedPost | null;
-  categories: string[];
-}> {
+type ArchiveWpPost = {
+  id?: number;
+  slug?: string;
+  status?: string;
+  title?: { rendered?: string };
+};
+
+/**
+ * Every published post, newest first, for the crawlable archive.
+ *
+ * Deliberately separate from `fetchWpPosts` — the card grid only needs the
+ * first page of posts with their embedded media, while the archive has to
+ * cover the whole catalogue or the tail of it stays orphaned. This request
+ * asks for three fields and no `_embed`, so paging through all of it is cheap.
+ * The local dump is merged in as well: it is the complete offline mirror, and
+ * without it a WordPress outage would silently shrink the archive to nothing.
+ */
+async function fetchArchiveLinks(): Promise<ArchiveLink[]> {
+  const remote: ArchiveWpPost[] = [];
+  try {
+    for (let page = 1; page <= 20; page += 1) {
+      const params = new URLSearchParams({
+        per_page: "100",
+        page: String(page),
+        orderby: "date",
+        order: "desc",
+        _fields: "id,slug,title,status",
+      });
+      const { data, ok } = await fetchWordPress<ArchiveWpPost[]>("/posts", params);
+      if (!ok || !Array.isArray(data) || data.length === 0) break;
+      remote.push(...data);
+      if (data.length < 100) break;
+    }
+  } catch {
+    // fall through to the local dump alone
+  }
+
+  const local: ArchiveWpPost[] = listLocalWpPosts().map((p) => ({
+    id: p.id,
+    slug: p.slug,
+    status: p.status,
+    title: { rendered: p.title.rendered },
+  }));
+
+  const byHref = new Map<string, ArchiveLink>();
+  for (const post of [...remote, ...local]) {
+    // Drafts stay out — the archive is a public, crawlable index.
+    if (post.status && post.status !== "publish") continue;
+    const title = stripHtml(post.title?.rendered ?? "");
+    if (!title) continue;
+    const href = getBlogPostPath({ slug: post.slug, id: post.id });
+    if (href === "/blogs" || byHref.has(href)) continue;
+    byHref.set(href, { href, title });
+  }
+  return [...byHref.values()];
+}
+
+async function fetchWpPosts(): Promise<BlogPageData> {
   try {
     const params = new URLSearchParams({
       _embed: "",
@@ -174,7 +230,10 @@ async function fetchWpPosts(): Promise<{
 }
 
 export default async function BlogsPage() {
-  const { posts: wpPosts, featured, categories } = await fetchWpPosts();
+  const [{ posts: wpPosts, featured, categories }, archive] = await Promise.all([
+    fetchWpPosts(),
+    fetchArchiveLinks(),
+  ]);
 
   return (
     <>
@@ -184,6 +243,7 @@ export default async function BlogsPage() {
         style={{ backgroundColor: "var(--color-background)" }}
       >
         <BlogPageClient posts={wpPosts} featuredPost={featured} categories={categories} />
+        <BlogArchiveIndex posts={archive} />
       </main>
       <CTASection />
       <Footer />
