@@ -105,6 +105,16 @@ function stripHtml(html: string): string {
     .trim();
 }
 
+function resolveCardImage(p: WpPost): string {
+  const raw =
+    p.motherly_featured_image_url?.trim() ||
+    p._embedded?.["wp:featuredmedia"]?.[0]?.source_url?.trim() ||
+    "";
+  return (
+    getBlogImageProps(raw, "", { width: 1200, height: 500, seed: p.slug ?? "" })?.src ?? ""
+  );
+}
+
 function relatedFromPosts(posts: WpPost[], currentSlug: string): RelatedPost[] {
   const related = posts.filter((p) => p.slug !== currentSlug).slice(0, 3);
   return related.map((p) => ({
@@ -114,10 +124,10 @@ function relatedFromPosts(posts: WpPost[], currentSlug: string): RelatedPost[] {
     // exported excerpt field is stripped here too, and the article's own lead
     // paragraph is used when the stored excerpt is unusable.
     excerpt: resolvePostCardExcerpt(p, 120),
-    image:
-      p.motherly_featured_image_url?.trim() ||
-      p._embedded?.["wp:featuredmedia"]?.[0]?.source_url?.trim() ||
-      "",
+    // Same resolution as the blog index: the recovered local copy when we have
+    // one, branded artwork when the original still points at the retired
+    // WordPress origin — otherwise these cards render as broken tiles.
+    image: resolveCardImage(p),
     category: (p._embedded?.["wp:term"]?.[0]?.[0]?.name ?? "Article").toUpperCase(),
     date: new Date(p.date).toLocaleDateString("en-US", {
       month: "long",
