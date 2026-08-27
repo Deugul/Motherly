@@ -170,6 +170,40 @@ function stripLeadingFeaturedImage(
 }
 
 /**
+ * The WordPress single-post template appends its own footer chrome after the
+ * article body: a newsletter heading whose `[forminator_form]` shortcode is
+ * never expanded by the REST API (it renders as literal text), then a "Keep
+ * Reading" related-posts widget whose cards carry `edit post` wp-admin links
+ * and point at legacy root URLs.
+ *
+ * The Next.js template renders its own Keep Reading section, so this block is a
+ * visible duplicate. It is always appended after the article, so everything
+ * from the first marker to the end of the body is chrome.
+ */
+const TRAILING_CHROME_MARKERS = [
+  /<h[1-6]\b[^>]*>\s*Stay Updated with Motherly\s*<\/h[1-6]>/i,
+  /\[forminator_form\b[^\]]*\]/i,
+  /<h[1-6]\b[^>]*>\s*Keep Reading\s*<\/h[1-6]>/i,
+];
+
+function stripTrailingWpChrome(html: string): string {
+  let cut = -1;
+  for (const marker of TRAILING_CHROME_MARKERS) {
+    const match = html.match(marker);
+    if (match?.index == null) continue;
+    if (cut < 0 || match.index < cut) cut = match.index;
+  }
+  if (cut < 0) return html;
+
+  // Safety valve: the chrome is appended *after* the article, so it always sits
+  // well into the tail (76%+ of the body across every affected post). A marker
+  // in the first half means we matched real prose, so leave the body alone.
+  if (cut < html.length / 2) return html;
+
+  return html.slice(0, cut);
+}
+
+/**
  * Remove title/hero chrome that duplicates the Next.js blog post template.
  * Safe to run more than once. Call after `restoreWpBlocks` so fact-box restore
  * can still key off the opening heading.
@@ -181,6 +215,7 @@ export function stripDuplicateBlogChrome(
   if (!html) return html;
 
   let out = stripPrefixBeforeMbWrap(html);
+  out = stripTrailingWpChrome(out);
   out = stripOpeningMbTitle(out, options.title);
   out = stripLeadingFeaturedImage(out, options.featuredImageUrl);
   // Title may sit above the featured image in classic posts.
