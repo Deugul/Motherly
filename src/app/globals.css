@@ -1054,40 +1054,42 @@ textarea[aria-invalid="true"]:focus {
 }
 
 /* FAQ accordion ------------------------------------------------
-   The exported posts use native <details>/<summary>, which renders
-   a browser triangle. Swapped for a +/- affordance in brand pink.
+   Exported posts ship FAQs two ways: wrapped in .mb-faq, and as
+   bare consecutive <details>. Both are styled here so the UI is
+   identical across every post. Flat editorial list — hairline
+   rules instead of cards, so the FAQ reads as part of the article
+   rather than a boxed widget bolted onto the end of it.
    -------------------------------------------------------------- */
 
 .wp-content details {
-  background: #fff;
-  border: 1px solid var(--mb-border);
-  border-radius: var(--mb-r);
-  margin: 0 0 10px;
-  overflow: hidden;
-  transition: border-color 0.2s ease;
+  background: transparent;
+  border: 0;
+  border-top: 1px solid var(--mb-border);
+  border-radius: 0;
+  margin: 0;
 }
 
-.wp-content details:hover {
-  border-color: var(--mb-red-mid);
-}
-
-.wp-content details[open] {
-  border-color: var(--mb-red);
-  background: var(--mb-cream);
+.wp-content details:last-of-type {
+  border-bottom: 1px solid var(--mb-border);
 }
 
 .wp-content summary {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
-  gap: 1rem;
-  padding: 1rem 1.15rem;
+  gap: 1.25rem;
+  padding: 1.05rem 0.15rem;
   cursor: pointer;
   font-weight: 600;
-  line-height: 1.55;
+  font-size: 1.0625rem;
+  line-height: 1.5;
   color: var(--mb-text);
   list-style: none;
   transition: color 0.2s ease;
+}
+
+.wp-content summary:hover {
+  color: var(--mb-red);
 }
 
 /* Remove the native disclosure triangle in every engine. */
@@ -1099,52 +1101,70 @@ textarea[aria-invalid="true"]:focus {
   content: "";
 }
 
+/* Chevron drawn from two borders — no icon font, no SVG payload. */
 .wp-content summary::after {
-  content: "+";
+  content: "";
   flex: none;
-  width: 26px;
-  height: 26px;
-  margin-top: 1px;
-  border-radius: 50%;
-  background: var(--mb-red);
-  color: #fff;
-  font-size: 18px;
-  font-weight: 700;
-  line-height: 26px;
-  text-align: center;
-  transition: transform 0.2s ease, background-color 0.2s ease;
+  width: 9px;
+  height: 9px;
+  margin-right: 5px;
+  border-right: 2px solid var(--mb-red);
+  border-bottom: 2px solid var(--mb-red);
+  transform: translateY(-3px) rotate(45deg);
+  transition: transform 0.25s ease;
 }
 
-.wp-content details[open] summary {
+.wp-content details[open] > summary {
   color: var(--mb-red);
 }
 
-.wp-content details[open] summary::after {
-  content: "\2212"; /* minus sign — visually matched to the plus */
-  transform: rotate(180deg);
+.wp-content details[open] > summary::after {
+  transform: translateY(2px) rotate(225deg);
 }
 
 .wp-content summary:focus-visible {
   outline: 2px solid var(--mb-red);
-  outline-offset: -2px;
+  outline-offset: 2px;
+  border-radius: 2px;
 }
 
 .wp-content details > p,
 .wp-content details > div {
   margin: 0;
-  padding: 0 1.15rem 1.15rem;
+  padding: 0 2.25rem 1.35rem 0;
   color: var(--mb-muted);
   line-height: 1.8;
 }
 
+/* <details> cannot transition height, so the answer itself fades in. */
+@media (prefers-reduced-motion: no-preference) {
+  .wp-content details[open] > p,
+  .wp-content details[open] > div {
+    animation: wp-faq-reveal 0.26s ease both;
+  }
+}
+
+@keyframes wp-faq-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 @media (max-width: 480px) {
   .wp-content summary {
-    padding: 0.875rem 1rem;
-    gap: 0.75rem;
+    padding: 0.95rem 0.1rem;
+    gap: 0.9rem;
+    font-size: 1rem;
   }
 
   .wp-content details > p,
   .wp-content details > div {
-    padding: 0 1rem 1rem;
+    padding: 0 1.5rem 1.15rem 0;
+    font-size: 0.9375rem;
   }
 }

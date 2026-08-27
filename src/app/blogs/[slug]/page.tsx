@@ -8,7 +8,10 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { getBlogSeo, normalizeSeoUrl } from "@/data/blog-seo";
 import { SITE_ORIGIN } from "@/lib/site-url";
-import { getWordPressPostBodyHtml } from "@/lib/wordpress-content";
+import {
+  getWordPressPostBodyHtml,
+  stripDuplicateBlogChrome,
+} from "@/lib/wordpress-content";
 import { stripWpFaqSchemaFromHtml } from "@/lib/strip-wp-faq-schema";
 import {
   demoteContentHeadings,
@@ -325,14 +328,6 @@ export default async function BlogPostPage({
   const emitFaqSchema =
     shouldRenderBlogSeoExtras &&
     process.env.NEXT_PUBLIC_ENABLE_FAQ_SCHEMA === "true";
-  const bodyHtml = restoreWpBlocks(
-    neutraliseDeadImageUrls(
-      localiseImageUrls(
-        prepareWpContentHtml(getWordPressPostBodyHtml(post), emitFaqSchema),
-      ),
-      post.slug,
-    ),
-  );
   const image = await resolveFeaturedImageUrl(post);
   const altText = getEmbeddedFeaturedImageAlt(post, title);
   const featuredImageProps = getBlogImageProps(image, altText, {
@@ -340,6 +335,20 @@ export default async function BlogPostPage({
     height: 500,
     seed: post.slug,
   });
+  // WP body often repeats the template H1 + featured image (Gutenberg lead
+  // above .mb-wrap, and again as the opening heading inside .mb). Strip after
+  // block restore so fact-box reconstruction still sees the opening heading.
+  const bodyHtml = stripDuplicateBlogChrome(
+    restoreWpBlocks(
+      neutraliseDeadImageUrls(
+        localiseImageUrls(
+          prepareWpContentHtml(getWordPressPostBodyHtml(post), emitFaqSchema),
+        ),
+        post.slug,
+      ),
+    ),
+    { title, featuredImageUrl: image },
+  );
   const category = post._embedded?.["wp:term"]?.[0]?.[0]?.name;
   const author = post._embedded?.author?.[0]?.name ?? "Motherly Team";
   const date = new Date(post.date).toLocaleDateString("en-US", {
