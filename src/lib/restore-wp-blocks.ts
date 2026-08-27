@@ -183,20 +183,137 @@ function restoreCta(html: string): string {
   return out + html.slice(cursor);
 }
 
+/**
+ * FAQ accordion: the same unwrapping left the rows as bare text after the FAQ
+ * heading — question, a literal "+", then the answer. Both the stylesheet and
+ * the `.mb-faq-q` click handler in `WpContent` key off `.mb-faq-*`, so rebuild
+ * that hierarchy; the stray "+" becomes the icon span it was always meant to be.
+ *
+ * Three export shapes occur: the "+" on its own line, the "+" glued to the end
+ * of the question, and answers already wrapped in a `<p>`. Anything that does
+ * not resolve into clean question/answer pairs is left exactly as it was.
+ *
+ * Older exports also dropped every HTML comment, so the block is found by an
+ * `<!-- FAQ -->` marker when one survived and by the heading text otherwise.
+ * The region stops at the tag list, which directly follows the FAQ in exports
+ * that have no comments left to delimit the two.
+ */
+const FAQ_BLOCK =
+  /(<!--\s*FAQ\s*-->\s*)?(<h([1-6])\b[^>]*>([^<]*)<\/h\3>)([\s\S]*?)(?=<!--|<hr\b|<\/article\b|<h[1-6]\b|<a\b[^>]*href="[^"]*\/tag\/|$)/gi;
+
+/** Heading text that introduces an FAQ block in an export with no comments. */
+const FAQ_HEADING = /^\s*(?:FAQs?\b|Frequently Asked Questions|Common Questions)/i;
+
+function parseFaqRows(region: string): Array<{ q: string; a: string }> | null {
+  const lines = region.split("\n").map((line) => line.trim()).filter(Boolean);
+  const rows: Array<{ q: string; a: string }> = [];
+  let question: string | null = null;
+
+  for (const line of lines) {
+    if (question === null) {
+      // A delimiter with nothing before it means this is not the shape we know.
+      if (line === "+") return null;
+      question = line.endsWith("+") ? line.slice(0, -1).trim() : line;
+      if (!question) return null;
+      continue;
+    }
+    if (line === "+") continue;
+    // Answers are a single line in every export; the next line starts a new row.
+    rows.push({ q: question, a: line });
+    question = null;
+  }
+
+  if (question !== null) return null; // dangling question — leave the block alone
+  return rows.length ? rows : null;
+}
+
+function restoreFaq(html: string): string {
+  return html.replace(
+    FAQ_BLOCK,
+    (
+      full,
+      marker: string | undefined,
+      heading: string,
+      _level,
+      title: string,
+      region: string
+    ) => {
+      // Every other heading in the article reaches this callback too — only an
+      // FAQ marker or an FAQ heading makes the block ours to rewrite.
+      if (!marker && !FAQ_HEADING.test(title)) return full;
+      // Already structured by a newer export.
+      if (/class="[^"]*mb-faq/i.test(region) || /<details\b/i.test(region)) return full;
+
+      const rows = parseFaqRows(region);
+      if (!rows) return full;
+
+      const items = rows
+        .map(({ q, a }) => {
+          // Unwrap a lone <p> so the answer inherits `.mb-faq-a` spacing directly.
+          const answer = a.replace(/^<p\b[^>]*>([\s\S]*)<\/p>$/i, "$1").trim();
+          return (
+            `<div class="mb-faq-item">` +
+            `<div class="mb-faq-q">${q}<span class="mb-faq-icon">+</span></div>` +
+            `<div class="mb-faq-a">${answer}</div>` +
+            `</div>`
+          );
+        })
+        .join("");
+
+      return `${marker ?? ""}${heading}<div class="mb-faq">${items}</div>`;
+    }
+  );
+}
+
+/**
+ * Tag pills: the export left the taxonomy links bare, so they render as a run-on
+ * row of underlined text under the article. `globals.css` already hides
+ * `.mb-tags`; restoring the wrapper is what lets that rule apply.
+ *
+ * Keyed off a run of consecutive `/tag/` links rather than the `<!-- TAGS -->`
+ * marker, which some exports dropped. Two in a row is the taxonomy list; a lone
+ * link inside prose is left alone.
+ */
+function restoreTags(html: string): string {
+  return html.replace(
+    /(?:<!--\s*TAGS\s*-->\s*)?((?:<a\b[^>]*href="[^"]*\/tag\/[^"]*"[^>]*>[\s\S]*?<\/a>\s*){2,})/gi,
+    (full, links: string) =>
+      /class="mb-tags"/.test(full) ? full : `<div class="mb-tags">${links.trim()}</div>`
+  );
+}
+
 /** Author box: the avatar initial lost its circle and reads as a stray letter. */
 function restoreAuthor(html: string): string {
-  return html.replace(
-    /<hr\s*\/?>\s*([A-Za-z])?\s*<h4>\s*([\s\S]*?)\s*<\/h4>\s*<p>\s*([\s\S]*?)\s*<\/p>/gi,
-    (_full, initial, name, bio) => {
-      const letter = (initial || name.trim().charAt(0) || "M").toUpperCase();
-      return (
-        `<hr>` +
-        `<div class="mb-author">` +
-        `<div class="mb-author-avatar">${letter}</div>` +
-        `<div class="mb-author-info"><h4>${name}</h4><p>${bio}</p></div>` +
-        `</div>`
-      );
-    }
+  const build = (initial: string | undefined, name: string, bio: string) => {
+    const letter = (initial || name.trim().charAt(0) || "M").toUpperCase();
+    return (
+      `<div class="mb-author">` +
+      `<div class="mb-author-avatar">${letter}</div>` +
+      `<div class="mb-author-info"><h4>${name}</h4><p>${bio}</p></div>` +
+      `</div>`
+    );
+  };
+
+  return (
+    html
+      .replace(
+        /<hr\s*\/?>\s*([A-Za-z])?\s*<h4>\s*([\s\S]*?)\s*<\/h4>\s*<p>\s*([\s\S]*?)\s*<\/p>/gi,
+        (_full, initial, name, bio) => `<hr>${build(initial, name, bio)}`
+      )
+      // Most posts separate the author box with an `<hr>`, but a third of them
+      // mark it with a comment instead — same collapsed shape, same stray letter.
+      .replace(
+        /<!--\s*AUTHOR\s*-->\s*([A-Za-z])?\s*<h4>\s*([\s\S]*?)\s*<\/h4>\s*<p>\s*([\s\S]*?)\s*<\/p>/gi,
+        (_full, initial, name, bio) => build(initial, name, bio)
+      )
+      // A few exports kept neither. There the orphaned avatar letter is the only
+      // marker left, and it is enough: a lone letter between a closing tag and an
+      // `<h4>` never occurs around the `<h4>` subheadings used inside articles.
+      .replace(
+        /(?:^|>)\s*([A-Za-z])\s*<h4>\s*([^<]*?)\s*<\/h4>\s*<p>\s*([\s\S]*?)\s*<\/p>/gi,
+        (full, initial, name, bio) =>
+          full.charAt(0) === ">" ? `>${build(initial, name, bio)}` : build(initial, name, bio)
+      )
   );
 }
 
@@ -248,6 +365,8 @@ export function restoreWpBlocks(html: string): string {
   out = restoreFactBox(out);
   out = restoreQuote(out);
   out = restoreCta(out);
+  out = restoreFaq(out);
+  out = restoreTags(out);
   out = restoreAuthor(out);
   out = restoreToc(out);
   out = restoreTables(out);
