@@ -8,7 +8,10 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { getBlogSeo, normalizeSeoUrl } from "@/data/blog-seo";
 import { SITE_ORIGIN } from "@/lib/site-url";
-import { getWordPressPostBodyHtml } from "@/lib/wordpress-content";
+import {
+  getWordPressPostBodyHtml,
+  stripDuplicateBlogChrome,
+} from "@/lib/wordpress-content";
 import { stripWpFaqSchemaFromHtml } from "@/lib/strip-wp-faq-schema";
 import {
   demoteContentHeadings,
@@ -102,6 +105,16 @@ function stripHtml(html: string): string {
     .trim();
 }
 
+function resolveCardImage(p: WpPost): string {
+  const raw =
+    p.motherly_featured_image_url?.trim() ||
+    p._embedded?.["wp:featuredmedia"]?.[0]?.source_url?.trim() ||
+    "";
+  return (
+    getBlogImageProps(raw, "", { width: 1200, height: 500, seed: p.slug ?? "" })?.src ?? ""
+  );
+}
+
 function relatedFromPosts(posts: WpPost[], currentSlug: string): RelatedPost[] {
   const related = posts.filter((p) => p.slug !== currentSlug).slice(0, 3);
   return related.map((p) => ({
@@ -111,10 +124,10 @@ function relatedFromPosts(posts: WpPost[], currentSlug: string): RelatedPost[] {
     // exported excerpt field is stripped here too, and the article's own lead
     // paragraph is used when the stored excerpt is unusable.
     excerpt: resolvePostCardExcerpt(p, 120),
-    image:
-      p.motherly_featured_image_url?.trim() ||
-      p._embedded?.["wp:featuredmedia"]?.[0]?.source_url?.trim() ||
-      "",
+    // Same resolution as the blog index: the recovered local copy when we have
+    // one, branded artwork when the original still points at the retired
+    // WordPress origin — otherwise these cards render as broken tiles.
+    image: resolveCardImage(p),
     category: (p._embedded?.["wp:term"]?.[0]?.[0]?.name ?? "Article").toUpperCase(),
     date: new Date(p.date).toLocaleDateString("en-US", {
       month: "long",
@@ -333,14 +346,6 @@ export default async function BlogPostPage({
   const emitFaqSchema =
     shouldRenderBlogSeoExtras &&
     process.env.NEXT_PUBLIC_ENABLE_FAQ_SCHEMA === "true";
-  const bodyHtml = restoreWpBlocks(
-    neutraliseDeadImageUrls(
-      localiseImageUrls(
-        prepareWpContentHtml(getWordPressPostBodyHtml(post), emitFaqSchema),
-      ),
-      post.slug,
-    ),
-  );
   const image = await resolveFeaturedImageUrl(post);
   const altText = getEmbeddedFeaturedImageAlt(post, title);
   const featuredImageProps = getBlogImageProps(image, altText, {
@@ -348,6 +353,20 @@ export default async function BlogPostPage({
     height: 500,
     seed: post.slug,
   });
+  // WP body often repeats the template H1 + featured image (Gutenberg lead
+  // above .mb-wrap, and again as the opening heading inside .mb). Strip after
+  // block restore so fact-box reconstruction still sees the opening heading.
+  const bodyHtml = stripDuplicateBlogChrome(
+    restoreWpBlocks(
+      neutraliseDeadImageUrls(
+        localiseImageUrls(
+          prepareWpContentHtml(getWordPressPostBodyHtml(post), emitFaqSchema),
+        ),
+        post.slug,
+      ),
+    ),
+    { title, featuredImageUrl: image },
+  );
   const category = post._embedded?.["wp:term"]?.[0]?.[0]?.name;
   const author = post._embedded?.author?.[0]?.name ?? "Motherly Team";
   const date = new Date(post.date).toLocaleDateString("en-US", {
