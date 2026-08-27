@@ -48,26 +48,72 @@ function restoreQuote(html: string): string {
   );
 }
 
-const STORE_TEXT: Record<string, { modifier: string; label: string; name: string }> = {
-  "get it on google play": { modifier: "google", label: "Get it on", name: "Google Play" },
-  "download on the app store": { modifier: "apple", label: "Download on the", name: "App Store" },
-};
+/**
+ * Numbered step cards: the card lost its wrapper, so its number badge now reads
+ * as a stray digit floating above the heading. A bare number alone on its line
+ * directly before an `<h3>` is only ever this badge — article prose never puts
+ * one there.
+ *
+ * `.mb-method` is a flex row, so the heading and body need a wrapper of their
+ * own or they line up beside the badge instead of stacking next to it.
+ */
+const STEP_RUN =
+  /(?:[^\S\n]*\n[^\S\n]*\d{1,2}[^\S\n]*\n\s*<h3>[^<]*<\/h3>\s*<p>[\s\S]*?<\/p>)+/gi;
+const STEP_ONE =
+  /[^\S\n]*\n[^\S\n]*(\d{1,2})[^\S\n]*\n\s*<h3>([^<]*)<\/h3>\s*<p>([\s\S]*?)<\/p>/gi;
+
+function restoreMethods(html: string): string {
+  return html.replace(STEP_RUN, (run) => {
+    const cards = [...run.matchAll(STEP_ONE)]
+      .map(
+        ([, num, title, bodyText]) =>
+          `<div class="mb-method">` +
+          `<div class="mb-method-num">${num}</div>` +
+          `<div class="mb-method-body"><h3>${title.trim()}</h3><p>${bodyText.trim()}</p></div>` +
+          `</div>`
+      )
+      .join("");
+    return cards ? `<div class="mb-methods">${cards}</div>` : run;
+  });
+}
+
+const STORE_TEXT = {
+  google: { label: "Get it on", name: "Google Play", aria: "Get it on Google Play" },
+  apple: { label: "Download on the", name: "App Store", aria: "Download on the App Store" },
+} as const;
+
+type StoreKind = keyof typeof STORE_TEXT;
+
+/**
+ * Which store an anchor points at.
+ *
+ * Keyed off the href, not the `aria-label`: a third of the exports dropped the
+ * label and inlined the badge styling instead, which left the two lines of text
+ * concatenated ("Get it onGoogle Play") and the badge unstyled once the post's
+ * own `<style>` block was removed.
+ */
+function storeKind(anchor: string): StoreKind | null {
+  if (/play\.google\.com/i.test(anchor)) return "google";
+  if (/apps\.apple\.com/i.test(anchor)) return "apple";
+  return null;
+}
 
 /** Re-emit the store links as the two-line badges the design uses. */
 function buildStoreBadges(tail: string): string {
   const badges: string[] = [];
 
-  for (const m of tail.matchAll(/<a\b([^>]*aria-label="([^"]+)"[^>]*)>([\s\S]*?)<\/a>/gi)) {
-    const [, attrs, label, inner] = m;
-    const text = STORE_TEXT[label.trim().toLowerCase()];
-    if (!text) continue;
+  for (const m of tail.matchAll(/<a\b([^>]*)>([\s\S]*?)<\/a>/gi)) {
+    const [, attrs, inner] = m;
+    const kind = storeKind(attrs);
+    if (!kind) continue;
 
+    const text = STORE_TEXT[kind];
     const href = attrs.match(/href="([^"]*)"/i)?.[1] ?? "#";
     const svg = inner.match(/<svg[\s\S]*?<\/svg>/i)?.[0] ?? "";
 
     badges.push(
-      `<a class="mb-store-badge mb-store-badge--${text.modifier}" href="${href}" ` +
-        `target="_blank" rel="noopener noreferrer" aria-label="${label}">` +
+      `<a class="mb-store-badge mb-store-badge--${kind}" href="${href}" ` +
+        `target="_blank" rel="noopener noreferrer" aria-label="${text.aria}">` +
         `<span class="mb-store-icon" aria-hidden="true">${svg}</span>` +
         `<span class="mb-store-text">` +
         `<span class="mb-store-label">${text.label}</span>` +
@@ -113,7 +159,7 @@ function restoreCta(html: string): string {
   // (optional lead paragraph, one or two buttons, differing hrefs) for a single
   // pattern to stay both permissive and safe — a greedy one silently swallows
   // the author box and contents rail that follow it.
-  const anchor = /aria-label="Get it on Google Play"/i;
+  const anchor = /href="[^"]*play\.google\.com/i;
   let out = "";
   let cursor = 0;
 
@@ -141,9 +187,7 @@ function restoreCta(html: string): string {
     const heading = html.slice(headOpen, headClose).replace(/^<h3[^>]*>/i, "");
 
     const links: string[] = block.match(/<a\b[\s\S]*?<\/a>/gi) ?? [];
-    const isStore = (a: string) =>
-      /aria-label="(?:Get it on Google Play|Download on the App Store)"/i.test(a);
-    const firstStore = links.findIndex(isStore);
+    const firstStore = links.findIndex((a) => storeKind(a) !== null);
 
     if (firstStore < 0) {
       cursor = abs + 1;
@@ -199,7 +243,7 @@ function restoreCta(html: string): string {
  * that have no comments left to delimit the two.
  */
 const FAQ_BLOCK =
-  /(<!--\s*FAQ\s*-->\s*)?(<h([1-6])\b[^>]*>([^<]*)<\/h\3>)([\s\S]*?)(?=<!--|<hr\b|<\/article\b|<h[1-6]\b|<a\b[^>]*href="[^"]*\/tag\/|$)/gi;
+  /(<!--\s*FAQ\s*-->\s*)?(<h([1-6])\b[^>]*>([^<]*)<\/h\3>)([\s\S]*?)(?=<!--|<hr\b|<\/article\b|<h[1-6]\b|<div\b|<a\b[^>]*href="[^"]*\/tag\/|$)/gi;
 
 /** Heading text that introduces an FAQ block in an export with no comments. */
 const FAQ_HEADING = /^\s*(?:FAQs?\b|Frequently Asked Questions|Common Questions)/i;
@@ -364,6 +408,7 @@ export function restoreWpBlocks(html: string): string {
   out = restoreArticle(out);
   out = restoreFactBox(out);
   out = restoreQuote(out);
+  out = restoreMethods(out);
   out = restoreCta(out);
   out = restoreFaq(out);
   out = restoreTags(out);
@@ -373,3 +418,5 @@ export function restoreWpBlocks(html: string): string {
   out = wrapLayout(out);
   return out;
 }
+
+
