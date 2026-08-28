@@ -42,6 +42,7 @@ import {
   neutraliseDeadImageUrls,
 } from "@/lib/blog-image-manifest";
 import { restoreWpBlocks } from "@/lib/restore-wp-blocks";
+import { ensureAppCta } from "@/lib/blog-app-cta";
 
 type WpPost = {
   id?: number;
@@ -356,16 +357,20 @@ export default async function BlogPostPage({
   // WP body often repeats the template H1 + featured image (Gutenberg lead
   // above .mb-wrap, and again as the opening heading inside .mb). Strip after
   // block restore so fact-box reconstruction still sees the opening heading.
-  const bodyHtml = stripDuplicateBlogChrome(
-    restoreWpBlocks(
-      neutraliseDeadImageUrls(
-        localiseImageUrls(
-          prepareWpContentHtml(getWordPressPostBodyHtml(post), emitFaqSchema),
+  // A handful of posts were published without the app CTA every other post
+  // closes on; `ensureAppCta` adds it and leaves the rest untouched.
+  const bodyHtml = ensureAppCta(
+    stripDuplicateBlogChrome(
+      restoreWpBlocks(
+        neutraliseDeadImageUrls(
+          localiseImageUrls(
+            prepareWpContentHtml(getWordPressPostBodyHtml(post), emitFaqSchema),
+          ),
+          post.slug,
         ),
-        post.slug,
       ),
+      { title, featuredImageUrl: image },
     ),
-    { title, featuredImageUrl: image },
   );
   const category = post._embedded?.["wp:term"]?.[0]?.[0]?.name;
   const author = post._embedded?.author?.[0]?.name ?? "Motherly Team";
