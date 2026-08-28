@@ -43,6 +43,13 @@ export const STORE_SVG = {
 const HEADING = "You Deserve Proper Care Too — Not Just Your Baby";
 const LEAD =
   "Book online or download the app to find your verified support specialist in Chennai.";
+/**
+ * Small print under the badges, word for word as the posts that carry it write
+ * it. `mothrly.com` is plain text there rather than a link, so it stays plain
+ * here too.
+ */
+const SUB_LINE =
+  "Free to download &middot; Android &amp; iOS &middot; Book in under 2 minutes &middot; mothrly.com";
 
 /** True when the article already ends with an app CTA of its own. */
 export function hasAppCta(html: string): boolean {
@@ -78,6 +85,7 @@ export function buildAppCta(): string {
     `<h3>${HEADING}</h3>` +
     `<p>${LEAD}</p>` +
     buildStoreBadgesFromScratch() +
+    `<span class="mb-cta-sub">${SUB_LINE}</span>` +
     `</div>`
   );
 }
@@ -93,7 +101,11 @@ export function ensureAppCta(html: string): string {
   if (!html.trim() || hasAppCta(html)) return html;
 
   const cta = buildAppCta();
-  const faq = html.search(/<div class="mb-faq"|<h[1-6][^>]*>\s*(?:FAQs?\b|Frequently Asked Questions)/i);
+  // The heading may be wrapped (`<h2><strong>Frequently Asked Questions</strong>`),
+  // so allow inline tags between the heading and its text.
+  const faq = html.search(
+    /<div class="mb-faq"|<h[1-6][^>]*>(?:\s|<[^>]*>)*(?:FAQs?\b|Frequently Asked Questions)/i
+  );
   if (faq >= 0) return html.slice(0, faq) + cta + html.slice(faq);
 
   const author = html.indexOf('<div class="mb-author"');

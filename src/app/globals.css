@@ -1165,6 +1165,14 @@ textarea[aria-invalid="true"]:focus {
   content: "";
 }
 
+/* Elementor accordions ship their own plus/minus SVGs inside the summary. The
+   sizing came from Elementor's stylesheet, which is stripped, so they render at
+   full container width — a giant "+" over the question. The chevron below
+   replaces them. */
+.wp-content summary > svg {
+  display: none;
+}
+
 /* Chevron drawn from two borders — no icon font, no SVG payload. */
 .wp-content summary::after {
   content: "";
