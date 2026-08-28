@@ -41,7 +41,7 @@ import {
   localiseImageUrls,
   neutraliseDeadImageUrls,
 } from "@/lib/blog-image-manifest";
-import { restoreWpBlocks } from "@/lib/restore-wp-blocks";
+import { ensureArticleShell, restoreWpBlocks } from "@/lib/restore-wp-blocks";
 import { ensureAppCta } from "@/lib/blog-app-cta";
 
 type WpPost = {
@@ -201,6 +201,10 @@ function sanitizeWpHtml(html: string): string {
   return html
     .replace(/<style\b[^<]*(?:(?!<\/style>)<[^<]*)*<\/style>/gi, "")
     .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, "")
+    // Plugin shortcodes the REST API never expanded (`[custom_breadcrumb]`,
+    // `[forminator_form id="…"]`) otherwise render as literal text in the body.
+    // Only names carrying an underscore are removed, so bracketed prose stays.
+    .replace(/\[[a-z]+(?:_[a-z0-9]+)+(?:\s[^\]\n]*)?\]/gi, "")
     .replace(/\son\w+="[^"]*"/gi, "")
     .replace(/\son\w+='[^']*'/gi, "")
     .replace(
@@ -359,19 +363,19 @@ export default async function BlogPostPage({
   // block restore so fact-box reconstruction still sees the opening heading.
   // A handful of posts were published without the app CTA every other post
   // closes on; `ensureAppCta` adds it and leaves the rest untouched.
-  const bodyHtml = ensureAppCta(
-    stripDuplicateBlogChrome(
-      restoreWpBlocks(
-        neutraliseDeadImageUrls(
-          localiseImageUrls(
-            prepareWpContentHtml(getWordPressPostBodyHtml(post), emitFaqSchema),
-          ),
-          post.slug,
+  const restoredBody = stripDuplicateBlogChrome(
+    restoreWpBlocks(
+      neutraliseDeadImageUrls(
+        localiseImageUrls(
+          prepareWpContentHtml(getWordPressPostBodyHtml(post), emitFaqSchema),
         ),
+        post.slug,
       ),
-      { title, featuredImageUrl: image },
     ),
+    { title, featuredImageUrl: image },
   );
+  // CTA first, so a body that needs the article shell gets it wrapped inside.
+  const bodyHtml = ensureArticleShell(ensureAppCta(restoredBody));
   const category = post._embedded?.["wp:term"]?.[0]?.[0]?.name;
   const author = post._embedded?.author?.[0]?.name ?? "Motherly Team";
   const date = new Date(post.date).toLocaleDateString("en-US", {

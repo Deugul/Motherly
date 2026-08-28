@@ -22,6 +22,21 @@ function restoreArticle(html: string): string {
 }
 
 /**
+ * A few posts were written outside the article template and arrive with no
+ * `<article>` of their own — the only ones in their export belonged to the
+ * WordPress "Keep Reading" cards, which are removed as chrome. Without the
+ * element none of the `.wp-content .mb` typography applies and the post renders
+ * as unstyled text, so give it the shell it is missing.
+ *
+ * Must run after the chrome is stripped: before that, the first `<article>` in
+ * the body is one of those related-post cards.
+ */
+export function ensureArticleShell(html: string): string {
+  if (!html.trim() || /<article\b/i.test(html)) return html;
+  return `<div class="mb-wrap"><article class="mb">${html}</article></div>`;
+}
+
+/**
  * Fact box: an isolated "✓" directly after the title, followed by the body
  * text up to the first paragraph.
  *
@@ -414,6 +429,43 @@ function restoreFaq(html: string): string {
 }
 
 /**
+ * Elementor's accordion exports its answers twice: once inside each `<details>`
+ * and again as loose paragraphs after the block, so the whole FAQ reads a second
+ * time in the open beneath the closed rows.
+ *
+ * Only the run after the last `</details>` is considered, and only paragraphs
+ * whose text matches an answer exactly — a paragraph that merely covers the same
+ * ground is left where it is.
+ */
+function dropDuplicateFaqAnswers(html: string): string {
+  const lastDetails = html.lastIndexOf("</details>");
+  if (lastDetails < 0) return html;
+
+  const normalise = (text: string) =>
+    text.replace(/<[^>]*>/g, "").replace(/&nbsp;/g, " ").replace(/\s+/g, " ").trim();
+
+  const answers = new Set<string>();
+  for (const block of html.matchAll(/<details[\s\S]*?<\/details>/gi)) {
+    for (const para of block[0].matchAll(/<p\b[^>]*>([\s\S]*?)<\/p>/gi)) {
+      const text = normalise(para[1]);
+      // Short lines are too easy to collide with; only full answers count.
+      if (text.length > 25) answers.add(text);
+    }
+  }
+  if (!answers.size) return html;
+
+  const cut = lastDetails + "</details>".length;
+  return (
+    html.slice(0, cut) +
+    html
+      .slice(cut)
+      .replace(/<p\b[^>]*>([\s\S]*?)<\/p>/gi, (full, inner: string) =>
+        answers.has(normalise(inner)) ? "" : full
+      )
+  );
+}
+
+/**
  * Tag pills: the export left the taxonomy links bare, so they render as a run-on
  * row of underlined text under the article. `globals.css` already hides
  * `.mb-tags`; restoring the wrapper is what lets that rule apply.
@@ -516,6 +568,7 @@ export function restoreWpBlocks(html: string): string {
   out = restoreCta(out);
   out = restoreSplitCta(out);
   out = restoreFaq(out);
+  out = dropDuplicateFaqAnswers(out);
   out = restoreTags(out);
   out = restoreAuthor(out);
   out = restoreToc(out);
