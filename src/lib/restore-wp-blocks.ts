@@ -14,6 +14,8 @@
  * left untouched, so re-running is safe.
  */
 
+import { buildStoreBadgesFromScratch } from "@/lib/blog-app-cta";
+
 /** Give the article the class the stylesheet targets. */
 function restoreArticle(html: string): string {
   return html.replace(/<article(?![^>]*\bclass=)([^>]*)>/i, '<article class="mb"$1>');
@@ -122,8 +124,15 @@ function buildStoreBadges(tail: string): string {
     );
   }
 
-  return badges.length ? `<div class="mb-cta-stores">${badges.join("")}</div>` : "";
+  if (badges.length) return `<div class="mb-cta-stores">${badges.join("")}</div>`;
+
+  // One export lost the anchors entirely and left only the badge captions, so
+  // there is no href to recover — rebuild both badges against the real app.
+  return STORE_LABELS_ONLY.test(tail) ? buildStoreBadgesFromScratch() : "";
 }
+
+/** Badge captions with the anchors stripped, as one export left them. */
+const STORE_LABELS_ONLY = /Get it on\s*Google Play[\s\S]{0,120}?Download on the\s*App Store/i;
 
 /** The small print beneath the badges, with its link preserved. */
 function buildSubLine(tail: string): string {
@@ -159,22 +168,40 @@ function restoreCta(html: string): string {
   // (optional lead paragraph, one or two buttons, differing hrefs) for a single
   // pattern to stay both permissive and safe — a greedy one silently swallows
   // the author box and contents rail that follow it.
-  const anchor = /href="[^"]*play\.google\.com/i;
+  // Either a real store link, or the caption left behind when the export
+  // dropped the anchors around it.
+  const anchor = /href="[^"]*play\.google\.com|Get it on\s*Google Play/i;
   let out = "";
+  // Everything before `cursor` has been copied into `out`; `searchFrom` only
+  // moves the scan along. Keeping them apart matters: a skipped cluster must
+  // not advance `cursor`, or the text it passed over is dropped from the page.
   let cursor = 0;
+  let searchFrom = 0;
 
   while (true) {
-    const rest = html.slice(cursor);
-    const hit = rest.search(anchor);
+    const hit = html.slice(searchFrom).search(anchor);
     if (hit < 0) break;
 
-    const abs = cursor + hit;
+    const abs = searchFrom + hit;
 
     // Start: the heading immediately preceding this cluster.
     const headOpen = html.lastIndexOf("<h3", abs);
     const headClose = html.indexOf("</h3>", headOpen);
     if (headOpen < cursor || headClose < 0 || headClose > abs) {
-      cursor = abs + 1;
+      searchFrom = abs + 1;
+      continue;
+    }
+
+    // Between the heading and the badges a CTA holds only its lead paragraph
+    // and its buttons. Anything else means the nearest heading above is not the
+    // CTA's — the store links belong to a step card or a sentence in the body —
+    // and rewriting from there would swallow the section in between.
+    const preamble = html.slice(headClose + 5, abs);
+    const ownsCluster =
+      !/<(?:h[1-6]|ul|ol|table|hr|blockquote)\b/i.test(preamble) &&
+      (preamble.match(/<p\b/gi)?.length ?? 0) <= 2;
+    if (!ownsCluster) {
+      searchFrom = abs + 1;
       continue;
     }
 
@@ -188,15 +215,18 @@ function restoreCta(html: string): string {
 
     const links: string[] = block.match(/<a\b[\s\S]*?<\/a>/gi) ?? [];
     const firstStore = links.findIndex((a) => storeKind(a) !== null);
+    // With the anchors gone, every link in the block is a plain button and the
+    // badges are rebuilt from the captions instead.
+    const captionsOnly = firstStore < 0 && STORE_LABELS_ONLY.test(block);
 
-    if (firstStore < 0) {
-      cursor = abs + 1;
+    if (firstStore < 0 && !captionsOnly) {
+      searchFrom = abs + 1;
       continue;
     }
 
     const lead = block.match(/<p>\s*([\s\S]*?)\s*<\/p>/i)?.[1] ?? "";
     const buttons = links
-      .slice(0, firstStore)
+      .slice(0, captionsOnly ? links.length : firstStore)
       .map((a) => {
         const href = a.match(/href="([^"]*)"/i)?.[1] ?? "#";
         const label = a.replace(/<[^>]*>/g, "").replace(/\s+/g, " ").trim();
@@ -217,14 +247,88 @@ function restoreCta(html: string): string {
       `<h3>${heading}</h3>` +
       (lead ? `<p>${lead}</p>` : "") +
       (buttons ? `<div class="mb-cta-actions">${buttons}</div>` : "") +
-      buildStoreBadges(links.slice(firstStore).join("")) +
-      buildSubLine(tail) +
+      buildStoreBadges(captionsOnly ? block : links.slice(firstStore).join("")) +
+      buildSubLine(captionsOnly ? block : tail) +
       `</div>`;
 
     cursor = end;
+    searchFrom = end;
   }
 
   return out + html.slice(cursor);
+}
+
+/**
+ * Mid-article split CTA: a heading, a lead line and one or two action links.
+ * The export left the links as bare underlined text instead of the buttons the
+ * design uses, so the block reads as a stray sentence with a link under it.
+ *
+ * Anchored on the CTA comment marker. The heading text alone is not enough —
+ * the block is preceded by ordinary prose, and searching backwards for the
+ * nearest `<h3>` lands on a content subheading whenever the CTA sits after one.
+ *
+ * Runs after `restoreCta`, which has by then wrapped every app-download CTA in
+ * its own `<div>`; what still matches here is only the mid-article kind.
+ */
+const SPLIT_CTA_MARKED =
+  /(<!--[^>]*\bCTA\b[^>]*-->)\s*<h3>([^<]{4,160})<\/h3>\s*(?:<p>([\s\S]{0,700}?)<\/p>\s*)?((?:<a\b[^>]*>[\s\S]{0,220}?<\/a>\s*)+)/gi;
+
+/**
+ * Same block in the posts whose comments the export dropped. The lead is
+ * matched as text only: allowing tags inside it lets the pattern run from a
+ * content subheading's paragraph all the way into the CTA below it, which turns
+ * an ordinary section heading into a call to action.
+ */
+const SPLIT_CTA_BARE =
+  /<h3>([^<]{4,160})<\/h3>\s*<p>([^<]{10,700})<\/p>\s*((?:<a\b[^>]*>[^<]{2,120}<\/a>\s*){1,2})(?=<!--|<h[1-6]\b|<hr\b|<\/article\b|<p\b|<ul\b|<div\b|$)/gi;
+
+function buildSplitCta(heading: string, lead: string | undefined, anchors: string): string | null {
+  // Store links mean this is the app CTA — `restoreCta` owns that one.
+  if (storeKind(anchors)) return null;
+  // Newer posts ship the buttons with their classes already on them.
+  if (/class="/i.test(anchors)) return null;
+
+  const buttons = [...anchors.matchAll(/<a\b([^>]*)>([\s\S]*?)<\/a>/gi)]
+    .map(([, attrs, label], index) => {
+      const href = attrs.match(/href="([^"]*)"/i)?.[1] ?? "#";
+      const text = label.replace(/<[^>]*>/g, "").replace(/\s+/g, " ").trim();
+      // First action is the primary button, any second one is the outline.
+      const variant = index === 0 ? "primary" : "secondary";
+      return text
+        ? `<a class="mb-btn-split mb-btn-split-${variant}" href="${href}" ` +
+            `target="_blank" rel="noopener noreferrer">${text}</a>`
+        : "";
+    })
+    .filter(Boolean)
+    .join("");
+
+  if (!buttons) return null;
+
+  return (
+    `<div class="mb-cta-split">` +
+    `<div class="mb-cta-split-content">` +
+    `<h3>${heading.trim()}</h3>` +
+    (lead?.trim() ? `<p>${lead.trim()}</p>` : "") +
+    `</div>` +
+    `<div class="mb-cta-split-actions">${buttons}</div>` +
+    `</div>`
+  );
+}
+
+function restoreSplitCta(html: string): string {
+  const marked = html.replace(
+    SPLIT_CTA_MARKED,
+    (full, marker: string, heading: string, lead: string | undefined, anchors: string) => {
+      const block = buildSplitCta(heading, lead, anchors);
+      return block ? `${marker}${block}` : full;
+    }
+  );
+
+  return marked.replace(
+    SPLIT_CTA_BARE,
+    (full, heading: string, lead: string, anchors: string) =>
+      buildSplitCta(heading, lead, anchors) ?? full
+  );
 }
 
 /**
@@ -410,6 +514,7 @@ export function restoreWpBlocks(html: string): string {
   out = restoreQuote(out);
   out = restoreMethods(out);
   out = restoreCta(out);
+  out = restoreSplitCta(out);
   out = restoreFaq(out);
   out = restoreTags(out);
   out = restoreAuthor(out);
