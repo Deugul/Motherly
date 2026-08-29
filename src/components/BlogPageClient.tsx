@@ -460,7 +460,7 @@ export default function BlogPageClient({
             }}
             onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.backgroundColor = "var(--color-surface-container-high)"; }}
             onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.backgroundColor = "var(--color-surface-container-low)"; }}
-            onClick={() => setVisibleCount(filtered.length)}
+            onClick={() => setVisibleCount((count) => count + PAGE_SIZE)}
           >
             Load More Articles
           </motion.button>
