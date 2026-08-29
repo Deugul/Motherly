@@ -19,7 +19,7 @@ export default function LactationPage() {
   return (
     <>
       <Navbar />
-      <main className="pt-24 md:pt-32 pb-10 md:pb-16" style={{ backgroundColor: "var(--color-background)" }}>
+      <main className="pt-32 md:pt-40 pb-10 md:pb-16 overflow-x-hidden" style={{ backgroundColor: "var(--color-background)" }}>
 
         {/* ── Main Content + Form ── */}
         <section className="max-w-7xl mx-auto px-4 md:px-8">
