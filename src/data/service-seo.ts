@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { ensureCanonicalOrigin } from "../lib/site-url";
+import { buildHeadSeo } from "../lib/head-seo";
 
 export type KeywordLink = { label: string; url: string };
 
@@ -49,7 +50,14 @@ export function buildServiceMetadata(entry: ServiceSeoEntry): Metadata {
     title: entry.metaTitle,
     description: entry.metaDescription,
     keywords: entry.keywords,
-    alternates: { canonical },
+    // metaTitle is the rendered <title> verbatim: /services/layout.tsx defines a
+    // plain-string title, which drops the root template for its children.
+    ...buildHeadSeo({
+      title: entry.metaTitle,
+      description: entry.metaDescription,
+      canonical,
+      dcType: "Text.Webpage",
+    }),
     openGraph: {
       type: "website",
       locale: "en_IN",

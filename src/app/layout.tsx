@@ -6,6 +6,7 @@ import ChatWidget from "@/components/ChatWidget";
 import FontLoader from "@/components/FontLoader";
 import DeferredAnalytics from "@/components/DeferredAnalytics";
 import { GTM_ID, META_PIXEL_ID } from "@/lib/analytics-ids";
+import { buildHeadSeo } from "@/lib/head-seo";
 import { SOCIAL_PROFILE_URLS } from "@/data/social-links";
 
 const plusJakarta = Plus_Jakarta_Sans({
@@ -22,13 +23,16 @@ const manrope = Manrope({
   display: "swap",
 });
 
+const SITE_TITLE = "Motherly – Chennai's No1 Mother Care & Baby Care Service at Home";
+const SITE_DESCRIPTION =
+  "Motherly connects Indian mothers with verified lactation consultants in Chennai, doulas, nannies, and postnatal care experts. Book trusted maternal care on the Motherly app.";
+
 export const metadata: Metadata = {
   title: {
-    default: "Motherly – Chennai's No1 Mother Care & Baby Care Service at Home",
+    default: SITE_TITLE,
     template: "%s | Motherly",
   },
-  description:
-    "Motherly connects Indian mothers with verified lactation consultants in Chennai, doulas, nannies, and postnatal care experts. Book trusted maternal care on the Motherly app.",
+  description: SITE_DESCRIPTION,
   keywords: [
     "Motherly birth companion India",
     "maternal care app India",
@@ -37,21 +41,24 @@ export const metadata: Metadata = {
     "doula India",
   ],
   metadataBase: new URL("https://www.mothrly.com"),
-  alternates: { canonical: "/" },
+  ...buildHeadSeo({
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    canonical: "/",
+    dcType: "Text.Homepage",
+  }),
   openGraph: {
     type: "website",
     locale: "en_IN",
     siteName: "Motherly",
-    title: "Motherly – Chennai's No1 Mother Care & Baby Care Service at Home",
-    description:
-      "Motherly connects Indian mothers with verified lactation consultants in Chennai, doulas, nannies, and postnatal care experts. Book trusted maternal care on the Motherly app.",
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Motherly — Your Birth Companion" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Motherly – Chennai's No1 Mother Care & Baby Care Service at Home",
-    description:
-      "Motherly connects Indian mothers with verified lactation consultants in Chennai, doulas, nannies, and postnatal care experts. Book trusted maternal care on the Motherly app.",
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
     images: ["/og-image.jpg"],
   },
   verification: {
@@ -97,6 +104,24 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${plusJakarta.variable} ${manrope.variable}`} suppressHydrationWarning>
       <head>
+        {/* Google Tag Manager — must load in <head> on every page, unwrapped and
+            ungated, so container tags fire on page view rather than on first
+            interaction.
+
+            Deliberately the raw snippet rather than <GoogleTagManager> from
+            @next/third-parties: that component injects the container with
+            next/script's afterInteractive strategy, which is the wrapping this
+            tag is required to avoid. */}
+        {/* eslint-disable-next-line @next/next/next-script-for-ga */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','${GTM_ID}');`,
+          }}
+        />
         {/* ///Motherly ASO/// */}
         <meta
           name="apple-itunes-app"
@@ -147,8 +172,8 @@ export default function RootLayout({
             src="https://www.facebook.com/tr?id=${META_PIXEL_ID}&ev=PageView&noscript=1" />
         `}} />
 
-        {/* GTM, GA4 and the Meta pixel all boot from DeferredAnalytics — see the
-            note there for why they must not load during the initial paint. */}
+        {/* GTM loads eagerly from <head>; GA4 and the Meta pixel stay deferred —
+            see the note in DeferredAnalytics. */}
         <DeferredAnalytics />
         <FontLoader />
         <ScrollToTop />

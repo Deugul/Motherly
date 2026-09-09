@@ -3,7 +3,13 @@ import ContactLayout, { metadata as contactMetadata } from "@/app/contact-us/lay
 
 export const metadata: Metadata = {
   ...contactMetadata,
-  alternates: { canonical: "https://www.mothrly.com/contact" },
+  // Spread the inherited alternates so the en-in hreflang survives this
+  // canonical override — metadata merges shallowly, so a bare `alternates`
+  // object here would drop it.
+  alternates: {
+    ...contactMetadata.alternates,
+    canonical: "https://www.mothrly.com/contact",
+  },
   openGraph: {
     ...contactMetadata.openGraph,
     url: "https://www.mothrly.com/contact",

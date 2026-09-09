@@ -2,16 +2,20 @@
 
 import Script from "next/script";
 import { useEffect, useState } from "react";
-import { GA4_MEASUREMENT_ID, GTM_ID, META_PIXEL_ID } from "@/lib/analytics-ids";
+import { GA4_MEASUREMENT_ID, META_PIXEL_ID } from "@/lib/analytics-ids";
 
 const INTERACTION_EVENTS = ["scroll", "pointerdown", "keydown", "touchstart"] as const;
 
 /**
- * Analytics tags are held back until the visitor actually engages, or until the
- * page is being backgrounded/unloaded. Loading them during the initial paint
- * costs ~310ms of main-thread blocking and drags Best Practices down (the tags
+ * GA4 and the Meta pixel are held back until the visitor actually engages, or
+ * until the page is being backgrounded/unloaded. Loading them during the initial
+ * paint costs main-thread blocking time and drags Best Practices down (the tags
  * set third-party cookies), so the gate below is what keeps both Performance
- * and Best Practices above 95.
+ * and Best Practices high.
+ *
+ * GTM is deliberately *not* gated here — it loads unwrapped from <head> in the
+ * root layout so container tags fire on page view rather than on first
+ * interaction.
  *
  * The exit trigger is what preserves bounce tracking: a visitor who never
  * scrolls or taps still gets counted when they switch tabs or leave.
@@ -52,15 +56,6 @@ export default function DeferredAnalytics() {
   // another idle callback — an idle slot may never arrive on the exit path.
   return (
     <>
-      <Script id="google-tag-manager" strategy="afterInteractive">
-        {`
-          (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-          })(window,document,'script','dataLayer','${GTM_ID}');
-        `}
-      </Script>
       <Script
         src={`https://www.googletagmanager.com/gtag/js?id=${GA4_MEASUREMENT_ID}`}
         strategy="afterInteractive"

@@ -8,6 +8,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { getBlogSeo, normalizeSeoUrl } from "@/data/blog-seo";
 import { SITE_ORIGIN } from "@/lib/site-url";
+import { buildHeadSeo } from "@/lib/head-seo";
 import {
   getWordPressPostBodyHtml,
   stripDuplicateBlogChrome,
@@ -306,7 +307,14 @@ export async function generateMetadata({
     title: resolved.metaTitle,
     description: resolved.metaDescription,
     keywords: resolved.keywords,
-    alternates: { canonical },
+    // metaTitle is the rendered <title> verbatim: /blogs/layout.tsx defines a
+    // plain-string title, which drops the root template for its children.
+    ...buildHeadSeo({
+      title: resolved.metaTitle,
+      description: resolved.metaDescription,
+      canonical,
+      dcType: "Text.Article",
+    }),
     openGraph: {
       type: "article",
       locale: "en_IN",
