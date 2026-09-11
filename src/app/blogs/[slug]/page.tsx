@@ -1,4 +1,5 @@
 import Navbar from "@/components/Navbar";
+import "@/styles/wp-content.css";
 import Footer from "@/components/Footer";
 import WpContent from "@/components/WpContent";
 import BlogSeoExtras from "@/components/BlogSeoExtras";

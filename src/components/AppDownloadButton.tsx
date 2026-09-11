@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m as motion } from "framer-motion";
 import type { MouseEvent } from "react";
 
 const PLAY_STORE_URL =

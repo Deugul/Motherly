@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m as motion } from "framer-motion";
 import { SOCIAL_LINKS } from "@/data/social-links";
 
 type SocialLinksProps = {

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import "@/styles/wp-content.css";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getMobileBlogPost } from "@/lib/mobile-blog-api";

@@ -4,6 +4,7 @@ import "./globals.css";
 import ScrollToTop from "@/components/ScrollToTop";
 import ChatWidget from "@/components/ChatWidget";
 import FontLoader from "@/components/FontLoader";
+import MotionProvider from "@/components/MotionProvider";
 import DeferredAnalytics from "@/components/DeferredAnalytics";
 import { GTM_ID, META_PIXEL_ID } from "@/lib/analytics-ids";
 import { buildHeadSeo } from "@/lib/head-seo";
@@ -104,24 +105,6 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${plusJakarta.variable} ${manrope.variable}`} suppressHydrationWarning>
       <head>
-        {/* Google Tag Manager — must load in <head> on every page, unwrapped and
-            ungated, so container tags fire on page view rather than on first
-            interaction.
-
-            Deliberately the raw snippet rather than <GoogleTagManager> from
-            @next/third-parties: that component injects the container with
-            next/script's afterInteractive strategy, which is the wrapping this
-            tag is required to avoid. */}
-        {/* eslint-disable-next-line @next/next/next-script-for-ga */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','${GTM_ID}');`,
-          }}
-        />
         {/* ///Motherly ASO/// */}
         <meta
           name="apple-itunes-app"
@@ -172,12 +155,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             src="https://www.facebook.com/tr?id=${META_PIXEL_ID}&ev=PageView&noscript=1" />
         `}} />
 
-        {/* GTM loads eagerly from <head>; GA4 and the Meta pixel stay deferred —
-            see the note in DeferredAnalytics. */}
+        {/* GTM, GA4 and the Meta pixel all boot from DeferredAnalytics — see the
+            note there for why they must not load during the initial paint. */}
         <DeferredAnalytics />
         <FontLoader />
         <ScrollToTop />
-        {children}
+        <MotionProvider>{children}</MotionProvider>
         <ChatWidget />
         <script
           type="application/ld+json"
