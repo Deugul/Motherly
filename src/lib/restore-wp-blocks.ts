@@ -514,21 +514,43 @@ function restoreTables(html: string): string {
 
 /** Two-column shell: article beside the sticky contents rail. */
 function wrapLayout(html: string): string {
-  if (/class="mb-wrap"/.test(html)) return html;
-  const start = html.search(/<article\b/i);
-  if (start < 0) return html;
+  let content = html;
+  if (/class="mb-wrap"/.test(content)) {
+    content = content
+      .replace(/<div\b[^>]*class="[^"]*mb-wrap[^"]*"[^>]*>/gi, "")
+      .replace(/<\/div>\s*$/gi, "");
+  }
 
-  const navEnd = html.lastIndexOf("</nav>");
-  const end = navEnd > start ? navEnd + "</nav>".length : html.lastIndexOf("</article>") + 10;
-  if (end <= start) return html;
+  // Extract <nav id="mbToc"> or <nav class="mb-toc"> if present
+  let tocNav = "";
+  content = content.replace(/<nav\b[^>]*(?:id="mbToc"|class="[^"]*mb-toc[^"]*")[^>]*>[\s\S]*?<\/nav>/gi, (match) => {
+    tocNav = match;
+    return "";
+  });
 
-  return (
-    html.slice(0, start) +
-    `<div class="mb-wrap">` +
-    html.slice(start, end) +
-    `</div>` +
-    html.slice(end)
-  );
+  // Ensure <article> tag carries class="mb"
+  if (/<article\b/i.test(content)) {
+    if (!/<article\b[^>]*class=/i.test(content)) {
+      content = content.replace(/<article\b([^>]*)>/i, '<article class="mb"$1>');
+    }
+  } else {
+    content = `<article class="mb">${content}</article>`;
+  }
+
+  // Wrap the entire <article class="mb">...</article> and tocNav inside <div class="mb-wrap">
+  const artStart = content.search(/<article\b/i);
+  const artEnd = content.lastIndexOf("</article>");
+
+  if (artStart >= 0 && artEnd > artStart) {
+    const preamble = content.slice(0, artStart);
+    const articleBody = content.slice(artStart, artEnd + "</article>".length);
+    const postamble = content.slice(artEnd + "</article>".length);
+
+    const wrapInner = tocNav ? `${articleBody}\n  ${tocNav}` : articleBody;
+    return `${preamble}<div class="mb-wrap">\n  ${wrapInner}\n</div>${postamble}`;
+  }
+
+  return tocNav ? `<div class="mb-wrap">\n  ${content}\n  ${tocNav}\n</div>` : `<div class="mb-wrap">${content}</div>`;
 }
 
 /** Apply every block restoration, innermost first. */
