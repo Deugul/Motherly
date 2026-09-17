@@ -399,6 +399,7 @@
   border-radius: 40px;
   text-decoration: none !important;
   transition: 0.2s ease;
+  white-space: nowrap;
 }
 
 .wp-content .mb-cta-btn:hover {
@@ -719,6 +720,46 @@
 
 @media (max-width: 480px) {
   .wp-content .mb-cta-actions { flex-direction: column; }
+}
+
+/* Split CTA buttons */
+.wp-content .mb-btn-split {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: clamp(12px, 3.5vw, 15px);
+  padding: 12px 18px;
+  border-radius: 6px;
+  text-decoration: none !important;
+  transition: all 0.2s ease;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+  white-space: nowrap;
+}
+
+.wp-content .mb-btn-split-primary {
+  background: var(--mb-red);
+  color: #fff !important;
+}
+
+.wp-content .mb-btn-split-primary:hover {
+  background: #9a0a46;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(186, 14, 86, 0.2);
+}
+
+.wp-content .mb-btn-split-secondary {
+  background: var(--mb-white);
+  color: var(--mb-red) !important;
+  border: 1px solid var(--mb-red);
+}
+
+.wp-content .mb-btn-split-secondary:hover {
+  background: #fff0f5;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
 /* FAQ accordion ------------------------------------------------
