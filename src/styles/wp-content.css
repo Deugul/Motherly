@@ -204,8 +204,8 @@
    top: 120px gives a comfortable 16px gap below the navbar.
    z-index: 1 keeps the sidebar below the navbar (z-50 = 50). */
 .wp-content .mb-toc {
-  top: 120px !important;
-  z-index: 1 !important;
+  top: 110px !important;
+  z-index: 20 !important;
 }
 
 /* Hide Elementor progress tracker widget (empty without Elementor JS) */
@@ -559,16 +559,17 @@
 /* Table of contents ------------------------------------------- */
 
 .wp-content .mb-toc {
-  width: 240px;
-  min-width: 240px;
+  width: 260px;
+  min-width: 260px;
   position: sticky;
-  top: 96px;
-  max-height: calc(100vh - 120px);
+  top: 110px;
+  max-height: calc(100vh - 130px);
   overflow-y: auto;
   background: #fff;
   border: 1px solid var(--mb-border);
   border-radius: var(--mb-rlg);
   padding: 1.1rem 1.2rem;
+  align-self: flex-start;
 }
 
 .wp-content .mb-toc-title {
