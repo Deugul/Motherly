@@ -14,6 +14,104 @@ export type BlogSeoEntry = {
 };
 
 export const BLOG_SEO: Record<string, BlogSeoEntry> = {
+  "benefits-of-prenatal-yoga": {
+    slug: "benefits-of-prenatal-yoga",
+    h1: "The Benefits of Prenatal Yoga: Strengthening Body and Mind for a Healthy Delivery",
+    canonical: "https://www.mothrly.com/blogs/benefits-of-prenatal-yoga",
+    metaTitle: "The Benefits of Prenatal Yoga: Strengthening Body and Mind for a Healthy Delivery",
+    metaDescription: "Discover how prenatal yoga builds strength, flexibility, and calm during pregnancy, helping expectant mothers feel more prepared for labour and delivery.",
+    keywords: ["Benefits of prenatal yoga", "prenatal yoga poses", "pregnancy yoga benefits", "yoga for labour preparation", "prenatal yoga Chennai"],
+    keywordLinks: [
+      { label: "prenatal yoga", url: "https://www.mothrly.com/blogs/prenatal-and-postnatal-yoga-in-chennai-benefits-and-when-to-start" },
+      { label: "exercise during pregnancy", url: "https://www.mothrly.com/blogs/exercise-during-pregnancy" },
+      { label: "prenatalyoga services", url: "https://www.mothrly.com/services/yoga" },
+      { label: "physiotherapy support", url: "https://www.mothrly.com/services/postnatal-recovery-care/physiotherapy" },
+      { label: "pelvic floor recovery after birth", url: "https://www.mothrly.com/blogs/pelvic-floor-postpartum-recovery" },
+      { label: "yoga as medicine for mothers", url: "https://www.mothrly.com/blogs/yoga-as-medicine-for-mothers" },
+      { label: "fourth trimester and maternal mental health", url: "https://www.mothrly.com/blogs/fourth-trimester-maternal-mental-health-india" },
+      { label: "gynaecology consultation", url: "https://www.mothrly.com/services/gynecologist-consultation" },
+      { label: "doula services", url: "https://www.mothrly.com/services/doulas" },
+      { label: "postnatal recovery", url: "https://www.mothrly.com/services/postnatal-recovery-care" }
+    ],
+    faqSchema: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is prenatal yoga?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Prenatal yoga is a modified form of yoga created specifically for pregnant women. The exercises, stretches, and poses are adjusted to accommodate the body's changes during each stage of pregnancy."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can prenatal yoga help with sleep issues?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, prenatal yoga promotes relaxation and helps release physical tension that may interfere with restful sleep, helping expectant mothers fall asleep more easily and experience deeper sleep."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need to be flexible to do prenatal yoga?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The goal is not intense physical training; instead, prenatal yoga focuses on supporting comfort, mobility, strength, and emotional well-being throughout pregnancy."
+          }
+        }
+      ]
+    }
+  },
+  "healthy-newborn-sleep-routine": {
+    slug: "healthy-newborn-sleep-routine",
+    h1: "Establishing a Healthy Newborn Sleep Routine: Insights from Expert Caregivers",
+    canonical: "https://www.mothrly.com/blogs/healthy-newborn-sleep-routine",
+    metaTitle: "Establishing a Healthy Newborn Sleep Routine: Insights from Expert Caregivers",
+    metaDescription: "Learn how to build a healthy newborn sleep routine with expert-backed tips on sleep cues, bedtime habits, and creating a safe, calming sleep environment.",
+    keywords: ["Newborn sleep routine", "newborn sleep patterns", "baby bedtime routine", "signs baby is tired", "safe sleep environment for newborns"],
+    keywordLinks: [
+      { label: "newborn care during the first days", url: "https://www.mothrly.com/blogs/newborn-care-first-days" },
+      { label: "newborn sleep patterns in the third month", url: "https://www.mothrly.com/blogs/newborn-sleep-patterns-what-to-expect-in-the-third-month" },
+      { label: "baby care support", url: "https://www.mothrly.com/services/baby-care" },
+      { label: "toddler sleep habits", url: "https://www.mothrly.com/blogs/toddler-sleep-what-you-have-been-told-is-wrong" },
+      { label: "postnatal recovery care at home", url: "https://www.mothrly.com/blogs/postnatal-recovery-care-at-home-in-chennai-whats-included" },
+      { label: "mother care support", url: "https://www.mothrly.com/services/mother-care" },
+      { label: "pediatricians", url: "https://www.mothrly.com/services/pediatrician" },
+      { label: "lactation support", url: "https://www.mothrly.com/services/lactation-consultants" }
+    ],
+    faqSchema: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How much do newborns sleep?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Newborns typically sleep between 14 and 17 hours within a 24-hour period, usually divided into short periods lasting two to four hours at a time."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Should I keep my baby awake longer so they sleep better at night?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No, in reality, overtired babies often struggle to settle and may wake more frequently."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How can I help my baby distinguish between day and night?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "During daytime hours, open curtains and allow natural light into the home, engage in normal household activities, and talk and interact with the baby during wake periods. At night, keep lights dim, minimise noise and stimulation, and use calm, quiet interactions during feedings and diaper changes."
+          }
+        }
+      ]
+    }
+  },
   "foods-that-increase-breast-milk-vs-foods-you-should-avoid-a-complete-guide-for-indian-mothers": {
     slug: "foods-that-increase-breast-milk-vs-foods-you-should-avoid-a-complete-guide-for-indian-mothers",
     h1: "Foods That Increase vs Hurt Breast Milk | Indian Guide",
