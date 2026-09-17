@@ -4,7 +4,7 @@ import { useState, useRef, useLayoutEffect } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { motion, AnimatePresence } from "framer-motion";
+import { m as motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -19,7 +19,7 @@ export default function LactationPage() {
   return (
     <>
       <Navbar />
-      <main className="pt-24 md:pt-32 pb-10 md:pb-16" style={{ backgroundColor: "var(--color-background)" }}>
+      <main className="pt-32 md:pt-40 pb-10 md:pb-16 overflow-x-hidden" style={{ backgroundColor: "var(--color-background)" }}>
 
         {/* ── Main Content + Form ── */}
         <section className="max-w-7xl mx-auto px-4 md:px-8">

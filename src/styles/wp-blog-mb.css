@@ -798,9 +798,19 @@
     justify-content: space-between;
   }
 
+  /* The heading keeps at least half the row. Without min-width: 0 a long
+     button label pushes the actions column to its full single-line width
+     and squeezes this text down to one word per line. */
+  .wp-content .mb-cta-split-content {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
   .wp-content .mb-cta-split-actions {
     width: auto;
     min-width: 320px;
+    max-width: 50%;
+    flex-shrink: 1;
   }
 }
 

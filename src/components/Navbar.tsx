@@ -186,7 +186,9 @@ export default function Navbar() {
                 onClick={() => setServicesOpen(!servicesOpen)}
                 aria-expanded={servicesOpen}
                 aria-label="Toggle services menu"
-                className="flex items-center focus:outline-none"
+                // p-[5px] -m-[5px] grows the tap target to 24px (WCAG 2.5.8)
+                // while the negative margin keeps the chevron exactly where it was.
+                className="flex items-center focus:outline-none p-[5px] -m-[5px]"
                 style={{
                   color:
                     isServicesActive || servicesHovered
@@ -196,7 +198,6 @@ export default function Navbar() {
                   background: "none",
                   border: "none",
                   cursor: "pointer",
-                  padding: 0,
                 }}
               >
                 <svg className={`w-3.5 h-3.5 transition-transform duration-200 ${servicesOpen ? "rotate-180" : ""}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>

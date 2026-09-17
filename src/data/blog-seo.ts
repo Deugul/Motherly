@@ -3772,6 +3772,305 @@ export const BLOG_SEO: Record<string, BlogSeoEntry> = {
       ]
     }
   },
+  "breastfeeding-after-returning-to-work-in-chennai-pumping-storage-guide": {
+    slug: "breastfeeding-after-returning-to-work-in-chennai-pumping-storage-guide",
+    h1: "Breastfeeding After Returning to Work in Chennai: A Pumping & Storage Guide",
+    canonical: "https://www.mothrly.com/blogs/breastfeeding-after-returning-to-work-in-chennai-pumping-storage-guide",
+    metaTitle: "Breastfeeding After Returning to Work in Chennai: Pumping & Storage Guide",
+    metaDescription: "Going back to work after maternity leave? A Chennai guide to pumping schedules, milk storage, and keeping your supply up while breastfeeding and working.",
+    keywords: [
+      "breastfeeding after returning to work chennai",
+      "pumping at work",
+      "breast milk storage",
+      "lactation support specialist",
+      "breastfeeding support",
+      "lactation support home care"
+    ],
+    keywordLinks: [
+      { label: "lactation support", url: "https://www.mothrly.com/services/lactation-consultants" },
+      { label: "baby not latching guide", url: "https://www.mothrly.com/blogs/baby-not-latching-chennai-breastfeeding-problems-and-fixes" },
+      { label: "ongoing lactation support at home", url: "https://www.mothrly.com/blogs/lactation-support-at-home-in-chennai-what-ongoing-help-looks-like" },
+      { label: "twin baby care at home", url: "https://www.mothrly.com/blogs/twin-baby-care-at-home-in-chennai-what-changes-with-two" },
+      { label: "NICU baby care at home", url: "https://www.mothrly.com/blogs/nicu-baby-care-at-home-in-chennai-what-happens-after-discharge" }
+    ],
+    faqSchema: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Will pumping at work reduce my milk supply compared to direct breastfeeding?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not if sessions are frequent and thorough enough. Supply responds to how often and how completely milk is removed, whether that's by baby or by pump — irregular or rushed pumping is what causes the drop, not pumping itself."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I mix breastfeeding at home with formula during work hours?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Combination feeding is realistic for many working mothers — a lactation specialist can help you sequence it so it doesn't undercut supply for the feeds you do want to keep breastfeeding."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How soon before returning to work should I start pumping and building a stash?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Around 2–3 weeks ahead is usually enough to build a modest freezer supply and get comfortable with equipment, without disrupting your baby's direct feeding routine too early."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What if my office doesn't have a proper space to pump?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Raise it directly with HR — under the Maternity Benefit Act, larger establishments are expected to provide reasonable facilities and break time. A home lactation specialist can also help you plan around fewer, longer sessions."
+          }
+        }
+      ]
+    }
+  },
+  "breastfeeding-after-c-section-in-chennai-positions-and-recovery-guide": {
+    slug: "breastfeeding-after-c-section-in-chennai-positions-and-recovery-guide",
+    h1: "Breastfeeding After a C-Section in Chennai: Positions & Recovery Guide",
+    canonical: "https://www.mothrly.com/blogs/breastfeeding-after-c-section-in-chennai-positions-and-recovery-guide",
+    metaTitle: "Breastfeeding After a C-Section in Chennai: Positions & Recovery Guide",
+    metaDescription: "With C-section rates in India climbing past 27%, here's a Chennai guide to breastfeeding positions, latch support, and recovery-friendly feeding after surgery.",
+    keywords: [
+      "breastfeeding after c-section chennai",
+      "breast feed position",
+      "latching issues",
+      "baby is not latching",
+      "lactation support specialist",
+      "difficulties in breastfeed"
+    ],
+    keywordLinks: [
+      { label: "lactation support", url: "https://www.mothrly.com/services/lactation-consultants" },
+      { label: "baby not latching guide", url: "https://www.mothrly.com/blogs/baby-not-latching-chennai-breastfeeding-problems-and-fixes" },
+      { label: "fourth trimester recovery guide", url: "https://www.mothrly.com/blogs/postnatal-recovery-care-at-home-in-chennai-whats-included" },
+      { label: "lactation consultant in Chennai", url: "https://www.mothrly.com/blogs/lactation-consultant-in-chennai-when-to-call-and-what-to-expect" },
+      { label: "ongoing lactation support at home", url: "https://www.mothrly.com/blogs/lactation-support-at-home-in-chennai-what-ongoing-help-looks-like" }
+    ],
+    faqSchema: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Does a C-section delay my milk supply permanently?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. It can delay when milk 'comes in' by a day or so, particularly after an emergency procedure, but with frequent feeding or pumping, supply typically catches up within the first week."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is it safe to breastfeed while on post-C-section pain medication?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Most standard pain relief prescribed after a caesarean in Indian hospitals is considered compatible with breastfeeding — confirm the specific drug and dose with your obstetrician or paediatrician."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which position is best if I'm also recovering from a long labour before the C-section?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The football hold is usually gentlest in the first days regardless of how the delivery unfolded, since it avoids the incision entirely and doesn't require sitting fully upright."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "When should I get help instead of just adjusting position at home?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "If pain persists through entire feeds after two or three days of trying different positions, or if your baby isn't gaining weight as expected, that's the point to bring in a lactation specialist."
+          }
+        }
+      ]
+    }
+  },
+  "monsoon-care-for-premature-and-nicu-babies-at-home-in-chennai": {
+    slug: "monsoon-care-for-premature-and-nicu-babies-at-home-in-chennai",
+    h1: "Monsoon Care for Premature & NICU Babies at Home in Chennai",
+    canonical: "https://www.mothrly.com/blogs/monsoon-care-for-premature-and-nicu-babies-at-home-in-chennai",
+    metaTitle: "Monsoon Care for Premature & NICU Babies at Home in Chennai",
+    metaDescription: "Monsoon humidity raises infection risk for fragile newborns. A Chennai guide to protecting premature and NICU-graduate babies at home during the rainy season.",
+    keywords: [
+      "monsoon newborn care chennai",
+      "NICU baby care",
+      "NICU home care",
+      "NICU nurse",
+      "pre term baby care",
+      "premature baby care"
+    ],
+    keywordLinks: [
+      { label: "baby care support", url: "https://www.mothrly.com/services/baby-care" },
+      { label: "NICU baby care at home", url: "https://www.mothrly.com/blogs/nicu-baby-care-at-home-in-chennai-what-happens-after-discharge" },
+      { label: "premature baby care at home", url: "https://www.mothrly.com/blogs/premature-baby-care-at-home-in-chennai-after-nicu-discharge" },
+      { label: "twin baby care at home", url: "https://www.mothrly.com/blogs/twin-baby-care-at-home-in-chennai-what-changes-with-two" },
+      { label: "joint family newborn support", url: "https://www.mothrly.com/blogs/joint-family-support-for-twin-and-nicu-newborn-care-at-home-in-chennai" }
+    ],
+    faqSchema: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is it safe to take a premature or NICU-graduate baby outdoors during monsoon?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Generally, it's best to limit outings to what's necessary in the early months. Ask your paediatrician when it's appropriate to start regular outings based on your baby's specific health history."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does a humidifier or dehumidifier help more during Chennai's monsoon?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It depends on your home — very high indoor humidity can worsen skin and mould issues, while overly dry air from air conditioning can irritate airways. A room hygrometer and your paediatrician's guidance are more reliable than assuming either device is needed."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is monsoon care different for a premature baby versus a full-term baby?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The precautions are similar in kind but matter more in degree — a full-term baby's immune system and temperature regulation can absorb more variation before it becomes a real risk."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Should visitors be limited more strictly during monsoon than other seasons?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, particularly if anyone visiting has any cold, cough, fever, or stomach symptoms — a fragile baby has less capacity to fight off circulating monsoon illnesses."
+          }
+        }
+      ]
+    }
+  },
+  "postpartum-depression-and-breastfeeding-difficulties-in-chennai": {
+    slug: "postpartum-depression-and-breastfeeding-difficulties-in-chennai",
+    h1: "Postpartum Depression and Breastfeeding Difficulties: A Chennai Guide",
+    canonical: "https://www.mothrly.com/blogs/postpartum-depression-and-breastfeeding-difficulties-in-chennai",
+    metaTitle: "Postpartum Depression & Breastfeeding Difficulties: A Chennai Guide",
+    metaDescription: "Struggling to breastfeed can worsen low mood, and low mood can make feeding harder. A Chennai guide to spotting postpartum depression and getting the right support.",
+    keywords: [
+      "postpartum depression chennai",
+      "difficulties in breastfeed",
+      "lactation support specialist",
+      "mothers unable to feed baby",
+      "breastfeeding support"
+    ],
+    keywordLinks: [
+      { label: "lactation support", url: "https://www.mothrly.com/services/lactation-consultants" },
+      { label: "baby not latching guide", url: "https://www.mothrly.com/blogs/baby-not-latching-chennai-breastfeeding-problems-and-fixes" },
+      { label: "ongoing lactation support at home", url: "https://www.mothrly.com/blogs/lactation-support-at-home-in-chennai-what-ongoing-help-looks-like" },
+      { label: "fourth trimester recovery guide", url: "https://www.mothrly.com/blogs/postnatal-recovery-care-at-home-in-chennai-whats-included" },
+      { label: "doula services in Chennai", url: "https://www.mothrly.com/blogs/doula-services-in-chennai-what-a-doula-does-for-new-mothers" }
+    ],
+    faqSchema: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Can breastfeeding difficulty actually cause postpartum depression, or does it just make it worse?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Both patterns happen. For some mothers, feeding struggles are a significant trigger; for others, depression that begins independently makes existing feeding challenges much harder to manage."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is it safe to take antidepressant medication while breastfeeding?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Several commonly prescribed antidepressants are considered compatible with breastfeeding, but this needs to be decided with your doctor based on the specific medication, dose, and your baby's health."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Should I stop breastfeeding if it's affecting my mental health?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not automatically. Many mothers find that fixing the underlying feeding problem resolves much of the distress. For others, moving to combination or formula feeding is the right choice, and that is a legitimate, valid decision."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I bring this up if my family expects me to just 'manage'?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Speaking to your doctor or a lactation specialist privately, without needing family agreement first, is a reasonable starting point — professional support can also help you navigate the family conversation afterward."
+          }
+        }
+      ]
+    }
+  },
+  "joint-family-support-for-twin-and-nicu-newborn-care-at-home-in-chennai": {
+    slug: "joint-family-support-for-twin-and-nicu-newborn-care-at-home-in-chennai",
+    h1: "Joint Family Support for Twin or NICU Newborn Care at Home in Chennai",
+    canonical: "https://www.mothrly.com/blogs/joint-family-support-for-twin-and-nicu-newborn-care-at-home-in-chennai",
+    metaTitle: "Joint Family Support for Twin or NICU Newborn Care at Home in Chennai",
+    metaDescription: "Well-meaning advice isn't the same as trained care. A Chennai guide to combining joint family support with professional twin and NICU newborn care at home.",
+    keywords: [
+      "joint family newborn care chennai",
+      "twin baby care",
+      "twin baby home care",
+      "NICU baby care",
+      "NICU home care",
+      "NICU assisted care"
+    ],
+    keywordLinks: [
+      { label: "baby care support", url: "https://www.mothrly.com/services/baby-care" },
+      { label: "twin baby care at home", url: "https://www.mothrly.com/blogs/twin-baby-care-at-home-in-chennai-what-changes-with-two" },
+      { label: "NICU baby care at home", url: "https://www.mothrly.com/blogs/nicu-baby-care-at-home-in-chennai-what-happens-after-discharge" },
+      { label: "monsoon care for fragile babies", url: "https://www.mothrly.com/blogs/monsoon-care-for-premature-and-nicu-babies-at-home-in-chennai" },
+      { label: "doula services in Chennai", url: "https://www.mothrly.com/blogs/doula-services-in-chennai-what-a-doula-does-for-new-mothers" }
+    ],
+    faqSchema: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Do we need a NICU-trained specialist even if grandparents have raised several children before?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "General childcare experience is valuable, but it doesn't cover NICU-specific protocols, twin feeding-volume tracking, or the subtle warning signs a specialist is trained to catch."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long do families typically need this kind of combined support?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It varies by the baby's medical history, but many families scale down trained specialist support after the first several weeks, once feeding and weight gain are clearly stable."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What if grandparents feel their help isn't wanted once a specialist is involved?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Framing the specialist's role as specifically medical and protocol-based usually resolves this once family understands it's about the baby's needs, not a comment on their capability."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can a specialist coordinate directly with our paediatrician?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes — a NICU-trained home care specialist should be tracking feeding, weight, and any concerning symptoms in a way that can be shared directly with your paediatrician at follow-up visits."
+          }
+        }
+      ]
+    }
+  },
 };
 
 export function getBlogSeo(slug: string): BlogSeoEntry | undefined {

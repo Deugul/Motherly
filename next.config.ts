@@ -53,6 +53,12 @@ const ourServices1Redirects = [
 const nextConfig: NextConfig = {
   experimental: {
     optimizePackageImports: ["framer-motion"],
+    // Inline the (Tailwind-sized, ~11 KiB Brotli) stylesheet into the HTML so
+    // first paint does not wait on a separate render-blocking request. Measured
+    // on the homepage under real mobile throttling: FCP 1.63s -> 0.87s. Costs
+    // ~11 KiB extra HTML per page load, since inlined CSS is not cached apart
+    // from the document.
+    inlineCss: true,
   },
   images: {
     formats: ["image/avif", "image/webp"],

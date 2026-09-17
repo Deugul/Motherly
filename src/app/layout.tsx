@@ -4,8 +4,10 @@ import "./globals.css";
 import ScrollToTop from "@/components/ScrollToTop";
 import ChatWidget from "@/components/ChatWidget";
 import FontLoader from "@/components/FontLoader";
+import MotionProvider from "@/components/MotionProvider";
 import DeferredAnalytics from "@/components/DeferredAnalytics";
 import { GTM_ID, META_PIXEL_ID } from "@/lib/analytics-ids";
+import { buildHeadSeo } from "@/lib/head-seo";
 import { SOCIAL_PROFILE_URLS } from "@/data/social-links";
 
 const plusJakarta = Plus_Jakarta_Sans({
@@ -22,13 +24,16 @@ const manrope = Manrope({
   display: "swap",
 });
 
+const SITE_TITLE = "Motherly – Chennai's No1 Mother Care & Baby Care Service at Home";
+const SITE_DESCRIPTION =
+  "Motherly connects Indian mothers with verified lactation consultants in Chennai, doulas, nannies, and postnatal care experts. Book trusted maternal care on the Motherly app.";
+
 export const metadata: Metadata = {
   title: {
-    default: "Motherly – Chennai's No1 Mother Care & Baby Care Service at Home",
+    default: SITE_TITLE,
     template: "%s | Motherly",
   },
-  description:
-    "Motherly connects Indian mothers with verified lactation consultants in Chennai, doulas, nannies, and postnatal care experts. Book trusted maternal care on the Motherly app.",
+  description: SITE_DESCRIPTION,
   keywords: [
     "Motherly birth companion India",
     "maternal care app India",
@@ -37,21 +42,24 @@ export const metadata: Metadata = {
     "doula India",
   ],
   metadataBase: new URL("https://www.mothrly.com"),
-  alternates: { canonical: "/" },
+  ...buildHeadSeo({
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    canonical: "/",
+    dcType: "Text.Homepage",
+  }),
   openGraph: {
     type: "website",
     locale: "en_IN",
     siteName: "Motherly",
-    title: "Motherly – Chennai's No1 Mother Care & Baby Care Service at Home",
-    description:
-      "Motherly connects Indian mothers with verified lactation consultants in Chennai, doulas, nannies, and postnatal care experts. Book trusted maternal care on the Motherly app.",
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Motherly — Your Birth Companion" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Motherly – Chennai's No1 Mother Care & Baby Care Service at Home",
-    description:
-      "Motherly connects Indian mothers with verified lactation consultants in Chennai, doulas, nannies, and postnatal care experts. Book trusted maternal care on the Motherly app.",
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
     images: ["/og-image.jpg"],
   },
   verification: {
@@ -152,7 +160,7 @@ export default function RootLayout({
         <DeferredAnalytics />
         <FontLoader />
         <ScrollToTop />
-        {children}
+        <MotionProvider>{children}</MotionProvider>
         <ChatWidget />
         <script
           type="application/ld+json"
