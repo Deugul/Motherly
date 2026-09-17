@@ -178,18 +178,8 @@ function buildSubLine(tail: string): string {
  * links are always present and always last.
  */
 function restoreCta(html: string): string {
-  // Locate each store-badge cluster, then expand outwards to the block that
-  // owns it. Index-based rather than one large regex: the CTA varies too much
-  // (optional lead paragraph, one or two buttons, differing hrefs) for a single
-  // pattern to stay both permissive and safe — a greedy one silently swallows
-  // the author box and contents rail that follow it.
-  // Either a real store link, or the caption left behind when the export
-  // dropped the anchors around it.
   const anchor = /href="[^"]*play\.google\.com|Get it on\s*Google Play/i;
   let out = "";
-  // Everything before `cursor` has been copied into `out`; `searchFrom` only
-  // moves the scan along. Keeping them apart matters: a skipped cluster must
-  // not advance `cursor`, or the text it passed over is dropped from the page.
   let cursor = 0;
   let searchFrom = 0;
 
@@ -199,7 +189,6 @@ function restoreCta(html: string): string {
 
     const abs = searchFrom + hit;
 
-    // Start: the heading immediately preceding this cluster.
     const headOpen = html.lastIndexOf("<h3", abs);
     const headClose = html.indexOf("</h3>", headOpen);
     if (headOpen < cursor || headClose < 0 || headClose > abs) {
@@ -207,10 +196,6 @@ function restoreCta(html: string): string {
       continue;
     }
 
-    // Between the heading and the badges a CTA holds only its lead paragraph
-    // and its buttons. Anything else means the nearest heading above is not the
-    // CTA's — the store links belong to a step card or a sentence in the body —
-    // and rewriting from there would swallow the section in between.
     const preamble = html.slice(headClose + 5, abs);
     const ownsCluster =
       !/<(?:h[1-6]|ul|ol|table|hr|blockquote)\b/i.test(preamble) &&
@@ -220,7 +205,6 @@ function restoreCta(html: string): string {
       continue;
     }
 
-    // End: the next structural break after the cluster.
     const breaks = [html.indexOf("<hr", abs), html.indexOf("</article>", abs), html.indexOf("<h2", abs)]
       .filter((i) => i >= 0);
     const end = breaks.length ? Math.min(...breaks) : html.length;
@@ -230,8 +214,6 @@ function restoreCta(html: string): string {
 
     const links: string[] = block.match(/<a\b[\s\S]*?<\/a>/gi) ?? [];
     const firstStore = links.findIndex((a) => storeKind(a) !== null);
-    // With the anchors gone, every link in the block is a plain button and the
-    // badges are rebuilt from the captions instead.
     const captionsOnly = firstStore < 0 && STORE_LABELS_ONLY.test(block);
 
     if (firstStore < 0 && !captionsOnly) {
@@ -252,7 +234,6 @@ function restoreCta(html: string): string {
       .filter(Boolean)
       .join("");
 
-    // Small print lives after the final store link.
     const lastStoreEnd = block.lastIndexOf("</a>", block.length);
     const tail = block.slice(Math.max(0, lastStoreEnd));
 
@@ -273,41 +254,20 @@ function restoreCta(html: string): string {
   return out + html.slice(cursor);
 }
 
-/**
- * Mid-article split CTA: a heading, a lead line and one or two action links.
- * The export left the links as bare underlined text instead of the buttons the
- * design uses, so the block reads as a stray sentence with a link under it.
- *
- * Anchored on the CTA comment marker. The heading text alone is not enough —
- * the block is preceded by ordinary prose, and searching backwards for the
- * nearest `<h3>` lands on a content subheading whenever the CTA sits after one.
- *
- * Runs after `restoreCta`, which has by then wrapped every app-download CTA in
- * its own `<div>`; what still matches here is only the mid-article kind.
- */
 const SPLIT_CTA_MARKED =
   /(<!--[^>]*\bCTA\b[^>]*-->)\s*<h3>([^<]{4,160})<\/h3>\s*(?:<p>([\s\S]{0,700}?)<\/p>\s*)?((?:<a\b[^>]*>[\s\S]{0,220}?<\/a>\s*)+)/gi;
 
-/**
- * Same block in the posts whose comments the export dropped. The lead is
- * matched as text only: allowing tags inside it lets the pattern run from a
- * content subheading's paragraph all the way into the CTA below it, which turns
- * an ordinary section heading into a call to action.
- */
 const SPLIT_CTA_BARE =
   /<h3>([^<]{4,160})<\/h3>\s*<p>([^<]{10,700})<\/p>\s*((?:<a\b[^>]*>[^<]{2,120}<\/a>\s*){1,2})(?=<!--|<h[1-6]\b|<hr\b|<\/article\b|<p\b|<ul\b|<div\b|$)/gi;
 
 function buildSplitCta(heading: string, lead: string | undefined, anchors: string): string | null {
-  // Store links mean this is the app CTA — `restoreCta` owns that one.
   if (storeKind(anchors)) return null;
-  // Newer posts ship the buttons with their classes already on them.
   if (/class="/i.test(anchors)) return null;
 
   const buttons = [...anchors.matchAll(/<a\b([^>]*)>([\s\S]*?)<\/a>/gi)]
     .map(([, attrs, label], index) => {
       const href = attrs.match(/href="([^"]*)"/i)?.[1] ?? "#";
       const text = label.replace(/<[^>]*>/g, "").replace(/\s+/g, " ").trim();
-      // First action is the primary button, any second one is the outline.
       const variant = index === 0 ? "primary" : "secondary";
       return text
         ? `<a class="mb-btn-split mb-btn-split-${variant}" href="${href}" ` +
@@ -346,25 +306,9 @@ function restoreSplitCta(html: string): string {
   );
 }
 
-/**
- * FAQ accordion: the same unwrapping left the rows as bare text after the FAQ
- * heading — question, a literal "+", then the answer. Both the stylesheet and
- * the `.mb-faq-q` click handler in `WpContent` key off `.mb-faq-*`, so rebuild
- * that hierarchy; the stray "+" becomes the icon span it was always meant to be.
- *
- * Three export shapes occur: the "+" on its own line, the "+" glued to the end
- * of the question, and answers already wrapped in a `<p>`. Anything that does
- * not resolve into clean question/answer pairs is left exactly as it was.
- *
- * Older exports also dropped every HTML comment, so the block is found by an
- * `<!-- FAQ -->` marker when one survived and by the heading text otherwise.
- * The region stops at the tag list, which directly follows the FAQ in exports
- * that have no comments left to delimit the two.
- */
 const FAQ_BLOCK =
   /(<!--\s*FAQ\s*-->\s*)?(<h([1-6])\b[^>]*>([^<]*)<\/h\3>)([\s\S]*?)(?=<!--|<hr\b|<\/article\b|<h[1-6]\b|<div\b|<a\b[^>]*href="[^"]*\/tag\/|$)/gi;
 
-/** Heading text that introduces an FAQ block in an export with no comments. */
 const FAQ_HEADING = /^\s*(?:FAQs?\b|Frequently Asked Questions|Common Questions)/i;
 
 function parseFaqRows(region: string): Array<{ q: string; a: string }> | null {
@@ -374,19 +318,17 @@ function parseFaqRows(region: string): Array<{ q: string; a: string }> | null {
 
   for (const line of lines) {
     if (question === null) {
-      // A delimiter with nothing before it means this is not the shape we know.
       if (line === "+") return null;
       question = line.endsWith("+") ? line.slice(0, -1).trim() : line;
       if (!question) return null;
       continue;
     }
     if (line === "+") continue;
-    // Answers are a single line in every export; the next line starts a new row.
     rows.push({ q: question, a: line });
     question = null;
   }
 
-  if (question !== null) return null; // dangling question — leave the block alone
+  if (question !== null) return null;
   return rows.length ? rows : null;
 }
 
@@ -401,10 +343,7 @@ function restoreFaq(html: string): string {
       title: string,
       region: string
     ) => {
-      // Every other heading in the article reaches this callback too — only an
-      // FAQ marker or an FAQ heading makes the block ours to rewrite.
       if (!marker && !FAQ_HEADING.test(title)) return full;
-      // Already structured by a newer export.
       if (/class="[^"]*mb-faq/i.test(region) || /<details\b/i.test(region)) return full;
 
       const rows = parseFaqRows(region);
@@ -412,7 +351,6 @@ function restoreFaq(html: string): string {
 
       const items = rows
         .map(({ q, a }) => {
-          // Unwrap a lone <p> so the answer inherits `.mb-faq-a` spacing directly.
           const answer = a.replace(/^<p\b[^>]*>([\s\S]*)<\/p>$/i, "$1").trim();
           return (
             `<div class="mb-faq-item">` +
@@ -428,15 +366,6 @@ function restoreFaq(html: string): string {
   );
 }
 
-/**
- * Elementor's accordion exports its answers twice: once inside each `<details>`
- * and again as loose paragraphs after the block, so the whole FAQ reads a second
- * time in the open beneath the closed rows.
- *
- * Only the run after the last `</details>` is considered, and only paragraphs
- * whose text matches an answer exactly — a paragraph that merely covers the same
- * ground is left where it is.
- */
 function dropDuplicateFaqAnswers(html: string): string {
   const lastDetails = html.lastIndexOf("</details>");
   if (lastDetails < 0) return html;
@@ -448,7 +377,6 @@ function dropDuplicateFaqAnswers(html: string): string {
   for (const block of html.matchAll(/<details[\s\S]*?<\/details>/gi)) {
     for (const para of block[0].matchAll(/<p\b[^>]*>([\s\S]*?)<\/p>/gi)) {
       const text = normalise(para[1]);
-      // Short lines are too easy to collide with; only full answers count.
       if (text.length > 25) answers.add(text);
     }
   }
@@ -465,15 +393,6 @@ function dropDuplicateFaqAnswers(html: string): string {
   );
 }
 
-/**
- * Tag pills: the export left the taxonomy links bare, so they render as a run-on
- * row of underlined text under the article. `globals.css` already hides
- * `.mb-tags`; restoring the wrapper is what lets that rule apply.
- *
- * Keyed off a run of consecutive `/tag/` links rather than the `<!-- TAGS -->`
- * marker, which some exports dropped. Two in a row is the taxonomy list; a lone
- * link inside prose is left alone.
- */
 function restoreTags(html: string): string {
   return html.replace(
     /(?:<!--\s*TAGS\s*-->\s*)?((?:<a\b[^>]*href="[^"]*\/tag\/[^"]*"[^>]*>[\s\S]*?<\/a>\s*){2,})/gi,
@@ -482,7 +401,6 @@ function restoreTags(html: string): string {
   );
 }
 
-/** Author box: the avatar initial lost its circle and reads as a stray letter. */
 function restoreAuthor(html: string): string {
   const build = (initial: string | undefined, name: string, bio: string) => {
     const letter = (initial || name.trim().charAt(0) || "M").toUpperCase();
@@ -500,15 +418,10 @@ function restoreAuthor(html: string): string {
         /<hr\s*\/?>\s*([A-Za-z])?\s*<h4>\s*([\s\S]*?)\s*<\/h4>\s*<p>\s*([\s\S]*?)\s*<\/p>/gi,
         (_full, initial, name, bio) => `<hr>${build(initial, name, bio)}`
       )
-      // Most posts separate the author box with an `<hr>`, but a third of them
-      // mark it with a comment instead — same collapsed shape, same stray letter.
       .replace(
         /<!--\s*AUTHOR\s*-->\s*([A-Za-z])?\s*<h4>\s*([\s\S]*?)\s*<\/h4>\s*<p>\s*([\s\S]*?)\s*<\/p>/gi,
         (_full, initial, name, bio) => build(initial, name, bio)
       )
-      // A few exports kept neither. There the orphaned avatar letter is the only
-      // marker left, and it is enough: a lone letter between a closing tag and an
-      // `<h4>` never occurs around the `<h4>` subheadings used inside articles.
       .replace(
         /(?:^|>)\s*([A-Za-z])\s*<h4>\s*([^<]*?)\s*<\/h4>\s*<p>\s*([\s\S]*?)\s*<\/p>/gi,
         (full, initial, name, bio) =>
@@ -517,16 +430,77 @@ function restoreAuthor(html: string): string {
   );
 }
 
+function generateTocFromHeadings(html: string): string {
+  if (/<nav\b/i.test(html) || /class="[^"]*mb-toc[^"]*"/i.test(html)) return html;
+
+  const h2Regex = /<h2\b([^>]*)>([\s\S]*?)<\/h2>/gi;
+  const headings: Array<{ id: string; title: string }> = [];
+  let index = 0;
+
+  const updatedHtml = html.replace(h2Regex, (full, attrs, content) => {
+    const plainText = content.replace(/<[^>]*>/g, "").trim();
+    if (
+      !plainText ||
+      /Keep Reading|Stay Updated|Related Reading|Medical Disclaimer/i.test(plainText)
+    ) {
+      return full;
+    }
+
+    const idMatch = attrs.match(/id="([^"]*)"/i);
+    const id = idMatch ? idMatch[1] : `toc-${index++}`;
+
+    let newAttrs = attrs;
+    if (!idMatch) {
+      newAttrs += ` id="${id}"`;
+    }
+
+    headings.push({ id, title: plainText });
+    return `<h2${newAttrs}>${content}</h2>`;
+  });
+
+  if (headings.length < 2) return html;
+
+  const listItems = headings
+    .map((h) => `      <li><a href="#${h.id}">${h.title}</a></li>`)
+    .join("\n");
+
+  const tocHtml = `\n  <nav id="mbToc" class="mb-toc" aria-label="Table of contents">\n    <div class="mb-toc-title">In This Article</div>\n    <ul>\n${listItems}\n    </ul>\n  </nav>`;
+
+  return updatedHtml + tocHtml;
+}
+
 /** Table of contents: restore the class the scroll-spy and styles rely on. */
 function restoreToc(html: string): string {
-  // A couple of posts carry a stray `</p>` between the title text and the list,
-  // left over from the export — tolerate any orphan closing tag here.
-  return html.replace(
-    /<nav\b((?![^>]*\bclass=)[^>]*id="mbToc"[^>]*)>\s*([^<]*?)\s*(?:<\/[a-z]+>\s*)*(?=<ul\b)/i,
-    (_full, attrs, title) =>
-      `<nav${attrs} class="mb-toc">` +
-      (title.trim() ? `<div class="mb-toc-title">${title.trim()}</div>` : "")
-  );
+  if (/<nav\b/i.test(html)) {
+    return html.replace(/<nav\b([^>]*)>([\s\S]*?)<\/nav>/gi, (fullMatch, attrs, content) => {
+      const isToc =
+        /id="mbToc"/i.test(attrs) ||
+        /class="[^"]*mb-toc[^"]*"/i.test(attrs) ||
+        /Table of contents/i.test(attrs) ||
+        /#toc-/i.test(content);
+      if (!isToc) return fullMatch;
+
+      let newAttrs = attrs;
+      if (!/id="mbToc"/i.test(newAttrs)) {
+        newAttrs += ' id="mbToc"';
+      }
+      if (!/class="/i.test(newAttrs)) {
+        newAttrs += ' class="mb-toc"';
+      } else if (!/class="[^"]*\bmb-toc\b[^"]*"/i.test(newAttrs)) {
+        newAttrs = newAttrs.replace(/class="([^"]*)"/i, 'class="$1 mb-toc"');
+      }
+
+      let newContent = content;
+      if (!/class="mb-toc-title"/i.test(newContent)) {
+        newContent = newContent.replace(/^\s*([^<]+)\s*(?=<ul\b)/i, "");
+        newContent = `<div class="mb-toc-title">In This Article</div>\n` + newContent.trim();
+      }
+
+      return `<nav${newAttrs}>\n${newContent}\n</nav>`;
+    });
+  }
+
+  return generateTocFromHeadings(html);
 }
 
 /** Wrap bare comparison tables so borders + horizontal scroll work without inline WP CSS. */
@@ -576,5 +550,3 @@ export function restoreWpBlocks(html: string): string {
   out = wrapLayout(out);
   return out;
 }
-
-
