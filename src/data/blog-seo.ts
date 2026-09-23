@@ -25,7 +25,7 @@ export const BLOG_SEO: Record<string, BlogSeoEntry> = {
       { label: "prenatal yoga", url: "https://www.mothrly.com/blogs/prenatal-and-postnatal-yoga-in-chennai-benefits-and-when-to-start" },
       { label: "exercise during pregnancy", url: "https://www.mothrly.com/blogs/exercise-during-pregnancy" },
       { label: "prenatalyoga services", url: "https://www.mothrly.com/services/yoga" },
-      { label: "physiotherapy support", url: "https://www.mothrly.com/services/postnatal-recovery-care/physiotherapy" },
+      { label: "physiotherapy support", url: "https://www.mothrly.com/services/physiotherapy" },
       { label: "pelvic floor recovery after birth", url: "https://www.mothrly.com/blogs/pelvic-floor-postpartum-recovery" },
       { label: "yoga as medicine for mothers", url: "https://www.mothrly.com/blogs/yoga-as-medicine-for-mothers" },
       { label: "fourth trimester and maternal mental health", url: "https://www.mothrly.com/blogs/fourth-trimester-maternal-mental-health-india" },

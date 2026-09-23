@@ -16,7 +16,7 @@ const serviceLinks = [
   { href: "/services/gynecologist-consultation", label: "Gynaecologist/Obstetrician", icon: "stethoscope" },
   { href: "/services/pediatrician", label: "Pediatrician", icon: "pediatrics" },
   { href: "/services/yoga", label: "Yoga", icon: "self_improvement" },
-  { href: "/services/postnatal-recovery-care/physiotherapy", label: "Physiotherapy", icon: "physical_therapy" },
+  { href: "/services/physiotherapy", label: "Physiotherapy", icon: "physical_therapy" },
   { href: "/services/baby-care", label: "Baby Care", icon: "child_care" },
   { href: "/services/mother-care", label: "Mother Care", icon: "health_and_safety" },
 ];

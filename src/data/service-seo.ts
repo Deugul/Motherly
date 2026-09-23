@@ -33,6 +33,9 @@ const SERVICE_PATH_REWRITES: [RegExp, string][] = [
   [/\/services\/gynaecology(?!-)/gi, "/services/gynecologist-consultation"],
   [/\/services\/gynecology-consultation/gi, "/services/gynecologist-consultation"],
   [/\/services\/nutrition\b/gi, "/services/pediatrician"],
+  [/\/services\/postnatal-recovery-care\/physiotherapy/gi, "/services/physiotherapy"],
+  [/\/our-services\/postnatal-recovery-care\/physiotherapy/gi, "/services/physiotherapy"],
+  [/\/our-services\/postnatal-Recovery-care\/physiotherapy/gi, "/services/physiotherapy"],
 ];
 
 /** Normalize legacy /our-services and old /services paths to canonical SEO URLs. */
@@ -384,9 +387,9 @@ export const SERVICE_SEO = {
     },
   },
   physiotherapy: {
-    path: "/services/postnatal-recovery-care/physiotherapy",
+    path: "/services/physiotherapy",
     h1: "Physiotherapy in Chennai",
-    canonical: "https://www.mothrly.com/services/postnatal-recovery-care/physiotherapy",
+    canonical: "https://www.mothrly.com/services/physiotherapy",
     metaTitle: "Physiotherapy in Chennai | Motherly",
     metaDescription:
       "Book certified postnatal physiotherapy in Chennai. Pelvic floor recovery, diastasis recti, C-section rehab and mother back pain. In-clinic and virtual sessions",

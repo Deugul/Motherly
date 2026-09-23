@@ -45,7 +45,7 @@ const ourServices1Redirects = [
   },
   {
     source: "/our-services1/postnatal-recovery-care/physiotherapy",
-    destination: "/services/postnatal-recovery-care/physiotherapy",
+    destination: "/services/physiotherapy",
     permanent: true as const,
   },
 ] as const;
@@ -115,12 +115,12 @@ const nextConfig: NextConfig = {
       },
       {
         source: "/our-services/postnatal-Recovery-care/physiotherapy",
-        destination: "/services/postnatal-recovery-care/physiotherapy",
+        destination: "/services/physiotherapy",
         permanent: true,
       },
       {
         source: "/our-services/postnatal-Recovery-care/physiotherapy/:path*",
-        destination: "/services/postnatal-recovery-care/physiotherapy",
+        destination: "/services/physiotherapy",
         permanent: true,
       },
       {
@@ -135,7 +135,12 @@ const nextConfig: NextConfig = {
       },
       {
         source: "/our-services/postnatal-recovery-care/physiotherapy",
-        destination: "/services/postnatal-recovery-care/physiotherapy",
+        destination: "/services/physiotherapy",
+        permanent: true,
+      },
+      {
+        source: "/services/postnatal-recovery-care/physiotherapy",
+        destination: "/services/physiotherapy",
         permanent: true,
       },
       {
@@ -225,7 +230,7 @@ const nextConfig: NextConfig = {
       },
       {
         source: "/our-services/postnatal-recovery-care/phsiotherapy",
-        destination: "/our-services/postnatal-recovery-care/physiotherapy",
+        destination: "/services/physiotherapy",
         permanent: true,
       },
       ...ourServices1Redirects,

@@ -176,7 +176,7 @@ export default function PhysiotherapyPage() {
                 </h2>
                 <p className="text-base leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
                   Motherly connects mothers in Chennai with certified women&apos;s health physiotherapists who provide{" "}
-                  <Link href="/services/postnatal-recovery-care/physiotherapy" style={{ color: "var(--color-primary)" }}>
+                  <Link href="/services/physiotherapy" style={{ color: "var(--color-primary)" }}>
                     postnatal physiotherapy
                   </Link>{" "}
                   through in-clinic and virtual sessions. As the trusted postpartum rehabilitation Chennai mothers choose for clinically led, personalised recovery, we help you rebuild strength, resolve pain, and feel at home in your body again.

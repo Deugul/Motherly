@@ -35,8 +35,8 @@ const LEGACY_SERVICE_ALIASES = new Set([
   "/services/gynecologist",
   "/services/gynaecology",
   "/services/gynecology-consultation",
-  // Renders 200 but canonicalizes to /services/postnatal-recovery-care/physiotherapy
-  "/services/physiotherapy",
+  // Nested path kept for redirects; canonical is /services/physiotherapy
+  "/services/postnatal-recovery-care/physiotherapy",
 ]);
 
 const CANONICAL_SERVICE_PATHS = new Set<string>(

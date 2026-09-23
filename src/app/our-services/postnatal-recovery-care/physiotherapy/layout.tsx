@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     "postpartum rehabilitation Chennai",
   ],
   alternates: {
-    canonical: "https://www.mothrly.com/services/postnatal-recovery-care/physiotherapy",
+    canonical: "https://www.mothrly.com/services/physiotherapy",
   },
   openGraph: {
     type: "website",
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     title: "Physiotherapy in Chennai | Motherly",
     description:
       "Book certified postnatal physiotherapy in Chennai. Pelvic floor recovery, diastasis recti, C-section rehab and mother back pain. In-clinic and virtual sessions",
-    url: "https://www.mothrly.com/services/postnatal-recovery-care/physiotherapy",
+    url: "https://www.mothrly.com/services/physiotherapy",
   },
 };
 
