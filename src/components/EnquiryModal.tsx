@@ -44,7 +44,7 @@ export default function EnquiryModal({
         onClick={onClose}
       />
       <div
-        className="relative z-[101] w-full max-w-lg max-h-[90dvh] overflow-y-auto rounded-2xl border p-5 shadow-xl"
+        className="relative z-[101] w-full max-w-xl max-h-[90dvh] overflow-y-auto rounded-2xl border p-5 shadow-xl"
         style={{
           backgroundColor: "var(--color-surface-container-lowest)",
           borderColor: "color-mix(in srgb, var(--color-outline-variant) 20%, transparent)",

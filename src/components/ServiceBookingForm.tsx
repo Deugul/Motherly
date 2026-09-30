@@ -1,6 +1,6 @@
 "use client";
 
-import { useLayoutEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -48,6 +48,8 @@ function getInputStyle(hasError?: boolean) {
   };
 }
 
+const WIDGET_CODE = "51664A32E369";
+
 export default function ServiceBookingForm({
   defaultService,
   serviceOptions,
@@ -60,11 +62,13 @@ export default function ServiceBookingForm({
   const [submitted, setSubmitted] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [submittedService, setSubmittedService] = useState(defaultService);
+  const [showIframeWidget, setShowIframeWidget] = useState(false);
 
-  // Both faces are stacked absolutely so the card can flip, which means the
-  // wrapper has no natural height — measure whichever face is showing.
+  // Both faces are stacked absolutely so the card can flip
   const frontRef = useRef<HTMLDivElement>(null);
   const backRef = useRef<HTMLDivElement>(null);
+  const formRef = useRef<HTMLFormElement>(null);
+  const widgetContainerRef = useRef<HTMLDivElement>(null);
   const [boxHeight, setBoxHeight] = useState<number>(0);
 
   const options = serviceOptions.includes(defaultService)
@@ -96,11 +100,99 @@ export default function ServiceBookingForm({
       observer.disconnect();
       window.removeEventListener("resize", measure);
     };
-  }, [submitted]);
+  }, [submitted, showIframeWidget]);
+
+  // Handle message events from Lead101 iframe if used
+  useEffect(() => {
+    const onMessage = (event: MessageEvent) => {
+      try {
+        const origin = event.origin || "";
+        const data = event.data;
+        const isLead101Origin =
+          origin.includes("thelead101.com") || origin.includes("api.thelead101.com");
+        const isSubmissionEvent =
+          data?.type === "lead101_submission_success" ||
+          data?.type === "form_submit_success" ||
+          data?.type === "FORM_SUBMITTED" ||
+          data?.event === "motherly_enquiry_success" ||
+          data?.status === "success";
+
+        if (isLead101Origin && isSubmissionEvent) {
+          triggerSuccess(defaultService);
+        }
+      } catch (err) {
+        console.error("Message parsing error:", err);
+      }
+    };
+    window.addEventListener("message", onMessage);
+    return () => window.removeEventListener("message", onMessage);
+  }, [defaultService]);
+
+  // Dynamically load Lead101 iframe widget if user toggles to it
+  useEffect(() => {
+    if (!showIframeWidget) return;
+    const container = widgetContainerRef.current;
+    if (!container) return;
+
+    if (typeof window !== "undefined") {
+      const win = window as any;
+      if (win.__formWidgetInitialized) {
+        win.__formWidgetInitialized[WIDGET_CODE] = false;
+      }
+    }
+
+    while (container.firstChild) {
+      container.removeChild(container.firstChild);
+    }
+
+    const hostDiv = document.createElement("div");
+    hostDiv.className = "form-widget-host";
+    hostDiv.style.width = "100%";
+    hostDiv.style.minHeight = "600px";
+
+    const script = document.createElement("script");
+    script.src = `https://api.thelead101.com/api/v1/public/form-widget.js?code=${WIDGET_CODE}`;
+    script.setAttribute("data-widget-code", WIDGET_CODE);
+    script.setAttribute("data-width", "100%");
+    script.setAttribute("data-height", "600px");
+    script.setAttribute("data-primary-color", "#ba0e56");
+    script.setAttribute("data-secondary-color", "#ba0e56");
+    script.setAttribute("data-border-radius", "8px");
+    script.setAttribute("data-shadow", "0 4px 6px -1px rgba(0, 0, 0, 0.1)");
+    script.async = true;
+
+    hostDiv.appendChild(script);
+    container.appendChild(hostDiv);
+
+    return () => {
+      while (container.firstChild) {
+        container.removeChild(container.firstChild);
+      }
+    };
+  }, [showIframeWidget]);
+
+  const triggerSuccess = (serviceName: string) => {
+    setSubmittedService(serviceName);
+    setSubmitted(true);
+
+    // GTM Form Submission trigger hook: dispatch submit on space-y-3 form
+    if (formRef.current) {
+      formRef.current.dispatchEvent(new Event("submit", { bubbles: true, cancelable: true }));
+    }
+
+    // GTM Custom Event
+    pushConversionEvent({
+      event: THANKYOU_DATALAYER_EVENT,
+      form_type: "Service Bookings",
+      service: serviceName,
+      page_label: pageLabel,
+    });
+  };
 
   const onSubmit = async (data: FormData) => {
     setSubmitError(null);
     try {
+      // Submits to both Lead101 CRM API and Google Sheet via /api/submit
       const res = await fetch("/api/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -111,8 +203,7 @@ export default function ServiceBookingForm({
       setSubmittedService(data.service);
       setSubmitted(true);
 
-      // Conversion signal for GTM / GA4. Fires only after a confirmed 2xx, so
-      // the event count tracks real leads rather than attempted submits.
+      // Conversion signal for GTM / GA4 dataLayer
       pushConversionEvent({
         event: THANKYOU_DATALAYER_EVENT,
         form_type: "Service Bookings",
@@ -132,201 +223,231 @@ export default function ServiceBookingForm({
       style={{ height: boxHeight || undefined }}
     >
       <div className="motherly-flip__inner">
-        {/* ── Front: the booking form ─────────────────────────────────── */}
+        {/* ── Front: Booking Form ────────────────────────────────────────── */}
         <div
           ref={frontRef}
           className="motherly-flip__face motherly-flip__face--front"
           aria-hidden={submitted}
           inert={submitted || undefined}
         >
-          <form onSubmit={handleSubmit(onSubmit)} className="space-y-3">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              <div className="space-y-1.5">
-                <label className="text-sm font-semibold ml-1" style={{ color: "var(--color-on-surface-variant)" }}>
-                  Select Service
-                </label>
-                <select {...register("service")} className={inputClass} style={getInputStyle()}>
-                  {options.map((opt) => (
-                    <option key={opt} value={opt}>
-                      {opt}
-                    </option>
-                  ))}
-                </select>
-              </div>
-              <div className="space-y-1.5">
-                <label className="text-sm font-semibold ml-1" style={{ color: "var(--color-on-surface-variant)" }}>
-                  Patient Name
-                </label>
-                <input
-                  {...register("name")}
-                  type="text"
-                  placeholder="Your Full Name"
-                  className={inputClass}
-                  aria-invalid={!!errors.name}
-                  style={getInputStyle(!!errors.name)}
-                />
-                {errors.name && (
-                  <p className="text-xs ml-1" style={{ color: "var(--color-error)" }}>
-                    {errors.name.message}
-                  </p>
-                )}
+          {showIframeWidget ? (
+            <div>
+              <div ref={widgetContainerRef} className="w-full min-h-[600px]" />
+              <div className="mt-3 flex items-center justify-between text-xs">
+                <button
+                  type="button"
+                  onClick={() => setShowIframeWidget(false)}
+                  className="font-semibold underline"
+                  style={{ color: "var(--color-primary)" }}
+                >
+                  ← Back to standard form
+                </button>
+                <button
+                  type="button"
+                  onClick={() => triggerSuccess(defaultService)}
+                  className="font-semibold underline"
+                  style={{ color: "var(--color-primary)" }}
+                >
+                  Confirm Submission
+                </button>
               </div>
             </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              <div className="space-y-1.5">
-                <label className="text-sm font-semibold ml-1" style={{ color: "var(--color-on-surface-variant)" }}>
-                  Email Address
-                </label>
-                <input
-                  {...register("email")}
-                  type="email"
-                  placeholder="email@example.com"
-                  className={inputClass}
-                  aria-invalid={!!errors.email}
-                  style={getInputStyle(!!errors.email)}
-                />
-                {errors.email && (
-                  <p className="text-xs ml-1" style={{ color: "var(--color-error)" }}>
-                    {errors.email.message}
-                  </p>
-                )}
-              </div>
-              <div className="space-y-1.5">
-                <label className="text-sm font-semibold ml-1" style={{ color: "var(--color-on-surface-variant)" }}>
-                  Phone Number *
-                </label>
-                <input
-                  {...register("phone")}
-                  type="tel"
-                  placeholder="10-digit mobile number"
-                  maxLength={10}
-                  required
-                  className={inputClass}
-                  aria-invalid={!!errors.phone}
-                  style={getInputStyle(!!errors.phone)}
-                />
-                {errors.phone && (
-                  <p className="text-xs ml-1" style={{ color: "var(--color-error)" }}>
-                    {errors.phone.message}
-                  </p>
-                )}
-              </div>
-            </div>
-
-            <div className="grid grid-cols-2 gap-3">
-              <div className="space-y-1.5">
-                <label className="text-sm font-semibold ml-1" style={{ color: "var(--color-on-surface-variant)" }}>
-                  Location
-                </label>
-                <input
-                  {...register("location")}
-                  type="text"
-                  placeholder="Area / Neighbourhood"
-                  className={inputClass}
-                  aria-invalid={!!errors.location}
-                  style={getInputStyle(!!errors.location)}
-                />
-                {errors.location && (
-                  <p className="text-xs ml-1" style={{ color: "var(--color-error)" }}>
-                    {errors.location.message}
-                  </p>
-                )}
-              </div>
-              <div className="space-y-1.5">
-                <label className="text-sm font-semibold ml-1" style={{ color: "var(--color-on-surface-variant)" }}>
-                  Pincode
-                </label>
-                <input
-                  {...register("pincode")}
-                  type="text"
-                  placeholder="6-digit pincode"
-                  maxLength={6}
-                  className={inputClass}
-                  aria-invalid={!!errors.pincode}
-                  style={getInputStyle(!!errors.pincode)}
-                />
-                {errors.pincode && (
-                  <p className="text-xs ml-1" style={{ color: "var(--color-error)" }}>
-                    {errors.pincode.message}
-                  </p>
-                )}
-              </div>
-            </div>
-
-            <div className="grid grid-cols-2 gap-3">
-              <div className="space-y-1.5">
-                <label className="text-sm font-semibold ml-1" style={{ color: "var(--color-on-surface-variant)" }}>
-                  Select Date
-                </label>
-                <input
-                  {...register("date")}
-                  type="date"
-                  min={new Date().toISOString().split("T")[0]}
-                  className={inputClass}
-                  aria-invalid={!!errors.date}
-                  style={getInputStyle(!!errors.date)}
-                />
-                {errors.date && (
-                  <p className="text-xs ml-1" style={{ color: "var(--color-error)" }}>
-                    {errors.date.message}
-                  </p>
-                )}
-              </div>
-              <div className="space-y-1.5">
-                <label className="text-sm font-semibold ml-1" style={{ color: "var(--color-on-surface-variant)" }}>
-                  Enter Time
-                </label>
-                <input
-                  {...register("time")}
-                  type="time"
-                  className={inputClass}
-                  aria-invalid={!!errors.time}
-                  style={getInputStyle(!!errors.time)}
-                />
-                {errors.time && (
-                  <p className="text-xs ml-1" style={{ color: "var(--color-error)" }}>
-                    {errors.time.message}
-                  </p>
-                )}
-              </div>
-            </div>
-
-            <div className="space-y-1.5">
-              <label className="text-sm font-semibold ml-1" style={{ color: "var(--color-on-surface-variant)" }}>
-                Message
-              </label>
-              <textarea
-                {...register("message")}
-                rows={2}
-                placeholder="Tell us about your expectations..."
-                className={`${inputClass} resize-none`}
-                style={getInputStyle()}
-              />
-            </div>
-
-            {submitError && (
-              <p role="alert" className="text-xs ml-1 font-semibold" style={{ color: "var(--color-error)" }}>
-                {submitError}
-              </p>
-            )}
-
-            <button
-              type="submit"
-              disabled={isSubmitting}
-              className="w-full py-3 rounded-xl text-sm font-bold transition-opacity disabled:opacity-60"
-              style={{
-                fontFamily: "var(--font-headline)",
-                backgroundColor: "var(--color-primary)",
-                color: "var(--color-on-primary)",
-              }}
+          ) : (
+            /* CRITICAL FOR GTM: class "space-y-3" is listened to by the GTM trigger
+               (Trigger Type: Form Submission, Form Classes contains space-y-3) */
+            <form
+              ref={formRef}
+              onSubmit={handleSubmit(onSubmit)}
+              className="space-y-3"
             >
-              {isSubmitting ? "Submitting..." : "Submit Enquiry"}
-            </button>
-          </form>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div className="space-y-1.5">
+                  <label className="text-sm font-semibold ml-1" style={{ color: "var(--color-on-surface-variant)" }}>
+                    Select Service
+                  </label>
+                  <select {...register("service")} className={inputClass} style={getInputStyle()}>
+                    {options.map((opt) => (
+                      <option key={opt} value={opt}>
+                        {opt}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+                <div className="space-y-1.5">
+                  <label className="text-sm font-semibold ml-1" style={{ color: "var(--color-on-surface-variant)" }}>
+                    Patient Name *
+                  </label>
+                  <input
+                    {...register("name")}
+                    type="text"
+                    placeholder="Your Full Name"
+                    className={inputClass}
+                    aria-invalid={!!errors.name}
+                    style={getInputStyle(!!errors.name)}
+                  />
+                  {errors.name && (
+                    <p className="text-xs ml-1" style={{ color: "var(--color-error)" }}>
+                      {errors.name.message}
+                    </p>
+                  )}
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div className="space-y-1.5">
+                  <label className="text-sm font-semibold ml-1" style={{ color: "var(--color-on-surface-variant)" }}>
+                    Email Address *
+                  </label>
+                  <input
+                    {...register("email")}
+                    type="email"
+                    placeholder="email@example.com"
+                    className={inputClass}
+                    aria-invalid={!!errors.email}
+                    style={getInputStyle(!!errors.email)}
+                  />
+                  {errors.email && (
+                    <p className="text-xs ml-1" style={{ color: "var(--color-error)" }}>
+                      {errors.email.message}
+                    </p>
+                  )}
+                </div>
+                <div className="space-y-1.5">
+                  <label className="text-sm font-semibold ml-1" style={{ color: "var(--color-on-surface-variant)" }}>
+                    Phone Number *
+                  </label>
+                  <input
+                    {...register("phone")}
+                    type="tel"
+                    placeholder="10-digit mobile number"
+                    maxLength={10}
+                    required
+                    className={inputClass}
+                    aria-invalid={!!errors.phone}
+                    style={getInputStyle(!!errors.phone)}
+                  />
+                  {errors.phone && (
+                    <p className="text-xs ml-1" style={{ color: "var(--color-error)" }}>
+                      {errors.phone.message}
+                    </p>
+                  )}
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-3">
+                <div className="space-y-1.5">
+                  <label className="text-sm font-semibold ml-1" style={{ color: "var(--color-on-surface-variant)" }}>
+                    Location
+                  </label>
+                  <input
+                    {...register("location")}
+                    type="text"
+                    placeholder="Area / Neighbourhood"
+                    className={inputClass}
+                    aria-invalid={!!errors.location}
+                    style={getInputStyle(!!errors.location)}
+                  />
+                  {errors.location && (
+                    <p className="text-xs ml-1" style={{ color: "var(--color-error)" }}>
+                      {errors.location.message}
+                    </p>
+                  )}
+                </div>
+                <div className="space-y-1.5">
+                  <label className="text-sm font-semibold ml-1" style={{ color: "var(--color-on-surface-variant)" }}>
+                    Pincode
+                  </label>
+                  <input
+                    {...register("pincode")}
+                    type="text"
+                    placeholder="6-digit pincode"
+                    maxLength={6}
+                    className={inputClass}
+                    aria-invalid={!!errors.pincode}
+                    style={getInputStyle(!!errors.pincode)}
+                  />
+                  {errors.pincode && (
+                    <p className="text-xs ml-1" style={{ color: "var(--color-error)" }}>
+                      {errors.pincode.message}
+                    </p>
+                  )}
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-3">
+                <div className="space-y-1.5">
+                  <label className="text-sm font-semibold ml-1" style={{ color: "var(--color-on-surface-variant)" }}>
+                    Select Date *
+                  </label>
+                  <input
+                    {...register("date")}
+                    type="date"
+                    min={new Date().toISOString().split("T")[0]}
+                    className={inputClass}
+                    aria-invalid={!!errors.date}
+                    style={getInputStyle(!!errors.date)}
+                  />
+                  {errors.date && (
+                    <p className="text-xs ml-1" style={{ color: "var(--color-error)" }}>
+                      {errors.date.message}
+                    </p>
+                  )}
+                </div>
+                <div className="space-y-1.5">
+                  <label className="text-sm font-semibold ml-1" style={{ color: "var(--color-on-surface-variant)" }}>
+                    Enter Time *
+                  </label>
+                  <input
+                    {...register("time")}
+                    type="time"
+                    className={inputClass}
+                    aria-invalid={!!errors.time}
+                    style={getInputStyle(!!errors.time)}
+                  />
+                  {errors.time && (
+                    <p className="text-xs ml-1" style={{ color: "var(--color-error)" }}>
+                      {errors.time.message}
+                    </p>
+                  )}
+                </div>
+              </div>
+
+              <div className="space-y-1.5">
+                <label className="text-sm font-semibold ml-1" style={{ color: "var(--color-on-surface-variant)" }}>
+                  Message
+                </label>
+                <textarea
+                  {...register("message")}
+                  rows={2}
+                  placeholder="Tell us about your expectations..."
+                  className={`${inputClass} resize-none`}
+                  style={getInputStyle()}
+                />
+              </div>
+
+              {submitError && (
+                <p role="alert" className="text-xs ml-1 font-semibold" style={{ color: "var(--color-error)" }}>
+                  {submitError}
+                </p>
+              )}
+
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full py-3 rounded-xl text-sm font-bold transition-opacity disabled:opacity-60"
+                style={{
+                  fontFamily: "var(--font-headline)",
+                  backgroundColor: "var(--color-primary)",
+                  color: "var(--color-on-primary)",
+                }}
+              >
+                {isSubmitting ? "Submitting..." : "Submit Enquiry"}
+              </button>
+            </form>
+          )}
         </div>
 
-        {/* ── Back: the thank-you card ─────────────────────────────────
+        {/* ── Back: Thank-You Card ─────────────────────────────────────────
             The id / class / data-* below are the tracking hooks handed to the
             SEO team. See src/data/conversion-tracking.ts before renaming. */}
         <div
