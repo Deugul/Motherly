@@ -243,6 +243,34 @@ const faqs: FaqItem[] = [
   },
 ];
 
+const DEGREES = [
+  {
+    code: "BHMS",
+    full: "Bachelor of Homeopathic Medicine and Surgery",
+    badge: "bg-rose-50 text-rose-700 border-rose-200 hover:bg-rose-100",
+  },
+  {
+    code: "CLE",
+    full: "Certified Lactation Educator",
+    badge: "bg-sky-50 text-sky-700 border-sky-200 hover:bg-sky-100",
+  },
+  {
+    code: "ACLP",
+    full: "Advanced Certified Lactation Professional",
+    badge: "bg-emerald-50 text-emerald-700 border-emerald-200 hover:bg-emerald-100",
+  },
+  {
+    code: "RM IYCAN",
+    full: "Registered Mentor - Infant & Young Child Nutrition",
+    badge: "bg-purple-50 text-purple-700 border-purple-200 hover:bg-purple-100",
+  },
+  {
+    code: "MBA(HHM)",
+    full: "MBA in Hospital & Healthcare Management",
+    badge: "bg-amber-50 text-amber-800 border-amber-200 hover:bg-amber-100",
+  },
+];
+
 export default function WebinarClient() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [showStickyBar, setShowStickyBar] = useState(false);
@@ -268,7 +296,7 @@ export default function WebinarClient() {
     <div className="min-h-screen pb-24 sm:pb-12 bg-[var(--color-background)] text-[var(--color-on-surface)] selection:bg-[var(--color-secondary-container)] selection:text-[var(--color-on-secondary-container)]">
       
       {/* ── HERO SECTION ── */}
-      <section className="relative pt-4 sm:pt-8 md:pt-10 pb-12 sm:pb-16 md:pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      <section className="relative pt-4 sm:pt-8 md:pt-10 pb-10 sm:pb-14 md:pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
         {/* Soft decorative background glows */}
         <div
           className="absolute -top-24 left-1/2 -translate-x-1/2 w-[600px] h-[300px] rounded-full blur-3xl opacity-20 pointer-events-none -z-10"
@@ -277,7 +305,7 @@ export default function WebinarClient() {
 
         <div className="max-w-5xl mx-auto">
           {/* Urgency Badge */}
-          <div className="text-center mb-5 sm:mb-6">
+          <div className="text-center mb-4 sm:mb-5">
             <div className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold bg-[var(--color-secondary-container)] text-[var(--color-on-secondary-container)] shadow-xs">
               <VerifiedBadgeIcon className="w-4 h-4 text-[var(--color-primary)] shrink-0" />
               <span>Motherly Masterclass Series</span>
@@ -286,10 +314,10 @@ export default function WebinarClient() {
             </div>
           </div>
 
-          {/* Main Titles */}
-          <div className="text-center max-w-4xl mx-auto space-y-3.5 sm:space-y-4">
+          {/* Main Titles - Clean, neat, non-bloated font sizes on tablet/desktop */}
+          <div className="text-center max-w-3xl mx-auto space-y-3 sm:space-y-3.5">
             <h1
-              className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.15]"
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight"
               style={{ fontFamily: "var(--font-headline)" }}
             >
               Breastfeeding Made Easy{" "}
@@ -304,7 +332,7 @@ export default function WebinarClient() {
             </h1>
 
             <p
-              className="text-sm sm:text-lg md:text-2xl font-semibold max-w-3xl mx-auto leading-snug"
+              className="text-sm sm:text-base md:text-lg font-semibold max-w-2xl mx-auto leading-snug"
               style={{ color: "var(--color-primary)" }}
             >
               Unlock the Secrets to Successful Breastfeeding with Expert Guidance!
@@ -312,7 +340,7 @@ export default function WebinarClient() {
 
             {/* Mentor Quick Credential Badge */}
             <div className="inline-flex items-center gap-2.5 sm:gap-3 p-1.5 pr-3.5 sm:pr-4 rounded-full bg-[var(--color-surface-container-lowest)] border shadow-xs text-left max-w-full mx-auto" style={{ borderColor: "var(--color-surface-variant)" }}>
-              <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-full overflow-hidden relative border-2 border-[var(--color-primary)] shrink-0">
+              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full overflow-hidden relative border-2 border-[var(--color-primary)] shrink-0">
                 <Image
                   src="/webinar/dr_varshika.png"
                   alt="Dr. Varshika.S"
@@ -329,7 +357,7 @@ export default function WebinarClient() {
             </div>
 
             <p
-              className="text-xs sm:text-base md:text-lg max-w-2xl mx-auto leading-relaxed text-[var(--color-on-surface-variant)] pt-1"
+              className="text-xs sm:text-sm md:text-base max-w-2xl mx-auto leading-relaxed text-[var(--color-on-surface-variant)] pt-0.5"
               style={{ fontFamily: "var(--font-body)" }}
             >
               Join <strong>Dr. Varshika.S</strong>, a renowned Homoeopathic Physician and Advanced Certified
@@ -409,10 +437,10 @@ export default function WebinarClient() {
                 href={PAYMENT_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 sm:gap-3 px-6 sm:px-8 py-3.5 sm:py-4 rounded-full text-sm sm:text-lg font-extrabold text-white shadow-lg active:scale-95 transition-all duration-200"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 sm:gap-3 px-6 sm:px-8 py-3 sm:py-3.5 rounded-full text-sm sm:text-base font-bold text-white shadow-lg active:scale-95 transition-all duration-200"
                 style={{
                   background: "linear-gradient(135deg, var(--color-primary) 0%, #e33672 100%)",
-                  boxShadow: "0 10px 25px rgba(186, 14, 86, 0.35)",
+                  boxShadow: "0 8px 22px rgba(186, 14, 86, 0.3)",
                 }}
               >
                 <span>Register Now for ₹149</span>
@@ -424,7 +452,7 @@ export default function WebinarClient() {
                 href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3.5 sm:py-4 rounded-full text-xs sm:text-base font-semibold border-2 transition-all hover:border-green-600 hover:text-green-700 active:scale-95 duration-200"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3 sm:py-3.5 rounded-full text-xs sm:text-sm font-semibold border-2 transition-all hover:border-green-600 hover:text-green-700 active:scale-95 duration-200"
                 style={{
                   borderColor: "var(--color-outline-variant)",
                   backgroundColor: "var(--color-surface-container-lowest)",
@@ -436,7 +464,7 @@ export default function WebinarClient() {
               </a>
             </div>
 
-            <div className="flex items-center justify-center gap-3 sm:gap-4 text-[11px] sm:text-sm text-[var(--color-on-surface-variant)] flex-wrap pt-2">
+            <div className="flex items-center justify-center gap-3 sm:gap-4 text-[11px] sm:text-xs text-[var(--color-on-surface-variant)] flex-wrap pt-2">
               <span className="inline-flex items-center gap-1">
                 <LockIcon className="w-3.5 h-3.5 text-[var(--color-primary)]" />
                 100% Secure via Cashfree
@@ -460,10 +488,10 @@ export default function WebinarClient() {
       <section className="py-10 sm:py-14 md:py-16 px-4 sm:px-6 lg:px-8 bg-[var(--color-surface-container-low)]">
         <div className="max-w-5xl mx-auto">
           <div
-            className="rounded-2xl sm:rounded-3xl p-5 sm:p-8 md:p-12 border bg-[var(--color-surface-container-lowest)]"
+            className="rounded-2xl sm:rounded-3xl p-5 sm:p-7 md:p-10 border bg-[var(--color-surface-container-lowest)]"
             style={{
               borderColor: "var(--color-surface-variant)",
-              boxShadow: "0 12px 36px rgba(45, 52, 53, 0.05)",
+              boxShadow: "0 10px 30px rgba(45, 52, 53, 0.05)",
             }}
           >
             <div className="grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 items-center">
@@ -471,14 +499,14 @@ export default function WebinarClient() {
               <div className="md:col-span-5 flex flex-col items-center text-center">
                 <div className="relative">
                   <div
-                    className="w-36 h-36 sm:w-48 sm:h-48 md:w-56 md:h-56 rounded-full overflow-hidden border-4 shadow-xl relative"
+                    className="w-36 h-36 sm:w-44 sm:h-44 md:w-52 md:h-52 rounded-full overflow-hidden border-4 shadow-xl relative"
                     style={{ borderColor: "var(--color-primary-container)" }}
                   >
                     <Image
                       src="/webinar/dr_varshika.png"
                       alt="Dr. Varshika.S - BHMS, CLE, ACLP, RM IYCAN, MBA(HHM) - Advanced Certified Lactation Professional"
                       fill
-                      sizes="(max-width: 640px) 144px, 224px"
+                      sizes="(max-width: 640px) 144px, 208px"
                       className="object-cover object-top"
                     />
                   </div>
@@ -493,20 +521,21 @@ export default function WebinarClient() {
 
                 <div className="mt-5 sm:mt-6 space-y-1.5">
                   <h3
-                    className="text-xl sm:text-2xl md:text-3xl font-extrabold text-[var(--color-on-surface)]"
+                    className="text-lg sm:text-xl md:text-2xl font-bold text-[var(--color-on-surface)]"
                     style={{ fontFamily: "var(--font-headline)" }}
                   >
                     Dr. Varshika.S
                   </h3>
 
-                  {/* Studies / Degrees Pills */}
-                  <div className="flex flex-wrap items-center justify-center gap-1 sm:gap-1.5 pt-1 max-w-xs mx-auto">
-                    {["BHMS", "CLE", "ACLP", "RM IYCAN", "MBA(HHM)"].map((deg) => (
+                  {/* Studies / Degrees Pills - Distinct colors & badges for each qualification */}
+                  <div className="flex flex-wrap items-center justify-center gap-1.5 pt-1.5 max-w-sm mx-auto">
+                    {DEGREES.map((deg) => (
                       <span
-                        key={deg}
-                        className="px-2 py-0.5 rounded-full text-[10px] sm:text-[11px] font-bold bg-pink-100 text-[var(--color-primary)] border border-pink-200"
+                        key={deg.code}
+                        title={deg.full}
+                        className={`px-2.5 py-0.5 rounded-full text-[10px] sm:text-[11px] font-bold border transition-all ${deg.badge}`}
                       >
-                        {deg}
+                        {deg.code}
                       </span>
                     ))}
                   </div>
@@ -521,20 +550,20 @@ export default function WebinarClient() {
               </div>
 
               {/* Speaker Credentials & Overview */}
-              <div className="md:col-span-7 space-y-4 sm:space-y-5 text-center md:text-left">
+              <div className="md:col-span-7 space-y-3.5 sm:space-y-4 text-center md:text-left">
                 <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-[var(--color-secondary-container)] text-[var(--color-on-secondary-container)]">
                   <StethoscopeIcon className="w-3.5 h-3.5" />
                   <span>Meet Your Mentor</span>
                 </div>
 
                 <h2
-                  className="text-xl sm:text-2xl md:text-3xl font-extrabold text-[var(--color-on-surface)] leading-snug"
+                  className="text-lg sm:text-xl md:text-2xl font-bold text-[var(--color-on-surface)] leading-snug"
                   style={{ fontFamily: "var(--font-headline)" }}
                 >
                   Learn Breastfeeding From A Practicing Clinical Specialist
                 </h2>
 
-                <p className="text-xs sm:text-base leading-relaxed text-[var(--color-on-surface-variant)]">
+                <p className="text-xs sm:text-sm md:text-base leading-relaxed text-[var(--color-on-surface-variant)]">
                   Breastfeeding is a natural bond, yet it is a skill that requires understanding, patience,
                   and proper clinical technique. As an Advanced Certified Lactation Professional and Homoeopathic
                   Physician, <strong>Dr. Varshika.S</strong> has helped hundreds of new mothers transition from
@@ -542,7 +571,7 @@ export default function WebinarClient() {
                 </p>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3 pt-1 text-left">
-                  <div className="flex items-start gap-2.5 p-3 rounded-xl bg-[var(--color-surface-container-low)]">
+                  <div className="flex items-start gap-2.5 p-3 rounded-md bg-[var(--color-surface-container-low)]">
                     <CheckIcon className="w-4 h-4 sm:w-5 sm:h-5 text-[var(--color-primary)] shrink-0 mt-0.5" />
                     <div className="text-xs">
                       <strong className="block text-[var(--color-on-surface)] font-bold text-xs sm:text-sm">
@@ -552,7 +581,7 @@ export default function WebinarClient() {
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-2.5 p-3 rounded-xl bg-[var(--color-surface-container-low)]">
+                  <div className="flex items-start gap-2.5 p-3 rounded-md bg-[var(--color-surface-container-low)]">
                     <HeartIcon className="w-4 h-4 sm:w-5 sm:h-5 text-[var(--color-tertiary)] shrink-0 mt-0.5" />
                     <div className="text-xs">
                       <strong className="block text-[var(--color-on-surface)] font-bold text-xs sm:text-sm">
@@ -563,7 +592,7 @@ export default function WebinarClient() {
                   </div>
                 </div>
 
-                <div className="pt-2">
+                <div className="pt-1.5">
                   <a
                     href={PAYMENT_LINK}
                     target="_blank"
@@ -581,9 +610,9 @@ export default function WebinarClient() {
       </section>
 
       {/* ── WHAT IS THIS WEBINAR ABOUT? ── */}
-      <section className="py-10 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-5xl mx-auto space-y-8 sm:space-y-12">
-          <div className="text-center max-w-3xl mx-auto space-y-3 sm:space-y-4">
+      <section className="py-10 sm:py-14 md:py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-5xl mx-auto space-y-8 sm:space-y-10">
+          <div className="text-center max-w-3xl mx-auto space-y-2.5 sm:space-y-3">
             <span
               className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider"
               style={{
@@ -594,12 +623,12 @@ export default function WebinarClient() {
               Session Overview
             </span>
             <h2
-              className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[var(--color-on-surface)] leading-snug"
+              className="text-xl sm:text-2xl md:text-3xl font-extrabold text-[var(--color-on-surface)] leading-snug"
               style={{ fontFamily: "var(--font-headline)" }}
             >
               What is this Webinar About?
             </h2>
-            <p className="text-xs sm:text-base md:text-lg text-[var(--color-on-surface-variant)] leading-relaxed">
+            <p className="text-xs sm:text-sm md:text-base text-[var(--color-on-surface-variant)] leading-relaxed">
               This <strong>90-minute interactive webinar</strong> is designed to empower new and expecting
               mothers with the practical knowledge, biomechanics, and reassurance to breastfeed confidently
               and effectively. Learn the art of latching, comfortable positioning, and handling common
@@ -610,21 +639,21 @@ export default function WebinarClient() {
           {/* 3 Core Pillars */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
             <div
-              className="p-5 sm:p-7 rounded-2xl border transition-all duration-300 hover:shadow-lg flex flex-col justify-between"
+              className="p-5 sm:p-6 rounded-2xl border transition-all duration-300 hover:shadow-lg flex flex-col justify-between"
               style={{
                 backgroundColor: "var(--color-surface-container-lowest)",
                 borderColor: "var(--color-surface-variant)",
               }}
             >
-              <div className="space-y-3 sm:space-y-4">
+              <div className="space-y-2.5 sm:space-y-3">
                 <div
-                  className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center"
+                  className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl flex items-center justify-center"
                   style={{ backgroundColor: "var(--color-secondary-container)", color: "var(--color-primary)" }}
                 >
-                  <HealingIcon className="w-5 h-5 sm:w-6 sm:h-6 text-[var(--color-primary)]" />
+                  <HealingIcon className="w-5 h-5 sm:w-5 sm:h-5 text-[var(--color-primary)]" />
                 </div>
                 <h3
-                  className="text-lg sm:text-xl font-bold text-[var(--color-on-surface)]"
+                  className="text-base sm:text-lg font-bold text-[var(--color-on-surface)]"
                   style={{ fontFamily: "var(--font-headline)" }}
                 >
                   Latching Correction
@@ -640,21 +669,21 @@ export default function WebinarClient() {
             </div>
 
             <div
-              className="p-5 sm:p-7 rounded-2xl border transition-all duration-300 hover:shadow-lg flex flex-col justify-between"
+              className="p-5 sm:p-6 rounded-2xl border transition-all duration-300 hover:shadow-lg flex flex-col justify-between"
               style={{
                 backgroundColor: "var(--color-surface-container-lowest)",
                 borderColor: "var(--color-surface-variant)",
               }}
             >
-              <div className="space-y-3 sm:space-y-4">
+              <div className="space-y-2.5 sm:space-y-3">
                 <div
-                  className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center"
+                  className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl flex items-center justify-center"
                   style={{ backgroundColor: "var(--color-tertiary-container)", color: "var(--color-on-tertiary-container)" }}
                 >
-                  <HeartIcon className="w-5 h-5 sm:w-6 sm:h-6 text-[var(--color-on-tertiary-container)]" />
+                  <HeartIcon className="w-5 h-5 sm:w-5 sm:h-5 text-[var(--color-on-tertiary-container)]" />
                 </div>
                 <h3
-                  className="text-lg sm:text-xl font-bold text-[var(--color-on-surface)]"
+                  className="text-base sm:text-lg font-bold text-[var(--color-on-surface)]"
                   style={{ fontFamily: "var(--font-headline)" }}
                 >
                   Comfortable Positions
@@ -670,21 +699,21 @@ export default function WebinarClient() {
             </div>
 
             <div
-              className="p-5 sm:p-7 rounded-2xl border transition-all duration-300 hover:shadow-lg flex flex-col justify-between"
+              className="p-5 sm:p-6 rounded-2xl border transition-all duration-300 hover:shadow-lg flex flex-col justify-between"
               style={{
                 backgroundColor: "var(--color-surface-container-lowest)",
                 borderColor: "var(--color-surface-variant)",
               }}
             >
-              <div className="space-y-3 sm:space-y-4">
+              <div className="space-y-2.5 sm:space-y-3">
                 <div
-                  className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center"
+                  className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl flex items-center justify-center"
                   style={{ backgroundColor: "var(--color-secondary-container)", color: "var(--color-primary)" }}
                 >
-                  <SparklesIcon className="w-5 h-5 sm:w-6 sm:h-6 text-[var(--color-primary)]" />
+                  <SparklesIcon className="w-5 h-5 sm:w-5 sm:h-5 text-[var(--color-primary)]" />
                 </div>
                 <h3
-                  className="text-lg sm:text-xl font-bold text-[var(--color-on-surface)]"
+                  className="text-base sm:text-lg font-bold text-[var(--color-on-surface)]"
                   style={{ fontFamily: "var(--font-headline)" }}
                 >
                   Early Feeding Solutions
@@ -703,9 +732,9 @@ export default function WebinarClient() {
       </section>
 
       {/* ── WHO SHOULD ATTEND? ── */}
-      <section className="py-10 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-[var(--color-surface-container-low)]">
+      <section className="py-10 sm:py-14 md:py-16 px-4 sm:px-6 lg:px-8 bg-[var(--color-surface-container-low)]">
         <div className="max-w-5xl mx-auto space-y-8 sm:space-y-10">
-          <div className="text-center max-w-2xl mx-auto space-y-2.5 sm:space-y-3">
+          <div className="text-center max-w-2xl mx-auto space-y-2 sm:space-y-2.5">
             <span
               className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider"
               style={{
@@ -716,12 +745,12 @@ export default function WebinarClient() {
               Target Audience
             </span>
             <h2
-              className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[var(--color-on-surface)] leading-snug"
+              className="text-xl sm:text-2xl md:text-3xl font-extrabold text-[var(--color-on-surface)] leading-snug"
               style={{ fontFamily: "var(--font-headline)" }}
             >
               Who Should Attend?
             </h2>
-            <p className="text-xs sm:text-base text-[var(--color-on-surface-variant)]">
+            <p className="text-xs sm:text-sm text-[var(--color-on-surface-variant)]">
               This masterclass is curated specifically for mothers and mothers-to-be seeking clarity and confidence.
             </p>
           </div>
@@ -821,9 +850,9 @@ export default function WebinarClient() {
       </section>
 
       {/* ── DETAILED WEBINAR CONTENT / CURRICULUM ── */}
-      <section className="py-10 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-5xl mx-auto space-y-8 sm:space-y-12">
-          <div className="text-center max-w-2xl mx-auto space-y-2.5 sm:space-y-3">
+      <section className="py-10 sm:py-14 md:py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-5xl mx-auto space-y-8 sm:space-y-10">
+          <div className="text-center max-w-2xl mx-auto space-y-2 sm:space-y-2.5">
             <span
               className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider"
               style={{
@@ -834,24 +863,24 @@ export default function WebinarClient() {
               Curriculum Breakdown
             </span>
             <h2
-              className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[var(--color-on-surface)] leading-snug"
+              className="text-xl sm:text-2xl md:text-3xl font-extrabold text-[var(--color-on-surface)] leading-snug"
               style={{ fontFamily: "var(--font-headline)" }}
             >
               Webinar Content: What You Will Learn
             </h2>
-            <p className="text-xs sm:text-base text-[var(--color-on-surface-variant)]">
+            <p className="text-xs sm:text-sm text-[var(--color-on-surface-variant)]">
               Structured into practical, actionable modules so you walk away with immediate clarity.
             </p>
           </div>
 
-          <div className="space-y-4 sm:space-y-6">
+          <div className="space-y-4 sm:space-y-5">
             {/* Module 1 */}
             <div
-              className="p-5 sm:p-7 md:p-8 rounded-2xl sm:rounded-3xl border bg-[var(--color-surface-container-lowest)] flex flex-col md:flex-row gap-4 sm:gap-6 items-start"
+              className="p-5 sm:p-6 md:p-7 rounded-2xl border bg-[var(--color-surface-container-lowest)] flex flex-col md:flex-row gap-4 sm:gap-5 items-start"
               style={{ borderColor: "var(--color-surface-variant)" }}
             >
               <div
-                className="w-11 h-11 sm:w-14 sm:h-14 rounded-2xl flex items-center justify-center shrink-0 text-base sm:text-xl font-bold"
+                className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center shrink-0 text-sm sm:text-base font-bold"
                 style={{
                   backgroundColor: "var(--color-secondary-container)",
                   color: "var(--color-primary)",
@@ -859,10 +888,10 @@ export default function WebinarClient() {
               >
                 01
               </div>
-              <div className="space-y-2.5 sm:space-y-3 flex-1">
+              <div className="space-y-2 sm:space-y-2.5 flex-1">
                 <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
                   <h3
-                    className="text-lg sm:text-xl md:text-2xl font-bold text-[var(--color-on-surface)]"
+                    className="text-base sm:text-lg md:text-xl font-bold text-[var(--color-on-surface)]"
                     style={{ fontFamily: "var(--font-headline)" }}
                   >
                     Latching Issues: Pain Relief & Proper Techniques
@@ -871,7 +900,7 @@ export default function WebinarClient() {
                     Core Module
                   </span>
                 </div>
-                <p className="text-xs sm:text-base text-[var(--color-on-surface-variant)] leading-relaxed">
+                <p className="text-xs sm:text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                   Latching is the foundation of comfortable nursing. When done right, it allows your baby to drink
                   deeply without hurting your nipples.
                 </p>
@@ -898,11 +927,11 @@ export default function WebinarClient() {
 
             {/* Module 2 */}
             <div
-              className="p-5 sm:p-7 md:p-8 rounded-2xl sm:rounded-3xl border bg-[var(--color-surface-container-lowest)] flex flex-col md:flex-row gap-4 sm:gap-6 items-start"
+              className="p-5 sm:p-6 md:p-7 rounded-2xl border bg-[var(--color-surface-container-lowest)] flex flex-col md:flex-row gap-4 sm:gap-5 items-start"
               style={{ borderColor: "var(--color-surface-variant)" }}
             >
               <div
-                className="w-11 h-11 sm:w-14 sm:h-14 rounded-2xl flex items-center justify-center shrink-0 text-base sm:text-xl font-bold"
+                className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center shrink-0 text-sm sm:text-base font-bold"
                 style={{
                   backgroundColor: "var(--color-tertiary-container)",
                   color: "var(--color-on-tertiary-container)",
@@ -910,10 +939,10 @@ export default function WebinarClient() {
               >
                 02
               </div>
-              <div className="space-y-2.5 sm:space-y-3 flex-1">
+              <div className="space-y-2 sm:space-y-2.5 flex-1">
                 <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
                   <h3
-                    className="text-lg sm:text-xl md:text-2xl font-bold text-[var(--color-on-surface)]"
+                    className="text-base sm:text-lg md:text-xl font-bold text-[var(--color-on-surface)]"
                     style={{ fontFamily: "var(--font-headline)" }}
                   >
                     Breastfeeding Positions: Comfortable & Effective
@@ -922,7 +951,7 @@ export default function WebinarClient() {
                     Ergonomics
                   </span>
                 </div>
-                <p className="text-xs sm:text-base text-[var(--color-on-surface-variant)] leading-relaxed">
+                <p className="text-xs sm:text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                   How you hold your baby directly dictates how well they latch. Explore multiple holds tailored
                   for C-section recovery, large or small breasts, and sleepy babies.
                 </p>
@@ -949,11 +978,11 @@ export default function WebinarClient() {
 
             {/* Module 3 */}
             <div
-              className="p-5 sm:p-7 md:p-8 rounded-2xl sm:rounded-3xl border bg-[var(--color-surface-container-lowest)] flex flex-col md:flex-row gap-4 sm:gap-6 items-start"
+              className="p-5 sm:p-6 md:p-7 rounded-2xl border bg-[var(--color-surface-container-lowest)] flex flex-col md:flex-row gap-4 sm:gap-5 items-start"
               style={{ borderColor: "var(--color-surface-variant)" }}
             >
               <div
-                className="w-11 h-11 sm:w-14 sm:h-14 rounded-2xl flex items-center justify-center shrink-0 text-base sm:text-xl font-bold"
+                className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center shrink-0 text-sm sm:text-base font-bold"
                 style={{
                   backgroundColor: "var(--color-secondary-container)",
                   color: "var(--color-primary)",
@@ -961,10 +990,10 @@ export default function WebinarClient() {
               >
                 03
               </div>
-              <div className="space-y-2.5 sm:space-y-3 flex-1">
+              <div className="space-y-2 sm:space-y-2.5 flex-1">
                 <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
                   <h3
-                    className="text-lg sm:text-xl md:text-2xl font-bold text-[var(--color-on-surface)]"
+                    className="text-base sm:text-lg md:text-xl font-bold text-[var(--color-on-surface)]"
                     style={{ fontFamily: "var(--font-headline)" }}
                   >
                     Early Feeding Issues: Colic, Fussiness & Milk Supply
@@ -973,7 +1002,7 @@ export default function WebinarClient() {
                     Troubleshooting
                   </span>
                 </div>
-                <p className="text-xs sm:text-base text-[var(--color-on-surface-variant)] leading-relaxed">
+                <p className="text-xs sm:text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                   Navigate the turbulent first weeks with calm confidence. Understand newborn digestive patterns
                   and manage common maternal breast concerns early.
                 </p>
@@ -1002,9 +1031,9 @@ export default function WebinarClient() {
       </section>
 
       {/* ── KEY TAKEAWAYS: WHAT YOU GET ── */}
-      <section className="py-10 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-[var(--color-surface-container-low)]">
-        <div className="max-w-5xl mx-auto space-y-8 sm:space-y-12">
-          <div className="text-center max-w-2xl mx-auto space-y-2.5 sm:space-y-3">
+      <section className="py-10 sm:py-14 md:py-16 px-4 sm:px-6 lg:px-8 bg-[var(--color-surface-container-low)]">
+        <div className="max-w-5xl mx-auto space-y-8 sm:space-y-10">
+          <div className="text-center max-w-2xl mx-auto space-y-2 sm:space-y-2.5">
             <span
               className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider"
               style={{
@@ -1015,12 +1044,12 @@ export default function WebinarClient() {
               Attendee Benefits
             </span>
             <h2
-              className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[var(--color-on-surface)] leading-snug"
+              className="text-xl sm:text-2xl md:text-3xl font-extrabold text-[var(--color-on-surface)] leading-snug"
               style={{ fontFamily: "var(--font-headline)" }}
             >
               Webinar Takeaways
             </h2>
-            <p className="text-xs sm:text-base text-[var(--color-on-surface-variant)]">
+            <p className="text-xs sm:text-sm text-[var(--color-on-surface-variant)]">
               Everything included when you reserve your seat today.
             </p>
           </div>
@@ -1089,8 +1118,8 @@ export default function WebinarClient() {
         </div>
       </section>
 
-      {/* ── INVESTMENT & PRICING BOX (Image 4 font size fix on mobile) ── */}
-      <section id="register" className="py-12 sm:py-20 md:py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+      {/* ── INVESTMENT & PRICING BOX (Compact layout: fits in one scroll on laptop & mobile) ── */}
+      <section id="register" className="py-6 sm:py-8 md:py-10 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
         {/* Glow */}
         <div
           className="absolute inset-0 opacity-15 pointer-events-none -z-10"
@@ -1099,9 +1128,9 @@ export default function WebinarClient() {
           }}
         />
 
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-4xl mx-auto">
           <div
-            className="rounded-2xl sm:rounded-3xl p-5 sm:p-10 md:p-12 border-2 text-center relative overflow-hidden shadow-2xl"
+            className="rounded-2xl sm:rounded-3xl p-4 sm:p-5 md:p-6 lg:p-7 border-2 relative overflow-hidden shadow-xl"
             style={{
               backgroundColor: "var(--color-surface-container-lowest)",
               borderColor: "var(--color-primary)",
@@ -1109,104 +1138,115 @@ export default function WebinarClient() {
           >
             {/* Top Ribbon */}
             <div
-              className="absolute top-0 left-0 right-0 py-1.5 sm:py-2 text-[10px] sm:text-xs font-extrabold uppercase tracking-tight sm:tracking-wider text-white"
+              className="absolute top-0 left-0 right-0 py-1 px-3 text-[10px] sm:text-xs font-extrabold uppercase tracking-tight sm:tracking-wider text-white text-center"
               style={{ background: "linear-gradient(90deg, #ba0e56 0%, #e33672 100%)" }}
             >
               🔥 92% OFF &bull; LIMITED SEATS AVAILABLE &bull; HURRY!
             </div>
 
-            <div className="mt-5 sm:mt-6 space-y-4 sm:space-y-6">
-              <span className="inline-block px-3 py-1 rounded-full text-[11px] sm:text-xs font-bold bg-pink-100 text-[var(--color-primary)]">
-                Special Registration Offer
-              </span>
+            <div className="mt-3 sm:mt-4 grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6 lg:gap-7 items-center">
+              {/* Left Column: Heading, Price & CTA */}
+              <div className="md:col-span-7 space-y-2.5 sm:space-y-3 text-center md:text-left">
+                <span className="inline-block px-2.5 py-0.5 rounded-full text-[10px] sm:text-xs font-bold bg-pink-100 text-[var(--color-primary)]">
+                  Special Registration Offer
+                </span>
 
-              {/* Reduced and balanced font size on mobile */}
-              <h2
-                className="text-lg sm:text-2xl md:text-4xl lg:text-5xl font-extrabold text-[var(--color-on-surface)] leading-snug px-1"
-                style={{ fontFamily: "var(--font-headline)" }}
-              >
-                Invest in a Peaceful, Confident Feeding Journey
-              </h2>
+                {/* Reduced font size for laptop and mobile */}
+                <h2
+                  className="text-lg sm:text-xl md:text-xl lg:text-2xl font-bold text-[var(--color-on-surface)] leading-snug"
+                  style={{ fontFamily: "var(--font-headline)" }}
+                >
+                  Invest in a Peaceful, Confident Feeding Journey
+                </h2>
 
-              <p className="text-xs sm:text-base text-[var(--color-on-surface-variant)] max-w-xl mx-auto px-2">
-                Secure your spot and take the first step towards a happy, pain-free breastfeeding experience!
-              </p>
-
-              {/* Price Tag */}
-              <div className="py-2 sm:py-4">
-                <div className="flex items-center justify-center gap-2.5 sm:gap-3">
-                  <span className="text-gray-400 text-lg sm:text-2xl line-through">₹1,800</span>
-                  <span
-                    className="text-3xl sm:text-5xl md:text-6xl font-extrabold"
-                    style={{ color: "var(--color-primary)", fontFamily: "var(--font-headline)" }}
-                  >
-                    ₹149
-                  </span>
-                  <span className="text-[11px] sm:text-sm font-bold bg-green-100 text-green-800 px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full">
-                    SAVE ₹1,651
-                  </span>
-                </div>
-                <p className="text-[11px] sm:text-xs text-[var(--color-on-surface-variant)] mt-1.5 sm:mt-2 font-medium">
-                  Single one-time registration &bull; Includes lifetime recording access
+                <p className="text-xs sm:text-xs md:text-sm text-[var(--color-on-surface-variant)] leading-relaxed max-w-lg mx-auto md:mx-0">
+                  Secure your spot with Dr. Varshika.S and take the first step towards a happy, pain-free breastfeeding journey.
                 </p>
+
+                {/* Price Tag */}
+                <div className="py-0.5">
+                  <div className="flex items-center justify-center md:justify-start gap-2 sm:gap-2.5">
+                    <span className="text-gray-400 text-sm sm:text-base line-through">₹1,800</span>
+                    <span
+                      className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl font-extrabold"
+                      style={{ color: "var(--color-primary)", fontFamily: "var(--font-headline)" }}
+                    >
+                      ₹149
+                    </span>
+                    <span className="text-[10px] sm:text-xs font-bold bg-green-100 text-green-800 px-2 py-0.5 rounded-full">
+                      SAVE ₹1,651 (92% OFF)
+                    </span>
+                  </div>
+                  <p className="text-[10px] sm:text-xs text-[var(--color-on-surface-variant)] mt-0.5 font-medium">
+                    Single one-time registration &bull; Includes lifetime recording access
+                  </p>
+                </div>
+
+                {/* Register Button */}
+                <div className="pt-0.5">
+                  <a
+                    href={PAYMENT_LINK}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-2.5 sm:py-3 rounded-full text-xs sm:text-sm md:text-base font-extrabold text-white shadow-lg hover:shadow-xl active:scale-95 transition-all duration-200"
+                    style={{
+                      background: "linear-gradient(135deg, var(--color-primary) 0%, #e33672 100%)",
+                      boxShadow: "0 8px 20px rgba(186, 14, 86, 0.3)",
+                    }}
+                  >
+                    <span>Register Now for ₹149</span>
+                    <ArrowForwardIcon className="w-4 h-4" />
+                  </a>
+                </div>
+
+                <div className="flex items-center justify-center md:justify-start gap-3 text-[10px] sm:text-xs text-[var(--color-on-surface-variant)] flex-wrap pt-0.5">
+                  <span className="flex items-center gap-1">
+                    <LockIcon className="w-3.5 h-3.5 text-[var(--color-primary)]" />
+                    Secured by Cashfree Payments
+                  </span>
+                  <span className="flex items-center gap-1">
+                    <BoltIcon className="w-3.5 h-3.5 text-[var(--color-tertiary)]" />
+                    Instant Confirmation
+                  </span>
+                </div>
               </div>
 
-              {/* What you get checklist */}
-              <div
-                className="p-4 sm:p-5 rounded-xl sm:rounded-2xl text-left text-xs sm:text-sm space-y-2 sm:space-y-2.5 max-w-lg mx-auto border"
-                style={{
-                  backgroundColor: "var(--color-surface-container-low)",
-                  borderColor: "var(--color-surface-variant)",
-                }}
-              >
-                <div className="flex items-center gap-2">
-                  <CheckIcon className="w-4 h-4 text-[var(--color-primary)] shrink-0" />
-                  <span>90-Minute Live Interactive Webinar with Dr. Varshika.S</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckIcon className="w-4 h-4 text-[var(--color-primary)] shrink-0" />
-                  <span>Interactive Q&A Session for personalized answers</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckIcon className="w-4 h-4 text-[var(--color-primary)] shrink-0" />
-                  <span>Lifetime Access to full high-definition recording</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckIcon className="w-4 h-4 text-[var(--color-primary)] shrink-0" />
-                  <span>Actionable Breastfeeding Positions & Latch Reference Notes</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckIcon className="w-4 h-4 text-[var(--color-primary)] shrink-0" />
-                  <span>Invitation to Motherly Supportive Community of Mothers</span>
-                </div>
-              </div>
-
-              {/* Register Button */}
-              <div className="pt-2">
-                <a
-                  href={PAYMENT_LINK}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 sm:gap-3 px-8 sm:px-10 py-3.5 sm:py-5 rounded-full text-base sm:text-lg font-extrabold text-white shadow-xl hover:shadow-2xl active:scale-95 transition-all duration-200"
+              {/* Right Column: Ticket Inclusions Checklist */}
+              <div className="md:col-span-5">
+                <div
+                  className="p-3.5 sm:p-4 rounded-xl border text-left space-y-2"
                   style={{
-                    background: "linear-gradient(135deg, var(--color-primary) 0%, #e33672 100%)",
-                    boxShadow: "0 12px 30px rgba(186, 14, 86, 0.4)",
+                    backgroundColor: "var(--color-surface-container-low)",
+                    borderColor: "var(--color-surface-variant)",
                   }}
                 >
-                  <span>Register Now for ₹149</span>
-                  <ArrowForwardIcon className="w-5 h-5 sm:w-6 sm:h-6" />
-                </a>
-              </div>
+                  <p className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-[var(--color-primary)]">
+                    Everything Included in Your Ticket:
+                  </p>
 
-              <div className="flex items-center justify-center gap-4 sm:gap-6 text-[11px] sm:text-xs text-[var(--color-on-surface-variant)] flex-wrap">
-                <span className="flex items-center gap-1.5">
-                  <LockIcon className="w-3.5 h-3.5 text-[var(--color-primary)]" />
-                  Secured by Cashfree Payments
-                </span>
-                <span className="flex items-center gap-1.5">
-                  <BoltIcon className="w-3.5 h-3.5 text-[var(--color-tertiary)]" />
-                  Instant Confirmation via WhatsApp & Email
-                </span>
+                  <div className="space-y-1.5 text-xs text-[var(--color-on-surface)]">
+                    <div className="flex items-start gap-1.5">
+                      <CheckIcon className="w-3.5 h-3.5 text-[var(--color-primary)] shrink-0 mt-0.5" />
+                      <span>90-Min Live Masterclass with Dr. Varshika.S</span>
+                    </div>
+                    <div className="flex items-start gap-1.5">
+                      <CheckIcon className="w-3.5 h-3.5 text-[var(--color-primary)] shrink-0 mt-0.5" />
+                      <span>Interactive Live Q&amp;A for Personal Questions</span>
+                    </div>
+                    <div className="flex items-start gap-1.5">
+                      <CheckIcon className="w-3.5 h-3.5 text-[var(--color-primary)] shrink-0 mt-0.5" />
+                      <span>Lifetime Access to Full HD Video Recording</span>
+                    </div>
+                    <div className="flex items-start gap-1.5">
+                      <CheckIcon className="w-3.5 h-3.5 text-[var(--color-primary)] shrink-0 mt-0.5" />
+                      <span>Latching &amp; Ergonomic Positions Reference Notes</span>
+                    </div>
+                    <div className="flex items-start gap-1.5">
+                      <CheckIcon className="w-3.5 h-3.5 text-[var(--color-primary)] shrink-0 mt-0.5" />
+                      <span>Access to Motherly Supportive Community of Mothers</span>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -1214,9 +1254,9 @@ export default function WebinarClient() {
       </section>
 
       {/* ── FAQ SECTION ── */}
-      <section className="py-10 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-[var(--color-surface-container-low)]">
-        <div className="max-w-4xl mx-auto space-y-8 sm:space-y-10">
-          <div className="text-center space-y-2.5 sm:space-y-3">
+      <section className="py-10 sm:py-14 md:py-16 px-4 sm:px-6 lg:px-8 bg-[var(--color-surface-container-low)]">
+        <div className="max-w-4xl mx-auto space-y-7 sm:space-y-9">
+          <div className="text-center space-y-2 sm:space-y-2.5">
             <span
               className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider"
               style={{
@@ -1227,23 +1267,23 @@ export default function WebinarClient() {
               Got Questions?
             </span>
             <h2
-              className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[var(--color-on-surface)] leading-snug"
+              className="text-xl sm:text-2xl md:text-3xl font-extrabold text-[var(--color-on-surface)] leading-snug"
               style={{ fontFamily: "var(--font-headline)" }}
             >
               Frequently Asked Questions
             </h2>
-            <p className="text-xs sm:text-base text-[var(--color-on-surface-variant)]">
+            <p className="text-xs sm:text-sm text-[var(--color-on-surface-variant)]">
               Everything you need to know about the webinar.
             </p>
           </div>
 
-          <div className="space-y-3 sm:space-y-4">
+          <div className="space-y-3 sm:space-y-3.5">
             {faqs.map((faq, idx) => {
               const isOpen = openFaq === idx;
               return (
                 <div
                   key={idx}
-                  className="rounded-xl sm:rounded-2xl border transition-all duration-200 overflow-hidden bg-[var(--color-surface-container-lowest)]"
+                  className="rounded-sm border transition-all duration-200 overflow-hidden bg-[var(--color-surface-container-lowest)]"
                   style={{
                     borderColor: isOpen ? "var(--color-primary)" : "var(--color-surface-variant)",
                   }}
@@ -1251,7 +1291,7 @@ export default function WebinarClient() {
                   <button
                     type="button"
                     onClick={() => toggleFaq(idx)}
-                    className="w-full text-left p-4 sm:p-6 flex items-center justify-between gap-3 sm:gap-4 font-bold text-sm sm:text-lg text-[var(--color-on-surface)] cursor-pointer"
+                    className="w-full text-left p-4 sm:p-5 flex items-center justify-between gap-3 font-bold text-xs sm:text-sm md:text-base text-[var(--color-on-surface)] cursor-pointer"
                     style={{ fontFamily: "var(--font-headline)" }}
                     aria-expanded={isOpen}
                   >
@@ -1273,7 +1313,7 @@ export default function WebinarClient() {
                         transition={{ duration: 0.25, ease: easeOut }}
                         className="overflow-hidden"
                       >
-                        <div className="px-4 sm:px-6 pb-4 sm:pb-5 pt-1 text-xs sm:text-base text-[var(--color-on-surface-variant)] leading-relaxed border-t border-[var(--color-surface-container)]">
+                        <div className="px-4 sm:px-5 pb-4 sm:pb-5 pt-1 text-xs sm:text-sm text-[var(--color-on-surface-variant)] leading-relaxed border-t border-[var(--color-surface-container)]">
                           {faq.answer}
                         </div>
                       </motion.div>
@@ -1287,22 +1327,22 @@ export default function WebinarClient() {
       </section>
 
       {/* ── CONTACT & ASSISTANCE SECTION ── */}
-      <section className="py-10 sm:py-14 md:py-16 px-4 sm:px-6 lg:px-8 border-t border-[var(--color-surface-variant)]">
+      <section className="py-10 sm:py-12 md:py-14 px-4 sm:px-6 lg:px-8 border-t border-[var(--color-surface-variant)]">
         <div className="max-w-5xl mx-auto">
           <div
-            className="p-6 sm:p-10 rounded-2xl sm:rounded-3xl text-center space-y-5 sm:space-y-6"
+            className="p-6 sm:p-8 md:p-10 rounded-2xl sm:rounded-3xl text-center space-y-4 sm:space-y-5"
             style={{
               backgroundColor: "var(--color-surface-container-low)",
             }}
           >
             <div className="space-y-1.5 sm:space-y-2">
               <h3
-                className="text-xl sm:text-2xl md:text-3xl font-extrabold text-[var(--color-on-surface)]"
+                className="text-lg sm:text-xl md:text-2xl font-bold text-[var(--color-on-surface)]"
                 style={{ fontFamily: "var(--font-headline)" }}
               >
                 Need Help with Registration?
               </h3>
-              <p className="text-xs sm:text-base text-[var(--color-on-surface-variant)] max-w-xl mx-auto">
+              <p className="text-xs sm:text-sm text-[var(--color-on-surface-variant)] max-w-xl mx-auto">
                 Have questions or need assistance completing your payment? Reach out directly to our team anytime.
               </p>
             </div>
