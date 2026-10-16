@@ -69,6 +69,11 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
+        source: "/webinar",
+        destination: "/webinar/Breastfeeding-Made-Easy",
+        permanent: false,
+      },
+      {
         source: "/S",
         destination: "/services",
         permanent: true,
