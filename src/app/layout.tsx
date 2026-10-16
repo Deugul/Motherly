@@ -3,6 +3,7 @@ import { Plus_Jakarta_Sans, Manrope } from "next/font/google";
 import "./globals.css";
 import ScrollToTop from "@/components/ScrollToTop";
 import ChatWidget from "@/components/ChatWidget";
+import WebinarAdPopup from "@/components/WebinarAdPopup";
 import FontLoader from "@/components/FontLoader";
 import MotionProvider from "@/components/MotionProvider";
 import DeferredAnalytics from "@/components/DeferredAnalytics";
@@ -162,6 +163,7 @@ export default function RootLayout({
         <ScrollToTop />
         <MotionProvider>{children}</MotionProvider>
         <ChatWidget />
+        <WebinarAdPopup />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

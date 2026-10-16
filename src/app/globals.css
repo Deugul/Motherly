@@ -407,3 +407,24 @@ textarea[aria-invalid="true"]:focus {
     height: 487px !important;
   }
 }
+
+/* Continuous Smooth Marquee Ticker */
+@keyframes marquee-ticker {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: marquee-ticker 58s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}

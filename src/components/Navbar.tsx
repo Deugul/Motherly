@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 import { loadMaterialSymbols } from "@/lib/material-symbols";
 import { useMaterialSymbolsReady } from "@/hooks/useMaterialSymbolsReady";
 import AppDownloadButton from "@/components/AppDownloadButton";
+import WebinarTopBar from "@/components/WebinarTopBar";
 
 const serviceLinks = [
   { href: "/services/doulas", label: "Doula", icon: "child_friendly" },
@@ -136,7 +137,8 @@ export default function Navbar() {
         scrolled ? "bg-white/80 backdrop-blur-2xl shadow-md shadow-black/5" : "bg-white/40 backdrop-blur-xl"
       }`}
     >
-      <div className="flex justify-between items-center px-6 md:px-10 py-4 max-w-7xl mx-auto">
+      <WebinarTopBar />
+      <div className="flex justify-between items-center px-6 md:px-10 py-3.5 max-w-7xl mx-auto">
         {/* Logo */}
         <Link href="/" className="flex items-center">
           <Image src="/logo.png" alt="Motherly logo" width={72} height={72} className="h-18 w-auto object-contain" />
