@@ -5,7 +5,7 @@ import WebinarClient from "./WebinarClient";
 
 const PAGE_TITLE = "Breastfeeding Made Easy Webinar | Dr. Varshika.S | Motherly";
 const PAGE_DESCRIPTION =
-  "Join Dr. Varshika.S, Homoeopathic Physician & Advanced Certified Lactation Professional, for a 90-minute live interactive webinar on Breastfeeding Made Easy on 25th October. Overcome latch issues, position comfortably, and master early feeding for just ₹149.";
+  "Join Dr. Varshika.S, Homoeopathic Physician & Advanced Certified Lactation Professional, for a 90-minute live interactive webinar on Breastfeeding Made Easy on 22nd November 2026. Overcome latch issues, position comfortably, and master early feeding for just ₹99.";
 const CANONICAL_URL = "https://www.mothrly.com/webinar/Breastfeeding-Made-Easy";
 
 export const metadata: Metadata = {
@@ -43,8 +43,8 @@ const webinarJsonLd = {
   "@type": "EducationEvent",
   name: "Breastfeeding Made Easy Webinar",
   description: PAGE_DESCRIPTION,
-  startDate: "2026-10-25T11:00:00+05:30",
-  endDate: "2026-10-25T12:30:00+05:30",
+  startDate: "2026-11-22T11:00:00+05:30",
+  endDate: "2026-11-22T12:30:00+05:30",
   eventAttendanceMode: "https://schema.org/OnlineEventAttendanceMode",
   eventStatus: "https://schema.org/EventScheduled",
   location: {
@@ -70,7 +70,7 @@ const webinarJsonLd = {
   },
   offers: {
     "@type": "Offer",
-    price: "149",
+    price: "99",
     priceCurrency: "INR",
     url: "https://payments.cashfree.com/forms/motherly-lactation-webinar",
     availability: "https://schema.org/InStock",

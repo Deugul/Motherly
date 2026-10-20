@@ -15,22 +15,22 @@ export default function WebinarTopBar() {
     {
       badge: "🔥 LIVE WEBINAR",
       text: "Breastfeeding Made Easy with Dr. Varshika.S",
-      date: "25th October, 11:00 AM",
-      offer: "ONLY ₹149 (92% OFF)",
+      date: "22nd November 2026, 11:00 AM",
+      offer: "ONLY ₹99 (95% OFF)",
       cta: "Register Now →",
     },
     {
       badge: "✨ EXPERT MASTERCLASS",
       text: "Master Latching, Pain-Free Positions & Milk Supply Solutions",
-      date: "25th Oct, 11:00 AM – 12:30 PM",
-      offer: "Special Fee ₹149",
+      date: "22nd Nov, 11:00 AM – 12:30 PM",
+      offer: "Special Fee ₹99",
       cta: "Book Your Spot →",
     },
     {
       badge: "⭐ LIMITED SEATS",
       text: "Includes 90-Min Live Masterclass + Q&A + Lifetime Recording Access",
-      date: "25th October",
-      offer: "Save ₹1,651 Today",
+      date: "22nd November 2026",
+      offer: "Save ₹1,701 Today",
       cta: "Click to Join →",
     },
   ];

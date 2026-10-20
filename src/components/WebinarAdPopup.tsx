@@ -193,15 +193,15 @@ export default function WebinarAdPopup() {
               >
                 <div className="text-left space-y-0.5">
                   <span className="text-[10px] font-extrabold uppercase tracking-wider text-pink-200">
-                    Live Interactive Masterclass
+                    Live Masterclass &bull; 22nd Nov, 11 AM
                   </span>
                   <div className="flex items-center gap-2">
                     <span className="text-sm sm:text-base font-extrabold text-white">
-                      ₹149 Only
+                      ₹99 Only
                     </span>
                     <span className="line-through text-pink-200 text-xs">₹1,800</span>
                     <span className="bg-white/20 text-[10px] px-1.5 py-0.2 rounded font-bold text-amber-200">
-                      92% OFF
+                      95% OFF
                     </span>
                   </div>
                 </div>

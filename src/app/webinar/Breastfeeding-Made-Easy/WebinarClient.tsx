@@ -385,7 +385,7 @@ export default function WebinarClient() {
                 </div>
                 <div>
                   <p className="text-[10px] sm:text-xs text-[var(--color-on-surface-variant)] font-medium">Date</p>
-                  <p className="text-xs sm:text-base font-bold text-[var(--color-on-surface)]">25th October</p>
+                  <p className="text-xs sm:text-base font-bold text-[var(--color-on-surface)]">22nd November 2026</p>
                 </div>
               </div>
 
@@ -443,7 +443,7 @@ export default function WebinarClient() {
                   boxShadow: "0 8px 22px rgba(186, 14, 86, 0.3)",
                 }}
               >
-                <span>Register Now for ₹149</span>
+                <span>Register Now for ₹99</span>
                 <span className="line-through text-pink-200 text-xs sm:text-sm font-normal">₹1800</span>
                 <ArrowForwardIcon className="w-4 h-4 sm:w-5 sm:h-5" />
               </a>
@@ -599,7 +599,7 @@ export default function WebinarClient() {
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[var(--color-primary)] hover:underline"
                   >
-                    <span>Book Your Spot with Dr. Varshika for ₹149</span>
+                    <span>Book Your Spot with Dr. Varshika for ₹99</span>
                     <ArrowForwardIcon className="w-4 h-4" />
                   </a>
                 </div>
@@ -1141,7 +1141,7 @@ export default function WebinarClient() {
               className="absolute top-0 left-0 right-0 py-1 px-3 text-[10px] sm:text-xs font-extrabold uppercase tracking-tight sm:tracking-wider text-white text-center"
               style={{ background: "linear-gradient(90deg, #ba0e56 0%, #e33672 100%)" }}
             >
-              🔥 92% OFF &bull; LIMITED SEATS AVAILABLE &bull; HURRY!
+              🔥 95% OFF &bull; LIMITED SEATS AVAILABLE &bull; HURRY!
             </div>
 
             <div className="mt-3 sm:mt-4 grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6 lg:gap-7 items-center">
@@ -1171,10 +1171,10 @@ export default function WebinarClient() {
                       className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl font-extrabold"
                       style={{ color: "var(--color-primary)", fontFamily: "var(--font-headline)" }}
                     >
-                      ₹149
+                      ₹99
                     </span>
                     <span className="text-[10px] sm:text-xs font-bold bg-green-100 text-green-800 px-2 py-0.5 rounded-full">
-                      SAVE ₹1,651 (92% OFF)
+                      SAVE ₹1,701 (95% OFF)
                     </span>
                   </div>
                   <p className="text-[10px] sm:text-xs text-[var(--color-on-surface-variant)] mt-0.5 font-medium">
@@ -1194,7 +1194,7 @@ export default function WebinarClient() {
                       boxShadow: "0 8px 20px rgba(186, 14, 86, 0.3)",
                     }}
                   >
-                    <span>Register Now for ₹149</span>
+                    <span>Register Now for ₹99</span>
                     <ArrowForwardIcon className="w-4 h-4" />
                   </a>
                 </div>
@@ -1407,10 +1407,10 @@ export default function WebinarClient() {
             <div className="max-w-6xl mx-auto flex items-center justify-between gap-2.5 pr-14 sm:pr-24">
               <div className="flex flex-col sm:flex-row sm:items-center gap-0.5 sm:gap-3">
                 <span className="text-[10px] sm:text-xs text-[var(--color-on-surface-variant)] uppercase tracking-wider font-bold leading-tight">
-                  25th Oct &bull; 11 AM
+                  22nd Nov &bull; 11 AM
                 </span>
                 <div className="flex items-center gap-1.5">
-                  <span className="text-base sm:text-xl font-extrabold text-[var(--color-primary)]">₹149</span>
+                  <span className="text-base sm:text-xl font-extrabold text-[var(--color-primary)]">₹99</span>
                   <span className="text-xs line-through text-gray-400">₹1,800</span>
                 </div>
               </div>
