@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 
 const POPUP_DISMISS_KEY = "motherly_webinar_meta_ad_dismissed_v1";
-const AD_IMAGE_SRC = "/webinar/BF_Meta_Ad.webp";
+const AD_IMAGE_SRC = "/webinar/BF_Meta_Ad_1.png";
 
 export default function WebinarAdPopup() {
   const [isOpen, setIsOpen] = useState(false);
@@ -199,9 +199,9 @@ export default function WebinarAdPopup() {
                     <span className="text-sm sm:text-base font-extrabold text-white">
                       ₹99 Only
                     </span>
-                    <span className="line-through text-pink-200 text-xs">₹1,800</span>
+                    <span className="line-through text-pink-200 text-xs">₹599</span>
                     <span className="bg-white/20 text-[10px] px-1.5 py-0.2 rounded font-bold text-amber-200">
-                      95% OFF
+                      83% OFF
                     </span>
                   </div>
                 </div>
