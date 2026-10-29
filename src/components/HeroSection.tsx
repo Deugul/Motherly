@@ -12,14 +12,15 @@ export default function HeroSection() {
         {/* Image block — 60vh */}
         <div className="relative h-[60vh] w-full flex-shrink-0">
           <Image
-            src="/hero-bg.jpg"
+            src="/home-page/hero-image.webp"
             alt="Mother and baby"
             fill
             // Both hero variants share one src and one `sizes`, so they resolve
             // to the same URL and eager-loading them costs a single request.
             loading="eager"
             fetchPriority="high"
-            sizes="(max-width: 768px) 100vw, 50vw"
+            quality={95}
+            sizes="100vw"
             className="object-cover object-[85%_10%]"
           />
           <div
@@ -98,12 +99,13 @@ export default function HeroSection() {
         {/* Background */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="/hero-bg.jpg"
+            src="/home-page/hero-image.webp"
             alt="Mother and baby"
             fill
             loading="eager"
             fetchPriority="high"
-            sizes="(max-width: 768px) 100vw, 50vw"
+            quality={95}
+            sizes="100vw"
             className="object-cover object-[center_35%]"
           />
           <div

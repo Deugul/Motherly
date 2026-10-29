@@ -174,7 +174,7 @@ export default function RootLayout({
               description: "Expert maternal care services in Chennai — doulas, lactation consultants, gynaecologists, nannies, postnatal physiotherapy, yoga and pediatricians.",
               url: "https://www.mothrly.com",
               logo: "https://www.mothrly.com/logo.png",
-              image: "https://www.mothrly.com/hero-bg.jpg",
+              image: "https://www.mothrly.com/home-page/hero-image.webp",
               telephone: "+91-9952977170",
               address: {
                 "@type": "PostalAddress",
