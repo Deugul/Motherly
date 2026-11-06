@@ -31,27 +31,39 @@ export const BLOG_SEO: Record<string, BlogSeoEntry> = {
         "Bhogi smoke Chennai pregnancy"
     ],
     "keywordLinks": [
-        {
-            "label": "Gynaecologist Consultation",
-            "url": "https://www.mothrly.com/services/gynecologist-consultation"
-        },
-        {
-            "label": "Prenatal Yoga",
-            "url": "https://www.mothrly.com/services/yoga"
-        },
-        {
-            "label": "Newborn Winter Care",
-            "url": "https://www.mothrly.com/blogs/newborn-winter-care-india-room-heater-angeethi-safety"
-        },
-        {
-            "label": "Gestational Diabetes in India",
-            "url": "https://www.mothrly.com/blogs/gestational-diabetes-india-screening-diet-walking-plan"
-        },
-        {
-            "label": "Baby Fever in Monsoon",
-            "url": "https://www.mothrly.com/blogs/baby-fever-cough-dengue-monsoon-winter-india"
-        }
-    ],
+                  {
+                            "label": "Gynaecologist Consultation",
+                            "url": "https://www.mothrly.com/services/gynecologist-consultation"
+                  },
+                  {
+                            "label": "Prenatal Yoga Classes",
+                            "url": "https://www.mothrly.com/services/yoga"
+                  },
+                  {
+                            "label": "Newborn Winter Care Guide",
+                            "url": "https://www.mothrly.com/blogs/newborn-winter-care-india-room-heater-angeethi-safety"
+                  },
+                  {
+                            "label": "Baby Fever & Dengue Guide",
+                            "url": "https://www.mothrly.com/blogs/baby-fever-cough-dengue-monsoon-winter-india"
+                  },
+                  {
+                            "label": "Gestational Diabetes in India",
+                            "url": "https://www.mothrly.com/blogs/gestational-diabetes-india-screening-diet-walking-plan"
+                  },
+                  {
+                            "label": "Pregnancy Diet Plan",
+                            "url": "https://www.mothrly.com/blogs/pregnancy-diet-plan"
+                  },
+                  {
+                            "label": "Prenatal Yoga in Chennai",
+                            "url": "https://www.mothrly.com/blogs/prenatal-and-postnatal-yoga-in-chennai-benefits-and-when-to-start"
+                  },
+                  {
+                            "label": "All Motherly Health Articles",
+                            "url": "https://www.mothrly.com/blogs"
+                  }
+        ],
     "faqSchema": {
         "@context": "https://schema.org",
         "@type": "FAQPage",
@@ -117,27 +129,43 @@ export const BLOG_SEO: Record<string, BlogSeoEntry> = {
         "mosquito protection for newborn"
     ],
     "keywordLinks": [
-        {
-            "label": "Pediatrician Consultation",
-            "url": "https://www.mothrly.com/services/pediatrician"
-        },
-        {
-            "label": "Baby Care Services",
-            "url": "https://www.mothrly.com/services/baby-care"
-        },
-        {
-            "label": "Newborn Winter Care in India",
-            "url": "https://www.mothrly.com/blogs/newborn-winter-care-india-room-heater-angeethi-safety"
-        },
-        {
-            "label": "Air Pollution and Pregnancy",
-            "url": "https://www.mothrly.com/blogs/air-pollution-pregnancy-diwali-smog-india"
-        },
-        {
-            "label": "Starting Solids in India",
-            "url": "https://www.mothrly.com/blogs/starting-solids-india-no-added-sugar-homemade-first-foods"
-        }
-    ],
+                  {
+                            "label": "Pediatrician Consultation",
+                            "url": "https://www.mothrly.com/services/pediatrician"
+                  },
+                  {
+                            "label": "Newborn Baby Care",
+                            "url": "https://www.mothrly.com/services/baby-care"
+                  },
+                  {
+                            "label": "Lactation Consultants",
+                            "url": "https://www.mothrly.com/services/lactation-consultants"
+                  },
+                  {
+                            "label": "Newborn Winter Care in India",
+                            "url": "https://www.mothrly.com/blogs/newborn-winter-care-india-room-heater-angeethi-safety"
+                  },
+                  {
+                            "label": "Air Pollution and Pregnancy",
+                            "url": "https://www.mothrly.com/blogs/air-pollution-pregnancy-diwali-smog-india"
+                  },
+                  {
+                            "label": "Newborn Care First Days",
+                            "url": "https://www.mothrly.com/blogs/newborn-care-first-days"
+                  },
+                  {
+                            "label": "Newborn Sleep Patterns at 3 Months",
+                            "url": "https://www.mothrly.com/blogs/newborn-sleep-patterns-what-to-expect-in-the-third-month"
+                  },
+                  {
+                            "label": "Starting Solids in India",
+                            "url": "https://www.mothrly.com/blogs/starting-solids-india-no-added-sugar-homemade-first-foods"
+                  },
+                  {
+                            "label": "All Motherly Health Articles",
+                            "url": "https://www.mothrly.com/blogs"
+                  }
+        ],
     "howToSchema": {
         "@context": "https://schema.org",
         "@type": "HowTo",
@@ -231,27 +259,43 @@ export const BLOG_SEO: Record<string, BlogSeoEntry> = {
         "baby cap and socks winter"
     ],
     "keywordLinks": [
-        {
-            "label": "Baby Care Services",
-            "url": "https://www.mothrly.com/services/baby-care"
-        },
-        {
-            "label": "Pediatrician Consultation",
-            "url": "https://www.mothrly.com/services/pediatrician"
-        },
-        {
-            "label": "Baby Fever in Monsoon",
-            "url": "https://www.mothrly.com/blogs/baby-fever-cough-dengue-monsoon-winter-india"
-        },
-        {
-            "label": "Starting Solids in India",
-            "url": "https://www.mothrly.com/blogs/starting-solids-india-no-added-sugar-homemade-first-foods"
-        },
-        {
-            "label": "40-Day Postpartum Traditions",
-            "url": "https://www.mothrly.com/blogs/40-day-postpartum-traditions-india-keep-tweak-skip"
-        }
-    ],
+                  {
+                            "label": "Newborn Baby Care Services",
+                            "url": "https://www.mothrly.com/services/baby-care"
+                  },
+                  {
+                            "label": "Pediatrician Consultation",
+                            "url": "https://www.mothrly.com/services/pediatrician"
+                  },
+                  {
+                            "label": "Mother Care Services",
+                            "url": "https://www.mothrly.com/services/mother-care"
+                  },
+                  {
+                            "label": "Baby Fever & Dengue Guide",
+                            "url": "https://www.mothrly.com/blogs/baby-fever-cough-dengue-monsoon-winter-india"
+                  },
+                  {
+                            "label": "Starting Solids in India",
+                            "url": "https://www.mothrly.com/blogs/starting-solids-india-no-added-sugar-homemade-first-foods"
+                  },
+                  {
+                            "label": "Healthy Newborn Sleep Routine",
+                            "url": "https://www.mothrly.com/blogs/healthy-newborn-sleep-routine"
+                  },
+                  {
+                            "label": "Baby Care Specialist: First 40 Days",
+                            "url": "https://www.mothrly.com/blogs/baby-care-specialist-in-chennai-what-they-do-in-the-first-40-days"
+                  },
+                  {
+                            "label": "40-Day Postpartum Traditions",
+                            "url": "https://www.mothrly.com/blogs/40-day-postpartum-traditions-india-keep-tweak-skip"
+                  },
+                  {
+                            "label": "All Motherly Health Articles",
+                            "url": "https://www.mothrly.com/blogs"
+                  }
+        ],
     "howToSchema": {
         "@context": "https://schema.org",
         "@type": "HowTo",
@@ -345,27 +389,43 @@ export const BLOG_SEO: Record<string, BlogSeoEntry> = {
         "Diwali sweets gestational diabetes"
     ],
     "keywordLinks": [
-        {
-            "label": "Gynaecologist Consultation",
-            "url": "https://www.mothrly.com/services/gynecologist-consultation"
-        },
-        {
-            "label": "Prenatal Yoga",
-            "url": "https://www.mothrly.com/services/yoga"
-        },
-        {
-            "label": "PCOS in India and Trying to Conceive",
-            "url": "https://www.mothrly.com/blogs/pcos-india-trying-to-conceive-icmr-study"
-        },
-        {
-            "label": "Epidural, Normal Birth or C-Section",
-            "url": "https://www.mothrly.com/blogs/epidural-normal-delivery-or-c-section-india-how-to-decide"
-        },
-        {
-            "label": "Air Pollution and Pregnancy",
-            "url": "https://www.mothrly.com/blogs/air-pollution-pregnancy-diwali-smog-india"
-        }
-    ],
+                  {
+                            "label": "Gynaecologist Consultation",
+                            "url": "https://www.mothrly.com/services/gynecologist-consultation"
+                  },
+                  {
+                            "label": "Prenatal Yoga Classes",
+                            "url": "https://www.mothrly.com/services/yoga"
+                  },
+                  {
+                            "label": "Lactation Consultants",
+                            "url": "https://www.mothrly.com/services/lactation-consultants"
+                  },
+                  {
+                            "label": "PCOS in India and Trying to Conceive",
+                            "url": "https://www.mothrly.com/blogs/pcos-india-trying-to-conceive-icmr-study"
+                  },
+                  {
+                            "label": "Epidural, Normal Birth or C-Section",
+                            "url": "https://www.mothrly.com/blogs/epidural-normal-delivery-or-c-section-india-how-to-decide"
+                  },
+                  {
+                            "label": "Air Pollution and Pregnancy",
+                            "url": "https://www.mothrly.com/blogs/air-pollution-pregnancy-diwali-smog-india"
+                  },
+                  {
+                            "label": "First Trimester Pregnancy Diet Plan",
+                            "url": "https://www.mothrly.com/blogs/first-trimester-pregnancy-diet-plan"
+                  },
+                  {
+                            "label": "Prenatal and Postnatal Yoga in Chennai",
+                            "url": "https://www.mothrly.com/blogs/prenatal-and-postnatal-yoga-in-chennai-benefits-and-when-to-start"
+                  },
+                  {
+                            "label": "All Motherly Health Articles",
+                            "url": "https://www.mothrly.com/blogs"
+                  }
+        ],
     "faqSchema": {
         "@context": "https://schema.org",
         "@type": "FAQPage",
@@ -432,23 +492,39 @@ export const BLOG_SEO: Record<string, BlogSeoEntry> = {
         "LH strips PCOS"
     ],
     "keywordLinks": [
-        {
-            "label": "Gynaecologist Consultation",
-            "url": "https://www.mothrly.com/services/gynecologist-consultation"
-        },
-        {
-            "label": "Gestational Diabetes in India",
-            "url": "https://www.mothrly.com/blogs/gestational-diabetes-india-screening-diet-walking-plan"
-        },
-        {
-            "label": "Garbh Sanskar vs Science",
-            "url": "https://www.mothrly.com/blogs/garbh-sanskar-vs-science-what-actually-helps-in-pregnancy"
-        },
-        {
-            "label": "Prenatal Yoga",
-            "url": "https://www.mothrly.com/services/yoga"
-        }
-    ],
+                  {
+                            "label": "Gynaecologist Consultation",
+                            "url": "https://www.mothrly.com/services/gynecologist-consultation"
+                  },
+                  {
+                            "label": "Prenatal Yoga Classes",
+                            "url": "https://www.mothrly.com/services/yoga"
+                  },
+                  {
+                            "label": "Gestational Diabetes in India",
+                            "url": "https://www.mothrly.com/blogs/gestational-diabetes-india-screening-diet-walking-plan"
+                  },
+                  {
+                            "label": "Garbh Sanskar vs Science",
+                            "url": "https://www.mothrly.com/blogs/garbh-sanskar-vs-science-what-actually-helps-in-pregnancy"
+                  },
+                  {
+                            "label": "Is Folic Acid Enough in First Trimester?",
+                            "url": "https://www.mothrly.com/blogs/is-folic-acid-enough-in-first-trimester"
+                  },
+                  {
+                            "label": "Can Stress Cause Miscarriage?",
+                            "url": "https://www.mothrly.com/blogs/can-stress-cause-miscarriage-in-first-trimester"
+                  },
+                  {
+                            "label": "Pregnancy Diet Plan",
+                            "url": "https://www.mothrly.com/blogs/pregnancy-diet-plan"
+                  },
+                  {
+                            "label": "All Motherly Health Articles",
+                            "url": "https://www.mothrly.com/blogs"
+                  }
+        ],
     "faqSchema": {
         "@context": "https://schema.org",
         "@type": "FAQPage",
@@ -514,23 +590,43 @@ export const BLOG_SEO: Record<string, BlogSeoEntry> = {
         "Garbh Sanskar course"
     ],
     "keywordLinks": [
-        {
-            "label": "Prenatal Yoga",
-            "url": "https://www.mothrly.com/services/yoga"
-        },
-        {
-            "label": "Doula Services",
-            "url": "https://www.mothrly.com/services/doulas"
-        },
-        {
-            "label": "PCOS in India and Trying to Conceive",
-            "url": "https://www.mothrly.com/blogs/pcos-india-trying-to-conceive-icmr-study"
-        },
-        {
-            "label": "Epidural, Normal Birth or C-Section",
-            "url": "https://www.mothrly.com/blogs/epidural-normal-delivery-or-c-section-india-how-to-decide"
-        }
-    ],
+                  {
+                            "label": "Prenatal Yoga Classes",
+                            "url": "https://www.mothrly.com/services/yoga"
+                  },
+                  {
+                            "label": "Doula Services in Chennai",
+                            "url": "https://www.mothrly.com/services/doulas"
+                  },
+                  {
+                            "label": "Gynaecologist Consultation",
+                            "url": "https://www.mothrly.com/services/gynecologist-consultation"
+                  },
+                  {
+                            "label": "PCOS in India and Trying to Conceive",
+                            "url": "https://www.mothrly.com/blogs/pcos-india-trying-to-conceive-icmr-study"
+                  },
+                  {
+                            "label": "Epidural, Normal Birth or C-Section",
+                            "url": "https://www.mothrly.com/blogs/epidural-normal-delivery-or-c-section-india-how-to-decide"
+                  },
+                  {
+                            "label": "Can Stress Cause Miscarriage?",
+                            "url": "https://www.mothrly.com/blogs/can-stress-cause-miscarriage-in-first-trimester"
+                  },
+                  {
+                            "label": "Prenatal and Postnatal Yoga in Chennai",
+                            "url": "https://www.mothrly.com/blogs/prenatal-and-postnatal-yoga-in-chennai-benefits-and-when-to-start"
+                  },
+                  {
+                            "label": "A Birth Plan That Works in India",
+                            "url": "https://www.mothrly.com/blogs/birth-plan-that-works-india"
+                  },
+                  {
+                            "label": "All Motherly Health Articles",
+                            "url": "https://www.mothrly.com/blogs"
+                  }
+        ],
     "faqSchema": {
         "@context": "https://schema.org",
         "@type": "FAQPage",
@@ -596,27 +692,47 @@ export const BLOG_SEO: Record<string, BlogSeoEntry> = {
         "VBAC India"
     ],
     "keywordLinks": [
-        {
-            "label": "Doula Services",
-            "url": "https://www.mothrly.com/services/doulas"
-        },
-        {
-            "label": "Postnatal Recovery Care",
-            "url": "https://www.mothrly.com/services/postnatal-recovery-care"
-        },
-        {
-            "label": "40-Day Postpartum Traditions",
-            "url": "https://www.mothrly.com/blogs/40-day-postpartum-traditions-india-keep-tweak-skip"
-        },
-        {
-            "label": "Gestational Diabetes in India",
-            "url": "https://www.mothrly.com/blogs/gestational-diabetes-india-screening-diet-walking-plan"
-        },
-        {
-            "label": "A Birth Plan That Works in India",
-            "url": "/blogs/birth-plan-that-works-india"
-        }
-    ],
+                  {
+                            "label": "Doula Services in Chennai",
+                            "url": "https://www.mothrly.com/services/doulas"
+                  },
+                  {
+                            "label": "Postnatal Recovery Care",
+                            "url": "https://www.mothrly.com/services/postnatal-recovery-care"
+                  },
+                  {
+                            "label": "Postnatal Physiotherapy",
+                            "url": "https://www.mothrly.com/services/physiotherapy"
+                  },
+                  {
+                            "label": "A Birth Plan That Works in India",
+                            "url": "https://www.mothrly.com/blogs/birth-plan-that-works-india"
+                  },
+                  {
+                            "label": "Caesarean Recovery Honest Guide",
+                            "url": "https://www.mothrly.com/blogs/caesarean-recovery-honest-guide"
+                  },
+                  {
+                            "label": "Breastfeeding After C-Section",
+                            "url": "https://www.mothrly.com/blogs/breastfeeding-after-c-section-in-chennai-positions-and-recovery-guide"
+                  },
+                  {
+                            "label": "Labour: What Actually Happens",
+                            "url": "https://www.mothrly.com/blogs/labour-what-actually-happens"
+                  },
+                  {
+                            "label": "Doula vs Midwife Guide",
+                            "url": "https://www.mothrly.com/blogs/doula-vs-midwife-who-cares-for-you-and-your-baby"
+                  },
+                  {
+                            "label": "Gestational Diabetes in India",
+                            "url": "https://www.mothrly.com/blogs/gestational-diabetes-india-screening-diet-walking-plan"
+                  },
+                  {
+                            "label": "All Motherly Health Articles",
+                            "url": "https://www.mothrly.com/blogs"
+                  }
+        ],
     "faqSchema": {
         "@context": "https://schema.org",
         "@type": "FAQPage",
@@ -683,27 +799,43 @@ export const BLOG_SEO: Record<string, BlogSeoEntry> = {
         "postpartum care nuclear family"
     ],
     "keywordLinks": [
-        {
-            "label": "Postnatal Recovery Care",
-            "url": "https://www.mothrly.com/services/postnatal-recovery-care"
-        },
-        {
-            "label": "Mother Care",
-            "url": "https://www.mothrly.com/services/mother-care"
-        },
-        {
-            "label": "Newborn Winter Care",
-            "url": "https://www.mothrly.com/blogs/newborn-winter-care-india-room-heater-angeethi-safety"
-        },
-        {
-            "label": "Returning to Work After Maternity Leave",
-            "url": "https://www.mothrly.com/blogs/return-to-work-after-maternity-leave-india-labour-code-childcare"
-        },
-        {
-            "label": "Physiotherapy for Postnatal Recovery",
-            "url": "https://www.mothrly.com/services/physiotherapy"
-        }
-    ],
+                  {
+                            "label": "Postnatal Recovery Care",
+                            "url": "https://www.mothrly.com/services/postnatal-recovery-care"
+                  },
+                  {
+                            "label": "Mother Care Services",
+                            "url": "https://www.mothrly.com/services/mother-care"
+                  },
+                  {
+                            "label": "Postnatal Physiotherapy",
+                            "url": "https://www.mothrly.com/services/physiotherapy"
+                  },
+                  {
+                            "label": "Lactation Consultants",
+                            "url": "https://www.mothrly.com/services/lactation-consultants"
+                  },
+                  {
+                            "label": "Newborn Winter Care in India",
+                            "url": "https://www.mothrly.com/blogs/newborn-winter-care-india-room-heater-angeethi-safety"
+                  },
+                  {
+                            "label": "Returning to Work After Maternity Leave",
+                            "url": "https://www.mothrly.com/blogs/return-to-work-after-maternity-leave-india-labour-code-childcare"
+                  },
+                  {
+                            "label": "Does Postpartum Belly Go Away?",
+                            "url": "https://www.mothrly.com/blogs/does-postpartum-belly-go-away-a-realistic-recovery-guide-for-new-moms"
+                  },
+                  {
+                            "label": "Postnatal Physiotherapy Guide",
+                            "url": "https://www.mothrly.com/blogs/postnatal-physiotherapy-essential-steps-for-restoring-your-core-and-pelvic-floor"
+                  },
+                  {
+                            "label": "All Motherly Health Articles",
+                            "url": "https://www.mothrly.com/blogs"
+                  }
+        ],
     "faqSchema": {
         "@context": "https://schema.org",
         "@type": "FAQPage",
@@ -769,23 +901,43 @@ export const BLOG_SEO: Record<string, BlogSeoEntry> = {
         "going back to work after baby"
     ],
     "keywordLinks": [
-        {
-            "label": "Nanny Services",
-            "url": "https://www.mothrly.com/services/nanny-services"
-        },
-        {
-            "label": "Lactation Consultants",
-            "url": "https://www.mothrly.com/services/lactation-consultants"
-        },
-        {
-            "label": "Starting Solids in India",
-            "url": "https://www.mothrly.com/blogs/starting-solids-india-no-added-sugar-homemade-first-foods"
-        },
-        {
-            "label": "40-Day Postpartum Traditions",
-            "url": "https://www.mothrly.com/blogs/40-day-postpartum-traditions-india-keep-tweak-skip"
-        }
-    ],
+                  {
+                            "label": "Nanny Services in Chennai",
+                            "url": "https://www.mothrly.com/services/nanny-services"
+                  },
+                  {
+                            "label": "Lactation Consultants",
+                            "url": "https://www.mothrly.com/services/lactation-consultants"
+                  },
+                  {
+                            "label": "Postnatal Physiotherapy",
+                            "url": "https://www.mothrly.com/services/physiotherapy"
+                  },
+                  {
+                            "label": "Choose the Right Nanny After Delivery",
+                            "url": "https://www.mothrly.com/blogs/choose-right-nanny-after-delivery-chennai"
+                  },
+                  {
+                            "label": "Starting Solids in India",
+                            "url": "https://www.mothrly.com/blogs/starting-solids-india-no-added-sugar-homemade-first-foods"
+                  },
+                  {
+                            "label": "40-Day Postpartum Traditions",
+                            "url": "https://www.mothrly.com/blogs/40-day-postpartum-traditions-india-keep-tweak-skip"
+                  },
+                  {
+                            "label": "Why Every New Mother Needs a Lactation Consultant",
+                            "url": "https://www.mothrly.com/blogs/why-every-new-mother-may-need-a-lactation-consultant"
+                  },
+                  {
+                            "label": "Breastfeeding Rules Every New Mom Should Know",
+                            "url": "https://www.mothrly.com/blogs/breastfeeding-rules-every-new-mom-should-know"
+                  },
+                  {
+                            "label": "All Motherly Health Articles",
+                            "url": "https://www.mothrly.com/blogs"
+                  }
+        ],
     "howToSchema": {
         "@context": "https://schema.org",
         "@type": "HowTo",
@@ -884,27 +1036,43 @@ export const BLOG_SEO: Record<string, BlogSeoEntry> = {
         "iron rich foods for babies India"
     ],
     "keywordLinks": [
-        {
-            "label": "Pediatrician Consultation",
-            "url": "https://www.mothrly.com/services/pediatrician"
-        },
-        {
-            "label": "Baby Care Services",
-            "url": "https://www.mothrly.com/services/baby-care"
-        },
-        {
-            "label": "Newborn Winter Care in India",
-            "url": "https://www.mothrly.com/blogs/newborn-winter-care-india-room-heater-angeethi-safety"
-        },
-        {
-            "label": "Returning to Work After Maternity Leave",
-            "url": "https://www.mothrly.com/blogs/return-to-work-after-maternity-leave-india-labour-code-childcare"
-        },
-        {
-            "label": "Baby Fever in Monsoon",
-            "url": "https://www.mothrly.com/blogs/baby-fever-cough-dengue-monsoon-winter-india"
-        }
-    ],
+                  {
+                            "label": "Pediatrician Consultation",
+                            "url": "https://www.mothrly.com/services/pediatrician"
+                  },
+                  {
+                            "label": "Newborn Baby Care",
+                            "url": "https://www.mothrly.com/services/baby-care"
+                  },
+                  {
+                            "label": "Lactation Consultants",
+                            "url": "https://www.mothrly.com/services/lactation-consultants"
+                  },
+                  {
+                            "label": "Newborn Winter Care in India",
+                            "url": "https://www.mothrly.com/blogs/newborn-winter-care-india-room-heater-angeethi-safety"
+                  },
+                  {
+                            "label": "Returning to Work After Maternity Leave",
+                            "url": "https://www.mothrly.com/blogs/return-to-work-after-maternity-leave-india-labour-code-childcare"
+                  },
+                  {
+                            "label": "Newborn Sleep Patterns at 3 Months",
+                            "url": "https://www.mothrly.com/blogs/newborn-sleep-patterns-what-to-expect-in-the-third-month"
+                  },
+                  {
+                            "label": "Baby Fever & Dengue Guide",
+                            "url": "https://www.mothrly.com/blogs/baby-fever-cough-dengue-monsoon-winter-india"
+                  },
+                  {
+                            "label": "5 Signs Baby Is Getting Enough Breast Milk",
+                            "url": "https://www.mothrly.com/blogs/5-signs-baby-getting-enough-breast-milk"
+                  },
+                  {
+                            "label": "All Motherly Health Articles",
+                            "url": "https://www.mothrly.com/blogs"
+                  }
+        ],
     "faqSchema": {
         "@context": "https://schema.org",
         "@type": "FAQPage",
