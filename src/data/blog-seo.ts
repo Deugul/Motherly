@@ -14,6 +14,944 @@ export type BlogSeoEntry = {
 };
 
 export const BLOG_SEO: Record<string, BlogSeoEntry> = {
+  "air-pollution-pregnancy-diwali-smog-india": {
+    "slug": "air-pollution-pregnancy-diwali-smog-india",
+    "h1": "Air Pollution and Pregnancy in India: How to Protect Your Baby During Diwali Smog and Winter AQI Spikes",
+    "canonical": "https://www.mothrly.com/blogs/air-pollution-pregnancy-diwali-smog-india",
+    "metaTitle": "Air Pollution & Pregnancy in India: Diwali Smog Guide",
+    "metaDescription": "Is Delhi-level smog dangerous in pregnancy? See what Indian data says on PM2.5, birth weight and preterm birth, plus an AQI-based action plan.",
+    "keywords": [
+        "air pollution and pregnancy India",
+        "pregnancy AQI safe level",
+        "Diwali smoke pregnancy",
+        "N95 mask pregnancy",
+        "PM2.5 low birth weight",
+        "air purifier for pregnant women",
+        "Delhi smog pregnant women",
+        "Bhogi smoke Chennai pregnancy"
+    ],
+    "keywordLinks": [
+        {
+            "label": "Gynaecologist Consultation",
+            "url": "https://www.mothrly.com/services/gynecologist-consultation"
+        },
+        {
+            "label": "Prenatal Yoga",
+            "url": "https://www.mothrly.com/services/yoga"
+        },
+        {
+            "label": "Newborn Winter Care",
+            "url": "https://www.mothrly.com/blogs/newborn-winter-care-india-room-heater-angeethi-safety"
+        },
+        {
+            "label": "Gestational Diabetes in India",
+            "url": "https://www.mothrly.com/blogs/gestational-diabetes-india-screening-diet-walking-plan"
+        },
+        {
+            "label": "Baby Fever in Monsoon",
+            "url": "https://www.mothrly.com/blogs/baby-fever-cough-dengue-monsoon-winter-india"
+        }
+    ],
+    "faqSchema": {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Is it safe to go outside in AQI 400 during pregnancy?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Avoid non-essential outdoor time. For essential trips, wear a fitted N95 or FFP2 mask and keep the trip short, and ask your doctor if you have asthma or another lung or heart condition."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can air pollution cause miscarriage?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Research is less consistent for miscarriage than for preterm birth and low birth weight. If you have bleeding or cramping at any AQI, contact your doctor."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Should I skip my antenatal appointments or walks?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. Shift walks indoors or to cleaner hours, and use a virtual consult for non-emergency questions."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Should I move out of the city?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Most families do not need to. Reducing exposure at home and outdoors is the practical step; discuss individual circumstances with your doctor."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Are LED diyas safer than oil diyas?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes for indoor air, because they remove a smoke source. Open-flame diyas and incense add particles in closed rooms."
+                }
+            }
+        ]
+    }
+},
+
+  "baby-fever-cough-dengue-monsoon-winter-india": {
+    "slug": "baby-fever-cough-dengue-monsoon-winter-india",
+    "h1": "Baby Fever and Cough in the Monsoon-to-Winter Shift: Dengue, Viral Fever and When to Call the Doctor",
+    "canonical": "https://www.mothrly.com/blogs/baby-fever-cough-dengue-monsoon-winter-india",
+    "metaTitle": "Baby Fever in Monsoon: Dengue vs Viral, When to Call",
+    "metaDescription": "Baby has fever in dengue season? Learn red-flag signs, a 3-day fever log, what not to give and when to see a paediatrician in India.",
+    "keywords": [
+        "baby fever dengue India",
+        "baby fever when to worry",
+        "dengue symptoms in babies",
+        "viral fever infant India",
+        "fever under 3 months",
+        "monsoon baby care",
+        "baby cough and cold remedies",
+        "mosquito protection for newborn"
+    ],
+    "keywordLinks": [
+        {
+            "label": "Pediatrician Consultation",
+            "url": "https://www.mothrly.com/services/pediatrician"
+        },
+        {
+            "label": "Baby Care Services",
+            "url": "https://www.mothrly.com/services/baby-care"
+        },
+        {
+            "label": "Newborn Winter Care in India",
+            "url": "https://www.mothrly.com/blogs/newborn-winter-care-india-room-heater-angeethi-safety"
+        },
+        {
+            "label": "Air Pollution and Pregnancy",
+            "url": "https://www.mothrly.com/blogs/air-pollution-pregnancy-diwali-smog-india"
+        },
+        {
+            "label": "Starting Solids in India",
+            "url": "https://www.mothrly.com/blogs/starting-solids-india-no-added-sugar-homemade-first-foods"
+        }
+    ],
+    "howToSchema": {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": "How to Track Baby Fever with a 3-Day Fever Log",
+        "description": "Step-by-step guidance on recording baby fever, hydration, feeding, and symptoms during dengue and monsoon illness seasons.",
+        "step": [
+            {
+                "@type": "HowToStep",
+                "name": "Measure Armpit Temperature",
+                "text": "Use a digital thermometer under the baby's armpit and record the exact temperature and timestamp."
+            },
+            {
+                "@type": "HowToStep",
+                "name": "Track Feeds and Wet Nappies",
+                "text": "Log breastfeed duration in minutes or formula in ml, and count wet nappies every 8 hours."
+            },
+            {
+                "@type": "HowToStep",
+                "name": "Record Alertness and Symptoms",
+                "text": "Note whether the baby is playful, fussy, unusually sleepy, vomiting, or showing any rash."
+            },
+            {
+                "@type": "HowToStep",
+                "name": "Log Prescribed Medication",
+                "text": "Record the exact dose and time of paracetamol prescribed by your paediatrician."
+            }
+        ]
+    },
+    "faqSchema": {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "How high is a dangerous fever in a baby?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "For babies under 3 months, 38°C is already urgent. For 3 to 6 months, 39°C or above warrants prompt review. At any age, how the baby looks and feeds matters as much as the number."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can teething cause a fever?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Teething can make a baby fussy and slightly warm, but a true fever of 38°C or higher should not be blamed on teething."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does my baby need a flu vaccine?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Ask your paediatrician about annual influenza vaccination from 6 months, and keep routine immunisations up to date."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "When can my baby return to daycare?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Generally after 24 hours without fever (without fever medicine) and with normal feeding and energy. Your paediatrician can confirm."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is a dengue test needed for every fever?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Not always. Your doctor decides based on days of fever, symptoms and local outbreak levels."
+                }
+            }
+        ]
+    }
+},
+
+  "newborn-winter-care-india-room-heater-angeethi-safety": {
+    "slug": "newborn-winter-care-india-room-heater-angeethi-safety",
+    "h1": "Newborn Winter Care in India: Safe Room Warmth, Heater and Angeethi Risks, and Baby Oil Massage",
+    "canonical": "https://www.mothrly.com/blogs/newborn-winter-care-india-room-heater-angeethi-safety",
+    "metaTitle": "Newborn Winter Care India: Heaters, Angeethi & Oil Safety",
+    "metaDescription": "Keep your newborn warm safely this winter: room warmth, layering, heater and angeethi carbon monoxide risks, bathing and baby massage oil facts.",
+    "keywords": [
+        "newborn winter care India",
+        "how to keep newborn warm in winter",
+        "angeethi carbon monoxide baby",
+        "room heater safe for newborn",
+        "mustard oil baby massage safe",
+        "baby bath in winter",
+        "newborn hypothermia signs",
+        "baby cap and socks winter"
+    ],
+    "keywordLinks": [
+        {
+            "label": "Baby Care Services",
+            "url": "https://www.mothrly.com/services/baby-care"
+        },
+        {
+            "label": "Pediatrician Consultation",
+            "url": "https://www.mothrly.com/services/pediatrician"
+        },
+        {
+            "label": "Baby Fever in Monsoon",
+            "url": "https://www.mothrly.com/blogs/baby-fever-cough-dengue-monsoon-winter-india"
+        },
+        {
+            "label": "Starting Solids in India",
+            "url": "https://www.mothrly.com/blogs/starting-solids-india-no-added-sugar-homemade-first-foods"
+        },
+        {
+            "label": "40-Day Postpartum Traditions",
+            "url": "https://www.mothrly.com/blogs/40-day-postpartum-traditions-india-keep-tweak-skip"
+        }
+    ],
+    "howToSchema": {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": "How to Safely Warm a Newborn Room in Winter",
+        "description": "Evidence-based steps to keep your baby's room warm and safe while preventing carbon monoxide poisoning and hypothermia.",
+        "step": [
+            {
+                "@type": "HowToStep",
+                "name": "Choose an Electric Heater",
+                "text": "Use an electric oil-filled radiator or blower. Never use a coal angeethi, wood fire, or unvented gas burner in a closed room."
+            },
+            {
+                "@type": "HowToStep",
+                "name": "Position Away from Cot",
+                "text": "Place the heater at least 1 metre away from the baby's cot, curtains, and bedding."
+            },
+            {
+                "@type": "HowToStep",
+                "name": "Preheat and Turn Off",
+                "text": "Warm the room before bedtime and switch off the heater when everyone goes to sleep to prevent overheating and dry air."
+            },
+            {
+                "@type": "HowToStep",
+                "name": "Dress in Thin Layers",
+                "text": "Dress baby in one more light cotton layer than an adult, check chest temperature, and avoid heavy loose blankets."
+            }
+        ]
+    },
+    "faqSchema": {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Is it safe to run a room heater all night?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Most safety advice is to switch heaters off before sleep. If you use an electric one, keep it well away from the cot, use a thermostat if available and ventilate the room."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Should my newborn wear a cap indoors?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "In a cool room, a soft cap helps for the first weeks. Take it off if your baby feels sweaty."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How often should I bathe my newborn in winter?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Sponge or short baths are fine, and your paediatrician can advise on frequency. Keep the room warm and dry the baby fast."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I give gripe water, kadha or honey for winter colds?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. ICMR-NIN advises no water, other liquids or honey for the first six months."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is a hot water bottle a safe warmer?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Avoid it for newborns because of burn risk. Use skin-to-skin contact and a warm room."
+                }
+            }
+        ]
+    }
+},
+
+  "gestational-diabetes-india-screening-diet-walking-plan": {
+    "slug": "gestational-diabetes-india-screening-diet-walking-plan",
+    "h1": "Gestational Diabetes in India: What the ICMR Data Says, When to Get Tested and a Practical Plan",
+    "canonical": "https://www.mothrly.com/blogs/gestational-diabetes-india-screening-diet-walking-plan",
+    "metaTitle": "Gestational Diabetes in India: Tests, Diet & Walking Plan",
+    "metaDescription": "ICMR data shows 22.4% of Indian pregnant women have gestational diabetes. Learn when to test, DIPSI vs IADPSG, an Indian-plate diet and post-meal walks.",
+    "keywords": [
+        "gestational diabetes India",
+        "GDM test in pregnancy",
+        "DIPSI test",
+        "75 g OGTT",
+        "gestational diabetes diet Indian",
+        "gestational diabetes sugar levels",
+        "post-meal walk gestational diabetes",
+        "Diwali sweets gestational diabetes"
+    ],
+    "keywordLinks": [
+        {
+            "label": "Gynaecologist Consultation",
+            "url": "https://www.mothrly.com/services/gynecologist-consultation"
+        },
+        {
+            "label": "Prenatal Yoga",
+            "url": "https://www.mothrly.com/services/yoga"
+        },
+        {
+            "label": "PCOS in India and Trying to Conceive",
+            "url": "https://www.mothrly.com/blogs/pcos-india-trying-to-conceive-icmr-study"
+        },
+        {
+            "label": "Epidural, Normal Birth or C-Section",
+            "url": "https://www.mothrly.com/blogs/epidural-normal-delivery-or-c-section-india-how-to-decide"
+        },
+        {
+            "label": "Air Pollution and Pregnancy",
+            "url": "https://www.mothrly.com/blogs/air-pollution-pregnancy-diwali-smog-india"
+        }
+    ],
+    "faqSchema": {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Will gestational diabetes go away after delivery?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Blood sugar usually returns to normal, but you still need a follow-up test at 6 to 12 weeks and regular screening."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I eat rice with gestational diabetes?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, in controlled portions combined with dal and vegetables. Millets and brown rice digest more slowly."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is the glucose drink safe in pregnancy?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The 75 g glucose test is a standard diagnostic test. Tell your doctor if you feel unwell after it."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I enjoy Diwali sweets?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Sometimes, in small portions straight after a meal, followed by a walk, and check your readings. Ask your doctor what suits you."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does gestational diabetes mean I will get diabetes later?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "It raises the risk, but weight management, regular activity, breastfeeding and yearly testing all help."
+                }
+            }
+        ]
+    }
+},
+
+  "pcos-india-trying-to-conceive-icmr-study": {
+    "slug": "pcos-india-trying-to-conceive-icmr-study",
+    "h1": "PCOS in India: What the ICMR Study Means If You Want to Get Pregnant",
+    "canonical": "https://www.mothrly.com/blogs/pcos-india-trying-to-conceive-icmr-study",
+    "metaTitle": "PCOS in India & Getting Pregnant: ICMR Study Explained",
+    "metaDescription": "1 in 5 Indian women has PCOS, says ICMR. Learn symptoms, diagnosis, ovulation tracking, lifestyle and treatment options if you're trying to conceive.",
+    "keywords": [
+        "PCOS and pregnancy India",
+        "PCOS symptoms India",
+        "PCOS vs PCOD",
+        "can I get pregnant with PCOS",
+        "irregular periods trying to conceive",
+        "letrozole PCOS",
+        "PCOS diet Indian",
+        "lean PCOS",
+        "LH strips PCOS"
+    ],
+    "keywordLinks": [
+        {
+            "label": "Gynaecologist Consultation",
+            "url": "https://www.mothrly.com/services/gynecologist-consultation"
+        },
+        {
+            "label": "Gestational Diabetes in India",
+            "url": "https://www.mothrly.com/blogs/gestational-diabetes-india-screening-diet-walking-plan"
+        },
+        {
+            "label": "Garbh Sanskar vs Science",
+            "url": "https://www.mothrly.com/blogs/garbh-sanskar-vs-science-what-actually-helps-in-pregnancy"
+        },
+        {
+            "label": "Prenatal Yoga",
+            "url": "https://www.mothrly.com/services/yoga"
+        }
+    ],
+    "faqSchema": {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Can I conceive naturally with PCOS?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Many women do, especially after cycle regulation and lifestyle changes. Your doctor can tell you when treatment is worth adding."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is PCOS curable?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "There is no cure, but symptoms and fertility can be managed very effectively."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How long should I try before seeing a doctor?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "With irregular cycles, book a visit after 3 to 6 months of trying, or sooner if you have no periods."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Should I avoid all sugar and carbohydrates?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. Choose slower carbohydrates such as millets, pulses and vegetables rather than cutting everything."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does PCOS affect my baby?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "With early screening and regular care, most women with PCOS have healthy babies."
+                }
+            }
+        ]
+    }
+},
+
+  "garbh-sanskar-vs-science-what-actually-helps-in-pregnancy": {
+    "slug": "garbh-sanskar-vs-science-what-actually-helps-in-pregnancy",
+    "h1": "Garbh Sanskar vs Science: What Actually Helps During Pregnancy",
+    "canonical": "https://www.mothrly.com/blogs/garbh-sanskar-vs-science-what-actually-helps-in-pregnancy",
+    "metaTitle": "Garbh Sanskar vs Science: What Really Helps in Pregnancy",
+    "metaDescription": "Does Garbh Sanskar make babies smarter? See what evidence supports (calm, music, nutrition, yoga), what it doesn't, and a safe daily routine.",
+    "keywords": [
+        "Garbh Sanskar scientific evidence",
+        "Garbh Sanskar benefits",
+        "Garbh Sanskar myths",
+        "music during pregnancy",
+        "meditation during pregnancy",
+        "safe prenatal yoga",
+        "stress in pregnancy and baby",
+        "Garbh Sanskar course"
+    ],
+    "keywordLinks": [
+        {
+            "label": "Prenatal Yoga",
+            "url": "https://www.mothrly.com/services/yoga"
+        },
+        {
+            "label": "Doula Services",
+            "url": "https://www.mothrly.com/services/doulas"
+        },
+        {
+            "label": "PCOS in India and Trying to Conceive",
+            "url": "https://www.mothrly.com/blogs/pcos-india-trying-to-conceive-icmr-study"
+        },
+        {
+            "label": "Epidural, Normal Birth or C-Section",
+            "url": "https://www.mothrly.com/blogs/epidural-normal-delivery-or-c-section-india-how-to-decide"
+        }
+    ],
+    "faqSchema": {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Does playing music to my belly make my baby smarter?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "There is no proof it raises IQ. Music can help you relax, which is a good reason on its own."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is it safe to chant or meditate in pregnancy?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. Calm breathing and meditation are generally safe, and many women find them helpful."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Do I need to follow Garbh Sanskar timing for conception?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "There is no medical evidence for timing by planets or dates. Medical preparation, such as folic acid, matters more; see our PCOS and conception guide."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is prenatal yoga safe in the first trimester?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Generally yes with your doctor's approval, using gentle poses and avoiding overheating."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can my partner take part?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Absolutely. Shared routines can reduce stress for both of you."
+                }
+            }
+        ]
+    }
+},
+
+  "epidural-normal-delivery-or-c-section-india-how-to-decide": {
+    "slug": "epidural-normal-delivery-or-c-section-india-how-to-decide",
+    "h1": "Painless Delivery, Normal Birth or C-Section in India? How to Decide and What to Ask Your Hospital",
+    "canonical": "https://www.mothrly.com/blogs/epidural-normal-delivery-or-c-section-india-how-to-decide",
+    "metaTitle": "Epidural, Normal Birth or C-Section in India: How to Decide",
+    "metaDescription": "Painless delivery vs normal vs C-section in India: NFHS-5 rates, risks, recovery and 12 questions to ask your hospital before you decide.",
+    "keywords": [
+        "painless delivery vs normal delivery vs C-section India",
+        "epidural in India",
+        "C-section rate India",
+        "epidural side effects",
+        "normal delivery vs C-section recovery",
+        "auspicious muhurat C-section",
+        "questions to ask hospital before delivery",
+        "VBAC India"
+    ],
+    "keywordLinks": [
+        {
+            "label": "Doula Services",
+            "url": "https://www.mothrly.com/services/doulas"
+        },
+        {
+            "label": "Postnatal Recovery Care",
+            "url": "https://www.mothrly.com/services/postnatal-recovery-care"
+        },
+        {
+            "label": "40-Day Postpartum Traditions",
+            "url": "https://www.mothrly.com/blogs/40-day-postpartum-traditions-india-keep-tweak-skip"
+        },
+        {
+            "label": "Gestational Diabetes in India",
+            "url": "https://www.mothrly.com/blogs/gestational-diabetes-india-screening-diet-walking-plan"
+        },
+        {
+            "label": "A Birth Plan That Works in India",
+            "url": "/blogs/birth-plan-that-works-india"
+        }
+    ],
+    "faqSchema": {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Does an epidural cause long-term back pain?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Research has not shown that an epidural causes long-term backache. Back pain after pregnancy is common for other reasons."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I have a normal delivery after a C-section?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Many women can (VBAC) at a hospital prepared to monitor you closely. Ask early."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is a C-section safer for the baby?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Not when it is not medically needed. When it is needed, it can be life-saving."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How long does an epidural take to work?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Usually within about 10 to 20 minutes of the medicine being given, though this varies."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Will I be able to push with an epidural?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Often yes, with coaching; some women feel pressure but not pain."
+                }
+            }
+        ]
+    }
+},
+
+  "40-day-postpartum-traditions-india-keep-tweak-skip": {
+    "slug": "40-day-postpartum-traditions-india-keep-tweak-skip",
+    "h1": "40-Day Postpartum Traditions in India: Which to Keep, Tweak or Skip",
+    "canonical": "https://www.mothrly.com/blogs/40-day-postpartum-traditions-india-keep-tweak-skip",
+    "metaTitle": "40-Day Postpartum Traditions in India: Keep, Tweak, Skip",
+    "metaDescription": "Sava mahina, panjiri, oil massage, no bath? A clinical team sorts Indian postpartum customs into keep, tweak and skip, with red flags to watch.",
+    "keywords": [
+        "postpartum traditions India",
+        "40 days after delivery care",
+        "sava mahina",
+        "postpartum diet India panjiri",
+        "no bath after delivery myth",
+        "postpartum oil massage",
+        "confinement period India",
+        "kajal for newborn safe",
+        "postpartum care nuclear family"
+    ],
+    "keywordLinks": [
+        {
+            "label": "Postnatal Recovery Care",
+            "url": "https://www.mothrly.com/services/postnatal-recovery-care"
+        },
+        {
+            "label": "Mother Care",
+            "url": "https://www.mothrly.com/services/mother-care"
+        },
+        {
+            "label": "Newborn Winter Care",
+            "url": "https://www.mothrly.com/blogs/newborn-winter-care-india-room-heater-angeethi-safety"
+        },
+        {
+            "label": "Returning to Work After Maternity Leave",
+            "url": "https://www.mothrly.com/blogs/return-to-work-after-maternity-leave-india-labour-code-childcare"
+        },
+        {
+            "label": "Physiotherapy for Postnatal Recovery",
+            "url": "https://www.mothrly.com/services/physiotherapy"
+        }
+    ],
+    "faqSchema": {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Can I take a head bath after delivery?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. Warm baths and hair washing are safe unless your doctor advises otherwise for a wound."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is jeera or ajwain water safe while breastfeeding?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Usual kitchen amounts are generally fine. Ask your doctor about concentrated herbal mixes or lehyam."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "When can I start exercising?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Gentle walking and breathing often start early; structured exercise is usually cleared around the six-week check. See our postnatal physiotherapy guide."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Should my baby get water in hot weather?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Not before six months, according to ICMR-NIN. Breast milk provides enough fluid."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "When do the 40 days actually end?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Traditions differ; the medical marker is your six-week postnatal check."
+                }
+            }
+        ]
+    }
+},
+
+  "return-to-work-after-maternity-leave-india-labour-code-childcare": {
+    "slug": "return-to-work-after-maternity-leave-india-labour-code-childcare",
+    "h1": "Returning to Work After Maternity Leave in India: Your Rights, a 6-Week Plan and Childcare Options",
+    "canonical": "https://www.mothrly.com/blogs/return-to-work-after-maternity-leave-india-labour-code-childcare",
+    "metaTitle": "Back to Work After Maternity Leave in India: Rights & Childcare",
+    "metaDescription": "26 weeks leave, crèche, nursing breaks, work from home: what India's Social Security Code gives new mothers, plus a 6-week return plan.",
+    "keywords": [
+        "maternity leave India 26 weeks",
+        "maternity benefit Code on Social Security",
+        "crèche facility 50 employees",
+        "work from home after maternity leave",
+        "pumping at work India",
+        "nanny vs creche",
+        "breast milk storage India heat",
+        "going back to work after baby"
+    ],
+    "keywordLinks": [
+        {
+            "label": "Nanny Services",
+            "url": "https://www.mothrly.com/services/nanny-services"
+        },
+        {
+            "label": "Lactation Consultants",
+            "url": "https://www.mothrly.com/services/lactation-consultants"
+        },
+        {
+            "label": "Starting Solids in India",
+            "url": "https://www.mothrly.com/blogs/starting-solids-india-no-added-sugar-homemade-first-foods"
+        },
+        {
+            "label": "40-Day Postpartum Traditions",
+            "url": "https://www.mothrly.com/blogs/40-day-postpartum-traditions-india-keep-tweak-skip"
+        }
+    ],
+    "howToSchema": {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": "6-Week Plan to Return to Work After Maternity Leave in India",
+        "description": "Structured timeline for Indian working mothers returning after maternity leave, covering childcare trials, pumping, and HR coordination.",
+        "step": [
+            {
+                "@type": "HowToStep",
+                "name": "6 Weeks Before: HR Alignment",
+                "text": "Speak to HR regarding crèche facilities, work-from-home options, phased return, and nursing break policies."
+            },
+            {
+                "@type": "HowToStep",
+                "name": "4 Weeks Before: Childcare Shortlisting",
+                "text": "Interview background-verified nannies or inspect nearby crèche facilities."
+            },
+            {
+                "@type": "HowToStep",
+                "name": "3 Weeks Before: Practice Trial Feeds",
+                "text": "Start paid nanny trial days while at home and have the caregiver practise bottle or paladai feeding."
+            },
+            {
+                "@type": "HowToStep",
+                "name": "2 Weeks Before: Build Freezer Stash",
+                "text": "Pump and store milk in labelled bags, rehearse the commute, and run a full mock workday."
+            },
+            {
+                "@type": "HowToStep",
+                "name": "1 Week Before: Gear Preparation",
+                "text": "Pack your breast pump, insulated cooler bag, ice packs, and set calendar pumping intervals."
+            }
+        ]
+    },
+    "faqSchema": {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Can my employer dismiss me during maternity leave?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The Code includes protection against dismissal during maternity-related absence. If you face a problem, document it and contact HR or the labour authorities."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is a crèche mandatory at every workplace?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "It is required for establishments with 50 or more employees, so check whether yours qualifies."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How long can I work from home after maternity leave?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The Code leaves duration and conditions to mutual agreement between employer and employee, so get it in writing."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "When should I start pumping?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Many mothers start practising 3 to 4 weeks before returning, once breastfeeding is established. A lactation consultant can tailor this."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Do contract or gig workers qualify?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "It depends on eligibility and notified schemes, so check with HR, ESIC or your platform."
+                }
+            }
+        ]
+    }
+},
+
+  "starting-solids-india-no-added-sugar-homemade-first-foods": {
+    "slug": "starting-solids-india-no-added-sugar-homemade-first-foods",
+    "h1": "Starting Solids in India: When to Begin, What to Feed and Why \"No Added Sugar\" Matters",
+    "canonical": "https://www.mothrly.com/blogs/starting-solids-india-no-added-sugar-homemade-first-foods",
+    "metaTitle": "Starting Solids in India: No Added Sugar First Foods Guide",
+    "metaDescription": "When and how to start solids in India: ICMR-NIN's no-added-sugar advice, homemade first foods, label-reading tips and a 7-day starter plan.",
+    "keywords": [
+        "starting solids baby India",
+        "baby food chart India 6 months",
+        "no added sugar baby food",
+        "ragi porridge for baby",
+        "is jaggery safe for babies",
+        "how to read baby food labels India",
+        "baby-led weaning Indian foods",
+        "iron rich foods for babies India"
+    ],
+    "keywordLinks": [
+        {
+            "label": "Pediatrician Consultation",
+            "url": "https://www.mothrly.com/services/pediatrician"
+        },
+        {
+            "label": "Baby Care Services",
+            "url": "https://www.mothrly.com/services/baby-care"
+        },
+        {
+            "label": "Newborn Winter Care in India",
+            "url": "https://www.mothrly.com/blogs/newborn-winter-care-india-room-heater-angeethi-safety"
+        },
+        {
+            "label": "Returning to Work After Maternity Leave",
+            "url": "https://www.mothrly.com/blogs/return-to-work-after-maternity-leave-india-labour-code-childcare"
+        },
+        {
+            "label": "Baby Fever in Monsoon",
+            "url": "https://www.mothrly.com/blogs/baby-fever-cough-dengue-monsoon-winter-india"
+        }
+    ],
+    "faqSchema": {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Is jaggery better than sugar for babies?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. Both are added sugar. ICMR-NIN advises none under 2 years."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I give cow's milk or fruit juice?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Curd is fine as a food, but cow's milk as a main drink is usually delayed until after 12 months. Whole fruit is better than juice."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is baby-led weaning safe in India?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "It can be, using soft, appropriately sized foods such as idli strips and steamed vegetable sticks, with supervision and an upright seat."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "My baby refuses new foods. Should I worry?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Refusals are common. Offer the food many times without pressure and watch growth with your paediatrician."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How much solid food should my baby eat?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "At 6 months, start with a few spoonfuls and build up as your baby shows interest. Breast milk remains the main nutrition early on."
+                }
+            }
+        ]
+    }
+},
   "the-complete-guide-to-choosing-the-right-doula-for-your-birthing-journey": {
       "slug": "the-complete-guide-to-choosing-the-right-doula-for-your-birthing-journey",
       "h1": "The Complete Guide to Choosing the Right Doula for Your Birthing Journey",
